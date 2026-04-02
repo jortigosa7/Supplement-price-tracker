@@ -138,7 +138,6 @@ def cargar_dataset_mas_reciente() -> list[dict]:
 def slugify(texto: str) -> str:
     """Convierte texto a slug URL-friendly."""
     texto = texto.lower().strip()
-    # Normalizar caracteres con tilde
     reemplazos = {"á":"a","é":"e","í":"i","ó":"o","ú":"u","ñ":"n","ü":"u"}
     for origen, destino in reemplazos.items():
         texto = texto.replace(origen, destino)
@@ -147,80 +146,61 @@ def slugify(texto: str) -> str:
     return texto
 
 
-def convertir_a_schema_web(productos_flat: list[dict]) -> dict:
+def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
     """
-    Convierte el dataset plano (un producto por fila) al schema web
-    con precios[] array para soporte multi-tienda futuro.
-
-    Agrupa por (nombre_normalizado, categoria) para que cuando
-    añadamos más tiendas en Fase 2, los precios se acumulen.
+    Convierte el dataset plano al schema web con precios[] por tienda.
+    Usa matching.py para agrupar productos del mismo tipo entre tiendas.
     """
-    # Agrupar por clave única: nombre + categoria
-    grupos: dict[str, dict] = {}
+    from matching import agrupar_productos
 
+    # El dataset plano ya tiene precio_eur y peso_kg (viene de limpiar_dataset).
+    # agrupar_productos espera el campo "precio" en texto; le pasamos precio_eur
+    # como string para que limpiar_precio() lo procese sin pérdida.
+    productos_para_matching = []
     for p in productos_flat:
-        nombre = p.get("nombre", "").strip()
-        categoria_raw = p.get("categoria", "").strip()
-        tienda = p.get("tienda", "Desconocida")
-        precio_eur = p.get("precio_eur")
-        peso_kg = p.get("peso_kg")
-        precio_por_kg = p.get("precio_por_kg")
-        marca = p.get("marca", "Desconocida")
-        url = p.get("url", "#")
-        fecha = p.get("fecha_scraping", datetime.now().strftime("%Y-%m-%d"))
-
-        if not nombre or precio_eur is None:
-            continue
-
-        # Obtener config de categoría
-        cat_config = CATEGORIA_CONFIG.get(categoria_raw, {})
-        cat_slug = cat_config.get("slug", slugify(categoria_raw))
-        cat_display = cat_config.get("display", categoria_raw)
-
-        # Clave de agrupación
-        clave = f"{slugify(nombre)}|{cat_slug}"
-
-        if clave not in grupos:
-            grupos[clave] = {
-                "id": f"{slugify(nombre)}-{slugify(marca)}"[:80],
-                "nombre_normalizado": nombre,
-                "categoria": cat_slug,
-                "categoria_display": cat_display,
-                "marca": marca,
-                "peso_kg": peso_kg,
-                "precio_por_kg_min": None,
-                "precio_min": None,
-                "tienda_mas_barata": None,
-                "precios": [],
-            }
-
-        # Añadir este precio
-        grupos[clave]["precios"].append({
-            "tienda":       tienda,
-            "precio_eur":   precio_eur,
-            "url_afiliado": url,   # placeholder — en Fase 2 se añade el parámetro de afiliado
-            "en_oferta":    False,
-            "precio_original": None,
-            "fecha":        fecha,
+        productos_para_matching.append({
+            "nombre":        p.get("nombre", ""),
+            "precio":        str(p.get("precio_eur", "N/A")),
+            "marca":         p.get("marca", ""),
+            "categoria":     p.get("categoria", ""),
+            "tienda":        p.get("tienda", ""),
+            "url":           p.get("url", "#"),
+            "fecha_scraping": p.get("fecha_scraping", ""),
+            # peso ya calculado — lo pasamos para no recalcular
+            "peso_kg":       p.get("peso_kg"),
         })
 
-    # Post-proceso: calcular precio_min, precio_por_kg_min, tienda_mas_barata
+    grupos = agrupar_productos(productos_para_matching)
+
+    # Enriquecer con slug de categoría y categoria_display
     productos_web = []
-    for producto in grupos.values():
-        precios_ordenados = sorted(producto["precios"], key=lambda x: x["precio_eur"])
-        mejor = precios_ordenados[0]
+    for g in grupos:
+        cat_raw    = g["categoria"]
+        cat_config = CATEGORIA_CONFIG.get(cat_raw, {})
+        # Si la categoría ya está en slug form (e.g. "Proteinas Whey"), buscar por display también
+        if not cat_config:
+            for cfg_key, cfg_val in CATEGORIA_CONFIG.items():
+                if cfg_val.get("slug") == cat_raw or slugify(cfg_key) == slugify(cat_raw):
+                    cat_config = cfg_val
+                    break
 
-        producto["precio_min"]        = mejor["precio_eur"]
-        producto["tienda_mas_barata"] = mejor["tienda"]
-        producto["precios"]           = precios_ordenados  # ordenar por precio
+        cat_slug    = cat_config.get("slug", slugify(cat_raw))
+        cat_display = cat_config.get("display", cat_raw)
 
-        # precio_por_kg_min: recalcular desde el mejor precio si hay peso
-        if producto["peso_kg"] and producto["peso_kg"] > 0:
-            producto["precio_por_kg_min"] = round(mejor["precio_eur"] / producto["peso_kg"], 2)
+        productos_web.append({
+            "id":                  f"{slugify(g['nombre_normalizado'])}-{slugify(g['marca'])}"[:80],
+            "nombre_normalizado":  g["nombre_normalizado"],
+            "categoria":           cat_slug,
+            "categoria_display":   cat_display,
+            "marca":               g["marca"],
+            "peso_kg":             g["peso_kg"],
+            "precio_por_kg_min":   g.get("precio_por_kg_min"),
+            "precio_min":          g.get("precio_min"),
+            "tienda_mas_barata":   g.get("tienda_mas_barata"),
+            "precios":             g["precios"],
+        })
 
-        productos_web.append(producto)
-
-    # Ordenar por categoria + precio_por_kg (None al final)
+    # Ordenar por categoria slug + precio_por_kg
     productos_web.sort(key=lambda p: (
         p["categoria"],
         p["precio_por_kg_min"] if p["precio_por_kg_min"] is not None else 9999

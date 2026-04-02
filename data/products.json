@@ -1,14 +1,14 @@
 {
   "last_updated": "2026-04-02",
   "site": "SuplementosPrecio.es",
-  "total": 85,
+  "total": 88,
   "products": [
     {
-      "id": "bcaa-glutamine-500g-quamtrax-direct",
+      "id": "bcaa-glutamine-500g-quamtrax",
       "nombre_normalizado": "BCAA + Glutamine 500g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Quamtrax Direct",
+      "marca": "Quamtrax",
       "peso_kg": 0.5,
       "precio_por_kg_min": 35.8,
       "precio_min": 17.9,
@@ -18,14 +18,6 @@
           "tienda": "Nutritienda",
           "precio_eur": 17.9,
           "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        },
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 21.28,
-          "url_afiliado": "https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-03-31"
@@ -54,11 +46,32 @@
       ]
     },
     {
-      "id": "bcaa-glutamine-concept-500g-mega-plus",
+      "id": "bcaa-glutamine-500g-ramificados",
+      "nombre_normalizado": "BCAA+GLUTAMINE 500g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Ramificados",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 42.56,
+      "precio_min": 21.28,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 21.28,
+          "url_afiliado": "https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-03-31"
+        }
+      ]
+    },
+    {
+      "id": "bcaa-glutamine-concept-500g-optimum-nutrition",
       "nombre_normalizado": "Bcaa+Glutamine Concept 500g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "MEGA PLUS",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 44.08,
       "precio_min": 22.04,
@@ -117,11 +130,11 @@
       ]
     },
     {
-      "id": "bcaa-2-1-1-500g-life-pro-nutrition",
+      "id": "bcaa-2-1-1-500g-optimum-nutrition",
       "nombre_normalizado": "BCAA 2:1:1 500g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Life Pro Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 57.8,
       "precio_min": 28.9,
@@ -180,11 +193,11 @@
       ]
     },
     {
-      "id": "after-420g-biotech-usa",
+      "id": "after-420g-biotechusa",
       "nombre_normalizado": "AFTER 420g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Biotech USA",
+      "marca": "BioTechUSA",
       "peso_kg": 0.42,
       "precio_por_kg_min": 66.43,
       "precio_min": 27.9,
@@ -264,11 +277,11 @@
       ]
     },
     {
-      "id": "bcaa-sensation-345g-dedicated-nutrition",
+      "id": "bcaa-sensation-345g-optimum-nutrition",
       "nombre_normalizado": "Bcaa Sensation 345g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "DEDICATED NUTRITION",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.345,
       "precio_por_kg_min": 72.43,
       "precio_min": 24.99,
@@ -285,11 +298,11 @@
       ]
     },
     {
-      "id": "bcaa-glutamine-zero-480g-biotech-usa",
+      "id": "bcaa-glutamine-zero-480g-biotechusa",
       "nombre_normalizado": "BCAA + GLUTAMINE ZERO 480g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Biotech USA",
+      "marca": "BioTechUSA",
       "peso_kg": 0.48,
       "precio_por_kg_min": 74.79,
       "precio_min": 35.9,
@@ -327,11 +340,11 @@
       ]
     },
     {
-      "id": "bcaa-xpress-280g-scitec",
+      "id": "bcaa-xpress-280g-scitec-nutrition",
       "nombre_normalizado": "BCAA Xpress 280g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Scitec",
+      "marca": "Scitec Nutrition",
       "peso_kg": 0.28,
       "precio_por_kg_min": 88.93,
       "precio_min": 24.9,
@@ -369,11 +382,11 @@
       ]
     },
     {
-      "id": "bcaa-instant-drink-300g-",
+      "id": "bcaa-instant-drink-300g-desconocida",
       "nombre_normalizado": "BCAA INSTANT DRINK 300g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "",
+      "marca": "Desconocida",
       "peso_kg": 0.3,
       "precio_por_kg_min": 113.33,
       "precio_min": 34.0,
@@ -439,17 +452,9 @@
       "marca": "VICTORY ENDURANCE",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 11.99,
+      "precio_min": 18.52,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 11.99,
-          "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/amino-recovery-120-capsulas",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        },
         {
           "tienda": "Nutritienda",
           "precio_eur": 18.52,
@@ -461,11 +466,11 @@
       ]
     },
     {
-      "id": "4-1-1-anabolic-bcaa-150-caps-starlabs-nutrition",
+      "id": "4-1-1-anabolic-bcaa-150-caps-optimum-nutrition",
       "nombre_normalizado": "4:1:1 Anabolic BCAA 150 Caps",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Starlabs Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
       "precio_min": 19.71,
@@ -482,11 +487,11 @@
       ]
     },
     {
-      "id": "bcaa-4-1-1-competition-150-caps-mega-plus",
+      "id": "bcaa-4-1-1-competition-150-caps-optimum-nutrition",
       "nombre_normalizado": "BCAA 4:1:1 Competition 150 Caps",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Mega Plus",
+      "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
       "precio_min": 23.21,
@@ -524,11 +529,32 @@
       ]
     },
     {
-      "id": "muscle-bcaa-4-1-1-120-vcaps-dmi-innovative-nutrition",
+      "id": "amino-recovery-120-caps-amazin-foods",
+      "nombre_normalizado": "Amino Recovery 120 Caps",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Amazin' Foods",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 11.99,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 11.99,
+          "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/amino-recovery-120-capsulas",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-03-31"
+        }
+      ]
+    },
+    {
+      "id": "muscle-bcaa-4-1-1-120-vcaps-optimum-nutrition",
       "nombre_normalizado": "Muscle BCAA 4:1:1 120 VCaps",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "DMI Innovative Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
       "precio_min": 17.5,
@@ -587,11 +613,11 @@
       ]
     },
     {
-      "id": "creatina-celular-800g-creatina-monohidrato-creapure",
+      "id": "creatina-celular-800g-optimum-nutrition",
       "nombre_normalizado": "CREATINA CELULAR 800g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "¡Creatina monohidrato Creapure!",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.8,
       "precio_por_kg_min": 33.7,
       "precio_min": 26.96,
@@ -629,11 +655,11 @@
       ]
     },
     {
-      "id": "100-creatina-monohidrato-500g-quamtrax-direct",
+      "id": "100-creatina-monohidrato-500g-optimum-nutrition",
       "nombre_normalizado": "100% CREATINA MONOHIDRATO 500g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Quamtrax Direct",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 49.8,
       "precio_min": 24.9,
@@ -692,11 +718,11 @@
       ]
     },
     {
-      "id": "100-creatine-monohydrate-micronized-300g-biotech-usa",
+      "id": "100-creatine-monohydrate-micronized-300g-optimum-nutrition",
       "nombre_normalizado": "100% Creatine Monohydrate Micronized 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Biotech USA",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.3,
       "precio_por_kg_min": 61.07,
       "precio_min": 18.32,
@@ -776,11 +802,11 @@
       ]
     },
     {
-      "id": "creapowder-500g-yamamoto-nutrition",
+      "id": "creapowder-500g-optimum-nutrition",
       "nombre_normalizado": "CreaPowder 500g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Yamamoto Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 69.9,
       "precio_min": 34.95,
@@ -801,7 +827,7 @@
       "nombre_normalizado": "MICRONIZED CREATINE POWDER 634g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "OPTIMUM NUTRITION",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.634,
       "precio_por_kg_min": 70.82,
       "precio_min": 44.9,
@@ -818,11 +844,11 @@
       ]
     },
     {
-      "id": "100-creatine-monohydrate-micronized-500g-",
+      "id": "100-creatine-monohydrate-micronized-500g-optimum-nutrition",
       "nombre_normalizado": "100% CREATINE MONOHYDRATE MICRONIZED 500g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 73.8,
       "precio_min": 36.9,
@@ -839,11 +865,11 @@
       ]
     },
     {
-      "id": "cr5-creatine-500-g-starlabs-nutrition",
+      "id": "cr5-creatine-500-g-optimum-nutrition",
       "nombre_normalizado": "CR5 CREATINE 500 g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "STARLABS NUTRITION",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 74.7,
       "precio_min": 37.35,
@@ -860,11 +886,11 @@
       ]
     },
     {
-      "id": "cr5-creatine-300-g-starlabs-nutrition",
+      "id": "cr5-creatine-300-g-optimum-nutrition",
       "nombre_normalizado": "CR5 CREATINE 300 g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "STARLABS NUTRITION",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.3,
       "precio_por_kg_min": 76.5,
       "precio_min": 22.95,
@@ -898,7 +924,20 @@
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-03-31"
-        },
+        }
+      ]
+    },
+    {
+      "id": "creatina-300g-optimum-nutrition",
+      "nombre_normalizado": "CREATINA 300g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.3,
+      "precio_por_kg_min": 89.43,
+      "precio_min": 26.83,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 26.83,
@@ -1057,11 +1096,11 @@
       ]
     },
     {
-      "id": "creatine-zero-effervescent-16-tabs-",
+      "id": "creatine-zero-effervescent-16-tabs-desconocida",
       "nombre_normalizado": "CREATINE ZERO EFFERVESCENT 16 Tabs",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "",
+      "marca": "Desconocida",
       "peso_kg": null,
       "precio_por_kg_min": null,
       "precio_min": 6.9,
@@ -1078,11 +1117,11 @@
       ]
     },
     {
-      "id": "kre-alkalyn-2500-120-caps-olymp-sport-nutrition",
+      "id": "kre-alkalyn-2500-120-caps-optimum-nutrition",
       "nombre_normalizado": "KRE-ALKALYN 2500 - 120 Caps",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "OLYMP SPORT NUTRITION",
+      "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
       "precio_min": 38.9,
@@ -1120,11 +1159,11 @@
       ]
     },
     {
-      "id": "creatina-ph-x-90-caps-creatina-monohidrato-tamponada",
+      "id": "creatina-ph-x-90-caps-optimum-nutrition",
       "nombre_normalizado": "CREATINA PH-X 90 Caps",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Creatina monohidrato tamponada",
+      "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
       "precio_min": 16.9,
@@ -1141,11 +1180,11 @@
       ]
     },
     {
-      "id": "creatina-ph-x-210-caps-creatina-monohidrato-tamponada",
+      "id": "creatina-ph-x-210-caps-optimum-nutrition",
       "nombre_normalizado": "CREATINA PH-X 210 Caps",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Creatina monohidrato tamponada",
+      "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
       "precio_min": 27.9,
@@ -1166,7 +1205,7 @@
       "nombre_normalizado": "Kre-Alkalyn 3000 120 Caps",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "QUAMTRAX",
+      "marca": "Quamtrax",
       "peso_kg": null,
       "precio_por_kg_min": null,
       "precio_min": 26.9,
@@ -1183,11 +1222,11 @@
       ]
     },
     {
-      "id": "100-whey-protein-professional-5000g-scitec",
+      "id": "100-whey-protein-professional-5000g-optimum-nutrition",
       "nombre_normalizado": "100% Whey Protein Professional 5000g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Scitec",
+      "marca": "Optimum Nutrition",
       "peso_kg": 5.0,
       "precio_por_kg_min": 25.98,
       "precio_min": 129.9,
@@ -1246,11 +1285,11 @@
       ]
     },
     {
-      "id": "whey-multi-2000g-4pro-nutrition",
+      "id": "whey-multi-2000g-optimum-nutrition",
       "nombre_normalizado": "Whey Multi+ 2000g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "4Pro Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": 2.0,
       "precio_por_kg_min": 29.95,
       "precio_min": 59.9,
@@ -1267,11 +1306,11 @@
       ]
     },
     {
-      "id": "100-whey-protein-professional-2350g-scitec",
+      "id": "100-whey-protein-professional-2350g-optimum-nutrition",
       "nombre_normalizado": "100% Whey Protein Professional 2350g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Scitec",
+      "marca": "Optimum Nutrition",
       "peso_kg": 2.35,
       "precio_por_kg_min": 30.6,
       "precio_min": 71.9,
@@ -1288,11 +1327,11 @@
       ]
     },
     {
-      "id": "wheycell-2kg-concentrado-de-suero-de-leche",
+      "id": "wheycell-2kg-optimum-nutrition",
       "nombre_normalizado": "WHEYCELL 2Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Concentrado de suero de leche",
+      "marca": "Optimum Nutrition",
       "peso_kg": 2.0,
       "precio_por_kg_min": 30.89,
       "precio_min": 61.77,
@@ -1330,11 +1369,11 @@
       ]
     },
     {
-      "id": "essence-pro-whey-2-kg-dmi-innovative-nutrition",
+      "id": "essence-pro-whey-2-kg-optimum-nutrition",
       "nombre_normalizado": "Essence Pro Whey 2 Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "DMI Innovative Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": 2.0,
       "precio_por_kg_min": 32.45,
       "precio_min": 64.9,
@@ -1393,11 +1432,11 @@
       ]
     },
     {
-      "id": "elite-100-whey-2100g-",
+      "id": "elite-100-whey-2100g-desconocida",
       "nombre_normalizado": "ELITE 100% WHEY 2100g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "",
+      "marca": "Desconocida",
       "peso_kg": 2.1,
       "precio_por_kg_min": 34.26,
       "precio_min": 71.95,
@@ -1414,11 +1453,11 @@
       ]
     },
     {
-      "id": "iso-xp-1800g-applied-nutrition",
+      "id": "iso-xp-1800g-optimum-nutrition",
       "nombre_normalizado": "ISO-XP 1800g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Applied Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": 1.8,
       "precio_por_kg_min": 37.4,
       "precio_min": 67.32,
@@ -1435,11 +1474,11 @@
       ]
     },
     {
-      "id": "100-whey-protein-professional-920g-scitec",
+      "id": "100-whey-protein-professional-920g-optimum-nutrition",
       "nombre_normalizado": "100% Whey Protein Professional 920g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Scitec",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.92,
       "precio_por_kg_min": 42.28,
       "precio_min": 38.9,
@@ -1477,11 +1516,11 @@
       ]
     },
     {
-      "id": "isolate-pro-zero-2-kg-dmi-innovative-nutrition",
+      "id": "isolate-pro-zero-2-kg-optimum-nutrition",
       "nombre_normalizado": "Isolate Pro Zero 2 Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "DMI Innovative Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": 2.0,
       "precio_por_kg_min": 43.45,
       "precio_min": 86.9,
@@ -1519,11 +1558,11 @@
       ]
     },
     {
-      "id": "100-predator-protein-500g-amix-nutrition",
+      "id": "100-predator-protein-500g-optimum-nutrition",
       "nombre_normalizado": "100% Predator Protein 500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Amix Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 45.9,
       "precio_min": 22.95,
@@ -1540,11 +1579,11 @@
       ]
     },
     {
-      "id": "100-pure-whey-454g-con-extra-de-bcaa",
+      "id": "100-pure-whey-454g-optimum-nutrition",
       "nombre_normalizado": "100% PURE WHEY 454g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "¡Con extra de BCAA!",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.454,
       "precio_por_kg_min": 46.04,
       "precio_min": 20.9,
@@ -1582,11 +1621,11 @@
       ]
     },
     {
-      "id": "100-whey-protein-professional-500g-scitec",
+      "id": "100-whey-protein-professional-500g-optimum-nutrition",
       "nombre_normalizado": "100% Whey Protein Professional 500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Scitec",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 47.8,
       "precio_min": 23.9,
@@ -1603,11 +1642,11 @@
       ]
     },
     {
-      "id": "100-whey-gold-standard-450-g-optimum-nutrition-nutritienda",
+      "id": "100-whey-gold-standard-450-g-optimum-nutrition",
       "nombre_normalizado": "100% WHEY GOLD STANDARD 450 g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition | Nutritienda",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.45,
       "precio_por_kg_min": 51.09,
       "precio_min": 22.99,
@@ -1624,11 +1663,11 @@
       ]
     },
     {
-      "id": "whey-protein-871g-crown-sport-nutrition",
+      "id": "whey-protein-871g-optimum-nutrition",
       "nombre_normalizado": "Whey Protein+ 871g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Crown Sport Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.871,
       "precio_por_kg_min": 51.66,
       "precio_min": 45.0,
@@ -1708,11 +1747,11 @@
       ]
     },
     {
-      "id": "cfm-nitro-protein-isolate-1kg-amix-nutrition",
+      "id": "cfm-nitro-protein-isolate-1kg-optimum-nutrition",
       "nombre_normalizado": "CFM NITRO PROTEIN ISOLATE 1Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "AMIX NUTRITION",
+      "marca": "Optimum Nutrition",
       "peso_kg": 1.0,
       "precio_por_kg_min": 67.5,
       "precio_min": 67.5,
@@ -1729,11 +1768,11 @@
       ]
     },
     {
-      "id": "isoprime-cfm-isolate-500g-amix-nutrition",
+      "id": "isoprime-cfm-isolate-500g-optimum-nutrition",
       "nombre_normalizado": "Isoprime CFM Isolate 500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Amix Nutrition",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 73.8,
       "precio_min": 36.9,
@@ -1771,11 +1810,11 @@
       ]
     },
     {
-      "id": "re-cuper-550g-amix-performance",
+      "id": "re-cuper-550g-amix",
       "nombre_normalizado": "RE-CUPER 550g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "AMIX PERFORMANCE",
+      "marca": "Amix",
       "peso_kg": 0.55,
       "precio_por_kg_min": 90.91,
       "precio_min": 50.0,
