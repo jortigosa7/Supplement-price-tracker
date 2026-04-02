@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}Comparador de Suplementos Fitness España{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}Compara precios de suplementos fitness en las principales tiendas de España. Proteína whey, creatina, BCAA y pre-entreno al mejor precio.{% endblock %}">
+  <meta name="keywords" content="{% block meta_keywords %}suplementos fitness España, comparador precios suplementos, mejor precio proteína whey España{% endblock %}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ site_url }}{% block canonical_path %}/{% endblock %}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SuplementosPrecio.es">
+  <meta property="og:title" content="{% block og_title %}Comparador de Suplementos Fitness España{% endblock %}">
+  <meta property="og:description" content="{% block og_desc %}Compara precios de suplementos fitness en las principales tiendas de España.{% endblock %}">
+  <meta property="og:url" content="{{ site_url }}{% block og_path %}/{% endblock %}">
+
+  <style>
+    /* ── Variables ───────────────────────────────────────── */
+    :root {
+      --bg:          #0a0a0a;
+      --surface:     #141414;
+      --card:        #1c1c1c;
+      --border:      #2a2a2a;
+      --green:       #00e676;
+      --green-dark:  #00b248;
+      --green-dim:   rgba(0, 230, 118, 0.12);
+      --text:        #f0f0f0;
+      --text-muted:  #888;
+      --text-dim:    #555;
+      --red:         #ff5252;
+      --radius:      8px;
+      --shadow:      0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    /* ── Reset ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Layout ──────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ── Header / Nav ────────────────────────────────────── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--green);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+      margin-right: auto;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--green);
+      border-color: var(--border);
+      background: var(--green-dim);
+      text-decoration: none;
+    }
+
+    /* ── Main ────────────────────────────────────────────── */
+    main { flex: 1; padding: 32px 0 64px; }
+
+    /* ── Breadcrumb ──────────────────────────────────────── */
+    .breadcrumb {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+    .breadcrumb a { color: var(--text-muted); }
+    .breadcrumb a:hover { color: var(--green); }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* ── Section titles ──────────────────────────────────── */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title small {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-left: 8px;
+    }
+
+    /* ── Badge ───────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-best  { background: var(--green); color: #000; }
+    .badge-cat   { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,230,118,0.3); }
+
+    /* ── Product cards ───────────────────────────────────── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 480px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 860px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .product-card:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+    .product-card.rank-1 {
+      border-color: var(--green);
+      background: linear-gradient(135deg, #1c1c1c 0%, #162116 100%);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .card-marca {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .card-nombre {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .card-prices {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .card-price-main {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .card-price-kg {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      background: var(--surface);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+    .card-tienda {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Buttons ─────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: #000;
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      text-decoration: none;
+      color: #000;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+    .btn-outline:hover {
+      background: var(--green-dim);
+      text-decoration: none;
+    }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 32px 16px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .footer-links a { color: var(--text-muted); font-size: 0.85rem; }
+    .footer-links a:hover { color: var(--green); }
+    .footer-legal {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    .footer-updated {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-top: 12px;
+    }
+
+    /* ── Utility ─────────────────────────────────────────── */
+    .text-green  { color: var(--green); }
+    .text-muted  { color: var(--text-muted); }
+    .text-center { text-align: center; }
+    .mt-8  { margin-top: 8px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-32 { margin-top: 32px; }
+    .mb-8  { margin-bottom: 8px; }
+    .mb-16 { margin-bottom: 16px; }
+    .mb-32 { margin-bottom: 32px; }
+  </style>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <header>
+    <nav class="nav">
+      <a class="nav-logo" href="{{ site_url }}/">Suplementos<span>Precio</span></a>
+      <div class="nav-links">
+        <a href="{{ site_url }}/proteina-whey/" {% if active_slug == 'proteina-whey' %}class="active"{% endif %}>Proteína Whey</a>
+        <a href="{{ site_url }}/creatina/" {% if active_slug == 'creatina' %}class="active"{% endif %}>Creatina</a>
+        <a href="{{ site_url }}/bcaa/" {% if active_slug == 'bcaa' %}class="active"{% endif %}>BCAA</a>
+        <a href="{{ site_url }}/pre-entreno/" {% if active_slug == 'pre-entreno' %}class="active"{% endif %}>Pre-Entreno</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="{{ site_url }}/">Inicio</a>
+        <a href="{{ site_url }}/proteina-whey/">Proteína Whey</a>
+        <a href="{{ site_url }}/creatina/">Creatina</a>
+        <a href="{{ site_url }}/bcaa/">BCAA</a>
+        <a href="{{ site_url }}/pre-entreno/">Pre-Entreno</a>
+      </div>
+      <p class="footer-legal">
+        Los precios mostrados pueden variar. Algunos enlaces son de afiliado — comprando a través de ellos apoyamos el proyecto sin coste adicional para ti.
+        Los precios se actualizan automáticamente varias veces por semana.
+      </p>
+      <p class="footer-updated">Última actualización: {{ last_updated }}</p>
+    </div>
+  </footer>
+
+</body>
+</html>

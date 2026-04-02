@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}Comparador de Suplementos Fitness España 2026 — Mejor Precio{% endblock %}
+{% block meta_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en las principales tiendas de España. Ordenado por precio/kg para que encuentres la mejor oferta.{% endblock %}
+{% block meta_keywords %}comparador suplementos España, mejor precio proteína whey España, suplementos fitness baratos, creatina precio España{% endblock %}
+{% block og_title %}Comparador de Suplementos Fitness España{% endblock %}
+{% block og_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en tiendas españolas.{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SuplementosPrecio.es",
+  "url": "{{ site_url }}",
+  "description": "Comparador de precios de suplementos fitness en España",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site_url }}/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <section style="text-align:center; padding: 48px 0 40px;">
+    <p style="font-size:0.85rem; color:var(--green); font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px;">
+      {{ total_productos }} productos · {{ total_tiendas }} tienda{%if total_tiendas != 1%}s{%endif%} · Actualizado {{ last_updated }}
+    </p>
+    <h1 style="font-size:clamp(1.8rem, 5vw, 2.8rem); font-weight:900; line-height:1.15; margin-bottom:16px; letter-spacing:-0.5px;">
+      Compara precios de<br><span class="text-green">suplementos fitness</span> en España
+    </h1>
+    <p style="font-size:1.05rem; color:var(--text-muted); max-width:560px; margin:0 auto 28px;">
+      Proteína whey, creatina, BCAA y pre-entreno — ordenados por precio/kg para que siempre pagues menos.
+    </p>
+    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+      <a href="#categorias" class="btn btn-primary">Ver categorías</a>
+      <a href="#ofertas" class="btn btn-outline">Top ofertas</a>
+    </div>
+  </section>
+
+  <!-- ── Categorías ────────────────────────────────────────── -->
+  <section id="categorias" style="margin-bottom:56px;">
+    <h2 class="section-title">Categorías</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
+      {% for cat in categories %}
+      <a href="{{ site_url }}/{{ cat.slug }}/" style="text-decoration:none;">
+        <div style="
+          background:var(--card);
+          border:1px solid var(--border);
+          border-radius:var(--radius);
+          padding:20px;
+          transition:border-color 0.15s, transform 0.15s;
+          cursor:pointer;
+        "
+        onmouseover="this.style.borderColor='var(--green)';this.style.transform='translateY(-2px)'"
+        onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'"
+        >
+          <div style="font-size:2rem; margin-bottom:10px;">{{ cat.icono }}</div>
+          <div style="font-size:1.05rem; font-weight:700; margin-bottom:4px;">{{ cat.display }}</div>
+          <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">
+            {{ cat.count }} producto{{ 's' if cat.count != 1 }}
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-size:0.72rem; color:var(--text-dim);">Desde</div>
+              <div style="font-size:1.1rem; font-weight:800; color:var(--green);">{{ "%.2f"|format(cat.precio_min) }} €/kg</div>
+            </div>
+            <span style="color:var(--green); font-size:1.2rem;">→</span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ── Top 10 ofertas ─────────────────────────────────────── -->
+  <section id="ofertas" style="margin-bottom:56px;">
+    <h2 class="section-title">
+      Top 10 Mejores Ofertas
+      <small>por precio/kg · todas las categorías</small>
+    </h2>
+
+    <div class="product-grid">
+      {% for p in top_deals %}
+      {% set offer = p.precios | sort(attribute='precio_eur') | first %}
+      <div class="product-card {% if loop.index == 1 %}rank-1{% endif %}">
+        <div class="card-header">
+          <div>
+            <div class="card-marca">{{ p.marca }}</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            {% if loop.index == 1 %}
+              <span class="badge badge-best">Mejor precio/kg</span>
+            {% endif %}
+            <span class="badge badge-cat">{{ p.categoria_display }}</span>
+          </div>
+        </div>
+
+        <div class="card-nombre">{{ p.nombre_normalizado }}</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">{{ "%.2f"|format(offer.precio_eur) }} €</span>
+          {% if p.precio_por_kg_min %}
+            <span class="card-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</span>
+          {% endif %}
+        </div>
+
+        <div class="card-footer">
+          <span class="card-tienda">{{ offer.tienda }}</span>
+          <a href="{{ offer.url_afiliado }}" class="btn btn-primary" target="_blank" rel="nofollow noopener">
+            Ver precio →
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ── Cómo funciona ──────────────────────────────────────── -->
+  <section style="margin-bottom:40px;">
+    <h2 class="section-title">Cómo funciona</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
+      {% for step in [
+        ("🔍", "Rastreamos precios", "Nuestros scrapers comprueban precios varias veces por semana en las principales tiendas españolas."),
+        ("📊", "Normalizamos por kg", "Convertimos todos los precios a €/kg para comparar productos de distintos tamaños de forma justa."),
+        ("✅", "Tú decides", "Ves todos los precios ordenados de más barato a más caro. Sin registro, sin spam.")
+      ] %}
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px;">
+        <div style="font-size:1.8rem; margin-bottom:10px;">{{ step[0] }}</div>
+        <div style="font-weight:700; margin-bottom:6px;">{{ step[1] }}</div>
+        <div style="font-size:0.85rem; color:var(--text-muted);">{{ step[2] }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

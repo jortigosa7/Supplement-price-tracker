@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jortigosa7.github.io/Supplement-price-tracker/sitemap.xml

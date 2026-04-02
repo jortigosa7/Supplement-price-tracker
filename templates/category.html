@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+
+{% block title %}{{ cat.seo_title }} — SuplementosPrecio.es{% endblock %}
+{% block meta_desc %}{{ cat.seo_desc }}{% endblock %}
+{% block meta_keywords %}{{ cat.keywords }}{% endblock %}
+{% block canonical_path %}/{{ cat.slug }}/{% endblock %}
+{% block og_title %}{{ cat.seo_title }}{% endblock %}
+{% block og_desc %}{{ cat.seo_desc }}{% endblock %}
+{% block og_path %}/{{ cat.slug }}/{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ cat.h1 }}",
+  "description": "{{ cat.seo_desc }}",
+  "numberOfItems": {{ products | length }},
+  "itemListElement": [
+    {% for p in products[:10] %}
+    {% set offer = p.precios | sort(attribute='precio_eur') | first %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "item": {
+        "@type": "Product",
+        "name": "{{ p.nombre_normalizado | replace('"', '\\"') }}",
+        "brand": { "@type": "Brand", "name": "{{ p.marca | replace('"', '\\"') }}" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "{{ offer.precio_eur }}",
+          "availability": "https://schema.org/InStock",
+          "url": "{{ offer.url_afiliado }}"
+        }
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+  <!-- ── Breadcrumb ─────────────────────────────────────────── -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ site_url }}/">Inicio</a>
+    <span>›</span>
+    <span>{{ cat.display }}</span>
+  </nav>
+
+  <!-- ── Header de categoría ───────────────────────────────── -->
+  <div style="margin-bottom:32px;">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+      <span style="font-size:2rem;">{{ cat.icono }}</span>
+      <h1 style="font-size:clamp(1.4rem, 4vw, 2rem); font-weight:900; line-height:1.2;">
+        {{ cat.h1 }}
+      </h1>
+    </div>
+    <p style="color:var(--text-muted); font-size:0.92rem; max-width:680px; margin-bottom:16px;">
+      {{ cat.intro }}
+    </p>
+    <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:0.82rem; color:var(--text-muted);">
+      <span>📦 <strong style="color:var(--text);">{{ products | length }}</strong> productos</span>
+      <span>🏪 <strong style="color:var(--text);">{{ tiendas | join(', ') }}</strong></span>
+      <span>🗓️ Actualizado: <strong style="color:var(--text);">{{ last_updated }}</strong></span>
+      {% if products %}
+      {% set best = products[0] %}
+      <span>🏆 Mejor precio/kg: <strong class="text-green">{{ "%.2f"|format(best.precio_por_kg_min) }} €/kg</strong></span>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- ── Tabla de precios ───────────────────────────────────── -->
+  <!-- Desktop: tabla; Mobile: cards via CSS -->
+  <style>
+    /* Desktop table */
+    .price-table { width:100%; border-collapse:collapse; }
+    .price-table th {
+      text-align:left;
+      font-size:0.75rem;
+      font-weight:600;
+      color:var(--text-muted);
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      padding:8px 12px;
+      border-bottom:1px solid var(--border);
+      white-space:nowrap;
+    }
+    .price-table th.right { text-align:right; }
+    .price-table td {
+      padding:14px 12px;
+      border-bottom:1px solid var(--border);
+      vertical-align:middle;
+    }
+    .price-table tr:last-child td { border-bottom:none; }
+    .price-table tr:hover td { background:rgba(255,255,255,0.02); }
+    .price-table tr.rank-1 td { background:rgba(0,230,118,0.04); }
+
+    .col-rank {
+      font-size:0.8rem;
+      font-weight:700;
+      color:var(--text-dim);
+      width:32px;
+    }
+    .col-rank.rank-1 { color:var(--green); }
+    .col-nombre { min-width:180px; }
+    .col-nombre .product-name { font-weight:600; font-size:0.9rem; }
+    .col-nombre .product-marca {
+      font-size:0.75rem;
+      color:var(--text-muted);
+      margin-top:2px;
+    }
+    .col-precio { font-size:1.1rem; font-weight:800; color:var(--green); white-space:nowrap; }
+    .col-por-kg { white-space:nowrap; }
+    .col-tienda { font-size:0.82rem; color:var(--text-muted); white-space:nowrap; }
+    .col-cta { text-align:right; }
+
+    /* Mobile: hide table, show cards */
+    .price-table-wrap { display:none; }
+    @media (min-width: 600px) {
+      .price-table-wrap { display:block; }
+      .mobile-cards { display:none; }
+    }
+    .mobile-cards { display:block; }
+  </style>
+
+  <!-- Desktop table -->
+  <div class="price-table-wrap" style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th style="width:32px;">#</th>
+          <th>Producto</th>
+          <th class="right">Precio</th>
+          <th class="right">€/kg</th>
+          <th>Tienda</th>
+          <th class="right">Comprar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in products %}
+        {% set offer = p.precios | sort(attribute='precio_eur') | first %}
+        <tr {% if loop.index == 1 %}class="rank-1"{% endif %}>
+          <td class="col-rank {% if loop.index == 1 %}rank-1{% endif %}">
+            {% if loop.index == 1 %}🏆{% else %}{{ loop.index }}{% endif %}
+          </td>
+          <td class="col-nombre">
+            <div class="product-name">{{ p.nombre_normalizado }}</div>
+            <div class="product-marca">{{ p.marca }}</div>
+          </td>
+          <td class="col-precio" style="text-align:right;">{{ "%.2f"|format(offer.precio_eur) }} €</td>
+          <td class="col-por-kg" style="text-align:right;">
+            {% if p.precio_por_kg_min %}
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</span>
+            {% else %}
+              <span style="color:var(--text-dim);">—</span>
+            {% endif %}
+          </td>
+          <td class="col-tienda">{{ offer.tienda }}</td>
+          <td class="col-cta">
+            <a href="{{ offer.url_afiliado }}" class="btn btn-primary" target="_blank" rel="nofollow noopener">
+              Ver precio →
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mobile cards -->
+  <div class="mobile-cards">
+    <div class="product-grid">
+      {% for p in products %}
+      {% set offer = p.precios | sort(attribute='precio_eur') | first %}
+      <div class="product-card {% if loop.index == 1 %}rank-1{% endif %}">
+        <div class="card-header">
+          <div>
+            <div class="card-marca">{{ p.marca }}</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            {% if loop.index == 1 %}
+              <span class="badge badge-best">Mejor €/kg</span>
+            {% else %}
+              <span style="font-size:0.78rem; color:var(--text-dim);">#{{ loop.index }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="card-nombre">{{ p.nombre_normalizado }}</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">{{ "%.2f"|format(offer.precio_eur) }} €</span>
+          {% if p.precio_por_kg_min %}
+            <span class="card-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</span>
+          {% endif %}
+        </div>
+
+        <div class="card-footer">
+          <span class="card-tienda">{{ offer.tienda }}</span>
+          <a href="{{ offer.url_afiliado }}" class="btn btn-primary" target="_blank" rel="nofollow noopener">
+            Ver precio →
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- ── Nota informativa ───────────────────────────────────── -->
+  <div style="margin-top:32px; padding:16px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); font-size:0.82rem; color:var(--text-muted);">
+    <strong style="color:var(--text);">ℹ️ Sobre los precios:</strong>
+    Los precios se actualizan varias veces por semana. Pueden variar entre el momento del scraping y la compra.
+    El precio/kg permite comparar productos de distintos tamaños de forma justa.
+    Algunos enlaces son de afiliado.
+  </div>
+
+{% endblock %}
