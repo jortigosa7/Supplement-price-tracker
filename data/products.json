@@ -1,8 +1,29 @@
 {
   "last_updated": "2026-04-03",
   "site": "SuplementosPrecio.es",
-  "total": 144,
+  "total": 140,
   "products": [
+    {
+      "id": "bcaa-s-instantaneo-2-1-1-2-0-150g-desconocida",
+      "nombre_normalizado": "BCAA'S INSTANTÁNEO 2:1:1 2.0 150g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 29.0,
+      "precio_min": 4.35,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 4.35,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
     {
       "id": "bcaa-glutamine-500g-quamtrax",
       "nombre_normalizado": "BCAA + Glutamine 500g",
@@ -18,6 +39,27 @@
           "tienda": "Nutritienda",
           "precio_eur": 17.9,
           "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "bcaa-s-instantaneo-4-1-1-2-0-150g-desconocida",
+      "nombre_normalizado": "BCAA'S INSTANTÁNEO 4:1:1 2.0 150g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 36.33,
+      "precio_min": 5.45,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 5.45,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -298,6 +340,27 @@
       ]
     },
     {
+      "id": "evo-4-1-1-bcaa-s-instantaneos-en-polvo-150g-desconocida",
+      "nombre_normalizado": "EVO 4:1:1 (BCAA'S INSTANTÁNEOS) EN POLVO 150g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 80.67,
+      "precio_min": 12.1,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 12.1,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
       "id": "bcaa-glutamine-zero-480g-biotechusa",
       "nombre_normalizado": "BCAA + GLUTAMINE ZERO 480g",
       "categoria": "bcaa",
@@ -312,6 +375,27 @@
           "tienda": "Nutritienda",
           "precio_eur": 38.9,
           "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobcaa-s-complex-en-polvo-150g-desconocida",
+      "nombre_normalizado": "EVOBCAA'S COMPLEX EN POLVO 150g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 85.53,
+      "precio_min": 12.83,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 12.83,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -354,6 +438,27 @@
           "tienda": "Nutritienda",
           "precio_eur": 27.9,
           "url_afiliado": "https://www.nutritienda.com/es/beverly-nutrition/bcaa-8-1-1-300g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-150g-desconocida",
+      "nombre_normalizado": "EVOBCAA'S 2.0 (BCAA'S 12:1:1 + GLUTAMINA) 150g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 93.0,
+      "precio_min": 13.95,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 13.95,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -592,69 +697,6 @@
       ]
     },
     {
-      "id": "evo-4-1-1-bcaa-s-instantaneos-en-polvo-desconocida",
-      "nombre_normalizado": "EVO 4:1:1 (BCAA'S INSTANTÁNEOS) EN POLVO",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 12.1,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 12.1,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evobcaa-s-complex-en-polvo-desconocida",
-      "nombre_normalizado": "EVOBCAA'S COMPLEX EN POLVO",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 12.83,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 12.83,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-desconocida",
-      "nombre_normalizado": "EVOBCAA'S 2.0 (BCAA'S 12:1:1 + GLUTAMINA)",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 13.95,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 13.95,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
       "id": "evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12-desconocida",
       "nombre_normalizado": "EVO 2:1:1 (BCAA'S 2:1:1 + VITAMINAS B6 Y B12)",
       "categoria": "bcaa",
@@ -697,55 +739,13 @@
       ]
     },
     {
-      "id": "bcaa-s-instantaneo-2-1-1-2-0-desconocida",
-      "nombre_normalizado": "BCAA'S INSTANTÁNEO 2:1:1 2.0",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 4.35,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 4.35,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "bcaa-s-instantaneo-4-1-1-2-0-desconocida",
-      "nombre_normalizado": "BCAA'S INSTANTÁNEO 4:1:1 2.0",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 5.45,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 5.45,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "creatina-monohidrato-200-mesh-300g-optimum-nutrition",
-      "nombre_normalizado": "Creatina Monohidrato 200 MESH 300g",
+      "id": "creatina-monohidrato-en-polvo-200-mesh-150g-optimum-nutrition",
+      "nombre_normalizado": "CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
-      "peso_kg": 0.3,
-      "precio_por_kg_min": 7.9,
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 15.8,
       "precio_min": 2.37,
       "tienda_mas_barata": "HSN",
       "precios": [
@@ -756,11 +756,32 @@
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evocreatine-500g-desconocida",
+      "nombre_normalizado": "EVOCREATINE 500g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 19.98,
+      "precio_min": 9.99,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 9.99,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evocreatine",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
         },
         {
           "tienda": "Nutritienda",
-          "precio_eur": 15.49,
-          "url_afiliado": "https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-200-mesh-300g",
+          "precio_eur": 16.99,
+          "url_afiliado": "https://www.nutritienda.com/es/bulk/creatina-monohidratada-sabores-500g",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -789,20 +810,28 @@
       ]
     },
     {
-      "id": "creatina-monohidratada-sabores-500g-optimum-nutrition",
-      "nombre_normalizado": "Creatina Monohidratada Sabores 500g",
+      "id": "creatina-monohidrato-ultrafina-en-polvo-500-mesh-500g-optimum-nutrition",
+      "nombre_normalizado": "CREATINA MONOHIDRATO ULTRAFINA EN POLVO (500 MESH) 500g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
-      "precio_por_kg_min": 33.98,
-      "precio_min": 16.99,
-      "tienda_mas_barata": "Nutritienda",
+      "precio_por_kg_min": 28.08,
+      "precio_min": 14.04,
+      "tienda_mas_barata": "HSN",
       "precios": [
         {
+          "tienda": "HSN",
+          "precio_eur": 14.04,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        },
+        {
           "tienda": "Nutritienda",
-          "precio_eur": 16.99,
-          "url_afiliado": "https://www.nutritienda.com/es/bulk/creatina-monohidratada-sabores-500g",
+          "precio_eur": 30.28,
+          "url_afiliado": "https://www.nutritienda.com/es/olimp-creatine-xplode-powder-500g",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -824,6 +853,27 @@
           "tienda": "Nutritienda",
           "precio_eur": 39.85,
           "url_afiliado": "https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-800g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "creatina-monohidrato-200-mesh-300g-optimum-nutrition",
+      "nombre_normalizado": "Creatina Monohidrato 200 MESH 300g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.3,
+      "precio_por_kg_min": 51.63,
+      "precio_min": 15.49,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 15.49,
+          "url_afiliado": "https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-200-mesh-300g",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -887,27 +937,6 @@
           "tienda": "Nutritienda",
           "precio_eur": 60.21,
           "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatina-1000g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "creatine-xplode-powder-500-g-optimum-nutrition",
-      "nombre_normalizado": "CREATINE XPLODE POWDER 500 g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 60.56,
-      "precio_min": 30.28,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 30.28,
-          "url_afiliado": "https://www.nutritienda.com/es/olimp-creatine-xplode-powder-500g",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -1167,6 +1196,27 @@
       ]
     },
     {
+      "id": "creatina-excell-100-creapure-en-polvo-150g-desconocida",
+      "nombre_normalizado": "CREATINA EXCELL (100% Creapure®) EN POLVO 150g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 152.67,
+      "precio_min": 22.9,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 22.9,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
       "id": "kre-alkalyn-120-vcaps-amazin-foods",
       "nombre_normalizado": "Kre-Alkalyn 120 VCaps",
       "categoria": "creatina",
@@ -1377,48 +1427,6 @@
       ]
     },
     {
-      "id": "creatina-monohidrato-ultrafina-en-polvo-500-mesh-optimum-nutrition",
-      "nombre_normalizado": "CREATINA MONOHIDRATO ULTRAFINA EN POLVO (500 MESH)",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 14.04,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 14.04,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "creatina-excell-100-creapure-en-polvo-desconocida",
-      "nombre_normalizado": "CREATINA EXCELL (100% Creapure®) EN POLVO",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 22.9,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 22.9,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
       "id": "creatina-monohidrato-1000mg-creatina-optimum-nutrition",
       "nombre_normalizado": "CREATINA MONOHIDRATO (1000mg CREATINA)",
       "categoria": "creatina",
@@ -1482,20 +1490,20 @@
       ]
     },
     {
-      "id": "evocreatine-desconocida",
-      "nombre_normalizado": "EVOCREATINE",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 9.99,
+      "id": "bicarbonato-de-sodio-en-polvo-150g-optimum-nutrition",
+      "nombre_normalizado": "BICARBONATO DE SODIO EN POLVO 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 5.6,
+      "precio_min": 0.84,
       "tienda_mas_barata": "HSN",
       "precios": [
         {
           "tienda": "HSN",
-          "precio_eur": 9.99,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evocreatine",
+          "precio_eur": 0.84,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bicarbonato-de-sodio-en-polvo",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -1503,13 +1511,244 @@
       ]
     },
     {
-      "id": "evobomb-desconocida",
-      "nombre_normalizado": "EVOBOMB",
+      "id": "isomaltulosa-palatinose-en-polvo-1kg-desconocida",
+      "nombre_normalizado": "ISOMALTULOSA (Palatinose™) EN POLVO 1kg",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 7.79,
+      "precio_min": 7.79,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 7.79,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/isomaltulosa-palatinose-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "beta-alanina-en-polvo-150g-desconocida",
+      "nombre_normalizado": "BETA-ALANINA EN POLVO 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 29.47,
+      "precio_min": 4.42,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 4.42,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "aceite-mct-liquido-473ml-473g-desconocida",
+      "nombre_normalizado": "ACEITE MCT LÍQUIDO - 473ml 473g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.473,
+      "precio_por_kg_min": 31.18,
+      "precio_min": 14.75,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 14.75,
+          "url_afiliado": "https://www.hsnstore.com/marcas/now-foods/aceite-mct-liquido-473ml",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "glycopump-glicerol-en-polvo-150g-desconocida",
+      "nombre_normalizado": "Glycopump® (GLICEROL) EN POLVO 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 44.47,
+      "precio_min": 6.67,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 6.67,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "l-citrulina-base-en-polvo-150g-desconocida",
+      "nombre_normalizado": "L-CITRULINA BASE EN POLVO 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 47.33,
+      "precio_min": 7.1,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 7.1,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "acido-malico-en-polvo-150g-desconocida",
+      "nombre_normalizado": "ÁCIDO MÁLICO EN POLVO 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 53.6,
+      "precio_min": 8.04,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 8.04,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "d-ribosa-en-polvo-150g-desconocida",
+      "nombre_normalizado": "D-RIBOSA EN POLVO 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 54.67,
+      "precio_min": 8.2,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 8.2,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "l-arginina-alfa-cetoglutarato-aakg-en-polvo-150g-desconocida",
+      "nombre_normalizado": "L-ARGININA ALFA-CETOGLUTARATO (AAKG) EN POLVO 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 55.67,
+      "precio_min": 8.35,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 8.35,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "beta-alanina-carnosyn-en-polvo-150g-desconocida",
+      "nombre_normalizado": "BETA-ALANINA (CarnoSyn®) EN POLVO 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 74.27,
+      "precio_min": 11.14,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 11.14,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-carnosyn-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evordx-2-0-150g-desconocida",
+      "nombre_normalizado": "EVORDX 2.0 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 111.6,
+      "precio_min": 16.74,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.74,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evordx-2-0",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evopump-en-polvo-150g-desconocida",
+      "nombre_normalizado": "EVOPUMP EN POLVO 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 153.0,
+      "precio_min": 22.95,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 22.95,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evopump-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobomb-150g-desconocida",
+      "nombre_normalizado": "EVOBOMB 150g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.15,
+      "precio_por_kg_min": 164.67,
       "precio_min": 24.7,
       "tienda_mas_barata": "HSN",
       "precios": [
@@ -1517,6 +1756,48 @@
           "tienda": "HSN",
           "precio_eur": 24.7,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobomb",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobeast-50g-desconocida",
+      "nombre_normalizado": "EVOBEAST 50g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.05,
+      "precio_por_kg_min": 323.6,
+      "precio_min": 16.18,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.18,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobeast",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evostamina-20g-desconocida",
+      "nombre_normalizado": "EVOSTAMINA 20g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": 0.02,
+      "precio_por_kg_min": 837.0,
+      "precio_min": 16.74,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.74,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evostamina",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -1587,153 +1868,6 @@
       ]
     },
     {
-      "id": "evobeast-desconocida",
-      "nombre_normalizado": "EVOBEAST",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 16.18,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 16.18,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobeast",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evordx-2-0-desconocida",
-      "nombre_normalizado": "EVORDX 2.0",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 16.74,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 16.74,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evordx-2-0",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "l-arginina-alfa-cetoglutarato-aakg-en-polvo-desconocida",
-      "nombre_normalizado": "L-ARGININA ALFA-CETOGLUTARATO (AAKG) EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 8.35,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 8.35,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "beta-alanina-en-polvo-desconocida",
-      "nombre_normalizado": "BETA-ALANINA EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 4.42,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 4.42,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "d-ribosa-en-polvo-desconocida",
-      "nombre_normalizado": "D-RIBOSA EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 8.2,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 8.2,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "isomaltulosa-palatinose-en-polvo-desconocida",
-      "nombre_normalizado": "ISOMALTULOSA (Palatinose™) EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 7.79,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 7.79,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/isomaltulosa-palatinose-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "acido-malico-en-polvo-desconocida",
-      "nombre_normalizado": "ÁCIDO MÁLICO EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 8.04,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 8.04,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
       "id": "arginina-alfa-cetoglutarato-1000mg-aakg-desconocida",
       "nombre_normalizado": "ARGININA ALFA-CETOGLUTARATO 1000mg (AAKG)",
       "categoria": "pre-entreno",
@@ -1748,27 +1882,6 @@
           "tienda": "HSN",
           "precio_eur": 10.02,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/arginina-alfa-cetoglutarato-1000mg-aakg",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "glycopump-glicerol-en-polvo-desconocida",
-      "nombre_normalizado": "Glycopump® (GLICEROL) EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 6.67,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 6.67,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -1797,48 +1910,6 @@
       ]
     },
     {
-      "id": "evostamina-desconocida",
-      "nombre_normalizado": "EVOSTAMINA",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 16.74,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 16.74,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evostamina",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evopump-en-polvo-desconocida",
-      "nombre_normalizado": "EVOPUMP EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 22.95,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 22.95,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evopump-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
       "id": "beta-alanina-1000mg-carnosyn-desconocida",
       "nombre_normalizado": "BETA-ALANINA 1000mg (CarnoSyn®)",
       "categoria": "pre-entreno",
@@ -1853,69 +1924,6 @@
           "tienda": "HSN",
           "precio_eur": 16.74,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/beta-alanina-1000mg-carnosyn",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "beta-alanina-carnosyn-en-polvo-desconocida",
-      "nombre_normalizado": "BETA-ALANINA (CarnoSyn®) EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 11.14,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 11.14,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-carnosyn-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "bicarbonato-de-sodio-en-polvo-optimum-nutrition",
-      "nombre_normalizado": "BICARBONATO DE SODIO EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 0.84,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 0.84,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bicarbonato-de-sodio-en-polvo",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "l-citrulina-base-en-polvo-desconocida",
-      "nombre_normalizado": "L-CITRULINA BASE EN POLVO",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 7.1,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 7.1,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -1944,27 +1952,6 @@
       ]
     },
     {
-      "id": "aceite-mct-liquido-473ml-desconocida",
-      "nombre_normalizado": "ACEITE MCT LÍQUIDO - 473ml",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 14.75,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 14.75,
-          "url_afiliado": "https://www.hsnstore.com/marcas/now-foods/aceite-mct-liquido-473ml",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
       "id": "cafeina-hibrida-200mg-desconocida",
       "nombre_normalizado": "CAFEÍNA HÍBRIDA 200mg",
       "categoria": "pre-entreno",
@@ -1986,6 +1973,93 @@
       ]
     },
     {
+      "id": "evowhey-oats-500g-desconocida",
+      "nombre_normalizado": "EVOWHEY & OATS 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 15.9,
+      "precio_min": 7.95,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 7.95,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-oats",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 20.69,
+          "url_afiliado": "https://www.nutritienda.com/es/mega-plus/100-whey-proteina-sabor-chocolate-con-leche-500g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "100-whey-protein-concentrate-500g-optimum-nutrition",
+      "nombre_normalizado": "100% WHEY PROTEIN CONCENTRATE 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 22.4,
+      "precio_min": 11.2,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 11.2,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 22.95,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/100-predator-protein-500g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evowhey-protein-sin-edulcorantes-500g-desconocida",
+      "nombre_normalizado": "EVOWHEY PROTEIN SIN EDULCORANTES 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 23.52,
+      "precio_min": 11.76,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 11.76,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein-sin-edulcorantes",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 29.9,
+          "url_afiliado": "https://www.nutritienda.com/es/quamtrax/isopro-cfm-provon-500g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
       "id": "battery-complete-whey-1800g-crecimiento-muscular",
       "nombre_normalizado": "Battery Complete Whey 1800g",
       "categoria": "proteina-whey",
@@ -2000,6 +2074,27 @@
           "tienda": "Nutritienda",
           "precio_eur": 48.99,
           "url_afiliado": "https://www.nutritienda.com/es/battery-nutrition/battery-complete-whey-1800g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "golden-protein-500g-desconocida",
+      "nombre_normalizado": "GOLDEN PROTEIN 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 27.98,
+      "precio_min": 13.99,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 13.99,
+          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/golden-protein",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -2133,6 +2228,69 @@
       ]
     },
     {
+      "id": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-500g-desconocida",
+      "nombre_normalizado": "EVOLATE 2.0 SIN EDULCORANTES (WHEY ISOLATE CFM) 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 35.0,
+      "precio_min": 17.5,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 17.5,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-sin-edulcorantes-whey-isolate-cfm",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-500g-optimum-nutritio",
+      "nombre_normalizado": "EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 36.08,
+      "precio_min": 18.04,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 18.04,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evoexcel-2-0-whey-protein-isolate-concentrate-500g-optimum-nutrition",
+      "nombre_normalizado": "EVOEXCEL 2.0 (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 36.08,
+      "precio_min": 18.04,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 18.04,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-2-0-whey-protein-isolate-concentrate",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
       "id": "whey-force-complex-908g-optimum-nutrition",
       "nombre_normalizado": "Whey Force Complex 908g",
       "categoria": "proteina-whey",
@@ -2217,6 +2375,48 @@
       ]
     },
     {
+      "id": "evolate-2-0-whey-isolate-cfm-500g-desconocida",
+      "nombre_normalizado": "EVOLATE 2.0 (WHEY ISOLATE CFM) 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 38.76,
+      "precio_min": 19.38,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 19.38,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-whey-isolate-cfm",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "100-whey-protein-isolate-500g-desconocida",
+      "nombre_normalizado": "100% WHEY PROTEIN ISOLATE 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 38.76,
+      "precio_min": 19.38,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 19.38,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-isolate",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
       "id": "only-whey-minidona-1-kg-optimum-nutrition",
       "nombre_normalizado": "Only Whey Minidona 1 Kg",
       "categoria": "proteina-whey",
@@ -2238,20 +2438,20 @@
       ]
     },
     {
-      "id": "100-whey-proteina-sabor-chocolate-con-leche-500g-optimum-nutrition",
-      "nombre_normalizado": "100% Whey Proteína Sabor Chocolate con Leche 500g",
+      "id": "evohydro-2-0-hydro-whey-500g-desconocida",
+      "nombre_normalizado": "EVOHYDRO 2.0 (HYDRO WHEY) 500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
+      "marca": "Desconocida",
       "peso_kg": 0.5,
-      "precio_por_kg_min": 41.38,
-      "precio_min": 20.69,
-      "tienda_mas_barata": "Nutritienda",
+      "precio_por_kg_min": 40.18,
+      "precio_min": 20.09,
+      "tienda_mas_barata": "HSN",
       "precios": [
         {
-          "tienda": "Nutritienda",
-          "precio_eur": 20.69,
-          "url_afiliado": "https://www.nutritienda.com/es/mega-plus/100-whey-proteina-sabor-chocolate-con-leche-500g",
+          "tienda": "HSN",
+          "precio_eur": 20.09,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-2-0-hydro-whey",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -2273,6 +2473,48 @@
           "tienda": "Nutritienda",
           "precio_eur": 83.95,
           "url_afiliado": "https://www.nutritienda.com/es/fire-nutrition/wheypro-concentrate-2-kg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "100-proteina-de-suero-hidrolizado-aislada-500g-desconocida",
+      "nombre_normalizado": "100% PROTEÍNA DE SUERO HIDROLIZADO AISLADA 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 43.26,
+      "precio_min": 21.63,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 21.63,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-proteina-de-suero-hidrolizado-aislada",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evohydro-30hd-500g-desconocida",
+      "nombre_normalizado": "EVOHYDRO 30HD 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 44.68,
+      "precio_min": 22.34,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 22.34,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-30hd",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -2336,27 +2578,6 @@
           "tienda": "Nutritienda",
           "precio_eur": 45.2,
           "url_afiliado": "https://www.nutritienda.com/es/beverly-nutrition/isolate-cfm-profesional-1-kg",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "100-predator-protein-500g-optimum-nutrition",
-      "nombre_normalizado": "100% Predator Protein 500g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 45.9,
-      "precio_min": 22.95,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 22.95,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/100-predator-protein-500g",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"
@@ -2469,27 +2690,6 @@
       ]
     },
     {
-      "id": "isopro-cfm-provon-500g-optimum-nutrition",
-      "nombre_normalizado": "Isopro CFM (Provon) 500g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 59.8,
-      "precio_min": 29.9,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 29.9,
-          "url_afiliado": "https://www.nutritienda.com/es/quamtrax/isopro-cfm-provon-500g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
       "id": "iso-fuji-100-natural-700g-proteina",
       "nombre_normalizado": "ISO-FUJI 100% NATURAL 700g",
       "categoria": "proteina-whey",
@@ -2553,6 +2753,27 @@
       ]
     },
     {
+      "id": "aislado-de-proteina-hidrolizada-clear-whey-500g-desconocida",
+      "nombre_normalizado": "AISLADO DE PROTEÍNA HIDROLIZADA CLEAR WHEY 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 77.88,
+      "precio_min": 38.94,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 38.94,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/aislado-de-proteina-hidrolizada-clear-whey",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
       "id": "re-cuper-550g-amix",
       "nombre_normalizado": "RE-CUPER 550g",
       "categoria": "proteina-whey",
@@ -2595,6 +2816,132 @@
       ]
     },
     {
+      "id": "keto-whey-protein-500g-desconocida",
+      "nombre_normalizado": "KETO WHEY PROTEIN 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 130.0,
+      "precio_min": 65.0,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 65.0,
+          "url_afiliado": "https://www.hsnstore.com/marcas/keto-series/keto-whey-protein",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "crema-de-arroz-proteica-50g-desconocida",
+      "nombre_normalizado": "CREMA DE ARROZ PROTEICA 50g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.05,
+      "precio_por_kg_min": 167.0,
+      "precio_min": 8.35,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 8.35,
+          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/crema-de-arroz-proteica",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobasic-whey-30g-desconocida",
+      "nombre_normalizado": "EVOBASIC WHEY 30g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.03,
+      "precio_por_kg_min": 344.67,
+      "precio_min": 10.34,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 10.34,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobasic-whey",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evowhey-protein-30g-desconocida",
+      "nombre_normalizado": "EVOWHEY PROTEIN 30g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.03,
+      "precio_por_kg_min": 392.0,
+      "precio_min": 11.76,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 11.76,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "cafe-proteico-sin-edulcorantes-cafefitconq-35g-optimum-nutrition",
+      "nombre_normalizado": "CAFÉ PROTEICO SIN EDULCORANTES #CaféFitConQ 35g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.035,
+      "precio_por_kg_min": 471.14,
+      "precio_min": 16.49,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.49,
+          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/cafe-proteico-sin-edulcorantes-cafefitconq",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "cafe-proteico-cafefitconq-35g-optimum-nutrition",
+      "nombre_normalizado": "CAFÉ PROTEICO #CaféFitConQ 35g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.035,
+      "precio_por_kg_min": 480.0,
+      "precio_min": 16.8,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.8,
+          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/cafe-proteico-cafefitconq",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
       "id": "finisher-futurpro-8-sobres-de-30g-proteina-de-suero-enriquecida",
       "nombre_normalizado": "FINISHER FUTURPRO 8 Sobres de 30g",
       "categoria": "proteina-whey",
@@ -2616,34 +2963,13 @@
       ]
     },
     {
-      "id": "evolate-2-0-whey-isolate-cfm-desconocida",
-      "nombre_normalizado": "EVOLATE 2.0 (WHEY ISOLATE CFM)",
+      "id": "evoclear-hydro-25g-desconocida",
+      "nombre_normalizado": "EVOCLEAR HYDRO 25g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
       "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 19.38,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 19.38,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-whey-isolate-cfm",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evoclear-hydro-desconocida",
-      "nombre_normalizado": "EVOCLEAR HYDRO",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
+      "peso_kg": 0.025,
+      "precio_por_kg_min": 881.2,
       "precio_min": 22.03,
       "tienda_mas_barata": "HSN",
       "precios": [
@@ -2651,384 +2977,6 @@
           "tienda": "HSN",
           "precio_eur": 22.03,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoclear-hydro",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "crema-de-arroz-proteica-desconocida",
-      "nombre_normalizado": "CREMA DE ARROZ PROTEICA",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 8.35,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 8.35,
-          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/crema-de-arroz-proteica",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evowhey-protein-desconocida",
-      "nombre_normalizado": "EVOWHEY PROTEIN",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 11.76,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 11.76,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evowhey-protein-sin-edulcorantes-desconocida",
-      "nombre_normalizado": "EVOWHEY PROTEIN SIN EDULCORANTES",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 11.76,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 11.76,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein-sin-edulcorantes",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-optimum-nutrition",
-      "nombre_normalizado": "EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE)",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 18.04,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 18.04,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "100-whey-protein-isolate-desconocida",
-      "nombre_normalizado": "100% WHEY PROTEIN ISOLATE",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 19.38,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 19.38,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-isolate",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evobasic-whey-desconocida",
-      "nombre_normalizado": "EVOBASIC WHEY",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 10.34,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 10.34,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobasic-whey",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-desconocida",
-      "nombre_normalizado": "EVOLATE 2.0 SIN EDULCORANTES (WHEY ISOLATE CFM)",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 17.5,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 17.5,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-sin-edulcorantes-whey-isolate-cfm",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "keto-whey-protein-desconocida",
-      "nombre_normalizado": "KETO WHEY PROTEIN",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 65.0,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 65.0,
-          "url_afiliado": "https://www.hsnstore.com/marcas/keto-series/keto-whey-protein",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evohydro-30hd-desconocida",
-      "nombre_normalizado": "EVOHYDRO 30HD",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 22.34,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 22.34,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-30hd",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evoexcel-2-0-whey-protein-isolate-concentrate-optimum-nutrition",
-      "nombre_normalizado": "EVOEXCEL 2.0 (WHEY PROTEIN ISOLATE + CONCENTRATE)",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 18.04,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 18.04,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-2-0-whey-protein-isolate-concentrate",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evohydro-2-0-hydro-whey-desconocida",
-      "nombre_normalizado": "EVOHYDRO 2.0 (HYDRO WHEY)",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 20.09,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 20.09,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-2-0-hydro-whey",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "evowhey-oats-desconocida",
-      "nombre_normalizado": "EVOWHEY & OATS",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 7.95,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 7.95,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-oats",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "100-proteina-de-suero-hidrolizado-aislada-desconocida",
-      "nombre_normalizado": "100% PROTEÍNA DE SUERO HIDROLIZADO AISLADA",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 21.63,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 21.63,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-proteina-de-suero-hidrolizado-aislada",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "golden-protein-desconocida",
-      "nombre_normalizado": "GOLDEN PROTEIN",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 13.99,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 13.99,
-          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/golden-protein",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "cafe-proteico-cafefitconq-optimum-nutrition",
-      "nombre_normalizado": "CAFÉ PROTEICO #CaféFitConQ",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 16.8,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 16.8,
-          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/cafe-proteico-cafefitconq",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "100-whey-protein-concentrate-optimum-nutrition",
-      "nombre_normalizado": "100% WHEY PROTEIN CONCENTRATE",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 11.2,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 11.2,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "aislado-de-proteina-hidrolizada-clear-whey-desconocida",
-      "nombre_normalizado": "AISLADO DE PROTEÍNA HIDROLIZADA CLEAR WHEY",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 38.94,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 38.94,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/aislado-de-proteina-hidrolizada-clear-whey",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-03"
-        }
-      ]
-    },
-    {
-      "id": "cafe-proteico-sin-edulcorantes-cafefitconq-optimum-nutrition",
-      "nombre_normalizado": "CAFÉ PROTEICO SIN EDULCORANTES #CaféFitConQ",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 16.49,
-      "tienda_mas_barata": "HSN",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 16.49,
-          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/cafe-proteico-sin-edulcorantes-cafefitconq",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-03"

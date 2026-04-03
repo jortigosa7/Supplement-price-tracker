@@ -14,12 +14,13 @@ DEBUG (si no encuentra productos):
     las clases CSS del contenedor de producto.
 """
 
+import re
 import time
 from .base import producto_base
 
 TIENDA   = "HSN"
 BASE_URL = "https://www.hsnstore.com"
-DELAY    = 3  # segundos entre peticiones
+DELAY    = 2  # segundos entre peticiones
 
 CATEGORIAS = [
     {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/nutricion-deportiva/proteinas/whey"},
@@ -28,8 +29,8 @@ CATEGORIAS = [
     {"nombre": "Pre-Entreno",    "url": f"{BASE_URL}/nutricion-deportiva/pre-entrenamiento"},
 ]
 
-# JavaScript que se evalúa en el DOM renderizado para extraer productos.
-# Prueba múltiples selectores en orden: el primero que devuelva items gana.
+# Extrae productos del listado de categoría.
+# Selectores confirmados inspeccionando el HTML renderizado por Playwright.
 _JS_EXTRAER = """
 () => {
     const ITEM_SELECTORS = [
@@ -48,24 +49,19 @@ _JS_EXTRAER = """
     ];
 
     const PRICE_SELECTORS = [
-        '[data-price-type="finalPrice"] .price',
+        'span[data-price-type] .price',
         '.price-final_price .price',
         '.price-box .price',
         'span.price',
-        '[class*="price"]',
     ];
 
     function queryFirst(root, selectors) {
         for (const sel of selectors) {
-            try {
-                const el = root.querySelector(sel);
-                if (el) return el;
-            } catch(e) {}
+            try { const el = root.querySelector(sel); if (el) return el; } catch(e) {}
         }
         return null;
     }
 
-    // Encuentra contenedor de productos
     let items = [];
     for (const sel of ITEM_SELECTORS) {
         try {
@@ -76,24 +72,36 @@ _JS_EXTRAER = """
 
     const productos = [];
     for (const item of items) {
-        const linkEl  = queryFirst(item, NAME_SELECTORS);
+        const linkEl = queryFirst(item, NAME_SELECTORS);
         if (!linkEl) continue;
-
         const nombre = linkEl.textContent.trim();
         const url    = linkEl.href || '';
         if (!nombre || !url) continue;
-
         const precioEl = queryFirst(item, PRICE_SELECTORS);
         const precio   = precioEl ? precioEl.textContent.trim() : 'N/A';
-
-        productos.push({ nombre, precio, marca: '', url });
+        productos.push({ nombre, precio, url });
     }
-
     return { items_found: items.length, productos };
 }
 """
 
-# JavaScript para obtener URL de siguiente página (paginación Magento2)
+# Extrae las tallas/pesos disponibles desde la página de detalle del producto.
+# #selectProductSimple tiene opciones como "EVOLATE 2.0 500g CHOCOLATE".
+_JS_TALLAS = """
+() => {
+    const sel = document.querySelector('#selectProductSimple');
+    if (!sel) return [];
+    const texts = Array.from(sel.options).map(o => o.text);
+    const sizes = new Set();
+    for (const t of texts) {
+        const m = t.match(/\\b(\\d+(?:[.,]\\d+)?\\s*(?:kg|g|ml))\\b/gi);
+        if (m) m.forEach(s => sizes.add(s.trim()));
+    }
+    return Array.from(sizes);
+}
+"""
+
+# URL de la siguiente página (paginación Magento2)
 _JS_SIGUIENTE = """
 () => {
     const NEXT_SELECTORS = [
@@ -115,6 +123,30 @@ _JS_SIGUIENTE = """
 """
 
 
+def _peso_minimo_kg(tallas: list[str]) -> float | None:
+    """Convierte una lista de tallas ['500g', '1Kg', '2Kg'] al peso mínimo en kg."""
+    pesos = []
+    for t in tallas:
+        m = re.match(r"([\d.,]+)\s*(kg|g|ml)", t, re.I)
+        if not m:
+            continue
+        valor = float(m.group(1).replace(",", "."))
+        unidad = m.group(2).lower()
+        if unidad == "g":
+            valor /= 1000
+        elif unidad == "ml":
+            valor /= 1000
+        pesos.append(valor)
+    return min(pesos) if pesos else None
+
+
+def _talla_str(peso_kg: float) -> str:
+    """0.5 → '500g',  1.0 → '1kg',  2.27 → '2.27kg'"""
+    if peso_kg < 1:
+        return f"{round(peso_kg * 1000)}g"
+    return f"{peso_kg:g}kg"
+
+
 def scrape(debug: bool = False) -> list[dict]:
     print(f"\n{'='*50}")
     print(f"  Scraping: {TIENDA}")
@@ -127,7 +159,7 @@ def scrape(debug: bool = False) -> list[dict]:
         print("  Ejecuta: pip install playwright && playwright install chromium")
         return []
 
-    productos = []
+    productos_raw = []  # sin peso todavía
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -142,6 +174,7 @@ def scrape(debug: bool = False) -> list[dict]:
         )
         page = context.new_page()
 
+        # ── Paso 1: scraping de listados de categoría ──────────────────────
         for cat in CATEGORIAS:
             print(f"\n  Categoria: {cat['nombre']}")
             url_actual = cat["url"]
@@ -151,7 +184,6 @@ def scrape(debug: bool = False) -> list[dict]:
                 print(f"  Página {pagina}: {url_actual}")
                 try:
                     page.goto(url_actual, wait_until="load", timeout=45000)
-                    # Espera extra para Alpine.js + scroll para lazy-load
                     page.wait_for_timeout(3000)
                     page.evaluate("window.scrollTo(0, document.body.scrollHeight * 0.6)")
                     page.wait_for_timeout(1000)
@@ -162,7 +194,7 @@ def scrape(debug: bool = False) -> list[dict]:
                         with open(fname, "w", encoding="utf-8") as f:
                             f.write(page.content())
                         print(f"  [DEBUG] HTML guardado → {fname}")
-                        break  # solo guarda la primera página en debug
+                        break
 
                     resultado = page.evaluate(_JS_EXTRAER)
                     nuevos_raw = resultado.get("productos", [])
@@ -172,17 +204,17 @@ def scrape(debug: bool = False) -> list[dict]:
                         print(f"  Tip: python scraper.py --debug-hsn  para inspeccionar el HTML")
                         break
 
-                    nuevos = [
-                        producto_base(
-                            d["nombre"], d["precio"], d["marca"],
-                            cat["nombre"], TIENDA, d["url"]
-                        )
-                        for d in nuevos_raw if d.get("nombre")
-                    ]
-                    print(f"  +{len(nuevos)} productos (acumulado: {len(productos) + len(nuevos)})")
-                    productos.extend(nuevos)
+                    for d in nuevos_raw:
+                        if d.get("nombre"):
+                            productos_raw.append({
+                                "nombre":    d["nombre"],
+                                "precio":    d["precio"],
+                                "categoria": cat["nombre"],
+                                "url":       d["url"],
+                            })
 
-                    # Siguiente página
+                    print(f"  +{len(nuevos_raw)} productos (acumulado: {len(productos_raw)})")
+
                     url_actual = page.evaluate(_JS_SIGUIENTE)
                     pagina += 1
                     if url_actual:
@@ -193,6 +225,37 @@ def scrape(debug: bool = False) -> list[dict]:
                     break
 
             time.sleep(DELAY)
+
+        if debug:
+            browser.close()
+            return []
+
+        # ── Paso 2: visitar cada producto para obtener el peso ─────────────
+        print(f"\n  Obteniendo pesos ({len(productos_raw)} productos)...")
+        productos = []
+
+        for i, d in enumerate(productos_raw):
+            nombre_con_peso = d["nombre"]
+            try:
+                page.goto(d["url"], wait_until="load", timeout=30000)
+                page.wait_for_timeout(1500)
+
+                tallas = page.evaluate(_JS_TALLAS)
+                peso_kg = _peso_minimo_kg(tallas)
+
+                if peso_kg:
+                    nombre_con_peso = f"{d['nombre']} {_talla_str(peso_kg)}"
+
+            except Exception as e:
+                pass  # sin peso — limpieza.py dejará precio_por_kg=None
+
+            productos.append(
+                producto_base(nombre_con_peso, d["precio"], "", d["categoria"], TIENDA, d["url"])
+            )
+
+            if (i + 1) % 10 == 0:
+                print(f"  ... {i+1}/{len(productos_raw)}")
+            time.sleep(1)
 
         browser.close()
 
