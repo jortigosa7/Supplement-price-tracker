@@ -149,6 +149,25 @@
     .badge-best  { background: var(--green); color: #000; }
     .badge-cat   { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,230,118,0.3); }
 
+    /* ── Store pills ─────────────────────────────────────── */
+    .store-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .store-pill:hover { opacity: 0.8; transform: translateY(-1px); text-decoration: none; }
+    .store-nutritienda { background: rgba(74,222,128,0.15);  color: #4ade80; border: 1px solid rgba(74,222,128,0.3); }
+    .store-hsn         { background: rgba(251,146,60,0.15);  color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
+    .store-prozis      { background: rgba(96,165,250,0.15);  color: #60a5fa; border: 1px solid rgba(96,165,250,0.3); }
+    .store-myprotein   { background: rgba(244,114,182,0.15); color: #f472b6; border: 1px solid rgba(244,114,182,0.3); }
+    .store-default     { background: rgba(136,136,136,0.15); color: #aaa;    border: 1px solid rgba(136,136,136,0.3); }
+
     /* ── Product cards ───────────────────────────────────── */
     .product-grid {
       display: grid;
@@ -317,7 +336,7 @@
   "@type": "ItemList",
   "name": "Mejor Precio Creatina España",
   "description": "Compara precios de creatina monohidrato y otras formas en tiendas españolas. Encuentra la creatina más barata al mejor precio/kg.",
-  "numberOfItems": 35,
+  "numberOfItems": 59,
   "itemListElement": [
     
     
@@ -398,24 +417,6 @@
       "position": 5,
       "item": {
         "@type": "Product",
-        "name": "Creatine Monohydrate 800g",
-        "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": "39.85",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-800g"
-        }
-      }
-    },
-    
-    
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "Product",
         "name": "Creatina Monohidrato 200 MESH 300g",
         "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
         "offers": {
@@ -431,7 +432,7 @@
     
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 6,
       "item": {
         "@type": "Product",
         "name": "Battery Creatine 500g",
@@ -449,17 +450,17 @@
     
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 7,
       "item": {
         "@type": "Product",
-        "name": "Creatine Monohydrate Micronized Sabor Neutro 250g",
+        "name": "Monohidrato de creatina 600 g",
         "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
         "offers": {
           "@type": "Offer",
           "priceCurrency": "EUR",
-          "price": "14.9",
+          "price": "32.49",
           "availability": "https://schema.org/InStock",
-          "url": "https://www.nutritienda.com/es/applied-nutrition/creatine-monohydrate-micronized-sabor-neutro-250g"
+          "url": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g"
         }
       }
     },
@@ -467,7 +468,7 @@
     
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 8,
       "item": {
         "@type": "Product",
         "name": "CR5 CREATINA 1000g",
@@ -485,7 +486,7 @@
     
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 9,
       "item": {
         "@type": "Product",
         "name": "Creatine Xplode Powder 500g",
@@ -496,6 +497,24 @@
           "price": "30.28",
           "availability": "https://schema.org/InStock",
           "url": "https://www.nutritienda.com/es/olimp/creatine-xplode-powder-500g"
+        }
+      }
+    },
+    
+    
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "Product",
+        "name": "CREATINA 306g",
+        "brand": { "@type": "Brand", "name": "Cellucor" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "18.95",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.nutritienda.com/es/cellucor/creatina-306g"
         }
       }
     }
@@ -542,8 +561,7 @@
       Comparativa de creatina en tiendas españolas. La creatina monohidrato es el suplemento más estudiado — aquí encuentras la opción más económica.
     </p>
     <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:0.82rem; color:var(--text-muted);">
-      <span>📦 <strong style="color:var(--text);">35</strong> productos</span>
-      <span>🏪 <strong style="color:var(--text);">HSN, Nutritienda</strong></span>
+      <span>📦 <strong style="color:var(--text);">59</strong> productos</span>
       <span>🗓️ Actualizado: <strong style="color:var(--text);">2026-04-03</strong></span>
       
       
@@ -552,10 +570,25 @@
       
       
     </div>
+    <!-- Tiendas analizadas en esta categoría -->
+    <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:14px;">
+      
+      
+      <span class="store-pill store-hsn">HSN</span>
+      
+      
+      <span class="store-pill store-myprotein">MyProtein</span>
+      
+      
+      <span class="store-pill store-nutritienda">Nutritienda</span>
+      
+      
+      <span class="store-pill store-prozis">Prozis</span>
+      
+    </div>
   </div>
 
   <!-- ── Tabla de precios ───────────────────────────────────── -->
-  <!-- Desktop: tabla; Mobile: cards via CSS -->
   <style>
     /* Desktop table */
     .price-table { width:100%; border-collapse:collapse; }
@@ -587,25 +620,32 @@
       width:32px;
     }
     .col-rank.rank-1 { color:var(--green); }
-    .col-nombre { min-width:180px; }
+    .col-nombre { min-width:160px; }
     .col-nombre .product-name { font-weight:600; font-size:0.9rem; }
     .col-nombre .product-marca {
       font-size:0.75rem;
       color:var(--text-muted);
       margin-top:2px;
     }
-    .col-precio { font-size:1.1rem; font-weight:800; color:var(--green); white-space:nowrap; }
-    .col-por-kg { white-space:nowrap; }
-    .col-tienda { font-size:0.82rem; color:var(--text-muted); white-space:nowrap; }
-    .col-cta { text-align:right; }
+    .col-por-kg { white-space:nowrap; text-align:right; }
+    .col-tiendas { min-width:220px; }
+    .tiendas-wrap { display:flex; flex-wrap:wrap; gap:6px; }
 
     /* Mobile: hide table, show cards */
     .price-table-wrap { display:none; }
-    @media (min-width: 600px) {
+    @media (min-width: 640px) {
       .price-table-wrap { display:block; }
       .mobile-cards { display:none; }
     }
     .mobile-cards { display:block; }
+
+    /* Mobile card stores */
+    .card-stores {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
   </style>
 
   <!-- Desktop table -->
@@ -615,25 +655,25 @@
         <tr>
           <th style="width:32px;">#</th>
           <th>Producto</th>
-          <th class="right">Precio</th>
           <th class="right">€/kg</th>
-          <th>Tienda</th>
-          <th class="right">Comprar</th>
+          <th>Comparar precios</th>
         </tr>
       </thead>
       <tbody>
         
         
         <tr class="rank-1">
+
           <td class="col-rank rank-1">
             🏆
           </td>
+
           <td class="col-nombre">
             <div class="product-name">CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">2.37 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -645,25 +685,44 @@
               ">15.80 €/kg</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 2.37 €
+              </a>
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-professional-150-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 30.79 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             2
           </td>
+
           <td class="col-nombre">
             <div class="product-name">EVOCREATINE 500g</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">9.99 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -675,25 +734,44 @@
               ">19.98 €/kg</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/sport-series/evocreatine" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/sport-series/evocreatine"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 9.99 €
+              </a>
+              
+              
+              <a href="https://www.nutritienda.com/es/bulk/creatina-monohidratada-sabores-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 16.99 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             3
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Cellbest Extreme 1.3 Kg</div>
             <div class="product-marca">Vitobest</div>
           </td>
-          <td class="col-precio" style="text-align:right;">33.12 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -705,25 +783,36 @@
               ">25.48 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/vitobest/cellbest-extreme-1300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/vitobest/cellbest-extreme-1300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 33.12 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             4
           </td>
+
           <td class="col-nombre">
             <div class="product-name">CREATINA MONOHIDRATO ULTRAFINA EN POLVO (500 MESH) 500g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">14.04 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -735,55 +824,44 @@
               ">28.08 €/kg</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 14.04 €
+              </a>
+              
+              
+              <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/crea200-mesh-creatine-monohydrate-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 34.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             5
           </td>
-          <td class="col-nombre">
-            <div class="product-name">Creatine Monohydrate 800g</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">39.85 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="
-                background:var(--surface);
-                border:1px solid var(--border);
-                border-radius:4px;
-                padding:2px 8px;
-                font-size:0.82rem;
-                color:var(--text-muted);
-              ">49.81 €/kg</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-800g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            6
-          </td>
+
           <td class="col-nombre">
             <div class="product-name">Creatina Monohidrato 200 MESH 300g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">15.49 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -795,25 +873,44 @@
               ">51.63 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-200-mesh-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-200-mesh-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 15.49 €
+              </a>
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/creatina-glycofusion-300-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 15.59 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            7
+            6
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Battery Creatine 500g</div>
             <div class="product-marca">Rendimiento Deportivo</div>
           </td>
-          <td class="col-precio" style="text-align:right;">26.99 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -825,25 +922,36 @@
               ">53.98 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/battery-nutrition/battery-creatine-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/battery-nutrition/battery-creatine-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 26.99 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            8
+            7
           </td>
+
           <td class="col-nombre">
-            <div class="product-name">Creatine Monohydrate Micronized Sabor Neutro 250g</div>
+            <div class="product-name">Monohidrato de creatina 600 g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">14.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -852,28 +960,39 @@
                 padding:2px 8px;
                 font-size:0.82rem;
                 color:var(--text-muted);
-              ">59.60 €/kg</span>
+              ">54.15 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/applied-nutrition/creatine-monohydrate-micronized-sabor-neutro-250g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 32.49 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            9
+            8
           </td>
+
           <td class="col-nombre">
             <div class="product-name">CR5 CREATINA 1000g</div>
             <div class="product-marca">¡Ultra pura!</div>
           </td>
-          <td class="col-precio" style="text-align:right;">60.21 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -885,25 +1004,36 @@
               ">60.21 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatina-1000g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatina-1000g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 60.21 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            10
+            9
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Creatine Xplode Powder 500g</div>
             <div class="product-marca">Olimp</div>
           </td>
-          <td class="col-precio" style="text-align:right;">30.28 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -915,25 +1045,77 @@
               ">60.56 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/olimp/creatine-xplode-powder-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/olimp/creatine-xplode-powder-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 30.28 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
+          <td class="col-rank ">
+            10
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">CREATINA 306g</div>
+            <div class="product-marca">Cellucor</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">61.93 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/cellucor/creatina-306g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 18.95 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
           <td class="col-rank ">
             11
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Creatina Creapure 400g</div>
             <div class="product-marca">Amazin&#39; Foods</div>
           </td>
-          <td class="col-precio" style="text-align:right;">24.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -945,25 +1127,36 @@
               ">62.25 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 24.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             12
           </td>
+
           <td class="col-nombre">
-            <div class="product-name">Creatine X-Gen 500g</div>
+            <div class="product-name">Monohidrato de Creatina 300 g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">36.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -972,28 +1165,47 @@
                 padding:2px 8px;
                 font-size:0.82rem;
                 color:var(--text-muted);
-              ">73.80 €/kg</span>
+              ">62.80 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/scientiffic-nutrition/creatine-x-gen-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 18.84 €
+              </a>
+              
+              
+              <a href="https://www.nutritienda.com/es/beverly-nutrition/crea-extreme-tank-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 21.25 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             13
           </td>
+
           <td class="col-nombre">
-            <div class="product-name">Creamax Monohydrate 200g</div>
+            <div class="product-name">Monohidrato de creatina en polvo - Chupa Chups de sandía 250g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">15.30 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1002,28 +1214,47 @@
                 padding:2px 8px;
                 font-size:0.82rem;
                 color:var(--text-muted);
-              ">76.50 €/kg</span>
+              ">67.96 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/4pro-nutrition/creamax-monohydrate-200g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia/17526822/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 16.99 €
+              </a>
+              
+              
+              <a href="https://www.nutritienda.com/es/muscletech/platinum-100-creatine-monohydrate-200g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 19.99 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             14
           </td>
+
           <td class="col-nombre">
-            <div class="product-name">Creatina Monohidratada Pura 300g</div>
+            <div class="product-name">Creatina MicronPure 600 g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">23.75 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1032,28 +1263,39 @@
                 padding:2px 8px;
                 font-size:0.82rem;
                 color:var(--text-muted);
-              ">79.17 €/kg</span>
+              ">69.98 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/dietinat/creatina-monohidratada-pura-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 41.99 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             15
           </td>
+
           <td class="col-nombre">
-            <div class="product-name">Creatine Ultra Fresh 200Mesh 300g</div>
-            <div class="product-marca">Optimum Nutrition</div>
+            <div class="product-name">Creatina Creapure Neutra 500g</div>
+            <div class="product-marca">Bavarian Elite</div>
           </td>
-          <td class="col-precio" style="text-align:right;">23.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1062,28 +1304,137 @@
                 padding:2px 8px;
                 font-size:0.82rem;
                 color:var(--text-muted);
-              ">79.67 €/kg</span>
+              ">74.40 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/creatine-ultra-fresh-200mesh-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/bavarian-elite/creatina-creapure-neutra-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 37.20 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             16
           </td>
+
           <td class="col-nombre">
-            <div class="product-name">Pure Creatine Powder 300g</div>
+            <div class="product-name">Creatina Creapure® 300 g</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">75.80 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-300-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 22.74 €
+              </a>
+              
+              
+              <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/creatine-ultra-fresh-200mesh-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 23.90 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            17
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatina MicronPure 300 g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">24.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">77.97 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 23.39 €
+              </a>
+              
+              
+              <a href="https://www.nutritienda.com/es/fire-nutrition/pure-creatine-powder-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 24.90 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            18
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatina Monohydrate Creapure 300g</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1095,85 +1446,36 @@
               ">83.00 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/fire-nutrition/pure-creatine-powder-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/quamtrax/creatina-monohydrate-creapure-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 24.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
-          <td class="col-rank ">
-            17
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">Battery Creatine 250g</div>
-            <div class="product-marca">Suplemento Deportivo</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">20.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="
-                background:var(--surface);
-                border:1px solid var(--border);
-                border-radius:4px;
-                padding:2px 8px;
-                font-size:0.82rem;
-                color:var(--text-muted);
-              ">83.60 €/kg</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/battery-nutrition/battery-creatine-250g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            18
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">CreaTP Creatine Creapure 400g</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">34.00 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="
-                background:var(--surface);
-                border:1px solid var(--border);
-                border-radius:4px;
-                padding:2px 8px;
-                font-size:0.82rem;
-                color:var(--text-muted);
-              ">85.00 €/kg</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/hypertrophy-nutrition/creatp-creatine-creapure-400g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
+
           <td class="col-rank ">
             19
           </td>
+
           <td class="col-nombre">
             <div class="product-name">R-Weiler Focus 300g</div>
             <div class="product-marca">Olimp</div>
           </td>
-          <td class="col-precio" style="text-align:right;">25.80 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1185,25 +1487,36 @@
               ">86.00 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/olimp/r-weiler-focus-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/olimp/r-weiler-focus-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 25.80 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             20
           </td>
+
           <td class="col-nombre">
-            <div class="product-name">Creatina y Electrolitos 312g</div>
-            <div class="product-marca">Desconocida</div>
+            <div class="product-name">Creatina Ultra Pure 200MESH 150g</div>
+            <div class="product-marca">Zoomad Labs</div>
           </td>
-          <td class="col-precio" style="text-align:right;">29.99 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1212,28 +1525,39 @@
                 padding:2px 8px;
                 font-size:0.82rem;
                 color:var(--text-muted);
-              ">96.12 €/kg</span>
+              ">86.00 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/bulk/creatina-y-electrolitos-312g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/zoomad-labs/creatina-ultra-pure-200mesh-150g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 12.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             21
           </td>
+
           <td class="col-nombre">
-            <div class="product-name">Creamap Gfs Sabor Naranja 200g</div>
-            <div class="product-marca">Vitobest</div>
+            <div class="product-name">Creatine Monohydrate 200Mesh 300g</div>
+            <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">21.06 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1242,28 +1566,162 @@
                 padding:2px 8px;
                 font-size:0.82rem;
                 color:var(--text-muted);
-              ">105.30 €/kg</span>
+              ">93.00 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/vitobest/creamap-gfs-sabor-naranja-200g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/life-pro-nutrition/creatine-monohydrate-200mesh-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 27.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             22
           </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatina MicronPure 600g</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">104.98 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 62.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            23
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Zero Creatine 300 g</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">111.27 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/zero-creatine-300-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 33.38 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            24
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Zero Creatine 150 g</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">143.93 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/zero-creatine-150-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 21.59 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            25
+          </td>
+
           <td class="col-nombre">
             <div class="product-name">CREATINA EXCELL (100% Creapure®) EN POLVO 150g</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">22.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1275,311 +1733,1192 @@
               ">152.67 €/kg</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 22.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            23
+            26
           </td>
+
+          <td class="col-nombre">
+            <div class="product-name">THE Creatine (Creapure) |Sobres monodosis 10g</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">1999.00 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure-sobres-monodosis/16630358/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 19.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            27
+          </td>
+
           <td class="col-nombre">
             <div class="product-name">Kre-Alkalyn 120 VCaps</div>
             <div class="product-marca">Amazin&#39; Foods</div>
           </td>
-          <td class="col-precio" style="text-align:right;">18.99 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/amazin-foods/kre-alkalyn-120-capsulas-vegetales" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/amazin-foods/kre-alkalyn-120-capsulas-vegetales"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 18.99 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            24
+            28
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Creatine Mix 120 Caps</div>
             <div class="product-marca">Soul Project</div>
           </td>
-          <td class="col-precio" style="text-align:right;">28.00 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/soul-project/creatine-mix-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/soul-project/creatine-mix-120-caps"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 28.00 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
-          <td class="col-rank ">
-            25
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">Creatine 1250 Megacaps 900 Caps</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">114.30 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/olimp/creatine-1250-megacaps-900-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            26
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">CREATINE 1250 Mega Caps - 400 Caps</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">43.80 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/olimp-creatine-1250-mega-caps-400caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            27
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">CREATINA PH-X 90 Caps</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">17.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/biotech-usa/creatina-ph-x-90-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            28
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">CREATOR 120 Caps</div>
-            <div class="product-marca">Combina 5 tipos de creatinas</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">25.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/biotech-usa/creator-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
+
           <td class="col-rank ">
             29
           </td>
-          <td class="col-nombre">
-            <div class="product-name">Kre-Alkalyn 100 Caps</div>
-            <div class="product-marca">Vitobest</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">32.22 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/vitobest/kre-alkalyn-100-capsulas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            30
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">Creatine Monohydrate 3000 mg  200 Tabs</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">20.95 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-3000-mg-200-tabs" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            31
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">Kre-Alkalyn® 120 + 30 Caps</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">41.70 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/amix-nutrition-kre-alkalyn-150-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            32
-          </td>
+
           <td class="col-nombre">
             <div class="product-name">Creatine Competition 150 Tabs</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">19.55 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/mega-plus/creatine-competition-150-tabletas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/mega-plus/creatine-competition-150-tabletas"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 19.55 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
+          <td class="col-rank ">
+            30
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Kre-Alkalyn® 120 + 30 Caps</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/amix-nutrition-kre-alkalyn-150-caps"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 41.70 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            31
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Kre-Alkalyn 3000 120 Caps</div>
+            <div class="product-marca">Quamtrax</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/quamtrax-kre-alkalyn-3000-120-caps"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 26.90 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            32
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Kre-Alkalyn 2250 mg 100 Caps</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/life-pro-nutrition/kre-alkalyn-2250-mg-100-capsulas"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 23.90 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
           <td class="col-rank ">
             33
           </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Mega Creatine Monohydrate 1320 120 Caps</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/scitec/mega-creatine-monohydrate-1320-120-capsulas"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 30.90 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            34
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Applied Nutrition CreaFlow™ Creatina Líquida Pura 500 ml</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/applied-nutrition/creaflo-pure-liquid-creatine-500-ml"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 19.90 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            35
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Black Line Creatine Creapure Capsules 300 VCaps</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/amix-nutrition/black-line-creatine-creapure-capsules-300-capsulas-vegetales"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 54.50 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            36
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">CREATINE 2500 - 200 Caps</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/optimum-nutrition-creatine-2500-200caps"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 33.49 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            37
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">CREATINE ZERO EFFERVESCENT 16 Tabs</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/biotech-usa/creatine-zero-effervescent-16-tabs"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 7.50 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            38
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatine HCL 120 Caps</div>
+            <div class="product-marca">Amix</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/amix-pro/creatine-hcl-120-caps"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 28.90 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            39
+          </td>
+
           <td class="col-nombre">
             <div class="product-name">CREATINA MONOHIDRATO (1000mg CREATINA)</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">8.35 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 8.35 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            34
+            40
           </td>
+
           <td class="col-nombre">
             <div class="product-name">EVOKALYN CREATINA ALCALINA</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">19.55 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 19.55 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            35
+            41
           </td>
+
           <td class="col-nombre">
             <div class="product-name">CREATINA EXCELL 1000mg (100% Creapure®)</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">13.95 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/essential-series/creatina-excell-1000mg-100-creapure" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/essential-series/creatina-excell-1000mg-100-creapure"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 13.95 €
+              </a>
+              
+            </div>
           </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            42
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatina Creapure® 80 cápsulas</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-80-capsulas"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 23.99 €
+              </a>
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-micronizada-creapure-capsulas/10574930/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 37.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            43
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Monohidrato de Creatina 90 comprimidos</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-90-comprimidos"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 17.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            44
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatine Creapure® 320 caps</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/creatine-creapure-320-caps"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 67.52 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            45
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatina Creapure® 90 comprimidos masticables</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-90-comprimidos-masticables"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 34.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            46
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatina Monohidrato en Tabletas</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-tabletas/10575029/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 27.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            47
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatina Monohidrato en polvo</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-polvo/10530050/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 6.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            48
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Gominolas de creatina</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/gominolas-de-creatina/13528283/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 8.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            49
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Pack Get Stronger</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-get-stronger/14970298/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 39.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            50
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">THE Creatine Creapure®</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 25.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            51
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Pack Essentials Protein</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-essentials-protein/15758094/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 45.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            52
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Pack Gainer</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-gainer/13437013/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 59.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            53
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Creatina HCL</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-hcl/17169974/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 6.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            54
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">THE Electrofuel</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/the-electrofuel/16570434/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 17.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            55
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">THE Electropower | Creatina + Electrolitos</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/the-electropower-creatina-electrolitos/16663175/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 24.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            56
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Mezcla de Vitaminas</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/mezcla-de-vitaminas/11060427/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 47.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            57
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Pack de Rendimiento</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-de-rendimiento/15722526/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 104.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            58
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Pack Proteico</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-proteico/15722525/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 61.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            59
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Pack Clear Performance</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-clear-performance/15288056/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 41.99 €
+              </a>
+              
+            </div>
+          </td>
+
         </tr>
         
       </tbody>
@@ -1591,7 +2930,9 @@
     <div class="product-grid">
       
       
+      
       <div class="product-card rank-1">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -1612,16 +2953,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 2.37 €
           </a>
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-professional-150-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 30.79 €
+          </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
@@ -1642,16 +2998,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/sport-series/evocreatine" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evocreatine"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 9.99 €
           </a>
+          
+          
+          <a href="https://www.nutritienda.com/es/bulk/creatina-monohidratada-sabores-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 16.99 €
+          </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Vitobest</div>
@@ -1672,16 +3043,24 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/vitobest/cellbest-extreme-1300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/vitobest/cellbest-extreme-1300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 33.12 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -1702,16 +3081,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 14.04 €
           </a>
+          
+          
+          <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/crea200-mesh-creatine-monohydrate-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 34.90 €
+          </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -1719,36 +3113,6 @@
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
               <span style="font-size:0.78rem; color:var(--text-dim);">#5</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">Creatine Monohydrate 800g</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">39.85 €</span>
-          
-            <span class="card-price-kg">49.81 €/kg</span>
-          
-        </div>
-
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-800g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Optimum Nutrition</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#6</span>
             
           </div>
         </div>
@@ -1762,23 +3126,38 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-200-mesh-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-200-mesh-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 15.49 €
           </a>
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/creatina-glycofusion-300-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 15.59 €
+          </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Rendimiento Deportivo</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#7</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#6</span>
             
           </div>
         </div>
@@ -1792,53 +3171,69 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/battery-nutrition/battery-creatine-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/battery-nutrition/battery-creatine-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 26.99 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#8</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#7</span>
             
           </div>
         </div>
 
-        <div class="card-nombre">Creatine Monohydrate Micronized Sabor Neutro 250g</div>
+        <div class="card-nombre">Monohidrato de creatina 600 g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">14.90 €</span>
+          <span class="card-price-main">32.49 €</span>
           
-            <span class="card-price-kg">59.60 €/kg</span>
+            <span class="card-price-kg">54.15 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/applied-nutrition/creatine-monohydrate-micronized-sabor-neutro-250g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 32.49 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">¡Ultra pura!</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#9</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#8</span>
             
           </div>
         </div>
@@ -1852,23 +3247,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatina-1000g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatina-1000g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 60.21 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Olimp</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#10</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#9</span>
             
           </div>
         </div>
@@ -1882,16 +3285,62 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/olimp/creatine-xplode-powder-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/olimp/creatine-xplode-powder-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 30.28 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Cellucor</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#10</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">CREATINA 306g</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">18.95 €</span>
+          
+            <span class="card-price-kg">61.93 €/kg</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/cellucor/creatina-306g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 18.95 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Amazin&#39; Foods</div>
@@ -1912,16 +3361,24 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 24.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -1933,25 +3390,40 @@
           </div>
         </div>
 
-        <div class="card-nombre">Creatine X-Gen 500g</div>
+        <div class="card-nombre">Monohidrato de Creatina 300 g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">36.90 €</span>
+          <span class="card-price-main">18.84 €</span>
           
-            <span class="card-price-kg">73.80 €/kg</span>
+            <span class="card-price-kg">62.80 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/scientiffic-nutrition/creatine-x-gen-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 18.84 €
           </a>
+          
+          
+          <a href="https://www.nutritienda.com/es/beverly-nutrition/crea-extreme-tank-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 21.25 €
+          </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -1963,25 +3435,40 @@
           </div>
         </div>
 
-        <div class="card-nombre">Creamax Monohydrate 200g</div>
+        <div class="card-nombre">Monohidrato de creatina en polvo - Chupa Chups de sandía 250g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">15.30 €</span>
+          <span class="card-price-main">16.99 €</span>
           
-            <span class="card-price-kg">76.50 €/kg</span>
+            <span class="card-price-kg">67.96 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/4pro-nutrition/creamax-monohydrate-200g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia/17526822/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 16.99 €
           </a>
+          
+          
+          <a href="https://www.nutritienda.com/es/muscletech/platinum-100-creatine-monohydrate-200g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 19.99 €
+          </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -1993,28 +3480,36 @@
           </div>
         </div>
 
-        <div class="card-nombre">Creatina Monohidratada Pura 300g</div>
+        <div class="card-nombre">Creatina MicronPure 600 g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">23.75 €</span>
+          <span class="card-price-main">41.99 €</span>
           
-            <span class="card-price-kg">79.17 €/kg</span>
+            <span class="card-price-kg">69.98 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/dietinat/creatina-monohidratada-pura-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 41.99 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
-            <div class="card-marca">Optimum Nutrition</div>
+            <div class="card-marca">Bavarian Elite</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
@@ -2023,28 +3518,36 @@
           </div>
         </div>
 
-        <div class="card-nombre">Creatine Ultra Fresh 200Mesh 300g</div>
+        <div class="card-nombre">Creatina Creapure Neutra 500g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">23.90 €</span>
+          <span class="card-price-main">37.20 €</span>
           
-            <span class="card-price-kg">79.67 €/kg</span>
+            <span class="card-price-kg">74.40 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/creatine-ultra-fresh-200mesh-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/bavarian-elite/creatina-creapure-neutra-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 37.20 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
-            <div class="card-marca">Optimum Nutrition</div>
+            <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
@@ -2053,28 +3556,43 @@
           </div>
         </div>
 
-        <div class="card-nombre">Pure Creatine Powder 300g</div>
+        <div class="card-nombre">Creatina Creapure® 300 g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">24.90 €</span>
+          <span class="card-price-main">22.74 €</span>
           
-            <span class="card-price-kg">83.00 €/kg</span>
+            <span class="card-price-kg">75.80 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/fire-nutrition/pure-creatine-powder-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-300-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 22.74 €
           </a>
+          
+          
+          <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/creatine-ultra-fresh-200mesh-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 23.90 €
+          </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
-            <div class="card-marca">Suplemento Deportivo</div>
+            <div class="card-marca">Optimum Nutrition</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
@@ -2083,25 +3601,40 @@
           </div>
         </div>
 
-        <div class="card-nombre">Battery Creatine 250g</div>
+        <div class="card-nombre">Creatina MicronPure 300 g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">20.90 €</span>
+          <span class="card-price-main">23.39 €</span>
           
-            <span class="card-price-kg">83.60 €/kg</span>
+            <span class="card-price-kg">77.97 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/battery-nutrition/battery-creatine-250g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 23.39 €
           </a>
+          
+          
+          <a href="https://www.nutritienda.com/es/fire-nutrition/pure-creatine-powder-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 24.90 €
+          </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -2113,25 +3646,33 @@
           </div>
         </div>
 
-        <div class="card-nombre">CreaTP Creatine Creapure 400g</div>
+        <div class="card-nombre">Creatina Monohydrate Creapure 300g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">34.00 €</span>
+          <span class="card-price-main">24.90 €</span>
           
-            <span class="card-price-kg">85.00 €/kg</span>
+            <span class="card-price-kg">83.00 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/hypertrophy-nutrition/creatp-creatine-creapure-400g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/quamtrax/creatina-monohydrate-creapure-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 24.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Olimp</div>
@@ -2152,19 +3693,27 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/olimp/r-weiler-focus-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/olimp/r-weiler-focus-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 25.80 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
-            <div class="card-marca">Desconocida</div>
+            <div class="card-marca">Zoomad Labs</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
@@ -2173,28 +3722,36 @@
           </div>
         </div>
 
-        <div class="card-nombre">Creatina y Electrolitos 312g</div>
+        <div class="card-nombre">Creatina Ultra Pure 200MESH 150g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">29.99 €</span>
+          <span class="card-price-main">12.90 €</span>
           
-            <span class="card-price-kg">96.12 €/kg</span>
+            <span class="card-price-kg">86.00 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/bulk/creatina-y-electrolitos-312g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/zoomad-labs/creatina-ultra-pure-200mesh-150g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 12.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
-            <div class="card-marca">Vitobest</div>
+            <div class="card-marca">Optimum Nutrition</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
@@ -2203,32 +3760,154 @@
           </div>
         </div>
 
-        <div class="card-nombre">Creamap Gfs Sabor Naranja 200g</div>
+        <div class="card-nombre">Creatine Monohydrate 200Mesh 300g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">21.06 €</span>
+          <span class="card-price-main">27.90 €</span>
           
-            <span class="card-price-kg">105.30 €/kg</span>
+            <span class="card-price-kg">93.00 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/vitobest/creamap-gfs-sabor-naranja-200g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/life-pro-nutrition/creatine-monohydrate-200mesh-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 27.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#22</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Creatina MicronPure 600g</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">62.99 €</span>
+          
+            <span class="card-price-kg">104.98 €/kg</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 62.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#22</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#23</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Zero Creatine 300 g</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">33.38 €</span>
+          
+            <span class="card-price-kg">111.27 €/kg</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/zero-creatine-300-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 33.38 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#24</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Zero Creatine 150 g</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">21.59 €</span>
+          
+            <span class="card-price-kg">143.93 €/kg</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/zero-creatine-150-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 21.59 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#25</span>
             
           </div>
         </div>
@@ -2242,100 +3921,24 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 22.90 €
           </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Amazin&#39; Foods</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#23</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">Kre-Alkalyn 120 VCaps</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">18.99 €</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/amazin-foods/kre-alkalyn-120-capsulas-vegetales" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
       </div>
       
       
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Soul Project</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#24</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">Creatine Mix 120 Caps</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">28.00 €</span>
-          
-        </div>
-
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/soul-project/creatine-mix-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
       
       <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Optimum Nutrition</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#25</span>
-            
-          </div>
-        </div>
 
-        <div class="card-nombre">Creatine 1250 Megacaps 900 Caps</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">114.30 €</span>
-          
-        </div>
-
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/olimp/creatine-1250-megacaps-900-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -2347,26 +3950,36 @@
           </div>
         </div>
 
-        <div class="card-nombre">CREATINE 1250 Mega Caps - 400 Caps</div>
+        <div class="card-nombre">THE Creatine (Creapure) |Sobres monodosis 10g</div>
 
         <div class="card-prices">
-          <span class="card-price-main">43.80 €</span>
+          <span class="card-price-main">19.99 €</span>
+          
+            <span class="card-price-kg">1999.00 €/kg</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/olimp-creatine-1250-mega-caps-400caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure-sobres-monodosis/16630358/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 19.99 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
-            <div class="card-marca">Optimum Nutrition</div>
+            <div class="card-marca">Amazin&#39; Foods</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
@@ -2375,26 +3988,34 @@
           </div>
         </div>
 
-        <div class="card-nombre">CREATINA PH-X 90 Caps</div>
+        <div class="card-nombre">Kre-Alkalyn 120 VCaps</div>
 
         <div class="card-prices">
-          <span class="card-price-main">17.90 €</span>
+          <span class="card-price-main">18.99 €</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/biotech-usa/creatina-ph-x-90-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/amazin-foods/kre-alkalyn-120-capsulas-vegetales"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 18.99 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
-            <div class="card-marca">Combina 5 tipos de creatinas</div>
+            <div class="card-marca">Soul Project</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
@@ -2403,114 +4024,38 @@
           </div>
         </div>
 
-        <div class="card-nombre">CREATOR 120 Caps</div>
+        <div class="card-nombre">Creatine Mix 120 Caps</div>
 
         <div class="card-prices">
-          <span class="card-price-main">25.90 €</span>
+          <span class="card-price-main">28.00 €</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/biotech-usa/creator-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/soul-project/creatine-mix-120-caps"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 28.00 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
-            <div class="card-marca">Vitobest</div>
+            <div class="card-marca">Optimum Nutrition</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
               <span style="font-size:0.78rem; color:var(--text-dim);">#29</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">Kre-Alkalyn 100 Caps</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">32.22 €</span>
-          
-        </div>
-
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/vitobest/kre-alkalyn-100-capsulas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Optimum Nutrition</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#30</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">Creatine Monohydrate 3000 mg  200 Tabs</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">20.95 €</span>
-          
-        </div>
-
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-3000-mg-200-tabs" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Optimum Nutrition</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#31</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">Kre-Alkalyn® 120 + 30 Caps</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">41.70 €</span>
-          
-        </div>
-
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/amix-nutrition-kre-alkalyn-150-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Optimum Nutrition</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#32</span>
             
           </div>
         </div>
@@ -2522,16 +4067,132 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/mega-plus/creatine-competition-150-tabletas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/mega-plus/creatine-competition-150-tabletas"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 19.55 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#30</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Kre-Alkalyn® 120 + 30 Caps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">41.70 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/amix-nutrition-kre-alkalyn-150-caps"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 41.70 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Quamtrax</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#31</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Kre-Alkalyn 3000 120 Caps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">26.90 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/quamtrax-kre-alkalyn-3000-120-caps"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 26.90 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#32</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Kre-Alkalyn 2250 mg 100 Caps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">23.90 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/life-pro-nutrition/kre-alkalyn-2250-mg-100-capsulas"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 23.90 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -2543,6 +4204,222 @@
           </div>
         </div>
 
+        <div class="card-nombre">Mega Creatine Monohydrate 1320 120 Caps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">30.90 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/scitec/mega-creatine-monohydrate-1320-120-capsulas"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 30.90 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#34</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Applied Nutrition CreaFlow™ Creatina Líquida Pura 500 ml</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">19.90 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/applied-nutrition/creaflo-pure-liquid-creatine-500-ml"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 19.90 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#35</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Black Line Creatine Creapure Capsules 300 VCaps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">54.50 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/amix-nutrition/black-line-creatine-creapure-capsules-300-capsulas-vegetales"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 54.50 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#36</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">CREATINE 2500 - 200 Caps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">33.49 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/optimum-nutrition-creatine-2500-200caps"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 33.49 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#37</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">CREATINE ZERO EFFERVESCENT 16 Tabs</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">7.50 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/biotech-usa/creatine-zero-effervescent-16-tabs"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 7.50 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Amix</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#38</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Creatine HCL 120 Caps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">28.90 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/amix-pro/creatine-hcl-120-caps"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 28.90 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#39</span>
+            
+          </div>
+        </div>
+
         <div class="card-nombre">CREATINA MONOHIDRATO (1000mg CREATINA)</div>
 
         <div class="card-prices">
@@ -2550,23 +4427,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 8.35 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#34</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#40</span>
             
           </div>
         </div>
@@ -2578,23 +4463,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 19.55 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#35</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#41</span>
             
           </div>
         </div>
@@ -2606,12 +4499,673 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/essential-series/creatina-excell-1000mg-100-creapure" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/essential-series/creatina-excell-1000mg-100-creapure"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 13.95 €
           </a>
+          
         </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#42</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Creatina Creapure® 80 cápsulas</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">23.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-80-capsulas"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 23.99 €
+          </a>
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-micronizada-creapure-capsulas/10574930/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 37.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#43</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Monohidrato de Creatina 90 comprimidos</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">17.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-90-comprimidos"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 17.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#44</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Creatine Creapure® 320 caps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">67.52 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/creatine-creapure-320-caps"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 67.52 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#45</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Creatina Creapure® 90 comprimidos masticables</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">34.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-90-comprimidos-masticables"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 34.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#46</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Creatina Monohidrato en Tabletas</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">27.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-tabletas/10575029/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 27.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#47</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Creatina Monohidrato en polvo</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">6.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-polvo/10530050/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 6.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#48</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Gominolas de creatina</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">8.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/gominolas-de-creatina/13528283/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 8.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#49</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Pack Get Stronger</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">39.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-get-stronger/14970298/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 39.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#50</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">THE Creatine Creapure®</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">25.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 25.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#51</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Pack Essentials Protein</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">45.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-essentials-protein/15758094/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 45.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#52</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Pack Gainer</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">59.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-gainer/13437013/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 59.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#53</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Creatina HCL</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">6.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-hcl/17169974/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 6.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#54</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">THE Electrofuel</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">17.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/the-electrofuel/16570434/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 17.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#55</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">THE Electropower | Creatina + Electrolitos</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">24.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/the-electropower-creatina-electrolitos/16663175/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 24.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#56</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Mezcla de Vitaminas</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">47.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/mezcla-de-vitaminas/11060427/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 47.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#57</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Pack de Rendimiento</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">104.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-de-rendimiento/15722526/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 104.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#58</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Pack Proteico</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">61.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-proteico/15722525/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 61.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#59</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Pack Clear Performance</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">41.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/pack-clear-performance/15288056/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 41.99 €
+          </a>
+          
+        </div>
+
       </div>
       
     </div>

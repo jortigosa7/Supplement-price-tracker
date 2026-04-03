@@ -149,6 +149,25 @@
     .badge-best  { background: var(--green); color: #000; }
     .badge-cat   { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,230,118,0.3); }
 
+    /* ── Store pills ─────────────────────────────────────── */
+    .store-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .store-pill:hover { opacity: 0.8; transform: translateY(-1px); text-decoration: none; }
+    .store-nutritienda { background: rgba(74,222,128,0.15);  color: #4ade80; border: 1px solid rgba(74,222,128,0.3); }
+    .store-hsn         { background: rgba(251,146,60,0.15);  color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
+    .store-prozis      { background: rgba(96,165,250,0.15);  color: #60a5fa; border: 1px solid rgba(96,165,250,0.3); }
+    .store-myprotein   { background: rgba(244,114,182,0.15); color: #f472b6; border: 1px solid rgba(244,114,182,0.3); }
+    .store-default     { background: rgba(136,136,136,0.15); color: #aaa;    border: 1px solid rgba(136,136,136,0.3); }
+
     /* ── Product cards ───────────────────────────────────── */
     .product-grid {
       display: grid;
@@ -317,7 +336,7 @@
   "@type": "ItemList",
   "name": "Mejor Precio BCAA España",
   "description": "Compara precios de BCAA y aminoácidos ramificados en tiendas españolas. Encuentra los BCAA más baratos por kilogramo.",
-  "numberOfItems": 35,
+  "numberOfItems": 54,
   "itemListElement": [
     
     
@@ -380,6 +399,24 @@
       "position": 4,
       "item": {
         "@type": "Product",
+        "name": "BCAA 2:1:1 300 g",
+        "brand": { "@type": "Brand", "name": "Desconocida" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "11.89",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.prozis.com/es/es/prozis/bcaa-211-300-g"
+        }
+      }
+    },
+    
+    
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Product",
         "name": "High Energy Gel Bcaa 76g",
         "brand": { "@type": "Brand", "name": "226ers" },
         "offers": {
@@ -395,7 +432,7 @@
     
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "item": {
         "@type": "Product",
         "name": "BCAA+GLUTAMINE 500g",
@@ -413,7 +450,7 @@
     
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "item": {
         "@type": "Product",
         "name": "Bcaa+Glutamine Concept 500g",
@@ -431,7 +468,7 @@
     
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "item": {
         "@type": "Product",
         "name": "BCAA&#39;S + GLUTAMINA 400g",
@@ -449,35 +486,17 @@
     
     {
       "@type": "ListItem",
-      "position": 8,
-      "item": {
-        "@type": "Product",
-        "name": "PREMIUM BCAA ZERO 8:1:1 + L-GLUTAMINA 500g",
-        "brand": { "@type": "Brand", "name": "Weider" },
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": "28.48",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g"
-        }
-      }
-    },
-    
-    
-    {
-      "@type": "ListItem",
       "position": 9,
       "item": {
         "@type": "Product",
-        "name": "BCAA 2:1:1 500g",
-        "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
+        "name": "Zero BCAA 300 g",
+        "brand": { "@type": "Brand", "name": "Desconocida" },
         "offers": {
           "@type": "Offer",
           "priceCurrency": "EUR",
-          "price": "28.9",
+          "price": "14.31",
           "availability": "https://schema.org/InStock",
-          "url": "https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g"
+          "url": "https://www.prozis.com/es/es/prozis/zero-bcaa-300-g"
         }
       }
     },
@@ -488,14 +507,14 @@
       "position": 10,
       "item": {
         "@type": "Product",
-        "name": "Bcaa+Glutamine Core 300g",
-        "brand": { "@type": "Brand", "name": "Procell" },
+        "name": "PREMIUM BCAA ZERO 8:1:1 + L-GLUTAMINA 500g",
+        "brand": { "@type": "Brand", "name": "Weider" },
         "offers": {
           "@type": "Offer",
           "priceCurrency": "EUR",
-          "price": "18.14",
+          "price": "28.48",
           "availability": "https://schema.org/InStock",
-          "url": "https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g"
+          "url": "https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g"
         }
       }
     }
@@ -542,8 +561,7 @@
       Comparativa de BCAA (aminoácidos ramificados) disponibles en tiendas españolas. Ordenado por precio/kg, comparando tanto polvo como cápsulas.
     </p>
     <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:0.82rem; color:var(--text-muted);">
-      <span>📦 <strong style="color:var(--text);">35</strong> productos</span>
-      <span>🏪 <strong style="color:var(--text);">HSN, Nutritienda</strong></span>
+      <span>📦 <strong style="color:var(--text);">54</strong> productos</span>
       <span>🗓️ Actualizado: <strong style="color:var(--text);">2026-04-03</strong></span>
       
       
@@ -552,10 +570,25 @@
       
       
     </div>
+    <!-- Tiendas analizadas en esta categoría -->
+    <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:14px;">
+      
+      
+      <span class="store-pill store-hsn">HSN</span>
+      
+      
+      <span class="store-pill store-myprotein">MyProtein</span>
+      
+      
+      <span class="store-pill store-nutritienda">Nutritienda</span>
+      
+      
+      <span class="store-pill store-prozis">Prozis</span>
+      
+    </div>
   </div>
 
   <!-- ── Tabla de precios ───────────────────────────────────── -->
-  <!-- Desktop: tabla; Mobile: cards via CSS -->
   <style>
     /* Desktop table */
     .price-table { width:100%; border-collapse:collapse; }
@@ -587,25 +620,32 @@
       width:32px;
     }
     .col-rank.rank-1 { color:var(--green); }
-    .col-nombre { min-width:180px; }
+    .col-nombre { min-width:160px; }
     .col-nombre .product-name { font-weight:600; font-size:0.9rem; }
     .col-nombre .product-marca {
       font-size:0.75rem;
       color:var(--text-muted);
       margin-top:2px;
     }
-    .col-precio { font-size:1.1rem; font-weight:800; color:var(--green); white-space:nowrap; }
-    .col-por-kg { white-space:nowrap; }
-    .col-tienda { font-size:0.82rem; color:var(--text-muted); white-space:nowrap; }
-    .col-cta { text-align:right; }
+    .col-por-kg { white-space:nowrap; text-align:right; }
+    .col-tiendas { min-width:220px; }
+    .tiendas-wrap { display:flex; flex-wrap:wrap; gap:6px; }
 
     /* Mobile: hide table, show cards */
     .price-table-wrap { display:none; }
-    @media (min-width: 600px) {
+    @media (min-width: 640px) {
       .price-table-wrap { display:block; }
       .mobile-cards { display:none; }
     }
     .mobile-cards { display:block; }
+
+    /* Mobile card stores */
+    .card-stores {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
   </style>
 
   <!-- Desktop table -->
@@ -615,25 +655,25 @@
         <tr>
           <th style="width:32px;">#</th>
           <th>Producto</th>
-          <th class="right">Precio</th>
           <th class="right">€/kg</th>
-          <th>Tienda</th>
-          <th class="right">Comprar</th>
+          <th>Comparar precios</th>
         </tr>
       </thead>
       <tbody>
         
         
         <tr class="rank-1">
+
           <td class="col-rank rank-1">
             🏆
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA&#39;S INSTANTÁNEO 2:1:1 2.0 150g</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">4.35 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -645,25 +685,36 @@
               ">29.00 €/kg</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 4.35 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             2
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA + Glutamine 500g</div>
             <div class="product-marca">Quamtrax</div>
           </td>
-          <td class="col-precio" style="text-align:right;">17.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -675,25 +726,36 @@
               ">35.80 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 17.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             3
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA&#39;S INSTANTÁNEO 4:1:1 2.0 150g</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">5.45 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -705,25 +767,85 @@
               ">36.33 €/kg</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 5.45 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             4
           </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA 2:1:1 300 g</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">39.63 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/bcaa-211-300-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 11.89 €
+              </a>
+              
+              
+              <a href="https://www.nutritienda.com/es/dedicated-nutrition/bcaa-sensation-345g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 24.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            5
+          </td>
+
           <td class="col-nombre">
             <div class="product-name">High Energy Gel Bcaa 76g</div>
             <div class="product-marca">226ers</div>
           </td>
-          <td class="col-precio" style="text-align:right;">3.15 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -735,25 +857,36 @@
               ">41.45 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/226ers/high-energy-gel-bcaa-76g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/226ers/high-energy-gel-bcaa-76g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 3.15 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            5
+            6
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA+GLUTAMINE 500g</div>
             <div class="product-marca">Ramificados</div>
           </td>
-          <td class="col-precio" style="text-align:right;">21.28 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -765,25 +898,36 @@
               ">42.56 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 21.28 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            6
+            7
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Bcaa+Glutamine Concept 500g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">22.04 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -795,25 +939,36 @@
               ">44.08 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 22.04 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            7
+            8
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA&#39;S + GLUTAMINA 400g</div>
             <div class="product-marca">Aminoácidos</div>
           </td>
-          <td class="col-precio" style="text-align:right;">18.99 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -825,25 +980,85 @@
               ">47.47 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 18.99 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            8
+            9
           </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Zero BCAA 300 g</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">47.70 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-300-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 14.31 €
+              </a>
+              
+              
+              <a href="https://www.nutritienda.com/es/beverly-nutrition/bcaa-8-1-1-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 27.90 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            10
+          </td>
+
           <td class="col-nombre">
             <div class="product-name">PREMIUM BCAA ZERO 8:1:1 + L-GLUTAMINA 500g</div>
             <div class="product-marca">Weider</div>
           </td>
-          <td class="col-precio" style="text-align:right;">28.48 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -855,25 +1070,36 @@
               ">56.96 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 28.48 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            9
+            11
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA 2:1:1 500g</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">28.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -885,25 +1111,77 @@
               ">57.80 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 28.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            10
+            12
           </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAAs 8:1:1 Powder 300g</div>
+            <div class="product-marca">Eurosup</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">60.00 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/eurosup/bcaas-8-1-1-powder-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 18.00 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            13
+          </td>
+
           <td class="col-nombre">
             <div class="product-name">Bcaa+Glutamine Core 300g</div>
             <div class="product-marca">Procell</div>
           </td>
-          <td class="col-precio" style="text-align:right;">18.14 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -915,25 +1193,36 @@
               ">60.47 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 18.14 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            11
+            14
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Hardcore BCAA 390g</div>
             <div class="product-marca">Mutant</div>
           </td>
-          <td class="col-precio" style="text-align:right;">23.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -945,25 +1234,77 @@
               ">61.28 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 23.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            12
+            15
           </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA 8:1:1 300 g</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="
+                background:var(--surface);
+                border:1px solid var(--border);
+                border-radius:4px;
+                padding:2px 8px;
+                font-size:0.82rem;
+                color:var(--text-muted);
+              ">62.47 €/kg</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/bcaa-811-300-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 18.74 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            16
+          </td>
+
           <td class="col-nombre">
             <div class="product-name">Hydra BCAA&#39;s 420g</div>
             <div class="product-marca">Quamtrax</div>
           </td>
-          <td class="col-precio" style="text-align:right;">28.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -975,25 +1316,36 @@
               ">68.81 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 28.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            13
+            17
           </td>
+
           <td class="col-nombre">
             <div class="product-name">GLUTAMINA &amp; BCAAS 2:1:1 300g</div>
             <div class="product-marca">Be Essential</div>
           </td>
-          <td class="col-precio" style="text-align:right;">20.65 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1005,25 +1357,36 @@
               ">68.83 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 20.65 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            14
+            18
           </td>
+
           <td class="col-nombre">
             <div class="product-name">AFTER 420g</div>
             <div class="product-marca">BioTechUSA</div>
           </td>
-          <td class="col-precio" style="text-align:right;">29.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1035,25 +1398,36 @@
               ">71.19 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 29.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            15
+            19
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Bcaa+Glutamine 600g</div>
             <div class="product-marca">MEGA PLUS</div>
           </td>
-          <td class="col-precio" style="text-align:right;">43.01 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1065,25 +1439,36 @@
               ">71.68 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 43.01 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            16
+            20
           </td>
+
           <td class="col-nombre">
-            <div class="product-name">Bcaa Sensation 345g</div>
-            <div class="product-marca">Optimum Nutrition</div>
+            <div class="product-name">Zero BCAA 150 g</div>
+            <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">24.99 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1092,28 +1477,39 @@
                 padding:2px 8px;
                 font-size:0.82rem;
                 color:var(--text-muted);
-              ">72.43 €/kg</span>
+              ">73.60 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/dedicated-nutrition/bcaa-sensation-345g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-150-g"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 11.04 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            17
+            21
           </td>
+
           <td class="col-nombre">
             <div class="product-name">EVO 4:1:1 (BCAA&#39;S INSTANTÁNEOS) EN POLVO 150g</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">12.10 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1125,25 +1521,36 @@
               ">80.67 €/kg</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 12.10 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            18
+            22
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA + GLUTAMINE ZERO 480g</div>
             <div class="product-marca">BioTechUSA</div>
           </td>
-          <td class="col-precio" style="text-align:right;">38.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1155,25 +1562,36 @@
               ">81.04 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 38.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            19
+            23
           </td>
+
           <td class="col-nombre">
             <div class="product-name">EVOBCAA&#39;S COMPLEX EN POLVO 150g</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">12.83 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1185,25 +1603,36 @@
               ">85.53 €/kg</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 12.83 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            20
+            24
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA Xpress 280g</div>
             <div class="product-marca">Scitec Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">24.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1215,55 +1644,36 @@
               ">88.93 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/scitec/bcaa-xpress-280g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/scitec/bcaa-xpress-280g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 24.90 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            21
+            25
           </td>
-          <td class="col-nombre">
-            <div class="product-name">BCAA 8:1:1 300g</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">27.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="
-                background:var(--surface);
-                border:1px solid var(--border);
-                border-radius:4px;
-                padding:2px 8px;
-                font-size:0.82rem;
-                color:var(--text-muted);
-              ">93.00 €/kg</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/beverly-nutrition/bcaa-8-1-1-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            22
-          </td>
+
           <td class="col-nombre">
             <div class="product-name">EVOBCAA&#39;S 2.0 (BCAA&#39;S 12:1:1 + GLUTAMINA) 150g</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">13.95 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1275,25 +1685,36 @@
               ">93.00 €/kg</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 13.95 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            23
+            26
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA 12:1:1 Glutamina Kojak 400g</div>
             <div class="product-marca">Big</div>
           </td>
-          <td class="col-precio" style="text-align:right;">37.75 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1305,25 +1726,36 @@
               ">94.38 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 37.75 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            24
+            27
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA INSTANT DRINK 300g</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">34.00 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="
                 background:var(--surface);
@@ -1335,265 +1767,947 @@
               ">113.33 €/kg</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 34.00 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            25
+            28
           </td>
+
           <td class="col-nombre">
             <div class="product-name">AMINOÁCIDOS RAMIFICADOS BCAA&#39;S 120 Caps</div>
             <div class="product-marca">KEEPGOING</div>
           </td>
-          <td class="col-precio" style="text-align:right;">22.05 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/keepgoing/aminoacidos-ramificados-bcaa-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/keepgoing/aminoacidos-ramificados-bcaa-120-caps"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 22.05 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
-          <td class="col-rank ">
-            26
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">BCAA 4:1:1 Competition 150 Caps</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">23.21 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/mega-plus/bcaa-4-1-1-competition-150-capsulas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            27
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">BCAA COMPLEX 120 Caps</div>
-            <div class="product-marca">Aminácidos y Vitaminas</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">17.60 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/nutrend/bcaa-complex-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
-          <td class="col-rank ">
-            28
-          </td>
-          <td class="col-nombre">
-            <div class="product-name">4:1:1 Anabolic BCAA 150 Caps</div>
-            <div class="product-marca">Optimum Nutrition</div>
-          </td>
-          <td class="col-precio" style="text-align:right;">19.71 €</td>
-          <td class="col-por-kg" style="text-align:right;">
-            
-              <span style="color:var(--text-dim);">—</span>
-            
-          </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/starlabs-nutrition/4-1-1-anabolic-bcaa-150-capsulas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
-          </td>
-        </tr>
-        
-        
-        <tr >
+
           <td class="col-rank ">
             29
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Muscle BCAA 4:1:1 120 VCaps</div>
             <div class="product-marca">Optimum Nutrition</div>
           </td>
-          <td class="col-precio" style="text-align:right;">17.50 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/muscle-bcaa-4-1-1-120-capsulas-vegetales" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/muscle-bcaa-4-1-1-120-capsulas-vegetales"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 17.50 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             30
           </td>
+
           <td class="col-nombre">
             <div class="product-name">Amino Recovery 120 Caps</div>
             <div class="product-marca">Amazin&#39; Foods</div>
           </td>
-          <td class="col-precio" style="text-align:right;">11.99 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/amazin-foods/amino-recovery-120-capsulas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/amazin-foods/amino-recovery-120-capsulas"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 11.99 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
             31
           </td>
+
+          <td class="col-nombre">
+            <div class="product-name">4:1:1 Anabolic BCAA 150 Caps</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/starlabs-nutrition/4-1-1-anabolic-bcaa-150-capsulas"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 19.71 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            32
+          </td>
+
           <td class="col-nombre">
             <div class="product-name">6,4 Amino+ 120 Caps</div>
             <div class="product-marca">Glutamina + BCAAs</div>
           </td>
-          <td class="col-precio" style="text-align:right;">27.00 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/226ers/6-4-amino-glutamina-bcaas-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/226ers/6-4-amino-glutamina-bcaas-120-caps"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 27.00 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            32
+            33
           </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA 4:1:1 Competition 150 Caps</div>
+            <div class="product-marca">Optimum Nutrition</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/mega-plus/bcaa-4-1-1-competition-150-capsulas"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 23.21 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            34
+          </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA&#39;S 2:1:1 200 Tabs</div>
             <div class="product-marca">Aminoácidos ramificados</div>
           </td>
-          <td class="col-precio" style="text-align:right;">14.90 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/amazin-foods/bcaas-211-aminoacidos-ramificados-200-tabs" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/amazin-foods/bcaas-211-aminoacidos-ramificados-200-tabs"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 14.90 €
+              </a>
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/bcaa-211-200-tabs"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 16.19 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            33
+            35
           </td>
+
           <td class="col-nombre">
             <div class="product-name">BCAA+ 8:1:1 200 Tabs</div>
             <div class="product-marca">+Watt</div>
           </td>
-          <td class="col-precio" style="text-align:right;">35.25 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">Nutritienda</td>
-          <td class="col-cta">
-            <a href="https://www.nutritienda.com/es/watt/bcaa-8-1-1-200-tabs" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.nutritienda.com/es/watt/bcaa-8-1-1-200-tabs"
+                 class="store-pill store-nutritienda"
+                 target="_blank" rel="nofollow noopener"
+                 title="Nutritienda">
+                Nutritienda · 35.25 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            34
+            36
           </td>
+
           <td class="col-nombre">
             <div class="product-name">EVO 2:1:1 (BCAA&#39;S 2:1:1 + VITAMINAS B6 Y B12)</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">9.30 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/sport-series/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/sport-series/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 9.30 €
+              </a>
+              
+            </div>
           </td>
+
         </tr>
         
         
         <tr >
+
           <td class="col-rank ">
-            35
+            37
           </td>
+
           <td class="col-nombre">
             <div class="product-name">EVO 4:1:1 (BCAA&#39;S 4:1:1 + VITAMINAS B6 Y B12)</div>
             <div class="product-marca">Desconocida</div>
           </td>
-          <td class="col-precio" style="text-align:right;">10.40 €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             
               <span style="color:var(--text-dim);">—</span>
             
           </td>
-          <td class="col-tienda">HSN</td>
-          <td class="col-cta">
-            <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12"
+                 class="store-pill store-hsn"
+                 target="_blank" rel="nofollow noopener"
+                 title="HSN">
+                HSN · 10.40 €
+              </a>
+              
+            </div>
           </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            38
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA 8:1:1 180 tabs</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/bcaa-811-180-tabs"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 13.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            39
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA + Glutamine 30 servings</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/bcaa-glutamine-30-servings"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 13.49 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            40
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Amino Recovery 20 servings</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/amino-recovery-20-servings"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 14.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            41
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Amino Prime Caffeine Free 20 Servings</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/amino-prime-caffeine-free-20-servings"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 14.39 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            42
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Amino Prime 20 servings</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/amino-prime-20-servings"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 12.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            43
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA 4:1:1 100 tabs</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/bcaa-411-100-tabs"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 7.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            44
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA 8:1:1 360 tabs</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/bcaa-811-360-tabs"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 26.24 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            45
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">2 x Recovery RTD 500 mL Wild Berry</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-wild-berry"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 2.86 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            46
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">2 x Recovery RTD 500 mL Orange</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-orange"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 2.86 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            47
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA 2:1:1 - 400 tabs</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/bcaa-211-400-tabs"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 30.76 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            48
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">3 x BCAA Drink 500 mL</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/3-x-bcaa-drink-500-ml"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 3.80 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            49
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA + Glutamine 60 servings</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.prozis.com/es/es/prozis/bcaa-glutamine-60-servings"
+                 class="store-pill store-prozis"
+                 target="_blank" rel="nofollow noopener"
+                 title="Prozis">
+                Prozis · 24.29 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            50
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA Comprimidos</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/bcaa-comprimidos/10529813/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 8.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            51
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA 2:1:1</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/bcaa-2-1-1/10529280/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 13.49 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            52
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA Esenciales 4:1:1 Cápsulas</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/bcaa-esenciales-4-1-1-capsulas/10860388/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 12.49 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            53
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">Origin Intra-Workout</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/origin-intra-workout/16872733/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 32.99 €
+              </a>
+              
+            </div>
+          </td>
+
+        </tr>
+        
+        
+        <tr >
+
+          <td class="col-rank ">
+            54
+          </td>
+
+          <td class="col-nombre">
+            <div class="product-name">BCAA 4:1:1 en polvo</div>
+            <div class="product-marca">Desconocida</div>
+          </td>
+
+          <td class="col-por-kg">
+            
+              <span style="color:var(--text-dim);">—</span>
+            
+          </td>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              
+              
+              <a href="https://www.myprotein.es/p/nutricion-deportiva/bcaa-4-1-1-en-polvo/10830546/"
+                 class="store-pill store-myprotein"
+                 target="_blank" rel="nofollow noopener"
+                 title="MyProtein">
+                MyProtein · 16.99 €
+              </a>
+              
+            </div>
+          </td>
+
         </tr>
         
       </tbody>
@@ -1605,7 +2719,9 @@
     <div class="product-grid">
       
       
+      
       <div class="product-card rank-1">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
@@ -1626,16 +2742,24 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 4.35 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Quamtrax</div>
@@ -1656,16 +2780,24 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 17.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
@@ -1686,23 +2818,76 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 5.45 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#4</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA 2:1:1 300 g</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">11.89 €</span>
+          
+            <span class="card-price-kg">39.63 €/kg</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/bcaa-211-300-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 11.89 €
+          </a>
+          
+          
+          <a href="https://www.nutritienda.com/es/dedicated-nutrition/bcaa-sensation-345g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 24.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">226ers</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#4</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#5</span>
             
           </div>
         </div>
@@ -1716,23 +2901,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/226ers/high-energy-gel-bcaa-76g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/226ers/high-energy-gel-bcaa-76g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 3.15 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Ramificados</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#5</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#6</span>
             
           </div>
         </div>
@@ -1746,23 +2939,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 21.28 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#6</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#7</span>
             
           </div>
         </div>
@@ -1776,23 +2977,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 22.04 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Aminoácidos</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#7</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#8</span>
             
           </div>
         </div>
@@ -1806,23 +3015,76 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 18.99 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#9</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Zero BCAA 300 g</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">14.31 €</span>
+          
+            <span class="card-price-kg">47.70 €/kg</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-300-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 14.31 €
+          </a>
+          
+          
+          <a href="https://www.nutritienda.com/es/beverly-nutrition/bcaa-8-1-1-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 27.90 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Weider</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#8</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#10</span>
             
           </div>
         </div>
@@ -1836,23 +3098,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 28.48 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#9</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#11</span>
             
           </div>
         </div>
@@ -1866,23 +3136,69 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 28.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Eurosup</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#12</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAAs 8:1:1 Powder 300g</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">18.00 €</span>
+          
+            <span class="card-price-kg">60.00 €/kg</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/eurosup/bcaas-8-1-1-powder-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 18.00 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Procell</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#10</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#13</span>
             
           </div>
         </div>
@@ -1896,23 +3212,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 18.14 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Mutant</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#11</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#14</span>
             
           </div>
         </div>
@@ -1926,23 +3250,69 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 23.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#15</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA 8:1:1 300 g</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">18.74 €</span>
+          
+            <span class="card-price-kg">62.47 €/kg</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/bcaa-811-300-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 18.74 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Quamtrax</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#12</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#16</span>
             
           </div>
         </div>
@@ -1956,23 +3326,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 28.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Be Essential</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#13</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#17</span>
             
           </div>
         </div>
@@ -1986,23 +3364,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 20.65 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">BioTechUSA</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#14</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#18</span>
             
           </div>
         </div>
@@ -2016,23 +3402,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 29.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">MEGA PLUS</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#15</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#19</span>
             
           </div>
         </div>
@@ -2046,53 +3440,69 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Optimum Nutrition</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#16</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">Bcaa Sensation 345g</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">24.99 €</span>
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
           
-            <span class="card-price-kg">72.43 €/kg</span>
+          
+          <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 43.01 €
+          </a>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/dedicated-nutrition/bcaa-sensation-345g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#17</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#20</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Zero BCAA 150 g</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">11.04 €</span>
+          
+            <span class="card-price-kg">73.60 €/kg</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-150-g"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 11.04 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#21</span>
             
           </div>
         </div>
@@ -2106,23 +3516,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 12.10 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">BioTechUSA</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#18</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#22</span>
             
           </div>
         </div>
@@ -2136,23 +3554,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 38.90 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#19</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#23</span>
             
           </div>
         </div>
@@ -2166,23 +3592,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 12.83 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Scitec Nutrition</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#20</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#24</span>
             
           </div>
         </div>
@@ -2196,53 +3630,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/scitec/bcaa-xpress-280g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Optimum Nutrition</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#21</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">BCAA 8:1:1 300g</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">27.90 €</span>
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
           
-            <span class="card-price-kg">93.00 €/kg</span>
+          
+          <a href="https://www.nutritienda.com/es/scitec/bcaa-xpress-280g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 24.90 €
+          </a>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/beverly-nutrition/bcaa-8-1-1-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#22</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#25</span>
             
           </div>
         </div>
@@ -2256,23 +3668,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 13.95 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Big</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#23</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#26</span>
             
           </div>
         </div>
@@ -2286,23 +3706,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 37.75 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#24</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#27</span>
             
           </div>
         </div>
@@ -2316,23 +3744,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 34.00 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">KEEPGOING</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#25</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#28</span>
             
           </div>
         </div>
@@ -2344,100 +3780,24 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/keepgoing/aminoacidos-ramificados-bcaa-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/keepgoing/aminoacidos-ramificados-bcaa-120-caps"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 22.05 €
           </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Optimum Nutrition</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#26</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">BCAA 4:1:1 Competition 150 Caps</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">23.21 €</span>
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/mega-plus/bcaa-4-1-1-competition-150-capsulas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
       </div>
       
       
-      <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Aminácidos y Vitaminas</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#27</span>
-            
-          </div>
-        </div>
-
-        <div class="card-nombre">BCAA COMPLEX 120 Caps</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">17.60 €</span>
-          
-        </div>
-
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/nutrend/bcaa-complex-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
       
       <div class="product-card ">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">Optimum Nutrition</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            
-              <span style="font-size:0.78rem; color:var(--text-dim);">#28</span>
-            
-          </div>
-        </div>
 
-        <div class="card-nombre">4:1:1 Anabolic BCAA 150 Caps</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">19.71 €</span>
-          
-        </div>
-
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/starlabs-nutrition/4-1-1-anabolic-bcaa-150-capsulas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
-          </a>
-        </div>
-      </div>
-      
-      
-      <div class="product-card ">
         <div class="card-header">
           <div>
             <div class="card-marca">Optimum Nutrition</div>
@@ -2456,16 +3816,24 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/muscle-bcaa-4-1-1-120-capsulas-vegetales" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/dmi-innovative-nutrition/muscle-bcaa-4-1-1-120-capsulas-vegetales"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 17.50 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Amazin&#39; Foods</div>
@@ -2484,23 +3852,67 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/amazin-foods/amino-recovery-120-capsulas" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/amazin-foods/amino-recovery-120-capsulas"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 11.99 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#31</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">4:1:1 Anabolic BCAA 150 Caps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">19.71 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/starlabs-nutrition/4-1-1-anabolic-bcaa-150-capsulas"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 19.71 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Glutamina + BCAAs</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#31</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#32</span>
             
           </div>
         </div>
@@ -2512,23 +3924,67 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/226ers/6-4-amino-glutamina-bcaas-120-caps" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/226ers/6-4-amino-glutamina-bcaas-120-caps"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 27.00 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Optimum Nutrition</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#33</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA 4:1:1 Competition 150 Caps</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">23.21 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/mega-plus/bcaa-4-1-1-competition-150-capsulas"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 23.21 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Aminoácidos ramificados</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#32</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#34</span>
             
           </div>
         </div>
@@ -2540,23 +3996,38 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/amazin-foods/bcaas-211-aminoacidos-ramificados-200-tabs" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/amazin-foods/bcaas-211-aminoacidos-ramificados-200-tabs"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 14.90 €
           </a>
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/bcaa-211-200-tabs"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 16.19 €
+          </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">+Watt</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#33</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#35</span>
             
           </div>
         </div>
@@ -2568,23 +4039,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">Nutritienda</span>
-          <a href="https://www.nutritienda.com/es/watt/bcaa-8-1-1-200-tabs" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.nutritienda.com/es/watt/bcaa-8-1-1-200-tabs"
+             class="store-pill store-nutritienda"
+             target="_blank" rel="nofollow noopener">
+            Nutritienda · 35.25 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#34</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#36</span>
             
           </div>
         </div>
@@ -2596,23 +4075,31 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/sport-series/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 9.30 €
           </a>
+          
         </div>
+
       </div>
       
       
+      
       <div class="product-card ">
+
         <div class="card-header">
           <div>
             <div class="card-marca">Desconocida</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             
-              <span style="font-size:0.78rem; color:var(--text-dim);">#35</span>
+              <span style="font-size:0.78rem; color:var(--text-dim);">#37</span>
             
           </div>
         </div>
@@ -2624,12 +4111,630 @@
           
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">HSN</span>
-          <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12"
+             class="store-pill store-hsn"
+             target="_blank" rel="nofollow noopener">
+            HSN · 10.40 €
           </a>
+          
         </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#38</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA 8:1:1 180 tabs</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">13.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/bcaa-811-180-tabs"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 13.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#39</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA + Glutamine 30 servings</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">13.49 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/bcaa-glutamine-30-servings"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 13.49 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#40</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Amino Recovery 20 servings</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">14.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/amino-recovery-20-servings"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 14.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#41</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Amino Prime Caffeine Free 20 Servings</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">14.39 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/amino-prime-caffeine-free-20-servings"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 14.39 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#42</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Amino Prime 20 servings</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">12.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/amino-prime-20-servings"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 12.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#43</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA 4:1:1 100 tabs</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">7.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/bcaa-411-100-tabs"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 7.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#44</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA 8:1:1 360 tabs</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">26.24 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/bcaa-811-360-tabs"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 26.24 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#45</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">2 x Recovery RTD 500 mL Wild Berry</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">2.86 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-wild-berry"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 2.86 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#46</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">2 x Recovery RTD 500 mL Orange</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">2.86 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-orange"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 2.86 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#47</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA 2:1:1 - 400 tabs</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">30.76 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/bcaa-211-400-tabs"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 30.76 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#48</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">3 x BCAA Drink 500 mL</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">3.80 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/3-x-bcaa-drink-500-ml"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 3.80 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#49</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA + Glutamine 60 servings</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">24.29 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/bcaa-glutamine-60-servings"
+             class="store-pill store-prozis"
+             target="_blank" rel="nofollow noopener">
+            Prozis · 24.29 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#50</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA Comprimidos</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">8.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/bcaa-comprimidos/10529813/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 8.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#51</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA 2:1:1</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">13.49 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/bcaa-2-1-1/10529280/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 13.49 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#52</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA Esenciales 4:1:1 Cápsulas</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">12.49 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/bcaa-esenciales-4-1-1-capsulas/10860388/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 12.49 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#53</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">Origin Intra-Workout</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">32.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/origin-intra-workout/16872733/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 32.99 €
+          </a>
+          
+        </div>
+
+      </div>
+      
+      
+      
+      <div class="product-card ">
+
+        <div class="card-header">
+          <div>
+            <div class="card-marca">Desconocida</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            
+              <span style="font-size:0.78rem; color:var(--text-dim);">#54</span>
+            
+          </div>
+        </div>
+
+        <div class="card-nombre">BCAA 4:1:1 en polvo</div>
+
+        <div class="card-prices">
+          <span class="card-price-main">16.99 €</span>
+          
+        </div>
+
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/bcaa-4-1-1-en-polvo/10830546/"
+             class="store-pill store-myprotein"
+             target="_blank" rel="nofollow noopener">
+            MyProtein · 16.99 €
+          </a>
+          
+        </div>
+
       </div>
       
     </div>
