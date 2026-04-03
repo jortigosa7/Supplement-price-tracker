@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-04-02",
+  "last_updated": "2026-04-03",
   "site": "SuplementosPrecio.es",
-  "total": 88,
+  "total": 144,
   "products": [
     {
       "id": "bcaa-glutamine-500g-quamtrax",
@@ -20,7 +20,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -41,7 +41,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/226ers/high-energy-gel-bcaa-76g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -62,7 +62,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -83,7 +83,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -104,7 +104,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -125,7 +125,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -146,7 +146,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -167,7 +167,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -188,28 +188,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "after-420g-biotechusa",
-      "nombre_normalizado": "AFTER 420g",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "BioTechUSA",
-      "peso_kg": 0.42,
-      "precio_por_kg_min": 66.43,
-      "precio_min": 27.9,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 27.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -230,7 +209,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -251,7 +230,28 @@
           "url_afiliado": "https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "after-420g-biotechusa",
+      "nombre_normalizado": "AFTER 420g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "BioTechUSA",
+      "peso_kg": 0.42,
+      "precio_por_kg_min": 71.19,
+      "precio_min": 29.9,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 29.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -272,7 +272,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -293,7 +293,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/dedicated-nutrition/bcaa-sensation-345g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -304,38 +304,17 @@
       "categoria_display": "BCAA",
       "marca": "BioTechUSA",
       "peso_kg": 0.48,
-      "precio_por_kg_min": 74.79,
-      "precio_min": 35.9,
+      "precio_por_kg_min": 81.04,
+      "precio_min": 38.9,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 35.9,
+          "precio_eur": 38.9,
           "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "bcaa-8-1-1-300g-226ers",
-      "nombre_normalizado": "BCAA 8:1:1 300g",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "226ers",
-      "peso_kg": 0.3,
-      "precio_por_kg_min": 76.5,
-      "precio_min": 22.95,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 22.95,
-          "url_afiliado": "https://www.nutritienda.com/es/226ers-bcaa-8-1-1-300g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -356,7 +335,28 @@
           "url_afiliado": "https://www.nutritienda.com/es/scitec/bcaa-xpress-280g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "bcaa-8-1-1-300g-optimum-nutrition",
+      "nombre_normalizado": "BCAA 8:1:1 300g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.3,
+      "precio_por_kg_min": 93.0,
+      "precio_min": 27.9,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 27.9,
+          "url_afiliado": "https://www.nutritienda.com/es/beverly-nutrition/bcaa-8-1-1-300g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -377,7 +377,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -398,7 +398,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -419,70 +419,7 @@
           "url_afiliado": "https://www.nutritienda.com/es/keepgoing/aminoacidos-ramificados-bcaa-120-caps",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "bcaa-complex-120-caps-aminacidos-y-vitaminas",
-      "nombre_normalizado": "BCAA COMPLEX 120 Caps",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "Aminácidos y Vitaminas",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 17.6,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 17.6,
-          "url_afiliado": "https://www.nutritienda.com/es/nutrend/bcaa-complex-120-caps",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "amino-recovery-120-caps-victory-endurance",
-      "nombre_normalizado": "AMINO RECOVERY 120 Caps",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "VICTORY ENDURANCE",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 18.52,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 18.52,
-          "url_afiliado": "https://www.nutritienda.com/es/victory-endurance-amino-recovery-120-caps",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "4-1-1-anabolic-bcaa-150-caps-optimum-nutrition",
-      "nombre_normalizado": "4:1:1 Anabolic BCAA 150 Caps",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 19.71,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 19.71,
-          "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition/4-1-1-anabolic-bcaa-150-capsulas",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -503,49 +440,49 @@
           "url_afiliado": "https://www.nutritienda.com/es/mega-plus/bcaa-4-1-1-competition-150-capsulas",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "6-4-amino-120-caps-glutamina-bcaas",
-      "nombre_normalizado": "6,4 Amino+ 120 Caps",
+      "id": "bcaa-complex-120-caps-aminacidos-y-vitaminas",
+      "nombre_normalizado": "BCAA COMPLEX 120 Caps",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Glutamina + BCAAs",
+      "marca": "Aminácidos y Vitaminas",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 27.0,
+      "precio_min": 17.6,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 27.0,
-          "url_afiliado": "https://www.nutritienda.com/es/226ers/6-4-amino-glutamina-bcaas-120-caps",
+          "precio_eur": 17.6,
+          "url_afiliado": "https://www.nutritienda.com/es/nutrend/bcaa-complex-120-caps",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "amino-recovery-120-caps-amazin-foods",
-      "nombre_normalizado": "Amino Recovery 120 Caps",
+      "id": "4-1-1-anabolic-bcaa-150-caps-optimum-nutrition",
+      "nombre_normalizado": "4:1:1 Anabolic BCAA 150 Caps",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Amazin' Foods",
+      "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 11.99,
+      "precio_min": 19.71,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 11.99,
-          "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/amino-recovery-120-capsulas",
+          "precio_eur": 19.71,
+          "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition/4-1-1-anabolic-bcaa-150-capsulas",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -566,7 +503,49 @@
           "url_afiliado": "https://www.nutritienda.com/es/dmi-innovative-nutrition/muscle-bcaa-4-1-1-120-capsulas-vegetales",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "amino-recovery-120-caps-amazin-foods",
+      "nombre_normalizado": "Amino Recovery 120 Caps",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Amazin' Foods",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 11.99,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 11.99,
+          "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/amino-recovery-120-capsulas",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "6-4-amino-120-caps-glutamina-bcaas",
+      "nombre_normalizado": "6,4 Amino+ 120 Caps",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Glutamina + BCAAs",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 27.0,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 27.0,
+          "url_afiliado": "https://www.nutritienda.com/es/226ers/6-4-amino-glutamina-bcaas-120-caps",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -587,112 +566,309 @@
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/bcaas-211-aminoacidos-ramificados-200-tabs",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creaport-600g-nutrend",
-      "nombre_normalizado": "CREAPORT 600g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "NUTREND",
-      "peso_kg": 0.6,
-      "precio_por_kg_min": 30.0,
-      "precio_min": 18.0,
+      "id": "bcaa-8-1-1-200-tabs-watt",
+      "nombre_normalizado": "BCAA+ 8:1:1 200 Tabs",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "+Watt",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 35.25,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 18.0,
-          "url_afiliado": "https://www.nutritienda.com/es/nutrend/creaport-600g",
+          "precio_eur": 35.25,
+          "url_afiliado": "https://www.nutritienda.com/es/watt/bcaa-8-1-1-200-tabs",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creatina-celular-800g-optimum-nutrition",
-      "nombre_normalizado": "CREATINA CELULAR 800g",
+      "id": "evo-4-1-1-bcaa-s-instantaneos-en-polvo-desconocida",
+      "nombre_normalizado": "EVO 4:1:1 (BCAA'S INSTANTÁNEOS) EN POLVO",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 12.1,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 12.1,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobcaa-s-complex-en-polvo-desconocida",
+      "nombre_normalizado": "EVOBCAA'S COMPLEX EN POLVO",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 12.83,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 12.83,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-desconocida",
+      "nombre_normalizado": "EVOBCAA'S 2.0 (BCAA'S 12:1:1 + GLUTAMINA)",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 13.95,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 13.95,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12-desconocida",
+      "nombre_normalizado": "EVO 2:1:1 (BCAA'S 2:1:1 + VITAMINAS B6 Y B12)",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 9.3,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 9.3,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12-desconocida",
+      "nombre_normalizado": "EVO 4:1:1 (BCAA'S 4:1:1 + VITAMINAS B6 Y B12)",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 10.4,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 10.4,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "bcaa-s-instantaneo-2-1-1-2-0-desconocida",
+      "nombre_normalizado": "BCAA'S INSTANTÁNEO 2:1:1 2.0",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 4.35,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 4.35,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "bcaa-s-instantaneo-4-1-1-2-0-desconocida",
+      "nombre_normalizado": "BCAA'S INSTANTÁNEO 4:1:1 2.0",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 5.45,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 5.45,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "creatina-monohidrato-200-mesh-300g-optimum-nutrition",
+      "nombre_normalizado": "Creatina Monohidrato 200 MESH 300g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.3,
+      "precio_por_kg_min": 7.9,
+      "precio_min": 2.37,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 2.37,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 15.49,
+          "url_afiliado": "https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-200-mesh-300g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "cellbest-extreme-1-3-kg-vitobest",
+      "nombre_normalizado": "Cellbest Extreme 1.3 Kg",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Vitobest",
+      "peso_kg": 1.3,
+      "precio_por_kg_min": 25.48,
+      "precio_min": 33.12,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 33.12,
+          "url_afiliado": "https://www.nutritienda.com/es/vitobest/cellbest-extreme-1300g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "creatina-monohidratada-sabores-500g-optimum-nutrition",
+      "nombre_normalizado": "Creatina Monohidratada Sabores 500g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 33.98,
+      "precio_min": 16.99,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 16.99,
+          "url_afiliado": "https://www.nutritienda.com/es/bulk/creatina-monohidratada-sabores-500g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "creatine-monohydrate-800g-optimum-nutrition",
+      "nombre_normalizado": "Creatine Monohydrate 800g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
       "peso_kg": 0.8,
-      "precio_por_kg_min": 33.7,
-      "precio_min": 26.96,
+      "precio_por_kg_min": 49.81,
+      "precio_min": 39.85,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 26.96,
-          "url_afiliado": "https://www.nutritienda.com/es/keepgoing/creatina-celular-800g",
+          "precio_eur": 39.85,
+          "url_afiliado": "https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-800g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creatina-celular-500g-nutrisport",
-      "nombre_normalizado": "CREATINA CELULAR 500g",
+      "id": "battery-creatine-500g-rendimiento-deportivo",
+      "nombre_normalizado": "Battery Creatine 500g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "NUTRISPORT",
+      "marca": "Rendimiento Deportivo",
       "peso_kg": 0.5,
-      "precio_por_kg_min": 36.6,
-      "precio_min": 18.3,
+      "precio_por_kg_min": 53.98,
+      "precio_min": 26.99,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 18.3,
-          "url_afiliado": "https://www.nutritienda.com/es/nutrisport-creatina-celular-500g",
+          "precio_eur": 26.99,
+          "url_afiliado": "https://www.nutritienda.com/es/battery-nutrition/battery-creatine-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "100-creatina-monohidrato-500g-optimum-nutrition",
-      "nombre_normalizado": "100% CREATINA MONOHIDRATO 500g",
+      "id": "creatine-monohydrate-micronized-sabor-neutro-250g-optimum-nutrition",
+      "nombre_normalizado": "Creatine Monohydrate Micronized Sabor Neutro 250g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 49.8,
-      "precio_min": 24.9,
+      "peso_kg": 0.25,
+      "precio_por_kg_min": 59.6,
+      "precio_min": 14.9,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 24.9,
-          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/creatina-monohidrato-500g",
+          "precio_eur": 14.9,
+          "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/creatine-monohydrate-micronized-sabor-neutro-250g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "crea-extreme-tank-500g-creatina-creapure",
-      "nombre_normalizado": "CREA EXTREME TANK 500g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Creatina creapure",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 57.76,
-      "precio_min": 28.88,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 28.88,
-          "url_afiliado": "https://www.nutritienda.com/es/beverly-nutrition/crea-extreme-tank-creatina-creapure-500g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -713,49 +889,49 @@
           "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatina-1000g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "100-creatine-monohydrate-micronized-300g-optimum-nutrition",
-      "nombre_normalizado": "100% Creatine Monohydrate Micronized 300g",
+      "id": "creatine-xplode-powder-500-g-optimum-nutrition",
+      "nombre_normalizado": "CREATINE XPLODE POWDER 500 g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
-      "peso_kg": 0.3,
-      "precio_por_kg_min": 61.07,
-      "precio_min": 18.32,
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 60.56,
+      "precio_min": 30.28,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 18.32,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/100-creatine-monohydrate-micronized-300g",
+          "precio_eur": 30.28,
+          "url_afiliado": "https://www.nutritienda.com/es/olimp-creatine-xplode-powder-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creatina-306g-cellucor",
-      "nombre_normalizado": "CREATINA 306g",
+      "id": "creatine-xplode-powder-500g-olimp",
+      "nombre_normalizado": "Creatine Xplode Powder 500g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Cellucor",
-      "peso_kg": 0.306,
-      "precio_por_kg_min": 61.93,
-      "precio_min": 18.95,
+      "marca": "Olimp",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 60.56,
+      "precio_min": 30.28,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 18.95,
-          "url_afiliado": "https://www.nutritienda.com/es/cellucor/creatina-306g",
+          "precio_eur": 30.28,
+          "url_afiliado": "https://www.nutritienda.com/es/olimp/creatine-xplode-powder-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -776,76 +952,13 @@
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creatine-flavoured-zero-500g-creatina",
-      "nombre_normalizado": "CREATINE FLAVOURED ZERO 500g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Creatina",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 68.22,
-      "precio_min": 34.11,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 34.11,
-          "url_afiliado": "https://www.nutritienda.com/es/ironmaxx/creatine-flavoured-zero-500g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "creapowder-500g-optimum-nutrition",
-      "nombre_normalizado": "CreaPowder 500g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 69.9,
-      "precio_min": 34.95,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 34.95,
-          "url_afiliado": "https://www.nutritienda.com/es/yamamoto-nutrition/creapowder-500g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "micronized-creatine-powder-634g-optimum-nutrition",
-      "nombre_normalizado": "MICRONIZED CREATINE POWDER 634g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.634,
-      "precio_por_kg_min": 70.82,
-      "precio_min": 44.9,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 44.9,
-          "url_afiliado": "https://www.nutritienda.com/es/optimum-nutrition-creatina-micronizada-powder-634g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "100-creatine-monohydrate-micronized-500g-optimum-nutrition",
-      "nombre_normalizado": "100% CREATINE MONOHYDRATE MICRONIZED 500g",
+      "id": "creatine-x-gen-500g-optimum-nutrition",
+      "nombre_normalizado": "Creatine X-Gen 500g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
@@ -857,157 +970,199 @@
         {
           "tienda": "Nutritienda",
           "precio_eur": 36.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa-100-creatine-monohidrate-micronized-500g",
+          "url_afiliado": "https://www.nutritienda.com/es/scientiffic-nutrition/creatine-x-gen-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "cr5-creatine-500-g-optimum-nutrition",
-      "nombre_normalizado": "CR5 CREATINE 500 g",
+      "id": "creamax-monohydrate-200g-optimum-nutrition",
+      "nombre_normalizado": "Creamax Monohydrate 200g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 74.7,
-      "precio_min": 37.35,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 37.35,
-          "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-500g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "cr5-creatine-300-g-optimum-nutrition",
-      "nombre_normalizado": "CR5 CREATINE 300 g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.3,
+      "peso_kg": 0.2,
       "precio_por_kg_min": 76.5,
-      "precio_min": 22.95,
+      "precio_min": 15.3,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 22.95,
-          "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-300g",
+          "precio_eur": 15.3,
+          "url_afiliado": "https://www.nutritienda.com/es/4pro-nutrition/creamax-monohydrate-200g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creatina-300g-226ers",
-      "nombre_normalizado": "Creatina 300g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "226ERS",
-      "peso_kg": 0.3,
-      "precio_por_kg_min": 86.63,
-      "precio_min": 25.99,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 25.99,
-          "url_afiliado": "https://www.nutritienda.com/es/226ers-creatina-300g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "creatina-300g-optimum-nutrition",
-      "nombre_normalizado": "CREATINA 300g",
+      "id": "creatina-monohidratada-pura-300g-optimum-nutrition",
+      "nombre_normalizado": "Creatina Monohidratada Pura 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
       "peso_kg": 0.3,
-      "precio_por_kg_min": 89.43,
-      "precio_min": 26.83,
+      "precio_por_kg_min": 79.17,
+      "precio_min": 23.75,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 26.83,
-          "url_afiliado": "https://www.nutritienda.com/es/infisport/creatina-monohidrato-creapure-300g",
+          "precio_eur": 23.75,
+          "url_afiliado": "https://www.nutritienda.com/es/dietinat/creatina-monohidratada-pura-300g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creatina-cn-400-400g-calidad-creapure",
-      "nombre_normalizado": "CREATINA CN 400 400g",
+      "id": "creatine-ultra-fresh-200mesh-300g-optimum-nutrition",
+      "nombre_normalizado": "Creatine Ultra Fresh 200Mesh 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Calidad Creapure",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.3,
+      "precio_por_kg_min": 79.67,
+      "precio_min": 23.9,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 23.9,
+          "url_afiliado": "https://www.nutritienda.com/es/dmi-innovative-nutrition/creatine-ultra-fresh-200mesh-300g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "pure-creatine-powder-300g-optimum-nutrition",
+      "nombre_normalizado": "Pure Creatine Powder 300g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.3,
+      "precio_por_kg_min": 83.0,
+      "precio_min": 24.9,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 24.9,
+          "url_afiliado": "https://www.nutritienda.com/es/fire-nutrition/pure-creatine-powder-300g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "battery-creatine-250g-suplemento-deportivo",
+      "nombre_normalizado": "Battery Creatine 250g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Suplemento Deportivo",
+      "peso_kg": 0.25,
+      "precio_por_kg_min": 83.6,
+      "precio_min": 20.9,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 20.9,
+          "url_afiliado": "https://www.nutritienda.com/es/battery-nutrition/battery-creatine-250g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "creatp-creatine-creapure-400g-optimum-nutrition",
+      "nombre_normalizado": "CreaTP Creatine Creapure 400g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
       "peso_kg": 0.4,
-      "precio_por_kg_min": 103.5,
-      "precio_min": 41.4,
+      "precio_por_kg_min": 85.0,
+      "precio_min": 34.0,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 41.4,
-          "url_afiliado": "https://www.nutritienda.com/es/nutrisport/creatina-monohidrato-cn-creapure-400g",
+          "precio_eur": 34.0,
+          "url_afiliado": "https://www.nutritienda.com/es/hypertrophy-nutrition/creatp-creatine-creapure-400g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "krea7-superalkaline-powder-500g-creatina",
-      "nombre_normalizado": "KREA7 SUPERALKALINE POWDER 500g",
+      "id": "r-weiler-focus-300g-olimp",
+      "nombre_normalizado": "R-Weiler Focus 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Creatina",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 107.82,
-      "precio_min": 53.91,
+      "marca": "Olimp",
+      "peso_kg": 0.3,
+      "precio_por_kg_min": 86.0,
+      "precio_min": 25.8,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 53.91,
-          "url_afiliado": "https://www.nutritienda.com/es/ironmaxx/krea7-superalkaline-powder-500g",
+          "precio_eur": 25.8,
+          "url_afiliado": "https://www.nutritienda.com/es/olimp/r-weiler-focus-300g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creatina-20-x-10g-nutrisport",
-      "nombre_normalizado": "CREATINA 20 x 10g",
+      "id": "creatina-y-electrolitos-312g-desconocida",
+      "nombre_normalizado": "Creatina y Electrolitos 312g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "NUTRISPORT",
-      "peso_kg": 0.01,
-      "precio_por_kg_min": 1584.0,
-      "precio_min": 15.84,
+      "marca": "Desconocida",
+      "peso_kg": 0.312,
+      "precio_por_kg_min": 96.12,
+      "precio_min": 29.99,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 15.84,
-          "url_afiliado": "https://www.nutritienda.com/es/nutrisport-creatina-100-20x5g",
+          "precio_eur": 29.99,
+          "url_afiliado": "https://www.nutritienda.com/es/bulk/creatina-y-electrolitos-312g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "creamap-gfs-sabor-naranja-200g-vitobest",
+      "nombre_normalizado": "Creamap Gfs Sabor Naranja 200g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Vitobest",
+      "peso_kg": 0.2,
+      "precio_por_kg_min": 105.3,
+      "precio_min": 21.06,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 21.06,
+          "url_afiliado": "https://www.nutritienda.com/es/vitobest/creamap-gfs-sabor-naranja-200g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -1028,133 +1183,70 @@
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/kre-alkalyn-120-capsulas-vegetales",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "kre-alkalyn-120-caps-best-protein",
-      "nombre_normalizado": "KRE ALKALYN 120 Caps",
+      "id": "creatine-mix-120-caps-soul-project",
+      "nombre_normalizado": "Creatine Mix 120 Caps",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Best Protein",
+      "marca": "Soul Project",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 18.07,
+      "precio_min": 28.0,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 18.07,
-          "url_afiliado": "https://www.nutritienda.com/es/best-protein/kre-alkalyn-120-caps",
+          "precio_eur": 28.0,
+          "url_afiliado": "https://www.nutritienda.com/es/soul-project/creatine-mix-120-caps",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "krea7-superalkaline-180-tabs-creatina",
-      "nombre_normalizado": "KREA7 SUPERALKALINE 180 Tabs",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Creatina",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 47.61,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 47.61,
-          "url_afiliado": "https://www.nutritienda.com/es/ironmaxx/krea7-superalkaline-180-tabs",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "krea7-superalkaline-90-tabs-creatina",
-      "nombre_normalizado": "KREA7 SUPERALKALINE 90 Tabs",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Creatina",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 28.71,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 28.71,
-          "url_afiliado": "https://www.nutritienda.com/es/ironmaxx/krea7-superalkaline-90-tabs",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "creatine-zero-effervescent-16-tabs-desconocida",
-      "nombre_normalizado": "CREATINE ZERO EFFERVESCENT 16 Tabs",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Desconocida",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 6.9,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 6.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creatine-zero-effervescent-16-tabs",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "kre-alkalyn-2500-120-caps-optimum-nutrition",
-      "nombre_normalizado": "KRE-ALKALYN 2500 - 120 Caps",
+      "id": "creatine-1250-megacaps-900-caps-optimum-nutrition",
+      "nombre_normalizado": "Creatine 1250 Megacaps 900 Caps",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 38.9,
+      "precio_min": 114.3,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 38.9,
-          "url_afiliado": "https://www.nutritienda.com/es/olymp-kre-alkalyn-2500-120caps",
+          "precio_eur": 114.3,
+          "url_afiliado": "https://www.nutritienda.com/es/olimp/creatine-1250-megacaps-900-caps",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creator-120-caps-combina-5-tipos-de-creatinas",
-      "nombre_normalizado": "CREATOR 120 Caps",
+      "id": "creatine-1250-mega-caps-400-caps-optimum-nutrition",
+      "nombre_normalizado": "CREATINE 1250 Mega Caps - 400 Caps",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Combina 5 tipos de creatinas",
+      "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 23.9,
+      "precio_min": 43.8,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 23.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creator-120-caps",
+          "precio_eur": 43.8,
+          "url_afiliado": "https://www.nutritienda.com/es/olimp-creatine-1250-mega-caps-400caps",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -1166,163 +1258,772 @@
       "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 16.9,
+      "precio_min": 17.9,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 16.9,
+          "precio_eur": 17.9,
           "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creatina-ph-x-90-caps",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "creatina-ph-x-210-caps-optimum-nutrition",
-      "nombre_normalizado": "CREATINA PH-X 210 Caps",
+      "id": "creator-120-caps-combina-5-tipos-de-creatinas",
+      "nombre_normalizado": "CREATOR 120 Caps",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Combina 5 tipos de creatinas",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 25.9,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 25.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creator-120-caps",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "kre-alkalyn-100-caps-vitobest",
+      "nombre_normalizado": "Kre-Alkalyn 100 Caps",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Vitobest",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 32.22,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 32.22,
+          "url_afiliado": "https://www.nutritienda.com/es/vitobest/kre-alkalyn-100-capsulas",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "creatine-monohydrate-3000-mg-200-tabs-optimum-nutrition",
+      "nombre_normalizado": "Creatine Monohydrate 3000 mg  200 Tabs",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 27.9,
+      "precio_min": 20.95,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 27.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creatina-ph-x-210-caps",
+          "precio_eur": 20.95,
+          "url_afiliado": "https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-3000-mg-200-tabs",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "kre-alkalyn-3000-120-caps-quamtrax",
-      "nombre_normalizado": "Kre-Alkalyn 3000 120 Caps",
+      "id": "kre-alkalyn-120-30-caps-optimum-nutrition",
+      "nombre_normalizado": "Kre-Alkalyn® 120 + 30 Caps",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Quamtrax",
+      "marca": "Optimum Nutrition",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 26.9,
+      "precio_min": 41.7,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 26.9,
-          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-kre-alkalyn-3000-120-caps",
+          "precio_eur": 41.7,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition-kre-alkalyn-150-caps",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "100-whey-protein-professional-5000g-optimum-nutrition",
-      "nombre_normalizado": "100% Whey Protein Professional 5000g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
+      "id": "creatine-competition-150-tabs-optimum-nutrition",
+      "nombre_normalizado": "Creatine Competition 150 Tabs",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
-      "peso_kg": 5.0,
-      "precio_por_kg_min": 25.98,
-      "precio_min": 129.9,
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 19.55,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 129.9,
-          "url_afiliado": "https://www.nutritienda.com/es/scitec/100-por-cien-whey-protein-professional-5000g",
+          "precio_eur": 19.55,
+          "url_afiliado": "https://www.nutritienda.com/es/mega-plus/creatine-competition-150-tabletas",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "100-whey-protein-2350g-proteina-de-leche",
-      "nombre_normalizado": "100% WHEY PROTEIN 2350g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Proteína de leche",
-      "peso_kg": 2.35,
-      "precio_por_kg_min": 26.77,
-      "precio_min": 62.91,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 62.91,
-          "url_afiliado": "https://www.nutritienda.com/es/ironmaxx/100-whey-protein-2350g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "pure-whey-pro-2000g-nutriversum",
-      "nombre_normalizado": "Pure Whey Pro 2000g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Nutriversum",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": 27.09,
-      "precio_min": 54.18,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 54.18,
-          "url_afiliado": "https://www.nutritienda.com/es/nutriversum/pure-whey-pro-2000g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "whey-multi-2000g-optimum-nutrition",
-      "nombre_normalizado": "Whey Multi+ 2000g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
+      "id": "creatina-monohidrato-ultrafina-en-polvo-500-mesh-optimum-nutrition",
+      "nombre_normalizado": "CREATINA MONOHIDRATO ULTRAFINA EN POLVO (500 MESH)",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": 29.95,
-      "precio_min": 59.9,
-      "tienda_mas_barata": "Nutritienda",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 14.04,
+      "tienda_mas_barata": "HSN",
       "precios": [
         {
-          "tienda": "Nutritienda",
-          "precio_eur": 59.9,
-          "url_afiliado": "https://www.nutritienda.com/es/4pro-nutrition/whey-multi-2000g",
+          "tienda": "HSN",
+          "precio_eur": 14.04,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "100-whey-protein-professional-2350g-optimum-nutrition",
-      "nombre_normalizado": "100% Whey Protein Professional 2350g",
+      "id": "creatina-excell-100-creapure-en-polvo-desconocida",
+      "nombre_normalizado": "CREATINA EXCELL (100% Creapure®) EN POLVO",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 22.9,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 22.9,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "creatina-monohidrato-1000mg-creatina-optimum-nutrition",
+      "nombre_normalizado": "CREATINA MONOHIDRATO (1000mg CREATINA)",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 8.35,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 8.35,
+          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evokalyn-creatina-alcalina-desconocida",
+      "nombre_normalizado": "EVOKALYN CREATINA ALCALINA",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 19.55,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 19.55,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "creatina-excell-1000mg-100-creapure-desconocida",
+      "nombre_normalizado": "CREATINA EXCELL 1000mg (100% Creapure®)",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 13.95,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 13.95,
+          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/creatina-excell-1000mg-100-creapure",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evocreatine-desconocida",
+      "nombre_normalizado": "EVOCREATINE",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 9.99,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 9.99,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evocreatine",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobomb-desconocida",
+      "nombre_normalizado": "EVOBOMB",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 24.7,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 24.7,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobomb",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "extracto-de-amaranto-oxystorm-50-1-650mg-desconocida",
+      "nombre_normalizado": "EXTRACTO DE AMARANTO Oxystorm® (50:1) 650mg",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 24.84,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 24.84,
+          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/extracto-de-amaranto-oxystorm-50-1-650mg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "l-alanil-l-glutamina-300mg-desconocida",
+      "nombre_normalizado": "L-ALANIL-L-GLUTAMINA 300mg",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 21.99,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 21.99,
+          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/l-alanil-l-glutamina-300mg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "cafeina-natural-200mg-desconocida",
+      "nombre_normalizado": "CAFEÍNA NATURAL 200mg",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 5.54,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 5.54,
+          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/cafeina-natural-200mg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobeast-desconocida",
+      "nombre_normalizado": "EVOBEAST",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 16.18,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.18,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobeast",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evordx-2-0-desconocida",
+      "nombre_normalizado": "EVORDX 2.0",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 16.74,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.74,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evordx-2-0",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "l-arginina-alfa-cetoglutarato-aakg-en-polvo-desconocida",
+      "nombre_normalizado": "L-ARGININA ALFA-CETOGLUTARATO (AAKG) EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 8.35,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 8.35,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "beta-alanina-en-polvo-desconocida",
+      "nombre_normalizado": "BETA-ALANINA EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 4.42,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 4.42,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "d-ribosa-en-polvo-desconocida",
+      "nombre_normalizado": "D-RIBOSA EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 8.2,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 8.2,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "isomaltulosa-palatinose-en-polvo-desconocida",
+      "nombre_normalizado": "ISOMALTULOSA (Palatinose™) EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 7.79,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 7.79,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/isomaltulosa-palatinose-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "acido-malico-en-polvo-desconocida",
+      "nombre_normalizado": "ÁCIDO MÁLICO EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 8.04,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 8.04,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "arginina-alfa-cetoglutarato-1000mg-aakg-desconocida",
+      "nombre_normalizado": "ARGININA ALFA-CETOGLUTARATO 1000mg (AAKG)",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 10.02,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 10.02,
+          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/arginina-alfa-cetoglutarato-1000mg-aakg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "glycopump-glicerol-en-polvo-desconocida",
+      "nombre_normalizado": "Glycopump® (GLICEROL) EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 6.67,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 6.67,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evopump-desconocida",
+      "nombre_normalizado": "EVOPUMP",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 30.8,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 30.8,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evopump",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evostamina-desconocida",
+      "nombre_normalizado": "EVOSTAMINA",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 16.74,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.74,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evostamina",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evopump-en-polvo-desconocida",
+      "nombre_normalizado": "EVOPUMP EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 22.95,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 22.95,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evopump-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "beta-alanina-1000mg-carnosyn-desconocida",
+      "nombre_normalizado": "BETA-ALANINA 1000mg (CarnoSyn®)",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 16.74,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.74,
+          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/beta-alanina-1000mg-carnosyn",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "beta-alanina-carnosyn-en-polvo-desconocida",
+      "nombre_normalizado": "BETA-ALANINA (CarnoSyn®) EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 11.14,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 11.14,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-carnosyn-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "bicarbonato-de-sodio-en-polvo-optimum-nutrition",
+      "nombre_normalizado": "BICARBONATO DE SODIO EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 0.84,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 0.84,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bicarbonato-de-sodio-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "l-citrulina-base-en-polvo-desconocida",
+      "nombre_normalizado": "L-CITRULINA BASE EN POLVO",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 7.1,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 7.1,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "cutting-complex-desconocida",
+      "nombre_normalizado": "CUTTING COMPLEX",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 15.43,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 15.43,
+          "url_afiliado": "https://www.hsnstore.com/marcas/vitaminalia/cutting-complex",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "aceite-mct-liquido-473ml-desconocida",
+      "nombre_normalizado": "ACEITE MCT LÍQUIDO - 473ml",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 14.75,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 14.75,
+          "url_afiliado": "https://www.hsnstore.com/marcas/now-foods/aceite-mct-liquido-473ml",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "cafeina-hibrida-200mg-desconocida",
+      "nombre_normalizado": "CAFEÍNA HÍBRIDA 200mg",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 13.48,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 13.48,
+          "url_afiliado": "https://www.hsnstore.com/marcas/vitaminalia/cafeina-hibrida-200mg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "battery-complete-whey-1800g-crecimiento-muscular",
+      "nombre_normalizado": "Battery Complete Whey 1800g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 2.35,
-      "precio_por_kg_min": 30.6,
-      "precio_min": 71.9,
+      "marca": "Crecimiento Muscular",
+      "peso_kg": 1.8,
+      "precio_por_kg_min": 27.22,
+      "precio_min": 48.99,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 71.9,
-          "url_afiliado": "https://www.nutritienda.com/es/scitec/100-por-cien-whey-protein-professional-2350g",
+          "precio_eur": 48.99,
+          "url_afiliado": "https://www.nutritienda.com/es/battery-nutrition/battery-complete-whey-1800g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "pure-whey-protein-900g-desconocida",
+      "nombre_normalizado": "Pure Whey Protein 900g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": 0.9,
+      "precio_por_kg_min": 29.99,
+      "precio_min": 26.99,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 26.99,
+          "url_afiliado": "https://www.nutritienda.com/es/bulk/pure-whey-protein-900g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -1343,70 +2044,28 @@
           "url_afiliado": "https://www.nutritienda.com/es/procell/wheycell-2000g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "100-whey-protein-900g-proteina-de-leche",
-      "nombre_normalizado": "100% WHEY PROTEIN 900g",
+      "id": "beef-xp-1800g-desconocida",
+      "nombre_normalizado": "BEEF-XP 1800g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Proteína de leche",
-      "peso_kg": 0.9,
-      "precio_por_kg_min": 31.9,
-      "precio_min": 28.71,
+      "marca": "Desconocida",
+      "peso_kg": 1.8,
+      "precio_por_kg_min": 33.83,
+      "precio_min": 60.9,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 28.71,
-          "url_afiliado": "https://www.nutritienda.com/es/ironmaxx/100-whey-protein-900g",
+          "precio_eur": 60.9,
+          "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/beef-xp-1800g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "essence-pro-whey-2-kg-optimum-nutrition",
-      "nombre_normalizado": "Essence Pro Whey 2 Kg",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": 32.45,
-      "precio_min": 64.9,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 64.9,
-          "url_afiliado": "https://www.nutritienda.com/es/dmi-innovative-nutrition/essence-pro-whey-2-kg",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "whey-protein-2000g-perfecta-solubilidad",
-      "nombre_normalizado": "WHEY PROTEIN 2000g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Perfecta solubilidad",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": 33.45,
-      "precio_min": 66.9,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 66.9,
-          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/whey-protein-2000g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -1427,133 +2086,259 @@
           "url_afiliado": "https://www.nutritienda.com/es/vitobest/recovery-total-700g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "elite-100-whey-2100g-desconocida",
-      "nombre_normalizado": "ELITE 100% WHEY 2100g",
+      "id": "hydro-protein-professional-2-kg-optimum-nutrition",
+      "nombre_normalizado": "Hydro Protein Professional - 2 Kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 2.0,
+      "precio_por_kg_min": 34.85,
+      "precio_min": 69.7,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 69.7,
+          "url_afiliado": "https://www.nutritienda.com/es/beverly-nutrition/hydro-protein-professional-2000g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "100-beff-protein-1800g-sin-lactosa",
+      "nombre_normalizado": "100% Beff Protein 1800g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Sin Lactosa",
+      "peso_kg": 1.8,
+      "precio_por_kg_min": 34.94,
+      "precio_min": 62.9,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 62.9,
+          "url_afiliado": "https://www.nutritienda.com/es/scitec/100-beff-protein-1800g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "whey-force-complex-908g-optimum-nutrition",
+      "nombre_normalizado": "Whey Force Complex 908g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.908,
+      "precio_por_kg_min": 36.23,
+      "precio_min": 32.9,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 32.9,
+          "url_afiliado": "https://www.nutritienda.com/es/fire-nutrition/whey-force-complex-908g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "whey-protein-sabor-neutro-500g-quamtrax",
+      "nombre_normalizado": "Whey Protein Sabor Neutro 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Quamtrax",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 38.0,
+      "precio_min": 19.0,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 19.0,
+          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/whey-protein-sabor-neutro-500g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "snicker-hi-protein-875g-snickers",
+      "nombre_normalizado": "Snicker Hi Protein 875g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Snickers",
+      "peso_kg": 0.875,
+      "precio_por_kg_min": 38.09,
+      "precio_min": 33.33,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 33.33,
+          "url_afiliado": "https://www.nutritienda.com/es/snickers/snicker-hi-protein-875g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "diesel-new-zealand-100-whey-isolate-2270g-desconocida",
+      "nombre_normalizado": "Diesel New Zealand 100% Whey Isolate 2270g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
       "marca": "Desconocida",
-      "peso_kg": 2.1,
-      "precio_por_kg_min": 34.26,
-      "precio_min": 71.95,
+      "peso_kg": 2.27,
+      "precio_por_kg_min": 38.55,
+      "precio_min": 87.5,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 71.95,
-          "url_afiliado": "https://www.nutritienda.com/es/dymatize/elite-100-whey-2100g",
+          "precio_eur": 87.5,
+          "url_afiliado": "https://www.nutritienda.com/es/perfect-sports/diesel-new-zealand-100-whey-isolate-2270g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "iso-xp-1800g-optimum-nutrition",
-      "nombre_normalizado": "ISO-XP 1800g",
+      "id": "only-whey-minidona-1-kg-optimum-nutrition",
+      "nombre_normalizado": "Only Whey Minidona 1 Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
       "marca": "Optimum Nutrition",
-      "peso_kg": 1.8,
-      "precio_por_kg_min": 37.4,
-      "precio_min": 67.32,
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 39.9,
+      "precio_min": 39.9,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 67.32,
-          "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/iso-xp-1800g",
+          "precio_eur": 39.9,
+          "url_afiliado": "https://www.nutritienda.com/es/big/only-whey-minidona-1-kg",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "100-whey-protein-professional-920g-optimum-nutrition",
-      "nombre_normalizado": "100% Whey Protein Professional 920g",
+      "id": "100-whey-proteina-sabor-chocolate-con-leche-500g-optimum-nutrition",
+      "nombre_normalizado": "100% Whey Proteína Sabor Chocolate con Leche 500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
       "marca": "Optimum Nutrition",
-      "peso_kg": 0.92,
-      "precio_por_kg_min": 42.28,
-      "precio_min": 38.9,
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 41.38,
+      "precio_min": 20.69,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 38.9,
-          "url_afiliado": "https://www.nutritienda.com/es/scitec/100-whey-protein-professional-920g",
+          "precio_eur": 20.69,
+          "url_afiliado": "https://www.nutritienda.com/es/mega-plus/100-whey-proteina-sabor-chocolate-con-leche-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "isolad-3cfm-protein-2kg-maxima-pureza",
-      "nombre_normalizado": "ISOLAD 3CFM PROTEIN 2Kg",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Máxima pureza",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": 43.2,
-      "precio_min": 86.39,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 86.39,
-          "url_afiliado": "https://www.nutritienda.com/es/bavarian-elite/isolad-3cfm-protein-2000g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "isolate-pro-zero-2-kg-optimum-nutrition",
-      "nombre_normalizado": "Isolate Pro Zero 2 Kg",
+      "id": "wheypro-concentrate-2-kg-optimum-nutrition",
+      "nombre_normalizado": "Wheypro Concentrate 2 Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
       "marca": "Optimum Nutrition",
       "peso_kg": 2.0,
-      "precio_por_kg_min": 43.45,
-      "precio_min": 86.9,
+      "precio_por_kg_min": 41.98,
+      "precio_min": 83.95,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 86.9,
-          "url_afiliado": "https://www.nutritienda.com/es/dmi-innovative-nutrition/isolate-pro-zero-2-kg",
+          "precio_eur": 83.95,
+          "url_afiliado": "https://www.nutritienda.com/es/fire-nutrition/wheypro-concentrate-2-kg",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "whey-isolate-2000g-proteina-aislada-de-suero",
-      "nombre_normalizado": "WHEY ISOLATE 2000g",
+      "id": "quick-recovery-600g-optimum-nutrition",
+      "nombre_normalizado": "QUICK RECOVERY 600g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Proteína aislada de suero",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": 44.75,
-      "precio_min": 89.5,
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.6,
+      "precio_por_kg_min": 44.93,
+      "precio_min": 26.96,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 89.5,
-          "url_afiliado": "https://www.nutritienda.com/es/best-protein/whey-isolate-2000g",
+          "precio_eur": 26.96,
+          "url_afiliado": "https://www.nutritienda.com/es/keepgoing/quick-recovery-600g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "battery-complete-isolate-600g-optimum-nutrition",
+      "nombre_normalizado": "Battery Complete Isolate 600g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.6,
+      "precio_por_kg_min": 44.98,
+      "precio_min": 26.99,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 26.99,
+          "url_afiliado": "https://www.nutritienda.com/es/battery-nutrition/battery-complete-isolate-600g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "isolate-cfm-profesional-1-kg-optimum-nutrition",
+      "nombre_normalizado": "Isolate CFM Profesional 1 Kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 45.2,
+      "precio_min": 45.2,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 45.2,
+          "url_afiliado": "https://www.nutritienda.com/es/beverly-nutrition/isolate-cfm-profesional-1-kg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -1574,238 +2359,196 @@
           "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/100-predator-protein-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "100-pure-whey-454g-optimum-nutrition",
-      "nombre_normalizado": "100% PURE WHEY 454g",
+      "id": "isozero-cfm-100-isolate-2-kg-optimum-nutrition",
+      "nombre_normalizado": "Isozero CFM 100% Isolate 2 Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
       "marca": "Optimum Nutrition",
-      "peso_kg": 0.454,
-      "precio_por_kg_min": 46.04,
-      "precio_min": 20.9,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 20.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/pure-whey-100-concentrado-de-suero-454g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "iso-fuji-2kg-proteina-aislada",
-      "nombre_normalizado": "ISO-FUJI 2kg",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Proteína aislada",
       "peso_kg": 2.0,
-      "precio_por_kg_min": 46.48,
-      "precio_min": 92.95,
+      "precio_por_kg_min": 47.95,
+      "precio_min": 95.9,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 92.95,
-          "url_afiliado": "https://www.nutritienda.com/es/yamamoto-nutrition/iso-fuji-2000g",
+          "precio_eur": 95.9,
+          "url_afiliado": "https://www.nutritienda.com/es/fire-nutrition/isozero-cfm-100-isolate-2-kg",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "100-whey-protein-professional-500g-optimum-nutrition",
-      "nombre_normalizado": "100% Whey Protein Professional 500g",
+      "id": "diesel-new-zealand-100-whey-isolate-908g-desconocida",
+      "nombre_normalizado": "Diesel New Zealand 100% Whey Isolate 908g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 47.8,
-      "precio_min": 23.9,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 23.9,
-          "url_afiliado": "https://www.nutritienda.com/es/scitec/100-por-cien-whey-protein-professional-500g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "100-whey-gold-standard-450-g-optimum-nutrition",
-      "nombre_normalizado": "100% WHEY GOLD STANDARD 450 g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.45,
-      "precio_por_kg_min": 51.09,
-      "precio_min": 22.99,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 22.99,
-          "url_afiliado": "https://www.nutritienda.com/es/optimum-nutrition-100-whey-gold-standard-450g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "whey-protein-871g-optimum-nutrition",
-      "nombre_normalizado": "Whey Protein+ 871g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.871,
-      "precio_por_kg_min": 51.66,
-      "precio_min": 45.0,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 45.0,
-          "url_afiliado": "https://www.nutritienda.com/es/crown-sport-nutrition/whey-protein-871g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "finisher-whey-protein-500g-finisher",
-      "nombre_normalizado": "Finisher Whey Protein 500g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Finisher",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 53.82,
-      "precio_min": 26.91,
-      "tienda_mas_barata": "Nutritienda",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 26.91,
-          "url_afiliado": "https://www.nutritienda.com/es/finisher/finisher-whey-protein-500g",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-03-31"
-        }
-      ]
-    },
-    {
-      "id": "iso-whey-zero-908g-aislado-de-suero-sin-gluten",
-      "nombre_normalizado": "ISO WHEY ZERO 908g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "¡Aislado de suero sin gluten!",
+      "marca": "Desconocida",
       "peso_kg": 0.908,
-      "precio_por_kg_min": 54.96,
-      "precio_min": 49.9,
+      "precio_por_kg_min": 50.11,
+      "precio_min": 45.5,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 49.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-908g",
+          "precio_eur": 45.5,
+          "url_afiliado": "https://www.nutritienda.com/es/perfect-sports/diesel-new-zealand-100-whey-isolate-908g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "zeropro-protein-1kg-aislado-de-suero",
-      "nombre_normalizado": "ZEROPRO PROTEIN 1Kg",
+      "id": "creatine-creapure-protein-500g-nutrisport",
+      "nombre_normalizado": "Creatine Creapure Protein 500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Aislado de suero",
-      "peso_kg": 1.0,
-      "precio_por_kg_min": 59.85,
-      "precio_min": 59.85,
+      "marca": "NutriSport",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 52.2,
+      "precio_min": 26.1,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 59.85,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/zeropro-protein-1000g",
+          "precio_eur": 26.1,
+          "url_afiliado": "https://www.nutritienda.com/es/nutrisport/creatine-creapure-protein-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "cfm-nitro-protein-isolate-1kg-optimum-nutrition",
-      "nombre_normalizado": "CFM NITRO PROTEIN ISOLATE 1Kg",
+      "id": "c4-whey-protein-770g-proteina-premium",
+      "nombre_normalizado": "C4 Whey Protein 770g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 1.0,
-      "precio_por_kg_min": 67.5,
-      "precio_min": 67.5,
+      "marca": "Proteína Premium",
+      "peso_kg": 0.77,
+      "precio_por_kg_min": 53.05,
+      "precio_min": 40.85,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 67.5,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition-cfm-nitro-protein-isolate-1000g",
+          "precio_eur": 40.85,
+          "url_afiliado": "https://www.nutritienda.com/es/cellucor/c4-whey-protein-770g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "isoprime-cfm-isolate-500g-optimum-nutrition",
-      "nombre_normalizado": "Isoprime CFM Isolate 500g",
+      "id": "sport-live-iso-whey-protein-800g-80-proteinas",
+      "nombre_normalizado": "SPORT LIVE ISO WHEY PROTEIN 800g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "¡80% proteínas!",
+      "peso_kg": 0.8,
+      "precio_por_kg_min": 54.87,
+      "precio_min": 43.9,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 43.9,
+          "url_afiliado": "https://www.nutritienda.com/es/drasanvi/sport-live-iso-whey-protein-800g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "isopro-cfm-provon-500g-optimum-nutrition",
+      "nombre_normalizado": "Isopro CFM (Provon) 500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
       "marca": "Optimum Nutrition",
       "peso_kg": 0.5,
-      "precio_por_kg_min": 73.8,
-      "precio_min": 36.9,
+      "precio_por_kg_min": 59.8,
+      "precio_min": 29.9,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 36.9,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/isoprime-cfm-isolate-500g",
+          "precio_eur": 29.9,
+          "url_afiliado": "https://www.nutritienda.com/es/quamtrax/isopro-cfm-provon-500g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "iso-hd-90-cfm-protein-800g-aislado-de-proteina-cfm",
-      "nombre_normalizado": "ISO HD 90 CFM PROTEIN 800g",
+      "id": "iso-fuji-100-natural-700g-proteina",
+      "nombre_normalizado": "ISO-FUJI 100% NATURAL 700g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Aislado de proteína CFM",
-      "peso_kg": 0.8,
-      "precio_por_kg_min": 74.88,
-      "precio_min": 59.9,
+      "marca": "Proteína",
+      "peso_kg": 0.7,
+      "precio_por_kg_min": 59.86,
+      "precio_min": 41.9,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 59.9,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-pro/iso-hd-90-cfm-protein-800g",
+          "precio_eur": 41.9,
+          "url_afiliado": "https://www.nutritienda.com/es/yamamoto-nutrition/iso-fuji-100-natural-700g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "proteina-de-suero-cacao-65-eco-400g-organica",
+      "nombre_normalizado": "Proteína de Suero Cacao 65% Eco 400g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Orgánica",
+      "peso_kg": 0.4,
+      "precio_por_kg_min": 65.88,
+      "precio_min": 26.35,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 26.35,
+          "url_afiliado": "https://www.nutritienda.com/es/purasana/proteina-de-suero-cacao-65-eco-400g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "isowhey-907g-proteina-aislada-premium",
+      "nombre_normalizado": "Isowhey 907g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Proteína Aislada Premium",
+      "peso_kg": 0.907,
+      "precio_por_kg_min": 71.0,
+      "precio_min": 64.4,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 64.4,
+          "url_afiliado": "https://www.nutritienda.com/es/muscletech/isowhey-907g",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
         }
       ]
     },
@@ -1826,28 +2569,469 @@
           "url_afiliado": "https://www.nutritienda.com/es/amix-performance-re-cuper-550g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
         }
       ]
     },
     {
-      "id": "barebells-milkshake-batido-proteico-1-batido-de-330ml-sin-lactosa",
-      "nombre_normalizado": "BAREBELLS MILKSHAKE BATIDO PROTEICO 1 Batido de 330ml",
+      "id": "iso-whey-clear-400g-proteina-refrescante",
+      "nombre_normalizado": "Iso Whey Clear 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "¡Sin lactosa!",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 2.25,
+      "marca": "Proteína Refrescante",
+      "peso_kg": 0.4,
+      "precio_por_kg_min": 92.25,
+      "precio_min": 36.9,
       "tienda_mas_barata": "Nutritienda",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 2.25,
-          "url_afiliado": "https://www.nutritienda.com/es/barebells/milkshake-batido-proteico-sin-lactosa-330ml",
+          "precio_eur": 36.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotechusa/iso-whey-clear-400g",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-03-31"
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "finisher-futurpro-8-sobres-de-30g-proteina-de-suero-enriquecida",
+      "nombre_normalizado": "FINISHER FUTURPRO 8 Sobres de 30g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Proteína de suero enriquecida",
+      "peso_kg": 0.03,
+      "precio_por_kg_min": 530.67,
+      "precio_min": 15.92,
+      "tienda_mas_barata": "Nutritienda",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 15.92,
+          "url_afiliado": "https://www.nutritienda.com/es/finisher/futurpro-proteina-de-suero-8-sobres-de-30-sobres",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evolate-2-0-whey-isolate-cfm-desconocida",
+      "nombre_normalizado": "EVOLATE 2.0 (WHEY ISOLATE CFM)",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 19.38,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 19.38,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-whey-isolate-cfm",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evoclear-hydro-desconocida",
+      "nombre_normalizado": "EVOCLEAR HYDRO",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 22.03,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 22.03,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoclear-hydro",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "crema-de-arroz-proteica-desconocida",
+      "nombre_normalizado": "CREMA DE ARROZ PROTEICA",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 8.35,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 8.35,
+          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/crema-de-arroz-proteica",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evowhey-protein-desconocida",
+      "nombre_normalizado": "EVOWHEY PROTEIN",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 11.76,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 11.76,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evowhey-protein-sin-edulcorantes-desconocida",
+      "nombre_normalizado": "EVOWHEY PROTEIN SIN EDULCORANTES",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 11.76,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 11.76,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein-sin-edulcorantes",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-optimum-nutrition",
+      "nombre_normalizado": "EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE)",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 18.04,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 18.04,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "100-whey-protein-isolate-desconocida",
+      "nombre_normalizado": "100% WHEY PROTEIN ISOLATE",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 19.38,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 19.38,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-isolate",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evobasic-whey-desconocida",
+      "nombre_normalizado": "EVOBASIC WHEY",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 10.34,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 10.34,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobasic-whey",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-desconocida",
+      "nombre_normalizado": "EVOLATE 2.0 SIN EDULCORANTES (WHEY ISOLATE CFM)",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 17.5,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 17.5,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-sin-edulcorantes-whey-isolate-cfm",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "keto-whey-protein-desconocida",
+      "nombre_normalizado": "KETO WHEY PROTEIN",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 65.0,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 65.0,
+          "url_afiliado": "https://www.hsnstore.com/marcas/keto-series/keto-whey-protein",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evohydro-30hd-desconocida",
+      "nombre_normalizado": "EVOHYDRO 30HD",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 22.34,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 22.34,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-30hd",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evoexcel-2-0-whey-protein-isolate-concentrate-optimum-nutrition",
+      "nombre_normalizado": "EVOEXCEL 2.0 (WHEY PROTEIN ISOLATE + CONCENTRATE)",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 18.04,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 18.04,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-2-0-whey-protein-isolate-concentrate",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evohydro-2-0-hydro-whey-desconocida",
+      "nombre_normalizado": "EVOHYDRO 2.0 (HYDRO WHEY)",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 20.09,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 20.09,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-2-0-hydro-whey",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "evowhey-oats-desconocida",
+      "nombre_normalizado": "EVOWHEY & OATS",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 7.95,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 7.95,
+          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-oats",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "100-proteina-de-suero-hidrolizado-aislada-desconocida",
+      "nombre_normalizado": "100% PROTEÍNA DE SUERO HIDROLIZADO AISLADA",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 21.63,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 21.63,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-proteina-de-suero-hidrolizado-aislada",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "golden-protein-desconocida",
+      "nombre_normalizado": "GOLDEN PROTEIN",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 13.99,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 13.99,
+          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/golden-protein",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "cafe-proteico-cafefitconq-optimum-nutrition",
+      "nombre_normalizado": "CAFÉ PROTEICO #CaféFitConQ",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 16.8,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.8,
+          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/cafe-proteico-cafefitconq",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "100-whey-protein-concentrate-optimum-nutrition",
+      "nombre_normalizado": "100% WHEY PROTEIN CONCENTRATE",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 11.2,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 11.2,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "aislado-de-proteina-hidrolizada-clear-whey-desconocida",
+      "nombre_normalizado": "AISLADO DE PROTEÍNA HIDROLIZADA CLEAR WHEY",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Desconocida",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 38.94,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 38.94,
+          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/aislado-de-proteina-hidrolizada-clear-whey",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "cafe-proteico-sin-edulcorantes-cafefitconq-optimum-nutrition",
+      "nombre_normalizado": "CAFÉ PROTEICO SIN EDULCORANTES #CaféFitConQ",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 16.49,
+      "tienda_mas_barata": "HSN",
+      "precios": [
+        {
+          "tienda": "HSN",
+          "precio_eur": 16.49,
+          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/cafe-proteico-sin-edulcorantes-cafefitconq",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-03"
         }
       ]
     }

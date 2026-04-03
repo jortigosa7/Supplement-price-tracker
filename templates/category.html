@@ -66,8 +66,10 @@
       <span>🏪 <strong style="color:var(--text);">{{ tiendas | join(', ') }}</strong></span>
       <span>🗓️ Actualizado: <strong style="color:var(--text);">{{ last_updated }}</strong></span>
       {% if products %}
-      {% set best = products[0] %}
+      {% set best = products | selectattr("precio_por_kg_min") | first | default(none) %}
+      {% if best and best.precio_por_kg_min %}
       <span>🏆 Mejor precio/kg: <strong class="text-green">{{ "%.2f"|format(best.precio_por_kg_min) }} €/kg</strong></span>
+      {% endif %}
       {% endif %}
     </div>
   </div>

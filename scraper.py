@@ -18,6 +18,12 @@ Salida:
 import sys
 import os
 import json
+
+# Forzar UTF-8 en stdout (necesario en Windows con cp1252)
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 import time
 from datetime import datetime
 import pandas as pd
