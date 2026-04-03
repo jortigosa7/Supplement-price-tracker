@@ -60,6 +60,38 @@ CATEGORIA_CONFIG = {
         "h1":    "Mejor Precio Proteína Whey España",
         "intro": "Comparativa actualizada de proteínas whey disponibles en tiendas españolas. "
                  "Ordenado por precio/kg para que siempre pagues lo justo, sin importar el tamaño del bote.",
+        "guia_titulo": "¿Qué proteína whey comprar en España?",
+        "guia_texto": (
+            "La proteína whey (suero de leche) es el suplemento más popular para aumentar la ingesta proteica. "
+            "Existen tres formas principales: el concentrado (70-80 % proteína, más económico), "
+            "el aislado (>90 % proteína, menos lactosa) y el hidrolizado (absorción más rápida, precio más alto). "
+            "Para la mayoría de personas, el concentrado o el aislado son más que suficientes. "
+            "Lo más importante es elegir por precio/kg y no por tamaño de bote: "
+            "un bote de 5 kg puede salir más barato por gramo que uno de 1 kg."
+        ),
+        "como_comparamos": (
+            "Actualizamos los precios varias veces por semana extrayendo datos directamente de las webs de "
+            "HSN, MyProtein, Nutritienda y Prozis. Calculamos el precio por kilogramo para que "
+            "puedas comparar botes de distintos tamaños de forma justa y encontrar siempre la mejor oferta."
+        ),
+        "faq": [
+            {
+                "q": "¿Cuándo tomar proteína whey?",
+                "a": "El momento ideal es justo después del entrenamiento, pero lo que más importa es alcanzar tu objetivo proteico diario (1,6–2,2 g por kg de peso corporal). Puedes tomarla en cualquier momento del día.",
+            },
+            {
+                "q": "¿Cuánta proteína whey debo tomar al día?",
+                "a": "Lo habitual es una ración de 20–40 g por toma. La cantidad total depende de tu dieta: si no llegas a tus necesidades proteicas con la comida, un batido te ayuda a completarlas.",
+            },
+            {
+                "q": "¿Cuál es la diferencia entre whey concentrada y aislada?",
+                "a": "El aislado tiene mayor pureza proteica (>90 %) y prácticamente sin lactosa, ideal si tienes intolerancia. El concentrado es más económico y suficiente para la mayoría.",
+            },
+            {
+                "q": "¿Es mejor comparar por precio por bote o precio/kg?",
+                "a": "Siempre por precio/kg. Un bote grande puede parecer caro pero ser mucho más barato por gramo que uno pequeño. Por eso ordenamos todos los productos por €/kg.",
+            },
+        ],
     },
     "Creatina": {
         "slug":     "creatina",
@@ -73,6 +105,37 @@ CATEGORIA_CONFIG = {
         "h1":    "Mejor Precio Creatina España",
         "intro": "Comparativa de creatina en tiendas españolas. "
                  "La creatina monohidrato es el suplemento más estudiado — aquí encuentras la opción más económica.",
+        "guia_titulo": "¿Qué creatina comprar en España?",
+        "guia_texto": (
+            "La creatina monohidrato es la forma más respaldada científicamente: cientos de estudios confirman "
+            "su eficacia para mejorar el rendimiento en esfuerzos de alta intensidad y favorecer la ganancia de "
+            "fuerza y masa muscular. Las variantes como la Creapure (micronizada alemana) ofrecen mayor pureza "
+            "y mejor solubilidad. Formas más caras como el HCL o el etil éster no han demostrado superioridad. "
+            "Compra por precio/kg: la creatina es un commodity y no merece la pena pagar de más."
+        ),
+        "como_comparamos": (
+            "Comparamos precios de creatina monohidrato, Creapure y otras formas en HSN, MyProtein, "
+            "Nutritienda y Prozis. El precio/kg es especialmente útil aquí porque los formatos varían "
+            "mucho: desde sobres de 300 g hasta botes de 1 kg o más."
+        ),
+        "faq": [
+            {
+                "q": "¿Para qué sirve la creatina?",
+                "a": "Mejora el rendimiento en ejercicios de alta intensidad y corta duración (sprints, pesas), y favorece la ganancia de fuerza y masa muscular. Es el suplemento deportivo con mayor evidencia científica tras la proteína.",
+            },
+            {
+                "q": "¿Cuánta creatina tomar al día?",
+                "a": "3–5 g diarios de creatina monohidrato son suficientes. La fase de carga (20 g/día durante 5–7 días) satura los depósitos más rápido, pero es opcional.",
+            },
+            {
+                "q": "¿Cuándo tomar la creatina?",
+                "a": "El timing no es crítico. Lo importante es tomarla todos los días. Puedes tomarla antes o después del entrenamiento, o con el desayuno en días de descanso.",
+            },
+            {
+                "q": "¿La creatina monohidrato es la mejor forma?",
+                "a": "Sí, según la evidencia actual. Es la forma más estudiada, eficaz y económica. Las variantes más caras (HCL, tamponada, etil éster) no ofrecen ventajas demostradas.",
+            },
+        ],
     },
     "BCAA": {
         "slug":     "bcaa",
@@ -86,6 +149,36 @@ CATEGORIA_CONFIG = {
         "h1":    "Mejor Precio BCAA España",
         "intro": "Comparativa de BCAA (aminoácidos ramificados) disponibles en tiendas españolas. "
                  "Ordenado por precio/kg, comparando tanto polvo como cápsulas.",
+        "guia_titulo": "¿Qué BCAA comprar en España?",
+        "guia_texto": (
+            "Los BCAA (leucina, isoleucina y valina) son los tres aminoácidos ramificados esenciales. "
+            "La ratio más común es 2:1:1, aunque también hay versiones 4:1:1 u 8:1:1 con más leucina, "
+            "el aminoácido clave para la síntesis proteica. El polvo suele ser más económico por gramo que "
+            "las cápsulas. Si ya tomas suficiente proteína de calidad, los BCAA aportan poco valor extra. "
+            "Son más útiles si entrenas en ayunas o sigues una dieta baja en proteína animal."
+        ),
+        "como_comparamos": (
+            "Comparamos BCAA en polvo y cápsulas de distintas ratios (2:1:1, 4:1:1, 8:1:1) en HSN, MyProtein, "
+            "Nutritienda y Prozis. El precio/kg permite comparar formatos muy distintos de forma justa."
+        ),
+        "faq": [
+            {
+                "q": "¿Para qué sirven los BCAA?",
+                "a": "Los BCAA reducen la fatiga muscular durante el entrenamiento, protegen el músculo en déficit calórico y estimulan la síntesis proteica gracias a la leucina. Son especialmente útiles entrenando en ayunas.",
+            },
+            {
+                "q": "¿Es mejor tomar BCAA en polvo o en cápsulas?",
+                "a": "El polvo suele ser más económico por gramo y permite dosis flexibles. Las cápsulas son más cómodas para llevar. Compara siempre por precio/kg para elegir el formato más rentable.",
+            },
+            {
+                "q": "¿Cuándo tomar BCAA?",
+                "a": "Antes o durante el entrenamiento para reducir la fatiga. También son útiles por la mañana si vas a entrenar en ayunas, para proteger la masa muscular.",
+            },
+            {
+                "q": "¿Son necesarios los BCAA si ya tomo proteína whey?",
+                "a": "Si consumes suficiente proteína de calidad (1,6–2,2 g/kg/día), los BCAA aportan poco valor adicional ya que la whey ya los contiene en cantidad significativa. Son más útiles en dietas restrictivas.",
+            },
+        ],
     },
     "Pre-Entreno": {
         "slug":     "pre-entreno",
@@ -99,11 +192,98 @@ CATEGORIA_CONFIG = {
         "h1":    "Mejor Precio Pre-Entreno España",
         "intro": "Comparativa de pre-entrenos disponibles en tiendas españolas. "
                  "Ordenado por precio/kg para que compares con criterio.",
+        "guia_titulo": "¿Qué pre-entreno comprar en España?",
+        "guia_texto": (
+            "Los pre-entrenos combinan varios ingredientes activos para mejorar la energía y la concentración. "
+            "Los componentes más comunes y respaldados son: cafeína (150–300 mg, estimulante principal), "
+            "citrulina malato (pump y resistencia), beta-alanina (retrasa la fatiga muscular) y creatina. "
+            "Revisa siempre las dosis en el etiquetado: muchos productos usan 'blend' propietario "
+            "sin especificar la cantidad de cada ingrediente."
+        ),
+        "como_comparamos": (
+            "Comparamos pre-entrenos de HSN, MyProtein, Nutritienda y Prozis ordenados por precio/kg. "
+            "Ten en cuenta que los pre-entrenos varían mucho en composición: compara ingredientes y dosis "
+            "además del precio para tomar la mejor decisión."
+        ),
+        "faq": [
+            {
+                "q": "¿Qué contiene un pre-entreno?",
+                "a": "Los ingredientes más comunes son cafeína (estimulante), citrulina malato (pump y resistencia), beta-alanina (retrasa la fatiga) y creatina. La calidad depende de las dosis reales de cada ingrediente.",
+            },
+            {
+                "q": "¿Cuándo tomar el pre-entreno?",
+                "a": "Entre 20 y 30 minutos antes del entrenamiento, para aprovechar el pico de los estimulantes. La cafeína tarda unos 45 min en alcanzar su máximo efecto en sangre.",
+            },
+            {
+                "q": "¿El pre-entreno es seguro?",
+                "a": "Para personas sanas, sí. Evítalo si eres sensible a la cafeína, tienes problemas cardíacos, estás embarazada o entrenas por la noche. Empieza con media dosis para evaluar tu tolerancia.",
+            },
+            {
+                "q": "¿Se puede tomar pre-entreno todos los días?",
+                "a": "No es recomendable. El consumo diario genera tolerancia rápida a la cafeína, reduciendo su efecto. Úsalo solo en sesiones clave o con días de descanso entre tomas.",
+            },
+        ],
     },
 }
 
 # Categorías que no están en el config se mapean al slug más cercano
 CATEGORIA_FALLBACK_SLUG = "otros"
+
+# Mapa slug Nutritienda → nombre de marca legible
+NUTRITIENDA_SLUG_MARCA = {
+    "fire-nutrition":           "Fire Nutrition",
+    "beverly-nutrition":        "Beverly Nutrition",
+    "amix-nutrition":           "Amix Nutrition",
+    "amix-performance":         "Amix",
+    "bulk":                     "Bulk",
+    "big":                      "Big",
+    "mega-plus":                "Mega Plus",
+    "dedicated-nutrition":      "Dedicated Nutrition",
+    "dmi-innovative-nutrition": "DMI Innovative Nutrition",
+    "biotech-usa":              "BioTechUSA",
+    "life-pro-nutrition":       "Life Pro Nutrition",
+    "crown-sport-nutrition":    "Crown Sport Nutrition",
+    "perfect-sports":           "Perfect Sports",
+}
+
+
+def corregir_marcas(productos_web: list[dict]) -> list[dict]:
+    """
+    Corrige la marca 'Desconocida' y unifica variantes incorrectas.
+    Se aplica tras el matching para que cada build produzca datos limpios.
+    """
+    def _marca_desde_urls(urls):
+        for url in urls:
+            if "nutritienda.com" in url:
+                parts = url.rstrip("/").split("/")
+                if len(parts) >= 5 and parts[4] not in ("es", "www", ""):
+                    slug = parts[4]
+                    return NUTRITIENDA_SLUG_MARCA.get(slug, slug.replace("-", " ").title())
+        for url in urls:
+            if "myprotein." in url:
+                return "MyProtein"
+        for url in urls:
+            if "hsnstore.com" in url:
+                return "HSN"
+        for url in urls:
+            if "prozis.com" in url:
+                return "Prozis"
+        return None
+
+    # Unificar variantes conocidas
+    NORMALIZACIONES = {"Nutrend": "NUTREND"}
+
+    for p in productos_web:
+        marca = p.get("marca", "")
+        if marca in NORMALIZACIONES:
+            p["marca"] = NORMALIZACIONES[marca]
+        if p.get("marca") == "Desconocida":
+            urls = [pr.get("url_afiliado", "") for pr in p.get("precios", [])]
+            nueva = _marca_desde_urls(urls)
+            if nueva:
+                p["marca"] = nueva
+
+    return productos_web
 
 
 # ============================================================
@@ -206,6 +386,9 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
         p["precio_por_kg_min"] if p["precio_por_kg_min"] is not None else 9999
     ))
 
+    # Corregir marcas (Desconocida → tienda/slug, unificar variantes)
+    productos_web = corregir_marcas(productos_web)
+
     return productos_web
 
 
@@ -282,6 +465,7 @@ def generar_home(env, productos_web: list[dict], last_updated: str):
         **contexto_base(last_updated),
         "total_productos": len(productos_web),
         "total_tiendas":   len(tiendas),
+        "tiendas_lista":   sorted(tiendas),
         "categories":      categories,
         "top_deals":       top_deals,
     }

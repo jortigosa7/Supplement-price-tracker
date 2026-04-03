@@ -39,6 +39,46 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "{{ site_url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ cat.display }}",
+      "item": "{{ site_url }}/{{ cat.slug }}/"
+    }
+  ]
+}
+</script>
+{% if cat.faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in cat.faq %}
+    {
+      "@type": "Question",
+      "name": "{{ item.q | replace('"', '\\"') }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ item.a | replace('"', '\\"') }}"
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -63,7 +103,6 @@
     </p>
     <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:0.82rem; color:var(--text-muted);">
       <span>📦 <strong style="color:var(--text);">{{ products | length }}</strong> productos</span>
-      <span>🏪 <strong style="color:var(--text);">{{ tiendas | join(', ') }}</strong></span>
       <span>🗓️ Actualizado: <strong style="color:var(--text);">{{ last_updated }}</strong></span>
       {% if products %}
       {% set best = products | selectattr("precio_por_kg_min") | first | default(none) %}
@@ -72,10 +111,16 @@
       {% endif %}
       {% endif %}
     </div>
+    <!-- Tiendas analizadas en esta categoría -->
+    <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:14px;">
+      {% for tienda in tiendas %}
+      {% set sc = tienda | lower | replace(' ', '') %}
+      <span class="store-pill store-{{ sc }}">{{ tienda }}</span>
+      {% endfor %}
+    </div>
   </div>
 
   <!-- ── Tabla de precios ───────────────────────────────────── -->
-  <!-- Desktop: tabla; Mobile: cards via CSS -->
   <style>
     /* Desktop table */
     .price-table { width:100%; border-collapse:collapse; }
@@ -107,25 +152,32 @@
       width:32px;
     }
     .col-rank.rank-1 { color:var(--green); }
-    .col-nombre { min-width:180px; }
+    .col-nombre { min-width:160px; }
     .col-nombre .product-name { font-weight:600; font-size:0.9rem; }
     .col-nombre .product-marca {
       font-size:0.75rem;
       color:var(--text-muted);
       margin-top:2px;
     }
-    .col-precio { font-size:1.1rem; font-weight:800; color:var(--green); white-space:nowrap; }
-    .col-por-kg { white-space:nowrap; }
-    .col-tienda { font-size:0.82rem; color:var(--text-muted); white-space:nowrap; }
-    .col-cta { text-align:right; }
+    .col-por-kg { white-space:nowrap; text-align:right; }
+    .col-tiendas { min-width:220px; }
+    .tiendas-wrap { display:flex; flex-wrap:wrap; gap:6px; }
 
     /* Mobile: hide table, show cards */
     .price-table-wrap { display:none; }
-    @media (min-width: 600px) {
+    @media (min-width: 640px) {
       .price-table-wrap { display:block; }
       .mobile-cards { display:none; }
     }
     .mobile-cards { display:block; }
+
+    /* Mobile card stores */
+    .card-stores {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
   </style>
 
   <!-- Desktop table -->
@@ -135,25 +187,25 @@
         <tr>
           <th style="width:32px;">#</th>
           <th>Producto</th>
-          <th class="right">Precio</th>
           <th class="right">€/kg</th>
-          <th>Tienda</th>
-          <th class="right">Comprar</th>
+          <th>Comparar precios</th>
         </tr>
       </thead>
       <tbody>
         {% for p in products %}
-        {% set offer = p.precios | sort(attribute='precio_eur') | first %}
+        {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
         <tr {% if loop.index == 1 %}class="rank-1"{% endif %}>
+
           <td class="col-rank {% if loop.index == 1 %}rank-1{% endif %}">
             {% if loop.index == 1 %}🏆{% else %}{{ loop.index }}{% endif %}
           </td>
+
           <td class="col-nombre">
             <div class="product-name">{{ p.nombre_normalizado }}</div>
             <div class="product-marca">{{ p.marca }}</div>
           </td>
-          <td class="col-precio" style="text-align:right;">{{ "%.2f"|format(offer.precio_eur) }} €</td>
-          <td class="col-por-kg" style="text-align:right;">
+
+          <td class="col-por-kg">
             {% if p.precio_por_kg_min %}
               <span style="
                 background:var(--surface);
@@ -167,12 +219,21 @@
               <span style="color:var(--text-dim);">—</span>
             {% endif %}
           </td>
-          <td class="col-tienda">{{ offer.tienda }}</td>
-          <td class="col-cta">
-            <a href="{{ offer.url_afiliado }}" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-              Ver precio →
-            </a>
+
+          <td class="col-tiendas">
+            <div class="tiendas-wrap">
+              {% for pr in precios_ord %}
+              {% set sc = pr.tienda | lower | replace(' ', '') %}
+              <a href="{{ pr.url_afiliado }}"
+                 class="store-pill store-{{ sc }}"
+                 target="_blank" rel="nofollow noopener"
+                 title="{{ pr.tienda }}">
+                {{ pr.tienda }} · {{ "%.2f"|format(pr.precio_eur) }} €
+              </a>
+              {% endfor %}
+            </div>
           </td>
+
         </tr>
         {% endfor %}
       </tbody>
@@ -183,8 +244,10 @@
   <div class="mobile-cards">
     <div class="product-grid">
       {% for p in products %}
-      {% set offer = p.precios | sort(attribute='precio_eur') | first %}
+      {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
+      {% set offer = precios_ord | first %}
       <div class="product-card {% if loop.index == 1 %}rank-1{% endif %}">
+
         <div class="card-header">
           <div>
             <div class="card-marca">{{ p.marca }}</div>
@@ -207,12 +270,18 @@
           {% endif %}
         </div>
 
-        <div class="card-footer">
-          <span class="card-tienda">{{ offer.tienda }}</span>
-          <a href="{{ offer.url_afiliado }}" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <!-- Todas las tiendas disponibles -->
+        <div class="card-stores">
+          {% for pr in precios_ord %}
+          {% set sc = pr.tienda | lower | replace(' ', '') %}
+          <a href="{{ pr.url_afiliado }}"
+             class="store-pill store-{{ sc }}"
+             target="_blank" rel="nofollow noopener">
+            {{ pr.tienda }} · {{ "%.2f"|format(pr.precio_eur) }} €
           </a>
+          {% endfor %}
         </div>
+
       </div>
       {% endfor %}
     </div>
@@ -225,5 +294,51 @@
     El precio/kg permite comparar productos de distintos tamaños de forma justa.
     Algunos enlaces son de afiliado.
   </div>
+
+  <!-- ── Guía de compra ─────────────────────────────────────── -->
+  {% if cat.guia_titulo %}
+  <div style="margin-top:48px;">
+    <h2 style="font-size:1.25rem; font-weight:800; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border);">
+      {{ cat.guia_titulo }}
+    </h2>
+    <p style="color:var(--text-muted); font-size:0.93rem; line-height:1.7; max-width:800px;">
+      {{ cat.guia_texto }}
+    </p>
+  </div>
+  {% endif %}
+
+  <!-- ── Cómo comparamos ────────────────────────────────────── -->
+  {% if cat.como_comparamos %}
+  <div style="margin-top:36px;">
+    <h2 style="font-size:1.25rem; font-weight:800; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border);">
+      Cómo comparamos los precios
+    </h2>
+    <p style="color:var(--text-muted); font-size:0.93rem; line-height:1.7; max-width:800px;">
+      {{ cat.como_comparamos }}
+    </p>
+  </div>
+  {% endif %}
+
+  <!-- ── FAQ ───────────────────────────────────────────────── -->
+  {% if cat.faq %}
+  <div style="margin-top:36px;">
+    <h2 style="font-size:1.25rem; font-weight:800; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--border);">
+      Preguntas frecuentes
+    </h2>
+    <div style="display:flex; flex-direction:column; gap:16px; max-width:800px;">
+      {% for item in cat.faq %}
+      <details style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px;">
+        <summary style="font-weight:700; font-size:0.95rem; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px;">
+          {{ item.q }}
+          <span style="color:var(--green); font-size:1.1rem; flex-shrink:0;">+</span>
+        </summary>
+        <p style="margin-top:12px; color:var(--text-muted); font-size:0.9rem; line-height:1.7;">
+          {{ item.a }}
+        </p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
 
 {% endblock %}
