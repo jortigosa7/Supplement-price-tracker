@@ -1,0 +1,41 @@
+name: Scrape & Build
+
+on:
+  schedule:
+    # Lunes, miércoles y viernes a las 07:00 UTC
+    - cron: "0 7 * * 1,3,5"
+  workflow_dispatch:  # permite ejecución manual desde GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        run: python scraper.py
+
+      - name: Run build
+        run: python build.py
+
+      - name: Commit & push changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/ data/ datasets/
+          git diff --cached --quiet || git commit -m "build: update prices $(date +'%Y-%m-%d')"
+          git push
