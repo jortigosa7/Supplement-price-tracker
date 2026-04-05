@@ -14,7 +14,7 @@ CATEGORIAS = [
     {"nombre": "Proteinas Whey", "url": "https://www.nutritienda.com/es/proteinas-suero-whey"},
     {"nombre": "Creatina",       "url": "https://www.nutritienda.com/es/creatina"},
     {"nombre": "BCAA",           "url": "https://www.nutritienda.com/es/bcaas"},
-    {"nombre": "Pre-Entreno",    "url": "https://www.nutritienda.com/es/pre-entreno"},
+    {"nombre": "Pre-Entreno",    "url": "https://www.nutritienda.com/es/pre-entrenamiento"},
 ]
 
 

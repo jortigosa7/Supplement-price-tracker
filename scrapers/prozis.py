@@ -1,54 +1,64 @@
 """
-scrapers/prozis.py — Scraper para Prozis España (prozis.com/es-es)
-Usa Playwright porque la web es una SPA con JS rendering.
+scrapers/prozis.py — Scraper para Prozis España (prozis.com/es/es)
+
+Usa Playwright (navegador headless) porque requests recibe 429 de Prozis.
+Los datos de producto están embebidos como JSON (wsData) en el HTML SSR Vue.
 
 SETUP (una sola vez):
     pip install playwright
     playwright install chromium
 
-SELECTORES — EDITAR ANTES DE USAR:
-    Abre https://www.prozis.com/es-es/proteinas/whey en Chrome
-    F12 → inspector → click en nombre del producto → anota la clase CSS
-    Rellena las constantes de abajo con lo que veas.
+DEBUG: python scraper.py --debug-prozis
 """
 
+import json
 import time
+from .base import producto_base
 
-# ──────────────────────────────────────────────────────────
-# SELECTORES — RELLENAR CON LOS VALORES REALES DE PROZIS
-# ──────────────────────────────────────────────────────────
-SEL_PRODUCTO = "TODO_contenedor_producto"   # <-- EDITAR
-SEL_NOMBRE   = "TODO_nombre_producto"       # <-- EDITAR
-SEL_PRECIO   = "TODO_precio_producto"       # <-- EDITAR
-SEL_LINK     = "TODO_link_producto"         # <-- EDITAR
-# ──────────────────────────────────────────────────────────
-
-TIENDA   = "Prozis"
-BASE_URL = "https://www.prozis.com"
+TIENDA         = "Prozis"
+BASE_URL       = "https://www.prozis.com"
+DELAY          = 3
+MAX_PAGES      = 5
+ITEMS_PER_PAGE = 48
 
 CATEGORIAS = [
-    {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/es-es/proteinas/whey"},
-    {"nombre": "Creatina",       "url": f"{BASE_URL}/es-es/creatina"},
-    {"nombre": "BCAA",           "url": f"{BASE_URL}/es-es/aminoacidos/bcaa"},
-    {"nombre": "Pre-Entreno",    "url": f"{BASE_URL}/es-es/pre-entreno"},
+    {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/es/es/nutricion-deportiva/proteina/proteina-whey"},
+    {"nombre": "Creatina",       "url": f"{BASE_URL}/es/es/nutricion-deportiva/desarrollo-muscular/creatina"},
+    {"nombre": "BCAA",           "url": f"{BASE_URL}/es/es/nutricion-deportiva/desarrollo-muscular/bcaa"},
+    {"nombre": "Pre-Entreno",    "url": f"{BASE_URL}/es/es/nutricion-deportiva/desarrollo-muscular/preentrenamiento-y-oxido-nitrico"},
 ]
 
 
-def _selectores_configurados() -> bool:
-    return not any(s.startswith("TODO_") for s in [SEL_PRODUCTO, SEL_NOMBRE, SEL_PRECIO, SEL_LINK])
+def _extraer_wsdata(html: str) -> tuple[list[dict], dict]:
+    """
+    Extrae el objeto wsData embebido en el HTML SSR de Prozis.
+    Busca 'wsData":' y parsea el objeto JSON completo.
+    Returns: (products_list, pagination_dict)
+    """
+    decoder = json.JSONDecoder()
+
+    idx = html.find('wsData":')
+    if idx == -1:
+        return [], {}
+
+    obj_start = html.find('{', idx)
+    if obj_start == -1:
+        return [], {}
+
+    try:
+        obj, _ = decoder.raw_decode(html, obj_start)
+    except (json.JSONDecodeError, ValueError):
+        return [], {}
+
+    items      = obj.get("results", [])
+    pagination = obj.get("pagination", {})
+    return items, pagination
 
 
 def scrape(debug: bool = False) -> list[dict]:
     print(f"\n{'='*50}")
     print(f"  Scraping: {TIENDA}")
     print(f"{'='*50}")
-
-    if not _selectores_configurados():
-        print()
-        print("  ATENCION: Los selectores CSS de Prozis no estan configurados.")
-        print("  Ejecuta: python scraper.py --debug-prozis")
-        print("  O abre prozis.com en Chrome, F12, inspector, click en producto.")
-        return []
 
     try:
         from playwright.sync_api import sync_playwright
@@ -57,56 +67,81 @@ def scrape(debug: bool = False) -> list[dict]:
         print("  Ejecuta: pip install playwright && playwright install chromium")
         return []
 
-    from .base import producto_base
-
     productos = []
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=not debug)
-        page = browser.new_page()
-        page.set_extra_http_headers({
-            "Accept-Language": "es-ES,es;q=0.9",
-        })
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            ),
+            locale="es-ES",
+            extra_http_headers={"Accept-Language": "es-ES,es;q=0.9,en;q=0.8"},
+        )
+        page = context.new_page()
 
         for cat in CATEGORIAS:
-            print(f"\n  Categoria: {cat['nombre']}  →  {cat['url']}")
-            try:
-                page.goto(cat["url"], wait_until="networkidle", timeout=30000)
-                page.wait_for_timeout(2000)
+            print(f"\n  Categoria: {cat['nombre']}")
+            pagina = 1
+
+            while pagina <= MAX_PAGES:
+                url = cat["url"] if pagina == 1 else f"{cat['url']}?page={pagina}"
+                print(f"  Página {pagina}: {url}")
+
+                try:
+                    page.goto(url, wait_until="domcontentloaded", timeout=45000)
+                    page.wait_for_timeout(2500)
+                except Exception as e:
+                    print(f"  Error cargando página: {e}")
+                    break
+
+                html = page.content()
 
                 if debug:
-                    html = page.content()
-                    fname = f"debug_prozis_{cat['nombre'].lower().replace(' ', '_')}.html"
+                    slug = cat["nombre"].lower().replace(" ", "_")
+                    fname = f"debug_prozis_{slug}_p{pagina}.html"
                     with open(fname, "w", encoding="utf-8") as f:
                         f.write(html)
-                    print(f"  [DEBUG] HTML guardado en {fname}")
-                    continue
+                    print(f"  [DEBUG] HTML guardado → {fname}")
+                    break
 
-                items = page.query_selector_all(SEL_PRODUCTO)
-                print(f"  Encontrados: {len(items)} contenedores")
+                items, pagination = _extraer_wsdata(html)
+
+                if not items:
+                    print(f"  No se encontró wsData.")
+                    print(f"  Tip: python scraper.py --debug-prozis  para inspeccionar el HTML")
+                    break
 
                 for item in items:
                     try:
-                        nombre_el = item.query_selector(SEL_NOMBRE)
-                        precio_el = item.query_selector(SEL_PRECIO)
-                        link_el   = item.query_selector(SEL_LINK)
-
-                        nombre = nombre_el.inner_text().strip() if nombre_el else None
-                        precio = precio_el.inner_text().strip() if precio_el else "N/A"
-                        href   = link_el.get_attribute("href") if link_el else ""
-                        url    = href if href.startswith("http") else BASE_URL + href
-
-                        if nombre:
-                            productos.append(producto_base(nombre, precio, "", cat["nombre"], TIENDA, url))
+                        # Prozis envuelve cada entrada en {"product": {...}}
+                        prod = item.get("product", item)
+                        nombre = prod.get("name", "").strip()
+                        if not nombre:
+                            continue
+                        precio_raw = prod.get("price", "N/A")
+                        href = prod.get("url", "")
+                        url_prod = href if href.startswith("http") else BASE_URL + href
+                        productos.append(
+                            producto_base(nombre, precio_raw, "", cat["nombre"], TIENDA, url_prod)
+                        )
                     except Exception as e:
                         print(f"  Error en producto: {e}")
 
-                print(f"  Acumulado: {len(productos)}")
-                time.sleep(2)
+                print(f"  +{len(items)} productos (acumulado: {len(productos)})")
 
-            except Exception as e:
-                print(f"  Error cargando {cat['url']}: {e}")
+                total_pages = pagination.get("totalPages", 1)
+                if pagina < total_pages:
+                    pagina += 1
+                    time.sleep(DELAY)
+                else:
+                    break
+
+            time.sleep(DELAY)
 
         browser.close()
 
+    print(f"\n  Total {TIENDA}: {len(productos)} productos")
     return productos

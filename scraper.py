@@ -7,8 +7,9 @@ el dataset plano en datasets/suplementos_YYYYMMDD.json
 
 Uso:
     python scraper.py                  # scraping normal
-    python scraper.py --debug-hsn      # guarda HTML de HSN para inspeccionar selectores
-    python scraper.py --debug-prozis   # guarda HTML de Prozis
+    python scraper.py --debug-hsn        # guarda HTML de HSN para inspeccionar selectores
+    python scraper.py --debug-prozis     # guarda HTML de Prozis
+    python scraper.py --debug-myprotein  # guarda HTML de MyProtein
 
 Salida:
     datasets/suplementos_YYYYMMDD.csv
@@ -29,7 +30,7 @@ from datetime import datetime
 import pandas as pd
 
 from limpieza import limpiar_dataset
-from scrapers import nutritienda, hsn, prozis
+from scrapers import nutritienda, hsn, prozis, myprotein
 
 OUTPUT_DIR = "datasets"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -72,8 +73,9 @@ def mostrar_resumen(df: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    debug_hsn    = "--debug-hsn"    in sys.argv
-    debug_prozis = "--debug-prozis" in sys.argv
+    debug_hsn        = "--debug-hsn"        in sys.argv
+    debug_prozis     = "--debug-prozis"     in sys.argv
+    debug_myprotein  = "--debug-myprotein"  in sys.argv
 
     print("\n" + "=" * 50)
     print("  SUPPLEMENT PRICE SCRAPER")
@@ -99,7 +101,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"  ERROR HSN: {e}")
 
-    # ── Prozis (Playwright — activo cuando los selectores estén configurados) ──
+    # ── Prozis (requests + BS4 — extrae wsData JSON del HTML) ──────────────
     try:
         productos = prozis.scrape(debug=debug_prozis)
         todos.extend(productos)
@@ -107,6 +109,15 @@ if __name__ == "__main__":
             print(f"  Prozis: {len(productos)} productos")
     except Exception as e:
         print(f"  ERROR Prozis: {e}")
+
+    # ── MyProtein (requests + BS4 — extrae JSON-LD del HTML) ────────────────
+    try:
+        productos = myprotein.scrape(debug=debug_myprotein)
+        todos.extend(productos)
+        if productos:
+            print(f"  MyProtein: {len(productos)} productos")
+    except Exception as e:
+        print(f"  ERROR MyProtein: {e}")
 
     print(f"\n  Total scrapeados: {len(todos)}")
 

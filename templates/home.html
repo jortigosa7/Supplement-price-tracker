@@ -42,6 +42,40 @@
     </div>
   </section>
 
+  <!-- ── Tiendas ──────────────────────────────────────────── -->
+  <section style="margin-bottom:48px;">
+    <h2 class="section-title">Tiendas que comparamos</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px;">
+      {% set tienda_info = [
+        ("Nutritienda",  "store-nutritienda", "🇪🇸", "Tienda española, envío rápido"),
+        ("HSN",          "store-hsn",         "🧡", "Marca propia española"),
+        ("Prozis",       "store-prozis",      "🇵🇹", "Gran catálogo, ofertas frecuentes"),
+        ("MyProtein",    "store-myprotein",   "🇬🇧", "La marca más conocida en Europa"),
+      ] %}
+      {% for nombre, clase, icono, desc in tienda_info %}
+      {% if nombre in tiendas_lista %}
+      <div style="
+        background:var(--card);
+        border:1px solid var(--border);
+        border-radius:var(--radius);
+        padding:16px;
+        display:flex;
+        align-items:center;
+        gap:12px;
+      ">
+        <span style="font-size:1.6rem; flex-shrink:0;">{{ icono }}</span>
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="store-pill {{ clase }}" style="pointer-events:none;">{{ nombre }}</span>
+          </div>
+          <div style="font-size:0.78rem; color:var(--text-muted);">{{ desc }}</div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
   <!-- ── Categorías ────────────────────────────────────────── -->
   <section id="categorias" style="margin-bottom:56px;">
     <h2 class="section-title">Categorías</h2>
