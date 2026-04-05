@@ -152,6 +152,19 @@
       width:32px;
     }
     .col-rank.rank-1 { color:var(--green); }
+    .badge-best {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--green);
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
     .col-nombre { min-width:160px; }
     .col-nombre .product-name { font-weight:600; font-size:0.9rem; }
     .col-nombre .product-marca {
@@ -197,10 +210,13 @@
         <tr {% if loop.index == 1 %}class="rank-1"{% endif %}>
 
           <td class="col-rank {% if loop.index == 1 %}rank-1{% endif %}">
-            {% if loop.index == 1 %}🏆{% else %}{{ loop.index }}{% endif %}
+            {% if loop.index != 1 %}{{ loop.index }}{% endif %}
           </td>
 
           <td class="col-nombre">
+            {% if loop.index == 1 %}
+              <span class="badge-best">🏆 Mejor €/kg</span>
+            {% endif %}
             <div class="product-name">{{ p.nombre_normalizado }}</div>
             <div class="product-marca">{{ p.marca }}</div>
           </td>
@@ -254,7 +270,7 @@
           </div>
           <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
             {% if loop.index == 1 %}
-              <span class="badge badge-best">Mejor €/kg</span>
+              <span class="badge-best">🏆 Mejor €/kg</span>
             {% else %}
               <span style="font-size:0.78rem; color:var(--text-dim);">#{{ loop.index }}</span>
             {% endif %}
