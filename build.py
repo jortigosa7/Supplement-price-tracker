@@ -534,11 +534,30 @@ def generar_home(env, productos_web: list[dict], last_updated: str):
     print(f"✅ Generado: {path}")
 
 
+KEYWORDS_EXCLUIR = [
+    "bicarbonato", "maltodextrina", "dextrosa",
+    "muestra", "sample", "sachet", "monodosis",
+]
+
+
+def _excluir_producto(p: dict) -> bool:
+    """Devuelve True si el producto debe ir a 'Otros productos'."""
+    precio_kg = p.get("precio_por_kg_min")
+    if not precio_kg or precio_kg == 0:
+        return True
+    nombre_lower = p.get("nombre_normalizado", "").lower()
+    return any(kw in nombre_lower for kw in KEYWORDS_EXCLUIR)
+
+
 def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str):
     """Genera docs/{slug}/index.html para una categoría."""
     template = env.get_template("category.html")
 
     prods_cat = [p for p in productos_web if p["categoria"] == cfg["slug"]]
+
+    # Separar tabla principal de "Otros productos"
+    prods_principales = [p for p in prods_cat if not _excluir_producto(p)]
+    prods_otros       = [p for p in prods_cat if _excluir_producto(p)]
 
     # Ya vienen ordenados por precio_por_kg desde convertir_a_schema_web
     tiendas = sorted(set(
@@ -549,10 +568,11 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
 
     ctx = {
         **contexto_base(last_updated),
-        "active_slug": cfg["slug"],
-        "cat":         cfg,
-        "products":    prods_cat,
-        "tiendas":     tiendas,
+        "active_slug":     cfg["slug"],
+        "cat":             cfg,
+        "products":        prods_principales,
+        "products_otros":  prods_otros,
+        "tiendas":         tiendas,
     }
 
     html = template.render(**ctx)

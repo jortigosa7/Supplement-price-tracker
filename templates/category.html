@@ -341,4 +341,37 @@
   </div>
   {% endif %}
 
+  <!-- ── Otros productos ───────────────────────────────────── -->
+  {% if products_otros %}
+  <div style="margin-top:48px;">
+    <h2 style="font-size:1.1rem; font-weight:700; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border); color:var(--text-muted);">
+      Otros productos
+    </h2>
+    <p style="font-size:0.82rem; color:var(--text-dim); margin-bottom:16px;">
+      Cápsulas, sachets, muestras y productos sin precio por kilogramo calculable.
+    </p>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      {% for p in products_otros %}
+      {% set offer = p.precios | sort(attribute='precio_eur') | first %}
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:12px 16px; display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
+        <div style="flex:1; min-width:160px;">
+          <span style="font-size:0.88rem; font-weight:600;">{{ p.nombre_normalizado }}</span>
+          <span style="font-size:0.75rem; color:var(--text-muted); margin-left:8px;">{{ p.marca }}</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          {% for pr in p.precios | sort(attribute='precio_eur') %}
+          {% set sc = pr.tienda | lower | replace(' ', '') %}
+          <a href="{{ pr.url_afiliado }}"
+             class="store-pill store-{{ sc }}"
+             target="_blank" rel="nofollow noopener">
+            {{ pr.tienda }} · {{ "%.2f"|format(pr.precio_eur) }} €
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
 {% endblock %}
