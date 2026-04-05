@@ -291,15 +291,29 @@ NUTRITIENDA_SLUG_MARCA = {
     "beverly-nutrition":        "Beverly Nutrition",
     "amix-nutrition":           "Amix Nutrition",
     "amix-performance":         "Amix",
+    "amix-pro":                 "Amix Pro",
     "bulk":                     "Bulk",
     "big":                      "Big",
     "mega-plus":                "Mega Plus",
     "dedicated-nutrition":      "Dedicated Nutrition",
     "dmi-innovative-nutrition": "DMI Innovative Nutrition",
     "biotech-usa":              "BioTechUSA",
+    "biotechusa":               "BioTechUSA",
     "life-pro-nutrition":       "Life Pro Nutrition",
     "crown-sport-nutrition":    "Crown Sport Nutrition",
     "perfect-sports":           "Perfect Sports",
+    # Marcas detectadas con descripción errónea como marca
+    "best-protein":             "Best Protein",
+    "amazin-foods":             "Amazin' Foods",
+    "battery-nutrition":        "Battery Nutrition",
+    "peak":                     "Peak",
+    "nocco":                    "Nocco",
+    "purasana":                 "Purasana",
+    "muscletech":               "MuscleTech",
+    "starlabs-nutrition":       "Starlabs Nutrition",
+    "yamamoto-nutrition":       "Yamamoto Nutrition",
+    "finisher":                 "Finisher",
+    "cellucor":                 "Cellucor",
 }
 
 
@@ -326,8 +340,30 @@ def corregir_marcas(productos_web: list[dict]) -> list[dict]:
                 return "Prozis"
         return None
 
-    # Unificar variantes conocidas
-    NORMALIZACIONES = {"Nutrend": "NUTREND"}
+    # Unificar variantes conocidas y corregir pseudomarcas (descripción scrapeada como marca)
+    NORMALIZACIONES = {
+        "Nutrend": "NUTREND",
+        # Nutritienda: descripción del producto usada como marca
+        "Ramificados":                   "Best Protein",
+        "Aminoácidos":                   "Amazin' Foods",
+        "Aminoácidos ramificados":        "Amazin' Foods",
+        "Glutamina + BCAAs":             "226ers",
+        "Rendimiento Deportivo":         "Battery Nutrition",
+        "Arginina Alfa-cetoglutarato":   "Peak",
+        "Rico en BCAA y cafeína":        "Nocco",
+        "Calidad Premium":               "Battery Nutrition",
+        "Proteína Premium":              "Cellucor",
+        "Whey Premium":                  "Purasana",
+        "Orgánica":                      "Purasana",
+        "Proteína Aislada Premium":      "MuscleTech",
+        "¡Ultra pura!":                  "Starlabs Nutrition",
+        "¡Eficacia y rendimiento!":      "Amazin' Foods",
+        "¡Fórmula pre-entrenamiento!":   "Amix Pro",
+        "Proteína sin gluten":           "BioTechUSA",
+        "Proteína":                      "Yamamoto Nutrition",
+        "Proteína Refrescante":          "BioTechUSA",
+        "Proteína de suero enriquecida": "Finisher",
+    }
 
     for p in productos_web:
         marca = p.get("marca", "")
