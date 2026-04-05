@@ -549,9 +549,20 @@ def generar_home(env, productos_web: list[dict], last_updated: str):
             "precio_min": min(precios_kg) if precios_kg else 0,
         })
 
-    # Top 10 por precio/kg
+    # Top 50 por precio/kg (paginados en home con JS)
     con_precio_kg = [p for p in productos_web if p["precio_por_kg_min"] is not None]
-    top_deals = sorted(con_precio_kg, key=lambda p: p["precio_por_kg_min"])[:10]
+    # Excluir muestras/sachets del ranking home igual que en categorías
+    con_precio_kg = [p for p in con_precio_kg if not _excluir_producto(p)]
+    top_deals = sorted(con_precio_kg, key=lambda p: p["precio_por_kg_min"])[:50]
+
+    # Ahorro medio: diferencia % entre precio más caro y más barato entre tiendas
+    savings = []
+    for p in con_precio_kg:
+        if len(p["precios"]) >= 2:
+            precios_vals = sorted(pr["precio_eur"] for pr in p["precios"])
+            if precios_vals[-1] > 0:
+                savings.append((precios_vals[-1] - precios_vals[0]) / precios_vals[-1] * 100)
+    ahorro_medio = round(sum(savings) / len(savings)) if savings else 0
 
     ctx = {
         **contexto_base(last_updated),
@@ -560,6 +571,7 @@ def generar_home(env, productos_web: list[dict], last_updated: str):
         "tiendas_lista":   sorted(tiendas),
         "categories":      categories,
         "top_deals":       top_deals,
+        "ahorro_medio":    ahorro_medio,
     }
 
     html = template.render(**ctx)
@@ -575,14 +587,33 @@ KEYWORDS_EXCLUIR = [
     "muestra", "sample", "sachet", "monodosis",
 ]
 
+# Keywords que deben ir a "Otros productos" según la categoría
+# (productos mal clasificados que distorsionan el ranking)
+KEYWORDS_EXCLUIR_POR_CATEGORIA = {
+    "proteina-whey": [
+        "sustituto de comida", "crema de arroz", "colágeno marino",
+        "colageno", "collagen", "meal replacement", "sustituto",
+        "crema de arroz", "arroz en polvo",
+    ],
+}
+
 
 def _excluir_producto(p: dict) -> bool:
     """Devuelve True si el producto debe ir a 'Otros productos'."""
     precio_kg = p.get("precio_por_kg_min")
     if not precio_kg or precio_kg == 0:
         return True
+    # Excluir muestras/sachets por peso < 150 g (distorsionan el €/kg)
+    peso = p.get("peso_kg")
+    if peso and peso < 0.15:
+        return True
     nombre_lower = p.get("nombre_normalizado", "").lower()
-    return any(kw in nombre_lower for kw in KEYWORDS_EXCLUIR)
+    if any(kw in nombre_lower for kw in KEYWORDS_EXCLUIR):
+        return True
+    # Exclusiones específicas por categoría
+    cat = p.get("categoria", "")
+    cat_kws = KEYWORDS_EXCLUIR_POR_CATEGORIA.get(cat, [])
+    return any(kw in nombre_lower for kw in cat_kws)
 
 
 def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str):

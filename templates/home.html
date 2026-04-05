@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Comparador de Suplementos Fitness España 2026 — Mejor Precio{% endblock %}
-{% block meta_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en las principales tiendas de España. Ordenado por precio/kg para que encuentres la mejor oferta.{% endblock %}
+{% block title %}Comparador de Suplementos Fitness España 2026 — Mejor Precio | SuplementosPrecio{% endblock %}
+{% block meta_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en las principales tiendas de España. Ordenado por precio/kg para que encuentres siempre la mejor oferta.{% endblock %}
 {% block meta_keywords %}comparador suplementos España, mejor precio proteína whey España, suplementos fitness baratos, creatina precio España{% endblock %}
-{% block og_title %}Comparador de Suplementos Fitness España{% endblock %}
-{% block og_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en tiendas españolas.{% endblock %}
+{% block og_title %}Comparador de Suplementos Fitness España 2026{% endblock %}
+{% block og_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en tiendas españolas. Ordenado por precio/kg.{% endblock %}
 
 {% block extra_head %}
 <script type="application/ld+json">
@@ -24,152 +24,231 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
 
-  <!-- ── Hero ──────────────────────────────────────────────── -->
-  <section style="text-align:center; padding: 48px 0 40px;">
-    <p style="font-size:0.85rem; color:var(--green); font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px;">
-      {{ total_productos }} productos · {{ total_tiendas }} tienda{%if total_tiendas != 1%}s{%endif%} · Actualizado {{ last_updated }}
-    </p>
-    <h1 style="font-size:clamp(1.8rem, 5vw, 2.8rem); font-weight:900; line-height:1.15; margin-bottom:16px; letter-spacing:-0.5px;">
-      Compara precios de<br><span class="text-green">suplementos fitness</span> en España
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section style="padding: 56px 0 40px; text-align: center;">
+    <div class="hero-badge" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent-bg); border:1px solid var(--accent-border); border-radius:var(--radius-pill); padding:5px 14px; margin-bottom:22px; font-size:0.8rem; color:var(--text-secondary); animation:fadeUp 0.45s ease both;">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite;flex-shrink:0;"></span>
+      Precios actualizados · {{ last_updated }}
+    </div>
+    <h1 style="font-family:var(--font-display); font-size:clamp(2.2rem,5vw,3.2rem); font-weight:400; letter-spacing:-1.5px; line-height:1.15; margin-bottom:18px; animation:fadeUp 0.45s 0.08s ease both;">
+      El mejor precio en<br><em style="color:var(--accent); font-style:italic;">suplementos fitness</em>
     </h1>
-    <p style="font-size:1.05rem; color:var(--text-muted); max-width:560px; margin:0 auto 28px;">
-      Proteína whey, creatina, BCAA y pre-entreno — ordenados por precio/kg para que siempre pagues menos.
+    <p style="font-size:0.95rem; color:var(--text-secondary); max-width:500px; margin:0 auto; line-height:1.7; animation:fadeUp 0.45s 0.16s ease both;">
+      Comparamos proteína whey, creatina, BCAA y pre-entreno en HSN, Nutritienda, Prozis y MyProtein — ordenados por precio/kg.
     </p>
-    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-      <a href="#categorias" class="btn btn-primary">Ver categorías</a>
-      <a href="#ofertas" class="btn btn-outline">Top ofertas</a>
+  </section>
+
+  <!-- ── Search bar ────────────────────────────────────── -->
+  <section style="margin-bottom:28px;">
+    <div class="search-bar">
+      <input class="search-input" type="text" id="searchInput" placeholder="Buscar producto…" autocomplete="off">
+      <select class="search-select" id="filterCat">
+        <option value="">Todas las categorías</option>
+        {% for cat in categories %}
+        <option value="{{ cat.slug }}">{{ cat.display }}</option>
+        {% endfor %}
+      </select>
+      <select class="search-select" id="sortOrder">
+        <option value="precio_kg">Ordenar: €/kg</option>
+        <option value="precio_total">Ordenar: Precio total</option>
+      </select>
     </div>
   </section>
 
-  <!-- ── Tiendas ──────────────────────────────────────────── -->
-  <section style="margin-bottom:48px;">
-    <h2 class="section-title">Tiendas que comparamos</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px;">
-      {% set tienda_info = [
-        ("Nutritienda",  "store-nutritienda", "🇪🇸", "Tienda española, envío rápido"),
-        ("HSN",          "store-hsn",         "🧡", "Marca propia española"),
-        ("Prozis",       "store-prozis",      "🇵🇹", "Gran catálogo, ofertas frecuentes"),
-        ("MyProtein",    "store-myprotein",   "🇬🇧", "La marca más conocida en Europa"),
-      ] %}
-      {% for nombre, clase, icono, desc in tienda_info %}
-      {% if nombre in tiendas_lista %}
-      <div style="
-        background:var(--card);
-        border:1px solid var(--border);
-        border-radius:var(--radius);
-        padding:16px;
-        display:flex;
-        align-items:center;
-        gap:12px;
-      ">
-        <span style="font-size:1.6rem; flex-shrink:0;">{{ icono }}</span>
-        <div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <span class="store-pill {{ clase }}" style="pointer-events:none;">{{ nombre }}</span>
-          </div>
-          <div style="font-size:0.78rem; color:var(--text-muted);">{{ desc }}</div>
-        </div>
+  <!-- ── Métricas ──────────────────────────────────────── -->
+  <section style="margin-bottom:40px;">
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">{{ total_productos }}</div>
+        <div class="metric-label">Productos</div>
       </div>
-      {% endif %}
-      {% endfor %}
+      <div class="metric-card">
+        <div class="metric-value">{{ total_tiendas }}</div>
+        <div class="metric-label">Tiendas</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value accent">{{ ahorro_medio }}%</div>
+        <div class="metric-label">Ahorro medio</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" style="font-size:1.1rem; padding-top:0.4rem;">{{ last_updated }}</div>
+        <div class="metric-label">Última actualización</div>
+      </div>
     </div>
   </section>
 
-  <!-- ── Categorías ────────────────────────────────────────── -->
-  <section id="categorias" style="margin-bottom:56px;">
-    <h2 class="section-title">Categorías</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
+  <!-- ── Categorías ─────────────────────────────────────── -->
+  <section style="margin-bottom:48px;">
+    <p class="section-label">Categorías</p>
+    <div class="cat-grid">
       {% for cat in categories %}
-      <a href="{{ site_url }}/{{ cat.slug }}/" style="text-decoration:none;">
-        <div style="
-          background:var(--card);
-          border:1px solid var(--border);
-          border-radius:var(--radius);
-          padding:20px;
-          transition:border-color 0.15s, transform 0.15s;
-          cursor:pointer;
-        "
-        onmouseover="this.style.borderColor='var(--green)';this.style.transform='translateY(-2px)'"
-        onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'"
-        >
-          <div style="font-size:2rem; margin-bottom:10px;">{{ cat.icono }}</div>
-          <div style="font-size:1.05rem; font-weight:700; margin-bottom:4px;">{{ cat.display }}</div>
-          <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">
-            {{ cat.count }} producto{{ 's' if cat.count != 1 }}
+      <a href="{{ site_url }}/{{ cat.slug }}/" class="cat-card">
+        <div class="cat-icon">{{ cat.icono }}</div>
+        <div class="cat-name">{{ cat.display }}</div>
+        <div class="cat-count">{{ cat.count }} productos</div>
+        <div class="cat-price-row">
+          <div class="cat-price-wrap">
+            <div class="cat-desde">Desde</div>
+            <div class="cat-price">{{ "%.2f"|format(cat.precio_min) }} €/kg</div>
           </div>
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div>
-              <div style="font-size:0.72rem; color:var(--text-dim);">Desde</div>
-              <div style="font-size:1.1rem; font-weight:800; color:var(--green);">{{ "%.2f"|format(cat.precio_min) }} €/kg</div>
-            </div>
-            <span style="color:var(--green); font-size:1.2rem;">→</span>
-          </div>
+          <span class="cat-arrow">→</span>
         </div>
       </a>
       {% endfor %}
     </div>
   </section>
 
-  <!-- ── Top 10 ofertas ─────────────────────────────────────── -->
-  <section id="ofertas" style="margin-bottom:56px;">
-    <h2 class="section-title">
-      Top 10 Mejores Ofertas
-      <small>por precio/kg · todas las categorías</small>
-    </h2>
+  <!-- ── Top ofertas ─────────────────────────────────────── -->
+  <section id="ofertas" style="margin-bottom:48px;">
+    <p class="section-label">Top Ofertas</p>
 
-    <div class="product-grid">
+    {% set store_colors = {
+      "HSN": "var(--hsn)",
+      "Nutritienda": "var(--nutritienda)",
+      "Prozis": "var(--prozis)",
+      "MyProtein": "var(--myprotein)"
+    } %}
+
+    <div class="products-list" id="productsList">
       {% for p in top_deals %}
       {% set offer = p.precios | sort(attribute='precio_eur') | first %}
-      <div class="product-card {% if loop.index == 1 %}rank-1{% endif %}">
-        <div class="card-header">
-          <div>
-            <div class="card-marca">{{ p.marca }}</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+      {% set is_deal = offer.en_oferta and offer.precio_original %}
+      <div class="product-card{% if loop.index == 1 %} is-best{% endif %}"
+           data-nombre="{{ p.nombre_normalizado | lower }}"
+           data-cat="{{ p.categoria }}"
+           data-precio-kg="{{ p.precio_por_kg_min or 9999 }}"
+           data-precio-total="{{ offer.precio_eur }}">
+        <div class="pc-top">
+          <div class="pc-name">
+            <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
             {% if loop.index == 1 %}
-              <span class="badge badge-best">Mejor precio/kg</span>
+              <span class="pc-badge best">Mejor precio</span>
+            {% elif is_deal %}
+              <span class="pc-badge deal">Descuento</span>
             {% endif %}
-            <span class="badge badge-cat">{{ p.categoria_display }}</span>
+          </div>
+          <div class="pc-price-block">
+            <div class="pc-price">{{ "%.2f"|format(offer.precio_eur) }} €</div>
+            {% if p.precio_por_kg_min %}
+              <div class="pc-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</div>
+            {% endif %}
+            {% if is_deal %}
+              <div class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</div>
+            {% endif %}
           </div>
         </div>
-
-        <div class="card-nombre">{{ p.nombre_normalizado }}</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">{{ "%.2f"|format(offer.precio_eur) }} €</span>
-          {% if p.precio_por_kg_min %}
-            <span class="card-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</span>
-          {% endif %}
+        <div class="pc-meta">
+          {{ p.categoria_display }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %} · {{ p.marca }}
         </div>
-
-        <div class="card-footer">
-          <span class="card-tienda">{{ offer.tienda }}</span>
-          <a href="{{ offer.url_afiliado }}" class="btn btn-primary" target="_blank" rel="nofollow noopener">
-            Ver precio →
+        <div class="pc-stores">
+          {% for pr in p.precios | sort(attribute='precio_eur') %}
+          <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored">
+            <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
+            <span class="pc-store-name">{{ pr.tienda }}</span>
+            <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
+            {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
           </a>
+          {% endfor %}
+        </div>
+        <div class="pc-actions">
+          <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn pc-btn-primary">Ver en categoría ↗</a>
+          <a href="{{ offer.url_afiliado }}" class="pc-btn" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
         </div>
       </div>
       {% endfor %}
     </div>
+
+    <div class="pagination" id="pagination">
+      <span class="pagination-info" id="paginationInfo"></span>
+      <div class="pagination-btns">
+        <button class="pagination-btn" id="btnPrev" onclick="changePage(-1)">← Anterior</button>
+        <button class="pagination-btn" id="btnNext" onclick="changePage(1)">Siguiente →</button>
+      </div>
+    </div>
   </section>
 
-  <!-- ── Cómo funciona ──────────────────────────────────────── -->
-  <section style="margin-bottom:40px;">
-    <h2 class="section-title">Cómo funciona</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
-      {% for step in [
-        ("🔍", "Rastreamos precios", "Nuestros scrapers comprueban precios varias veces por semana en las principales tiendas españolas."),
-        ("📊", "Normalizamos por kg", "Convertimos todos los precios a €/kg para comparar productos de distintos tamaños de forma justa."),
-        ("✅", "Tú decides", "Ves todos los precios ordenados de más barato a más caro. Sin registro, sin spam.")
+  <!-- ── Cómo funciona ──────────────────────────────────── -->
+  <section style="margin-bottom:24px;">
+    <p class="section-label">Cómo funciona</p>
+    <div class="steps-grid">
+      {% for num, icon, title, desc in [
+        ("01", "🔍", "Rastreamos precios", "Nuestros scrapers revisan HSN, Nutritienda, Prozis y MyProtein varias veces por semana."),
+        ("02", "📊", "Normalizamos por kg", "Convertimos todos los precios a €/kg para comparar botes de distintos tamaños de forma justa."),
+        ("03", "✅", "Tú decides", "Ves todos los precios ordenados de más barato a más caro. Sin registro, sin spam.")
       ] %}
-      <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px;">
-        <div style="font-size:1.8rem; margin-bottom:10px;">{{ step[0] }}</div>
-        <div style="font-weight:700; margin-bottom:6px;">{{ step[1] }}</div>
-        <div style="font-size:0.85rem; color:var(--text-muted);">{{ step[2] }}</div>
+      <div class="step-card">
+        <span class="step-num">{{ num }}</span>
+        <div class="step-icon">{{ icon }}</div>
+        <div class="step-title">{{ title }}</div>
+        <div class="step-desc">{{ desc }}</div>
       </div>
       {% endfor %}
     </div>
   </section>
 
+</div>
+
+<script>
+(function() {
+  const PER_PAGE = 12;
+  let page = 0;
+  let visibleCards = [];
+
+  const list   = document.getElementById('productsList');
+  const info   = document.getElementById('paginationInfo');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  const allCards = Array.from(list.querySelectorAll('.product-card'));
+
+  function getVisible() {
+    const q   = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cat = document.getElementById('filterCat').value;
+    return allCards.filter(c => {
+      const matchQ   = !q   || c.dataset.nombre.includes(q);
+      const matchCat = !cat || c.dataset.cat === cat;
+      return matchQ && matchCat;
+    });
+  }
+
+  function sortCards(cards) {
+    const order = document.getElementById('sortOrder').value;
+    return cards.slice().sort((a, b) => {
+      if (order === 'precio_total') return parseFloat(a.dataset.precioTotal) - parseFloat(b.dataset.precioTotal);
+      return parseFloat(a.dataset.precioKg) - parseFloat(b.dataset.precioKg);
+    });
+  }
+
+  function render() {
+    visibleCards = sortCards(getVisible());
+    const total  = visibleCards.length;
+    const start  = page * PER_PAGE;
+    const end    = Math.min(start + PER_PAGE, total);
+
+    allCards.forEach(c => { c.style.display = 'none'; });
+    visibleCards.slice(start, end).forEach(c => { c.style.display = ''; });
+
+    info.textContent = total > 0
+      ? 'Mostrando ' + (start + 1) + '–' + end + ' de ' + total + ' productos'
+      : 'Sin resultados';
+    btnPrev.disabled = page === 0;
+    btnNext.disabled = end >= total;
+  }
+
+  window.changePage = function(dir) {
+    page = Math.max(0, page + dir);
+    render();
+    document.getElementById('ofertas').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  function resetPage() { page = 0; render(); }
+
+  document.getElementById('searchInput').addEventListener('input', resetPage);
+  document.getElementById('filterCat').addEventListener('change', resetPage);
+  document.getElementById('sortOrder').addEventListener('change', resetPage);
+
+  render();
+})();
+</script>
 {% endblock %}

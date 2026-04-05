@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ cat.seo_title }} — SuplementosPrecio.es{% endblock %}
+{% block title %}{{ cat.seo_title }} — SuplementosPrecio{% endblock %}
 {% block meta_desc %}{{ cat.seo_desc }}{% endblock %}
 {% block meta_keywords %}{{ cat.keywords }}{% endblock %}
 {% block canonical_path %}/{{ cat.slug }}/{% endblock %}
@@ -44,18 +44,8 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Inicio",
-      "item": "{{ site_url }}/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "{{ cat.display }}",
-      "item": "{{ site_url }}/{{ cat.slug }}/"
-    }
+    { "@type":"ListItem","position":1,"name":"Inicio","item":"{{ site_url }}/" },
+    { "@type":"ListItem","position":2,"name":"{{ cat.display }}","item":"{{ site_url }}/{{ cat.slug }}/" }
   ]
 }
 </script>
@@ -69,10 +59,7 @@
     {
       "@type": "Question",
       "name": "{{ item.q | replace('"', '\\"') }}",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "{{ item.a | replace('"', '\\"') }}"
-      }
+      "acceptedAnswer": { "@type":"Answer","text":"{{ item.a | replace('"', '\\"') }}" }
     }{% if not loop.last %},{% endif %}
     {% endfor %}
   ]
@@ -82,304 +69,170 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
 
-  <!-- ── Breadcrumb ─────────────────────────────────────────── -->
+  <!-- ── Breadcrumb ────────────────────────────────── -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="{{ site_url }}/">Inicio</a>
     <span>›</span>
     <span>{{ cat.display }}</span>
   </nav>
 
-  <!-- ── Header de categoría ───────────────────────────────── -->
-  <div style="margin-bottom:32px;">
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
-      <span style="font-size:2rem;">{{ cat.icono }}</span>
-      <h1 style="font-size:clamp(1.4rem, 4vw, 2rem); font-weight:900; line-height:1.2;">
-        {{ cat.h1 }}
-      </h1>
-    </div>
-    <p style="color:var(--text-muted); font-size:0.92rem; max-width:680px; margin-bottom:16px;">
+  <!-- ── Category header ──────────────────────────── -->
+  <header style="margin-bottom:32px;">
+    <h1 style="font-family:var(--font-display); font-size:clamp(1.7rem,4vw,2.4rem); font-weight:400; letter-spacing:-1px; line-height:1.2; margin-bottom:14px;">
+      Mejor precio <em style="color:var(--accent); font-style:italic;">{{ cat.display | lower }}</em> en España
+    </h1>
+    <p style="color:var(--text-secondary); font-size:0.92rem; max-width:680px; line-height:1.7;">
       {{ cat.intro }}
     </p>
-    <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:0.82rem; color:var(--text-muted);">
-      <span>📦 <strong style="color:var(--text);">{{ products | length }}</strong> productos</span>
-      <span>🗓️ Actualizado: <strong style="color:var(--text);">{{ last_updated }}</strong></span>
+    <div class="cat-stats">
+      <span>📦 <strong>{{ products | length }}</strong> productos</span>
+      <span>🗓️ Actualizado: <strong>{{ last_updated }}</strong></span>
       {% if products %}
       {% set best = products | selectattr("precio_por_kg_min") | first | default(none) %}
       {% if best and best.precio_por_kg_min %}
-      <span>🏆 Mejor precio/kg: <strong class="text-green">{{ "%.2f"|format(best.precio_por_kg_min) }} €/kg</strong></span>
+      <span>🏆 Mejor €/kg: <strong class="green">{{ "%.2f"|format(best.precio_por_kg_min) }} €/kg</strong></span>
       {% endif %}
       {% endif %}
     </div>
-    <!-- Tiendas analizadas en esta categoría -->
-    <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:14px;">
-      {% for tienda in tiendas %}
-      {% set sc = tienda | lower | replace(' ', '') %}
-      <span class="store-pill store-{{ sc }}">{{ tienda }}</span>
-      {% endfor %}
-    </div>
+  </header>
+
+  <!-- ── Store filter pills ───────────────────────── -->
+  <div class="store-filters" id="storeFilters">
+    <button class="store-filter-btn active" data-filter="" onclick="filterStore(this, '')">Todas</button>
+    {% for tienda in tiendas %}
+    <button class="store-filter-btn" data-filter="{{ tienda }}" onclick="filterStore(this, '{{ tienda }}')">{{ tienda }}</button>
+    {% endfor %}
   </div>
 
-  <!-- ── Tabla de precios ───────────────────────────────────── -->
-  <style>
-    /* Desktop table */
-    .price-table { width:100%; border-collapse:collapse; }
-    .price-table th {
-      text-align:left;
-      font-size:0.75rem;
-      font-weight:600;
-      color:var(--text-muted);
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      padding:8px 12px;
-      border-bottom:1px solid var(--border);
-      white-space:nowrap;
-    }
-    .price-table th.right { text-align:right; }
-    .price-table td {
-      padding:14px 12px;
-      border-bottom:1px solid var(--border);
-      vertical-align:middle;
-    }
-    .price-table tr:last-child td { border-bottom:none; }
-    .price-table tr:hover td { background:rgba(255,255,255,0.02); }
-    .price-table tr.rank-1 td { background:rgba(0,230,118,0.04); }
+  <!-- ── Product cards ────────────────────────────── -->
+  {% set store_colors = {
+    "HSN": "var(--hsn)",
+    "Nutritienda": "var(--nutritienda)",
+    "Prozis": "var(--prozis)",
+    "MyProtein": "var(--myprotein)"
+  } %}
 
-    .col-rank {
-      font-size:0.8rem;
-      font-weight:700;
-      color:var(--text-dim);
-      width:32px;
-    }
-    .col-rank.rank-1 { color:var(--green); }
-    .badge-best {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: var(--green);
-      color: #000;
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 20px;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
-    }
-    .col-nombre { min-width:160px; }
-    .col-nombre .product-name { font-weight:600; font-size:0.9rem; }
-    .col-nombre .product-marca {
-      font-size:0.75rem;
-      color:var(--text-muted);
-      margin-top:2px;
-    }
-    .col-por-kg { white-space:nowrap; text-align:right; }
-    .col-tiendas { min-width:220px; }
-    .tiendas-wrap { display:flex; flex-wrap:wrap; gap:6px; }
-
-    /* Mobile: hide table, show cards */
-    .price-table-wrap { display:none; }
-    @media (min-width: 640px) {
-      .price-table-wrap { display:block; }
-      .mobile-cards { display:none; }
-    }
-    .mobile-cards { display:block; }
-
-    /* Mobile card stores */
-    .card-stores {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
-  </style>
-
-  <!-- Desktop table -->
-  <div class="price-table-wrap" style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;">
-    <table class="price-table">
-      <thead>
-        <tr>
-          <th style="width:32px;">#</th>
-          <th>Producto</th>
-          <th class="right">€/kg</th>
-          <th>Comparar precios</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for p in products %}
-        {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
-        <tr {% if loop.index == 1 %}class="rank-1"{% endif %}>
-
-          <td class="col-rank {% if loop.index == 1 %}rank-1{% endif %}">
-            {% if loop.index != 1 %}{{ loop.index }}{% endif %}
-          </td>
-
-          <td class="col-nombre">
-            {% if loop.index == 1 %}
-              <span class="badge-best">🏆 Mejor €/kg</span>
-            {% endif %}
-            <div class="product-name">{{ p.nombre_normalizado }}</div>
-            <div class="product-marca">{{ p.marca }}</div>
-          </td>
-
-          <td class="col-por-kg">
-            {% if p.precio_por_kg_min %}
-              <span style="
-                background:var(--surface);
-                border:1px solid var(--border);
-                border-radius:4px;
-                padding:2px 8px;
-                font-size:0.82rem;
-                color:var(--text-muted);
-              ">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</span>
-            {% else %}
-              <span style="color:var(--text-dim);">—</span>
-            {% endif %}
-          </td>
-
-          <td class="col-tiendas">
-            <div class="tiendas-wrap">
-              {% for pr in precios_ord %}
-              {% set sc = pr.tienda | lower | replace(' ', '') %}
-              <a href="{{ pr.url_afiliado }}"
-                 class="store-pill store-{{ sc }}"
-                 target="_blank" rel="nofollow noopener"
-                 title="{{ pr.tienda }}">
-                {{ pr.tienda }} · {{ "%.2f"|format(pr.precio_eur) }} €
-              </a>
-              {% endfor %}
-            </div>
-          </td>
-
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Mobile cards -->
-  <div class="mobile-cards">
-    <div class="product-grid">
-      {% for p in products %}
-      {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
-      {% set offer = precios_ord | first %}
-      <div class="product-card {% if loop.index == 1 %}rank-1{% endif %}">
-
-        <div class="card-header">
-          <div>
-            <div class="card-marca">{{ p.marca }}</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
-            {% if loop.index == 1 %}
-              <span class="badge-best">🏆 Mejor €/kg</span>
-            {% else %}
-              <span style="font-size:0.78rem; color:var(--text-dim);">#{{ loop.index }}</span>
-            {% endif %}
-          </div>
-        </div>
-
-        <div class="card-nombre">{{ p.nombre_normalizado }}</div>
-
-        <div class="card-prices">
-          <span class="card-price-main">{{ "%.2f"|format(offer.precio_eur) }} €</span>
-          {% if p.precio_por_kg_min %}
-            <span class="card-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</span>
+  <div class="products-list" id="productsList">
+    {% for p in products %}
+    {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
+    {% set offer = precios_ord | first %}
+    {% set is_deal = offer.en_oferta and offer.precio_original %}
+    {% set tienda_slugs = p.precios | map(attribute='tienda') | join(',') %}
+    <div class="product-card{% if loop.index == 1 %} is-best{% endif %}"
+         data-tiendas="{{ tienda_slugs }}"
+         data-nombre="{{ p.nombre_normalizado | lower }}">
+      <div class="pc-top">
+        <div class="pc-name">
+          <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
+          {% if loop.index == 1 %}
+            <span class="pc-badge best">Mejor precio</span>
+          {% elif is_deal %}
+            <span class="pc-badge deal">Descuento</span>
           {% endif %}
         </div>
-
-        <!-- Todas las tiendas disponibles -->
-        <div class="card-stores">
-          {% for pr in precios_ord %}
-          {% set sc = pr.tienda | lower | replace(' ', '') %}
-          <a href="{{ pr.url_afiliado }}"
-             class="store-pill store-{{ sc }}"
-             target="_blank" rel="nofollow noopener">
-            {{ pr.tienda }} · {{ "%.2f"|format(pr.precio_eur) }} €
-          </a>
-          {% endfor %}
+        <div class="pc-price-block">
+          <div class="pc-price">{{ "%.2f"|format(offer.precio_eur) }} €</div>
+          {% if p.precio_por_kg_min %}
+            <div class="pc-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</div>
+          {% endif %}
+          {% if is_deal %}
+            <div class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</div>
+          {% endif %}
         </div>
-
       </div>
-      {% endfor %}
+      <div class="pc-meta">
+        {{ cat.display }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %} · {{ p.marca }}
+      </div>
+      <div class="pc-stores">
+        {% for pr in precios_ord %}
+        <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
+          <span class="pc-store-name">{{ pr.tienda }}</span>
+          <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
+          {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
+        </a>
+        {% endfor %}
+      </div>
+      <div class="pc-actions">
+        <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="pagination" id="pagination">
+    <span class="pagination-info" id="paginationInfo"></span>
+    <div class="pagination-btns">
+      <button class="pagination-btn" id="btnPrev" onclick="changePage(-1)">← Anterior</button>
+      <button class="pagination-btn" id="btnNext" onclick="changePage(1)">Siguiente →</button>
     </div>
   </div>
 
-  <!-- ── Nota informativa ───────────────────────────────────── -->
-  <div style="margin-top:32px; padding:16px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); font-size:0.82rem; color:var(--text-muted);">
-    <strong style="color:var(--text);">ℹ️ Sobre los precios:</strong>
-    Los precios se actualizan varias veces por semana. Pueden variar entre el momento del scraping y la compra.
-    El precio/kg permite comparar productos de distintos tamaños de forma justa.
-    Algunos enlaces son de afiliado.
+  <!-- ── Info bar ──────────────────────────────────── -->
+  <div class="info-bar" style="margin-top:32px;">
+    <strong>ℹ️ Sobre los precios:</strong>
+    Los precios se actualizan varias veces por semana y pueden variar entre el momento del scraping y la compra.
+    El precio/kg permite comparar productos de distintos tamaños de forma justa. Algunos enlaces son de afiliado.
   </div>
 
-  <!-- ── Guía de compra ─────────────────────────────────────── -->
+  <!-- ── Guía de compra ────────────────────────────── -->
   {% if cat.guia_titulo %}
-  <div style="margin-top:48px;">
-    <h2 style="font-size:1.25rem; font-weight:800; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border);">
-      {{ cat.guia_titulo }}
-    </h2>
-    <p style="color:var(--text-muted); font-size:0.93rem; line-height:1.7; max-width:800px;">
-      {{ cat.guia_texto }}
-    </p>
+  <div class="guide-section">
+    <h2 class="guide-title">{{ cat.guia_titulo }}</h2>
+    <p class="guide-text">{{ cat.guia_texto }}</p>
   </div>
   {% endif %}
 
-  <!-- ── Cómo comparamos ────────────────────────────────────── -->
+  <!-- ── Cómo comparamos ───────────────────────────── -->
   {% if cat.como_comparamos %}
-  <div style="margin-top:36px;">
-    <h2 style="font-size:1.25rem; font-weight:800; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border);">
-      Cómo comparamos los precios
-    </h2>
-    <p style="color:var(--text-muted); font-size:0.93rem; line-height:1.7; max-width:800px;">
-      {{ cat.como_comparamos }}
-    </p>
+  <div class="guide-section" style="margin-top:0;">
+    <h2 class="guide-title">Cómo comparamos los precios</h2>
+    <p class="guide-text">{{ cat.como_comparamos }}</p>
   </div>
   {% endif %}
 
-  <!-- ── FAQ ───────────────────────────────────────────────── -->
+  <!-- ── FAQ ──────────────────────────────────────── -->
   {% if cat.faq %}
-  <div style="margin-top:36px;">
-    <h2 style="font-size:1.25rem; font-weight:800; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--border);">
-      Preguntas frecuentes
-    </h2>
-    <div style="display:flex; flex-direction:column; gap:16px; max-width:800px;">
+  <div style="margin: 40px 0;">
+    <h2 class="guide-title">Preguntas frecuentes</h2>
+    <div class="faq-list">
       {% for item in cat.faq %}
-      <details style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px;">
-        <summary style="font-weight:700; font-size:0.95rem; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px;">
+      <details class="faq-item">
+        <summary>
           {{ item.q }}
-          <span style="color:var(--green); font-size:1.1rem; flex-shrink:0;">+</span>
+          <span class="faq-plus">+</span>
         </summary>
-        <p style="margin-top:12px; color:var(--text-muted); font-size:0.9rem; line-height:1.7;">
-          {{ item.a }}
-        </p>
+        <p class="faq-answer">{{ item.a }}</p>
       </details>
       {% endfor %}
     </div>
   </div>
   {% endif %}
 
-  <!-- ── Otros productos ───────────────────────────────────── -->
+  <!-- ── Otros productos ──────────────────────────── -->
   {% if products_otros %}
   <div style="margin-top:48px;">
-    <h2 style="font-size:1.1rem; font-weight:700; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border); color:var(--text-muted);">
+    <h2 style="font-size:1rem; font-weight:700; color:var(--text-muted); margin-bottom:8px; padding-bottom:10px; border-bottom:1px solid var(--border);">
       Otros productos
     </h2>
-    <p style="font-size:0.82rem; color:var(--text-dim); margin-bottom:16px;">
+    <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:14px;">
       Cápsulas, sachets, muestras y productos sin precio por kilogramo calculable.
     </p>
-    <div style="display:flex; flex-direction:column; gap:8px;">
+    <div class="others-list">
       {% for p in products_otros %}
-      {% set offer = p.precios | sort(attribute='precio_eur') | first %}
-      <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:12px 16px; display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
-        <div style="flex:1; min-width:160px;">
-          <span style="font-size:0.88rem; font-weight:600;">{{ p.nombre_normalizado }}</span>
-          <span style="font-size:0.75rem; color:var(--text-muted); margin-left:8px;">{{ p.marca }}</span>
+      {% set sc_map = {"HSN":"hsn","Nutritienda":"nutritienda","Prozis":"prozis","MyProtein":"myprotein"} %}
+      <div class="other-item">
+        <div class="other-name">
+          {{ p.nombre_normalizado }}
+          <span class="other-marca">{{ p.marca }}</span>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           {% for pr in p.precios | sort(attribute='precio_eur') %}
-          {% set sc = pr.tienda | lower | replace(' ', '') %}
-          <a href="{{ pr.url_afiliado }}"
-             class="store-pill store-{{ sc }}"
-             target="_blank" rel="nofollow noopener">
+          {% set sc = sc_map.get(pr.tienda, 'default') %}
+          <a href="{{ pr.url_afiliado }}" class="store-pill store-{{ sc }}" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:{{ {"HSN":"var(--hsn)","Nutritienda":"var(--nutritienda)","Prozis":"var(--prozis)","MyProtein":"var(--myprotein)"}.get(pr.tienda, 'var(--amazon)') }};"></span>
             {{ pr.tienda }} · {{ "%.2f"|format(pr.precio_eur) }} €
           </a>
           {% endfor %}
@@ -390,4 +243,62 @@
   </div>
   {% endif %}
 
+</div>
+
+<script>
+(function() {
+  const PER_PAGE = 20;
+  let page = 0;
+  let currentFilter = '';
+
+  const list    = document.getElementById('productsList');
+  const info    = document.getElementById('paginationInfo');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  const allCards = Array.from(list.querySelectorAll('.product-card'));
+
+  function getVisible() {
+    if (!currentFilter) return allCards;
+    return allCards.filter(c => {
+      const tiendas = (c.dataset.tiendas || '').split(',');
+      return tiendas.includes(currentFilter);
+    });
+  }
+
+  function render() {
+    const visible = getVisible();
+    const total   = visible.length;
+    const start   = page * PER_PAGE;
+    const end     = Math.min(start + PER_PAGE, total);
+
+    allCards.forEach(c => { c.style.display = 'none'; });
+    visible.slice(start, end).forEach(c => { c.style.display = ''; });
+
+    info.textContent = total > 0
+      ? 'Mostrando ' + (start + 1) + '–' + end + ' de ' + total + ' productos'
+      : 'Sin resultados para esta tienda';
+
+    const paginationEl = document.getElementById('pagination');
+    paginationEl.style.display = total > PER_PAGE ? 'flex' : 'none';
+    btnPrev.disabled = page === 0;
+    btnNext.disabled = end >= total;
+  }
+
+  window.filterStore = function(btn, tienda) {
+    currentFilter = tienda;
+    page = 0;
+    document.querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  };
+
+  window.changePage = function(dir) {
+    page = Math.max(0, page + dir);
+    render();
+    window.scrollTo({ top: document.getElementById('productsList').offsetTop - 80, behavior: 'smooth' });
+  };
+
+  render();
+})();
+</script>
 {% endblock %}
