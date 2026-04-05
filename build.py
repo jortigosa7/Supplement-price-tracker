@@ -60,14 +60,27 @@ CATEGORIA_CONFIG = {
         "h1":    "Mejor Precio Proteína Whey España",
         "intro": "Comparativa actualizada de proteínas whey disponibles en tiendas españolas. "
                  "Ordenado por precio/kg para que siempre pagues lo justo, sin importar el tamaño del bote.",
-        "guia_titulo": "¿Qué proteína whey comprar en España?",
+        "guia_titulo": "Cómo elegir la mejor proteína whey por precio/kg",
         "guia_texto": (
-            "La proteína whey (suero de leche) es el suplemento más popular para aumentar la ingesta proteica. "
-            "Existen tres formas principales: el concentrado (70-80 % proteína, más económico), "
-            "el aislado (>90 % proteína, menos lactosa) y el hidrolizado (absorción más rápida, precio más alto). "
-            "Para la mayoría de personas, el concentrado o el aislado son más que suficientes. "
-            "Lo más importante es elegir por precio/kg y no por tamaño de bote: "
-            "un bote de 5 kg puede salir más barato por gramo que uno de 1 kg."
+            "La proteína whey o suero de leche es el suplemento más popular en el mundo del fitness: "
+            "tiene un perfil de aminoácidos completo, se digiere rápido y es muy efectiva para la "
+            "recuperación muscular. Pero en el mercado español hay decenas de marcas y formatos, y "
+            "los precios varían enormemente.\n\n"
+            "¿Concentrada, aislada o hidrolizada? La whey concentrada (WPC) tiene entre un 70-80% de "
+            "proteína y es la más económica. La aislada (WPI) supera el 90% de proteína, tiene menos "
+            "lactosa y grasa, y es mejor opción si tienes intolerancia a la lactosa. La hidrolizada es "
+            "la más cara y se digiere más rápido, aunque las diferencias prácticas son mínimas para la "
+            "mayoría de usuarios.\n\n"
+            "Cómo leer el precio/kg: comparar por precio de bote es un error habitual. Un bote de 2 kg "
+            "a 45 € puede parecer caro frente a uno de 1 kg a 20 €, pero al normalizarlo el primero "
+            "sale a 22,50 €/kg y el segundo a 20 €/kg. Además, fíjate en los gramos de proteína por "
+            "servicio: no es lo mismo 20 g que 25 g por cacito. Lo ideal es buscar mínimo 20 g de "
+            "proteína por servicio y un precio inferior a 20 €/kg.\n\n"
+            "¿Cuánto tomar? La evidencia científica sugiere entre 1,6 y 2,2 g de proteína por kilo de "
+            "peso corporal al día. La whey es un complemento a tu dieta, no un sustituto. Un batido "
+            "post-entreno de 25-30 g es suficiente para la mayoría.\n\n"
+            "Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o taurina "
+            "inflando el contenido proteico), o marcas que no publican la composición completa por servicio."
         ),
         "como_comparamos": (
             "Actualizamos los precios varias veces por semana extrayendo datos directamente de las webs de "
@@ -76,20 +89,23 @@ CATEGORIA_CONFIG = {
         ),
         "faq": [
             {
-                "q": "¿Cuándo tomar proteína whey?",
-                "a": "El momento ideal es justo después del entrenamiento, pero lo que más importa es alcanzar tu objetivo proteico diario (1,6–2,2 g por kg de peso corporal). Puedes tomarla en cualquier momento del día.",
+                "q": "¿Es mejor la whey aislada que la concentrada?",
+                "a": (
+                    "Depende de tu objetivo. Si tienes intolerancia a la lactosa o buscas menos calorías, "
+                    "la aislada es mejor opción. Para la mayoría, la concentrada ofrece mejor relación "
+                    "calidad-precio."
+                ),
             },
             {
-                "q": "¿Cuánta proteína whey debo tomar al día?",
-                "a": "Lo habitual es una ración de 20–40 g por toma. La cantidad total depende de tu dieta: si no llegas a tus necesidades proteicas con la comida, un batido te ayuda a completarlas.",
+                "q": "¿Puedo tomar whey si no hago ejercicio?",
+                "a": (
+                    "Sí, es simplemente proteína de alimento. Pero si no entrenas, mejor obtenerla de "
+                    "fuentes naturales como huevos, pollo o legumbres."
+                ),
             },
             {
-                "q": "¿Cuál es la diferencia entre whey concentrada y aislada?",
-                "a": "El aislado tiene mayor pureza proteica (>90 %) y prácticamente sin lactosa, ideal si tienes intolerancia. El concentrado es más económico y suficiente para la mayoría.",
-            },
-            {
-                "q": "¿Es mejor comparar por precio por bote o precio/kg?",
-                "a": "Siempre por precio/kg. Un bote grande puede parecer caro pero ser mucho más barato por gramo que uno pequeño. Por eso ordenamos todos los productos por €/kg.",
+                "q": "¿Cuánto tiempo dura un kilo de whey?",
+                "a": "Con un servicio diario de 30 g, aproximadamente 33 días.",
             },
         ],
     },
@@ -105,13 +121,23 @@ CATEGORIA_CONFIG = {
         "h1":    "Mejor Precio Creatina España",
         "intro": "Comparativa de creatina en tiendas españolas. "
                  "La creatina monohidrato es el suplemento más estudiado — aquí encuentras la opción más económica.",
-        "guia_titulo": "¿Qué creatina comprar en España?",
+        "guia_titulo": "Cómo elegir creatina: guía de compra por precio/kg",
         "guia_texto": (
-            "La creatina monohidrato es la forma más respaldada científicamente: cientos de estudios confirman "
-            "su eficacia para mejorar el rendimiento en esfuerzos de alta intensidad y favorecer la ganancia de "
-            "fuerza y masa muscular. Las variantes como la Creapure (micronizada alemana) ofrecen mayor pureza "
-            "y mejor solubilidad. Formas más caras como el HCL o el etil éster no han demostrado superioridad. "
-            "Compra por precio/kg: la creatina es un commodity y no merece la pena pagar de más."
+            "La creatina monohidrato es el suplemento con más evidencia científica detrás después de "
+            "la cafeína. Aumenta la fuerza, mejora el rendimiento en ejercicios de alta intensidad y "
+            "favorece la recuperación. Y lo mejor: es barata.\n\n"
+            "¿Qué tipo de creatina comprar? Olvida el marketing: la creatina monohidrato es la forma "
+            "más estudiada y efectiva. Las variantes como creatina HCL, Kre-Alkalyn o etil éster no "
+            "han demostrado ser superiores en ningún estudio serio, y cuestan el doble o más.\n\n"
+            "Cómo leer el precio/kg: la creatina monohidrato de calidad debería costar entre 15 € y "
+            "30 €/kg. Si ves algo más caro sin justificación, estás pagando por marketing. Busca "
+            "productos con sello Creapure si quieres garantía de pureza alemana, aunque encarece "
+            "el precio.\n\n"
+            "Protocolo de uso: no hace falta fase de carga. 3-5 g diarios son suficientes. Tómala "
+            "siempre a la misma hora, preferiblemente con carbohidratos o proteína para mejorar la "
+            "absorción. Los efectos se notan tras 2-4 semanas de uso continuado.\n\n"
+            "Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa calvicie "
+            "y no es un esteroide. Es uno de los suplementos más seguros y estudiados del mercado."
         ),
         "como_comparamos": (
             "Comparamos precios de creatina monohidrato, Creapure y otras formas en HSN, MyProtein, "
@@ -120,20 +146,19 @@ CATEGORIA_CONFIG = {
         ),
         "faq": [
             {
-                "q": "¿Para qué sirve la creatina?",
-                "a": "Mejora el rendimiento en ejercicios de alta intensidad y corta duración (sprints, pesas), y favorece la ganancia de fuerza y masa muscular. Es el suplemento deportivo con mayor evidencia científica tras la proteína.",
+                "q": "¿Hay que hacer fase de carga con creatina?",
+                "a": (
+                    "No es necesaria. Con 3-5 g diarios llegas al mismo nivel en 3-4 semanas. La carga "
+                    "(20 g/día durante 5 días) solo acelera la saturación inicial."
+                ),
             },
             {
-                "q": "¿Cuánta creatina tomar al día?",
-                "a": "3–5 g diarios de creatina monohidrato son suficientes. La fase de carga (20 g/día durante 5–7 días) satura los depósitos más rápido, pero es opcional.",
+                "q": "¿Cuándo es mejor tomar la creatina?",
+                "a": "El momento importa poco. Lo relevante es la consistencia diaria.",
             },
             {
-                "q": "¿Cuándo tomar la creatina?",
-                "a": "El timing no es crítico. Lo importante es tomarla todos los días. Puedes tomarla antes o después del entrenamiento, o con el desayuno en días de descanso.",
-            },
-            {
-                "q": "¿La creatina monohidrato es la mejor forma?",
-                "a": "Sí, según la evidencia actual. Es la forma más estudiada, eficaz y económica. Las variantes más caras (HCL, tamponada, etil éster) no ofrecen ventajas demostradas.",
+                "q": "¿La creatina micronizada es mejor que la normal?",
+                "a": "Se disuelve mejor en agua, pero el efecto en rendimiento es idéntico a la monohidrato estándar.",
             },
         ],
     },
@@ -149,13 +174,23 @@ CATEGORIA_CONFIG = {
         "h1":    "Mejor Precio BCAA España",
         "intro": "Comparativa de BCAA (aminoácidos ramificados) disponibles en tiendas españolas. "
                  "Ordenado por precio/kg, comparando tanto polvo como cápsulas.",
-        "guia_titulo": "¿Qué BCAA comprar en España?",
+        "guia_titulo": "Guía de compra de BCAA: cuándo valen la pena y cómo comparar por €/kg",
         "guia_texto": (
-            "Los BCAA (leucina, isoleucina y valina) son los tres aminoácidos ramificados esenciales. "
-            "La ratio más común es 2:1:1, aunque también hay versiones 4:1:1 u 8:1:1 con más leucina, "
-            "el aminoácido clave para la síntesis proteica. El polvo suele ser más económico por gramo que "
-            "las cápsulas. Si ya tomas suficiente proteína de calidad, los BCAA aportan poco valor extra. "
-            "Son más útiles si entrenas en ayunas o sigues una dieta baja en proteína animal."
+            "Los BCAA (aminoácidos de cadena ramificada: leucina, isoleucina y valina) son quizás el "
+            "suplemento más sobrevendido del mercado fitness. Antes de comprarlos, conviene entender "
+            "cuándo tienen sentido y cuándo no.\n\n"
+            "¿Los necesitas realmente? Si ya consumes suficiente proteína al día (1,6-2,2 g/kg), "
+            "probablemente no. La whey ya contiene BCAA en abundancia. Los BCAA tienen más sentido "
+            "si entrenas en ayunas, sigues una dieta vegana con proteína limitada, o buscas reducir "
+            "el catabolismo en déficit calórico severo.\n\n"
+            "Ratio 2:1:1 vs 4:1:1 vs 8:1:1: el ratio indica la proporción de leucina respecto a "
+            "isoleucina y valina. La leucina es el aminoácido más anabólico, pero subir el ratio no "
+            "siempre mejora resultados. El 2:1:1 es el más estudiado y el más equilibrado.\n\n"
+            "Precio/kg y dosis: una dosis típica son 5-10 g por toma. Al comparar por €/kg, productos "
+            "similares pueden variar entre 20 € y 60 €/kg. No tiene sentido pagar el triple por el "
+            "mismo compuesto. Mira la cantidad de leucina por servicio: busca al menos 2,5 g.\n\n"
+            "Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante el "
+            "entrenamiento. Los sin sabor son más versátiles pero algunos tienen un gusto amargo pronunciado."
         ),
         "como_comparamos": (
             "Comparamos BCAA en polvo y cápsulas de distintas ratios (2:1:1, 4:1:1, 8:1:1) en HSN, MyProtein, "
@@ -163,20 +198,25 @@ CATEGORIA_CONFIG = {
         ),
         "faq": [
             {
-                "q": "¿Para qué sirven los BCAA?",
-                "a": "Los BCAA reducen la fatiga muscular durante el entrenamiento, protegen el músculo en déficit calórico y estimulan la síntesis proteica gracias a la leucina. Son especialmente útiles entrenando en ayunas.",
+                "q": "¿BCAA o proteína whey, cuál es mejor?",
+                "a": (
+                    "Si tienes que elegir uno, elige whey. Tiene mejor perfil completo de aminoácidos "
+                    "y mayor evidencia de resultados."
+                ),
             },
             {
-                "q": "¿Es mejor tomar BCAA en polvo o en cápsulas?",
-                "a": "El polvo suele ser más económico por gramo y permite dosis flexibles. Las cápsulas son más cómodas para llevar. Compara siempre por precio/kg para elegir el formato más rentable.",
+                "q": "¿Se pueden tomar los BCAA con el estómago vacío?",
+                "a": (
+                    "Sí, de hecho ese es uno de sus usos principales: antes del entreno en ayunas para "
+                    "reducir el catabolismo muscular."
+                ),
             },
             {
-                "q": "¿Cuándo tomar BCAA?",
-                "a": "Antes o durante el entrenamiento para reducir la fatiga. También son útiles por la mañana si vas a entrenar en ayunas, para proteger la masa muscular.",
-            },
-            {
-                "q": "¿Son necesarios los BCAA si ya tomo proteína whey?",
-                "a": "Si consumes suficiente proteína de calidad (1,6–2,2 g/kg/día), los BCAA aportan poco valor adicional ya que la whey ya los contiene en cantidad significativa. Son más útiles en dietas restrictivas.",
+                "q": "¿Los BCAA tienen calorías?",
+                "a": (
+                    "Sí, aproximadamente 4 kcal/g, igual que cualquier proteína. No son un suplemento "
+                    "libre de calorías."
+                ),
             },
         ],
     },
@@ -192,13 +232,24 @@ CATEGORIA_CONFIG = {
         "h1":    "Mejor Precio Pre-Entreno España",
         "intro": "Comparativa de pre-entrenos disponibles en tiendas españolas. "
                  "Ordenado por precio/kg para que compares con criterio.",
-        "guia_titulo": "¿Qué pre-entreno comprar en España?",
+        "guia_titulo": "Cómo elegir un pre-entreno: ingredientes que funcionan y precio real por toma",
         "guia_texto": (
-            "Los pre-entrenos combinan varios ingredientes activos para mejorar la energía y la concentración. "
-            "Los componentes más comunes y respaldados son: cafeína (150–300 mg, estimulante principal), "
-            "citrulina malato (pump y resistencia), beta-alanina (retrasa la fatiga muscular) y creatina. "
-            "Revisa siempre las dosis en el etiquetado: muchos productos usan 'blend' propietario "
-            "sin especificar la cantidad de cada ingrediente."
+            "Los pre-entrenos son la categoría más heterogénea del mercado de suplementos. Pueden "
+            "contener desde cafeína y beta-alanina hasta nootrópicos, adaptógenos o estimulantes de "
+            "dudosa legalidad. Saber leer una etiqueta es clave antes de comprar.\n\n"
+            "Ingredientes que funcionan de verdad: cafeína (150-300 mg por dosis), beta-alanina "
+            "(3,2 g), citrulina malato (6-8 g), creatina monohidrato (3-5 g) y arginina. Estos son "
+            "los compuestos con evidencia sólida para mejorar rendimiento, fuerza y resistencia.\n\n"
+            "Red flags en la etiqueta: proprietary blends (mezclas propietarias sin desglosar "
+            "cantidades), dosis de cafeína superiores a 400 mg, ingredientes como DMAA o DMHA "
+            "(ilegales en Europa), o listas de 30 ingredientes sin especificar cuánto hay de cada uno.\n\n"
+            "Cómo comparar por precio/kg: los pre-entrenos varían mucho en dosis por servicio (de "
+            "8 g a 25 g). Un producto a 40 €/kg con 20 g por servicio te da 50 tomas. Otro a 30 €/kg "
+            "con 10 g por servicio te da 100 tomas pero con la mitad de activos. Fíjate siempre en el "
+            "precio por toma y los miligramos de ingredientes activos.\n\n"
+            "Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-entreno a "
+            "diario, cada 6-8 semanas conviene hacer una pausa de 1-2 semanas para resetear la "
+            "sensibilidad. Evita tomarlo después de las 17:00 si eres sensible a la cafeína."
         ),
         "como_comparamos": (
             "Comparamos pre-entrenos de HSN, MyProtein, Nutritienda y Prozis ordenados por precio/kg. "
@@ -207,20 +258,25 @@ CATEGORIA_CONFIG = {
         ),
         "faq": [
             {
-                "q": "¿Qué contiene un pre-entreno?",
-                "a": "Los ingredientes más comunes son cafeína (estimulante), citrulina malato (pump y resistencia), beta-alanina (retrasa la fatiga) y creatina. La calidad depende de las dosis reales de cada ingrediente.",
+                "q": "¿El hormigueo que produce la beta-alanina es normal?",
+                "a": (
+                    "Sí, es una parestesia inofensiva. Se reduce tomando la dosis con comida o "
+                    "dividiendo la toma en dos veces."
+                ),
             },
             {
-                "q": "¿Cuándo tomar el pre-entreno?",
-                "a": "Entre 20 y 30 minutos antes del entrenamiento, para aprovechar el pico de los estimulantes. La cafeína tarda unos 45 min en alcanzar su máximo efecto en sangre.",
+                "q": "¿Puedo tomar pre-entreno todos los días?",
+                "a": (
+                    "No es recomendable por la tolerancia a la cafeína. Mejor reservarlo para sesiones "
+                    "exigentes y hacer pausas periódicas."
+                ),
             },
             {
-                "q": "¿El pre-entreno es seguro?",
-                "a": "Para personas sanas, sí. Evítalo si eres sensible a la cafeína, tienes problemas cardíacos, estás embarazada o entrenas por la noche. Empieza con media dosis para evaluar tu tolerancia.",
-            },
-            {
-                "q": "¿Se puede tomar pre-entreno todos los días?",
-                "a": "No es recomendable. El consumo diario genera tolerancia rápida a la cafeína, reduciendo su efecto. Úsalo solo en sesiones clave o con días de descanso entre tomas.",
+                "q": "¿Son seguros los pre-entrenos?",
+                "a": (
+                    "Los que tienen ingredientes bien dosificados y etiquetado transparente, sí. "
+                    "Evita marcas sin información clara de composición o con estimulantes no declarados."
+                ),
             },
         ],
     },
