@@ -383,7 +383,17 @@ def corregir_marcas(productos_web: list[dict]) -> list[dict]:
 # ============================================================
 
 def cargar_dataset_mas_reciente() -> list[dict]:
-    """Carga el JSON más reciente de la carpeta datasets/."""
+    """
+    Carga el JSON más reciente de la carpeta datasets/ que tenga datos
+    válidos de múltiples tiendas.
+
+    Un dataset se considera parcial (y se descarta) si:
+    - Tiene menos de 150 productos, O
+    - Solo contiene productos de una única tienda
+
+    Esto evita que un scraping fallido (donde solo MyProtein o solo una
+    tienda funcionó) sobreescriba los datos de todas las tiendas.
+    """
     patron = os.path.join(DATASETS_DIR, "suplementos_*.json")
     ficheros = sorted(glob.glob(patron), reverse=True)
 
@@ -393,14 +403,26 @@ def cargar_dataset_mas_reciente() -> list[dict]:
             "Ejecuta primero python scraper.py"
         )
 
-    fichero = ficheros[0]
-    print(f"📂 Cargando dataset: {fichero}")
+    for fichero in ficheros:
+        with open(fichero, encoding="utf-8") as f:
+            data = json.load(f)
 
-    with open(fichero, encoding="utf-8") as f:
-        data = json.load(f)
+        tiendas = {p.get("tienda") for p in data if p.get("tienda")}
+        n_productos = len(data)
 
-    print(f"   → {len(data)} productos cargados")
-    return data, fichero
+        if n_productos < 150 or len(tiendas) < 2:
+            print(f"⚠️  Ignorando dataset parcial: {fichero} "
+                  f"({n_productos} productos, tiendas: {tiendas})")
+            continue
+
+        print(f"📂 Cargando dataset: {fichero}")
+        print(f"   → {n_productos} productos cargados ({len(tiendas)} tiendas)")
+        return data, fichero
+
+    raise FileNotFoundError(
+        "Todos los datasets son parciales (< 150 productos o solo 1 tienda). "
+        "Ejecuta python scraper.py con los scrapers funcionando correctamente."
+    )
 
 
 # ============================================================
