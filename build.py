@@ -525,6 +525,51 @@ def guardar_products_json(productos_web: list[dict]):
     return path
 
 
+def guardar_price_history(productos_web: list[dict]):
+    """Añade los precios del scraping actual a data/price_history.json.
+
+    Cada entrada tiene: producto_id, fecha, precio, tienda.
+    Si el archivo ya existe, se conservan las entradas anteriores.
+    No se duplican entradas con el mismo (producto_id, fecha, tienda).
+    """
+    os.makedirs(DATA_DIR, exist_ok=True)
+    path = os.path.join(DATA_DIR, "price_history.json")
+
+    # Cargar historial existente
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            historial = json.load(f)
+    else:
+        historial = []
+
+    # Índice de entradas ya existentes para evitar duplicados
+    existentes = {
+        (e["producto_id"], e["fecha"], e["tienda"])
+        for e in historial
+    }
+
+    nuevas = 0
+    for producto in productos_web:
+        producto_id = producto["id"]
+        for precio_info in producto.get("precios", []):
+            clave = (producto_id, precio_info["fecha"], precio_info["tienda"])
+            if clave not in existentes:
+                historial.append({
+                    "producto_id": producto_id,
+                    "fecha":       precio_info["fecha"],
+                    "precio":      precio_info["precio_eur"],
+                    "tienda":      precio_info["tienda"],
+                })
+                existentes.add(clave)
+                nuevas += 1
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(historial, f, ensure_ascii=False, indent=2)
+
+    print(f"📈 Historial: {path} ({nuevas} entradas nuevas, {len(historial)} total)")
+    return path
+
+
 # ============================================================
 # PASO 3: Generar HTML con Jinja2
 # ============================================================
@@ -790,9 +835,10 @@ if __name__ == "__main__":
         n = sum(1 for p in productos_web if p["categoria"] == cfg["slug"])
         print(f"   • {cfg['display']}: {n} productos")
 
-    # 3. Guardar products.json
+    # 3. Guardar products.json y price_history.json
     print()
     guardar_products_json(productos_web)
+    guardar_price_history(productos_web)
 
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")
