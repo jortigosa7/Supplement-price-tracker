@@ -542,10 +542,13 @@ def generar_home(env, productos_web: list[dict], last_updated: str):
         prods_cat = [p for p in productos_web if p["categoria"] == cfg["slug"]]
         if not prods_cat:
             continue
-        precios_kg = [p["precio_por_kg_min"] for p in prods_cat if p["precio_por_kg_min"]]
+        # Usar solo productos principales (excluye muestras, mal-categorizado, etc.)
+        # para que el precio mínimo mostrado sea representativo
+        prods_main = [p for p in prods_cat if not _excluir_producto(p)]
+        precios_kg = [p["precio_por_kg_min"] for p in prods_main if p["precio_por_kg_min"]]
         categories.append({
             **cfg,
-            "count":     len(prods_cat),
+            "count":      len(prods_cat),
             "precio_min": min(precios_kg) if precios_kg else 0,
         })
 
@@ -591,9 +594,17 @@ KEYWORDS_EXCLUIR = [
 # (productos mal clasificados que distorsionan el ranking)
 KEYWORDS_EXCLUIR_POR_CATEGORIA = {
     "proteina-whey": [
-        "sustituto de comida", "crema de arroz", "colágeno marino",
-        "colageno", "collagen", "meal replacement", "sustituto",
-        "crema de arroz", "arroz en polvo",
+        "sustitut",          # cubre "sustituto" Y "sustitutivo" (ambas formas)
+        "crema de arroz",
+        "colágeno marino", "colageno", "collagen",
+        "meal replacement",
+        "arroz en polvo",
+    ],
+    "pre-entreno": [
+        "mug cake",          # mezcla de repostería, no es pre-workout
+        "bebida energetica", "energy drink",
+        "isomaltulosa", "palatinosa", "palatinose",  # carbohidrato a granel
+        "aceite mct",        # grasa, no pre-workout
     ],
 }
 
