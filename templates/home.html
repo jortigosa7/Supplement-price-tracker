@@ -79,8 +79,24 @@
     </div>
   </section>
 
+  <!-- ── Resultados de búsqueda ───────────────────────────── -->
+  <section id="searchResultsSection" style="display:none; margin-bottom:48px;">
+    <p class="section-label">Resultados de búsqueda</p>
+    <div id="srNoResults" style="display:none; text-align:center; padding:48px 0; color:var(--text-muted);">
+      No se han encontrado productos para "<span id="srNoResultsQuery"></span>"
+    </div>
+    <div class="products-list" id="searchResultsList"></div>
+    <div class="pagination" id="srPagination" style="display:none;">
+      <span class="pagination-info" id="srPaginationInfo"></span>
+      <div class="pagination-btns">
+        <button class="pagination-btn" id="srBtnPrev" onclick="changeSearchPage(-1)">← Anterior</button>
+        <button class="pagination-btn" id="srBtnNext" onclick="changeSearchPage(1)">Siguiente →</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Categorías ─────────────────────────────────────── -->
-  <section style="margin-bottom:48px;">
+  <section id="secCategories" style="margin-bottom:48px;">
     <p class="section-label">Categorías</p>
     <div class="cat-grid">
       {% for cat in categories %}
@@ -170,7 +186,7 @@
   </section>
 
   <!-- ── Cómo funciona ──────────────────────────────────── -->
-  <section style="margin-bottom:24px;">
+  <section id="secComoFunciona" style="margin-bottom:24px;">
     <p class="section-label">Cómo funciona</p>
     <div class="steps-grid">
       {% for num, icon, title, desc in [
@@ -191,64 +207,190 @@
 </div>
 
 <script>
+window.ALL_PRODUCTS = {{ all_products_json | safe }};
+</script>
+<script>
 (function() {
   const PER_PAGE = 12;
-  let page = 0;
-  let visibleCards = [];
+  let dealsPage  = 0;
+  let searchPage = 0;
+  let searchResults = [];
 
-  const list   = document.getElementById('productsList');
-  const info   = document.getElementById('paginationInfo');
-  const btnPrev = document.getElementById('btnPrev');
-  const btnNext = document.getElementById('btnNext');
-  const allCards = Array.from(list.querySelectorAll('.product-card'));
+  const siteUrl = '{{ site_url }}';
 
-  function getVisible() {
-    const q   = document.getElementById('searchInput').value.toLowerCase().trim();
-    const cat = document.getElementById('filterCat').value;
-    return allCards.filter(c => {
-      const matchQ   = !q   || c.dataset.nombre.includes(q);
-      const matchCat = !cat || c.dataset.cat === cat;
-      return matchQ && matchCat;
-    });
-  }
+  // ── Top deals elements ───────────────────────────────
+  const dealsList  = document.getElementById('productsList');
+  const dealsInfo  = document.getElementById('paginationInfo');
+  const dealsPrev  = document.getElementById('btnPrev');
+  const dealsNext  = document.getElementById('btnNext');
+  const allDealCards = Array.from(dealsList.querySelectorAll('.product-card'));
 
-  function sortCards(cards) {
-    const order = document.getElementById('sortOrder').value;
-    return cards.slice().sort((a, b) => {
-      if (order === 'precio_total') return parseFloat(a.dataset.precioTotal) - parseFloat(b.dataset.precioTotal);
-      return parseFloat(a.dataset.precioKg) - parseFloat(b.dataset.precioKg);
-    });
-  }
+  // ── Search results elements ──────────────────────────
+  const srSection  = document.getElementById('searchResultsSection');
+  const srList     = document.getElementById('searchResultsList');
+  const srNoRes    = document.getElementById('srNoResults');
+  const srNoResQ   = document.getElementById('srNoResultsQuery');
+  const srPag      = document.getElementById('srPagination');
+  const srInfo     = document.getElementById('srPaginationInfo');
+  const srPrev     = document.getElementById('srBtnPrev');
+  const srNext     = document.getElementById('srBtnNext');
 
-  function render() {
-    visibleCards = sortCards(getVisible());
-    const total  = visibleCards.length;
-    const start  = page * PER_PAGE;
-    const end    = Math.min(start + PER_PAGE, total);
+  // ── Sections to toggle ───────────────────────────────
+  const secCat     = document.getElementById('secCategories');
+  const secOfertas = document.getElementById('ofertas');
+  const secComo    = document.getElementById('secComoFunciona');
 
-    allCards.forEach(c => { c.style.display = 'none'; });
-    visibleCards.slice(start, end).forEach(c => { c.style.display = ''; });
-
-    info.textContent = total > 0
-      ? 'Mostrando ' + (start + 1) + '–' + end + ' de ' + total + ' productos'
-      : 'Sin resultados';
-    btnPrev.disabled = page === 0;
-    btnNext.disabled = end >= total;
-  }
-
-  window.changePage = function(dir) {
-    page = Math.max(0, page + dir);
-    render();
-    document.getElementById('ofertas').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // ── Store colors ─────────────────────────────────────
+  const STORE_COLORS = {
+    'HSN':         'var(--hsn)',
+    'Nutritienda': 'var(--nutritienda)',
+    'Prozis':      'var(--prozis)',
+    'MyProtein':   'var(--myprotein)',
   };
 
-  function resetPage() { page = 0; render(); }
+  function esc(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
 
-  document.getElementById('searchInput').addEventListener('input', resetPage);
-  document.getElementById('filterCat').addEventListener('change', resetPage);
-  document.getElementById('sortOrder').addEventListener('change', resetPage);
+  function renderCard(p, isBest) {
+    const offer  = p.tiendas[0];
+    const isDeal = offer.oferta && offer.precio_original;
+    const badge  = isBest ? '<span class="pc-badge best">Mejor precio</span>'
+                 : isDeal ? '<span class="pc-badge deal">Descuento</span>' : '';
+    const priceKg  = p.precio_kg != null
+      ? `<div class="pc-price-kg">${p.precio_kg.toFixed(2)} €/kg</div>` : '';
+    const priceOld = isDeal
+      ? `<div class="pc-price-old">${offer.precio_original.toFixed(2)} €</div>` : '';
+    const peso = p.peso_kg != null ? ` · ${p.peso_kg.toFixed(2)} kg` : '';
+    const stores = p.tiendas.map(pr => {
+      const color  = STORE_COLORS[pr.tienda] || 'var(--amazon)';
+      const oferta = pr.oferta ? '<span class="pc-store-sale">OFERTA</span>' : '';
+      return `<a href="${esc(pr.url)}" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <span class="pc-store-dot" style="background:${color};"></span>
+        <span class="pc-store-name">${esc(pr.tienda)}</span>
+        <span class="pc-store-price">${pr.precio.toFixed(2)} €</span>${oferta}
+      </a>`;
+    }).join('');
+    return `<div class="product-card${isBest ? ' is-best' : ''}">
+      <div class="pc-top">
+        <div class="pc-name">
+          <span class="pc-name-text">${esc(p.nombre)}</span>${badge}
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">${offer.precio.toFixed(2)} €</div>${priceKg}${priceOld}
+        </div>
+      </div>
+      <div class="pc-meta">${esc(p.cat_display)}${peso} · ${esc(p.marca)}</div>
+      <div class="pc-stores">${stores}</div>
+      <div class="pc-actions">
+        <a href="${esc(siteUrl)}/${esc(p.cat)}/" class="pc-btn pc-btn-primary">Ver en categoría ↗</a>
+        <a href="${esc(offer.url)}" class="pc-btn" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>`;
+  }
 
-  render();
+  // ── Top deals ────────────────────────────────────────
+  function renderDeals() {
+    const cat   = document.getElementById('filterCat').value;
+    const order = document.getElementById('sortOrder').value;
+    let visible = allDealCards.filter(c => !cat || c.dataset.cat === cat);
+    visible = visible.slice().sort((a, b) =>
+      order === 'precio_total'
+        ? parseFloat(a.dataset.precioTotal) - parseFloat(b.dataset.precioTotal)
+        : parseFloat(a.dataset.precioKg)    - parseFloat(b.dataset.precioKg)
+    );
+    const total = visible.length;
+    const start = dealsPage * PER_PAGE;
+    const end   = Math.min(start + PER_PAGE, total);
+    allDealCards.forEach(c => c.style.display = 'none');
+    visible.slice(start, end).forEach(c => c.style.display = '');
+    dealsInfo.textContent = total > 0
+      ? `Mostrando ${start + 1}–${end} de ${total} productos`
+      : 'Sin resultados';
+    dealsPrev.disabled = dealsPage === 0;
+    dealsNext.disabled = end >= total;
+  }
+
+  // ── Search results ───────────────────────────────────
+  function computeSearch() {
+    const q     = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cat   = document.getElementById('filterCat').value;
+    const order = document.getElementById('sortOrder').value;
+    const terms = q.split(/\s+/).filter(Boolean);
+
+    let results = window.ALL_PRODUCTS.filter(p => {
+      if (cat && p.cat !== cat) return false;
+      const hay = (p.nombre + ' ' + p.marca + ' ' + p.tiendas.map(t => t.tienda).join(' ')).toLowerCase();
+      return terms.every(t => hay.includes(t));
+    });
+
+    results.sort((a, b) =>
+      order === 'precio_total'
+        ? a.tiendas[0].precio       - b.tiendas[0].precio
+        : (a.precio_kg || 9999)     - (b.precio_kg || 9999)
+    );
+    return results;
+  }
+
+  function renderSearch() {
+    const q     = document.getElementById('searchInput').value.trim();
+    searchResults = computeSearch();
+    const total = searchResults.length;
+    const start = searchPage * PER_PAGE;
+    const end   = Math.min(start + PER_PAGE, total);
+
+    if (total === 0) {
+      srList.innerHTML = '';
+      srNoResQ.textContent = q;
+      srNoRes.style.display = '';
+      srPag.style.display   = 'none';
+    } else {
+      srNoRes.style.display = 'none';
+      srList.innerHTML = searchResults.slice(start, end)
+        .map((p, i) => renderCard(p, i === 0 && start === 0))
+        .join('');
+      srPag.style.display = total > PER_PAGE ? 'flex' : 'none';
+      srInfo.textContent  = `Mostrando ${start + 1}–${end} de ${total} productos`;
+      srPrev.disabled     = searchPage === 0;
+      srNext.disabled     = end >= total;
+    }
+  }
+
+  // ── Mode switch ──────────────────────────────────────
+  function update() {
+    const searching = document.getElementById('searchInput').value.trim() !== '';
+    secCat.style.display     = searching ? 'none' : '';
+    secOfertas.style.display = searching ? 'none' : '';
+    secComo.style.display    = searching ? 'none' : '';
+    srSection.style.display  = searching ? ''     : 'none';
+    if (searching) renderSearch(); else renderDeals();
+  }
+
+  function reset() { dealsPage = 0; searchPage = 0; update(); }
+
+  window.changePage = function(dir) {
+    dealsPage = Math.max(0, dealsPage + dir);
+    renderDeals();
+    secOfertas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  window.changeSearchPage = function(dir) {
+    searchPage = Math.max(0, searchPage + dir);
+    renderSearch();
+    srSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  document.getElementById('searchInput').addEventListener('input', reset);
+  document.getElementById('filterCat').addEventListener('change', reset);
+  document.getElementById('sortOrder').addEventListener('change', reset);
+
+  // Soporte para ?q= en la URL (schema.org SearchAction)
+  const urlQ = new URLSearchParams(window.location.search).get('q');
+  if (urlQ) document.getElementById('searchInput').value = urlQ;
+
+  update();
 })();
 </script>
 {% endblock %}

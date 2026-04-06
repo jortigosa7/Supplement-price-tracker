@@ -589,14 +589,37 @@ def generar_home(env, productos_web: list[dict], last_updated: str):
                 savings.append((precios_vals[-1] - precios_vals[0]) / precios_vals[-1] * 100)
     ahorro_medio = round(sum(savings) / len(savings)) if savings else 0
 
+    # Índice de búsqueda: todos los productos con €/kg para el buscador client-side
+    all_search = []
+    for p in sorted(con_precio_kg, key=lambda x: x["precio_por_kg_min"]):
+        all_search.append({
+            "nombre":      p["nombre_normalizado"],
+            "marca":       p.get("marca", ""),
+            "cat":         p["categoria"],
+            "cat_display": p["categoria_display"],
+            "peso_kg":     p.get("peso_kg"),
+            "precio_kg":   p["precio_por_kg_min"],
+            "tiendas": [
+                {
+                    "tienda":           pr["tienda"],
+                    "precio":           pr["precio_eur"],
+                    "url":              pr["url_afiliado"],
+                    "oferta":           pr["en_oferta"],
+                    "precio_original":  pr.get("precio_original"),
+                }
+                for pr in sorted(p["precios"], key=lambda x: x["precio_eur"])
+            ],
+        })
+
     ctx = {
         **contexto_base(last_updated),
-        "total_productos": len(productos_web),
-        "total_tiendas":   len(tiendas),
-        "tiendas_lista":   sorted(tiendas),
-        "categories":      categories,
-        "top_deals":       top_deals,
-        "ahorro_medio":    ahorro_medio,
+        "total_productos":   len(productos_web),
+        "total_tiendas":     len(tiendas),
+        "tiendas_lista":     sorted(tiendas),
+        "categories":        categories,
+        "top_deals":         top_deals,
+        "ahorro_medio":      ahorro_medio,
+        "all_products_json": json.dumps(all_search, ensure_ascii=False),
     }
 
     html = template.render(**ctx)
