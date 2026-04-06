@@ -1,0 +1,2222 @@
+[
+  {
+    "producto_id": "bcaa-s-instantaneo-2-1-1-2-0-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 3.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "bcaa-s-instantaneo-4-1-1-2-0-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 4.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "recovery-total-700g-vitobest",
+    "fecha": "2026-04-06",
+    "precio": 23.94,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.89,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 24.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "high-energy-gel-bcaa-76g-226ers",
+    "fecha": "2026-04-06",
+    "precio": 3.15,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-glutamine-500g-ramificados",
+    "fecha": "2026-04-06",
+    "precio": 21.28,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-glutamine-concept-500g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 22.04,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-s-glutamina-400g-aminoacidos",
+    "fecha": "2026-04-06",
+    "precio": 18.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "zero-bcaa-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.31,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "zero-bcaa-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 27.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-glutamine-500g-quamtrax",
+    "fecha": "2026-04-06",
+    "precio": 26.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "premium-bcaa-zero-8-1-1-l-glutamina-500g-weider",
+    "fecha": "2026-04-06",
+    "precio": 28.48,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-500g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 28.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-glutamine-core-300g-procell",
+    "fecha": "2026-04-06",
+    "precio": 18.14,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "hardcore-bcaa-390g-mutant",
+    "fecha": "2026-04-06",
+    "precio": 23.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-intra-fusion-400g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 24.65,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-8-1-1-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 18.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "hydra-bcaa-s-420g-quamtrax",
+    "fecha": "2026-04-06",
+    "precio": 28.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "glutamina-bcaas-2-1-1-300g-be-essential",
+    "fecha": "2026-04-06",
+    "precio": 20.65,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "after-420g-biotechusa",
+    "fecha": "2026-04-06",
+    "precio": 29.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-glutamine-600g-mega-plus",
+    "fecha": "2026-04-06",
+    "precio": 43.01,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "zero-bcaa-150-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.04,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "evobcaa-s-complex-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evo-4-1-1-bcaa-s-instantaneos-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.1,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "bcaa-glutamine-zero-480g-biotechusa",
+    "fecha": "2026-04-06",
+    "precio": 38.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "bcaa-xpress-280g-scitec-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 24.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-12-1-1-glutamina-kojak-400g-big",
+    "fecha": "2026-04-06",
+    "precio": 37.75,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-instant-drink-300g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 34.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "amino-recovery-120-caps-amazin-foods",
+    "fecha": "2026-04-06",
+    "precio": 11.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "6-4-amino-120-caps-glutamina-bcaas",
+    "fecha": "2026-04-06",
+    "precio": 27.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-4-1-1-competition-150-caps-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 23.21,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "aminoacidos-ramificados-bcaa-s-120-caps-keepgoing",
+    "fecha": "2026-04-06",
+    "precio": 22.05,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "4-1-1-anabolic-bcaa-150-caps-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 19.71,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "muscle-bcaa-4-1-1-120-vcaps-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 17.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-s-2-1-1-200-tabs-aminoacidos-ramificados",
+    "fecha": "2026-04-06",
+    "precio": 14.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-s-2-1-1-200-tabs-aminoacidos-ramificados",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-zero-amino-energy-drink-330-ml-biotechusa",
+    "fecha": "2026-04-06",
+    "precio": 2.6,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 9.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "bcaa-8-1-1-180-tabs-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 13.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-glutamine-30-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 13.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "amino-recovery-20-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-4-1-1-100-tabs-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 7.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "amino-prime-20-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "amino-prime-caffeine-free-20-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-8-1-1-360-tabs-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 26.24,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "2-x-recovery-rtd-500-ml-wild-berry-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 2.86,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "2-x-recovery-rtd-500-ml-orange-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 2.86,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "3-x-bcaa-drink-500-ml-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 3.8,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-glutamine-60-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 24.29,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-400-tabs-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 30.76,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 13.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "bcaa-comprimidos-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "bcaa-esenciales-4-1-1-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "origin-intra-workout-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 32.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "bcaa-4-1-1-en-polvo-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "creatina-monohidrato-en-polvo-200-mesh-150g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 2.37,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-monohidrato-en-polvo-200-mesh-150g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 30.79,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-monohidrato-ultrafina-en-polvo-500-mesh-500g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 14.82,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-monohidrato-ultrafina-en-polvo-500-mesh-500g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 34.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creaport-600g-nutrend",
+    "fecha": "2026-04-06",
+    "precio": 18.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evocreatine-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.48,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-celular-800g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 26.96,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-anabolic-masster-2-20-kg-creatina-30-caps-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 83.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-glycofusion-300-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 15.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-glycofusion-300-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 19.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "monohidrato-de-creatina-600-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 32.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "monohidrato-de-creatina-600-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 42.8,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia-250g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 15.3,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia-250g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 16.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "creatina-creapure-400g-amazin-foods",
+    "fecha": "2026-04-06",
+    "precio": 24.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "monohidrato-de-creatina-300-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 18.84,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "monohidrato-de-creatina-300-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 21.25,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-flavoured-zero-500g-creatina",
+    "fecha": "2026-04-06",
+    "precio": 34.11,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-micronpure-600-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 41.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-creapure-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 22.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-creapure-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 27.3,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-micronpure-300-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 23.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-micronpure-300-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 27.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-creapure-500g-power-labs",
+    "fecha": "2026-04-06",
+    "precio": 40.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatp-creatine-creapure-400g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 34.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "r-weiler-focus-300g-olimp",
+    "fecha": "2026-04-06",
+    "precio": 25.8,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-ultra-pure-200mesh-150g-zoomad-labs",
+    "fecha": "2026-04-06",
+    "precio": 12.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creacell-300g-procell",
+    "fecha": "2026-04-06",
+    "precio": 26.32,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-monohidrato-creapure-200g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 19.2,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-creapure-300g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 29.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "platinum-creatine-plus-350g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 35.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-micronpure-600g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 62.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-creapure-300g-226ers",
+    "fecha": "2026-04-06",
+    "precio": 31.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creamap-gfs-sabor-naranja-200g-vitobest",
+    "fecha": "2026-04-06",
+    "precio": 21.06,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "zero-creatine-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 33.38,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "zero-creatine-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 46.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "zero-creatine-150-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 21.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-excell-100-creapure-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 23.31,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "the-creatine-creapure-sobres-monodosis-10g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 19.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "kre-alkalyn-120-vcaps-amazin-foods",
+    "fecha": "2026-04-06",
+    "precio": 18.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-mix-120-caps-soul-project",
+    "fecha": "2026-04-06",
+    "precio": 28.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-ph-x-90-caps-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 17.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "r-weiler-focus-shot-60-ml-9-viales-olimp",
+    "fecha": "2026-04-06",
+    "precio": 41.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-competition-150-tabs-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 19.55,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-3000-mg-200-tabs-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 20.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-monohidrato-1000mg-creatina-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-excell-1000mg-100-creapure-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.19,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evokalyn-creatina-alcalina-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 19.89,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-creapure-80-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 23.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-creapure-80-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 37.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "monohidrato-de-creatina-90-comprimidos-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 17.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatine-creapure-320-caps-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 67.52,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-creapure-90-comprimidos-masticables-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 34.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-monohidrato-en-tabletas-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 27.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "creatina-monohidrato-en-polvo-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 6.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "gominolas-de-creatina-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "pack-get-stronger-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 39.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "the-creatine-creapure-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 25.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "pack-essentials-protein-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 45.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "pack-gainer-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 59.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "creatina-hcl-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 6.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "the-electrofuel-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "the-electropower-creatina-electrolitos-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 24.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "mezcla-de-vitaminas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 47.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "pack-clear-performance-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 41.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "pack-de-rendimiento-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 104.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "pack-proteico-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 61.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "bicarbonato-de-sodio-en-polvo-150g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 0.75,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "isomaltulosa-palatinose-en-polvo-1kg-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 6.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "isomaltulosa-palatinose-en-polvo-1kg-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 76.7,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-speculoos-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-speculoos-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 32.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-cafe-y-caramelo-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-chocolate-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400-g-descon",
+    "fecha": "2026-04-06",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "energy-charge-preentrenamiento-800-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 19.54,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanina-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 3.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "beta-alanina-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 7.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "beta-alanina-900-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 23.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "n-o-shox-1320g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 35.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "aceite-mct-liquido-473ml-473g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.75,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "beta-alanina-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 9.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanina-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 30.56,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "n-o-shox-660-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 22.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "glicina-100g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 3.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "glycopump-glicerol-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 5.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-citrulina-malato-300g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "l-citrulina-malato-300g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-300-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 53.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "l-citrulina-base-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 6.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-arginina-alfa-cetoglutarato-aakg-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 7.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "acido-malico-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 7.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "d-ribosa-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 7.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "pre-workout-wow-400g-eficacia-y-rendimiento",
+    "fecha": "2026-04-06",
+    "precio": 21.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "amino-charge-570g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 35.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "attack-416g-scitec-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 26.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pre-workout-300g-best-protein",
+    "fecha": "2026-04-06",
+    "precio": 19.47,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "hot-blood-hardcore-700g-scitec-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 45.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "beta-alanina-carnosyn-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 9.96,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "impact-pre-entreno-venom-440g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 34.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "prework-core-series-300g-procell",
+    "fecha": "2026-04-06",
+    "precio": 24.09,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "explosin-420g-nutrend",
+    "fecha": "2026-04-06",
+    "precio": 34.7,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-powder-8-1-1-300g-aminoacidos",
+    "fecha": "2026-04-06",
+    "precio": 24.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "atp-extreme-440g-vitobest",
+    "fecha": "2026-04-06",
+    "precio": 36.72,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "l-citrulina-malato-150-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "amino-energy-zero-360g-biotechusa",
+    "fecha": "2026-04-06",
+    "precio": 32.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "mambo-400g-big",
+    "fecha": "2026-04-06",
+    "precio": 37.8,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evordx-2-0-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "the-curse-250-g-cobra-labs",
+    "fecha": "2026-04-06",
+    "precio": 28.49,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "l-ornitina-hcl-en-polvo-250g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 29.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "origin-stim-free-pre-workout-muestra-20g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 2.55,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "l-teanina-en-polvo-100g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.79,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "evobomb-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 22.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evopump-en-polvo-150g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 22.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobeast-50g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "3-x-sachet-powa-3-0-pre-workout-17-8g-cola-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 4.56,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "evostamina-20g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "3-x-sachet-powa-3-0-pre-workout-17-5g-apple-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 4.56,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "hell-s-no2-100-caps-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 37.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "genesis-50-caps-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 29.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "caffeine-caps-60-caps-nutrend",
+    "fecha": "2026-04-06",
+    "precio": 6.1,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "monster-energy-500ml-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 1.75,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "monster-punch-mixxd-500ml-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 1.75,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "monster-ultra-red-500ml-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 1.75,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "black-blood-shot-60-ml-biotechusa",
+    "fecha": "2026-04-06",
+    "precio": 2.7,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "jack3d-45-servicios-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 22.89,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "cellup-shot-20-ud-60-ml-energia-para-tomar-directamente",
+    "fecha": "2026-04-06",
+    "precio": 45.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "caffeine-200-100-tabs-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 8.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "extracto-de-amaranto-oxystorm-50-1-650mg-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 22.99,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-alanil-l-glutamina-300mg-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 20.0,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "cafeina-natural-200mg-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 4.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evoripped-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 20.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evopump-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 28.0,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "beta-alanina-1000mg-carnosyn-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "arginina-alfa-cetoglutarato-1000mg-aakg-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "cutting-complex-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 15.43,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "cafeina-hibrida-200mg-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 13.48,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-46-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "powa-3-0-pre-workout-20-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 26.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "12-x-big-shot-pre-workout-60-ml-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 15.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-sin-cafeina-46-dosis-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "extreme-big-shot-pre-workout-20-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 22.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-citrulina-2250-mg-90-comprimidos-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-23-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "x-boost-ultimate-gaming-pre-workout-25-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 27.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanina-100-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 9.09,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-2400-mg-90-comprimidos-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.24,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-8-sticks-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 6.29,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "aakg-l-arginina-akg-60-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 6.29,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-l-ornitina-l-lisina-120-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.24,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "2-x-big-shot-pre-workout-60ml-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 2.37,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "powa-3-0-pre-workout-40-servings-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 44.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "aakg-l-arginina-akg-180-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-2400-mg-180-comprimidos-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 19.18,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-l-ornitina-l-lisina-360-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanine-90-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-90-tabs-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 13.29,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "ripped-pre-workout-ultra-concentrated-20-dosis-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 26.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-180-tabs-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 26.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "2-x-n-o-maxshot-60ml-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 3.22,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "origin-pre-entreno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 21.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "cafeina-pura-comprimidos-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 10.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "the-electro-hyrox-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 21.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-eaa-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "the-electrofuel-hyrox-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "origin-pre-entreno-dry-scoop-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "l-carnitina-comprimidos-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 7.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "origin-pre-entreno-sin-estimulantes-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 21.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "mezcla-pre-entreno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "thermopure-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "l-glutamina-comprimidos-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "l-glutamina-en-polvo-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 10.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "gel-pre-entreno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "l-carnitina-liquida-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "aakg-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-eaa-tablets-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 18.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "the-pre-workout-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 29.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "origin-shred-pre-workout-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 27.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "gominolas-pre-entreno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 21.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-pre-entreno-deadpool-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 34.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "alpha-pre-entreno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 2.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "pump-enhancer-capsulas-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 21.29,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-pre-entreno-lobezno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 34.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "taurina-en-polvo-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 7.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "l-carnitina-en-polvo-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "l-tirosina-en-polvo-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-whey-isolate-2500g-myprotein",
+    "fecha": "2026-04-06",
+    "precio": 27.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-whey-isolate-2500g-myprotein",
+    "fecha": "2026-04-06",
+    "precio": 70.51,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evowhey-oats-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 7.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-oats-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 20.69,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "mezcla-de-rendimiento-todo-en-uno-2-5kg-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 50.09,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "sustituto-de-comida-800-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "batido-sustitutivo-de-comida-army-800-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-fibre-700g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-whey-protein-concentrate-500g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 11.76,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "100-whey-protein-concentrate-500g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 26.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evowhey-protein-sin-edulcorantes-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.32,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-protein-sin-edulcorantes-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 26.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "100-real-whey-protein-2000g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 56.69,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "golden-protein-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.25,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "golden-protein-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 36.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "natural-real-whey-protein-2000g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 57.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pure-whey-protein-900g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 26.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pure-whey-protein-900g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 28.79,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-real-whey-protein-1814g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 56.69,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-real-whey-protein-1814g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 62.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "100-real-whey-protein-1000-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 31.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-real-whey-protein-1000-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 34.59,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "natural-real-whey-protein-1814g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 57.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-whey-prime-1000-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 32.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-whey-prime-1000-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 35.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "natural-real-whey-protein-1000-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 32.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "natural-real-whey-protein-1000-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 39.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "multi-phase-whey-2-kg-bigman",
+    "fecha": "2026-04-06",
+    "precio": 66.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "100-real-whey-protein-907g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 31.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-real-whey-protein-907g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 32.49,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.5,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "xtreme-whey-protein-ss-2000-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 70.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "natural-real-whey-protein-907g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 32.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "natural-real-whey-protein-907g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 49.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-500g-optimum-nutritio",
+    "fecha": "2026-04-06",
+    "precio": 18.04,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evoexcel-2-0-whey-protein-isolate-concentrate-500g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 18.04,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "whey-protein-freakin-good-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 15.29,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "diesel-new-zealand-100-whey-isolate-2270g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 87.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evolate-2-0-whey-isolate-cfm-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 19.38,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "100-whey-protein-isolate-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 19.38,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "zero-diet-whey-1500-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 58.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "stress-nutril-800g-nutrisport",
+    "fecha": "2026-04-06",
+    "precio": 31.35,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evohydro-2-0-hydro-whey-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 20.09,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "capuchino-proteico-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-caramelo-proteico-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-caramelo-proteico-con-cafeina-extra-400-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-avellana-proteico-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "capuchino-proteico-con-cafeina-extra-400-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-avellana-proteico-con-cafeina-extra-400-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "mocachino-proteico-con-cafeina-extra-400-g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "mocachino-proteico-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-proteico-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "myprotein-impact-whey-isolate-chocolate-orange-5kg-myprotein",
+    "fecha": "2026-04-06",
+    "precio": 209.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "100-whey-prime-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.09,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "isolad-3cfm-protein-2kg-maxima-pureza",
+    "fecha": "2026-04-06",
+    "precio": 86.39,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "100-proteina-de-suero-hidrolizado-aislada-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 21.63,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "100-real-whey-protein-400-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "battery-complete-isolate-600g-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 26.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "natural-real-whey-isolate-1814-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 81.89,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "evohydro-30hd-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 22.75,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "zero-diet-whey-750-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 34.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "iso-fuji-2kg-proteina-aislada",
+    "fecha": "2026-04-06",
+    "precio": 92.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isolad-3cfm-protein-1-kg-bavarian-elite",
+    "fecha": "2026-04-06",
+    "precio": 47.24,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "natural-real-whey-isolate-907g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 44.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "isolate-cfm-zero-1-kg-vitobest",
+    "fecha": "2026-04-06",
+    "precio": 50.58,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "gourmet-protein-mr-poppers-1000g-proteina",
+    "fecha": "2026-04-06",
+    "precio": 50.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-isolate-1000g-best-protein",
+    "fecha": "2026-04-06",
+    "precio": 51.1,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isopro-t-1000g-muy-alto-valor-biologico",
+    "fecha": "2026-04-06",
+    "precio": 53.32,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "100-whey-hydro-isolate-clear-700g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 37.79,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "panacea-350g-paleobull",
+    "fecha": "2026-04-06",
+    "precio": 18.98,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "cfm-iso-zero-doypack-1-kg-big",
+    "fecha": "2026-04-06",
+    "precio": 57.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "natural-proteina-whey-chocolate-350g-natural-athlete",
+    "fecha": "2026-04-06",
+    "precio": 20.6,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "total-whey-260g-proteina-whey-comodo-formato",
+    "fecha": "2026-04-06",
+    "precio": 16.19,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "proteina-de-suero-cacao-65-eco-400g-organica",
+    "fecha": "2026-04-06",
+    "precio": 26.35,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "iso-hd-90-cfm-protein-500g-amix",
+    "fecha": "2026-04-06",
+    "precio": 36.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "aislado-de-proteina-hidrolizada-clear-whey-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 38.94,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "myvegan-vegan-protein-blend-sample-30g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 2.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "myvegan-vegan-protein-blend-sample-30g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.09,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "2-x-sachet-100-whey-prime-25g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 2.5,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "2-x-sachet-100-whey-prime-25g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.09,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "3-x-sachet-100-real-whey-protein-30-g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 3.75,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "keto-whey-protein-500g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 65.0,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "crema-de-arroz-proteica-50g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobasic-whey-30g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 10.34,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-protein-30g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.76,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evoclear-hydro-25g-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 22.03,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "barebells-milkshake-batido-proteico-8-batidos-de-330ml-sin-lactosa",
+    "fecha": "2026-04-06",
+    "precio": 19.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "clear-whey-protein-y-colageno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 27.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-whey-protein-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 31.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "clear-whey-isolate-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 53.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-whey-protein-colageno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 15.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "crema-de-arroz-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "essential-whey-protein-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "proteina-de-colageno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 31.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "mezcla-de-proteina-vegana-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 13.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "aislado-de-proteina-de-soja-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 11.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "mezcla-sustitutiva-de-comidas-proteica-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 15.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "mezcla-ganador-de-peso-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 17.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "clear-vegan-protein-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 24.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "aislado-de-proteina-de-guisante-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 9.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-diet-whey-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 14.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "smoothie-para-el-desayuno-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 26.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "myprotein-clear-whey-isolate-sample-myprotein",
+    "fecha": "2026-04-06",
+    "precio": 1.59,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "clear-collagen-powder-tub-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 31.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "clear-whey-splash-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 25.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "origin-protein-con-creatina-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 38.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "caseina-de-liberacion-lenta-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 34.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "origin-mass-gainer-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 34.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "supermezcla-de-clear-protein-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 28.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "supermezcla-de-proteina-vegetal-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 12.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "impact-whey-protein-elite-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 32.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "batidos-essential-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 10.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "clear-whey-electrolyte-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 25.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "the-whey-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 30.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "advanced-weight-gainer-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 49.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "colageno-marino-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 49.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "proteina-de-suero-hidrolizada-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 43.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "clear-whey-gainer-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 54.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "total-protein-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 44.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "clear-whey-x-chupa-chups-sabor-fresa-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 34.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "clara-de-huevo-en-polvo-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 36.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "myvegan-plant-protein-superblend-sample-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 2.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "aislado-de-proteina-de-soja-muestra-desconocida",
+    "fecha": "2026-04-06",
+    "precio": 2.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "clear-all-in-one-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 29.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "origin-protein-iron-man-tarta-red-velvet-marvel-optimum-nutrition",
+    "fecha": "2026-04-06",
+    "precio": 63.99,
+    "tienda": "MyProtein"
+  }
+]

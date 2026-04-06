@@ -1,5 +1,5 @@
 """
-build.py — Generador del sitio web estático para SuplementosPrecio.es
+build.py — Generador del sitio web estático para StackFit
 ======================================================================
 
 Lee el dataset más reciente de datasets/, convierte al schema web,
@@ -37,7 +37,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 # ============================================================
 
 SITE_URL    = "https://jortigosa7.github.io/Supplement-price-tracker"
-SITE_NAME   = "SuplementosPrecio.es"
+SITE_NAME   = "StackFit"
 DATASETS_DIR = "datasets"
 DATA_DIR     = "data"
 DOCS_DIR     = "docs"
