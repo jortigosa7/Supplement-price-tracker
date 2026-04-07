@@ -36,7 +36,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 # CONFIGURACIÓN — cambia SITE_URL cuando tengas dominio
 # ============================================================
 
-SITE_URL    = "https://jortigosa7.github.io/Supplement-price-tracker"
+SITE_URL    = "https://stackfit.es"
 SITE_NAME   = "StackFit"
 DATASETS_DIR = "datasets"
 DATA_DIR     = "data"
