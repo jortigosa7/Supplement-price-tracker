@@ -18,7 +18,9 @@
   "numberOfItems": {{ products | length }},
   "itemListElement": [
     {% for p in products[:10] %}
-    {% set offer = p.precios | sort(attribute='precio_eur') | first %}
+    {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
+    {% set low  = precios_ord | first %}
+    {% set high = precios_ord | last %}
     {
       "@type": "ListItem",
       "position": {{ loop.index }},
@@ -27,11 +29,12 @@
         "name": "{{ p.nombre_normalizado | replace('"', '\\"') }}",
         "brand": { "@type": "Brand", "name": "{{ p.marca | replace('"', '\\"') }}" },
         "offers": {
-          "@type": "Offer",
+          "@type": "AggregateOffer",
           "priceCurrency": "EUR",
-          "price": "{{ offer.precio_eur }}",
-          "availability": "https://schema.org/InStock",
-          "url": "{{ offer.url_afiliado }}"
+          "lowPrice": "{{ '%.2f' | format(low.precio_eur) }}",
+          "highPrice": "{{ '%.2f' | format(high.precio_eur) }}",
+          "offerCount": {{ p.precios | length }},
+          "availability": "https://schema.org/InStock"
         }
       }
     }{% if not loop.last %},{% endif %}

@@ -53,8 +53,8 @@ CATEGORIA_CONFIG = {
         "display":  "Proteína Whey",
         "icono":    "🥛",
         "seo_title": "Mejor Precio Proteína Whey España 2026",
-        "seo_desc":  "Compara precios de proteína whey en las principales tiendas de España. "
-                     "Todos los productos ordenados por precio/kg para encontrar la mejor oferta.",
+        "seo_desc":  "Compara 63 proteínas whey en España ordenadas por €/kg. "
+                     "Encuentra la más barata entre HSN, MyProtein, Nutritienda y Prozis. Precios actualizados.",
         "keywords":  "mejor precio proteína whey España, comprar whey barato, "
                      "proteína whey oferta España, whey protein precio",
         "h1":    "Mejor Precio Proteína Whey España",
@@ -114,8 +114,8 @@ CATEGORIA_CONFIG = {
         "display":  "Creatina",
         "icono":    "⚡",
         "seo_title": "Mejor Precio Creatina España 2026",
-        "seo_desc":  "Compara precios de creatina monohidrato y otras formas en tiendas españolas. "
-                     "Encuentra la creatina más barata al mejor precio/kg.",
+        "seo_desc":  "Compara creatina monohidrato y Creapure en España por €/kg. "
+                     "Los mejores precios entre HSN, MyProtein, Nutritienda y Prozis.",
         "keywords":  "mejor precio creatina España, comprar creatina barata, "
                      "creatina monohidrato oferta, creatina precio España",
         "h1":    "Mejor Precio Creatina España",
@@ -167,8 +167,8 @@ CATEGORIA_CONFIG = {
         "display":  "BCAA",
         "icono":    "💊",
         "seo_title": "Mejor Precio BCAA España 2026",
-        "seo_desc":  "Compara precios de BCAA y aminoácidos ramificados en tiendas españolas. "
-                     "Encuentra los BCAA más baratos por kilogramo.",
+        "seo_desc":  "Compara BCAA 2:1:1 y 4:1:1 en España por €/kg. "
+                     "Encuentra el precio más bajo entre las principales tiendas de suplementos.",
         "keywords":  "mejor precio BCAA España, comprar BCAA barato, "
                      "aminoácidos ramificados precio, BCAA oferta España",
         "h1":    "Mejor Precio BCAA España",
@@ -225,8 +225,8 @@ CATEGORIA_CONFIG = {
         "display":  "Pre-Entreno",
         "icono":    "🔥",
         "seo_title": "Mejor Precio Pre-Entreno España 2026",
-        "seo_desc":  "Compara precios de suplementos pre-entreno en tiendas españolas. "
-                     "Encuentra el mejor pre-workout al precio más bajo.",
+        "seo_desc":  "Compara pre-entrenos en España ordenados por €/kg. "
+                     "Precios actualizados de HSN, MyProtein, Nutritienda y Prozis.",
         "keywords":  "mejor precio pre-entreno España, comprar pre-workout barato, "
                      "pre-entreno oferta España, mejor pre-workout precio",
         "h1":    "Mejor Precio Pre-Entreno España",
