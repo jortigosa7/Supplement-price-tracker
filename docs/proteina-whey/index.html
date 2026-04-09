@@ -648,74 +648,73 @@
       gap: 12px;
     }
     .cat-card {
-      background: #f7f7f7;
+      background: #ffffff;
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 18px;
+      padding: 18px 20px;
       text-decoration: none;
       display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      transition: border-color 0.15s, box-shadow 0.15s;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .cat-card:first-child {
+      border-color: var(--accent-border);
+      background: rgba(200,255,77,0.03);
     }
     .cat-card:hover {
       border-color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
-    .cat-card:hover .cat-arrow { transform: translateX(2px); }
-    .cat-icon { font-size: 1.6rem; }
+    .cat-left { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+    .cat-icon { font-size: 1.3rem; margin-bottom: 2px; }
     .cat-name {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 0.88rem;
       color: #111111;
       text-transform: uppercase;
       letter-spacing: 0.02em;
+      line-height: 1.2;
     }
-    .cat-count { font-size: 0.78rem; color: #cccccc; }
-    .cat-price-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 4px;
-    }
-    .cat-price-wrap {}
+    .cat-count { font-size: 0.73rem; color: #aaaaaa; }
+    .cat-right { text-align: right; flex-shrink: 0; }
     .cat-desde {
-      font-size: 0.7rem;
-      color: #cccccc;
-      margin-bottom: 1px;
+      font-size: 0.63rem;
+      color: #aaaaaa;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
     }
     .cat-price {
       font-family: var(--font-syne);
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 1.4rem;
       color: #111111;
+      line-height: 1;
     }
-    .cat-arrow { color: var(--accent); font-size: 1rem; transition: transform 0.15s; }
+    .cat-unit {
+      font-size: 0.68rem;
+      color: #aaaaaa;
+      margin-top: 2px;
+    }
 
     /* ── Metrics / Stats bar ───────────────────────── */
     .metrics-grid {
       display: flex;
       gap: 0;
       background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
     }
     .metric-card {
       flex: 1;
       border-radius: 0;
       border: none;
-      border-right: 1px solid #f0f0f0;
       padding: 20px 16px;
       text-align: center;
       background: #ffffff;
     }
-    .metric-card:last-child { border-right: none; }
     .metric-value {
       font-family: 'Syne', sans-serif;
       font-size: 1.5rem;
@@ -992,7 +991,7 @@
     <nav class="nav">
       <a class="nav-logo" href="https://stackfit.es/">Stack<span>Fit</span></a>
       <div class="nav-links">
-        <a href="https://stackfit.es/proteina-whey/" class="active">Proteína Whey</a>
+        <a href="https://stackfit.es/proteina-whey/" class="active">Whey</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>

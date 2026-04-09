@@ -401,74 +401,73 @@
       gap: 12px;
     }
     .cat-card {
-      background: #f7f7f7;
+      background: #ffffff;
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 18px;
+      padding: 18px 20px;
       text-decoration: none;
       display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      transition: border-color 0.15s, box-shadow 0.15s;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .cat-card:first-child {
+      border-color: var(--accent-border);
+      background: rgba(200,255,77,0.03);
     }
     .cat-card:hover {
       border-color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
-    .cat-card:hover .cat-arrow { transform: translateX(2px); }
-    .cat-icon { font-size: 1.6rem; }
+    .cat-left { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+    .cat-icon { font-size: 1.3rem; margin-bottom: 2px; }
     .cat-name {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 0.88rem;
       color: #111111;
       text-transform: uppercase;
       letter-spacing: 0.02em;
+      line-height: 1.2;
     }
-    .cat-count { font-size: 0.78rem; color: #cccccc; }
-    .cat-price-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 4px;
-    }
-    .cat-price-wrap {}
+    .cat-count { font-size: 0.73rem; color: #aaaaaa; }
+    .cat-right { text-align: right; flex-shrink: 0; }
     .cat-desde {
-      font-size: 0.7rem;
-      color: #cccccc;
-      margin-bottom: 1px;
+      font-size: 0.63rem;
+      color: #aaaaaa;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
     }
     .cat-price {
       font-family: var(--font-syne);
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 1.4rem;
       color: #111111;
+      line-height: 1;
     }
-    .cat-arrow { color: var(--accent); font-size: 1rem; transition: transform 0.15s; }
+    .cat-unit {
+      font-size: 0.68rem;
+      color: #aaaaaa;
+      margin-top: 2px;
+    }
 
     /* ── Metrics / Stats bar ───────────────────────── */
     .metrics-grid {
       display: flex;
       gap: 0;
       background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
     }
     .metric-card {
       flex: 1;
       border-radius: 0;
       border: none;
-      border-right: 1px solid #f0f0f0;
       padding: 20px 16px;
       text-align: center;
       background: #ffffff;
     }
-    .metric-card:last-child { border-right: none; }
     .metric-value {
       font-family: 'Syne', sans-serif;
       font-size: 1.5rem;
@@ -745,7 +744,7 @@
     <nav class="nav">
       <a class="nav-logo" href="https://stackfit.es/">Stack<span>Fit</span></a>
       <div class="nav-links">
-        <a href="https://stackfit.es/proteina-whey/">Proteína Whey</a>
+        <a href="https://stackfit.es/proteina-whey/">Whey</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -764,10 +763,10 @@
       Precios actualizados · 2026-04-06
     </div>
     <h1 style="font-family:var(--font-display); font-size:clamp(1.75rem,4vw,2.625rem); font-weight:900; text-transform:uppercase; letter-spacing:-0.5px; line-height:1.1; color:#ffffff; margin-bottom:16px; animation:fadeUp 0.45s 0.08s ease both;">
-      El mejor precio en<br><em style="color:var(--accent); font-style:normal;">suplementos fitness</em>
+      EL MEJOR PRECIO<br>EN <em style="color:var(--accent); font-style:normal;">SUPLEMENTOS</em><br>FITNESS EN ESPAÑA
     </h1>
     <p style="font-size:0.95rem; color:#cccccc; max-width:500px; margin:0 auto; line-height:1.7; animation:fadeUp 0.45s 0.16s ease both;">
-      Comparamos proteína whey, creatina, BCAA y pre-entreno en HSN, Nutritienda, Prozis y MyProtein — ordenados por precio/kg.
+      Comparamos HSN, Nutritienda, Prozis y MyProtein — ordenados por €/kg para que nunca pagues de más.
     </p>
     <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; animation:fadeUp 0.45s 0.24s ease both;">
       <a href="#ofertas" style="display:inline-block; padding:11px 20px; border:2px solid #c8ff4d; background:transparent; color:#c8ff4d; font-family:'Syne',sans-serif; font-weight:800; font-size:0.95rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:background 0.15s,color 0.15s;">Ver todas las ofertas</a>
@@ -838,54 +837,54 @@
     <div class="cat-grid">
       
       <a href="https://stackfit.es/proteina-whey/" class="cat-card">
-        <div class="cat-icon">🥛</div>
-        <div class="cat-name">Proteína Whey</div>
-        <div class="cat-count">111 productos</div>
-        <div class="cat-price-row">
-          <div class="cat-price-wrap">
-            <div class="cat-desde">Desde</div>
-            <div class="cat-price">11.20 €/kg</div>
-          </div>
-          <span class="cat-arrow">→</span>
+        <div class="cat-left">
+          <div class="cat-icon">🥛</div>
+          <div class="cat-name">Proteína Whey</div>
+          <div class="cat-count">111 productos</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-desde">Desde</div>
+          <div class="cat-price">11.20</div>
+          <div class="cat-unit">€/kg</div>
         </div>
       </a>
       
       <a href="https://stackfit.es/creatina/" class="cat-card">
-        <div class="cat-icon">⚡</div>
-        <div class="cat-name">Creatina</div>
-        <div class="cat-count">57 productos</div>
-        <div class="cat-price-row">
-          <div class="cat-price-wrap">
-            <div class="cat-desde">Desde</div>
-            <div class="cat-price">15.80 €/kg</div>
-          </div>
-          <span class="cat-arrow">→</span>
+        <div class="cat-left">
+          <div class="cat-icon">⚡</div>
+          <div class="cat-name">Creatina</div>
+          <div class="cat-count">57 productos</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-desde">Desde</div>
+          <div class="cat-price">15.80</div>
+          <div class="cat-unit">€/kg</div>
         </div>
       </a>
       
       <a href="https://stackfit.es/bcaa/" class="cat-card">
-        <div class="cat-icon">💊</div>
-        <div class="cat-name">BCAA</div>
-        <div class="cat-count">55 productos</div>
-        <div class="cat-price-row">
-          <div class="cat-price-wrap">
-            <div class="cat-desde">Desde</div>
-            <div class="cat-price">26.33 €/kg</div>
-          </div>
-          <span class="cat-arrow">→</span>
+        <div class="cat-left">
+          <div class="cat-icon">💊</div>
+          <div class="cat-name">BCAA</div>
+          <div class="cat-count">55 productos</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-desde">Desde</div>
+          <div class="cat-price">26.33</div>
+          <div class="cat-unit">€/kg</div>
         </div>
       </a>
       
       <a href="https://stackfit.es/pre-entreno/" class="cat-card">
-        <div class="cat-icon">🔥</div>
-        <div class="cat-name">Pre-Entreno</div>
-        <div class="cat-count">114 productos</div>
-        <div class="cat-price-row">
-          <div class="cat-price-wrap">
-            <div class="cat-desde">Desde</div>
-            <div class="cat-price">24.42 €/kg</div>
-          </div>
-          <span class="cat-arrow">→</span>
+        <div class="cat-left">
+          <div class="cat-icon">🔥</div>
+          <div class="cat-name">Pre-Entreno</div>
+          <div class="cat-count">114 productos</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-desde">Desde</div>
+          <div class="cat-price">24.42</div>
+          <div class="cat-unit">€/kg</div>
         </div>
       </a>
       
