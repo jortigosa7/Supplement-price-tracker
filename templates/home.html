@@ -27,17 +27,21 @@
 <div class="container">
 
   <!-- ── Hero ─────────────────────────────────────────── -->
-  <section style="padding: 56px 0 40px; text-align: center;">
-    <div class="hero-badge" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent-bg); border:1px solid var(--accent-border); border-radius:var(--radius-pill); padding:5px 14px; margin-bottom:22px; font-size:0.8rem; color:var(--text-secondary); animation:fadeUp 0.45s ease both;">
+  <section style="background:#0a0b0c; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); padding:56px max(20px,calc(50vw - 50%)) 48px; text-align:center;">
+    <div class="hero-badge" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent-bg); border:1px solid var(--accent-border); border-radius:var(--radius-pill); padding:5px 14px; margin-bottom:22px; font-size:0.8rem; color:#cccccc; animation:fadeUp 0.45s ease both;">
       <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite;flex-shrink:0;"></span>
       Precios actualizados · {{ last_updated }}
     </div>
-    <h1 style="font-family:var(--font-display); font-size:clamp(2.5rem,5vw,3.5rem); font-weight:900; text-transform:uppercase; letter-spacing:-0.5px; line-height:1.1; color:#ffffff; margin-bottom:18px; animation:fadeUp 0.45s 0.08s ease both;">
+    <h1 style="font-family:var(--font-display); font-size:clamp(1.75rem,4vw,2.625rem); font-weight:900; text-transform:uppercase; letter-spacing:-0.5px; line-height:1.1; color:#ffffff; margin-bottom:16px; animation:fadeUp 0.45s 0.08s ease both;">
       El mejor precio en<br><em style="color:var(--accent); font-style:normal;">suplementos fitness</em>
     </h1>
-    <p style="font-size:0.95rem; color:var(--text-secondary); max-width:500px; margin:0 auto; line-height:1.7; animation:fadeUp 0.45s 0.16s ease both;">
+    <p style="font-size:0.95rem; color:#cccccc; max-width:500px; margin:0 auto; line-height:1.7; animation:fadeUp 0.45s 0.16s ease both;">
       Comparamos proteína whey, creatina, BCAA y pre-entreno en HSN, Nutritienda, Prozis y MyProtein — ordenados por precio/kg.
     </p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; animation:fadeUp 0.45s 0.24s ease both;">
+      <a href="#ofertas" style="display:inline-block; padding:11px 20px; border:2px solid #c8ff4d; background:transparent; color:#c8ff4d; font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:0.95rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:background 0.15s,color 0.15s;">Ver todas las ofertas</a>
+      <a href="#secComoFunciona" style="display:inline-block; padding:11px 20px; border:2px solid #c8ff4d; background:transparent; color:#c8ff4d; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.95rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:background 0.15s,color 0.15s;">Cómo funciona</a>
+    </div>
   </section>
 
   <!-- ── Search bar ────────────────────────────────────── -->
@@ -71,10 +75,6 @@
       <div class="metric-card">
         <div class="metric-value accent">{{ ahorro_medio }}%</div>
         <div class="metric-label">Ahorro medio</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value" style="font-size:1.1rem; padding-top:0.4rem;">{{ last_updated }}</div>
-        <div class="metric-label">Última actualización</div>
       </div>
     </div>
   </section>
