@@ -717,6 +717,18 @@ def _excluir_producto(p: dict) -> bool:
     return any(kw in nombre_lower for kw in cat_kws)
 
 
+def _tipo_proteina(nombre: str) -> str:
+    """Detecta tipo de whey por keywords en el nombre."""
+    n = nombre.lower()
+    if any(k in n for k in ("hidroliz", "hydrolyse", "hydrolys", "hidro", "hydro")):
+        return "Hidrolizada"
+    if any(k in n for k in ("isolat", "aislad")):
+        return "Isolate"
+    if any(k in n for k in ("concentr",)):
+        return "Concentrada"
+    return "Otra"
+
+
 def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str):
     """Genera docs/{slug}/index.html para una categoría."""
     template = env.get_template("category.html")
@@ -726,6 +738,19 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     # Separar tabla principal de "Otros productos"
     prods_principales = [p for p in prods_cat if not _excluir_producto(p)]
     prods_otros       = [p for p in prods_cat if _excluir_producto(p)]
+
+    # Añadir tipo_proteina a whey
+    if cfg["slug"] == "proteina-whey":
+        for p in prods_principales:
+            p["tipo_proteina"] = _tipo_proteina(p["nombre_normalizado"])
+
+    # Marcas únicas ordenadas
+    marcas = sorted(set(p["marca"] for p in prods_principales if p.get("marca")))
+
+    # Rango €/kg
+    precios_kg = [p["precio_por_kg_min"] for p in prods_principales if p.get("precio_por_kg_min")]
+    precio_kg_min = round(min(precios_kg), 1) if precios_kg else 0
+    precio_kg_max = round(max(precios_kg), 1) if precios_kg else 999
 
     # Ya vienen ordenados por precio_por_kg desde convertir_a_schema_web
     tiendas = sorted(set(
@@ -741,6 +766,9 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
         "products":        prods_principales,
         "products_otros":  prods_otros,
         "tiendas":         tiendas,
+        "marcas":          marcas,
+        "precio_kg_min":   precio_kg_min,
+        "precio_kg_max":   precio_kg_max,
     }
 
     html = template.render(**ctx)

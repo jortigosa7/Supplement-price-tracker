@@ -825,25 +825,113 @@
     .cat-stats strong { color: #111111; }
     .cat-stats .green { color: var(--accent); }
 
-    /* ── Store filter pills ────────────────────────── */
-    .store-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
-    .store-filter-btn {
-      padding: 6px 16px;
+    /* ── Advanced filters ──────────────────────────── */
+    .advanced-filters {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+      background: #f9f9f9;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .filter-row--reset {
+      align-items: center;
+      gap: 12px;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .filter-group--kg { flex: 1; min-width: 180px; }
+    .filter-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaaaaa;
+    }
+    .filter-select {
+      padding: 7px 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
       border-radius: 20px;
+      color: #333333;
+      font-family: var(--font-body);
       font-size: 0.82rem;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      max-width: 220px;
+    }
+    .filter-select:focus { outline: none; border-color: var(--accent-border); }
+
+    /* ── Store filter pills ────────────────────────── */
+    .store-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+    .store-filter-btn {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
       font-weight: 500;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #f7f7f7;
+      background: #ffffff;
       color: #888888;
       transition: all 0.15s;
       font-family: var(--font-body);
+      white-space: nowrap;
     }
     .store-filter-btn:hover,
     .store-filter-btn.active {
       background: #0a0b0c;
       border-color: var(--accent-border);
       color: var(--accent);
+    }
+
+    /* ── Range slider ──────────────────────────────── */
+    .range-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .range-input {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+      height: 4px;
+    }
+
+    /* ── Filter reset ──────────────────────────────── */
+    .filter-reset-btn {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid #dddddd;
+      background: #ffffff;
+      color: #888888;
+      transition: all 0.15s;
+      font-family: var(--font-body);
+    }
+    .filter-reset-btn:hover { border-color: #cc4444; color: #cc4444; }
+    .filter-count {
+      font-size: 0.78rem;
+      color: #aaaaaa;
+    }
+
+    @media (max-width: 640px) {
+      .filter-row { flex-direction: column; gap: 12px; }
+      .filter-select { max-width: 100%; }
+      .filter-group--kg { width: 100%; }
     }
 
     /* ── Guide / Editorial ─────────────────────────── */
@@ -1035,18 +1123,130 @@
     </div>
   </header>
 
-  <!-- ── Store filter pills ───────────────────────── -->
-  <div class="store-filters" id="storeFilters">
-    <button class="store-filter-btn active" data-filter="" onclick="filterStore(this, '')">Todas</button>
-    
-    <button class="store-filter-btn" data-filter="HSN" onclick="filterStore(this, 'HSN')">HSN</button>
-    
-    <button class="store-filter-btn" data-filter="MyProtein" onclick="filterStore(this, 'MyProtein')">MyProtein</button>
-    
-    <button class="store-filter-btn" data-filter="Nutritienda" onclick="filterStore(this, 'Nutritienda')">Nutritienda</button>
-    
-    <button class="store-filter-btn" data-filter="Prozis" onclick="filterStore(this, 'Prozis')">Prozis</button>
-    
+  <!-- ── Filtros avanzados ────────────────────────── -->
+  <div class="advanced-filters" id="advancedFilters">
+
+    <!-- Fila 1: tienda + marca -->
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Tienda</span>
+        <div class="store-filters" id="storeFilters">
+          <button class="store-filter-btn active" data-tienda="">Todas</button>
+          
+          <button class="store-filter-btn" data-tienda="HSN">HSN</button>
+          
+          <button class="store-filter-btn" data-tienda="MyProtein">MyProtein</button>
+          
+          <button class="store-filter-btn" data-tienda="Nutritienda">Nutritienda</button>
+          
+          <button class="store-filter-btn" data-tienda="Prozis">Prozis</button>
+          
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Marca</span>
+        <select class="filter-select" id="filterMarca">
+          <option value="">Todas las marcas</option>
+          
+          <option value="226ers">226ers</option>
+          
+          <option value="Aislado de suero">Aislado de suero</option>
+          
+          <option value="Amix Nutrition">Amix Nutrition</option>
+          
+          <option value="Applied Nutrition">Applied Nutrition</option>
+          
+          <option value="Bavarian Elite">Bavarian Elite</option>
+          
+          <option value="Beverly Nutrition">Beverly Nutrition</option>
+          
+          <option value="Bulk">Bulk</option>
+          
+          <option value="Cellucor">Cellucor</option>
+          
+          <option value="Crecimiento Muscular">Crecimiento Muscular</option>
+          
+          <option value="DMI Innovative Nutrition">DMI Innovative Nutrition</option>
+          
+          <option value="HSN">HSN</option>
+          
+          <option value="Hivital Foods">Hivital Foods</option>
+          
+          <option value="Hypertrophy Nutrition">Hypertrophy Nutrition</option>
+          
+          <option value="Life Pro Nutrition">Life Pro Nutrition</option>
+          
+          <option value="MyProtein">MyProtein</option>
+          
+          <option value="NUTREND">NUTREND</option>
+          
+          <option value="Natural Athlete">Natural Athlete</option>
+          
+          <option value="NutriSport">NutriSport</option>
+          
+          <option value="Optimum Nutrition">Optimum Nutrition</option>
+          
+          <option value="Predator Protein 2 Kg">Predator Protein 2 Kg</option>
+          
+          <option value="Prozis">Prozis</option>
+          
+          <option value="Purasana">Purasana</option>
+          
+          <option value="Scitec Nutrition">Scitec Nutrition</option>
+          
+          <option value="Snickers">Snickers</option>
+          
+          <option value="Weider">Weider</option>
+          
+        </select>
+      </div>
+    </div>
+
+    <!-- Fila 2: peso + tipo (whey) + rango €/kg -->
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Peso</span>
+        <div class="store-filters">
+          <button class="store-filter-btn active" data-peso="">Todos</button>
+          <button class="store-filter-btn" data-peso="lt500">&lt; 500g</button>
+          <button class="store-filter-btn" data-peso="500-1000">500g – 1kg</button>
+          <button class="store-filter-btn" data-peso="1000-2000">1 – 2kg</button>
+          <button class="store-filter-btn" data-peso="gt2000">&gt; 2kg</button>
+        </div>
+      </div>
+
+      
+      <div class="filter-group">
+        <span class="filter-label">Tipo</span>
+        <div class="store-filters">
+          <button class="store-filter-btn active" data-tipo="">Todos</button>
+          <button class="store-filter-btn" data-tipo="Concentrada">Concentrada</button>
+          <button class="store-filter-btn" data-tipo="Isolate">Isolate</button>
+          <button class="store-filter-btn" data-tipo="Hidrolizada">Hidrolizada</button>
+          <button class="store-filter-btn" data-tipo="Otra">Otra</button>
+        </div>
+      </div>
+      
+
+      <div class="filter-group filter-group--kg">
+        <span class="filter-label">€/kg: <span id="kgRangeLabel">15.9 – 130.0</span></span>
+        <div class="range-wrap">
+          <input type="range" class="range-input" id="rangeMin"
+            min="15.9" max="130.0" step="0.5"
+            value="15.9">
+          <input type="range" class="range-input" id="rangeMax"
+            min="15.9" max="130.0" step="0.5"
+            value="130.0">
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <div class="filter-row filter-row--reset">
+      <button class="filter-reset-btn" id="btnResetFilters" onclick="resetFilters()">✕ Limpiar filtros</button>
+      <span class="filter-count" id="filterCount"></span>
+    </div>
   </div>
 
   <!-- ── Product cards ────────────────────────────── -->
@@ -1060,7 +1260,11 @@
     
     <div class="product-card is-best"
          data-tiendas="HSN"
-         data-nombre="evowhey &amp; oats 500g">
+         data-nombre="evowhey &amp; oats 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="15.9"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOWHEY &amp; OATS 500g</span>
@@ -1100,7 +1304,11 @@
     
     <div class="product-card"
          data-tiendas="MyProtein"
-         data-nombre="mezcla de rendimiento todo-en-uno 2.5kg">
+         data-nombre="mezcla de rendimiento todo-en-uno 2.5kg"
+         data-marca="myprotein"
+         data-peso="2500"
+         data-precio-kg="20.04"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Mezcla de Rendimiento Todo-En-Uno 2.5kg</span>
@@ -1138,7 +1346,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="whey + fibre 700g">
+         data-nombre="whey + fibre 700g"
+         data-marca="prozis"
+         data-peso="700"
+         data-precio-kg="23.13"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Whey + Fibre 700g</span>
@@ -1176,7 +1388,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="100% whey protein concentrate 500g">
+         data-nombre="100% whey protein concentrate 500g"
+         data-marca="optimum nutrition"
+         data-peso="500"
+         data-precio-kg="23.52"
+         data-tipo="Concentrada">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% WHEY PROTEIN CONCENTRATE 500g</span>
@@ -1214,7 +1430,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="pure whey protein 1800g">
+         data-nombre="pure whey protein 1800g"
+         data-marca="bulk"
+         data-peso="1800"
+         data-precio-kg="24.44"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Pure Whey Protein 1800g</span>
@@ -1252,7 +1472,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evowhey protein sin edulcorantes 500g">
+         data-nombre="evowhey protein sin edulcorantes 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="24.64"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOWHEY PROTEIN SIN EDULCORANTES 500g</span>
@@ -1290,7 +1514,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="battery complete whey 1800g">
+         data-nombre="battery complete whey 1800g"
+         data-marca="crecimiento muscular"
+         data-peso="1800"
+         data-precio-kg="27.22"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Battery Complete Whey 1800g</span>
@@ -1328,7 +1556,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="100% real whey protein 2000g">
+         data-nombre="100% real whey protein 2000g"
+         data-marca="life pro nutrition"
+         data-peso="2000"
+         data-precio-kg="28.34"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Real Whey Protein 2000g</span>
@@ -1373,7 +1605,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="golden protein 500g">
+         data-nombre="golden protein 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="28.5"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">GOLDEN PROTEIN 500g</span>
@@ -1411,7 +1647,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="natural real whey protein 2000g">
+         data-nombre="natural real whey protein 2000g"
+         data-marca="dmi innovative nutrition"
+         data-peso="2000"
+         data-precio-kg="28.8"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Natural Real Whey Protein 2000g</span>
@@ -1456,7 +1696,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="100% whey protein 2250g">
+         data-nombre="100% whey protein 2250g"
+         data-marca="nutrend"
+         data-peso="2250"
+         data-precio-kg="30.62"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% WHEY PROTEIN 2250g</span>
@@ -1494,7 +1738,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="100% real whey protein 1814g">
+         data-nombre="100% real whey protein 1814g"
+         data-marca="applied nutrition"
+         data-peso="1814"
+         data-precio-kg="31.25"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Real Whey Protein 1814g</span>
@@ -1539,7 +1787,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="hidrolyzed whey protein 990g">
+         data-nombre="hidrolyzed whey protein 990g"
+         data-marca="hivital foods"
+         data-peso="990"
+         data-precio-kg="31.31"
+         data-tipo="Hidrolizada">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Hidrolyzed Whey Protein 990g</span>
@@ -1577,7 +1829,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="100% real whey protein 1000 g">
+         data-nombre="100% real whey protein 1000 g"
+         data-marca="beverly nutrition"
+         data-peso="1000"
+         data-precio-kg="31.49"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Real Whey Protein 1000 g</span>
@@ -1622,7 +1878,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="natural real whey protein 1814g">
+         data-nombre="natural real whey protein 1814g"
+         data-marca="prozis"
+         data-peso="1814"
+         data-precio-kg="31.75"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Natural Real Whey Protein 1814g</span>
@@ -1660,7 +1920,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="100% whey protein bag 1000g">
+         data-nombre="100% whey protein bag 1000g"
+         data-marca="nutrend"
+         data-peso="1000"
+         data-precio-kg="31.9"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Whey Protein Bag 1000g</span>
@@ -1698,7 +1962,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="whey protein fusion 900 g">
+         data-nombre="whey protein fusion 900 g"
+         data-marca="optimum nutrition"
+         data-peso="900"
+         data-precio-kg="31.99"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Whey Protein Fusion 900 g</span>
@@ -1743,7 +2011,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="100% whey prime 1000 g">
+         data-nombre="100% whey prime 1000 g"
+         data-marca="amix nutrition"
+         data-peso="1000"
+         data-precio-kg="32.39"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Whey Prime 1000 g</span>
@@ -1788,7 +2060,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="natural real whey protein 1000 g">
+         data-nombre="natural real whey protein 1000 g"
+         data-marca="prozis"
+         data-peso="1000"
+         data-precio-kg="32.39"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Natural Real Whey Protein 1000 g</span>
@@ -1826,7 +2102,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="whey protein complex 100% - 2200 g">
+         data-nombre="whey protein complex 100% - 2200 g"
+         data-marca="optimum nutrition"
+         data-peso="2200"
+         data-precio-kg="33.73"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">WHEY PROTEIN COMPLEX 100% - 2200 g</span>
@@ -1864,7 +2144,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="100% real whey protein 907g">
+         data-nombre="100% real whey protein 907g"
+         data-marca="life pro nutrition"
+         data-peso="907"
+         data-precio-kg="34.72"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Real Whey Protein 907g</span>
@@ -1909,7 +2193,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="hydro protein professional - 2 kg">
+         data-nombre="hydro protein professional - 2 kg"
+         data-marca="optimum nutrition"
+         data-peso="2000"
+         data-precio-kg="34.85"
+         data-tipo="Hidrolizada">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Hydro Protein Professional - 2 Kg</span>
@@ -1947,7 +2235,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evolate 2.0 (whey isolate cfm) 500g">
+         data-nombre="evolate 2.0 (whey isolate cfm) 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="35.0"
+         data-tipo="Isolate">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOLATE 2.0 (WHEY ISOLATE CFM) 500g</span>
@@ -1985,7 +2277,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="xtreme whey protein ss 2000 g">
+         data-nombre="xtreme whey protein ss 2000 g"
+         data-marca="predator protein 2 kg"
+         data-peso="2000"
+         data-precio-kg="35.09"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Xtreme Whey Protein SS 2000 g</span>
@@ -2030,7 +2326,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="natural real whey protein 907g">
+         data-nombre="natural real whey protein 907g"
+         data-marca="hypertrophy nutrition"
+         data-peso="907"
+         data-precio-kg="35.71"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Natural Real Whey Protein 907g</span>
@@ -2075,7 +2375,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evoexcel sin edulcorantes (whey protein isolate + concentrate) 500g">
+         data-nombre="evoexcel sin edulcorantes (whey protein isolate + concentrate) 500g"
+         data-marca="optimum nutrition"
+         data-peso="500"
+         data-precio-kg="36.08"
+         data-tipo="Isolate">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g</span>
@@ -2113,7 +2417,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evoexcel 2.0 (whey protein isolate + concentrate) 500g">
+         data-nombre="evoexcel 2.0 (whey protein isolate + concentrate) 500g"
+         data-marca="optimum nutrition"
+         data-peso="500"
+         data-precio-kg="36.08"
+         data-tipo="Isolate">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOEXCEL 2.0 (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g</span>
@@ -2151,7 +2459,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="iso whey cero cero 1 kg">
+         data-nombre="iso whey cero cero 1 kg"
+         data-marca="nutrisport"
+         data-peso="1000"
+         data-precio-kg="37.2"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Iso Whey Cero Cero 1 Kg</span>
@@ -2189,7 +2501,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="pack regalo predator protein 2 kg + osteo anagenesis 30 caps">
+         data-nombre="pack regalo predator protein 2 kg + osteo anagenesis 30 caps"
+         data-marca="optimum nutrition"
+         data-peso="2000"
+         data-precio-kg="37.45"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Pack Regalo Predator Protein 2 Kg + Osteo Anagenesis 30 Caps</span>
@@ -2227,7 +2543,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="snicker hi protein 875g">
+         data-nombre="snicker hi protein 875g"
+         data-marca="snickers"
+         data-peso="875"
+         data-precio-kg="38.09"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Snicker Hi Protein 875g</span>
@@ -2265,7 +2585,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="whey protein - freakin good 400 g">
+         data-nombre="whey protein - freakin good 400 g"
+         data-marca="prozis"
+         data-peso="400"
+         data-precio-kg="38.22"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Whey Protein - Freakin Good 400 g</span>
@@ -2303,7 +2627,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="100% whey protein isolate 500g">
+         data-nombre="100% whey protein isolate 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="38.76"
+         data-tipo="Isolate">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% WHEY PROTEIN ISOLATE 500g</span>
@@ -2341,7 +2669,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="zero diet whey 1500 g">
+         data-nombre="zero diet whey 1500 g"
+         data-marca="prozis"
+         data-peso="1500"
+         data-precio-kg="38.99"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Zero Diet Whey 1500 g</span>
@@ -2379,7 +2711,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evolate 2.0 sin edulcorantes (whey isolate cfm) 500g">
+         data-nombre="evolate 2.0 sin edulcorantes (whey isolate cfm) 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="39.84"
+         data-tipo="Isolate">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOLATE 2.0 SIN EDULCORANTES (WHEY ISOLATE CFM) 500g</span>
@@ -2417,7 +2753,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evohydro 2.0 (hydro whey) 500g">
+         data-nombre="evohydro 2.0 (hydro whey) 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="40.18"
+         data-tipo="Hidrolizada">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOHYDRO 2.0 (HYDRO WHEY) 500g</span>
@@ -2455,7 +2795,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="capuchino proteico 400 g">
+         data-nombre="capuchino proteico 400 g"
+         data-marca="prozis"
+         data-peso="400"
+         data-precio-kg="40.48"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Capuchino Proteico 400 g</span>
@@ -2493,7 +2837,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="latte de caramelo proteico 400 g">
+         data-nombre="latte de caramelo proteico 400 g"
+         data-marca="prozis"
+         data-peso="400"
+         data-precio-kg="40.48"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Latte de Caramelo Proteico 400 g</span>
@@ -2531,7 +2879,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="capuchino proteico - con cafeína extra 400 g">
+         data-nombre="capuchino proteico - con cafeína extra 400 g"
+         data-marca="optimum nutrition"
+         data-peso="400"
+         data-precio-kg="40.48"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Capuchino Proteico - Con Cafeína Extra 400 g</span>
@@ -2569,7 +2921,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="latte de caramelo proteico - con cafeína extra 400 g">
+         data-nombre="latte de caramelo proteico - con cafeína extra 400 g"
+         data-marca="optimum nutrition"
+         data-peso="400"
+         data-precio-kg="40.48"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Latte de Caramelo Proteico - Con Cafeína Extra 400 g</span>
@@ -2607,7 +2963,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="latte de avellana proteico 400 g">
+         data-nombre="latte de avellana proteico 400 g"
+         data-marca="prozis"
+         data-peso="400"
+         data-precio-kg="40.48"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Latte de Avellana Proteico 400 g</span>
@@ -2645,7 +3005,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="latte de avellana proteico - con cafeína extra 400 g">
+         data-nombre="latte de avellana proteico - con cafeína extra 400 g"
+         data-marca="optimum nutrition"
+         data-peso="400"
+         data-precio-kg="40.48"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Latte de Avellana Proteico - Con Cafeína Extra 400 g</span>
@@ -2683,7 +3047,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="mocachino proteico 400 g">
+         data-nombre="mocachino proteico 400 g"
+         data-marca="prozis"
+         data-peso="400"
+         data-precio-kg="40.48"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Mocachino Proteico 400 g</span>
@@ -2721,7 +3089,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="mocachino proteico - con cafeína extra 400 g">
+         data-nombre="mocachino proteico - con cafeína extra 400 g"
+         data-marca="optimum nutrition"
+         data-peso="400"
+         data-precio-kg="40.48"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Mocachino Proteico - Con Cafeína Extra 400 g</span>
@@ -2759,7 +3131,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="latte proteico 400 g">
+         data-nombre="latte proteico 400 g"
+         data-marca="prozis"
+         data-peso="400"
+         data-precio-kg="40.48"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Latte Proteico 400 g</span>
@@ -2797,7 +3173,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="nitro whey super formula 908g">
+         data-nombre="nitro whey super formula 908g"
+         data-marca="weider"
+         data-peso="908"
+         data-precio-kg="41.84"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Nitro Whey Super Formula 908g</span>
@@ -2835,7 +3215,11 @@
     
     <div class="product-card"
          data-tiendas="MyProtein"
-         data-nombre="myprotein impact whey isolate, chocolate orange, 5kg">
+         data-nombre="myprotein impact whey isolate, chocolate orange, 5kg"
+         data-marca="myprotein"
+         data-peso="5000"
+         data-precio-kg="42.0"
+         data-tipo="Isolate">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Myprotein Impact Whey Isolate, Chocolate Orange, 5kg</span>
@@ -2873,7 +3257,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="100% whey prime 400 g">
+         data-nombre="100% whey prime 400 g"
+         data-marca="prozis"
+         data-peso="400"
+         data-precio-kg="42.72"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Whey Prime 400 g</span>
@@ -2911,7 +3299,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="100% proteína de suero hidrolizado aislada 500g">
+         data-nombre="100% proteína de suero hidrolizado aislada 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="43.26"
+         data-tipo="Hidrolizada">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% PROTEÍNA DE SUERO HIDROLIZADO AISLADA 500g</span>
@@ -2949,7 +3341,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="quick recovery 600g">
+         data-nombre="quick recovery 600g"
+         data-marca="optimum nutrition"
+         data-peso="600"
+         data-precio-kg="44.93"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">QUICK RECOVERY 600g</span>
@@ -2987,7 +3383,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="100% real whey protein 400 g">
+         data-nombre="100% real whey protein 400 g"
+         data-marca="prozis"
+         data-peso="400"
+         data-precio-kg="44.97"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Real Whey Protein 400 g</span>
@@ -3025,7 +3425,11 @@
     
     <div class="product-card"
          data-tiendas="MyProtein"
-         data-nombre="clear whey protein y colágeno 500g">
+         data-nombre="clear whey protein y colágeno 500g"
+         data-marca="myprotein"
+         data-peso="500"
+         data-precio-kg="44.98"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Clear Whey Protein y Colágeno 500g</span>
@@ -3063,7 +3467,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="natural real whey isolate 1814 g">
+         data-nombre="natural real whey isolate 1814 g"
+         data-marca="prozis"
+         data-peso="1814"
+         data-precio-kg="45.14"
+         data-tipo="Isolate">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Natural Real Whey Isolate 1814 g</span>
@@ -3101,7 +3509,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evohydro 30hd 500g">
+         data-nombre="evohydro 30hd 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="45.5"
+         data-tipo="Hidrolizada">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOHYDRO 30HD 500g</span>
@@ -3139,7 +3551,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="zero diet whey 750 g">
+         data-nombre="zero diet whey 750 g"
+         data-marca="prozis"
+         data-peso="750"
+         data-precio-kg="45.59"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Zero Diet Whey 750 g</span>
@@ -3177,7 +3593,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="c4 whey protein 1700g">
+         data-nombre="c4 whey protein 1700g"
+         data-marca="cellucor"
+         data-peso="1700"
+         data-precio-kg="46.21"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">C4 Whey Protein 1700g</span>
@@ -3215,7 +3635,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="recovery drink (nueva fórmula) 500g">
+         data-nombre="recovery drink (nueva fórmula) 500g"
+         data-marca="226ers"
+         data-peso="500"
+         data-precio-kg="46.8"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Recovery Drink (Nueva Fórmula) 500g</span>
@@ -3253,7 +3677,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="isolad 3cfm protein 1 kg">
+         data-nombre="isolad 3cfm protein 1 kg"
+         data-marca="bavarian elite"
+         data-peso="1000"
+         data-precio-kg="47.24"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Isolad 3CFM Protein 1 Kg</span>
@@ -3291,7 +3719,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="100% hydro isolate 2000g">
+         data-nombre="100% hydro isolate 2000g"
+         data-marca="scitec nutrition"
+         data-peso="2000"
+         data-precio-kg="47.75"
+         data-tipo="Hidrolizada">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Hydro Isolate 2000g</span>
@@ -3329,7 +3761,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="isozero cfm 100% isolate 2 kg">
+         data-nombre="isozero cfm 100% isolate 2 kg"
+         data-marca="optimum nutrition"
+         data-peso="2000"
+         data-precio-kg="47.95"
+         data-tipo="Isolate">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Isozero CFM 100% Isolate 2 Kg</span>
@@ -3367,7 +3803,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="natural real whey isolate 907g">
+         data-nombre="natural real whey isolate 907g"
+         data-marca="prozis"
+         data-peso="907"
+         data-precio-kg="49.6"
+         data-tipo="Isolate">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Natural Real Whey Isolate 907g</span>
@@ -3405,7 +3845,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="c4 whey protein 770g">
+         data-nombre="c4 whey protein 770g"
+         data-marca="cellucor"
+         data-peso="770"
+         data-precio-kg="53.05"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">C4 Whey Protein 770g</span>
@@ -3443,7 +3887,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="100% whey hydro isolate clear 700g">
+         data-nombre="100% whey hydro isolate clear 700g"
+         data-marca="prozis"
+         data-peso="700"
+         data-precio-kg="53.99"
+         data-tipo="Hidrolizada">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">100% Whey Hydro Isolate Clear 700g</span>
@@ -3481,7 +3929,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="proteína de suero sabor vainilla 400g">
+         data-nombre="proteína de suero sabor vainilla 400g"
+         data-marca="purasana"
+         data-peso="400"
+         data-precio-kg="55.95"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Proteína de Suero Sabor Vainilla 400g</span>
@@ -3519,7 +3971,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="natural proteína whey chocolate 350g">
+         data-nombre="natural proteína whey chocolate 350g"
+         data-marca="natural athlete"
+         data-peso="350"
+         data-precio-kg="58.86"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">NATURAL PROTEÍNA WHEY CHOCOLATE 350g</span>
@@ -3557,7 +4013,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="zeropro protein 1kg">
+         data-nombre="zeropro protein 1kg"
+         data-marca="aislado de suero"
+         data-peso="1000"
+         data-precio-kg="59.85"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">ZEROPRO PROTEIN 1Kg</span>
@@ -3595,7 +4055,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="aislado de proteína hidrolizada clear whey 500g">
+         data-nombre="aislado de proteína hidrolizada clear whey 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="77.88"
+         data-tipo="Hidrolizada">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">AISLADO DE PROTEÍNA HIDROLIZADA CLEAR WHEY 500g</span>
@@ -3633,7 +4097,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="keto whey protein 500g">
+         data-nombre="keto whey protein 500g"
+         data-marca="hsn"
+         data-peso="500"
+         data-precio-kg="130.0"
+         data-tipo="Otra">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">KETO WHEY PROTEIN 500g</span>
@@ -4572,19 +5040,45 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
 (function() {
   const PER_PAGE = 20;
   let page = 0;
-  let currentFilter = '';
+
+  // Estado de filtros
+  let fTienda = '';
+  let fMarca  = '';
+  let fPeso   = '';
+  let fTipo   = '';
+  let fKgMin  = parseFloat(document.getElementById('rangeMin').min);
+  let fKgMax  = parseFloat(document.getElementById('rangeMax').max);
 
   const list    = document.getElementById('productsList');
   const info    = document.getElementById('paginationInfo');
   const btnPrev = document.getElementById('btnPrev');
   const btnNext = document.getElementById('btnNext');
   const allCards = Array.from(list.querySelectorAll('.product-card'));
+  const countEl  = document.getElementById('filterCount');
+  const kgLabel  = document.getElementById('kgRangeLabel');
+  const rangeMin = document.getElementById('rangeMin');
+  const rangeMax = document.getElementById('rangeMax');
+
+  function pesoBucket(grams) {
+    if (!grams || grams === 0) return '';
+    if (grams < 500)  return 'lt500';
+    if (grams < 1000) return '500-1000';
+    if (grams < 2000) return '1000-2000';
+    return 'gt2000';
+  }
 
   function getVisible() {
-    if (!currentFilter) return allCards;
     return allCards.filter(c => {
-      const tiendas = (c.dataset.tiendas || '').split(',');
-      return tiendas.includes(currentFilter);
+      if (fTienda) {
+        const tiendas = (c.dataset.tiendas || '').split(',');
+        if (!tiendas.includes(fTienda)) return false;
+      }
+      if (fMarca && c.dataset.marca !== fMarca.toLowerCase()) return false;
+      if (fPeso && pesoBucket(parseInt(c.dataset.peso || '0')) !== fPeso) return false;
+      if (fTipo && c.dataset.tipo !== fTipo) return false;
+      const kg = parseFloat(c.dataset.precioKg || '9999');
+      if (kg < fKgMin || kg > fKgMax) return false;
+      return true;
     });
   }
 
@@ -4599,7 +5093,10 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
 
     info.textContent = total > 0
       ? 'Mostrando ' + (start + 1) + '–' + end + ' de ' + total + ' productos'
-      : 'Sin resultados para esta tienda';
+      : 'Sin resultados con estos filtros';
+
+    countEl.textContent = total < allCards.length
+      ? total + ' de ' + allCards.length + ' productos' : '';
 
     const paginationEl = document.getElementById('pagination');
     paginationEl.style.display = total > PER_PAGE ? 'flex' : 'none';
@@ -4607,18 +5104,79 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
     btnNext.disabled = end >= total;
   }
 
-  window.filterStore = function(btn, tienda) {
-    currentFilter = tienda;
-    page = 0;
-    document.querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    render();
+  function resetPage() { page = 0; render(); }
+
+  // Tienda pills
+  document.querySelectorAll('#storeFilters .store-filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#storeFilters .store-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      fTienda = this.dataset.tienda;
+      resetPage();
+    });
+  });
+
+  // Peso pills
+  document.querySelectorAll('[data-peso]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.store-filters').querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      fPeso = this.dataset.peso;
+      resetPage();
+    });
+  });
+
+  // Tipo pills (whey)
+  document.querySelectorAll('[data-tipo]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.store-filters').querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      fTipo = this.dataset.tipo;
+      resetPage();
+    });
+  });
+
+  // Marca select
+  const marcaSelect = document.getElementById('filterMarca');
+  if (marcaSelect) {
+    marcaSelect.addEventListener('change', function() {
+      fMarca = this.value;
+      resetPage();
+    });
+  }
+
+  // Range sliders
+  function updateRange() {
+    const vMin = parseFloat(rangeMin.value);
+    const vMax = parseFloat(rangeMax.value);
+    if (vMin > vMax) return;
+    fKgMin = vMin;
+    fKgMax = vMax;
+    kgLabel.textContent = vMin.toFixed(1) + ' – ' + vMax.toFixed(1);
+    resetPage();
+  }
+  rangeMin.addEventListener('input', updateRange);
+  rangeMax.addEventListener('input', updateRange);
+
+  // Reset
+  window.resetFilters = function() {
+    fTienda = ''; fMarca = ''; fPeso = ''; fTipo = '';
+    fKgMin = parseFloat(rangeMin.min);
+    fKgMax = parseFloat(rangeMax.max);
+    rangeMin.value = rangeMin.min;
+    rangeMax.value = rangeMax.max;
+    kgLabel.textContent = rangeMin.min + ' – ' + rangeMax.max;
+    document.querySelectorAll('.store-filter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.tienda === '' || b.dataset.peso === '' || b.dataset.tipo === '');
+    });
+    if (marcaSelect) marcaSelect.value = '';
+    resetPage();
   };
 
   window.changePage = function(dir) {
     page = Math.max(0, page + dir);
     render();
-    window.scrollTo({ top: document.getElementById('productsList').offsetTop - 80, behavior: 'smooth' });
+    window.scrollTo({ top: list.offsetTop - 80, behavior: 'smooth' });
   };
 
   render();

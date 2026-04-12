@@ -825,25 +825,113 @@
     .cat-stats strong { color: #111111; }
     .cat-stats .green { color: var(--accent); }
 
-    /* ── Store filter pills ────────────────────────── */
-    .store-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
-    .store-filter-btn {
-      padding: 6px 16px;
+    /* ── Advanced filters ──────────────────────────── */
+    .advanced-filters {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+      background: #f9f9f9;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .filter-row--reset {
+      align-items: center;
+      gap: 12px;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .filter-group--kg { flex: 1; min-width: 180px; }
+    .filter-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaaaaa;
+    }
+    .filter-select {
+      padding: 7px 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
       border-radius: 20px;
+      color: #333333;
+      font-family: var(--font-body);
       font-size: 0.82rem;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      max-width: 220px;
+    }
+    .filter-select:focus { outline: none; border-color: var(--accent-border); }
+
+    /* ── Store filter pills ────────────────────────── */
+    .store-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+    .store-filter-btn {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
       font-weight: 500;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #f7f7f7;
+      background: #ffffff;
       color: #888888;
       transition: all 0.15s;
       font-family: var(--font-body);
+      white-space: nowrap;
     }
     .store-filter-btn:hover,
     .store-filter-btn.active {
       background: #0a0b0c;
       border-color: var(--accent-border);
       color: var(--accent);
+    }
+
+    /* ── Range slider ──────────────────────────────── */
+    .range-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .range-input {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+      height: 4px;
+    }
+
+    /* ── Filter reset ──────────────────────────────── */
+    .filter-reset-btn {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid #dddddd;
+      background: #ffffff;
+      color: #888888;
+      transition: all 0.15s;
+      font-family: var(--font-body);
+    }
+    .filter-reset-btn:hover { border-color: #cc4444; color: #cc4444; }
+    .filter-count {
+      font-size: 0.78rem;
+      color: #aaaaaa;
+    }
+
+    @media (max-width: 640px) {
+      .filter-row { flex-direction: column; gap: 12px; }
+      .filter-select { max-width: 100%; }
+      .filter-group--kg { width: 100%; }
     }
 
     /* ── Guide / Editorial ─────────────────────────── */
@@ -1035,18 +1123,99 @@
     </div>
   </header>
 
-  <!-- ── Store filter pills ───────────────────────── -->
-  <div class="store-filters" id="storeFilters">
-    <button class="store-filter-btn active" data-filter="" onclick="filterStore(this, '')">Todas</button>
-    
-    <button class="store-filter-btn" data-filter="HSN" onclick="filterStore(this, 'HSN')">HSN</button>
-    
-    <button class="store-filter-btn" data-filter="MyProtein" onclick="filterStore(this, 'MyProtein')">MyProtein</button>
-    
-    <button class="store-filter-btn" data-filter="Nutritienda" onclick="filterStore(this, 'Nutritienda')">Nutritienda</button>
-    
-    <button class="store-filter-btn" data-filter="Prozis" onclick="filterStore(this, 'Prozis')">Prozis</button>
-    
+  <!-- ── Filtros avanzados ────────────────────────── -->
+  <div class="advanced-filters" id="advancedFilters">
+
+    <!-- Fila 1: tienda + marca -->
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Tienda</span>
+        <div class="store-filters" id="storeFilters">
+          <button class="store-filter-btn active" data-tienda="">Todas</button>
+          
+          <button class="store-filter-btn" data-tienda="HSN">HSN</button>
+          
+          <button class="store-filter-btn" data-tienda="MyProtein">MyProtein</button>
+          
+          <button class="store-filter-btn" data-tienda="Nutritienda">Nutritienda</button>
+          
+          <button class="store-filter-btn" data-tienda="Prozis">Prozis</button>
+          
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Marca</span>
+        <select class="filter-select" id="filterMarca">
+          <option value="">Todas las marcas</option>
+          
+          <option value="226ers">226ers</option>
+          
+          <option value="Amazin&#39; Foods">Amazin&#39; Foods</option>
+          
+          <option value="Amix Nutrition">Amix Nutrition</option>
+          
+          <option value="Amix Pro">Amix Pro</option>
+          
+          <option value="BioTechUSA">BioTechUSA</option>
+          
+          <option value="Cellucor">Cellucor</option>
+          
+          <option value="Cobra Labs">Cobra Labs</option>
+          
+          <option value="HSN">HSN</option>
+          
+          <option value="MyProtein">MyProtein</option>
+          
+          <option value="NUTRISPORT">NUTRISPORT</option>
+          
+          <option value="Nutrex">Nutrex</option>
+          
+          <option value="Optimum Nutrition">Optimum Nutrition</option>
+          
+          <option value="Procell">Procell</option>
+          
+          <option value="Prozis">Prozis</option>
+          
+          <option value="Quamtrax">Quamtrax</option>
+          
+        </select>
+      </div>
+    </div>
+
+    <!-- Fila 2: peso + tipo (whey) + rango €/kg -->
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Peso</span>
+        <div class="store-filters">
+          <button class="store-filter-btn active" data-peso="">Todos</button>
+          <button class="store-filter-btn" data-peso="lt500">&lt; 500g</button>
+          <button class="store-filter-btn" data-peso="500-1000">500g – 1kg</button>
+          <button class="store-filter-btn" data-peso="1000-2000">1 – 2kg</button>
+          <button class="store-filter-btn" data-peso="gt2000">&gt; 2kg</button>
+        </div>
+      </div>
+
+      
+
+      <div class="filter-group filter-group--kg">
+        <span class="filter-label">€/kg: <span id="kgRangeLabel">24.4 – 174.4</span></span>
+        <div class="range-wrap">
+          <input type="range" class="range-input" id="rangeMin"
+            min="24.4" max="174.4" step="0.5"
+            value="24.4">
+          <input type="range" class="range-input" id="rangeMax"
+            min="24.4" max="174.4" step="0.5"
+            value="174.4">
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <div class="filter-row filter-row--reset">
+      <button class="filter-reset-btn" id="btnResetFilters" onclick="resetFilters()">✕ Limpiar filtros</button>
+      <span class="filter-count" id="filterCount"></span>
+    </div>
   </div>
 
   <!-- ── Product cards ────────────────────────────── -->
@@ -1060,7 +1229,11 @@
     
     <div class="product-card is-best"
          data-tiendas="Prozis"
-         data-nombre="energy charge - preentrenamiento 800 g">
+         data-nombre="energy charge - preentrenamiento 800 g"
+         data-marca="prozis"
+         data-peso="800"
+         data-precio-kg="24.42"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Energy Charge - Preentrenamiento 800 g</span>
@@ -1100,7 +1273,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="beta-alanina 900 g">
+         data-nombre="beta-alanina 900 g"
+         data-marca="prozis"
+         data-peso="900"
+         data-precio-kg="26.66"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Beta-alanina 900 g</span>
@@ -1138,7 +1315,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="n.o. shox 1320g">
+         data-nombre="n.o. shox 1320g"
+         data-marca="prozis"
+         data-peso="1320"
+         data-precio-kg="27.27"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">N.O. Shox 1320g</span>
@@ -1176,7 +1357,11 @@
     
     <div class="product-card"
          data-tiendas="HSN,MyProtein"
-         data-nombre="beta-alanina en polvo 150g">
+         data-nombre="beta-alanina en polvo 150g"
+         data-marca="myprotein"
+         data-peso="150"
+         data-precio-kg="30.0"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">BETA-ALANINA EN POLVO 150g</span>
@@ -1221,7 +1406,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="beta-alanina 300 g">
+         data-nombre="beta-alanina 300 g"
+         data-marca="amix nutrition"
+         data-peso="300"
+         data-precio-kg="32.47"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Beta-alanina 300 g</span>
@@ -1266,7 +1455,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="n.o. shox 660 g">
+         data-nombre="n.o. shox 660 g"
+         data-marca="prozis"
+         data-peso="660"
+         data-precio-kg="34.08"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">N.O. Shox 660 g</span>
@@ -1304,7 +1497,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="smooth-8 hybrid protein 2,3kg">
+         data-nombre="smooth-8 hybrid protein 2,3kg"
+         data-marca="optimum nutrition"
+         data-peso="2300"
+         data-precio-kg="38.04"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">SMOOTH-8 Hybrid Protein 2,3Kg</span>
@@ -1342,7 +1539,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
-         data-nombre="l-arginina 300 g">
+         data-nombre="l-arginina 300 g"
+         data-marca="amix nutrition"
+         data-peso="300"
+         data-precio-kg="42.47"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">L-arginina 300 g</span>
@@ -1387,7 +1588,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="glycopump® (glicerol) en polvo 150g">
+         data-nombre="glycopump® (glicerol) en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="45.27"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Glycopump® (GLICEROL) EN POLVO 150g</span>
@@ -1425,7 +1630,11 @@
     
     <div class="product-card"
          data-tiendas="MyProtein,Prozis"
-         data-nombre="l-citrulina malato 300g">
+         data-nombre="l-citrulina malato 300g"
+         data-marca="myprotein"
+         data-peso="300"
+         data-precio-kg="46.63"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">L-citrulina malato 300g</span>
@@ -1470,7 +1679,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="l-citrulina base en polvo 150g">
+         data-nombre="l-citrulina base en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="49.0"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">L-CITRULINA BASE EN POLVO 150g</span>
@@ -1508,7 +1721,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="b10 pump effect pre workout 400g">
+         data-nombre="b10 pump effect pre workout 400g"
+         data-marca="nutrisport"
+         data-peso="400"
+         data-precio-kg="51.97"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">B10 PUMP EFFECT PRE WORKOUT 400g</span>
@@ -1546,7 +1763,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="pre-workout wow! 400g">
+         data-nombre="pre-workout wow! 400g"
+         data-marca="amazin&#39; foods"
+         data-peso="400"
+         data-precio-kg="54.75"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">PRE-WORKOUT WOW! 400g</span>
@@ -1584,7 +1805,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="l-arginina alfa-cetoglutarato (aakg) en polvo 150g">
+         data-nombre="l-arginina alfa-cetoglutarato (aakg) en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="56.6"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">L-ARGININA ALFA-CETOGLUTARATO (AAKG) EN POLVO 150g</span>
@@ -1622,7 +1847,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="d-ribosa en polvo 150g">
+         data-nombre="d-ribosa en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="56.6"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">D-RIBOSA EN POLVO 150g</span>
@@ -1660,7 +1889,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="ácido málico en polvo 150g">
+         data-nombre="ácido málico en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="56.6"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">ÁCIDO MÁLICO EN POLVO 150g</span>
@@ -1698,7 +1931,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="super shock 600g">
+         data-nombre="super shock 600g"
+         data-marca="quamtrax"
+         data-peso="600"
+         data-precio-kg="69.83"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Super Shock 600g</span>
@@ -1736,7 +1973,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="moonstruck 2 zero 540g">
+         data-nombre="moonstruck 2 zero 540g"
+         data-marca="optimum nutrition"
+         data-peso="540"
+         data-precio-kg="73.98"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Moonstruck 2 Zero 540g</span>
@@ -1774,7 +2015,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="beta-alanina (carnosyn®) en polvo 150g">
+         data-nombre="beta-alanina (carnosyn®) en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="75.6"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">BETA-ALANINA (CarnoSyn®) EN POLVO 150g</span>
@@ -1812,7 +2057,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="monns truck ii 510g">
+         data-nombre="monns truck ii 510g"
+         data-marca="optimum nutrition"
+         data-peso="510"
+         data-precio-kg="78.33"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Monns Truck II 510g</span>
@@ -1850,7 +2099,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="nitrox therapy 340g">
+         data-nombre="nitrox therapy 340g"
+         data-marca="biotechusa"
+         data-peso="340"
+         data-precio-kg="79.12"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">NITROX THERAPY 340g</span>
@@ -1888,7 +2141,11 @@
     
     <div class="product-card"
          data-tiendas="MyProtein"
-         data-nombre="impact pre-entreno – venom 440g">
+         data-nombre="impact pre-entreno – venom 440g"
+         data-marca="myprotein"
+         data-peso="440"
+         data-precio-kg="79.52"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Impact Pre-Entreno – Venom 440g</span>
@@ -1926,7 +2183,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="prework core series 300g">
+         data-nombre="prework core series 300g"
+         data-marca="procell"
+         data-peso="300"
+         data-precio-kg="80.3"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Prework Core Series 300g</span>
@@ -1964,7 +2225,11 @@
     
     <div class="product-card"
          data-tiendas="Prozis"
-         data-nombre="l-citrulina malato 150 g">
+         data-nombre="l-citrulina malato 150 g"
+         data-marca="prozis"
+         data-peso="150"
+         data-precio-kg="83.93"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">L-citrulina malato 150 g</span>
@@ -2002,7 +2267,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="outlift clinical 500g">
+         data-nombre="outlift clinical 500g"
+         data-marca="nutrex"
+         data-peso="500"
+         data-precio-kg="87.8"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Outlift Clinical 500g</span>
@@ -2040,7 +2309,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="pump caffeine free 330g">
+         data-nombre="pump caffeine free 330g"
+         data-marca="biotechusa"
+         data-peso="330"
+         data-precio-kg="90.61"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Pump Caffeine Free 330g</span>
@@ -2078,7 +2351,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evordx 2.0 150g">
+         data-nombre="evordx 2.0 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="99.67"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVORDX 2.0 150g</span>
@@ -2116,7 +2393,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="pre workout 300g">
+         data-nombre="pre workout 300g"
+         data-marca="226ers"
+         data-peso="300"
+         data-precio-kg="105.0"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">Pre Workout 300g</span>
@@ -2154,7 +2435,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="the shadow 270 g">
+         data-nombre="the shadow 270 g"
+         data-marca="cobra labs"
+         data-peso="270"
+         data-precio-kg="110.7"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">The Shadow 270 g</span>
@@ -2192,7 +2477,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="c4 ultimate 320g">
+         data-nombre="c4 ultimate 320g"
+         data-marca="cellucor"
+         data-peso="320"
+         data-precio-kg="115.31"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">C4 Ultimate 320g</span>
@@ -2230,7 +2519,11 @@
     
     <div class="product-card"
          data-tiendas="MyProtein"
-         data-nombre="l-ornitina hcl en polvo 250g">
+         data-nombre="l-ornitina hcl en polvo 250g"
+         data-marca="myprotein"
+         data-peso="250"
+         data-precio-kg="119.96"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">L-Ornitina HCL en polvo 250g</span>
@@ -2268,7 +2561,11 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="m.a.p. glyceromax 340g">
+         data-nombre="m.a.p. glyceromax 340g"
+         data-marca="amix pro"
+         data-peso="340"
+         data-precio-kg="126.47"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">M.A.P. GLYCEROMAX 340g</span>
@@ -2306,7 +2603,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evobomb 150g">
+         data-nombre="evobomb 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="170.67"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOBOMB 150g</span>
@@ -2344,7 +2645,11 @@
     
     <div class="product-card"
          data-tiendas="HSN"
-         data-nombre="evopump en polvo 150g">
+         data-nombre="evopump en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="174.4"
+         data-tipo="">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">EVOPUMP EN POLVO 150g</span>
@@ -3867,19 +4172,45 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
 (function() {
   const PER_PAGE = 20;
   let page = 0;
-  let currentFilter = '';
+
+  // Estado de filtros
+  let fTienda = '';
+  let fMarca  = '';
+  let fPeso   = '';
+  let fTipo   = '';
+  let fKgMin  = parseFloat(document.getElementById('rangeMin').min);
+  let fKgMax  = parseFloat(document.getElementById('rangeMax').max);
 
   const list    = document.getElementById('productsList');
   const info    = document.getElementById('paginationInfo');
   const btnPrev = document.getElementById('btnPrev');
   const btnNext = document.getElementById('btnNext');
   const allCards = Array.from(list.querySelectorAll('.product-card'));
+  const countEl  = document.getElementById('filterCount');
+  const kgLabel  = document.getElementById('kgRangeLabel');
+  const rangeMin = document.getElementById('rangeMin');
+  const rangeMax = document.getElementById('rangeMax');
+
+  function pesoBucket(grams) {
+    if (!grams || grams === 0) return '';
+    if (grams < 500)  return 'lt500';
+    if (grams < 1000) return '500-1000';
+    if (grams < 2000) return '1000-2000';
+    return 'gt2000';
+  }
 
   function getVisible() {
-    if (!currentFilter) return allCards;
     return allCards.filter(c => {
-      const tiendas = (c.dataset.tiendas || '').split(',');
-      return tiendas.includes(currentFilter);
+      if (fTienda) {
+        const tiendas = (c.dataset.tiendas || '').split(',');
+        if (!tiendas.includes(fTienda)) return false;
+      }
+      if (fMarca && c.dataset.marca !== fMarca.toLowerCase()) return false;
+      if (fPeso && pesoBucket(parseInt(c.dataset.peso || '0')) !== fPeso) return false;
+      if (fTipo && c.dataset.tipo !== fTipo) return false;
+      const kg = parseFloat(c.dataset.precioKg || '9999');
+      if (kg < fKgMin || kg > fKgMax) return false;
+      return true;
     });
   }
 
@@ -3894,7 +4225,10 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
 
     info.textContent = total > 0
       ? 'Mostrando ' + (start + 1) + '–' + end + ' de ' + total + ' productos'
-      : 'Sin resultados para esta tienda';
+      : 'Sin resultados con estos filtros';
+
+    countEl.textContent = total < allCards.length
+      ? total + ' de ' + allCards.length + ' productos' : '';
 
     const paginationEl = document.getElementById('pagination');
     paginationEl.style.display = total > PER_PAGE ? 'flex' : 'none';
@@ -3902,18 +4236,79 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
     btnNext.disabled = end >= total;
   }
 
-  window.filterStore = function(btn, tienda) {
-    currentFilter = tienda;
-    page = 0;
-    document.querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    render();
+  function resetPage() { page = 0; render(); }
+
+  // Tienda pills
+  document.querySelectorAll('#storeFilters .store-filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#storeFilters .store-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      fTienda = this.dataset.tienda;
+      resetPage();
+    });
+  });
+
+  // Peso pills
+  document.querySelectorAll('[data-peso]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.store-filters').querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      fPeso = this.dataset.peso;
+      resetPage();
+    });
+  });
+
+  // Tipo pills (whey)
+  document.querySelectorAll('[data-tipo]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.store-filters').querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      fTipo = this.dataset.tipo;
+      resetPage();
+    });
+  });
+
+  // Marca select
+  const marcaSelect = document.getElementById('filterMarca');
+  if (marcaSelect) {
+    marcaSelect.addEventListener('change', function() {
+      fMarca = this.value;
+      resetPage();
+    });
+  }
+
+  // Range sliders
+  function updateRange() {
+    const vMin = parseFloat(rangeMin.value);
+    const vMax = parseFloat(rangeMax.value);
+    if (vMin > vMax) return;
+    fKgMin = vMin;
+    fKgMax = vMax;
+    kgLabel.textContent = vMin.toFixed(1) + ' – ' + vMax.toFixed(1);
+    resetPage();
+  }
+  rangeMin.addEventListener('input', updateRange);
+  rangeMax.addEventListener('input', updateRange);
+
+  // Reset
+  window.resetFilters = function() {
+    fTienda = ''; fMarca = ''; fPeso = ''; fTipo = '';
+    fKgMin = parseFloat(rangeMin.min);
+    fKgMax = parseFloat(rangeMax.max);
+    rangeMin.value = rangeMin.min;
+    rangeMax.value = rangeMax.max;
+    kgLabel.textContent = rangeMin.min + ' – ' + rangeMax.max;
+    document.querySelectorAll('.store-filter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.tienda === '' || b.dataset.peso === '' || b.dataset.tipo === '');
+    });
+    if (marcaSelect) marcaSelect.value = '';
+    resetPage();
   };
 
   window.changePage = function(dir) {
     page = Math.max(0, page + dir);
     render();
-    window.scrollTo({ top: document.getElementById('productsList').offsetTop - 80, behavior: 'smooth' });
+    window.scrollTo({ top: list.offsetTop - 80, behavior: 'smooth' });
   };
 
   render();

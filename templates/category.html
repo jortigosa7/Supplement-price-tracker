@@ -101,12 +101,76 @@
     </div>
   </header>
 
-  <!-- ── Store filter pills ───────────────────────── -->
-  <div class="store-filters" id="storeFilters">
-    <button class="store-filter-btn active" data-filter="" onclick="filterStore(this, '')">Todas</button>
-    {% for tienda in tiendas %}
-    <button class="store-filter-btn" data-filter="{{ tienda }}" onclick="filterStore(this, '{{ tienda }}')">{{ tienda }}</button>
-    {% endfor %}
+  <!-- ── Filtros avanzados ────────────────────────── -->
+  <div class="advanced-filters" id="advancedFilters">
+
+    <!-- Fila 1: tienda + marca -->
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Tienda</span>
+        <div class="store-filters" id="storeFilters">
+          <button class="store-filter-btn active" data-tienda="">Todas</button>
+          {% for tienda in tiendas %}
+          <button class="store-filter-btn" data-tienda="{{ tienda }}">{{ tienda }}</button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Marca</span>
+        <select class="filter-select" id="filterMarca">
+          <option value="">Todas las marcas</option>
+          {% for marca in marcas %}
+          <option value="{{ marca }}">{{ marca }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <!-- Fila 2: peso + tipo (whey) + rango €/kg -->
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Peso</span>
+        <div class="store-filters">
+          <button class="store-filter-btn active" data-peso="">Todos</button>
+          <button class="store-filter-btn" data-peso="lt500">&lt; 500g</button>
+          <button class="store-filter-btn" data-peso="500-1000">500g – 1kg</button>
+          <button class="store-filter-btn" data-peso="1000-2000">1 – 2kg</button>
+          <button class="store-filter-btn" data-peso="gt2000">&gt; 2kg</button>
+        </div>
+      </div>
+
+      {% if cat.slug == 'proteina-whey' %}
+      <div class="filter-group">
+        <span class="filter-label">Tipo</span>
+        <div class="store-filters">
+          <button class="store-filter-btn active" data-tipo="">Todos</button>
+          <button class="store-filter-btn" data-tipo="Concentrada">Concentrada</button>
+          <button class="store-filter-btn" data-tipo="Isolate">Isolate</button>
+          <button class="store-filter-btn" data-tipo="Hidrolizada">Hidrolizada</button>
+          <button class="store-filter-btn" data-tipo="Otra">Otra</button>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="filter-group filter-group--kg">
+        <span class="filter-label">€/kg: <span id="kgRangeLabel">{{ precio_kg_min }} – {{ precio_kg_max }}</span></span>
+        <div class="range-wrap">
+          <input type="range" class="range-input" id="rangeMin"
+            min="{{ precio_kg_min }}" max="{{ precio_kg_max }}" step="0.5"
+            value="{{ precio_kg_min }}">
+          <input type="range" class="range-input" id="rangeMax"
+            min="{{ precio_kg_min }}" max="{{ precio_kg_max }}" step="0.5"
+            value="{{ precio_kg_max }}">
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <div class="filter-row filter-row--reset">
+      <button class="filter-reset-btn" id="btnResetFilters" onclick="resetFilters()">✕ Limpiar filtros</button>
+      <span class="filter-count" id="filterCount"></span>
+    </div>
   </div>
 
   <!-- ── Product cards ────────────────────────────── -->
@@ -125,7 +189,11 @@
     {% set tienda_slugs = p.precios | map(attribute='tienda') | join(',') %}
     <div class="product-card{% if loop.index == 1 %} is-best{% endif %}"
          data-tiendas="{{ tienda_slugs }}"
-         data-nombre="{{ p.nombre_normalizado | lower }}">
+         data-nombre="{{ p.nombre_normalizado | lower }}"
+         data-marca="{{ p.marca | lower }}"
+         data-peso="{{ (p.peso_kg * 1000) | int if p.peso_kg else 0 }}"
+         data-precio-kg="{{ p.precio_por_kg_min if p.precio_por_kg_min else 9999 }}"
+         data-tipo="{{ p.tipo_proteina if p.tipo_proteina is defined else '' }}">
       <div class="pc-top">
         <div class="pc-name">
           <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
@@ -252,19 +320,45 @@
 (function() {
   const PER_PAGE = 20;
   let page = 0;
-  let currentFilter = '';
+
+  // Estado de filtros
+  let fTienda = '';
+  let fMarca  = '';
+  let fPeso   = '';
+  let fTipo   = '';
+  let fKgMin  = parseFloat(document.getElementById('rangeMin').min);
+  let fKgMax  = parseFloat(document.getElementById('rangeMax').max);
 
   const list    = document.getElementById('productsList');
   const info    = document.getElementById('paginationInfo');
   const btnPrev = document.getElementById('btnPrev');
   const btnNext = document.getElementById('btnNext');
   const allCards = Array.from(list.querySelectorAll('.product-card'));
+  const countEl  = document.getElementById('filterCount');
+  const kgLabel  = document.getElementById('kgRangeLabel');
+  const rangeMin = document.getElementById('rangeMin');
+  const rangeMax = document.getElementById('rangeMax');
+
+  function pesoBucket(grams) {
+    if (!grams || grams === 0) return '';
+    if (grams < 500)  return 'lt500';
+    if (grams < 1000) return '500-1000';
+    if (grams < 2000) return '1000-2000';
+    return 'gt2000';
+  }
 
   function getVisible() {
-    if (!currentFilter) return allCards;
     return allCards.filter(c => {
-      const tiendas = (c.dataset.tiendas || '').split(',');
-      return tiendas.includes(currentFilter);
+      if (fTienda) {
+        const tiendas = (c.dataset.tiendas || '').split(',');
+        if (!tiendas.includes(fTienda)) return false;
+      }
+      if (fMarca && c.dataset.marca !== fMarca.toLowerCase()) return false;
+      if (fPeso && pesoBucket(parseInt(c.dataset.peso || '0')) !== fPeso) return false;
+      if (fTipo && c.dataset.tipo !== fTipo) return false;
+      const kg = parseFloat(c.dataset.precioKg || '9999');
+      if (kg < fKgMin || kg > fKgMax) return false;
+      return true;
     });
   }
 
@@ -279,7 +373,10 @@
 
     info.textContent = total > 0
       ? 'Mostrando ' + (start + 1) + '–' + end + ' de ' + total + ' productos'
-      : 'Sin resultados para esta tienda';
+      : 'Sin resultados con estos filtros';
+
+    countEl.textContent = total < allCards.length
+      ? total + ' de ' + allCards.length + ' productos' : '';
 
     const paginationEl = document.getElementById('pagination');
     paginationEl.style.display = total > PER_PAGE ? 'flex' : 'none';
@@ -287,18 +384,79 @@
     btnNext.disabled = end >= total;
   }
 
-  window.filterStore = function(btn, tienda) {
-    currentFilter = tienda;
-    page = 0;
-    document.querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    render();
+  function resetPage() { page = 0; render(); }
+
+  // Tienda pills
+  document.querySelectorAll('#storeFilters .store-filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#storeFilters .store-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      fTienda = this.dataset.tienda;
+      resetPage();
+    });
+  });
+
+  // Peso pills
+  document.querySelectorAll('[data-peso]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.store-filters').querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      fPeso = this.dataset.peso;
+      resetPage();
+    });
+  });
+
+  // Tipo pills (whey)
+  document.querySelectorAll('[data-tipo]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.store-filters').querySelectorAll('.store-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      fTipo = this.dataset.tipo;
+      resetPage();
+    });
+  });
+
+  // Marca select
+  const marcaSelect = document.getElementById('filterMarca');
+  if (marcaSelect) {
+    marcaSelect.addEventListener('change', function() {
+      fMarca = this.value;
+      resetPage();
+    });
+  }
+
+  // Range sliders
+  function updateRange() {
+    const vMin = parseFloat(rangeMin.value);
+    const vMax = parseFloat(rangeMax.value);
+    if (vMin > vMax) return;
+    fKgMin = vMin;
+    fKgMax = vMax;
+    kgLabel.textContent = vMin.toFixed(1) + ' – ' + vMax.toFixed(1);
+    resetPage();
+  }
+  rangeMin.addEventListener('input', updateRange);
+  rangeMax.addEventListener('input', updateRange);
+
+  // Reset
+  window.resetFilters = function() {
+    fTienda = ''; fMarca = ''; fPeso = ''; fTipo = '';
+    fKgMin = parseFloat(rangeMin.min);
+    fKgMax = parseFloat(rangeMax.max);
+    rangeMin.value = rangeMin.min;
+    rangeMax.value = rangeMax.max;
+    kgLabel.textContent = rangeMin.min + ' – ' + rangeMax.max;
+    document.querySelectorAll('.store-filter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.tienda === '' || b.dataset.peso === '' || b.dataset.tipo === '');
+    });
+    if (marcaSelect) marcaSelect.value = '';
+    resetPage();
   };
 
   window.changePage = function(dir) {
     page = Math.max(0, page + dir);
     render();
-    window.scrollTo({ top: document.getElementById('productsList').offsetTop - 80, behavior: 'smooth' });
+    window.scrollTo({ top: list.offsetTop - 80, behavior: 'smooth' });
   };
 
   render();

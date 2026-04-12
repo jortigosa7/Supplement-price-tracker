@@ -578,25 +578,113 @@
     .cat-stats strong { color: #111111; }
     .cat-stats .green { color: var(--accent); }
 
-    /* ── Store filter pills ────────────────────────── */
-    .store-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
-    .store-filter-btn {
-      padding: 6px 16px;
+    /* ── Advanced filters ──────────────────────────── */
+    .advanced-filters {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+      background: #f9f9f9;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .filter-row--reset {
+      align-items: center;
+      gap: 12px;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .filter-group--kg { flex: 1; min-width: 180px; }
+    .filter-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaaaaa;
+    }
+    .filter-select {
+      padding: 7px 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
       border-radius: 20px;
+      color: #333333;
+      font-family: var(--font-body);
       font-size: 0.82rem;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      max-width: 220px;
+    }
+    .filter-select:focus { outline: none; border-color: var(--accent-border); }
+
+    /* ── Store filter pills ────────────────────────── */
+    .store-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+    .store-filter-btn {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
       font-weight: 500;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #f7f7f7;
+      background: #ffffff;
       color: #888888;
       transition: all 0.15s;
       font-family: var(--font-body);
+      white-space: nowrap;
     }
     .store-filter-btn:hover,
     .store-filter-btn.active {
       background: #0a0b0c;
       border-color: var(--accent-border);
       color: var(--accent);
+    }
+
+    /* ── Range slider ──────────────────────────────── */
+    .range-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .range-input {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+      height: 4px;
+    }
+
+    /* ── Filter reset ──────────────────────────────── */
+    .filter-reset-btn {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid #dddddd;
+      background: #ffffff;
+      color: #888888;
+      transition: all 0.15s;
+      font-family: var(--font-body);
+    }
+    .filter-reset-btn:hover { border-color: #cc4444; color: #cc4444; }
+    .filter-count {
+      font-size: 0.78rem;
+      color: #aaaaaa;
+    }
+
+    @media (max-width: 640px) {
+      .filter-row { flex-direction: column; gap: 12px; }
+      .filter-select { max-width: 100%; }
+      .filter-group--kg { width: 100%; }
     }
 
     /* ── Guide / Editorial ─────────────────────────── */
