@@ -82,7 +82,7 @@
 
     /* ── Reset ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
+    html { font-size: 16px; scroll-behavior: smooth; overflow-x: hidden; }
     body {
       background: var(--bg-primary);
       color: #f0f0f0;
@@ -476,7 +476,7 @@
     .search-bar { display: flex; gap: 8px; flex-wrap: wrap; }
     .search-input {
       flex: 1;
-      min-width: 180px;
+      min-width: 0;
       padding: 10px 14px;
       background: #f7f7f7;
       border: 1px solid var(--border);
@@ -662,7 +662,7 @@
       align-items: center;
       gap: 10px;
     }
-    .other-name { flex: 1; min-width: 150px; font-size: 0.87rem; font-weight: 500; color: #111111; }
+    .other-name { flex: 1; min-width: 0; font-size: 0.87rem; font-weight: 500; color: #111111; }
     .other-marca { font-size: 0.75rem; color: #aaaaaa; }
     .store-pill {
       display: inline-flex;
@@ -683,6 +683,18 @@
     .store-prozis      { background:rgba(0,201,167,0.12);  color:#00C9A7; border:1px solid rgba(0,201,167,0.25);  }
     .store-myprotein   { background:rgba(242,201,76,0.12); color:#F2C94C; border:1px solid rgba(242,201,76,0.25); }
     .store-default     { background:rgba(136,136,136,0.12);color:#888;    border:1px solid rgba(136,136,136,0.25);}
+
+    /* ── Mobile fixes ──────────────────────────────── */
+    @media (max-width: 480px) {
+      .cat-grid { grid-template-columns: 1fr; }
+      .search-bar { flex-direction: column; }
+      .search-select { width: 100%; }
+      .pc-price { font-size: 1.2rem; }
+      .metrics-grid { flex-wrap: wrap; }
+      .metric-card { flex: 1 1 30%; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .pc-actions { flex-direction: column; }
+    }
 
     /* ── Footer ────────────────────────────────────── */
     .site-footer {
@@ -745,7 +757,7 @@
 <div class="container">
 
   <!-- ── Hero ─────────────────────────────────────────── -->
-  <section style="background:#0a0b0c; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); padding:56px max(20px,calc(50vw - 50%)) 48px; text-align:center;">
+  <section style="background:#0a0b0c; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); padding:48px 20px; text-align:center;">
     <div class="hero-badge" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent-bg); border:1px solid var(--accent-border); border-radius:var(--radius-pill); padding:5px 14px; margin-bottom:22px; font-size:0.8rem; color:#cccccc; animation:fadeUp 0.45s ease both;">
       <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite;flex-shrink:0;"></span>
       Precios actualizados · 2026-04-06
