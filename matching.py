@@ -146,10 +146,13 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
 
         peso_kg = extraer_peso_kg(nombre)
 
+        imagen_url = p.get("imagen_url")
+
         entrada_precio = {
             "tienda":        tienda,
             "precio_eur":    precio_eur,
             "url_afiliado":  url,
+            "imagen_url":    imagen_url,
             "en_oferta":     False,
             "precio_original": None,
             "fecha":         fecha,
@@ -199,7 +202,7 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
                 "precios":           [entrada_precio],
             })
 
-    # Post-proceso: ordenar precios, calcular mínimos
+    # Post-proceso: ordenar precios, calcular mínimos, elegir imagen
     for g in grupos:
         g["precios"].sort(key=lambda x: x["precio_eur"])
         mejor = g["precios"][0]
@@ -208,6 +211,10 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
         g["precio_por_kg_min"] = (
             round(mejor["precio_eur"] / g["peso_kg"], 2)
             if g["peso_kg"] and g["peso_kg"] > 0 else None
+        )
+        # Imagen: usar la de la tienda más barata; si no tiene, la primera disponible
+        g["imagen_url"] = mejor.get("imagen_url") or next(
+            (pr["imagen_url"] for pr in g["precios"] if pr.get("imagen_url")), None
         )
 
     # Ordenar grupos: categoria + precio_por_kg

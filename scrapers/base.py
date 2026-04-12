@@ -43,7 +43,7 @@ def hacer_peticion(url: str, max_reintentos: int = 3, delay: int = 2) -> request
     return None
 
 
-def producto_base(nombre, precio_str, marca, categoria, tienda, url) -> dict:
+def producto_base(nombre, precio_str, marca, categoria, tienda, url, imagen_url=None) -> dict:
     """Schema plano compartido por todos los scrapers."""
     return {
         "nombre":         nombre.strip(),
@@ -52,5 +52,6 @@ def producto_base(nombre, precio_str, marca, categoria, tienda, url) -> dict:
         "categoria":      categoria,
         "tienda":         tienda,
         "url":            url,
+        "imagen_url":     imagen_url or None,
         "fecha_scraping": TODAY,
     }

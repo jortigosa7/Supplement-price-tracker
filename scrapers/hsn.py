@@ -70,6 +70,14 @@ _JS_EXTRAER = """
         } catch(e) {}
     }
 
+    const IMG_SELECTORS = [
+        'img.product-image-photo',
+        '.product-image-wrapper img',
+        '.product-image img',
+        'img[src*="catalog/product"]',
+        'img[src*="media"]',
+    ];
+
     const productos = [];
     for (const item of items) {
         const linkEl = queryFirst(item, NAME_SELECTORS);
@@ -79,7 +87,13 @@ _JS_EXTRAER = """
         if (!nombre || !url) continue;
         const precioEl = queryFirst(item, PRICE_SELECTORS);
         const precio   = precioEl ? precioEl.textContent.trim() : 'N/A';
-        productos.push({ nombre, precio, url });
+        let imagen_url = null;
+        const imgEl = queryFirst(item, IMG_SELECTORS);
+        if (imgEl) {
+            const src = imgEl.dataset.src || imgEl.getAttribute('data-original') || imgEl.src || '';
+            if (src && src.startsWith('http')) imagen_url = src;
+        }
+        productos.push({ nombre, precio, url, imagen_url });
     }
     return { items_found: items.length, productos };
 }
@@ -207,10 +221,11 @@ def scrape(debug: bool = False) -> list[dict]:
                     for d in nuevos_raw:
                         if d.get("nombre"):
                             productos_raw.append({
-                                "nombre":    d["nombre"],
-                                "precio":    d["precio"],
-                                "categoria": cat["nombre"],
-                                "url":       d["url"],
+                                "nombre":     d["nombre"],
+                                "precio":     d["precio"],
+                                "categoria":  cat["nombre"],
+                                "url":        d["url"],
+                                "imagen_url": d.get("imagen_url"),
                             })
 
                     print(f"  +{len(nuevos_raw)} productos (acumulado: {len(productos_raw)})")
@@ -250,7 +265,7 @@ def scrape(debug: bool = False) -> list[dict]:
                 pass  # sin peso — limpieza.py dejará precio_por_kg=None
 
             productos.append(
-                producto_base(nombre_con_peso, d["precio"], "", d["categoria"], TIENDA, d["url"])
+                producto_base(nombre_con_peso, d["precio"], "", d["categoria"], TIENDA, d["url"], d.get("imagen_url"))
             )
 
             if (i + 1) % 10 == 0:

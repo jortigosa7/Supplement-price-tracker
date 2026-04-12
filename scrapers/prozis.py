@@ -124,8 +124,26 @@ def scrape(debug: bool = False) -> list[dict]:
                         precio_raw = prod.get("price", "N/A")
                         href = prod.get("url", "")
                         url_prod = href if href.startswith("http") else BASE_URL + href
+
+                        # Imagen: varios campos posibles en wsData
+                        imagen_url = None
+                        for campo in ("imageUrl", "image", "thumbnail", "mainImage", "photo"):
+                            v = prod.get(campo, "")
+                            if v and isinstance(v, str) and v.startswith("http"):
+                                imagen_url = v
+                                break
+                        # A veces está anidado en {"images": [{"url": ...}]}
+                        if not imagen_url:
+                            imgs = prod.get("images", [])
+                            if imgs and isinstance(imgs, list):
+                                first = imgs[0]
+                                if isinstance(first, dict):
+                                    imagen_url = first.get("url") or first.get("src")
+                                elif isinstance(first, str) and first.startswith("http"):
+                                    imagen_url = first
+
                         productos.append(
-                            producto_base(nombre, precio_raw, "", cat["nombre"], TIENDA, url_prod)
+                            producto_base(nombre, precio_raw, "", cat["nombre"], TIENDA, url_prod, imagen_url)
                         )
                     except Exception as e:
                         print(f"  Error en producto: {e}")

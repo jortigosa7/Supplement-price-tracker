@@ -225,6 +225,26 @@
       align-items: flex-start;
       gap: 12px;
     }
+    .pc-img {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pc-img img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+    @media (max-width: 480px) {
+      .pc-img { width: 60px; height: 60px; }
+      .pc-img img { width: 60px; height: 60px; }
+    }
     .pc-name { flex: 1; display: flex; flex-direction: column; gap: 6px; }
     .pc-name-text {
       font-size: 0.92rem;
@@ -1000,6 +1020,9 @@
            data-precio-kg="12.98"
            data-precio-total="77.9">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Massive Gainer 6 kg" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Massive Gainer 6 kg</span>
             
@@ -1041,6 +1064,9 @@
            data-precio-kg="15.9"
            data-precio-total="7.95">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="EVOWHEY &amp; OATS 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">EVOWHEY &amp; OATS 500g</span>
             
@@ -1080,6 +1106,9 @@
            data-precio-kg="19.98"
            data-precio-total="9.99">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-creatina.svg" alt="EVOCREATINE 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">EVOCREATINE 500g</span>
             
@@ -1126,6 +1155,9 @@
            data-precio-kg="20.04"
            data-precio-total="50.09">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Mezcla de Rendimiento Todo-En-Uno 2.5kg" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Mezcla de Rendimiento Todo-En-Uno 2.5kg</span>
             
@@ -1165,6 +1197,9 @@
            data-precio-kg="23.13"
            data-precio-total="16.19">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Whey + Fibre 700g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Whey + Fibre 700g</span>
             
@@ -1204,6 +1239,9 @@
            data-precio-kg="23.52"
            data-precio-total="11.76">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="100% WHEY PROTEIN CONCENTRATE 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">100% WHEY PROTEIN CONCENTRATE 500g</span>
             
@@ -1243,6 +1281,9 @@
            data-precio-kg="24.42"
            data-precio-total="19.54">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-pre-entreno.svg" alt="Energy Charge - Preentrenamiento 800 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Energy Charge - Preentrenamiento 800 g</span>
             
@@ -1282,6 +1323,9 @@
            data-precio-kg="24.64"
            data-precio-total="12.32">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="EVOWHEY PROTEIN SIN EDULCORANTES 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">EVOWHEY PROTEIN SIN EDULCORANTES 500g</span>
             
@@ -1321,6 +1365,9 @@
            data-precio-kg="26.27"
            data-precio-total="3.94">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-creatina.svg" alt="CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g</span>
             
@@ -1367,6 +1414,9 @@
            data-precio-kg="26.66"
            data-precio-total="23.99">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-pre-entreno.svg" alt="Beta-alanina 900 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Beta-alanina 900 g</span>
             
@@ -1406,6 +1456,9 @@
            data-precio-kg="27.22"
            data-precio-total="48.99">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Battery Complete Whey 1800g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Battery Complete Whey 1800g</span>
             
@@ -1445,6 +1498,9 @@
            data-precio-kg="27.27"
            data-precio-total="35.99">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-pre-entreno.svg" alt="N.O. Shox 1320g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">N.O. Shox 1320g</span>
             
@@ -1484,6 +1540,9 @@
            data-precio-kg="28.34"
            data-precio-total="56.69">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="100% Real Whey Protein 2000g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">100% Real Whey Protein 2000g</span>
             
@@ -1530,6 +1589,9 @@
            data-precio-kg="28.5"
            data-precio-total="14.25">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="GOLDEN PROTEIN 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">GOLDEN PROTEIN 500g</span>
             
@@ -1569,6 +1631,9 @@
            data-precio-kg="28.8"
            data-precio-total="57.59">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Natural Real Whey Protein 2000g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Natural Real Whey Protein 2000g</span>
             
@@ -1615,6 +1680,9 @@
            data-precio-kg="29.64"
            data-precio-total="14.82">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-creatina.svg" alt="CREATINA MONOHIDRATO ULTRAFINA EN POLVO (500 MESH) 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">CREATINA MONOHIDRATO ULTRAFINA EN POLVO (500 MESH) 500g</span>
             
@@ -1661,6 +1729,9 @@
            data-precio-kg="30.0"
            data-precio-total="4.5">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-bcaa.svg" alt="BCAA&#39;S INSTANTÁNEO 2:1:1 2.0 150g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">BCAA&#39;S INSTANTÁNEO 2:1:1 2.0 150g</span>
             
@@ -1700,6 +1771,9 @@
            data-precio-kg="30.0"
            data-precio-total="4.5">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-pre-entreno.svg" alt="BETA-ALANINA EN POLVO 150g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">BETA-ALANINA EN POLVO 150g</span>
             
@@ -1746,6 +1820,9 @@
            data-precio-kg="30.62"
            data-precio-total="68.9">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="100% WHEY PROTEIN 2250g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">100% WHEY PROTEIN 2250g</span>
             
@@ -1785,6 +1862,9 @@
            data-precio-kg="31.25"
            data-precio-total="56.69">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="100% Real Whey Protein 1814g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">100% Real Whey Protein 1814g</span>
             
@@ -1831,6 +1911,9 @@
            data-precio-kg="31.31"
            data-precio-total="31.0">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Hidrolyzed Whey Protein 990g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Hidrolyzed Whey Protein 990g</span>
             
@@ -1870,6 +1953,9 @@
            data-precio-kg="31.49"
            data-precio-total="31.49">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="100% Real Whey Protein 1000 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">100% Real Whey Protein 1000 g</span>
             
@@ -1916,6 +2002,9 @@
            data-precio-kg="31.75"
            data-precio-total="57.59">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Natural Real Whey Protein 1814g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Natural Real Whey Protein 1814g</span>
             
@@ -1955,6 +2044,9 @@
            data-precio-kg="31.9"
            data-precio-total="31.9">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="100% Whey Protein Bag 1000g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">100% Whey Protein Bag 1000g</span>
             
@@ -1994,6 +2086,9 @@
            data-precio-kg="31.99"
            data-precio-total="28.79">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Whey Protein Fusion 900 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Whey Protein Fusion 900 g</span>
             
@@ -2040,6 +2135,9 @@
            data-precio-kg="32.39"
            data-precio-total="32.39">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="100% Whey Prime 1000 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">100% Whey Prime 1000 g</span>
             
@@ -2086,6 +2184,9 @@
            data-precio-kg="32.39"
            data-precio-total="32.39">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Natural Real Whey Protein 1000 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Natural Real Whey Protein 1000 g</span>
             
@@ -2125,6 +2226,9 @@
            data-precio-kg="32.47"
            data-precio-total="9.74">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-pre-entreno.svg" alt="Beta-alanina 300 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Beta-alanina 300 g</span>
             
@@ -2171,6 +2275,9 @@
            data-precio-kg="32.49"
            data-precio-total="25.99">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Battery Complete Whey 800g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Battery Complete Whey 800g</span>
             
@@ -2210,6 +2317,9 @@
            data-precio-kg="32.75"
            data-precio-total="65.5">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Only Whey Zero 2 Kg" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Only Whey Zero 2 Kg</span>
             
@@ -2249,6 +2359,9 @@
            data-precio-kg="33.7"
            data-precio-total="26.96">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-creatina.svg" alt="CREATINA CELULAR 800g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">CREATINA CELULAR 800g</span>
             
@@ -2288,6 +2401,9 @@
            data-precio-kg="33.73"
            data-precio-total="74.2">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="WHEY PROTEIN COMPLEX 100% - 2200 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">WHEY PROTEIN COMPLEX 100% - 2200 g</span>
             
@@ -2327,6 +2443,9 @@
            data-precio-kg="34.08"
            data-precio-total="22.49">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-pre-entreno.svg" alt="N.O. Shox 660 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">N.O. Shox 660 g</span>
             
@@ -2366,6 +2485,9 @@
            data-precio-kg="34.2"
            data-precio-total="23.94">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-bcaa.svg" alt="Recovery Total 700g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Recovery Total 700g</span>
             
@@ -2405,6 +2527,9 @@
            data-precio-kg="34.72"
            data-precio-total="31.49">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="100% Real Whey Protein 907g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">100% Real Whey Protein 907g</span>
             
@@ -2444,6 +2569,9 @@
            data-precio-kg="35.0"
            data-precio-total="17.5">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="EVOLATE 2.0 (WHEY ISOLATE CFM) 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">EVOLATE 2.0 (WHEY ISOLATE CFM) 500g</span>
             
@@ -2483,6 +2611,9 @@
            data-precio-kg="35.09"
            data-precio-total="70.19">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Xtreme Whey Protein SS 2000 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Xtreme Whey Protein SS 2000 g</span>
             
@@ -2529,6 +2660,9 @@
            data-precio-kg="35.71"
            data-precio-total="32.39">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Natural Real Whey Protein 907g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Natural Real Whey Protein 907g</span>
             
@@ -2568,6 +2702,9 @@
            data-precio-kg="36.08"
            data-precio-total="18.04">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g</span>
             
@@ -2607,6 +2744,9 @@
            data-precio-kg="36.08"
            data-precio-total="18.04">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="EVOEXCEL 2.0 (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">EVOEXCEL 2.0 (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g</span>
             
@@ -2646,6 +2786,9 @@
            data-precio-kg="37.45"
            data-precio-total="74.9">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Pack Regalo Predator Protein 2 Kg + Osteo Anagenesis 30 Caps" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Pack Regalo Predator Protein 2 Kg + Osteo Anagenesis 30 Caps</span>
             
@@ -2685,6 +2828,9 @@
            data-precio-kg="37.6"
            data-precio-total="5.64">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-bcaa.svg" alt="BCAA&#39;S INSTANTÁNEO 4:1:1 2.0 150g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">BCAA&#39;S INSTANTÁNEO 4:1:1 2.0 150g</span>
             
@@ -2724,6 +2870,9 @@
            data-precio-kg="38.09"
            data-precio-total="33.33">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Snicker Hi Protein 875g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Snicker Hi Protein 875g</span>
             
@@ -2763,6 +2912,9 @@
            data-precio-kg="38.22"
            data-precio-total="15.29">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Whey Protein - Freakin Good 400 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Whey Protein - Freakin Good 400 g</span>
             
@@ -2802,6 +2954,9 @@
            data-precio-kg="38.76"
            data-precio-total="19.38">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="100% WHEY PROTEIN ISOLATE 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">100% WHEY PROTEIN ISOLATE 500g</span>
             
@@ -2841,6 +2996,9 @@
            data-precio-kg="38.99"
            data-precio-total="58.49">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Zero Diet Whey 1500 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Zero Diet Whey 1500 g</span>
             
@@ -2880,6 +3038,9 @@
            data-precio-kg="39.63"
            data-precio-total="11.89">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-bcaa.svg" alt="BCAA 2:1:1 300 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">BCAA 2:1:1 300 g</span>
             
@@ -2926,6 +3087,9 @@
            data-precio-kg="39.84"
            data-precio-total="19.92">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="EVOLATE 2.0 SIN EDULCORANTES (WHEY ISOLATE CFM) 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">EVOLATE 2.0 SIN EDULCORANTES (WHEY ISOLATE CFM) 500g</span>
             
@@ -2965,6 +3129,9 @@
            data-precio-kg="40.18"
            data-precio-total="20.09">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="EVOHYDRO 2.0 (HYDRO WHEY) 500g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">EVOHYDRO 2.0 (HYDRO WHEY) 500g</span>
             
@@ -3004,6 +3171,9 @@
            data-precio-kg="40.48"
            data-precio-total="16.19">
         <div class="pc-top">
+          <div class="pc-img">
+            <img src="/img/productos/placeholder-proteina-whey.svg" alt="Capuchino Proteico 400 g" width="80" height="80" loading="lazy">
+          </div>
           <div class="pc-name">
             <span class="pc-name-text">Capuchino Proteico 400 g</span>
             

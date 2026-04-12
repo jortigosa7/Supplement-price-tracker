@@ -491,6 +491,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "precio_por_kg_min":   g.get("precio_por_kg_min"),
             "precio_min":          g.get("precio_min"),
             "tienda_mas_barata":   g.get("tienda_mas_barata"),
+            "imagen_url":          g.get("imagen_url"),
             "precios":             g["precios"],
         })
 
@@ -623,7 +624,13 @@ def generar_home(env, productos_web: list[dict], last_updated: str):
     con_precio_kg = [p for p in productos_web if p["precio_por_kg_min"] is not None]
     # Excluir muestras/sachets del ranking home igual que en categorías
     con_precio_kg = [p for p in con_precio_kg if not _excluir_producto(p)]
-    top_deals = sorted(con_precio_kg, key=lambda p: p["precio_por_kg_min"])[:50]
+    top_deals_raw = sorted(con_precio_kg, key=lambda p: p["precio_por_kg_min"])[:50]
+    # Añadir img_src a cada top deal
+    top_deals = []
+    for p in top_deals_raw:
+        p = dict(p)
+        p["img_src"] = _img_local(p["id"], p["categoria"])
+        top_deals.append(p)
 
     # Ahorro medio: diferencia % entre precio más caro y más barato entre tiendas
     savings = []
@@ -717,6 +724,16 @@ def _excluir_producto(p: dict) -> bool:
     return any(kw in nombre_lower for kw in cat_kws)
 
 
+IMG_PRODUCTOS_DIR = os.path.join(DOCS_DIR, "img", "productos")
+
+def _img_local(producto_id: str, categoria: str) -> str:
+    """Devuelve la ruta web de la imagen local, o el placeholder SVG de categoría."""
+    webp = os.path.join(IMG_PRODUCTOS_DIR, f"{producto_id}.webp")
+    if os.path.exists(webp):
+        return f"/img/productos/{producto_id}.webp"
+    return f"/img/productos/placeholder-{categoria}.svg"
+
+
 def _tipo_proteina(nombre: str) -> str:
     """Detecta tipo de whey por keywords en el nombre."""
     n = nombre.lower()
@@ -739,9 +756,10 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     prods_principales = [p for p in prods_cat if not _excluir_producto(p)]
     prods_otros       = [p for p in prods_cat if _excluir_producto(p)]
 
-    # Añadir tipo_proteina a whey
-    if cfg["slug"] == "proteina-whey":
-        for p in prods_principales:
+    # Añadir tipo_proteina a whey y ruta de imagen local
+    for p in prods_principales:
+        p["img_src"] = _img_local(p["id"], cfg["slug"])
+        if cfg["slug"] == "proteina-whey":
             p["tipo_proteina"] = _tipo_proteina(p["nombre_normalizado"])
 
     # Marcas únicas ordenadas

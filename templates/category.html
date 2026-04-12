@@ -195,6 +195,9 @@
          data-precio-kg="{{ p.precio_por_kg_min if p.precio_por_kg_min else 9999 }}"
          data-tipo="{{ p.tipo_proteina if p.tipo_proteina is defined else '' }}">
       <div class="pc-top">
+        <div class="pc-img">
+          <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="80" height="80" loading="lazy">
+        </div>
         <div class="pc-name">
           <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
           {% if loop.index == 1 %}

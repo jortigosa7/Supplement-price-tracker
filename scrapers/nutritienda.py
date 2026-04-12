@@ -59,8 +59,17 @@ def scrape() -> list[dict]:
                 href = nombre_elem.get("href", "")
                 url = href if href.startswith("http") else "https://www.nutritienda.com" + href
 
+                # Imagen: buscar en el contenedor padre (grid-item) o hermanos
+                imagen_url = None
+                contenedor = item.parent or item
+                img = contenedor.select_one("img[src]")
+                if img:
+                    src = img.get("data-src") or img.get("src", "")
+                    if src and "placeholder" not in src.lower() and src.startswith("http"):
+                        imagen_url = src
+
                 if nombre:
-                    productos.append(producto_base(nombre, precio, marca, cat["nombre"], TIENDA, url))
+                    productos.append(producto_base(nombre, precio, marca, cat["nombre"], TIENDA, url, imagen_url))
             except Exception as e:
                 print(f"  Error en producto: {e}")
 

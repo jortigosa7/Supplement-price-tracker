@@ -126,43 +126,49 @@ def _extraer_listado(html: str) -> list[dict]:
 
 # ── Fase 2: página de producto (pesos + precios por talla) ───────────────────
 
-def _extraer_variantes(html: str) -> list[tuple[float, float]]:
+def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None]:
     """
     Extrae variantes (peso_kg, precio_eur) del JSON-LD @type Product.
-    Devuelve lista ordenada por peso ascendente.
+    Devuelve (lista ordenada por peso ascendente, imagen_url o None).
     """
     variantes = []
+    imagen_url = None
+
     for schema in _parsear_schemas_jsonld(html):
         if schema.get("@type") not in ("Product", "IndividualProduct"):
             continue
+
+        # Imagen del producto
+        if not imagen_url:
+            img = schema.get("image")
+            if isinstance(img, str) and img.startswith("http"):
+                imagen_url = img
+            elif isinstance(img, list) and img:
+                imagen_url = img[0] if isinstance(img[0], str) else None
 
         offers = schema.get("offers", [])
         if isinstance(offers, dict):
             offers = [offers]
 
         for offer in offers:
-            # El nombre de la oferta suele incluir la talla: "Impact Whey - 500g"
             offer_name = offer.get("name", schema.get("name", ""))
             peso = _peso_kg_de_texto(offer_name)
             if not peso:
                 continue
-
             try:
                 precio = float(str(offer.get("price", "0")).replace(",", "."))
             except (TypeError, ValueError):
                 continue
-
             if precio > 0:
                 variantes.append((peso, precio))
 
-    # Eliminar duplicados de mismo peso, quedarse con el más barato
     by_peso: dict[float, float] = {}
     for peso, precio in variantes:
         key = round(peso, 2)
         if key not in by_peso or precio < by_peso[key]:
             by_peso[key] = precio
 
-    return sorted(by_peso.items())  # [(peso_kg, precio_eur), ...]
+    return sorted(by_peso.items()), imagen_url
 
 
 # ── Scraper principal ─────────────────────────────────────────────────────────
@@ -234,20 +240,21 @@ def scrape(debug: bool = False) -> list[dict]:
         nombre_final = d["nombre"]
         precio_final = d["precio_listing"]
 
+        imagen_url = None
         try:
             resp = hacer_peticion(d["url"])
             if resp:
                 html_prod = resp.content.decode("utf-8", errors="replace")
-                variantes = _extraer_variantes(html_prod)
+                variantes, imagen_url = _extraer_variantes(html_prod)
                 if variantes:
-                    peso_min, precio_min = variantes[0]  # peso mínimo
+                    peso_min, precio_min = variantes[0]
                     nombre_final = f"{d['nombre']} {_talla_str(peso_min)}"
                     precio_final = str(precio_min)
         except Exception:
-            pass  # fallback: usar nombre sin peso y precio de listing
+            pass
 
         productos.append(
-            producto_base(nombre_final, precio_final, "", d["categoria"], TIENDA, d["url"])
+            producto_base(nombre_final, precio_final, "", d["categoria"], TIENDA, d["url"], imagen_url)
         )
 
         if (i + 1) % 10 == 0:
