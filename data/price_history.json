@@ -4438,5 +4438,83 @@
     "fecha": "2026-04-12",
     "precio": 63.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "creatine-cor-performance-203g-cellucor",
+    "fecha": "2026-04-12",
+    "precio": 13.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creacell-creapure-300g-procell",
+    "fecha": "2026-04-12",
+    "precio": 26.32,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "platinum-creatine-plus-350g-optimum-nutrition",
+    "fecha": "2026-04-12",
+    "precio": 35.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "n1-pre-workout-510g-nutrend",
+    "fecha": "2026-04-12",
+    "precio": 32.6,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "hot-blood-hardcore-375g-scitec-nutrition",
+    "fecha": "2026-04-12",
+    "precio": 32.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "abe-375g-el-mejor-de-europa",
+    "fecha": "2026-04-12",
+    "precio": 33.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "caffeine-caps-60-caps-nutrend",
+    "fecha": "2026-04-12",
+    "precio": 6.1,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "massive-gainer-6-kg-gainer-proteina",
+    "fecha": "2026-04-12",
+    "precio": 77.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "battery-complete-whey-800g-calidad-premium",
+    "fecha": "2026-04-12",
+    "precio": 25.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "only-whey-zero-2-kg-optimum-nutrition",
+    "fecha": "2026-04-12",
+    "precio": 65.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isolate-pro-zero-2-kg-optimum-nutrition",
+    "fecha": "2026-04-12",
+    "precio": 86.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "panacea-350g-paleobull",
+    "fecha": "2026-04-12",
+    "precio": 18.98,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isowhey-907g-proteina-aislada-premium",
+    "fecha": "2026-04-12",
+    "precio": 60.25,
+    "tienda": "Nutritienda"
   }
 ]

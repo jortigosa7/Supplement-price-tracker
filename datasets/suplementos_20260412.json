@@ -792,6 +792,17 @@
     "fecha_scraping":"2026-04-12"
   },
   {
+    "nombre":"Creatine Cor-Performance 203g",
+    "marca":"Cellucor",
+    "categoria":"Creatina",
+    "precio_eur":13.9,
+    "peso_kg":0.203,
+    "precio_por_kg":68.47,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/cellucor\/creatine-cor-performance-203g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
     "nombre":"Creatina MicronPure 600 g",
     "marca":"",
     "categoria":"Creatina",
@@ -891,6 +902,17 @@
     "fecha_scraping":"2026-04-12"
   },
   {
+    "nombre":"Creacell Creapure 300g",
+    "marca":"Procell",
+    "categoria":"Creatina",
+    "precio_eur":26.32,
+    "peso_kg":0.3,
+    "precio_por_kg":87.73,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/procell\/creacell-creapure-300g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
     "nombre":"Finisher Creatine 300g",
     "marca":"Finisher",
     "categoria":"Creatina",
@@ -913,14 +935,14 @@
     "fecha_scraping":"2026-04-12"
   },
   {
-    "nombre":"Platinum 100% Creatine Monohydrate 200g",
-    "marca":"Muscletech",
+    "nombre":"Creatine Creapure 300g",
+    "marca":"Scientiffic Nutrition",
     "categoria":"Creatina",
-    "precio_eur":19.99,
-    "peso_kg":0.2,
-    "precio_por_kg":99.95,
+    "precio_eur":29.9,
+    "peso_kg":0.3,
+    "precio_por_kg":99.67,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/muscletech\/platinum-100-creatine-monohydrate-200g",
+    "url":"https:\/\/www.nutritienda.com\/es\/scientiffic-nutrition\/creatine-creapure-300g",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -1042,28 +1064,6 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amazin-foods\/kre-alkalyn-120-capsulas-vegetales",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"Creatine Mix 120 Caps",
-    "marca":"Soul Project",
-    "categoria":"Creatina",
-    "precio_eur":28.0,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/soul-project\/creatine-mix-120-caps",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"CREATOR 120 Caps",
-    "marca":"Combina 5 tipos de creatinas",
-    "categoria":"Creatina",
-    "precio_eur":25.9,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa\/creator-120-caps",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -1485,17 +1485,6 @@
     "fecha_scraping":"2026-04-12"
   },
   {
-    "nombre":"SMOOTH-8 Hybrid Protein 2,3Kg",
-    "marca":"AMIX NUTRITION",
-    "categoria":"Pre-Entreno",
-    "precio_eur":87.5,
-    "peso_kg":2.3,
-    "precio_por_kg":38.04,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition-smooth-8-hybrid-protein-2300g",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
     "nombre":"PRE WORKOUT EXPLOSIVE 1 Kg",
     "marca":"GOLDNUTRITION",
     "categoria":"Pre-Entreno",
@@ -1573,17 +1562,6 @@
     "fecha_scraping":"2026-04-12"
   },
   {
-    "nombre":"D-RIBOSA EN POLVO 150g",
-    "marca":"",
-    "categoria":"Pre-Entreno",
-    "precio_eur":8.49,
-    "peso_kg":0.15,
-    "precio_por_kg":56.6,
-    "tienda":"HSN",
-    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/d-ribosa-en-polvo",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
     "nombre":"ÁCIDO MÁLICO EN POLVO 150g",
     "marca":"",
     "categoria":"Pre-Entreno",
@@ -1595,6 +1573,17 @@
     "fecha_scraping":"2026-04-12"
   },
   {
+    "nombre":"D-RIBOSA EN POLVO 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":8.49,
+    "peso_kg":0.15,
+    "precio_por_kg":56.6,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/d-ribosa-en-polvo",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
     "nombre":"L-citrulina malato 300g",
     "marca":"",
     "categoria":"Pre-Entreno",
@@ -1603,6 +1592,17 @@
     "precio_por_kg":59.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-citrulina-malato-300g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
+    "nombre":"N1 PRE-WORKOUT 510g",
+    "marca":"NUTREND",
+    "categoria":"Pre-Entreno",
+    "precio_eur":32.6,
+    "peso_kg":0.51,
+    "precio_por_kg":63.92,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/nutred\/n1-pre-workout-510g",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -1650,17 +1650,6 @@
     "fecha_scraping":"2026-04-12"
   },
   {
-    "nombre":"NITROX THERAPY 340g",
-    "marca":"Biotech USA",
-    "categoria":"Pre-Entreno",
-    "precio_eur":26.9,
-    "peso_kg":0.34,
-    "precio_por_kg":79.12,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa\/nitrox-therapy-pre-entrenamiento-340g",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
     "nombre":"Impact Pre-Entreno – Venom 440g",
     "marca":"",
     "categoria":"Pre-Entreno",
@@ -1694,6 +1683,17 @@
     "fecha_scraping":"2026-04-12"
   },
   {
+    "nombre":"Hot Blood Hardcore 375g",
+    "marca":"Scitec",
+    "categoria":"Pre-Entreno",
+    "precio_eur":32.9,
+    "peso_kg":0.375,
+    "precio_por_kg":87.73,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/scitec\/hot-blood-hardcore-375g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
     "nombre":"Outlift Clinical 500g",
     "marca":"Nutrex",
     "categoria":"Pre-Entreno",
@@ -1713,6 +1713,17 @@
     "precio_por_kg":90.28,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition\/yeep-pump-no-caff-360g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
+    "nombre":"ABE 375g",
+    "marca":"El Mejor de Europa",
+    "categoria":"Pre-Entreno",
+    "precio_eur":33.9,
+    "peso_kg":0.375,
+    "precio_por_kg":90.4,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/applied-nutrition\/abe-375g",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -1738,6 +1749,17 @@
     "fecha_scraping":"2026-04-12"
   },
   {
+    "nombre":"Energy Storm 300g",
+    "marca":"Beverly Nutrition",
+    "categoria":"Pre-Entreno",
+    "precio_eur":30.56,
+    "peso_kg":0.3,
+    "precio_por_kg":101.87,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/beverly-nutrition\/energy-storm-300g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
     "nombre":"Pre Workout 300g",
     "marca":"226ers",
     "categoria":"Pre-Entreno",
@@ -1746,17 +1768,6 @@
     "precio_por_kg":105.0,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/226ers\/pre-workout-300g",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"Wild Pump 400g",
-    "marca":"Life Pro Nutrition",
-    "categoria":"Pre-Entreno",
-    "precio_eur":42.9,
-    "peso_kg":0.4,
-    "precio_por_kg":107.25,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/life-pro-nutrition\/wild-pump-400g",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -1823,17 +1834,6 @@
     "precio_por_kg":133.62,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition\/pack-regalo-cellup-oxystorm-348g-tribu-zma-30-caps",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"Cellup With Oxystorm 348g",
-    "marca":"Amix Nutrition",
-    "categoria":"Pre-Entreno",
-    "precio_eur":46.5,
-    "peso_kg":0.348,
-    "precio_por_kg":133.62,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition\/cellup-with-oxystorm-348g",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -1925,17 +1925,6 @@
     "fecha_scraping":"2026-04-12"
   },
   {
-    "nombre":"Monster Lewis Hamilton Zero Sugar 500ml",
-    "marca":"Monster Energy | Nutritienda",
-    "categoria":"Pre-Entreno",
-    "precio_eur":1.75,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/monster-energy\/monster-lewis-hamilton-500ml",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
     "nombre":"C4 Original PWO Shot 12 Uds 60 ml",
     "marca":"Cellucor",
     "categoria":"Pre-Entreno",
@@ -1958,25 +1947,25 @@
     "fecha_scraping":"2026-04-12"
   },
   {
-    "nombre":"Monster Ultra Paradise 500 ml",
-    "marca":"Monster Energy",
-    "categoria":"Pre-Entreno",
-    "precio_eur":1.75,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/monster-energy\/monster-ultra-paradise-500-ml",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"MONSTER JUICE MANGO LOCO 500ml",
+    "nombre":"Monster Lewis Hamilton Zero Sugar 500ml",
     "marca":"Monster Energy | Nutritienda",
     "categoria":"Pre-Entreno",
     "precio_eur":1.75,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/monster-energy\/monster-juice-mango-loco-500ml",
+    "url":"https:\/\/www.nutritienda.com\/es\/monster-energy\/monster-lewis-hamilton-500ml",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
+    "nombre":"Caffeine Caps 60 Caps",
+    "marca":"Nutrend",
+    "categoria":"Pre-Entreno",
+    "precio_eur":6.1,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/nutrend\/caffeine-caps-60-capsulas",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -1999,6 +1988,17 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/4pro-nutrition\/caffeine-200-100-tabletas",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
+    "nombre":"MONSTER JUICE MANGO LOCO 500ml",
+    "marca":"Monster Energy | Nutritienda",
+    "categoria":"Pre-Entreno",
+    "precio_eur":1.75,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/monster-energy\/monster-juice-mango-loco-500ml",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -2068,17 +2068,6 @@
     "fecha_scraping":"2026-04-12"
   },
   {
-    "nombre":"ARGININA ALFA-CETOGLUTARATO 1000mg (AAKG)",
-    "marca":"",
-    "categoria":"Pre-Entreno",
-    "precio_eur":17.9,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"HSN",
-    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/arginina-alfa-cetoglutarato-1000mg-aakg",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
     "nombre":"EVORIPPED",
     "marca":"",
     "categoria":"Pre-Entreno",
@@ -2087,6 +2076,17 @@
     "precio_por_kg":null,
     "tienda":"HSN",
     "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evoripped",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
+    "nombre":"ARGININA ALFA-CETOGLUTARATO 1000mg (AAKG)",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":17.9,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/arginina-alfa-cetoglutarato-1000mg-aakg",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -2695,6 +2695,17 @@
     "fecha_scraping":"2026-04-12"
   },
   {
+    "nombre":"Massive Gainer 6 kg",
+    "marca":"Gainer Proteína",
+    "categoria":"Proteinas Whey",
+    "precio_eur":77.9,
+    "peso_kg":6.0,
+    "precio_por_kg":12.98,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/quamtrax\/massive-gainer-6-kg",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
     "nombre":"EVOWHEY & OATS 500g",
     "marca":"",
     "categoria":"Proteinas Whey",
@@ -2758,17 +2769,6 @@
     "precio_por_kg":23.52,
     "tienda":"HSN",
     "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/100-whey-protein-concentrate",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"Pure Whey Protein 1800g",
-    "marca":"",
-    "categoria":"Proteinas Whey",
-    "precio_eur":43.99,
-    "peso_kg":1.8,
-    "precio_por_kg":24.44,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/bulk\/pure-whey-protein-1800g",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -2948,6 +2948,28 @@
     "fecha_scraping":"2026-04-12"
   },
   {
+    "nombre":"Battery Complete Whey 800g",
+    "marca":"Calidad Premium",
+    "categoria":"Proteinas Whey",
+    "precio_eur":25.99,
+    "peso_kg":0.8,
+    "precio_por_kg":32.49,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/battery-nutrition\/battery-complete-whey-800g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
+    "nombre":"Only Whey Zero 2 Kg",
+    "marca":"Big",
+    "categoria":"Proteinas Whey",
+    "precio_eur":65.5,
+    "peso_kg":2.0,
+    "precio_por_kg":32.75,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/big\/only-whey-zero-2-kg",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
     "nombre":"WHEY PROTEIN COMPLEX 100% - 2200 g",
     "marca":"OLIMP SPORT NUTRITION",
     "categoria":"Proteinas Whey",
@@ -2967,17 +2989,6 @@
     "precio_por_kg":34.72,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-real-whey-protein-907g",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"Hydro Protein Professional - 2 Kg",
-    "marca":"Proteína Premium",
-    "categoria":"Proteinas Whey",
-    "precio_eur":69.7,
-    "peso_kg":2.0,
-    "precio_por_kg":34.85,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/beverly-nutrition\/hydro-protein-professional-2000g",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -3033,39 +3044,6 @@
     "precio_por_kg":36.08,
     "tienda":"HSN",
     "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evoexcel-2-0-whey-protein-isolate-concentrate",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"Whey Force Complex 908g",
-    "marca":"Fire Nutrition",
-    "categoria":"Proteinas Whey",
-    "precio_eur":32.9,
-    "peso_kg":0.908,
-    "precio_por_kg":36.23,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/fire-nutrition\/whey-force-complex-908g",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"Iso Whey Cero Cero 1 Kg",
-    "marca":"NutriSport",
-    "categoria":"Proteinas Whey",
-    "precio_eur":37.2,
-    "peso_kg":1.0,
-    "precio_por_kg":37.2,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/nutrisport\/iso-whey-cero-cero-fresa-1-kg",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
-    "nombre":"Hydro Delicatesse Whey Protein 1 Kg",
-    "marca":"Beverly Nutrition",
-    "categoria":"Proteinas Whey",
-    "precio_eur":37.35,
-    "peso_kg":1.0,
-    "precio_por_kg":37.35,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/beverly-nutrition\/hydro-delicatesse-whey-protein-1-kg",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -3322,6 +3300,17 @@
     "fecha_scraping":"2026-04-12"
   },
   {
+    "nombre":"Isolate Pro Zero 2 Kg",
+    "marca":"DMI Innovative Nutrition",
+    "categoria":"Proteinas Whey",
+    "precio_eur":86.9,
+    "peso_kg":2.0,
+    "precio_por_kg":43.45,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/dmi-innovative-nutrition\/isolate-pro-zero-2-kg",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
     "nombre":"QUICK RECOVERY 600g",
     "marca":"¡Recuperación garantizada!",
     "categoria":"Proteinas Whey",
@@ -3410,17 +3399,6 @@
     "fecha_scraping":"2026-04-12"
   },
   {
-    "nombre":"Isolad 3CFM Protein 1 Kg",
-    "marca":"Bavarian Elite",
-    "categoria":"Proteinas Whey",
-    "precio_eur":47.24,
-    "peso_kg":1.0,
-    "precio_por_kg":47.24,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/bavarian-elite\/isolad-3cfm-protein-1-kg",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
     "nombre":"100% Hydro Isolate 2000g",
     "marca":"Scitec",
     "categoria":"Proteinas Whey",
@@ -3454,17 +3432,6 @@
     "fecha_scraping":"2026-04-12"
   },
   {
-    "nombre":"Number One 908g",
-    "marca":"Hypertrophy Nutrition",
-    "categoria":"Proteinas Whey",
-    "precio_eur":46.0,
-    "peso_kg":0.908,
-    "precio_por_kg":50.66,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/hypertrophy-nutrition\/number-one-908g",
-    "fecha_scraping":"2026-04-12"
-  },
-  {
     "nombre":"C4 Whey Protein 770g",
     "marca":"Proteína Premium",
     "categoria":"Proteinas Whey",
@@ -3484,6 +3451,17 @@
     "precio_por_kg":53.99,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-whey-hydro-isolate-clear-700g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
+    "nombre":"Panacea 350g",
+    "marca":"Paleobull",
+    "categoria":"Proteinas Whey",
+    "precio_eur":18.98,
+    "peso_kg":0.35,
+    "precio_por_kg":54.23,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/paleobull\/panacea-350g",
     "fecha_scraping":"2026-04-12"
   },
   {
@@ -3517,6 +3495,28 @@
     "precio_por_kg":59.85,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition\/zeropro-protein-1000g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
+    "nombre":"Isowhey 907g",
+    "marca":"Proteína Aislada Premium",
+    "categoria":"Proteinas Whey",
+    "precio_eur":60.25,
+    "peso_kg":0.907,
+    "precio_por_kg":66.43,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/muscletech\/isowhey-907g",
+    "fecha_scraping":"2026-04-12"
+  },
+  {
+    "nombre":"Black CFM Isolate 1 Kg",
+    "marca":"Amix Nutrition",
+    "categoria":"Proteinas Whey",
+    "precio_eur":67.5,
+    "peso_kg":1.0,
+    "precio_por_kg":67.5,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition\/black-cfm-isolate-1-kg",
     "fecha_scraping":"2026-04-12"
   },
   {
