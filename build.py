@@ -803,6 +803,125 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
 # PASO 4: Sitemap y robots.txt
 # ============================================================
 
+# ============================================================
+# PÁGINAS LEGALES Y SOBRE NOSOTROS
+# ============================================================
+
+PAGINAS_LEGALES = [
+    {
+        "slug":          "aviso-legal",
+        "title":         "Aviso Legal",
+        "meta_desc":     "Aviso legal de StackFit, comparador de precios de suplementos fitness en España.",
+        "sitemap_priority": "0.3",
+        "updated":       "2026-04-13",
+        "content": """
+<h2>Titular del sitio web</h2>
+<p>En cumplimiento de la Ley 34/2002 de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), se informa que el presente sitio web <strong>stackfit.es</strong> es titularidad de:</p>
+<ul>
+  <li><strong>Nombre:</strong> Javier Ortigosa</li>
+  <li><strong>Email de contacto:</strong> <a href="mailto:javier@stackfit.es">javier@stackfit.es</a></li>
+  <li><strong>Web:</strong> https://stackfit.es</li>
+</ul>
+
+<h2>Objeto del sitio</h2>
+<p>StackFit es un comparador de precios de suplementos deportivos (proteína whey, creatina, BCAA y pre-entreno) disponibles en el mercado español. La finalidad del sitio es facilitar al usuario la comparación de precios entre distintas tiendas online, normalizando el coste por kilogramo para que la comparación sea justa independientemente del formato del producto.</p>
+<p>StackFit no es una tienda online, no vende productos ni interviene en los procesos de compra. Las transacciones se realizan directamente entre el usuario y la tienda correspondiente.</p>
+
+<h2>Propiedad intelectual</h2>
+<p>El diseño, código fuente, textos editoriales y estructura del sitio son propiedad de Javier Ortigosa. Los nombres de productos, marcas y logotipos que aparecen en el comparador son propiedad de sus respectivos titulares (HSN, MyProtein, Nutritienda, Prozis, etc.) y se muestran únicamente con fines informativos y comparativos.</p>
+<p>Los precios, nombres de producto y demás datos comerciales son extraídos de fuentes públicas y pueden estar sujetos a derechos de sus respectivos propietarios.</p>
+
+<h2>Exclusión de responsabilidad</h2>
+<p>Los precios mostrados en StackFit se obtienen de forma automática y pueden no reflejar en todo momento el precio real de venta en cada tienda. Los precios pueden variar sin previo aviso por parte de las tiendas. StackFit no garantiza la exactitud de los precios ni la disponibilidad de los productos.</p>
+<p>El usuario debe verificar el precio final en la página de la tienda antes de realizar cualquier compra. StackFit no asume responsabilidad por las transacciones realizadas en sitios web de terceros.</p>
+
+<h2>Modelo de ingresos</h2>
+<p>StackFit participa en programas de afiliación (Awin, entre otros). Algunos de los enlaces mostrados son enlaces de afiliado: si el usuario realiza una compra a través de ellos, StackFit puede recibir una pequeña comisión sin coste adicional para el comprador. Esto no influye en la ordenación de los resultados, que se basa exclusivamente en el precio por kilogramo.</p>
+
+<h2>Legislación aplicable</h2>
+<p>Este aviso legal se rige por la legislación española. Cualquier controversia derivada del uso del sitio web se someterá a los juzgados y tribunales competentes conforme a la normativa española aplicable.</p>
+""",
+    },
+    {
+        "slug":          "privacidad",
+        "title":         "Política de Privacidad",
+        "meta_desc":     "Política de privacidad de StackFit. Información sobre el tratamiento de datos y cookies.",
+        "sitemap_priority": "0.3",
+        "updated":       "2026-04-13",
+        "content": """
+<h2>Responsable del tratamiento</h2>
+<p>El responsable del tratamiento de los datos es <strong>Javier Ortigosa</strong>, contactable en <a href="mailto:javier@stackfit.es">javier@stackfit.es</a>.</p>
+
+<h2>Datos que se recogen</h2>
+<p>StackFit <strong>no recoge ningún dato personal</strong> de sus usuarios de forma directa. El sitio no dispone de formularios de registro, áreas privadas, ni funcionalidades que requieran identificación del usuario.</p>
+<p>Sin embargo, al navegar por StackFit pueden generarse registros técnicos en el servidor (dirección IP, navegador, páginas visitadas, hora de acceso) de forma anónima y agregada, gestionados por GitHub Pages como proveedor de alojamiento.</p>
+
+<h2>Cookies y tecnologías de seguimiento</h2>
+<p>StackFit <strong>no utiliza cookies propias</strong> de ningún tipo (analíticas, de marketing ni funcionales).</p>
+<p>No obstante, los servicios de terceros vinculados al sitio pueden establecer sus propias cookies:</p>
+<ul>
+  <li><strong>Google Search Console:</strong> utilizado para monitorizar la presencia del sitio en resultados de búsqueda. Puede implicar el procesamiento de datos de navegación por parte de Google. Consulta la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidad de Google</a>.</li>
+  <li><strong>Awin (programa de afiliados):</strong> los enlaces de afiliado pueden contener identificadores de seguimiento que permiten a Awin registrar si una compra se ha originado desde StackFit. Consulta la <a href="https://www.awin.com/es/privacidad" target="_blank" rel="noopener">política de privacidad de Awin</a>.</li>
+  <li><strong>Tiendas vinculadas</strong> (HSN, MyProtein, Nutritienda, Prozis): al hacer clic en un enlace y acceder a su web, quedarás sujeto a sus propias políticas de privacidad y cookies.</li>
+</ul>
+
+<h2>Base legal del tratamiento</h2>
+<p>El funcionamiento del sitio se basa en el interés legítimo del titular para ofrecer un servicio de información y comparación de precios (art. 6.1.f del RGPD). No se realiza ningún tratamiento de datos personales que requiera consentimiento explícito.</p>
+
+<h2>Derechos de los usuarios</h2>
+<p>En la medida en que pudiera existir algún tratamiento de datos personales, los usuarios tienen derecho a ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad, contactando a <a href="mailto:javier@stackfit.es">javier@stackfit.es</a>. También pueden presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">aepd.es</a>).</p>
+
+<h2>Cambios en esta política</h2>
+<p>Esta política puede actualizarse para reflejar cambios en el funcionamiento del sitio o en la normativa aplicable. Se indicará la fecha de última actualización al inicio de esta página.</p>
+""",
+    },
+    {
+        "slug":          "sobre-nosotros",
+        "title":         "Sobre Nosotros",
+        "meta_desc":     "Qué es StackFit, cómo funciona y quién hay detrás. Un comparador honesto de suplementos fitness en España.",
+        "sitemap_priority": "0.5",
+        "updated":       None,
+        "content": """
+<h2>Qué es StackFit</h2>
+<p>StackFit es un comparador de precios de suplementos deportivos en España. Compara proteína whey, creatina, BCAA y pre-entreno entre HSN, MyProtein, Nutritienda y Prozis, ordenando los resultados por precio por kilogramo para que la comparación sea justa independientemente del tamaño del bote.</p>
+<p>La idea es simple: que no tengas que abrir cuatro pestañas distintas y hacer cálculos mentales para saber qué bote de proteína sale más barato por gramo.</p>
+
+<h2>Cómo funciona</h2>
+<p>Varios días a la semana, unos scrapers automáticos recorren las páginas de cada tienda, extraen los precios y los normalizan a euros por kilogramo. Los resultados se publican en el sitio de forma automática, sin intervención manual en los precios.</p>
+<p>El proceso completo — desde el scraping hasta la web publicada — está construido en Python y corre en local. No hay base de datos, no hay servidor: el resultado es HTML estático servido desde GitHub Pages.</p>
+
+<h2>Quién lo hace</h2>
+<p>Soy Javier, estudiante de Ingeniería Matemática y aficionado al fitness. Empecé este proyecto porque compraba suplementos con frecuencia y no encontraba una herramienta que comparara precios en el mercado español de forma honesta y normalizada por kilogramo. Así que la construí.</p>
+<p>StackFit es un proyecto personal. No hay equipo, no hay inversión, no hay oficina. Hay código, tiempo libre y ganas de que la herramienta sea útil.</p>
+
+<h2>Modelo de negocio</h2>
+<p>Algunos de los enlaces del sitio son enlaces de afiliado: si compras a través de ellos, recibo una pequeña comisión sin que te cueste nada extra. Esto es lo que permite mantener el proyecto activo. La ordenación de los resultados es siempre por precio por kilogramo, no por comisión.</p>
+<p>Cualquier pregunta o sugerencia: <a href="mailto:javier@stackfit.es">javier@stackfit.es</a>.</p>
+""",
+    },
+]
+
+
+def generar_pagina_legal(env, pagina: dict, last_updated: str):
+    """Genera docs/{slug}/index.html para una página legal o informativa."""
+    template = env.get_template("legal.html")
+    ctx = {
+        **contexto_base(last_updated),
+        "page_title":    pagina["title"],
+        "page_meta_desc": pagina["meta_desc"],
+        "page_slug":     pagina["slug"],
+        "page_content":  pagina["content"],
+        "page_updated":  pagina.get("updated"),
+    }
+    html = template.render(**ctx)
+    outdir = os.path.join(DOCS_DIR, pagina["slug"])
+    os.makedirs(outdir, exist_ok=True)
+    path = os.path.join(outdir, "index.html")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"✅ Generado: {path}")
+
+
 def generar_sitemap(last_updated: str):
     """Genera docs/sitemap.xml."""
     urls = [
@@ -813,6 +932,12 @@ def generar_sitemap(last_updated: str):
             "loc":        f"{SITE_URL}/{cfg['slug']}/",
             "priority":   "0.8",
             "changefreq": "weekly",
+        })
+    for pagina in PAGINAS_LEGALES:
+        urls.append({
+            "loc":        f"{SITE_URL}/{pagina['slug']}/",
+            "priority":   pagina["sitemap_priority"],
+            "changefreq": "monthly",
         })
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
@@ -895,14 +1020,18 @@ if __name__ == "__main__":
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
         generar_categoria(env, cat_raw, cfg, productos_web, last_updated)
 
-    # 5. Sitemap, robots, .nojekyll
+    # 5. Páginas legales y sobre nosotros
+    for pagina in PAGINAS_LEGALES:
+        generar_pagina_legal(env, pagina, last_updated)
+
+    # 6. Sitemap, robots, .nojekyll
     print("\n📋 Generando ficheros auxiliares...")
     generar_sitemap(last_updated)
     generar_robots()
     generar_nojekyll()
 
     duracion = (datetime.now() - inicio).total_seconds()
-    total_paginas = 1 + len(CATEGORIA_CONFIG)
+    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES)
 
     print("\n" + "=" * 54)
     print(f"  BUILD COMPLETADO en {duracion:.1f}s")

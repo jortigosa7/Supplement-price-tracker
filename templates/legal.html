@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page_title }} — StackFit{% endblock %}
+{% block meta_desc %}{{ page_meta_desc }}{% endblock %}
+{% block canonical_path %}/{{ page_slug }}/{% endblock %}
+{% block og_title %}{{ page_title }} — StackFit{% endblock %}
+{% block og_desc %}{{ page_meta_desc }}{% endblock %}
+{% block og_path %}/{{ page_slug }}/{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ site_url }}/">Inicio</a>
+    <span>›</span>
+    <span>{{ page_title }}</span>
+  </nav>
+
+  <article class="legal-article">
+    <h1 class="legal-h1">{{ page_title }}</h1>
+    {% if page_updated %}
+    <p class="legal-meta">Última actualización: {{ page_updated }}</p>
+    {% endif %}
+    <div class="legal-body">
+      {{ page_content | safe }}
+    </div>
+  </article>
+
+</div>
+
+<style>
+  .legal-article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 0 80px;
+  }
+  .legal-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .legal-meta {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+    margin-bottom: 32px;
+  }
+  .legal-body h2 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 32px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .legal-body p {
+    font-size: 0.9rem;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+  .legal-body a {
+    color: #111111;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-body a:hover { color: var(--accent-dim); }
+  .legal-body ul {
+    margin: 0 0 14px 20px;
+    padding: 0;
+  }
+  .legal-body ul li {
+    font-size: 0.9rem;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 4px;
+  }
+  @media (max-width: 640px) {
+    .legal-article { padding: 20px 0 60px; }
+  }
+</style>
+{% endblock %}

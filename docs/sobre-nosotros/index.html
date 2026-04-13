@@ -5,11 +5,11 @@
   <meta name="google-site-verification" content="HBqIKsRTR0fpu9Ew5EYB0h0K0m7aRXZBUWyqZEnxvYg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>{% block title %}Comparador de Suplementos Fitness España{% endblock %}</title>
-  <meta name="description" content="{% block meta_desc %}Compara precios de suplementos fitness en las principales tiendas de España. Proteína whey, creatina, BCAA y pre-entreno al mejor precio.{% endblock %}">
-  <meta name="keywords" content="{% block meta_keywords %}suplementos fitness España, comparador precios suplementos, mejor precio proteína whey España{% endblock %}">
+  <title>Sobre Nosotros — StackFit</title>
+  <meta name="description" content="Qué es StackFit, cómo funciona y quién hay detrás. Un comparador honesto de suplementos fitness en España.">
+  <meta name="keywords" content="suplementos fitness España, comparador precios suplementos, mejor precio proteína whey España">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="{{ site_url }}{% block canonical_path %}/{% endblock %}">
+  <link rel="canonical" href="https://stackfit.es/sobre-nosotros/">
 
   <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -19,14 +19,14 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="StackFit">
-  <meta property="og:title" content="{% block og_title %}Comparador de Suplementos Fitness España{% endblock %}">
-  <meta property="og:description" content="{% block og_desc %}Compara precios de suplementos fitness en España.{% endblock %}">
-  <meta property="og:url" content="{{ site_url }}{% block og_path %}/{% endblock %}">
-  <meta property="og:image" content="{{ site_url }}/og-image.jpg">
+  <meta property="og:title" content="Sobre Nosotros — StackFit">
+  <meta property="og:description" content="Qué es StackFit, cómo funciona y quién hay detrás. Un comparador honesto de suplementos fitness en España.">
+  <meta property="og:url" content="https://stackfit.es/sobre-nosotros/">
+  <meta property="og:image" content="https://stackfit.es/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{{ site_url }}/og-image.jpg">
+  <meta name="twitter:image" content="https://stackfit.es/og-image.jpg">
 
 
   <!-- Space Grotesk via Google Fonts -->
@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  {% block extra_head %}{% endblock %}
+  
 
   <style>
 
@@ -846,18 +846,111 @@
 
   <header class="site-header">
     <nav class="nav">
-      <a class="nav-logo" href="{{ site_url }}/">Stack<span>Fit</span></a>
+      <a class="nav-logo" href="https://stackfit.es/">Stack<span>Fit</span></a>
       <div class="nav-links">
-        <a href="{{ site_url }}/proteina-whey/"{% if active_slug == 'proteina-whey' %} class="active"{% endif %}>Whey</a>
-        <a href="{{ site_url }}/creatina/"{% if active_slug == 'creatina' %} class="active"{% endif %}>Creatina</a>
-        <a href="{{ site_url }}/bcaa/"{% if active_slug == 'bcaa' %} class="active"{% endif %}>BCAA</a>
-        <a href="{{ site_url }}/pre-entreno/"{% if active_slug == 'pre-entreno' %} class="active"{% endif %}>Pre-Entreno</a>
+        <a href="https://stackfit.es/proteina-whey/">Whey</a>
+        <a href="https://stackfit.es/creatina/">Creatina</a>
+        <a href="https://stackfit.es/bcaa/">BCAA</a>
+        <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
       </div>
     </nav>
   </header>
 
   <main>
-    {% block content %}{% endblock %}
+    
+<div class="container">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://stackfit.es/">Inicio</a>
+    <span>›</span>
+    <span>Sobre Nosotros</span>
+  </nav>
+
+  <article class="legal-article">
+    <h1 class="legal-h1">Sobre Nosotros</h1>
+    
+    <div class="legal-body">
+      
+<h2>Qué es StackFit</h2>
+<p>StackFit es un comparador de precios de suplementos deportivos en España. Compara proteína whey, creatina, BCAA y pre-entreno entre HSN, MyProtein, Nutritienda y Prozis, ordenando los resultados por precio por kilogramo para que la comparación sea justa independientemente del tamaño del bote.</p>
+<p>La idea es simple: que no tengas que abrir cuatro pestañas distintas y hacer cálculos mentales para saber qué bote de proteína sale más barato por gramo.</p>
+
+<h2>Cómo funciona</h2>
+<p>Varios días a la semana, unos scrapers automáticos recorren las páginas de cada tienda, extraen los precios y los normalizan a euros por kilogramo. Los resultados se publican en el sitio de forma automática, sin intervención manual en los precios.</p>
+<p>El proceso completo — desde el scraping hasta la web publicada — está construido en Python y corre en local. No hay base de datos, no hay servidor: el resultado es HTML estático servido desde GitHub Pages.</p>
+
+<h2>Quién lo hace</h2>
+<p>Soy Javier, estudiante de Ingeniería Matemática y aficionado al fitness. Empecé este proyecto porque compraba suplementos con frecuencia y no encontraba una herramienta que comparara precios en el mercado español de forma honesta y normalizada por kilogramo. Así que la construí.</p>
+<p>StackFit es un proyecto personal. No hay equipo, no hay inversión, no hay oficina. Hay código, tiempo libre y ganas de que la herramienta sea útil.</p>
+
+<h2>Modelo de negocio</h2>
+<p>Algunos de los enlaces del sitio son enlaces de afiliado: si compras a través de ellos, recibo una pequeña comisión sin que te cueste nada extra. Esto es lo que permite mantener el proyecto activo. La ordenación de los resultados es siempre por precio por kilogramo, no por comisión.</p>
+<p>Cualquier pregunta o sugerencia: <a href="mailto:javier@stackfit.es">javier@stackfit.es</a>.</p>
+
+    </div>
+  </article>
+
+</div>
+
+<style>
+  .legal-article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 0 80px;
+  }
+  .legal-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .legal-meta {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+    margin-bottom: 32px;
+  }
+  .legal-body h2 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 32px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .legal-body p {
+    font-size: 0.9rem;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+  .legal-body a {
+    color: #111111;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-body a:hover { color: var(--accent-dim); }
+  .legal-body ul {
+    margin: 0 0 14px 20px;
+    padding: 0;
+  }
+  .legal-body ul li {
+    font-size: 0.9rem;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 4px;
+  }
+  @media (max-width: 640px) {
+    .legal-article { padding: 20px 0 60px; }
+  }
+</style>
+
   </main>
 
   <footer class="site-footer">
@@ -871,20 +964,20 @@
       </div>
       <div class="footer-links">
         <div class="footer-links-label">Categorías</div>
-        <a href="{{ site_url }}/">Inicio</a>
-        <a href="{{ site_url }}/proteina-whey/">Proteína Whey</a>
-        <a href="{{ site_url }}/creatina/">Creatina</a>
-        <a href="{{ site_url }}/bcaa/">BCAA</a>
-        <a href="{{ site_url }}/pre-entreno/">Pre-Entreno</a>
+        <a href="https://stackfit.es/">Inicio</a>
+        <a href="https://stackfit.es/proteina-whey/">Proteína Whey</a>
+        <a href="https://stackfit.es/creatina/">Creatina</a>
+        <a href="https://stackfit.es/bcaa/">BCAA</a>
+        <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
       </div>
       <div class="footer-links">
         <div class="footer-links-label">Información</div>
-        <a href="{{ site_url }}/sobre-nosotros/">Sobre nosotros</a>
-        <a href="{{ site_url }}/aviso-legal/">Aviso legal</a>
-        <a href="{{ site_url }}/privacidad/">Privacidad</a>
+        <a href="https://stackfit.es/sobre-nosotros/">Sobre nosotros</a>
+        <a href="https://stackfit.es/aviso-legal/">Aviso legal</a>
+        <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: {{ last_updated }}</div>
+    <div class="footer-bottom">Última actualización: 2026-04-12</div>
   </footer>
 
 </body>

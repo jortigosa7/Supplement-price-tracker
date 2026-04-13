@@ -1066,11 +1066,12 @@
       max-width: var(--max-w);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr auto auto;
       gap: 32px;
       align-items: start;
     }
-    @media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 400px) { .footer-inner { grid-template-columns: 1fr; } }
     .footer-logo {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 800;
@@ -1081,9 +1082,14 @@
     .footer-logo span { color: var(--accent); }
     .footer-tagline { font-size: 0.82rem; color: #444444; margin-bottom: 16px; }
     .footer-legal { font-size: 0.76rem; color: #444444; max-width: 560px; line-height: 1.6; }
-    .footer-links { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
-    @media (max-width: 640px) {
-      .footer-links { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .footer-links-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #333333;
+      margin-bottom: 4px;
     }
     .footer-links a { font-size: 0.84rem; color: #555555; transition: color 0.15s; }
     .footer-links a:hover { color: var(--accent); }
@@ -3253,11 +3259,18 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
         </p>
       </div>
       <div class="footer-links">
+        <div class="footer-links-label">Categorías</div>
         <a href="https://stackfit.es/">Inicio</a>
         <a href="https://stackfit.es/proteina-whey/">Proteína Whey</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-label">Información</div>
+        <a href="https://stackfit.es/sobre-nosotros/">Sobre nosotros</a>
+        <a href="https://stackfit.es/aviso-legal/">Aviso legal</a>
+        <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
     <div class="footer-bottom">Última actualización: 2026-04-12</div>
