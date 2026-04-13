@@ -822,8 +822,8 @@ PAGINAS_LEGALES = [
 <h2>Titular del sitio web</h2>
 <p>En cumplimiento de la Ley 34/2002 de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), se informa que el presente sitio web <strong>stackfit.es</strong> es titularidad de:</p>
 <ul>
-  <li><strong>Nombre:</strong> Javier Ortigosa</li>
-  <li><strong>Email de contacto:</strong> <a href="mailto:javiortigosabarroso@gmail.com">javiortigosabarroso@gmail.com</a></li>
+  <li><strong>Nombre:</strong> Javier</li>
+  <li><strong>Email de contacto:</strong> Próximamente habrá un email de contacto disponible</li>
   <li><strong>Web:</strong> https://stackfit.es</li>
 </ul>
 
@@ -832,7 +832,7 @@ PAGINAS_LEGALES = [
 <p>StackFit no es una tienda online, no vende productos ni interviene en los procesos de compra. Las transacciones se realizan directamente entre el usuario y la tienda correspondiente.</p>
 
 <h2>Propiedad intelectual</h2>
-<p>El diseño, código fuente, textos editoriales y estructura del sitio son propiedad de Javier Ortigosa. Los nombres de productos, marcas y logotipos que aparecen en el comparador son propiedad de sus respectivos titulares (HSN, MyProtein, Nutritienda, Prozis, etc.) y se muestran únicamente con fines informativos y comparativos.</p>
+<p>El diseño, código fuente, textos editoriales y estructura del sitio son propiedad de Javier. Los nombres de productos, marcas y logotipos que aparecen en el comparador son propiedad de sus respectivos titulares (HSN, MyProtein, Nutritienda, Prozis, etc.) y se muestran únicamente con fines informativos y comparativos.</p>
 <p>Los precios, nombres de producto y demás datos comerciales son extraídos de fuentes públicas y pueden estar sujetos a derechos de sus respectivos propietarios.</p>
 
 <h2>Exclusión de responsabilidad</h2>
@@ -854,7 +854,7 @@ PAGINAS_LEGALES = [
         "updated":       "2026-04-13",
         "content": """
 <h2>Responsable del tratamiento</h2>
-<p>El responsable del tratamiento de los datos es <strong>Javier Ortigosa</strong>, contactable en <a href="mailto:javiortigosabarroso@gmail.com">javiortigosabarroso@gmail.com</a>.</p>
+<p>El responsable del tratamiento de los datos es <strong>Javier</strong>, contactable en Próximamente habrá un email de contacto disponible.</p>
 
 <h2>Datos que se recogen</h2>
 <p>StackFit <strong>no recoge ningún dato personal</strong> de sus usuarios de forma directa. El sitio no dispone de formularios de registro, áreas privadas, ni funcionalidades que requieran identificación del usuario.</p>
@@ -873,7 +873,7 @@ PAGINAS_LEGALES = [
 <p>El funcionamiento del sitio se basa en el interés legítimo del titular para ofrecer un servicio de información y comparación de precios (art. 6.1.f del RGPD). No se realiza ningún tratamiento de datos personales que requiera consentimiento explícito.</p>
 
 <h2>Derechos de los usuarios</h2>
-<p>En la medida en que pudiera existir algún tratamiento de datos personales, los usuarios tienen derecho a ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad, contactando a <a href="mailto:javiortigosabarroso@gmail.com">javiortigosabarroso@gmail.com</a>. También pueden presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">aepd.es</a>).</p>
+<p>En la medida en que pudiera existir algún tratamiento de datos personales, los usuarios tienen derecho a ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad, contactando a Próximamente habrá un email de contacto disponible. También pueden presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">aepd.es</a>).</p>
 
 <h2>Cambios en esta política</h2>
 <p>Esta política puede actualizarse para reflejar cambios en el funcionamiento del sitio o en la normativa aplicable. Se indicará la fecha de última actualización al inicio de esta página.</p>
@@ -900,7 +900,7 @@ PAGINAS_LEGALES = [
 
 <h2>Modelo de negocio</h2>
 <p>Algunos de los enlaces del sitio son enlaces de afiliado: si compras a través de ellos, recibo una pequeña comisión sin que te cueste nada extra. Esto es lo que permite mantener el proyecto activo. La ordenación de los resultados es siempre por precio por kilogramo, no por comisión.</p>
-<p>Cualquier pregunta o sugerencia: <a href="mailto:javiortigosabarroso@gmail.com">javiortigosabarroso@gmail.com</a>.</p>
+<p>Cualquier pregunta o sugerencia: Próximamente habrá un email de contacto disponible.</p>
 """,
     },
 ]
