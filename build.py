@@ -52,6 +52,7 @@ CATEGORIA_CONFIG = {
         "slug":     "proteina-whey",
         "display":  "Proteína Whey",
         "icono":    "🥛",
+        "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12l-1.5 4H7.5L6 4z"/><path d="M7.5 8c0 0-.5 2-.5 5s.5 5 .5 5h9s.5-2 .5-5-.5-5-.5-5"/><path d="M9 13h6"/></svg>',
         "seo_title": "Mejor Precio Proteína Whey España 2026",
         "seo_desc":  "Compara 63 proteínas whey en España ordenadas por €/kg. "
                      "Encuentra la más barata entre HSN, MyProtein, Nutritienda y Prozis. Precios actualizados.",
@@ -113,6 +114,7 @@ CATEGORIA_CONFIG = {
         "slug":     "creatina",
         "display":  "Creatina",
         "icono":    "⚡",
+        "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M7 8h10"/><path d="M7 16h10"/><path d="M10 11.5h4"/></svg>',
         "seo_title": "Mejor Precio Creatina España 2026",
         "seo_desc":  "Compara creatina monohidrato y Creapure en España por €/kg. "
                      "Los mejores precios entre HSN, MyProtein, Nutritienda y Prozis.",
@@ -166,6 +168,7 @@ CATEGORIA_CONFIG = {
         "slug":     "bcaa",
         "display":  "BCAA",
         "icono":    "💊",
+        "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="6" rx="3"/><line x1="12" y1="9" x2="12" y2="15"/></svg>',
         "seo_title": "Mejor Precio BCAA España 2026",
         "seo_desc":  "Compara BCAA 2:1:1 y 4:1:1 en España por €/kg. "
                      "Encuentra el precio más bajo entre las principales tiendas de suplementos.",
@@ -224,6 +227,7 @@ CATEGORIA_CONFIG = {
         "slug":     "pre-entreno",
         "display":  "Pre-Entreno",
         "icono":    "🔥",
+        "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2z"/></svg>',
         "seo_title": "Mejor Precio Pre-Entreno España 2026",
         "seo_desc":  "Compara pre-entrenos en España ordenados por €/kg. "
                      "Precios actualizados de HSN, MyProtein, Nutritienda y Prozis.",

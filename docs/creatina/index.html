@@ -682,7 +682,17 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .cat-left { flex: 1; display: flex; flex-direction: column; gap: 3px; }
-    .cat-icon { font-size: 1.3rem; margin-bottom: 2px; }
+    .cat-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--accent-bg);
+      border: 1px solid var(--accent-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      margin-bottom: 6px;
+      flex-shrink: 0;
+    }
+    .cat-icon svg { width: 18px; height: 18px; }
     .cat-name {
       font-family: var(--font-display);
       font-weight: 800;

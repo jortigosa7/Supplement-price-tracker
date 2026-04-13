@@ -102,7 +102,7 @@
       {% for cat in categories %}
       <a href="{{ site_url }}/{{ cat.slug }}/" class="cat-card">
         <div class="cat-left">
-          <div class="cat-icon">{{ cat.icono }}</div>
+          <div class="cat-icon">{{ cat.icon_svg | safe }}</div>
           <div class="cat-name">{{ cat.display }}</div>
           <div class="cat-count">{{ cat.count }} productos</div>
         </div>
