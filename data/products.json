@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12",
+  "last_updated": "2026-04-13",
   "site": "StackFit",
   "total": 345,
   "products": [
@@ -13,11 +13,13 @@
       "precio_por_kg_min": 30.0,
       "precio_min": 4.5,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 4.5,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -34,11 +36,13 @@
       "precio_por_kg_min": 34.2,
       "precio_min": 23.94,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 23.94,
           "url_afiliado": "https://www.nutritienda.com/es/vitobest/recovery-total-700g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -55,11 +59,13 @@
       "precio_por_kg_min": 37.6,
       "precio_min": 5.64,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 5.64,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -76,11 +82,13 @@
       "precio_por_kg_min": 39.63,
       "precio_min": 11.89,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 11.89,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/bcaa-211-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -89,6 +97,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 24.99,
           "url_afiliado": "https://www.nutritienda.com/es/dedicated-nutrition/bcaa-sensation-345g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -105,11 +114,13 @@
       "precio_por_kg_min": 41.45,
       "precio_min": 3.15,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 3.15,
           "url_afiliado": "https://www.nutritienda.com/es/226ers/high-energy-gel-bcaa-76g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -126,11 +137,13 @@
       "precio_por_kg_min": 42.6,
       "precio_min": 21.3,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 21.3,
           "url_afiliado": "https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -147,11 +160,13 @@
       "precio_por_kg_min": 44.08,
       "precio_min": 22.04,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 22.04,
           "url_afiliado": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -168,11 +183,13 @@
       "precio_por_kg_min": 47.47,
       "precio_min": 18.99,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 18.99,
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -189,11 +206,13 @@
       "precio_por_kg_min": 47.7,
       "precio_min": 14.31,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 14.31,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/zero-bcaa-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -210,11 +229,13 @@
       "precio_por_kg_min": 50.4,
       "precio_min": 12.6,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 12.6,
           "url_afiliado": "https://www.nutritienda.com/es/myprotein/bcaa-2-1-1-250g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -231,11 +252,13 @@
       "precio_por_kg_min": 53.0,
       "precio_min": 26.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 26.5,
           "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -252,11 +275,13 @@
       "precio_por_kg_min": 56.96,
       "precio_min": 28.48,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 28.48,
           "url_afiliado": "https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -273,11 +298,13 @@
       "precio_por_kg_min": 57.8,
       "precio_min": 28.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 28.9,
           "url_afiliado": "https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -294,11 +321,13 @@
       "precio_por_kg_min": 60.47,
       "precio_min": 18.14,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 18.14,
           "url_afiliado": "https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -315,11 +344,13 @@
       "precio_por_kg_min": 61.28,
       "precio_min": 23.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 23.9,
           "url_afiliado": "https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -336,11 +367,13 @@
       "precio_por_kg_min": 62.47,
       "precio_min": 18.74,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 18.74,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/bcaa-811-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -357,11 +390,13 @@
       "precio_por_kg_min": 68.81,
       "precio_min": 28.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 28.9,
           "url_afiliado": "https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -378,11 +413,13 @@
       "precio_por_kg_min": 68.83,
       "precio_min": 20.65,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 20.65,
           "url_afiliado": "https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -399,11 +436,13 @@
       "precio_por_kg_min": 71.19,
       "precio_min": 29.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 29.9,
           "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -420,11 +459,13 @@
       "precio_por_kg_min": 71.68,
       "precio_min": 43.01,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 43.01,
           "url_afiliado": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -441,11 +482,13 @@
       "precio_por_kg_min": 73.6,
       "precio_min": 11.04,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 11.04,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/zero-bcaa-150-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -462,11 +505,13 @@
       "precio_por_kg_min": 76.5,
       "precio_min": 22.95,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 22.95,
           "url_afiliado": "https://www.nutritienda.com/es/226ers-bcaa-8-1-1-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -483,11 +528,13 @@
       "precio_por_kg_min": 80.67,
       "precio_min": 12.1,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 12.1,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -504,11 +551,13 @@
       "precio_por_kg_min": 81.04,
       "precio_min": 38.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 38.9,
           "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -525,11 +574,13 @@
       "precio_por_kg_min": 87.07,
       "precio_min": 13.06,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 13.06,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -546,11 +597,13 @@
       "precio_por_kg_min": 94.38,
       "precio_min": 37.75,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 37.75,
           "url_afiliado": "https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -567,11 +620,13 @@
       "precio_por_kg_min": 94.6,
       "precio_min": 14.19,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 14.19,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -588,11 +643,13 @@
       "precio_por_kg_min": 94.64,
       "precio_min": 26.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 26.5,
           "url_afiliado": "https://www.nutritienda.com/es/scitec/bcaa-xpress-280g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -609,11 +666,13 @@
       "precio_por_kg_min": 113.33,
       "precio_min": 34.0,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 34.0,
           "url_afiliado": "https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -630,11 +689,13 @@
       "precio_por_kg_min": null,
       "precio_min": 17.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 17.5,
           "url_afiliado": "https://www.nutritienda.com/es/dmi-innovative-nutrition/muscle-bcaa-4-1-1-120-capsulas-vegetales",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -651,11 +712,13 @@
       "precio_por_kg_min": null,
       "precio_min": 27.0,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 27.0,
           "url_afiliado": "https://www.nutritienda.com/es/226ers/6-4-amino-glutamina-bcaas-120-caps",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -672,11 +735,13 @@
       "precio_por_kg_min": null,
       "precio_min": 11.99,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 11.99,
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/amino-recovery-120-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -693,11 +758,13 @@
       "precio_por_kg_min": null,
       "precio_min": 18.56,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 18.56,
           "url_afiliado": "https://www.nutritienda.com/es/victory-endurance-amino-recovery-120-caps",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -714,11 +781,13 @@
       "precio_por_kg_min": null,
       "precio_min": 19.71,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 19.71,
           "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition/4-1-1-anabolic-bcaa-150-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -735,11 +804,13 @@
       "precio_por_kg_min": null,
       "precio_min": 22.05,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 22.05,
           "url_afiliado": "https://www.nutritienda.com/es/keepgoing/aminoacidos-ramificados-bcaa-120-caps",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -756,11 +827,13 @@
       "precio_por_kg_min": null,
       "precio_min": 23.21,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 23.21,
           "url_afiliado": "https://www.nutritienda.com/es/mega-plus/bcaa-4-1-1-competition-150-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -777,11 +850,13 @@
       "precio_por_kg_min": null,
       "precio_min": 14.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 14.9,
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/bcaas-211-aminoacidos-ramificados-200-tabs",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -790,6 +865,7 @@
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/bcaa-211-200-tabs",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -806,11 +882,13 @@
       "precio_por_kg_min": null,
       "precio_min": 18.9,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 18.9,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -827,11 +905,13 @@
       "precio_por_kg_min": null,
       "precio_min": 16.9,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 16.9,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -848,11 +928,13 @@
       "precio_por_kg_min": null,
       "precio_min": 13.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 13.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/bcaa-811-180-tabs",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -869,11 +951,13 @@
       "precio_por_kg_min": null,
       "precio_min": 13.49,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 13.49,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/bcaa-glutamine-30-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -890,11 +974,13 @@
       "precio_por_kg_min": null,
       "precio_min": 14.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 14.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/amino-recovery-20-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -911,11 +997,13 @@
       "precio_por_kg_min": null,
       "precio_min": 14.39,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 14.39,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/amino-prime-caffeine-free-20-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -932,11 +1020,13 @@
       "precio_por_kg_min": null,
       "precio_min": 7.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 7.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/bcaa-411-100-tabs",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -953,11 +1043,13 @@
       "precio_por_kg_min": null,
       "precio_min": 12.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 12.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/amino-prime-20-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -974,11 +1066,13 @@
       "precio_por_kg_min": null,
       "precio_min": 26.24,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 26.24,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/bcaa-811-360-tabs",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -995,11 +1089,13 @@
       "precio_por_kg_min": null,
       "precio_min": 2.86,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 2.86,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-wild-berry",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1016,11 +1112,13 @@
       "precio_por_kg_min": null,
       "precio_min": 30.76,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 30.76,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/bcaa-211-400-tabs",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1037,11 +1135,13 @@
       "precio_por_kg_min": null,
       "precio_min": 3.8,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 3.8,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/3-x-bcaa-drink-500-ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1058,11 +1158,13 @@
       "precio_por_kg_min": null,
       "precio_min": 24.29,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 24.29,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/bcaa-glutamine-60-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1079,11 +1181,13 @@
       "precio_por_kg_min": null,
       "precio_min": 2.86,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 2.86,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-orange",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1100,11 +1204,13 @@
       "precio_por_kg_min": null,
       "precio_min": 16.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 16.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/bcaa-2-1-1/10529280/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1121,11 +1227,13 @@
       "precio_por_kg_min": null,
       "precio_min": 10.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 10.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/bcaa-comprimidos/10529813/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1142,11 +1250,13 @@
       "precio_por_kg_min": null,
       "precio_min": 12.49,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 12.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/bcaa-esenciales-4-1-1-capsulas/10860388/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1163,11 +1273,13 @@
       "precio_por_kg_min": null,
       "precio_min": 32.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 32.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-intra-workout/16872733/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1184,11 +1296,13 @@
       "precio_por_kg_min": null,
       "precio_min": 16.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 16.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/bcaa-4-1-1-en-polvo/10830546/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1205,11 +1319,13 @@
       "precio_por_kg_min": 19.98,
       "precio_min": 9.99,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 9.99,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evocreatine",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1218,6 +1334,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 15.99,
           "url_afiliado": "https://www.nutritienda.com/es/bulk/creatina-monohidratada-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1234,11 +1351,13 @@
       "precio_por_kg_min": 26.27,
       "precio_min": 3.94,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 3.94,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1247,6 +1366,7 @@
           "tienda": "Prozis",
           "precio_eur": 30.79,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-creapure-professional-150-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1263,11 +1383,13 @@
       "precio_por_kg_min": 29.64,
       "precio_min": 14.82,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 14.82,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1276,6 +1398,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 24.9,
           "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/creatina-monohidrato-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1292,11 +1415,13 @@
       "precio_por_kg_min": 33.7,
       "precio_min": 26.96,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 26.96,
           "url_afiliado": "https://www.nutritienda.com/es/keepgoing/creatina-celular-800g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1313,11 +1438,13 @@
       "precio_por_kg_min": 41.22,
       "precio_min": 20.61,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 20.61,
           "url_afiliado": "https://www.nutritienda.com/es/nutrisport-creatina-celular-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1334,11 +1461,13 @@
       "precio_por_kg_min": 51.97,
       "precio_min": 15.59,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 15.59,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-glycofusion-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1347,6 +1476,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 19.9,
           "url_afiliado": "https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1363,11 +1493,13 @@
       "precio_por_kg_min": 54.15,
       "precio_min": 32.49,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 32.49,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1384,11 +1516,13 @@
       "precio_por_kg_min": 61.93,
       "precio_min": 18.95,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 18.95,
           "url_afiliado": "https://www.nutritienda.com/es/cellucor/creatina-306g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1405,11 +1539,13 @@
       "precio_por_kg_min": 62.25,
       "precio_min": 24.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 24.9,
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1426,11 +1562,13 @@
       "precio_por_kg_min": 62.8,
       "precio_min": 18.84,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 18.84,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1439,6 +1577,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 22.5,
           "url_afiliado": "https://www.nutritienda.com/es/dmi-innovative-nutrition/crea200-mesh-creatine-monohydrate-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1455,11 +1594,13 @@
       "precio_por_kg_min": 67.96,
       "precio_min": 16.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 16.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia/17526822/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1476,11 +1617,13 @@
       "precio_por_kg_min": 68.47,
       "precio_min": 13.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 13.9,
           "url_afiliado": "https://www.nutritienda.com/es/cellucor/creatine-cor-performance-203g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1497,11 +1640,13 @@
       "precio_por_kg_min": 69.98,
       "precio_min": 41.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 41.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1518,11 +1663,13 @@
       "precio_por_kg_min": 73.8,
       "precio_min": 36.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 36.9,
           "url_afiliado": "https://www.nutritienda.com/es/scientiffic-nutrition/creatine-x-gen-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1539,11 +1686,13 @@
       "precio_por_kg_min": 74.7,
       "precio_min": 37.35,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 37.35,
           "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1560,11 +1709,13 @@
       "precio_por_kg_min": 75.76,
       "precio_min": 28.41,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 28.41,
           "url_afiliado": "https://www.nutritienda.com/es/weider/premium-creatine-100-creapure-375g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1581,11 +1732,13 @@
       "precio_por_kg_min": 75.8,
       "precio_min": 22.74,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 22.74,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-creapure-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1594,6 +1747,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 25.5,
           "url_afiliado": "https://www.nutritienda.com/es/scitec/100-por-cien-creatine-monohydrate-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1610,11 +1764,13 @@
       "precio_por_kg_min": 77.97,
       "precio_min": 23.39,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 23.39,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1623,6 +1779,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 29.9,
           "url_afiliado": "https://www.nutritienda.com/es/scientiffic-nutrition/creatine-creapure-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1639,11 +1796,13 @@
       "precio_por_kg_min": 87.1,
       "precio_min": 43.55,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 43.55,
           "url_afiliado": "https://www.nutritienda.com/es/4pro-nutrition/mega-creatine-alkaline-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1660,11 +1819,13 @@
       "precio_por_kg_min": 87.73,
       "precio_min": 26.32,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 26.32,
           "url_afiliado": "https://www.nutritienda.com/es/procell/creacell-creapure-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1681,11 +1842,13 @@
       "precio_por_kg_min": 89.7,
       "precio_min": 26.91,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 26.91,
           "url_afiliado": "https://www.nutritienda.com/es/finisher/finisher-creatine-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1702,11 +1865,13 @@
       "precio_por_kg_min": 96.12,
       "precio_min": 29.99,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 29.99,
           "url_afiliado": "https://www.nutritienda.com/es/bulk/creatina-y-electrolitos-312g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1723,11 +1888,13 @@
       "precio_por_kg_min": 102.57,
       "precio_min": 35.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 35.9,
           "url_afiliado": "https://www.nutritienda.com/es/optimum-nutrition/platinum-creatine-plus-350g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1744,11 +1911,13 @@
       "precio_por_kg_min": 104.98,
       "precio_min": 62.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 62.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1765,11 +1934,13 @@
       "precio_por_kg_min": 105.0,
       "precio_min": 31.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 31.5,
           "url_afiliado": "https://www.nutritienda.com/es/226ers/creatina-creapure-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1786,11 +1957,13 @@
       "precio_por_kg_min": 107.82,
       "precio_min": 53.91,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 53.91,
           "url_afiliado": "https://www.nutritienda.com/es/ironmaxx/krea7-superalkaline-powder-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1807,11 +1980,13 @@
       "precio_por_kg_min": 111.27,
       "precio_min": 33.38,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 33.38,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/zero-creatine-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1828,11 +2003,13 @@
       "precio_por_kg_min": 143.93,
       "precio_min": 21.59,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 21.59,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/zero-creatine-150-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1849,11 +2026,13 @@
       "precio_por_kg_min": 155.4,
       "precio_min": 23.31,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 23.31,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1870,11 +2049,13 @@
       "precio_por_kg_min": 1584.0,
       "precio_min": 15.84,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 15.84,
           "url_afiliado": "https://www.nutritienda.com/es/nutrisport-creatina-100-20x5g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1891,11 +2072,13 @@
       "precio_por_kg_min": 1999.0,
       "precio_min": 19.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 19.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure-sobres-monodosis/16630358/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1912,11 +2095,13 @@
       "precio_por_kg_min": null,
       "precio_min": 18.99,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 18.99,
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/kre-alkalyn-120-capsulas-vegetales",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1933,11 +2118,13 @@
       "precio_por_kg_min": null,
       "precio_min": 19.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 19.9,
           "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/creaflo-pure-liquid-creatine-500-ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1954,11 +2141,13 @@
       "precio_por_kg_min": null,
       "precio_min": 22.86,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 22.86,
           "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition/kr2-creapure-ph10-120-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1975,11 +2164,13 @@
       "precio_por_kg_min": null,
       "precio_min": 28.64,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 28.64,
           "url_afiliado": "https://www.nutritienda.com/es/vitobest/kre-alkalyn-100-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -1996,11 +2187,13 @@
       "precio_por_kg_min": null,
       "precio_min": 28.71,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 28.71,
           "url_afiliado": "https://www.nutritienda.com/es/ironmaxx/krea7-superalkaline-90-tabs",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2017,11 +2210,13 @@
       "precio_por_kg_min": null,
       "precio_min": 54.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 54.5,
           "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/black-line-creatine-creapure-capsules-300-capsulas-vegetales",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2038,11 +2233,13 @@
       "precio_por_kg_min": null,
       "precio_min": 26.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 26.5,
           "url_afiliado": "https://www.nutritienda.com/es/scitec/crea-caps-250-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2059,11 +2256,13 @@
       "precio_por_kg_min": null,
       "precio_min": 24.9,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 24.9,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/creatina-excell-1000mg-100-creapure",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2080,11 +2279,13 @@
       "precio_por_kg_min": null,
       "precio_min": 14.9,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 14.9,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2101,11 +2302,13 @@
       "precio_por_kg_min": null,
       "precio_min": 34.9,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 34.9,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2122,11 +2325,13 @@
       "precio_por_kg_min": null,
       "precio_min": 23.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 23.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-creapure-80-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2135,6 +2340,7 @@
           "tienda": "MyProtein",
           "precio_eur": 37.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/creatina-micronizada-creapure-capsulas/10574930/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2151,11 +2357,13 @@
       "precio_por_kg_min": null,
       "precio_min": 17.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 17.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-90-comprimidos",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2172,11 +2380,13 @@
       "precio_por_kg_min": null,
       "precio_min": 67.52,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 67.52,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatine-creapure-320-caps",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2193,11 +2403,13 @@
       "precio_por_kg_min": null,
       "precio_min": 34.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 34.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-creapure-90-comprimidos-masticables",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2214,11 +2426,13 @@
       "precio_por_kg_min": null,
       "precio_min": 27.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 27.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-tabletas/10575029/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2235,11 +2449,13 @@
       "precio_por_kg_min": null,
       "precio_min": 6.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 6.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-polvo/10530050/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2256,11 +2472,13 @@
       "precio_por_kg_min": null,
       "precio_min": 8.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 8.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/gominolas-de-creatina/13528283/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2277,11 +2495,13 @@
       "precio_por_kg_min": null,
       "precio_min": 39.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 39.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/pack-get-stronger/14970298/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2298,11 +2518,13 @@
       "precio_por_kg_min": null,
       "precio_min": 25.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 25.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2319,11 +2541,13 @@
       "precio_por_kg_min": null,
       "precio_min": 45.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 45.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/pack-essentials-protein/15758094/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2340,11 +2564,13 @@
       "precio_por_kg_min": null,
       "precio_min": 59.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 59.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/pack-gainer/13437013/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2361,11 +2587,13 @@
       "precio_por_kg_min": null,
       "precio_min": 6.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 6.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/creatina-hcl/17169974/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2382,11 +2610,13 @@
       "precio_por_kg_min": null,
       "precio_min": 24.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 24.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electropower-creatina-electrolitos/16663175/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2403,11 +2633,13 @@
       "precio_por_kg_min": null,
       "precio_min": 17.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 17.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electrofuel/16570434/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2424,11 +2656,13 @@
       "precio_por_kg_min": null,
       "precio_min": 23.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 23.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/mezcla-de-vitaminas/11060427/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2445,11 +2679,13 @@
       "precio_por_kg_min": null,
       "precio_min": 41.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 41.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/pack-clear-performance/15288056/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2466,11 +2702,13 @@
       "precio_por_kg_min": 5.73,
       "precio_min": 0.86,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 0.86,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bicarbonato-de-sodio-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2487,11 +2725,13 @@
       "precio_por_kg_min": 7.92,
       "precio_min": 7.92,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 7.92,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/isomaltulosa-palatinose-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2500,6 +2740,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 39.59,
           "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition-pre-workout-explosive-1000g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2516,11 +2757,13 @@
       "precio_por_kg_min": 22.47,
       "precio_min": 8.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 8.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-speculoos-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2529,6 +2772,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 32.5,
           "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/yeep-pump-no-caff-360g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2545,11 +2789,13 @@
       "precio_por_kg_min": 22.47,
       "precio_min": 8.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 8.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-cafe-y-caramelo-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2566,11 +2812,13 @@
       "precio_por_kg_min": 22.47,
       "precio_min": 8.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 8.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-chocolate-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2587,11 +2835,13 @@
       "precio_por_kg_min": 22.47,
       "precio_min": 8.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 8.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2608,11 +2858,13 @@
       "precio_por_kg_min": 24.42,
       "precio_min": 19.54,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 19.54,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/energy-charge-preentrenamiento-800-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2629,11 +2881,13 @@
       "precio_por_kg_min": 26.66,
       "precio_min": 23.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 23.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/beta-alanina-900-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2650,11 +2904,13 @@
       "precio_por_kg_min": 27.27,
       "precio_min": 35.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 35.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/n.o.-shox-1320g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2671,11 +2927,13 @@
       "precio_por_kg_min": 30.0,
       "precio_min": 4.5,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 4.5,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2684,6 +2942,7 @@
           "tienda": "MyProtein",
           "precio_eur": 7.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/beta-alanina-en-polvo/10529809/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2700,11 +2959,13 @@
       "precio_por_kg_min": 32.47,
       "precio_min": 9.74,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 9.74,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/beta-alanina-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2713,6 +2974,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 30.56,
           "url_afiliado": "https://www.nutritienda.com/es/beverly-nutrition/energy-storm-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2729,11 +2991,13 @@
       "precio_por_kg_min": 34.08,
       "precio_min": 22.49,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 22.49,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/n.o.-shox-660-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2750,11 +3014,13 @@
       "precio_por_kg_min": 42.47,
       "precio_min": 12.74,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 12.74,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/l-arginina-300-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2763,6 +3029,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 46.5,
           "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cellup-oxystorm-348g-tribu-zma-30-caps",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2779,11 +3046,13 @@
       "precio_por_kg_min": 45.27,
       "precio_min": 6.79,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 6.79,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2800,11 +3069,13 @@
       "precio_por_kg_min": 46.63,
       "precio_min": 13.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 13.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/citrulina-malato/10529326/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2813,6 +3084,7 @@
           "tienda": "Prozis",
           "precio_eur": 17.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/l-citrulina-malato-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2829,11 +3101,13 @@
       "precio_por_kg_min": 49.0,
       "precio_min": 7.35,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 7.35,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2850,11 +3124,13 @@
       "precio_por_kg_min": 51.97,
       "precio_min": 20.79,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 20.79,
           "url_afiliado": "https://www.nutritienda.com/es/nutrisport/b-10-pump-effect-400g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2871,11 +3147,13 @@
       "precio_por_kg_min": 54.75,
       "precio_min": 21.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 21.9,
           "url_afiliado": "https://www.nutritienda.com/es/amazin-foods/pre-workout-wow-pre-entrenamiento-400g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2892,11 +3170,13 @@
       "precio_por_kg_min": 56.6,
       "precio_min": 8.49,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 8.49,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2913,11 +3193,13 @@
       "precio_por_kg_min": 56.6,
       "precio_min": 8.49,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 8.49,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2934,11 +3216,13 @@
       "precio_por_kg_min": 56.6,
       "precio_min": 8.49,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 8.49,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2955,11 +3239,13 @@
       "precio_por_kg_min": 63.92,
       "precio_min": 32.6,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 32.6,
           "url_afiliado": "https://www.nutritienda.com/es/nutred/n1-pre-workout-510g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2976,11 +3262,13 @@
       "precio_por_kg_min": 69.83,
       "precio_min": 41.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 41.9,
           "url_afiliado": "https://www.nutritienda.com/es/quamtrax/super-shock-600g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -2997,11 +3285,13 @@
       "precio_por_kg_min": 73.98,
       "precio_min": 39.95,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 39.95,
           "url_afiliado": "https://www.nutritienda.com/es/zoomad-labs/moonstruck-2-zero-540g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3018,11 +3308,13 @@
       "precio_por_kg_min": 75.6,
       "precio_min": 11.34,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 11.34,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-carnosyn-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3039,11 +3331,13 @@
       "precio_por_kg_min": 78.33,
       "precio_min": 39.95,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 39.95,
           "url_afiliado": "https://www.nutritienda.com/es/zoomad-labs/monns-truck-ii-510g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3060,11 +3354,13 @@
       "precio_por_kg_min": 79.52,
       "precio_min": 34.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 34.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-pre-entreno-venom/17585477/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3081,11 +3377,13 @@
       "precio_por_kg_min": 80.3,
       "precio_min": 24.09,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 24.09,
           "url_afiliado": "https://www.nutritienda.com/es/procell/prework-core-series-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3102,11 +3400,13 @@
       "precio_por_kg_min": 83.93,
       "precio_min": 12.59,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 12.59,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/l-citrulina-malato-150-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3123,11 +3423,13 @@
       "precio_por_kg_min": 87.73,
       "precio_min": 32.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 32.9,
           "url_afiliado": "https://www.nutritienda.com/es/scitec/hot-blood-hardcore-375g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3144,11 +3446,13 @@
       "precio_por_kg_min": 87.8,
       "precio_min": 43.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 43.9,
           "url_afiliado": "https://www.nutritienda.com/es/nutrex/outlift-clinical-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3165,11 +3469,13 @@
       "precio_por_kg_min": 90.4,
       "precio_min": 33.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 33.9,
           "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/abe-375g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3186,11 +3492,13 @@
       "precio_por_kg_min": 90.61,
       "precio_min": 29.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 29.9,
           "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/pump-caffeine-free-330g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3207,11 +3515,13 @@
       "precio_por_kg_min": 99.67,
       "precio_min": 14.95,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 14.95,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evordx-2-0",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3228,11 +3538,13 @@
       "precio_por_kg_min": 105.0,
       "precio_min": 31.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 31.5,
           "url_afiliado": "https://www.nutritienda.com/es/226ers/pre-workout-300g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3249,11 +3561,13 @@
       "precio_por_kg_min": 110.7,
       "precio_min": 29.89,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 29.89,
           "url_afiliado": "https://www.nutritienda.com/es/cobra-labs/the-shadow-270g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3270,11 +3584,13 @@
       "precio_por_kg_min": 115.31,
       "precio_min": 36.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 36.9,
           "url_afiliado": "https://www.nutritienda.com/es/cellucor/c4-ultimate-320g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3291,11 +3607,13 @@
       "precio_por_kg_min": 119.96,
       "precio_min": 29.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 29.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-ornitina-hcl-en-polvo/10529383/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3312,11 +3630,13 @@
       "precio_por_kg_min": 126.47,
       "precio_min": 43.0,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 43.0,
           "url_afiliado": "https://www.nutritienda.com/es/amix-pro/map-glyceromax-340g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3333,11 +3653,13 @@
       "precio_por_kg_min": 127.5,
       "precio_min": 2.55,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 2.55,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-stim-free-pre-workout-muestra/14269813/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3354,11 +3676,13 @@
       "precio_por_kg_min": 147.9,
       "precio_min": 14.79,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 14.79,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-teanina-en-polvo/10530035/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3375,11 +3699,13 @@
       "precio_por_kg_min": 170.67,
       "precio_min": 25.6,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 25.6,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobomb",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3396,11 +3722,13 @@
       "precio_por_kg_min": 174.4,
       "precio_min": 26.16,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 26.16,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evopump-en-polvo",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3417,11 +3745,13 @@
       "precio_por_kg_min": 329.6,
       "precio_min": 16.48,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 16.48,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobeast",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3438,11 +3768,13 @@
       "precio_por_kg_min": 570.0,
       "precio_min": 4.56,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 4.56,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/3-x-sachet-powa-3.0-pre-workout-17.8g-cola",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3459,11 +3791,13 @@
       "precio_por_kg_min": 852.0,
       "precio_min": 17.04,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 17.04,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evostamina",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3480,11 +3814,13 @@
       "precio_por_kg_min": 912.0,
       "precio_min": 4.56,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 4.56,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/3-x-sachet-powa-3.0-pre-workout-17.5g-apple",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3501,11 +3837,13 @@
       "precio_por_kg_min": null,
       "precio_min": 34.11,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 34.11,
           "url_afiliado": "https://www.nutritienda.com/es/ironmaxx/hellfire-fatburner-150-caps",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3522,11 +3860,13 @@
       "precio_por_kg_min": null,
       "precio_min": 23.99,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 23.99,
           "url_afiliado": "https://www.nutritienda.com/es/cellucor/c4-original-pwo-shot-12-unidades-60-ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3543,11 +3883,13 @@
       "precio_por_kg_min": null,
       "precio_min": 1.75,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 1.75,
           "url_afiliado": "https://www.nutritienda.com/es/monster-energy/energy-500ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3564,11 +3906,13 @@
       "precio_por_kg_min": null,
       "precio_min": 1.75,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 1.75,
           "url_afiliado": "https://www.nutritienda.com/es/monster-energy/monster-lewis-hamilton-500ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3585,11 +3929,13 @@
       "precio_por_kg_min": null,
       "precio_min": 6.1,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 6.1,
           "url_afiliado": "https://www.nutritienda.com/es/nutrend/caffeine-caps-60-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3606,11 +3952,13 @@
       "precio_por_kg_min": null,
       "precio_min": 40.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 40.5,
           "url_afiliado": "https://www.nutritienda.com/es/monster-energy/absolutely-zero-24-uds-de-500ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3627,11 +3975,13 @@
       "precio_por_kg_min": null,
       "precio_min": 8.99,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 8.99,
           "url_afiliado": "https://www.nutritienda.com/es/4pro-nutrition/caffeine-200-100-tabletas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3648,11 +3998,13 @@
       "precio_por_kg_min": null,
       "precio_min": 1.75,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 1.75,
           "url_afiliado": "https://www.nutritienda.com/es/monster-energy/monster-juice-mango-loco-500ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3669,11 +4021,13 @@
       "precio_por_kg_min": null,
       "precio_min": 36.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 36.9,
           "url_afiliado": "https://www.nutritienda.com/es/beverly-nutrition/myo3-xplode-120-caps",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3690,11 +4044,13 @@
       "precio_por_kg_min": null,
       "precio_min": 45.99,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 45.99,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/extracto-de-amaranto-oxystorm-50-1-650mg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3711,11 +4067,13 @@
       "precio_por_kg_min": null,
       "precio_min": 39.99,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 39.99,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/l-alanil-l-glutamina-300mg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3732,11 +4090,13 @@
       "precio_por_kg_min": null,
       "precio_min": 9.9,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 9.9,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/cafeina-natural-200mg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3753,11 +4113,13 @@
       "precio_por_kg_min": null,
       "precio_min": 55.99,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 55.99,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evopump",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3774,11 +4136,13 @@
       "precio_por_kg_min": null,
       "precio_min": 29.9,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 29.9,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/beta-alanina-1000mg-carnosyn",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3795,11 +4159,13 @@
       "precio_por_kg_min": null,
       "precio_min": 40.9,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 40.9,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoripped",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3816,11 +4182,13 @@
       "precio_por_kg_min": null,
       "precio_min": 17.9,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 17.9,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/arginina-alfa-cetoglutarato-1000mg-aakg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3837,11 +4205,13 @@
       "precio_por_kg_min": null,
       "precio_min": 15.43,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 15.43,
           "url_afiliado": "https://www.hsnstore.com/marcas/vitaminalia/cutting-complex",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3858,11 +4228,13 @@
       "precio_por_kg_min": null,
       "precio_min": 12.99,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 12.99,
           "url_afiliado": "https://www.hsnstore.com/marcas/vitaminalia/cafeina-hibrida-200mg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3879,11 +4251,13 @@
       "precio_por_kg_min": null,
       "precio_min": 17.49,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 17.49,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-46-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3900,11 +4274,13 @@
       "precio_por_kg_min": null,
       "precio_min": 15.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 15.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/12-x-big-shot-pre-workout-60-ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3921,11 +4297,13 @@
       "precio_por_kg_min": null,
       "precio_min": 26.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 26.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/powa-3.0-pre-workout-20-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3942,11 +4320,13 @@
       "precio_por_kg_min": null,
       "precio_min": 17.49,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 17.49,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-sin-cafeina-46-dosis",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3963,11 +4343,13 @@
       "precio_por_kg_min": null,
       "precio_min": 22.49,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 22.49,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/extreme-big-shot-pre-workout-20-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -3984,11 +4366,13 @@
       "precio_por_kg_min": null,
       "precio_min": 12.59,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 12.59,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/l-citrulina-2250-mg-90-comprimidos",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4005,11 +4389,13 @@
       "precio_por_kg_min": null,
       "precio_min": 11.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 11.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-23-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4026,11 +4412,13 @@
       "precio_por_kg_min": null,
       "precio_min": 27.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 27.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/x-boost-ultimate-gaming-pre-workout-25-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4047,11 +4435,13 @@
       "precio_por_kg_min": null,
       "precio_min": 11.24,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 11.24,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/l-arginina-2400-mg-90-comprimidos",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4068,11 +4458,13 @@
       "precio_por_kg_min": null,
       "precio_min": 9.09,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 9.09,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/beta-alanina-100-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4089,11 +4481,13 @@
       "precio_por_kg_min": null,
       "precio_min": 6.29,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 6.29,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-8-sticks",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4110,11 +4504,13 @@
       "precio_por_kg_min": null,
       "precio_min": 6.29,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 6.29,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/aakg-l-arginina-akg-60-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4131,11 +4527,13 @@
       "precio_por_kg_min": null,
       "precio_min": 8.24,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 8.24,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/l-arginina-l-ornitina-l-lisina-120-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4152,11 +4550,13 @@
       "precio_por_kg_min": null,
       "precio_min": 2.37,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 2.37,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/2-x-big-shot-pre-workout-60ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4173,11 +4573,13 @@
       "precio_por_kg_min": null,
       "precio_min": 44.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 44.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/powa-3.0-pre-workout-40-servings",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4194,11 +4596,13 @@
       "precio_por_kg_min": null,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/aakg-l-arginina-akg-180-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4215,11 +4619,13 @@
       "precio_por_kg_min": null,
       "precio_min": 19.18,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 19.18,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/l-arginina-2400-mg-180-comprimidos",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4236,11 +4642,13 @@
       "precio_por_kg_min": null,
       "precio_min": 19.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 19.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/l-arginina-l-ornitina-l-lisina-360-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4257,11 +4665,13 @@
       "precio_por_kg_min": null,
       "precio_min": 13.29,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 13.29,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-90-tabs",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4278,11 +4688,13 @@
       "precio_por_kg_min": null,
       "precio_min": 26.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 26.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/ripped-pre-workout-ultra-concentrated-20-dosis",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4299,11 +4711,13 @@
       "precio_por_kg_min": null,
       "precio_min": 26.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 26.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-180-tabs",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4320,11 +4734,13 @@
       "precio_por_kg_min": null,
       "precio_min": 8.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 8.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/beta-alanine-90-capsulas",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4341,11 +4757,13 @@
       "precio_por_kg_min": null,
       "precio_min": 3.22,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 3.22,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/2-x-n.o.-maxshot-60ml",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4362,11 +4780,13 @@
       "precio_por_kg_min": null,
       "precio_min": 21.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 21.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-pre-entreno/12941037/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4383,11 +4803,13 @@
       "precio_por_kg_min": null,
       "precio_min": 21.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 21.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electro-hyrox/14205282/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4404,11 +4826,13 @@
       "precio_por_kg_min": null,
       "precio_min": 19.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 19.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-eaa/11985042/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4425,11 +4849,13 @@
       "precio_por_kg_min": null,
       "precio_min": 10.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 10.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/cafeina-pura-comprimidos/10529801/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4446,11 +4872,13 @@
       "precio_por_kg_min": null,
       "precio_min": 17.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 17.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electrofuel-hyrox/15152024/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4467,11 +4895,13 @@
       "precio_por_kg_min": null,
       "precio_min": 14.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 14.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-pre-entreno-dry-scoop/14024015/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4488,11 +4918,13 @@
       "precio_por_kg_min": null,
       "precio_min": 8.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 8.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-carnitina-comprimidos/10530146/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4509,11 +4941,13 @@
       "precio_por_kg_min": null,
       "precio_min": 21.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 21.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-pre-entreno-sin-estimulantes/14269805/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4530,11 +4964,13 @@
       "precio_por_kg_min": null,
       "precio_min": 12.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 12.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/mezcla-pre-entreno/11542703/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4551,11 +4987,13 @@
       "precio_por_kg_min": null,
       "precio_min": 19.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 19.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/thermopure/10530152/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4572,11 +5010,13 @@
       "precio_por_kg_min": null,
       "precio_min": 16.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 16.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/gel-pre-entreno/10798884/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4593,11 +5033,13 @@
       "precio_por_kg_min": null,
       "precio_min": 14.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 14.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-glutamina-comprimidos/10575971/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4614,11 +5056,13 @@
       "precio_por_kg_min": null,
       "precio_min": 10.49,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 10.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-glutamina-en-polvo/10636931/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4635,11 +5079,13 @@
       "precio_por_kg_min": null,
       "precio_min": 20.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 20.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-carnitina-liquida/11162594/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4656,11 +5102,13 @@
       "precio_por_kg_min": null,
       "precio_min": 14.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 14.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/aakg/10529763/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4677,11 +5125,13 @@
       "precio_por_kg_min": null,
       "precio_min": 29.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 29.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-pre-workout/11351672/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4698,11 +5148,13 @@
       "precio_por_kg_min": null,
       "precio_min": 18.49,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 18.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-eaa-tablets/12493001/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4719,11 +5171,13 @@
       "precio_por_kg_min": null,
       "precio_min": 21.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 21.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/gominolas-pre-entreno/12899623/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4740,11 +5194,13 @@
       "precio_por_kg_min": null,
       "precio_min": 34.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 34.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-pre-entreno-deadpool/15771600/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4761,11 +5217,13 @@
       "precio_por_kg_min": null,
       "precio_min": 28.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 28.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/shot-pre-entreno/12717736/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4782,11 +5240,13 @@
       "precio_por_kg_min": null,
       "precio_min": 27.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 27.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-shred-pre-workout/16547402/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4803,11 +5263,13 @@
       "precio_por_kg_min": null,
       "precio_min": 2.49,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 2.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/alpha-pre-entreno/13757999/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4824,11 +5286,13 @@
       "precio_por_kg_min": null,
       "precio_min": 9.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 9.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/taurina-en-polvo/10530303/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4845,11 +5309,13 @@
       "precio_por_kg_min": null,
       "precio_min": 34.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 34.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-pre-entreno-lobezno/15771601/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4866,11 +5332,13 @@
       "precio_por_kg_min": null,
       "precio_min": 23.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 23.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-carnitina-en-polvo/10529729/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4887,11 +5355,13 @@
       "precio_por_kg_min": null,
       "precio_min": 21.29,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 21.29,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/pump-enhancer-capsulas/10636965/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4908,11 +5378,13 @@
       "precio_por_kg_min": null,
       "precio_min": 8.49,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 8.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-tirosina-en-polvo/10530186/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4929,11 +5401,13 @@
       "precio_por_kg_min": null,
       "precio_min": 14.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 14.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/hmb-comprimidos/10636952/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4950,11 +5424,13 @@
       "precio_por_kg_min": 12.98,
       "precio_min": 77.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 77.9,
           "url_afiliado": "https://www.nutritienda.com/es/quamtrax/massive-gainer-6-kg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4971,11 +5447,13 @@
       "precio_por_kg_min": 15.9,
       "precio_min": 7.95,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 7.95,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-oats",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -4992,11 +5470,13 @@
       "precio_por_kg_min": 20.04,
       "precio_min": 50.09,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 50.09,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/mezcla-de-rendimiento-todo-en-uno/10530268/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5013,11 +5493,13 @@
       "precio_por_kg_min": 22.49,
       "precio_min": 17.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 17.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/sustituto-de-comida-800-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5034,11 +5516,13 @@
       "precio_por_kg_min": 22.49,
       "precio_min": 17.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 17.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/batido-sustitutivo-de-comida-army-800-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5055,11 +5539,13 @@
       "precio_por_kg_min": 23.13,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/whey-fibre-700g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5076,11 +5562,13 @@
       "precio_por_kg_min": 23.52,
       "precio_min": 11.76,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 11.76,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5097,11 +5585,13 @@
       "precio_por_kg_min": 24.64,
       "precio_min": 12.32,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 12.32,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein-sin-edulcorantes",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5118,11 +5608,13 @@
       "precio_por_kg_min": 27.22,
       "precio_min": 48.99,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 48.99,
           "url_afiliado": "https://www.nutritienda.com/es/battery-nutrition/battery-complete-whey-1800g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5139,11 +5631,13 @@
       "precio_por_kg_min": 28.34,
       "precio_min": 56.69,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 56.69,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-2000g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5152,6 +5646,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 61.9,
           "url_afiliado": "https://www.nutritienda.com/es/life-pro-nutrition/whey-protein-2000g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5168,11 +5663,13 @@
       "precio_por_kg_min": 28.5,
       "precio_min": 14.25,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 14.25,
           "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/golden-protein",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5189,11 +5686,13 @@
       "precio_por_kg_min": 28.8,
       "precio_min": 57.59,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 57.59,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/natural-real-whey-protein-2000g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5202,6 +5701,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 64.9,
           "url_afiliado": "https://www.nutritienda.com/es/dmi-innovative-nutrition/essence-pro-whey-2-kg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5218,11 +5718,13 @@
       "precio_por_kg_min": 30.62,
       "precio_min": 68.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 68.9,
           "url_afiliado": "https://www.nutritienda.com/es/nutrend-100-whey-protein-2250g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5239,11 +5741,13 @@
       "precio_por_kg_min": 31.25,
       "precio_min": 56.69,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 56.69,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-1814g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5252,6 +5756,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 67.32,
           "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/iso-xp-1800g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5268,11 +5773,13 @@
       "precio_por_kg_min": 31.31,
       "precio_min": 31.0,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 31.0,
           "url_afiliado": "https://www.nutritienda.com/es/hivital-foods/hidrolyzed-whey-protein-990g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5289,11 +5796,13 @@
       "precio_por_kg_min": 31.49,
       "precio_min": 31.49,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 31.49,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-1000-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5302,6 +5811,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 67.5,
           "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/black-cfm-isolate-1-kg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5318,11 +5828,13 @@
       "precio_por_kg_min": 31.75,
       "precio_min": 57.59,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 57.59,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/natural-real-whey-protein-1814g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5339,11 +5851,13 @@
       "precio_por_kg_min": 31.9,
       "precio_min": 31.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 31.9,
           "url_afiliado": "https://www.nutritienda.com/es/nutrend/100-por-cien-whey-protein-bag-1000g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5360,11 +5874,13 @@
       "precio_por_kg_min": 31.99,
       "precio_min": 28.79,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 28.79,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/whey-protein-fusion-900-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5373,6 +5889,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 34.9,
           "url_afiliado": "https://www.nutritienda.com/es/life-pro-nutrition/whey-protein-golden-edition-900g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5389,11 +5906,13 @@
       "precio_por_kg_min": 32.39,
       "precio_min": 32.39,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 32.39,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/100-whey-prime-1000-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5402,6 +5921,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 69.5,
           "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/clear-iso-whey-1-kg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5418,11 +5938,13 @@
       "precio_por_kg_min": 32.39,
       "precio_min": 32.39,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 32.39,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/natural-real-whey-protein-1000-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5439,11 +5961,13 @@
       "precio_por_kg_min": 32.49,
       "precio_min": 25.99,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 25.99,
           "url_afiliado": "https://www.nutritienda.com/es/battery-nutrition/battery-complete-whey-800g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5460,11 +5984,13 @@
       "precio_por_kg_min": 32.75,
       "precio_min": 65.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 65.5,
           "url_afiliado": "https://www.nutritienda.com/es/big/only-whey-zero-2-kg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5481,11 +6007,13 @@
       "precio_por_kg_min": 33.73,
       "precio_min": 74.2,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 74.2,
           "url_afiliado": "https://www.nutritienda.com/es/olimp-whey-protein-complex-2200g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5502,11 +6030,13 @@
       "precio_por_kg_min": 34.72,
       "precio_min": 31.49,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 31.49,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-907g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5523,11 +6053,13 @@
       "precio_por_kg_min": 35.0,
       "precio_min": 17.5,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 17.5,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-whey-isolate-cfm",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5544,11 +6076,13 @@
       "precio_por_kg_min": 35.09,
       "precio_min": 70.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 70.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/xtreme-whey-protein-ss-2000-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5557,6 +6091,7 @@
           "tienda": "Nutritienda",
           "precio_eur": 74.9,
           "url_afiliado": "https://www.nutritienda.com/es/predator-protein-2-kg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5573,11 +6108,13 @@
       "precio_por_kg_min": 35.71,
       "precio_min": 32.39,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 32.39,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/natural-real-whey-protein-907g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5594,11 +6131,13 @@
       "precio_por_kg_min": 36.08,
       "precio_min": 18.04,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 18.04,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5615,11 +6154,13 @@
       "precio_por_kg_min": 36.08,
       "precio_min": 18.04,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 18.04,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-2-0-whey-protein-isolate-concentrate",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5636,11 +6177,13 @@
       "precio_por_kg_min": 37.45,
       "precio_min": 74.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 74.9,
           "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-predator-protein-2-kg-osteo-anagenesis-30-caps",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5657,11 +6200,13 @@
       "precio_por_kg_min": 38.09,
       "precio_min": 33.33,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 33.33,
           "url_afiliado": "https://www.nutritienda.com/es/snickers/snicker-hi-protein-875g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5678,11 +6223,13 @@
       "precio_por_kg_min": 38.22,
       "precio_min": 15.29,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 15.29,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/whey-protein-freakin-good-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5699,11 +6246,13 @@
       "precio_por_kg_min": 38.76,
       "precio_min": 19.38,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 19.38,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-isolate",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5720,11 +6269,13 @@
       "precio_por_kg_min": 38.99,
       "precio_min": 58.49,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 58.49,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/zero-diet-whey-1500-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5741,11 +6292,13 @@
       "precio_por_kg_min": 39.84,
       "precio_min": 19.92,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 19.92,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-sin-edulcorantes-whey-isolate-cfm",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5762,11 +6315,13 @@
       "precio_por_kg_min": 40.18,
       "precio_min": 20.09,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 20.09,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-2-0-hydro-whey",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5783,11 +6338,13 @@
       "precio_por_kg_min": 40.48,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/capuchino-proteico-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5804,11 +6361,13 @@
       "precio_por_kg_min": 40.48,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5825,11 +6384,13 @@
       "precio_por_kg_min": 40.48,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/capuchino-proteico-con-cafeina-extra-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5846,11 +6407,13 @@
       "precio_por_kg_min": 40.48,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-con-cafeina-extra-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5867,11 +6430,13 @@
       "precio_por_kg_min": 40.48,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/latte-de-avellana-proteico-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5888,11 +6453,13 @@
       "precio_por_kg_min": 40.48,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/latte-de-avellana-proteico-con-cafeina-extra-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5909,11 +6476,13 @@
       "precio_por_kg_min": 40.48,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/mocachino-proteico-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5930,11 +6499,13 @@
       "precio_por_kg_min": 40.48,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/mocachino-proteico-con-cafeina-extra-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5951,11 +6522,13 @@
       "precio_por_kg_min": 40.48,
       "precio_min": 16.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 16.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/latte-proteico-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5972,11 +6545,13 @@
       "precio_por_kg_min": 41.84,
       "precio_min": 37.99,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 37.99,
           "url_afiliado": "https://www.nutritienda.com/es/weider/nitro-whey-super-formula-908g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -5993,11 +6568,13 @@
       "precio_por_kg_min": 42.0,
       "precio_min": 209.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 209.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myprotein-impact-whey-isolate-chocolate-orange-5kg/10962939/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6014,11 +6591,13 @@
       "precio_por_kg_min": 42.72,
       "precio_min": 17.09,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 17.09,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/100-whey-prime-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6035,11 +6614,13 @@
       "precio_por_kg_min": 43.26,
       "precio_min": 21.63,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 21.63,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-proteina-de-suero-hidrolizado-aislada",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6056,11 +6637,13 @@
       "precio_por_kg_min": 43.45,
       "precio_min": 86.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 86.9,
           "url_afiliado": "https://www.nutritienda.com/es/dmi-innovative-nutrition/isolate-pro-zero-2-kg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6077,11 +6660,13 @@
       "precio_por_kg_min": 44.93,
       "precio_min": 26.96,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 26.96,
           "url_afiliado": "https://www.nutritienda.com/es/keepgoing/quick-recovery-600g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6098,11 +6683,13 @@
       "precio_por_kg_min": 44.97,
       "precio_min": 17.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 17.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-400-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6119,11 +6706,13 @@
       "precio_por_kg_min": 44.98,
       "precio_min": 22.49,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 22.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-protein-y-colageno/17263290/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6140,11 +6729,13 @@
       "precio_por_kg_min": 45.14,
       "precio_min": 81.89,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 81.89,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-1814-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6161,11 +6752,13 @@
       "precio_por_kg_min": 45.5,
       "precio_min": 22.75,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 22.75,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-30hd",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6182,11 +6775,13 @@
       "precio_por_kg_min": 45.59,
       "precio_min": 34.19,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 34.19,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/zero-diet-whey-750-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6203,11 +6798,13 @@
       "precio_por_kg_min": 46.21,
       "precio_min": 78.56,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 78.56,
           "url_afiliado": "https://www.nutritienda.com/es/cellucor/c4-whey-protein-1700g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6224,11 +6821,13 @@
       "precio_por_kg_min": 46.8,
       "precio_min": 23.4,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 23.4,
           "url_afiliado": "https://www.nutritienda.com/es/226ers/recovery-drink-recuperador-muscular-500g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6245,11 +6844,13 @@
       "precio_por_kg_min": 47.75,
       "precio_min": 95.5,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 95.5,
           "url_afiliado": "https://www.nutritienda.com/es/scitec/100-hydro-isolate-2000g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6266,11 +6867,13 @@
       "precio_por_kg_min": 47.95,
       "precio_min": 95.9,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 95.9,
           "url_afiliado": "https://www.nutritienda.com/es/fire-nutrition/isozero-cfm-100-isolate-2-kg",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6287,11 +6890,13 @@
       "precio_por_kg_min": 49.6,
       "precio_min": 44.99,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 44.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-907g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6308,11 +6913,13 @@
       "precio_por_kg_min": 53.05,
       "precio_min": 40.85,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 40.85,
           "url_afiliado": "https://www.nutritienda.com/es/cellucor/c4-whey-protein-770g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6329,11 +6936,13 @@
       "precio_por_kg_min": 53.99,
       "precio_min": 37.79,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 37.79,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-clear-700g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6350,11 +6959,13 @@
       "precio_por_kg_min": 54.23,
       "precio_min": 18.98,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 18.98,
           "url_afiliado": "https://www.nutritienda.com/es/paleobull/panacea-350g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6371,11 +6982,13 @@
       "precio_por_kg_min": 55.95,
       "precio_min": 22.38,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 22.38,
           "url_afiliado": "https://www.nutritienda.com/es/purasana/proteina-de-suero-sabor-vainilla-400g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6392,11 +7005,13 @@
       "precio_por_kg_min": 58.86,
       "precio_min": 20.6,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 20.6,
           "url_afiliado": "https://www.nutritienda.com/es/natural-athlete/natural-proteina-whey-chocolate-350g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6413,11 +7028,13 @@
       "precio_por_kg_min": 59.85,
       "precio_min": 59.85,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 59.85,
           "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/zeropro-protein-1000g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6434,11 +7051,13 @@
       "precio_por_kg_min": 66.43,
       "precio_min": 60.25,
       "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
           "precio_eur": 60.25,
           "url_afiliado": "https://www.nutritienda.com/es/muscletech/isowhey-907g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6455,11 +7074,13 @@
       "precio_por_kg_min": 77.88,
       "precio_min": 38.94,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 38.94,
           "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/aislado-de-proteina-hidrolizada-clear-whey",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6476,11 +7097,13 @@
       "precio_por_kg_min": 83.0,
       "precio_min": 2.49,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 2.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myvegan-vegan-protein-blend-sample/11332873/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6489,6 +7112,7 @@
           "tienda": "HSN",
           "precio_eur": 17.09,
           "url_afiliado": "https://www.hsnstore.com/marcas/food-series/cafe-proteico-cafefitconq",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6505,11 +7129,13 @@
       "precio_por_kg_min": 83.0,
       "precio_min": 2.49,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 2.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/aislado-de-proteina-de-soja-muestra/11332868/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6518,6 +7144,7 @@
           "tienda": "HSN",
           "precio_eur": 17.09,
           "url_afiliado": "https://www.hsnstore.com/marcas/food-series/cafe-proteico-sin-edulcorantes-cafefitconq",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6534,11 +7161,13 @@
       "precio_por_kg_min": 100.0,
       "precio_min": 2.5,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 2.5,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/2-x-sachet-100-whey-prime-25g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6555,11 +7184,13 @@
       "precio_por_kg_min": 125.0,
       "precio_min": 3.75,
       "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 3.75,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/3-x-sachet-100-real-whey-protein-30-g",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6576,11 +7207,13 @@
       "precio_por_kg_min": 130.0,
       "precio_min": 65.0,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 65.0,
           "url_afiliado": "https://www.hsnstore.com/marcas/keto-series/keto-whey-protein",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6597,11 +7230,13 @@
       "precio_por_kg_min": 169.8,
       "precio_min": 8.49,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 8.49,
           "url_afiliado": "https://www.hsnstore.com/marcas/food-series/crema-de-arroz-proteica",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6618,11 +7253,13 @@
       "precio_por_kg_min": 344.67,
       "precio_min": 10.34,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 10.34,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobasic-whey",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6639,11 +7276,13 @@
       "precio_por_kg_min": 392.0,
       "precio_min": 11.76,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 11.76,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6660,11 +7299,13 @@
       "precio_por_kg_min": 881.2,
       "precio_min": 22.03,
       "tienda_mas_barata": "HSN",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 22.03,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoclear-hydro",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6681,11 +7322,13 @@
       "precio_por_kg_min": null,
       "precio_min": 31.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 31.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein/10530943/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6702,11 +7345,13 @@
       "precio_por_kg_min": null,
       "precio_min": 53.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 53.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-isolate/12081395/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6723,11 +7368,13 @@
       "precio_por_kg_min": null,
       "precio_min": 15.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 15.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-colageno/17725536/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6744,11 +7391,13 @@
       "precio_por_kg_min": null,
       "precio_min": 27.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 27.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-isolate/10530911/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6765,11 +7414,13 @@
       "precio_por_kg_min": null,
       "precio_min": 12.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 12.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/essential-whey-protein/11052699/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6786,11 +7437,13 @@
       "precio_por_kg_min": null,
       "precio_min": 31.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 31.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/proteina-de-colageno/11067704/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6807,11 +7460,13 @@
       "precio_por_kg_min": null,
       "precio_min": 11.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 11.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/crema-de-arroz/13337581/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6828,11 +7483,13 @@
       "precio_por_kg_min": null,
       "precio_min": 13.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 13.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/mezcla-de-proteina-vegana/11776868/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6849,11 +7506,13 @@
       "precio_por_kg_min": null,
       "precio_min": 11.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 11.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/aislado-de-proteina-de-soja/10529701/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6870,11 +7529,13 @@
       "precio_por_kg_min": null,
       "precio_min": 15.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 15.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/mezcla-sustitutiva-de-comidas-proteica/11324199/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6891,11 +7552,13 @@
       "precio_por_kg_min": null,
       "precio_min": 9.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 9.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/aislado-de-proteina-de-guisante/10530136/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6912,11 +7575,13 @@
       "precio_por_kg_min": null,
       "precio_min": 17.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 17.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/mezcla-ganador-de-peso/10529988/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6933,11 +7598,13 @@
       "precio_por_kg_min": null,
       "precio_min": 24.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 24.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-vegan-protein/12360400/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6954,11 +7621,13 @@
       "precio_por_kg_min": null,
       "precio_min": 26.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 26.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/smoothie-para-el-desayuno/13251950/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6975,11 +7644,13 @@
       "precio_por_kg_min": null,
       "precio_min": 14.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 14.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-diet-whey/10530657/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -6996,11 +7667,13 @@
       "precio_por_kg_min": null,
       "precio_min": 31.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 31.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-collagen-powder-tub/12865492/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7017,11 +7690,13 @@
       "precio_por_kg_min": null,
       "precio_min": 1.59,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 1.59,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myprotein-clear-whey-isolate-sample/12081401/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7038,11 +7713,13 @@
       "precio_por_kg_min": null,
       "precio_min": 25.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 25.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-splash/16111658/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7059,11 +7736,13 @@
       "precio_por_kg_min": null,
       "precio_min": 38.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 38.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-protein-con-creatina/15245849/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7080,11 +7759,13 @@
       "precio_por_kg_min": null,
       "precio_min": 34.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 34.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-mass-gainer/15607337/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7101,11 +7782,13 @@
       "precio_por_kg_min": null,
       "precio_min": 34.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 34.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/caseina-de-liberacion-lenta/10798909/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7122,11 +7805,13 @@
       "precio_por_kg_min": null,
       "precio_min": 28.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 28.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/supermezcla-de-clear-protein/14843629/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7143,11 +7828,13 @@
       "precio_por_kg_min": null,
       "precio_min": 10.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 10.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/batidos-essential/16670299/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7164,11 +7851,13 @@
       "precio_por_kg_min": null,
       "precio_min": 12.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 12.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/supermezcla-de-proteina-vegetal/13972449/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7185,11 +7874,13 @@
       "precio_por_kg_min": null,
       "precio_min": 25.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 25.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-electrolyte/12869895/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7206,11 +7897,13 @@
       "precio_por_kg_min": null,
       "precio_min": 32.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 32.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-elite/11243021/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7227,11 +7920,13 @@
       "precio_por_kg_min": null,
       "precio_min": 30.49,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 30.49,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-whey/11353515/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7248,11 +7943,13 @@
       "precio_por_kg_min": null,
       "precio_min": 43.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 43.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/proteina-de-suero-hidrolizada/10529805/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7269,11 +7966,13 @@
       "precio_por_kg_min": null,
       "precio_min": 38.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 38.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/colageno-marino/12376959/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7290,11 +7989,13 @@
       "precio_por_kg_min": null,
       "precio_min": 49.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 49.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/advanced-weight-gainer/10615587/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7311,11 +8012,13 @@
       "precio_por_kg_min": null,
       "precio_min": 54.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 54.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-gainer/13096868/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7332,11 +8035,13 @@
       "precio_por_kg_min": null,
       "precio_min": 44.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 44.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/total-protein/10529951/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7353,11 +8058,13 @@
       "precio_por_kg_min": null,
       "precio_min": 34.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 34.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-x-chupa-chups-sabor-fresa/14866280/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7374,11 +8081,13 @@
       "precio_por_kg_min": null,
       "precio_min": 36.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 36.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clara-de-huevo-en-polvo/10529687/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7395,11 +8104,13 @@
       "precio_por_kg_min": null,
       "precio_min": 2.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 2.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myvegan-plant-protein-superblend-sample/13972456/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7416,11 +8127,13 @@
       "precio_por_kg_min": null,
       "precio_min": 29.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 29.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-all-in-one/13324944/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
@@ -7437,11 +8150,13 @@
       "precio_por_kg_min": null,
       "precio_min": 63.99,
       "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 63.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-protein-iron-man-tarta-red-velvet-marvel/16003857/",
+          "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-12"
