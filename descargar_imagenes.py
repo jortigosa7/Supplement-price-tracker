@@ -18,6 +18,12 @@ import json
 import os
 import re
 import sys
+
+# Forzar UTF-8 en stdout (necesario en Windows con cp1252)
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 import time
 import unicodedata
 import argparse
@@ -102,13 +108,19 @@ def extraer_og_image(producto_url: str) -> str | None:
         r = requests.get(producto_url, headers={**HEADERS, "Accept": "text/html"}, timeout=TIMEOUT)
         if r.status_code != 200:
             return None
-        # Buscar og:image con regex simple (evita parsear todo el HTML)
-        m = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', r.text)
-        if not m:
-            m = re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']', r.text)
-        if m:
-            url = m.group(1).strip()
-            return url if url.startswith("http") else None
+        html = r.text
+        # Probar varias variantes del meta og:image
+        patrones = [
+            r'property=["\']og:image["\'][^>]+content=["\'](https?://[^"\'>\s]+)',
+            r'content=["\'](https?://[^"\'>\s]+)["\'][^>]*property=["\']og:image["\']',
+            r'og:image.*?content=["\'](https?://[^"\'>\s]+)',
+        ]
+        for pat in patrones:
+            m = re.search(pat, html, re.IGNORECASE | re.DOTALL)
+            if m:
+                url = m.group(1).strip()
+                if url.startswith("http"):
+                    return url
     except Exception:
         pass
     return None
@@ -187,16 +199,28 @@ def main():
         if imagen_url:
             img = descargar_imagen(imagen_url)
 
-        # Fallback: og:image de la URL del producto más barato
+        # Fallback: og:image — probar todas las tiendas
+        # HSN tiene og:image fiable; Prozis da 429; Nutritienda/MyProtein no tienen og:image
         if img is None:
-            producto_url = (p.get("precios") or [{}])[0].get("url_afiliado", "")
-            if producto_url and "hsn" not in producto_url and "prozis" not in producto_url:
-                # Prozis y HSN suelen bloquear; intentamos con Nutritienda y MyProtein
-                og = extraer_og_image(producto_url)
+            precios = p.get("precios", [])
+            def tienda_prio(pr):
+                t = pr.get("tienda", "")
+                if t == "HSN": return 0          # HSN: tiene og:image
+                if t == "MyProtein": return 1
+                if t == "Nutritienda": return 2
+                return 3                          # Prozis: 429
+            for pr in sorted(precios, key=tienda_prio):
+                if pr.get("tienda") == "Prozis":
+                    continue  # Prozis bloquea con 429
+                url_tienda = pr.get("url_afiliado", "")
+                if not url_tienda:
+                    continue
+                og = extraer_og_image(url_tienda)
                 if og:
                     img = descargar_imagen(og)
                     if img:
                         fallback_og += 1
+                        break
                 time.sleep(DELAY)
 
         if img is not None:
