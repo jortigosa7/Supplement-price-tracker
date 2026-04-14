@@ -926,6 +926,51 @@ def generar_pagina_legal(env, pagina: dict, last_updated: str):
     print(f"✅ Generado: {path}")
 
 
+def generar_test(env, productos_web: list[dict], last_updated: str):
+    """Genera docs/test/index.html — test/quiz interactivo de recomendación."""
+    template = env.get_template("test.html")
+
+    # Solo productos principales (con precio/kg y sin muestras/sachets)
+    productos_main = [p for p in productos_web if not _excluir_producto(p)]
+
+    # Schema slim para el JS client-side
+    products_for_js = []
+    for p in productos_main:
+        products_for_js.append({
+            "id":                 p["id"],
+            "nombre_normalizado": p["nombre_normalizado"],
+            "categoria":          p["categoria"],
+            "marca":              p.get("marca", ""),
+            "peso_kg":            p.get("peso_kg"),
+            "precio_por_kg_min":  p.get("precio_por_kg_min"),
+            "precios": [
+                {
+                    "tienda":           pr["tienda"],
+                    "precio_eur":       pr["precio_eur"],
+                    "url_afiliado":     pr["url_afiliado"],
+                    "en_oferta":        pr["en_oferta"],
+                    "precio_original":  pr.get("precio_original"),
+                }
+                for pr in p["precios"]
+            ],
+        })
+
+    ctx = {
+        **contexto_base(last_updated),
+        "active_slug":    "test",
+        "products_json":  json.dumps(products_for_js, ensure_ascii=False),
+        "products_count": len(products_for_js),
+    }
+
+    html = template.render(**ctx)
+    outdir = os.path.join(DOCS_DIR, "test")
+    os.makedirs(outdir, exist_ok=True)
+    path = os.path.join(outdir, "index.html")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"✅ Generado: {path}  ({len(products_for_js)} productos)")
+
+
 def generar_sitemap(last_updated: str):
     """Genera docs/sitemap.xml."""
     urls = [
@@ -943,6 +988,11 @@ def generar_sitemap(last_updated: str):
             "priority":   pagina["sitemap_priority"],
             "changefreq": "monthly",
         })
+    urls.append({
+        "loc":        f"{SITE_URL}/test/",
+        "priority":   "0.7",
+        "changefreq": "weekly",
+    })
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
     lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
@@ -1024,9 +1074,11 @@ if __name__ == "__main__":
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
         generar_categoria(env, cat_raw, cfg, productos_web, last_updated)
 
-    # 5. Páginas legales y sobre nosotros
+    # 5. Páginas legales, test y sobre nosotros
     for pagina in PAGINAS_LEGALES:
         generar_pagina_legal(env, pagina, last_updated)
+
+    generar_test(env, productos_web, last_updated)
 
     # 6. Sitemap, robots, .nojekyll
     print("\n📋 Generando ficheros auxiliares...")
@@ -1035,7 +1087,7 @@ if __name__ == "__main__":
     generar_nojekyll()
 
     duracion = (datetime.now() - inicio).total_seconds()
-    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES)
+    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1  # +1 for /test/
 
     print("\n" + "=" * 54)
     print(f"  BUILD COMPLETADO en {duracion:.1f}s")

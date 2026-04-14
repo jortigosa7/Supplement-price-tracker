@@ -1,0 +1,793 @@
+{% extends "base.html" %}
+
+{% block title %}Test: ¿Qué Suplemento Fitness Necesitas? | StackFit{% endblock %}
+{% block meta_desc %}Descubre el suplemento perfecto para ti. Nuestro test gratuito analiza tu objetivo, presupuesto y preferencias para recomendarte el mejor producto al mejor precio.{% endblock %}
+{% block meta_keywords %}test suplementos fitness, qué suplemento tomar, recomendador suplementos España, test proteína creatina bcaa{% endblock %}
+{% block canonical_path %}/test/{% endblock %}
+{% block og_title %}Test: ¿Qué Suplemento Fitness Necesitas? | StackFit{% endblock %}
+{% block og_desc %}Descubre el suplemento perfecto para ti. Nuestro test gratuito analiza tu objetivo, presupuesto y preferencias para recomendarte el mejor producto al mejor precio.{% endblock %}
+{% block og_path %}/test/{% endblock %}
+
+{% block extra_head %}
+<style>
+  main { background: #0a0b0c !important; padding-bottom: 0 !important; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo funciona el test de suplementos de StackFit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El test hace 5 preguntas sobre tu objetivo de entrenamiento, tipo de suplemento preferido, presupuesto, tamaño y tienda favorita. Con tus respuestas filtra los productos de nuestra base de datos y te muestra los que mejor encajan, ordenados por €/kg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los precios del recomendador están actualizados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Los precios mostrados en las recomendaciones se actualizan varias veces por semana directamente desde las tiendas HSN, MyProtein, Nutritienda y Prozis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Son de afiliado los enlaces del test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Algunos enlaces son de afiliado. Comprando a través de ellos apoyamos el proyecto sin ningún coste adicional para ti. Las recomendaciones son imparciales y se basan solo en precio y preferencias."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<style>
+  /* ── Quiz layout ────────────────────────────────────── */
+  .quiz-wrap {
+    padding: 36px 0 80px;
+    min-height: 80vh;
+  }
+
+  /* ── Progress ────────────────────────────────────────── */
+  .quiz-progress-label {
+    font-size: 0.74rem;
+    color: #444;
+    margin-bottom: 8px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .quiz-progress {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 44px;
+  }
+  .quiz-progress-step {
+    flex: 1;
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    transition: background 0.35s;
+  }
+  .quiz-progress-step.done   { background: var(--accent); }
+  .quiz-progress-step.active { background: rgba(200,255,77,0.45); }
+
+  /* ── Steps ───────────────────────────────────────────── */
+  .quiz-step {
+    display: none;
+    animation: fadeUp 0.32s ease both;
+  }
+  .quiz-step.active { display: block; }
+
+  .quiz-q {
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 4vw, 2.1rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+  .quiz-q em { color: var(--accent); font-style: normal; }
+
+  /* ── Option cards ────────────────────────────────────── */
+  .quiz-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  @media (min-width: 560px) {
+    .quiz-options.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 400px) {
+    .quiz-options { grid-template-columns: 1fr; }
+  }
+
+  .quiz-option {
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px 14px;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: border-color 0.15s, background 0.15s;
+    font-family: var(--font-body);
+  }
+  .quiz-option:hover {
+    border-color: rgba(200,255,77,0.4);
+    background: rgba(200,255,77,0.06);
+  }
+  .quiz-option.selected {
+    border-color: var(--accent);
+    background: rgba(200,255,77,0.1);
+  }
+  .quiz-option.secondary {
+    background: transparent;
+    border-style: dashed;
+    border-color: rgba(255,255,255,0.13);
+  }
+  .quiz-option.secondary:hover {
+    border-color: rgba(200,255,77,0.35);
+    background: rgba(200,255,77,0.04);
+    border-style: solid;
+  }
+  .quiz-option.secondary.selected {
+    border-color: var(--accent);
+    border-style: solid;
+    background: rgba(200,255,77,0.08);
+  }
+
+  .qo-icon  { font-size: 1.5rem; line-height: 1; }
+  .qo-label { font-size: 0.91rem; font-weight: 600; color: #ffffff; line-height: 1.3; }
+  .qo-desc  { font-size: 0.76rem; color: #555; line-height: 1.4; }
+  .quiz-option.selected .qo-desc { color: rgba(200,255,77,0.55); }
+
+  /* ── Nav buttons ─────────────────────────────────────── */
+  .quiz-nav { display: flex; gap: 10px; }
+  .quiz-btn-back {
+    padding: 11px 18px;
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 8px;
+    background: transparent;
+    color: #555;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    font-family: var(--font-body);
+    white-space: nowrap;
+  }
+  .quiz-btn-back:hover { color: #fff; border-color: rgba(255,255,255,0.28); }
+  .quiz-btn-next {
+    flex: 1;
+    padding: 13px 20px;
+    background: var(--accent);
+    border: none;
+    border-radius: 10px;
+    color: #0a0b0c;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 0.98rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background 0.15s, opacity 0.15s;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .quiz-btn-next.enabled { opacity: 1; pointer-events: all; }
+  .quiz-btn-next.enabled:hover { background: var(--accent-dim); }
+
+  /* ── Loading ─────────────────────────────────────────── */
+  .quiz-loading {
+    display: none;
+    text-align: center;
+    padding: 72px 20px;
+    animation: fadeUp 0.3s ease both;
+  }
+  .quiz-loading.active { display: block; }
+  .loading-spinner {
+    width: 38px;
+    height: 38px;
+    border: 3px solid rgba(200,255,77,0.15);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    margin: 0 auto 18px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-text { font-size: 0.95rem; color: #555; }
+  .loading-text strong { color: var(--accent); }
+
+  /* ── Results ─────────────────────────────────────────── */
+  .results-wrap { display: none; }
+  .results-wrap.active { display: block; animation: fadeUp 0.4s ease both; }
+
+  .results-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  .results-title em { color: var(--accent); font-style: normal; }
+  .results-subtitle {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.65;
+    max-width: 620px;
+    margin-bottom: 32px;
+  }
+  .results-subtitle strong { color: #888; }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  @media (min-width: 640px) {
+    .results-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Dark-skin overrides for product cards inside results */
+  .results-grid .product-card {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.1);
+    box-shadow: none;
+  }
+  .results-grid .product-card:hover {
+    border-color: var(--accent-border);
+    box-shadow: 0 4px 24px rgba(200,255,77,0.07);
+  }
+  .results-grid .product-card.is-best { border-color: var(--accent); }
+  .results-grid .pc-name-text  { color: #f0f0f0; }
+  .results-grid .pc-price      { color: #f0f0f0; }
+  .results-grid .pc-meta       { color: #444; }
+  .results-grid .pc-store-name { color: #777; }
+  .results-grid .pc-store-price{ color: #f0f0f0; }
+  .results-grid a.pc-store {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+  }
+  .results-grid a.pc-store:hover { background: rgba(255,255,255,0.07); }
+
+  .results-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 48px 20px;
+    color: #555;
+  }
+  .results-empty strong { color: #888; font-size: 1rem; display: block; margin-bottom: 8px; }
+
+  .results-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .btn-reset {
+    padding: 11px 20px;
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 8px;
+    background: transparent;
+    color: #666;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .btn-reset:hover { color: #fff; border-color: rgba(255,255,255,0.28); }
+  .btn-view-cat {
+    display: inline-block;
+    padding: 11px 22px;
+    background: var(--accent);
+    border-radius: 8px;
+    color: #0a0b0c;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .btn-view-cat:hover { background: var(--accent-dim); }
+</style>
+
+<div class="container quiz-wrap">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb" style="color:#444;">
+    <a href="{{ site_url }}/" style="color:#444;">Inicio</a>
+    <span style="color:#333;">›</span>
+    <span style="color:#555;">Test de suplementos</span>
+  </nav>
+
+  <!-- Progress indicator -->
+  <div class="quiz-progress-label" id="progressLabel">Paso 1 de 5</div>
+  <div class="quiz-progress" id="progressBar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5">
+    <div class="quiz-progress-step active" id="ps1"></div>
+    <div class="quiz-progress-step" id="ps2"></div>
+    <div class="quiz-progress-step" id="ps3"></div>
+    <div class="quiz-progress-step" id="ps4"></div>
+    <div class="quiz-progress-step" id="ps5"></div>
+  </div>
+
+  <!-- ── Paso 1 — Objetivo ─────────────────────────────── -->
+  <div class="quiz-step active" id="step1">
+    <p class="quiz-q">¿Cuál es tu <em>objetivo principal</em>?</p>
+    <div class="quiz-options" role="group" aria-label="Objetivo principal">
+      <button class="quiz-option" data-value="muscle" onclick="selectOption(this,1)">
+        <span class="qo-icon">🏋️</span>
+        <span class="qo-label">Ganar masa muscular</span>
+        <span class="qo-desc">Aumentar volumen y fuerza</span>
+      </button>
+      <button class="quiz-option" data-value="energy" onclick="selectOption(this,1)">
+        <span class="qo-icon">⚡</span>
+        <span class="qo-label">Más energía en el entreno</span>
+        <span class="qo-desc">Rendir más en cada sesión</span>
+      </button>
+      <button class="quiz-option" data-value="recovery" onclick="selectOption(this,1)">
+        <span class="qo-icon">🔄</span>
+        <span class="qo-label">Recuperación post-entreno</span>
+        <span class="qo-desc">Reducir agujetas y fatiga</span>
+      </button>
+      <button class="quiz-option" data-value="performance" onclick="selectOption(this,1)">
+        <span class="qo-icon">💪</span>
+        <span class="qo-label">Rendimiento general</span>
+        <span class="qo-desc">Mejorar resultados a largo plazo</span>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-btn-next" id="next1" onclick="goNext(1)">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- ── Paso 2 — Tipo de suplemento ──────────────────── -->
+  <div class="quiz-step" id="step2">
+    <p class="quiz-q">¿Qué tipo de suplemento te <em>interesa más</em>?</p>
+    <div class="quiz-options cols-3" role="group" aria-label="Tipo de suplemento">
+      <button class="quiz-option" data-value="proteina-whey" onclick="selectOption(this,2)">
+        <span class="qo-icon">🥛</span>
+        <span class="qo-label">Proteína Whey</span>
+        <span class="qo-desc">Para ganar músculo y recuperar</span>
+      </button>
+      <button class="quiz-option" data-value="creatina" onclick="selectOption(this,2)">
+        <span class="qo-icon">⚡</span>
+        <span class="qo-label">Creatina</span>
+        <span class="qo-desc">El más estudiado para fuerza</span>
+      </button>
+      <button class="quiz-option" data-value="bcaa" onclick="selectOption(this,2)">
+        <span class="qo-icon">💊</span>
+        <span class="qo-label">BCAA / Aminoácidos</span>
+        <span class="qo-desc">Recuperación y anti-catabolismo</span>
+      </button>
+      <button class="quiz-option" data-value="pre-entreno" onclick="selectOption(this,2)">
+        <span class="qo-icon">🔥</span>
+        <span class="qo-label">Pre-Entreno</span>
+        <span class="qo-desc">Energía y enfoque máximos</span>
+      </button>
+      <button class="quiz-option secondary" data-value="auto" onclick="selectOption(this,2)">
+        <span class="qo-icon">🤔</span>
+        <span class="qo-label">No estoy seguro</span>
+        <span class="qo-desc">Te recomendamos según tu objetivo</span>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-btn-back" onclick="goBack(2)">← Atrás</button>
+      <button class="quiz-btn-next" id="next2" onclick="goNext(2)">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- ── Paso 3 — Presupuesto ──────────────────────────── -->
+  <div class="quiz-step" id="step3">
+    <p class="quiz-q">¿Cuál es tu <em>presupuesto</em>?</p>
+    <div class="quiz-options" role="group" aria-label="Presupuesto">
+      <button class="quiz-option" data-value="cheap" onclick="selectOption(this,3)">
+        <span class="qo-icon">💰</span>
+        <span class="qo-label">Lo más barato posible</span>
+        <span class="qo-desc">Menos de 35 €/kg</span>
+      </button>
+      <button class="quiz-option" data-value="mid" onclick="selectOption(this,3)">
+        <span class="qo-icon">⚖️</span>
+        <span class="qo-label">Buena relación calidad-precio</span>
+        <span class="qo-desc">Entre 35 y 55 €/kg</span>
+      </button>
+      <button class="quiz-option" data-value="premium" onclick="selectOption(this,3)">
+        <span class="qo-icon">🏆</span>
+        <span class="qo-label">Lo mejor sin importar precio</span>
+        <span class="qo-desc">Más de 55 €/kg</span>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-btn-back" onclick="goBack(3)">← Atrás</button>
+      <button class="quiz-btn-next" id="next3" onclick="goNext(3)">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- ── Paso 4 — Tamaño ───────────────────────────────── -->
+  <div class="quiz-step" id="step4">
+    <p class="quiz-q">¿Qué <em>tamaño</em> prefieres?</p>
+    <div class="quiz-options" role="group" aria-label="Tamaño">
+      <button class="quiz-option" data-value="small" onclick="selectOption(this,4)">
+        <span class="qo-icon">🔹</span>
+        <span class="qo-label">Pequeño (&lt; 500 g)</span>
+        <span class="qo-desc">Ideal para probar</span>
+      </button>
+      <button class="quiz-option" data-value="medium" onclick="selectOption(this,4)">
+        <span class="qo-icon">📦</span>
+        <span class="qo-label">Mediano (500 g – 1 kg)</span>
+        <span class="qo-desc">El más común</span>
+      </button>
+      <button class="quiz-option" data-value="large" onclick="selectOption(this,4)">
+        <span class="qo-icon">📫</span>
+        <span class="qo-label">Grande (&gt; 1 kg)</span>
+        <span class="qo-desc">Mejor precio por kg</span>
+      </button>
+      <button class="quiz-option secondary" data-value="any" onclick="selectOption(this,4)">
+        <span class="qo-icon">↔️</span>
+        <span class="qo-label">Me da igual</span>
+        <span class="qo-desc">Sin preferencia de tamaño</span>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-btn-back" onclick="goBack(4)">← Atrás</button>
+      <button class="quiz-btn-next" id="next4" onclick="goNext(4)">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- ── Paso 5 — Tienda ───────────────────────────────── -->
+  <div class="quiz-step" id="step5">
+    <p class="quiz-q">¿Tienes alguna <em>tienda preferida</em>?</p>
+    <div class="quiz-options" id="storeOptions" role="group" aria-label="Tienda preferida">
+      <!-- Populated by JS -->
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-btn-back" onclick="goBack(5)">← Atrás</button>
+      <button class="quiz-btn-next" id="next5" onclick="showResults()">Ver mis recomendaciones →</button>
+    </div>
+  </div>
+
+  <!-- ── Loading ───────────────────────────────────────── -->
+  <div class="quiz-loading" id="quizLoading" aria-live="polite">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Analizando <strong>{{ products_count }}</strong> productos…</p>
+  </div>
+
+  <!-- ── Results ───────────────────────────────────────── -->
+  <div class="results-wrap" id="resultsWrap">
+    <h1 class="results-title">Tus recomendaciones <em>personalizadas</em></h1>
+    <p class="results-subtitle" id="resultsSummary"></p>
+    <div class="results-grid" id="resultsGrid"></div>
+    <div class="results-actions">
+      <button class="btn-reset" onclick="resetQuiz()">↩ Repetir test</button>
+      <a class="btn-view-cat" href="#" id="btnViewCat">Ver todos →</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+window.ALL_PRODUCTS = {{ products_json | safe }};
+</script>
+<script>
+(function () {
+  var PRODUCTS = window.ALL_PRODUCTS;
+
+  var STORE_COLORS = {
+    'HSN':         'var(--hsn)',
+    'Nutritienda': 'var(--nutritienda)',
+    'Prozis':      'var(--prozis)',
+    'MyProtein':   'var(--myprotein)',
+  };
+
+  var CAT_LABELS = {
+    'proteina-whey': 'Proteína Whey',
+    'creatina':      'Creatina',
+    'bcaa':          'BCAA',
+    'pre-entreno':   'Pre-Entreno',
+  };
+
+  var CAT_URLS = {
+    'proteina-whey': '{{ site_url }}/proteina-whey/',
+    'creatina':      '{{ site_url }}/creatina/',
+    'bcaa':          '{{ site_url }}/bcaa/',
+    'pre-entreno':   '{{ site_url }}/pre-entreno/',
+  };
+
+  var GOAL_TO_CAT = {
+    'muscle':      'proteina-whey',
+    'energy':      'pre-entreno',
+    'recovery':    'bcaa',
+    'performance': 'creatina',
+  };
+
+  /* ── State ────────────────────────────────────────────── */
+  var answers = { goal: null, supplement: null, budget: null, size: null, store: null };
+  var currentStep = 1;
+
+  /* ── Build store options from data ─────────────────────── */
+  var allStores = [];
+  (function () {
+    var seen = {};
+    PRODUCTS.forEach(function (p) {
+      p.precios.forEach(function (pr) {
+        if (!seen[pr.tienda]) { seen[pr.tienda] = true; allStores.push(pr.tienda); }
+      });
+    });
+    allStores.sort();
+  }());
+
+  var storeOptionsEl = document.getElementById('storeOptions');
+
+  allStores.forEach(function (store) {
+    var btn = document.createElement('button');
+    btn.className = 'quiz-option';
+    btn.setAttribute('data-value', store);
+    var color = STORE_COLORS[store] || '#888';
+    btn.innerHTML =
+      '<span class="qo-icon" style="display:inline-block;width:20px;height:20px;border-radius:50%;background:' + color + ';opacity:0.85;flex-shrink:0;"></span>' +
+      '<span class="qo-label">' + esc(store) + '</span>';
+    btn.addEventListener('click', function () { selectOption(btn, 5); });
+    storeOptionsEl.appendChild(btn);
+  });
+
+  var anyBtn = document.createElement('button');
+  anyBtn.className = 'quiz-option secondary';
+  anyBtn.setAttribute('data-value', 'any');
+  anyBtn.innerHTML =
+    '<span class="qo-icon">🔀</span>' +
+    '<span class="qo-label">Cualquiera</span>' +
+    '<span class="qo-desc">Mejor precio de todas las tiendas</span>';
+  anyBtn.addEventListener('click', function () { selectOption(anyBtn, 5); });
+  storeOptionsEl.appendChild(anyBtn);
+
+  /* ── Navigation helpers ─────────────────────────────────── */
+  window.selectOption = function (btn, step) {
+    var parent = btn.closest('.quiz-options');
+    parent.querySelectorAll('.quiz-option').forEach(function (b) { b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    var keys = ['goal', 'supplement', 'budget', 'size', 'store'];
+    answers[keys[step - 1]] = btn.getAttribute('data-value');
+    var nextBtn = document.getElementById('next' + step);
+    nextBtn.classList.add('enabled');
+  };
+
+  window.goNext = function (step) {
+    var keys = ['goal', 'supplement', 'budget', 'size', 'store'];
+    if (!answers[keys[step - 1]]) return;
+    document.getElementById('step' + step).classList.remove('active');
+    currentStep = step + 1;
+    document.getElementById('step' + currentStep).classList.add('active');
+    updateProgress(currentStep);
+    scrollToTop();
+  };
+
+  window.goBack = function (step) {
+    document.getElementById('step' + step).classList.remove('active');
+    currentStep = step - 1;
+    document.getElementById('step' + currentStep).classList.add('active');
+    updateProgress(currentStep);
+    scrollToTop();
+  };
+
+  function updateProgress(step) {
+    document.getElementById('progressLabel').textContent = 'Paso ' + step + ' de 5';
+    document.getElementById('progressBar').setAttribute('aria-valuenow', step);
+    for (var i = 1; i <= 5; i++) {
+      var el = document.getElementById('ps' + i);
+      el.className = 'quiz-progress-step';
+      if (i < step)        el.classList.add('done');
+      else if (i === step) el.classList.add('active');
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── Show results ────────────────────────────────────────── */
+  window.showResults = function () {
+    if (!answers.store) return;
+    document.getElementById('step5').classList.remove('active');
+    document.getElementById('progressLabel').style.visibility = 'hidden';
+    document.getElementById('progressBar').style.visibility = 'hidden';
+    document.getElementById('quizLoading').classList.add('active');
+    scrollToTop();
+
+    setTimeout(function () {
+      document.getElementById('quizLoading').classList.remove('active');
+      var data = getRecommendations(answers, PRODUCTS);
+      renderResults(data);
+    }, 1400);
+  };
+
+  /* ── Filtering & scoring ─────────────────────────────────── */
+  function getRecommendations(ans, products) {
+    var category = ans.supplement === 'auto'
+      ? (GOAL_TO_CAT[ans.goal] || 'proteina-whey')
+      : ans.supplement;
+
+    var base = products.filter(function (p) {
+      return p.categoria === category &&
+             p.precio_por_kg_min && p.precio_por_kg_min > 0 &&
+             (!p.peso_kg || p.peso_kg >= 0.15);
+    });
+
+    function applyBudget(arr, b) {
+      if (b === 'cheap')   return arr.filter(function (p) { return p.precio_por_kg_min < 35; });
+      if (b === 'mid')     return arr.filter(function (p) { return p.precio_por_kg_min >= 35 && p.precio_por_kg_min <= 55; });
+      if (b === 'premium') return arr.filter(function (p) { return p.precio_por_kg_min > 55; });
+      return arr;
+    }
+
+    function applySize(arr, s) {
+      if (s === 'any')    return arr;
+      if (s === 'small')  return arr.filter(function (p) { return p.peso_kg && p.peso_kg < 0.5; });
+      if (s === 'medium') return arr.filter(function (p) { return p.peso_kg && p.peso_kg >= 0.5 && p.peso_kg <= 1; });
+      if (s === 'large')  return arr.filter(function (p) { return p.peso_kg && p.peso_kg > 1; });
+      return arr;
+    }
+
+    function applyStore(arr, s) {
+      if (s === 'any') return arr;
+      return arr.filter(function (p) {
+        return p.precios.some(function (pr) { return pr.tienda === s; });
+      });
+    }
+
+    function sortAndSlice(arr) {
+      return arr.slice().sort(function (a, b) {
+        return (a.precio_por_kg_min || 9999) - (b.precio_por_kg_min || 9999);
+      }).slice(0, 6);
+    }
+
+    /* Progressive fallback — relax filters one by one until ≥ 3 results */
+    var result = applyStore(applySize(applyBudget(base, ans.budget), ans.size), ans.store);
+    if (result.length < 3) {
+      result = applyStore(applyBudget(base, ans.budget), ans.store);
+    }
+    if (result.length < 3) {
+      result = applyBudget(base, ans.budget);
+    }
+    if (result.length < 3) {
+      /* Expand budget range */
+      if (ans.budget === 'cheap')   result = base.filter(function (p) { return p.precio_por_kg_min < 45; });
+      else if (ans.budget === 'mid') result = base.filter(function (p) { return p.precio_por_kg_min >= 25 && p.precio_por_kg_min <= 70; });
+      else                           result = base.filter(function (p) { return p.precio_por_kg_min > 40; });
+    }
+    if (result.length < 3) {
+      result = base; /* last resort: all in category */
+    }
+
+    return { products: sortAndSlice(result), category: category };
+  }
+
+  /* ── Render results ──────────────────────────────────────── */
+  function renderResults(data) {
+    var products = data.products;
+    var category = data.category;
+
+    var goalLabels   = { muscle: 'ganar músculo', energy: 'más energía', recovery: 'recuperación', performance: 'rendimiento' };
+    var budgetLabels = { cheap: 'económico (< 35 €/kg)', mid: 'calidad-precio (35–55 €/kg)', premium: 'premium (> 55 €/kg)' };
+    var sizeLabels   = { small: 'formato pequeño', medium: 'formato mediano', large: 'formato grande', any: '' };
+
+    var catLabel = CAT_LABELS[category] || category;
+    var catUrl   = CAT_URLS[category] || '/';
+
+    var summary = 'Basado en tu objetivo de <strong>' + esc(goalLabels[answers.goal] || '') + '</strong>';
+    if (answers.budget) summary += ', presupuesto <strong>' + esc(budgetLabels[answers.budget] || '') + '</strong>';
+    var sizeText = sizeLabels[answers.size] || '';
+    if (sizeText) summary += ' y <strong>' + esc(sizeText) + '</strong>';
+    summary += '. Categoría: <strong>' + esc(catLabel) + '</strong>.';
+    document.getElementById('resultsSummary').innerHTML = summary;
+
+    document.getElementById('btnViewCat').href = catUrl;
+    document.getElementById('btnViewCat').textContent = 'Ver todos en ' + catLabel + ' →';
+
+    var grid = document.getElementById('resultsGrid');
+    grid.innerHTML = '';
+
+    if (products.length === 0) {
+      var empty = document.createElement('div');
+      empty.className = 'results-empty';
+      empty.innerHTML = '<strong>Sin resultados</strong>Prueba con otro presupuesto o elige "Cualquiera" en la tienda.';
+      grid.appendChild(empty);
+    } else {
+      products.forEach(function (p, idx) {
+        var precios = p.precios.slice().sort(function (a, b) { return a.precio_eur - b.precio_eur; });
+        var offer = precios[0];
+        var isBest = idx === 0;
+        var isDeal = offer.en_oferta && offer.precio_original;
+
+        var storesHtml = precios.map(function (pr, si) {
+          var color = STORE_COLORS[pr.tienda] || '#888';
+          var saleTag = pr.en_oferta ? '<span class="pc-store-sale">OFERTA</span>' : '';
+          var firstStyle = si === 0
+            ? ' style="background:rgba(255,107,43,0.08);border-color:rgba(255,107,43,0.2);"'
+            : '';
+          return '<a href="' + pr.url_afiliado + '" class="pc-store"' + firstStyle + ' target="_blank" rel="nofollow sponsored">' +
+            '<span class="pc-store-dot" style="background:' + color + ';"></span>' +
+            '<span class="pc-store-name">' + esc(pr.tienda) + '</span>' +
+            '<span class="pc-store-price">' + pr.precio_eur.toFixed(2) + ' €</span>' +
+            saleTag +
+            '</a>';
+        }).join('');
+
+        var badgeHtml = isBest
+          ? '<span class="pc-badge best">Mejor precio</span>'
+          : (isDeal ? '<span class="pc-badge deal">Descuento</span>' : '');
+
+        var pesoText   = p.peso_kg ? ' · ' + p.peso_kg.toFixed(2) + ' kg' : '';
+        var priceKgHtml = p.precio_por_kg_min
+          ? '<div class="pc-price-kg">' + p.precio_por_kg_min.toFixed(2) + ' €/kg</div>'
+          : '';
+        var oldPriceHtml = isDeal
+          ? '<div class="pc-price-old">' + offer.precio_original.toFixed(2) + ' €</div>'
+          : '';
+
+        var card = document.createElement('div');
+        card.className = 'product-card' + (isBest ? ' is-best' : '');
+        card.innerHTML =
+          '<div class="pc-top">' +
+            '<div class="pc-name">' +
+              '<span class="pc-name-text">' + esc(p.nombre_normalizado) + '</span>' +
+              badgeHtml +
+            '</div>' +
+            '<div class="pc-price-block">' +
+              '<div class="pc-price">' + offer.precio_eur.toFixed(2) + ' €</div>' +
+              priceKgHtml +
+              oldPriceHtml +
+            '</div>' +
+          '</div>' +
+          '<div class="pc-meta">' + esc(catLabel) + esc(pesoText) + ' · ' + esc(p.marca) + '</div>' +
+          '<div class="pc-stores">' + storesHtml + '</div>' +
+          '<div class="pc-actions">' +
+            '<a href="' + offer.url_afiliado + '" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>' +
+          '</div>';
+        grid.appendChild(card);
+      });
+    }
+
+    document.getElementById('resultsWrap').classList.add('active');
+    scrollToTop();
+  }
+
+  /* ── Reset ───────────────────────────────────────────────── */
+  window.resetQuiz = function () {
+    answers.goal = answers.supplement = answers.budget = answers.size = answers.store = null;
+    currentStep = 1;
+
+    document.querySelectorAll('.quiz-option').forEach(function (b) { b.classList.remove('selected'); });
+    document.querySelectorAll('.quiz-btn-next').forEach(function (b) { b.classList.remove('enabled'); });
+    document.getElementById('resultsWrap').classList.remove('active');
+    document.getElementById('resultsGrid').innerHTML = '';
+    document.getElementById('progressLabel').style.visibility = '';
+    document.getElementById('progressBar').style.visibility = '';
+    document.querySelectorAll('.quiz-step').forEach(function (s) { s.classList.remove('active'); });
+    document.getElementById('step1').classList.add('active');
+    updateProgress(1);
+    scrollToTop();
+  };
+
+  /* ── Utility ─────────────────────────────────────────────── */
+  function esc(str) {
+    return String(str == null ? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+}());
+</script>
+{% endblock %}
