@@ -785,7 +785,7 @@ window.ALL_PRODUCTS = {{ products_json | safe }};
 
   /* ── Utility ─────────────────────────────────────────────── */
   function esc(str) {
-    return String(str == null ? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    return String(str == null ? '' : str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
 }());

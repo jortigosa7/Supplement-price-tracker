@@ -1643,7 +1643,7 @@ window.ALL_PRODUCTS = [{"id": "bcaa-s-instantaneo-2-1-1-2-0-150g-desconocida", "
 
   /* ── Utility ─────────────────────────────────────────────── */
   function esc(str) {
-    return String(str == null ? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    return String(str == null ? '' : str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
 }());
