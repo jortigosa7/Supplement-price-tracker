@@ -41,7 +41,7 @@ def guardar_dataset(df: pd.DataFrame) -> tuple[str, str]:
     timestamp = datetime.now().strftime("%Y%m%d")
 
     columnas = ["nombre", "marca", "categoria", "precio_eur", "peso_kg",
-                "precio_por_kg", "tienda", "url", "fecha_scraping"]
+                "precio_por_kg", "tienda", "url", "imagen_url", "fecha_scraping"]
     cols_ok = [c for c in columnas if c in df.columns]
     df_out  = df[cols_ok].copy()
 

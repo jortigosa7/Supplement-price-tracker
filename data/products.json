@@ -1218,6 +1218,38 @@
       ]
     },
     {
+      "id": "creatina-monohidrato-200-mesh-300g-optimum-nutrition",
+      "nombre_normalizado": "Creatina Monohidrato 200 MESH 300g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.3,
+      "precio_por_kg_min": 51.63,
+      "precio_min": 15.49,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 15.49,
+          "url_afiliado": "https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-200-mesh-300g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        },
+        {
+          "tienda": "Prozis",
+          "precio_eur": 25.99,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-glycofusion-300-g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        }
+      ]
+    },
+    {
       "id": "battery-creatine-500g-rendimiento-deportivo",
       "nombre_normalizado": "Battery Creatine 500g",
       "categoria": "creatina",
@@ -1296,6 +1328,52 @@
       ]
     },
     {
+      "id": "creatine-xplode-powder-500-g-optimum-nutrition",
+      "nombre_normalizado": "CREATINE XPLODE POWDER 500 g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 69.2,
+      "precio_min": 34.6,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 34.6,
+          "url_afiliado": "https://www.nutritienda.com/es/olimp-creatine-xplode-powder-500g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "crea200-mesh-creatine-monohydrate-500g-optimum-nutrition",
+      "nombre_normalizado": "Crea200 Mesh Creatine Monohydrate 500g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 69.8,
+      "precio_min": 34.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 34.9,
+          "url_afiliado": "https://www.nutritienda.com/es/dmi-innovative-nutrition/crea200-mesh-creatine-monohydrate-500g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        }
+      ]
+    },
+    {
       "id": "crea-extreme-tank-300g-optimum-nutrition",
       "nombre_normalizado": "Crea Extreme Tank 300g",
       "categoria": "creatina",
@@ -1318,8 +1396,8 @@
         },
         {
           "tienda": "Prozis",
-          "precio_eur": 25.99,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-glycofusion-300-g",
+          "precio_eur": 28.99,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1350,8 +1428,8 @@
         },
         {
           "tienda": "Prozis",
-          "precio_eur": 28.99,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g",
+          "precio_eur": 38.99,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1375,38 +1453,6 @@
           "tienda": "Nutritienda",
           "precio_eur": 39.2,
           "url_afiliado": "https://www.nutritienda.com/es/olimp-creatine-monohydrate-powder-creapure-500-g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        }
-      ]
-    },
-    {
-      "id": "creatina-monohidratada-pura-300g-optimum-nutrition",
-      "nombre_normalizado": "Creatina Monohidratada Pura 300g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.3,
-      "precio_por_kg_min": 79.17,
-      "precio_min": 23.75,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 23.75,
-          "url_afiliado": "https://www.nutritienda.com/es/dietinat/creatina-monohidratada-pura-300g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        },
-        {
-          "tienda": "Prozis",
-          "precio_eur": 38.99,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1530,98 +1576,6 @@
       ]
     },
     {
-      "id": "battery-creatine-250g-suplemento-deportivo",
-      "nombre_normalizado": "Battery Creatine 250g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Suplemento Deportivo",
-      "peso_kg": 0.25,
-      "precio_por_kg_min": 83.6,
-      "precio_min": 20.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 20.9,
-          "url_afiliado": "https://www.nutritienda.com/es/battery-nutrition/battery-creatine-250g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        }
-      ]
-    },
-    {
-      "id": "r-weiler-focus-300g-olimp",
-      "nombre_normalizado": "R-Weiler Focus 300g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Olimp",
-      "peso_kg": 0.3,
-      "precio_por_kg_min": 86.0,
-      "precio_min": 25.8,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 25.8,
-          "url_afiliado": "https://www.nutritienda.com/es/olimp/r-weiler-focus-300g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        }
-      ]
-    },
-    {
-      "id": "creatina-monohidrato-300-g-optimum-nutrition",
-      "nombre_normalizado": "CREATINA MONOHIDRATO 300 g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.3,
-      "precio_por_kg_min": 86.33,
-      "precio_min": 25.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 25.9,
-          "url_afiliado": "https://www.nutritienda.com/es/nutrend-creatina-monohidrato-300g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        }
-      ]
-    },
-    {
-      "id": "finisher-creatine-300g-finisher",
-      "nombre_normalizado": "Finisher Creatine 300g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Finisher",
-      "peso_kg": 0.3,
-      "precio_por_kg_min": 89.7,
-      "precio_min": 26.91,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 26.91,
-          "url_afiliado": "https://www.nutritienda.com/es/finisher/finisher-creatine-300g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        }
-      ]
-    },
-    {
       "id": "creatina-soporte-de-rendimiento-325g-suplemento-rendimiento-deportivo",
       "nombre_normalizado": "Creatina+ Soporte de Rendimiento 325g",
       "categoria": "creatina",
@@ -1637,6 +1591,29 @@
           "tienda": "Nutritienda",
           "precio_eur": 29.95,
           "url_afiliado": "https://www.nutritienda.com/es/puori/creatina-soporte-de-rendimiento-325g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "creatina-y-electrolitos-312g-desconocida",
+      "nombre_normalizado": "Creatina y Electrolitos 312g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Bulk",
+      "peso_kg": 0.312,
+      "precio_por_kg_min": 96.12,
+      "precio_min": 29.99,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 29.99,
+          "url_afiliado": "https://www.nutritienda.com/es/bulk/creatina-y-electrolitos-312g",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1695,7 +1672,7 @@
       "nombre_normalizado": "Creatina Creapure® 300 g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Amix Nutrition",
+      "marca": "Prozis",
       "peso_kg": 0.3,
       "precio_por_kg_min": 116.63,
       "precio_min": 34.99,
@@ -1706,15 +1683,6 @@
           "tienda": "Prozis",
           "precio_eur": 34.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-creapure-300-g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        },
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 46.5,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cellup-oxystorm-348g-creatina-30-capsulas",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1838,40 +1806,26 @@
       ]
     },
     {
-      "id": "creatina-20-x-10g-nutrisport",
-      "nombre_normalizado": "CREATINA 20 x 10g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "NUTRISPORT",
-      "peso_kg": 0.01,
-      "precio_por_kg_min": 1584.0,
-      "precio_min": 15.84,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 15.84,
-          "url_afiliado": "https://www.nutritienda.com/es/nutrisport-creatina-100-20x5g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        }
-      ]
-    },
-    {
       "id": "the-creatine-creapure-sobres-monodosis-10g-optimum-nutrition",
       "nombre_normalizado": "THE Creatine (Creapure) |Sobres monodosis 10g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
       "peso_kg": 0.01,
-      "precio_por_kg_min": 1999.0,
-      "precio_min": 19.99,
-      "tienda_mas_barata": "MyProtein",
+      "precio_por_kg_min": 1161.0,
+      "precio_min": 11.61,
+      "tienda_mas_barata": "Nutritienda",
       "imagen_url": null,
       "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 11.61,
+          "url_afiliado": "https://www.nutritienda.com/es/nutrisport/creatine-monohydrate-creapure-20-sticks-3g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        },
         {
           "tienda": "MyProtein",
           "precio_eur": 19.99,
@@ -1930,21 +1884,21 @@
       ]
     },
     {
-      "id": "creatina-ph-x-90-caps-optimum-nutrition",
-      "nombre_normalizado": "CREATINA PH-X 90 Caps",
+      "id": "creator-120-caps-combina-5-tipos-de-creatinas",
+      "nombre_normalizado": "CREATOR 120 Caps",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
+      "marca": "Combina 5 tipos de creatinas",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 17.9,
+      "precio_min": 25.9,
       "tienda_mas_barata": "Nutritienda",
       "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 17.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creatina-ph-x-90-caps",
+          "precio_eur": 25.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creator-120-caps",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1999,52 +1953,6 @@
       ]
     },
     {
-      "id": "mega-creatine-monohydrate-1320-120-caps-optimum-nutrition",
-      "nombre_normalizado": "Mega Creatine Monohydrate 1320 120 Caps",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 29.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 29.9,
-          "url_afiliado": "https://www.nutritienda.com/es/scitec/mega-creatine-monohydrate-1320-120-capsulas",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        }
-      ]
-    },
-    {
-      "id": "creator-120-caps-combina-5-tipos-de-creatinas",
-      "nombre_normalizado": "CREATOR 120 Caps",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Combina 5 tipos de creatinas",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 25.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 25.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creator-120-caps",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        }
-      ]
-    },
-    {
       "id": "creatine-mix-120-caps-soul-project",
       "nombre_normalizado": "Creatine Mix 120 Caps",
       "categoria": "creatina",
@@ -2083,6 +1991,98 @@
           "tienda": "Nutritienda",
           "precio_eur": 114.3,
           "url_afiliado": "https://www.nutritienda.com/es/olimp/creatine-1250-megacaps-900-caps",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "creatina-ph-x-90-caps-optimum-nutrition",
+      "nombre_normalizado": "CREATINA PH-X 90 Caps",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 17.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 17.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creatina-ph-x-90-caps",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "creatine-1250-mega-caps-400-caps-optimum-nutrition",
+      "nombre_normalizado": "CREATINE 1250 Mega Caps - 400 Caps",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 43.8,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 43.8,
+          "url_afiliado": "https://www.nutritienda.com/es/olimp-creatine-1250-mega-caps-400caps",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "creatine-monohydrate-3000-mg-200-tabs-optimum-nutrition",
+      "nombre_normalizado": "Creatine Monohydrate 3000 mg  200 Tabs",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 20.95,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 20.95,
+          "url_afiliado": "https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-3000-mg-200-tabs",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "kre-alkalyn-1500-120-caps-nutrend",
+      "nombre_normalizado": "Kre-Alkalyn 1500 120 Caps",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "NUTREND",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 29.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 29.9,
+          "url_afiliado": "https://www.nutritienda.com/es/nutrend-kre-alkalyn-1500-120-caps",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -2771,7 +2771,7 @@
       "nombre_normalizado": "L-citrulina malato 300g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
-      "marca": "MyProtein",
+      "marca": "Amix Nutrition",
       "peso_kg": 0.3,
       "precio_por_kg_min": 39.97,
       "precio_min": 11.99,
@@ -2791,6 +2791,15 @@
           "tienda": "Prozis",
           "precio_eur": 19.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/l-citrulina-malato-300g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 46.5,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cellup-oxystorm-348g-creatina-30-capsulas",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -4059,29 +4068,6 @@
       ]
     },
     {
-      "id": "the-electro-hyrox-desconocida",
-      "nombre_normalizado": "THE Electro - HYROX",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "MyProtein",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 21.99,
-      "tienda_mas_barata": "MyProtein",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "MyProtein",
-          "precio_eur": 21.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electro-hyrox/14205282/",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-15"
-        }
-      ]
-    },
-    {
       "id": "impact-eaa-desconocida",
       "nombre_normalizado": "Impact EAA",
       "categoria": "pre-entreno",
@@ -4097,6 +4083,29 @@
           "tienda": "MyProtein",
           "precio_eur": 15.39,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-eaa/11985042/",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "the-electro-hyrox-desconocida",
+      "nombre_normalizado": "THE Electro - HYROX",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "MyProtein",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 21.99,
+      "tienda_mas_barata": "MyProtein",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "MyProtein",
+          "precio_eur": 21.99,
+          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electro-hyrox/14205282/",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,

@@ -6412,5 +6412,65 @@
     "fecha": "2026-04-15",
     "precio": 63.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "creatina-monohidrato-200-mesh-300g-optimum-nutrition",
+    "fecha": "2026-04-15",
+    "precio": 15.49,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-monohidrato-200-mesh-300g-optimum-nutrition",
+    "fecha": "2026-04-15",
+    "precio": 25.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatine-xplode-powder-500-g-optimum-nutrition",
+    "fecha": "2026-04-15",
+    "precio": 34.6,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "crea200-mesh-creatine-monohydrate-500g-optimum-nutrition",
+    "fecha": "2026-04-15",
+    "precio": 34.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-y-electrolitos-312g-desconocida",
+    "fecha": "2026-04-15",
+    "precio": 29.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "the-creatine-creapure-sobres-monodosis-10g-optimum-nutrition",
+    "fecha": "2026-04-15",
+    "precio": 11.61,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-1250-mega-caps-400-caps-optimum-nutrition",
+    "fecha": "2026-04-15",
+    "precio": 43.8,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-3000-mg-200-tabs-optimum-nutrition",
+    "fecha": "2026-04-15",
+    "precio": 20.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "kre-alkalyn-1500-120-caps-nutrend",
+    "fecha": "2026-04-15",
+    "precio": 29.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "l-citrulina-malato-300g-desconocida",
+    "fecha": "2026-04-15",
+    "precio": 46.5,
+    "tienda": "Nutritienda"
   }
 ]
