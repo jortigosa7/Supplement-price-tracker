@@ -17,6 +17,7 @@ DEBUG (si no encuentra productos):
 import re
 import time
 from .base import producto_base
+from playwright_stealth import Stealth
 
 TIENDA   = "HSN"
 BASE_URL = "https://www.hsnstore.com"
@@ -176,7 +177,10 @@ def scrape(debug: bool = False) -> list[dict]:
     productos_raw = []  # sin peso todavía
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
         context = browser.new_context(
             user_agent=(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -184,9 +188,11 @@ def scrape(debug: bool = False) -> list[dict]:
                 "Chrome/124.0.0.0 Safari/537.36"
             ),
             locale="es-ES",
+            viewport={"width": 1366, "height": 768},
             extra_http_headers={"Accept-Language": "es-ES,es;q=0.9,en;q=0.8"},
         )
         page = context.new_page()
+        Stealth().apply_stealth_sync(page)
 
         # ── Paso 1: scraping de listados de categoría ──────────────────────
         for cat in CATEGORIAS:

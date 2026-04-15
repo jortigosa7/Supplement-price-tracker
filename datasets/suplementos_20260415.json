@@ -1,5 +1,17 @@
 [
   {
+    "nombre":"BCAA'S INSTANTÁNEO 2:1:1 2.0 150g",
+    "marca":"",
+    "categoria":"BCAA",
+    "precio_eur":4.58,
+    "peso_kg":0.15,
+    "precio_por_kg":30.53,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/bcaas-instantaneo-2-1-1-2-0",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/b\/c\/bcaas-2-1-1-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
     "nombre":"Recovery Total 700g",
     "marca":"Vitobest",
     "categoria":"BCAA",
@@ -8,6 +20,7 @@
     "precio_por_kg":34.2,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/vitobest\/recovery-total-700g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -19,6 +32,7 @@
     "precio_por_kg":41.45,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/226ers\/high-energy-gel-bcaa-76g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -30,6 +44,7 @@
     "precio_por_kg":42.6,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/best-protein\/bcaa-glutamine-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -41,6 +56,7 @@
     "precio_por_kg":44.08,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/mega-plus\/bcaa-glutamine-concept-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -52,6 +68,7 @@
     "precio_por_kg":47.47,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amazin-foods\/bcaa-glutamina-400g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -63,6 +80,7 @@
     "precio_por_kg":53.0,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/quamtrax-direct\/bcaa-glutamine-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -74,17 +92,7 @@
     "precio_por_kg":53.0,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/zero-bcaa-300-g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Quantum 10.4 Revolt 800g",
-    "marca":"Anderson Research",
-    "categoria":"BCAA",
-    "precio_eur":44.91,
-    "peso_kg":0.8,
-    "precio_por_kg":56.14,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/anderson-research\/quantum-10-4-revolt-800g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1475405_prozis_zero-bcaa-300-g_lemon_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -96,6 +104,7 @@
     "precio_por_kg":56.63,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/bcaa-211-300-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1470643_prozis_bcaa-211-300-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -107,6 +116,7 @@
     "precio_por_kg":56.96,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/weider\/premium-bcaa-zero-811-l-glutamina-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -118,6 +128,7 @@
     "precio_por_kg":57.8,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/life-pro-nutrition\/bcaa-2-1-1-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -129,6 +140,7 @@
     "precio_por_kg":60.47,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/procell\/bcaa-glutamine-core-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -140,6 +152,7 @@
     "precio_por_kg":61.28,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/mutant\/hardcore-bcaa-390g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -151,6 +164,7 @@
     "precio_por_kg":68.81,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/quamtrax\/hydra-bcaas-420g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -162,6 +176,7 @@
     "precio_por_kg":68.83,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/be-essential\/glutamina-bcaas-211-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -173,6 +188,7 @@
     "precio_por_kg":71.19,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa\/after-post-entrenamiento-420g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -184,6 +200,7 @@
     "precio_por_kg":71.68,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/mega-plus\/bcaa-glutamine-600g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -195,6 +212,7 @@
     "precio_por_kg":72.25,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/muscletech\/amino-build-400g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -206,6 +224,7 @@
     "precio_por_kg":72.43,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/dedicated-nutrition\/bcaa-sensation-345g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -217,6 +236,19 @@
     "precio_por_kg":76.5,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/226ers-bcaa-8-1-1-300g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVO 4:1:1 (BCAA'S INSTANTÁNEOS) EN POLVO 150g",
+    "marca":"",
+    "categoria":"BCAA",
+    "precio_eur":12.1,
+    "peso_kg":0.15,
+    "precio_por_kg":80.67,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evo-4-1-1-bcaa-s-instantaneos-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evo-4-1-1-powder-hsn_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -228,6 +260,7 @@
     "precio_por_kg":81.04,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa\/bcaa-glutamina-zero-480g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -239,6 +272,7 @@
     "precio_por_kg":83.3,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/bcaa-811-300-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1721183_prozis_bcaa-811-300g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -250,6 +284,19 @@
     "precio_por_kg":86.6,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/zero-bcaa-150-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1472739_prozis_zero-bcaa-150-g_lemon_flavor_21.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOBCAA'S COMPLEX EN POLVO 150g",
+    "marca":"",
+    "categoria":"BCAA",
+    "precio_eur":13.28,
+    "peso_kg":0.15,
+    "precio_por_kg":88.53,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evobcaas-complex-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evobcaas-complex-powder-hsn_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -261,6 +308,7 @@
     "precio_por_kg":94.38,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/big\/bcaa-12-1-1-glutamina-kojak-400g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -272,6 +320,31 @@
     "precio_por_kg":94.64,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/scitec\/bcaa-xpress-280g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOBCAA'S 2.0 (BCAA'S 12:1:1 + GLUTAMINA) 150g",
+    "marca":"",
+    "categoria":"BCAA",
+    "precio_eur":14.44,
+    "peso_kg":0.15,
+    "precio_por_kg":96.27,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evobcaa-s-2-0-bcaas-12-1-1-glutamina",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evobcaa-powder-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"BCAA'S INSTANTÁNEO 4:1:1 2.0 150g",
+    "marca":"",
+    "categoria":"BCAA",
+    "precio_eur":15.6,
+    "peso_kg":0.15,
+    "precio_por_kg":104.0,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/bcaa-s-instantaneo-4-1-1-2-0",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/b\/c\/bcaas-4-1-1-raw-hsn_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -283,6 +356,7 @@
     "precio_por_kg":113.33,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amix-performance\/bcaa-instant-drink-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -294,6 +368,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/starlabs-nutrition\/4-1-1-anabolic-bcaa-150-capsulas",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -305,6 +380,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/keepgoing\/aminoacidos-ramificados-bcaa-120-caps",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -316,6 +392,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/dmi-innovative-nutrition\/muscle-bcaa-4-1-1-120-capsulas-vegetales",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -327,17 +404,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/mega-plus\/bcaa-4-1-1-competition-150-capsulas",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"AMINO RECOVERY 120 Caps",
-    "marca":"VICTORY ENDURANCE",
-    "categoria":"BCAA",
-    "precio_eur":18.39,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/victory-endurance-amino-recovery-120-caps",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -349,6 +416,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amazin-foods\/amino-recovery-120-capsulas",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -360,6 +428,19 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/226ers\/6-4-amino-glutamina-bcaas-120-caps",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"AMINO RECOVERY 120 Caps",
+    "marca":"VICTORY ENDURANCE",
+    "categoria":"BCAA",
+    "precio_eur":18.39,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/victory-endurance-amino-recovery-120-caps",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -371,6 +452,43 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amazin-foods\/bcaas-211-aminoacidos-ramificados-200-tabs",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Whey Amino Shot 25 ml 20 Viales",
+    "marca":"Best Body Nutrition",
+    "categoria":"BCAA",
+    "precio_eur":27.99,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/best-body-nutrition\/whey-amino-shot-20-viales",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVO 2:1:1 (BCAA'S 2:1:1 + VITAMINAS B6 Y B12)",
+    "marca":"",
+    "categoria":"BCAA",
+    "precio_eur":9.8,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evo-2-1-1-bcaas-vit-b6-b12-tabs-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVO 4:1:1 (BCAA'S 4:1:1 + VITAMINAS B6 Y B12)",
+    "marca":"",
+    "categoria":"BCAA",
+    "precio_eur":10.96,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evo-4-1-1-bcaas-gral-coated-tabs-front-hsn_1_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -382,6 +500,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/bcaa-811-180-tabs",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1560945_prozis_bcaa-811-180-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -393,6 +512,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/bcaa-glutamine-30-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1194731_prozis_bcaa--glutamine-30-servings_mango-and-peach_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -404,6 +524,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/amino-prime-caffeine-free-20-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1116237_prozis_amino-prime-caffeine-free-20-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -415,6 +536,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/amino-recovery-20-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1561733_prozis_amino-recovery-20-servings_fruit-fusion_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -426,6 +548,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/bcaa-411-100-tabs",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1523664_prozis_bcaa-411-100-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -437,6 +560,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/amino-prime-20-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1265459_prozis_amino-prime-20-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -448,6 +572,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/bcaa-811-360-tabs",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1548506_prozis_bcaa-811-360-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -459,6 +584,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/2-x-recovery-rtd-500-ml-wild-berry",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1354045_prozis_2-x-recovery-rtd-500-ml-wild-berry_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -470,6 +596,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/3-x-bcaa-drink-500-ml",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1684032_prozis_3-x-bcaa-drink-500-ml_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -481,6 +608,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/bcaa-glutamine-60-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1052262_prozis_bcaa--glutamine-60-servings_mango-and-peach_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -492,6 +620,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/bcaa-211-200-tabs",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1705791_prozis_bcaa-211-200-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -503,6 +632,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/2-x-recovery-rtd-500-ml-orange",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1350118_prozis_2-x-recovery-rtd-500-ml-orange_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -514,6 +644,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/bcaa-211-400-tabs",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1705805_prozis_bcaa-211-400-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -525,6 +656,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/bcaa-2-1-1\/10529280\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -536,6 +668,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/bcaa-comprimidos\/10529813\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -547,6 +680,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/bcaa-esenciales-4-1-1-capsulas\/10860388\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -558,6 +692,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/origin-intra-workout\/16872733\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -569,39 +704,91 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/bcaa-4-1-1-en-polvo\/10830546\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Cellbest Extreme 1.3 Kg",
-    "marca":"Vitobest",
+    "nombre":"EVOCREATINE 500g",
+    "marca":"",
     "categoria":"Creatina",
-    "precio_eur":33.12,
-    "peso_kg":1.3,
-    "precio_por_kg":25.48,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/vitobest\/cellbest-extreme-1300g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Creatine Monohydrate 800g",
-    "marca":"QNT Sport",
-    "categoria":"Creatina",
-    "precio_eur":39.85,
-    "peso_kg":0.8,
-    "precio_por_kg":49.81,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/qnt-sport\/creatine-monohydrate-800g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Battery Creatine 500g",
-    "marca":"Rendimiento Deportivo",
-    "categoria":"Creatina",
-    "precio_eur":26.99,
+    "precio_eur":9.99,
     "peso_kg":0.5,
-    "precio_por_kg":53.98,
+    "precio_por_kg":19.98,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evocreatine",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evocreatine-gral-front-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":4.0,
+    "peso_kg":0.15,
+    "precio_por_kg":26.67,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/creatina-monohidrato-en-polvo-200-mesh",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/c\/r\/creatine-monohydrate-200-mesh-gral-front-v5-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CREATINA MONOHIDRATO ULTRAFINA EN POLVO (500 MESH) 500g",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":15.07,
+    "peso_kg":0.5,
+    "precio_por_kg":30.14,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/creatina-monohidrato-ultrafina-en-polvo-500-mesh",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/c\/r\/creatine-monohydrate-500-mesh-gral-front-v3-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Muscle Recovery 900g",
+    "marca":"Gold Nutrition",
+    "categoria":"Creatina",
+    "precio_eur":32.39,
+    "peso_kg":0.9,
+    "precio_por_kg":35.99,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/battery-nutrition\/battery-creatine-500g",
+    "url":"https:\/\/www.nutritienda.com\/es\/gold-nutrition\/muscle-recovery-900g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Creatine Monohydrate Powder 500 g",
+    "marca":"Vitobest | Nutritienda",
+    "categoria":"Creatina",
+    "precio_eur":23.28,
+    "peso_kg":0.5,
+    "precio_por_kg":46.56,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/vitobest\/creatine-monohydrate-powder-500g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Creatina Monohidrato 200 MESH 300g",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":15.49,
+    "peso_kg":0.3,
+    "precio_por_kg":51.63,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/drasanvi\/creatina-monohidrato-200-mesh-300g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Creatina+ Sugar Free 300g",
+    "marca":"Rendimiento Premium",
+    "categoria":"Creatina",
+    "precio_eur":15.5,
+    "peso_kg":0.3,
+    "precio_por_kg":51.67,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/nutriversum\/creatina-sugar-free-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -613,6 +800,7 @@
     "precio_por_kg":59.6,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/applied-nutrition\/creatine-monohydrate-micronized-sabor-neutro-250g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -624,6 +812,7 @@
     "precio_por_kg":62.25,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amazin-foods\/creatina-creapure-400g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -635,39 +824,43 @@
     "precio_por_kg":67.96,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia\/17526822\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/17526823-1475290420730151.png&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Crea Extreme Tank 300g",
-    "marca":"Beverly Nutrition",
-    "categoria":"Creatina",
-    "precio_eur":21.25,
-    "peso_kg":0.3,
-    "precio_por_kg":70.83,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/beverly-nutrition\/crea-extreme-tank-300g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Crea200 Mesh Creatine Monohydrate 300g",
-    "marca":"DMI Innovative Nutrition",
-    "categoria":"Creatina",
-    "precio_eur":22.5,
-    "peso_kg":0.3,
-    "precio_por_kg":75.0,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/dmi-innovative-nutrition\/crea200-mesh-creatine-monohydrate-300g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"CREATINE MONOHYDRATE POWDER (CREAPURE) 500 g",
+    "nombre":"CREATINE XPLODE POWDER 500 g",
     "marca":"OLIMP SPORT NUTRITION",
     "categoria":"Creatina",
-    "precio_eur":39.2,
+    "precio_eur":34.6,
     "peso_kg":0.5,
-    "precio_por_kg":78.4,
+    "precio_por_kg":69.2,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/olimp-creatine-monohydrate-powder-creapure-500-g",
+    "url":"https:\/\/www.nutritienda.com\/es\/olimp-creatine-xplode-powder-500g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Crea200 Mesh Creatine Monohydrate 500g",
+    "marca":"DMI Innovative Nutrition",
+    "categoria":"Creatina",
+    "precio_eur":34.9,
+    "peso_kg":0.5,
+    "precio_por_kg":69.8,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/dmi-innovative-nutrition\/crea200-mesh-creatine-monohydrate-500g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Creamax Monohydrate 200g",
+    "marca":"4Pro Nutrition",
+    "categoria":"Creatina",
+    "precio_eur":15.3,
+    "peso_kg":0.2,
+    "precio_por_kg":76.5,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/4pro-nutrition\/creamax-monohydrate-200g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -679,17 +872,19 @@
     "precio_por_kg":79.17,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/dietinat\/creatina-monohidratada-pura-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Creatine Ultra Fresh 200Mesh 300g",
-    "marca":"DMI Innovative Nutrition",
+    "nombre":"100% CREATINE MONOHYDRATE MICRONIZED 500g",
+    "marca":"",
     "categoria":"Creatina",
-    "precio_eur":23.9,
-    "peso_kg":0.3,
-    "precio_por_kg":79.67,
+    "precio_eur":39.9,
+    "peso_kg":0.5,
+    "precio_por_kg":79.8,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/dmi-innovative-nutrition\/creatine-ultra-fresh-200mesh-300g",
+    "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa-100-creatine-monohidrate-micronized-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -701,6 +896,7 @@
     "precio_por_kg":80.0,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/power-labs\/creatine-creapure-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -712,17 +908,7 @@
     "precio_por_kg":80.55,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/monohidrato-de-creatina-600-g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Pure Creatine Powder 300g",
-    "marca":"Fire Nutrition",
-    "categoria":"Creatina",
-    "precio_eur":24.9,
-    "peso_kg":0.3,
-    "precio_por_kg":83.0,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/fire-nutrition\/pure-creatine-powder-300g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1729534_prozis_creatine-monohydrate-600g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -734,28 +920,7 @@
     "precio_por_kg":83.32,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatine-monohydrate-600-g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Battery Creatine 250g",
-    "marca":"Suplemento Deportivo",
-    "categoria":"Creatina",
-    "precio_eur":20.9,
-    "peso_kg":0.25,
-    "precio_por_kg":83.6,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/battery-nutrition\/battery-creatine-250g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"R-Weiler Focus 300g",
-    "marca":"Olimp",
-    "categoria":"Creatina",
-    "precio_eur":25.8,
-    "peso_kg":0.3,
-    "precio_por_kg":86.0,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/olimp\/r-weiler-focus-300g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1455209_prozis_creatine-monohydrate-600-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -767,6 +932,7 @@
     "precio_por_kg":86.33,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/nutrend-creatina-monohidrato-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -778,6 +944,31 @@
     "precio_por_kg":86.63,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatina-glycofusion-300-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1419139_prozis_creatine-glycofusion-300-g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Mega Creatine Alkaline 500g",
+    "marca":"4PRO NUTRITION",
+    "categoria":"Creatina",
+    "precio_eur":43.55,
+    "peso_kg":0.5,
+    "precio_por_kg":87.1,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/4pro-nutrition\/mega-creatine-alkaline-500g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Creatina Monohydrate Creapure 300g",
+    "marca":"Quamtrax",
+    "categoria":"Creatina",
+    "precio_eur":26.9,
+    "peso_kg":0.3,
+    "precio_por_kg":89.67,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/quamtrax\/creatina-monohydrate-creapure-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -789,17 +980,19 @@
     "precio_por_kg":89.7,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/finisher\/finisher-creatine-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Creatina+ Soporte de Rendimiento 325g",
-    "marca":"Suplemento Rendimiento Deportivo",
+    "nombre":"Creatina y Electrolitos 312g",
+    "marca":"",
     "categoria":"Creatina",
-    "precio_eur":29.95,
-    "peso_kg":0.325,
-    "precio_por_kg":92.15,
+    "precio_eur":29.99,
+    "peso_kg":0.312,
+    "precio_por_kg":96.12,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/puori\/creatina-soporte-de-rendimiento-325g",
+    "url":"https:\/\/www.nutritienda.com\/es\/bulk\/creatina-y-electrolitos-312g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -811,28 +1004,31 @@
     "precio_por_kg":96.63,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/monohidrato-de-creatina-300-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1703477_prozis_creatine-monohydrate-300g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Platinum 100% Creatine Monohydrate 200g",
-    "marca":"Muscletech",
+    "nombre":"Creatina Monohidratada Creapure® 300g",
+    "marca":"NDL Pro-Health",
     "categoria":"Creatina",
-    "precio_eur":19.99,
-    "peso_kg":0.2,
-    "precio_por_kg":99.95,
+    "precio_eur":29.95,
+    "peso_kg":0.3,
+    "precio_por_kg":99.83,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/muscletech\/platinum-100-creatine-monohydrate-200g",
+    "url":"https:\/\/www.nutritienda.com\/es\/ndl-pro-health\/creatina-monohidratada-creapure-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"CREATINA CN 400 400g",
-    "marca":"Calidad Creapure",
+    "nombre":"KREA7 SUPERALKALINE POWDER 500g",
+    "marca":"Creatina",
     "categoria":"Creatina",
-    "precio_eur":41.4,
-    "peso_kg":0.4,
-    "precio_por_kg":103.5,
+    "precio_eur":53.91,
+    "peso_kg":0.5,
+    "precio_por_kg":107.82,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/nutrisport\/creatina-monohidrato-cn-creapure-400g",
+    "url":"https:\/\/www.nutritienda.com\/es\/ironmaxx\/krea7-superalkaline-powder-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -844,6 +1040,7 @@
     "precio_por_kg":116.63,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatina-creapure-300-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1690358_prozis_creatine-creapure-300g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -855,6 +1052,7 @@
     "precio_por_kg":116.65,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatina-micronpure-600g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1699030_prozis_creatine-micronpure-600g_lemon-lime_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -866,6 +1064,7 @@
     "precio_por_kg":116.65,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatina-micronpure-600-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1698843_prozis_creatine-micronpure-600-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -877,6 +1076,7 @@
     "precio_por_kg":123.63,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/zero-creatine-300-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1728564_prozis_zero-creatine-300-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -888,6 +1088,7 @@
     "precio_por_kg":129.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatina-micronpure-300-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1698735_prozis_creatine-micronpure-300g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -899,6 +1100,19 @@
     "precio_por_kg":133.62,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition\/pack-regalo-cellup-oxystorm-348g-creatina-30-capsulas",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CREATINA EXCELL (100% Creapure®) EN POLVO 150g",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":23.72,
+    "peso_kg":0.15,
+    "precio_por_kg":158.13,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/creatina-excell-100-creapure-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/c\/r\/creatine-creapure-excell-powder-hsn_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -910,6 +1124,7 @@
     "precio_por_kg":159.93,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/zero-creatine-150-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1727036_prozis_zero-creatine-150g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -921,17 +1136,7 @@
     "precio_por_kg":293.27,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatina-creapure-professional-150-g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"CREATINA 20 x 10g",
-    "marca":"NUTRISPORT",
-    "categoria":"Creatina",
-    "precio_eur":15.84,
-    "peso_kg":0.01,
-    "precio_por_kg":1584.0,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/nutrisport-creatina-100-20x5g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1474128_prozis_creatine-creapure-professional-150-g_natural_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -943,6 +1148,19 @@
     "precio_por_kg":1999.0,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/the-creatine-creapure-sobres-monodosis\/16630358\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/16630365-6065271206670603.jpg&format=webp&width=1500&height=1500&fit=cover",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Creatine Monohydrate Creapure 20 Sticks 3g",
+    "marca":"NutriSport",
+    "categoria":"Creatina",
+    "precio_eur":11.61,
+    "peso_kg":0.003,
+    "precio_por_kg":3870.0,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/nutrisport\/creatine-monohydrate-creapure-20-sticks-3g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -954,94 +1172,151 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amazin-foods\/kre-alkalyn-120-capsulas-vegetales",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"CREATINE 1250 Mega Caps - 120 Caps",
+    "nombre":"CREATINE 1250 Mega Caps - 400 Caps",
     "marca":"OLIMP SPORT NUTRITION",
     "categoria":"Creatina",
-    "precio_eur":14.45,
+    "precio_eur":43.8,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/olimp-creatine-1250-mega-caps-120caps",
+    "url":"https:\/\/www.nutritienda.com\/es\/olimp-creatine-1250-mega-caps-400caps",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"CREATINA PH-X 90 Caps",
-    "marca":"Creatina monohidrato tamponada",
+    "nombre":"Creatine Monohydrate 3000 mg  200 Tabs",
+    "marca":"200 tabletas",
     "categoria":"Creatina",
-    "precio_eur":17.9,
+    "precio_eur":20.95,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa\/creatina-ph-x-90-caps",
+    "url":"https:\/\/www.nutritienda.com\/es\/qnt-sport\/creatine-monohydrate-3000-mg-200-tabs",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Kre-Alkalyn 100 Caps",
-    "marca":"Vitobest",
-    "categoria":"Creatina",
-    "precio_eur":28.64,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/vitobest\/kre-alkalyn-100-capsulas",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"R-Weiler Focus Shot 60 ml 9 Viales",
-    "marca":"Olimp",
-    "categoria":"Creatina",
-    "precio_eur":41.0,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/olimp\/r-weiler-focus-shot-60-ml-9-viales",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Mega Creatine Monohydrate 1320 120 Caps",
-    "marca":"Scitec",
+    "nombre":"Kre-Alkalyn 1500 120 Caps",
+    "marca":"NUTREND",
     "categoria":"Creatina",
     "precio_eur":29.9,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/scitec\/mega-creatine-monohydrate-1320-120-capsulas",
+    "url":"https:\/\/www.nutritienda.com\/es\/nutrend-kre-alkalyn-1500-120-caps",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"CREATOR 120 Caps",
-    "marca":"Combina 5 tipos de creatinas",
+    "nombre":"Creatine HCL 120 Caps",
+    "marca":"Amix Pro",
     "categoria":"Creatina",
-    "precio_eur":25.9,
+    "precio_eur":28.9,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa\/creator-120-caps",
+    "url":"https:\/\/www.nutritienda.com\/es\/amix-pro\/creatine-hcl-120-caps",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Creatine Mix 120 Caps",
-    "marca":"Soul Project",
+    "nombre":"KR2 Creapure PH10  120 Caps",
+    "marca":"Starlabs Nutrition",
     "categoria":"Creatina",
-    "precio_eur":28.0,
+    "precio_eur":22.86,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/soul-project\/creatine-mix-120-caps",
+    "url":"https:\/\/www.nutritienda.com\/es\/starlabs-nutrition\/kr2-creapure-ph10-120-capsulas",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Creatine 1250 Megacaps 900 Caps",
-    "marca":"Creatina Monohidrato",
+    "nombre":"KRE-ALKALYN 2500 - 120 Caps",
+    "marca":"OLYMP SPORT NUTRITION",
     "categoria":"Creatina",
-    "precio_eur":114.3,
+    "precio_eur":38.9,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/olimp\/creatine-1250-megacaps-900-caps",
+    "url":"https:\/\/www.nutritienda.com\/es\/olymp-kre-alkalyn-2500-120caps",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CREATINE COMPRESSED 120 Caps",
+    "marca":"NUTREND",
+    "categoria":"Creatina",
+    "precio_eur":19.9,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/nutrend\/creatine-compressed-120-caps",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CREAGE CREATINE HCL 120 Caps",
+    "marca":"AMIX NUTRITION",
+    "categoria":"Creatina",
+    "precio_eur":29.5,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition-creage-creatine-hcl-120caps",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CREATINA EXCELL 1000mg (100% Creapure®)",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":14.44,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/creatina-excell-1000mg-100-creapure",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/c\/r\/creatine-creapure-vcaps-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CREATINA MONOHIDRATO (1000mg CREATINA)",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":8.65,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/creatina-monohidrato-1000mg-creatina",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/c\/r\/creatine-1000mg-gral-veg-caps-front-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOKALYN CREATINA ALCALINA",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":20.24,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evokalyn-creatina-alcalina",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evokalyn-creatine-veg-caps-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"KRE-ALKALYN® CREATINA 750mg",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":15.49,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/now-foods\/kre-alkalyn-creatina-750mg",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/k\/r\/kre-alkalyn-vcaps-now-foods_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1053,6 +1328,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatina-creapure-80-capsulas",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1524166_prozis_creatine-creapure-80-caps_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1064,6 +1340,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/monohidrato-de-creatina-90-comprimidos",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1399430_prozis_creatine-monohydrate-90-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1075,6 +1352,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatine-creapure-320-caps",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1524182_prozis_creatine-creapure-320-caps_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1086,17 +1364,19 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/creatina-creapure-90-comprimidos-masticables",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1516913_prozis_creatine-creapure-90-chewable-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
     "nombre":"Creatina Monohidrato en Tabletas",
     "marca":"",
     "categoria":"Creatina",
-    "precio_eur":27.99,
+    "precio_eur":16.49,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/creatina-monohidrato-en-tabletas\/10575029\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/10575029-5045293752284607.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1108,17 +1388,19 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/creatina-monohidrato-en-polvo\/10530050\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
     "nombre":"Gominolas de creatina",
     "marca":"",
     "categoria":"Creatina",
-    "precio_eur":8.99,
+    "precio_eur":4.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/gominolas-de-creatina\/13528283\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1130,17 +1412,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/creatina-micronizada-creapure-capsulas\/10574930\/",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Pack Get Stronger",
-    "marca":"",
-    "categoria":"Creatina",
-    "precio_eur":19.99,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"MyProtein",
-    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/pack-get-stronger\/14970298\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/10574930-2114860399336489.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1152,28 +1424,43 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/the-creatine-creapure\/10529740\/",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Pack Get Stronger",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":39.99,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"MyProtein",
+    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/pack-get-stronger\/14970298\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
     "nombre":"Pack Essentials Protein",
     "marca":"",
     "categoria":"Creatina",
-    "precio_eur":22.99,
+    "precio_eur":45.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/pack-essentials-protein\/15758094\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
     "nombre":"Pack Gainer",
     "marca":"",
     "categoria":"Creatina",
-    "precio_eur":29.99,
+    "precio_eur":59.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/pack-gainer\/13437013\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1185,17 +1472,19 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/creatina-hcl\/17169974\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
     "nombre":"Mezcla de Vitaminas",
     "marca":"",
     "categoria":"Creatina",
-    "precio_eur":11.99,
+    "precio_eur":23.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/mezcla-de-vitaminas\/11060427\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/1600\/1600\/11060427-1434737321495276.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1207,6 +1496,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/the-electropower-creatina-electrolitos\/16663175\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1218,17 +1508,19 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/the-electrofuel\/16570434\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
     "nombre":"Pack Clear Performance",
     "marca":"",
     "categoria":"Creatina",
-    "precio_eur":20.99,
+    "precio_eur":41.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/pack-clear-performance\/15288056\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1240,17 +1532,31 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/pack-de-rendimiento\/15722526\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/15722526-2115191423528350.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Pack Proteico",
+    "nombre":"BICARBONATO DE SODIO EN POLVO 150g",
     "marca":"",
-    "categoria":"Creatina",
-    "precio_eur":61.99,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"MyProtein",
-    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/pack-proteico\/15722525\/",
+    "categoria":"Pre-Entreno",
+    "precio_eur":0.87,
+    "peso_kg":0.15,
+    "precio_por_kg":5.8,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/bicarbonato-de-sodio-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/s\/o\/sodium-bicarbonate-front-gral-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"ISOMALTULOSA (Palatinose™) EN POLVO 1kg",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":8.06,
+    "peso_kg":1.0,
+    "precio_por_kg":8.06,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/isomaltulosa-palatinose-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/p\/a\/palatinose-powder-hsn1_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1262,6 +1568,7 @@
     "precio_por_kg":24.4,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/mega-plus\/pre-entreno-concept-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1273,6 +1580,7 @@
     "precio_por_kg":24.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/pre-workout-protein-mug-cake-speculoos-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1526654_prozis_pre-workout-protein-mug-cake-premix-speculoos-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1284,6 +1592,7 @@
     "precio_por_kg":24.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/pre-workout-protein-mug-cake-cafe-y-caramelo-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1526591_prozis_pre-workout-protein-mug-cake-premix-coffee--caramel-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1295,6 +1604,7 @@
     "precio_por_kg":24.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/pre-workout-protein-mug-cake-chocolate-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1526579_prozis_pre-workout-protein-mug-cake-premix-chocolate-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1306,6 +1616,7 @@
     "precio_por_kg":24.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1526642_prozis_pre-workout-protein-mug-cake-premix-vanilla--choco-chips-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1317,6 +1628,7 @@
     "precio_por_kg":28.74,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/energy-charge-preentrenamiento-800-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1559895_prozis_energy-charge-pre-workout-800-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1328,6 +1640,19 @@
     "precio_por_kg":30.3,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/n.o.-shox-1320g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1350727_prozis_no-shox-1320g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"BETA-ALANINA EN POLVO 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":4.58,
+    "peso_kg":0.15,
+    "precio_por_kg":30.53,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/beta-alanina-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/b\/e\/beta-alanine-powder-hsn_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1339,6 +1664,7 @@
     "precio_por_kg":31.94,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/big\/ciclo-amino-dextrin-1500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1350,6 +1676,7 @@
     "precio_por_kg":33.32,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/beta-alanina-900-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1712112_prozis_beta-alanine-900-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1361,6 +1688,7 @@
     "precio_por_kg":37.86,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/n.o.-shox-660-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1350704_prozis_no-shox-660-g_orange_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1372,6 +1700,19 @@
     "precio_por_kg":38.04,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition-smooth-8-hybrid-protein-2300g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"C2M Creatine 500g",
+    "marca":"Soul Project",
+    "categoria":"Pre-Entreno",
+    "precio_eur":20.5,
+    "peso_kg":0.5,
+    "precio_por_kg":41.0,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/soul-project\/c2m-creatine-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1383,6 +1724,31 @@
     "precio_por_kg":43.3,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/beta-alanina-300-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1712098_prozis_beta-alanine-300-g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Glycopump® (GLICEROL) EN POLVO 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":6.9,
+    "peso_kg":0.15,
+    "precio_por_kg":46.0,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/glycopump-glicerol-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/g\/l\/glycopump-glycerol-powder-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"L-CITRULINA BASE EN POLVO 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":7.48,
+    "peso_kg":0.15,
+    "precio_por_kg":49.87,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/l-citrulina-base-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/l\/-\/l-citrulline-base-powder-front-gral-hsn_1_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1394,6 +1760,7 @@
     "precio_por_kg":54.75,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amazin-foods\/pre-workout-wow-pre-entrenamiento-400g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1405,6 +1772,55 @@
     "precio_por_kg":56.63,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-arginina-300-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1727994_prozis_l-arginine-300-g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOBOMB 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":8.65,
+    "peso_kg":0.15,
+    "precio_por_kg":57.67,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evobomb",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evobomb-blackcurrant-gral-nb-front-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"L-ARGININA ALFA-CETOGLUTARATO (AAKG) EN POLVO 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":8.65,
+    "peso_kg":0.15,
+    "precio_por_kg":57.67,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/arginina-alfa-cetoglutarato-aakg-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/a\/a\/aakg-arginine-powder-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"D-RIBOSA EN POLVO 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":8.65,
+    "peso_kg":0.15,
+    "precio_por_kg":57.67,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/d-ribosa-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/d\/-\/d-ribose-powder-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"ÁCIDO MÁLICO EN POLVO 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":8.65,
+    "peso_kg":0.15,
+    "precio_por_kg":57.67,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/acido-malico-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/m\/a\/malic-acid-powder-hsn1_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1416,6 +1832,7 @@
     "precio_por_kg":63.92,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/nutred\/n1-pre-workout-510g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1427,6 +1844,7 @@
     "precio_por_kg":66.44,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/wheyland\/mode-on-pre-workout-450g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1438,6 +1856,19 @@
     "precio_por_kg":66.63,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-citrulina-malato-300g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1304266_prozis_l-citrulline-malate-300g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"BETA-ALANINA (CarnoSyn®) EN POLVO 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":11.54,
+    "peso_kg":0.15,
+    "precio_por_kg":76.93,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/beta-alanina-carnosyn-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/1\/0\/100-pure-beta-alanine-carnosyn-powder-gral-front-v2-hsn_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1449,6 +1880,7 @@
     "precio_por_kg":79.52,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-pre-entreno-venom\/17585477\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/17463022-1305288565142815.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1460,6 +1892,7 @@
     "precio_por_kg":80.3,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/procell\/prework-core-series-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1471,17 +1904,7 @@
     "precio_por_kg":83.17,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/yamamoto-nutrition\/bcaa-powder-811-300g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"REDWEILER 480 g",
-    "marca":"OLIMP SPORT NUTRITION",
-    "categoria":"Pre-Entreno",
-    "precio_eur":41.0,
-    "peso_kg":0.48,
-    "precio_por_kg":85.42,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/olimp-redweiler-480-g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1493,6 +1916,19 @@
     "precio_por_kg":90.88,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/optimun-nutrition-gold-standard-pre-workout-330g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Amino Energy Zero 360g",
+    "marca":"Biotech USA",
+    "categoria":"Pre-Entreno",
+    "precio_eur":32.9,
+    "peso_kg":0.36,
+    "precio_por_kg":91.39,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa\/amino-energy-zero-360g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1504,6 +1940,7 @@
     "precio_por_kg":93.27,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-citrulina-malato-150-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1458306_prozis_l-citrulline-malate-150g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1515,17 +1952,7 @@
     "precio_por_kg":99.84,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/universal-nutrition\/animal-fury-pre-entrenamiento-320g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Pre Workout 300g",
-    "marca":"226ers",
-    "categoria":"Pre-Entreno",
-    "precio_eur":31.5,
-    "peso_kg":0.3,
-    "precio_por_kg":105.0,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/226ers\/pre-workout-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1537,6 +1964,31 @@
     "precio_por_kg":110.7,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/cobra-labs\/the-shadow-270g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVORDX 2.0 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":17.34,
+    "peso_kg":0.15,
+    "precio_por_kg":115.6,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evordx-2-0",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evordx-gral-front-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Pre-Workout Pro St 300g",
+    "marca":"Crown Sport Nutrition",
+    "categoria":"Pre-Entreno",
+    "precio_eur":34.95,
+    "peso_kg":0.3,
+    "precio_por_kg":116.5,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/crown-sport-nutrition\/pre-workout-pro-st-300g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1548,6 +2000,7 @@
     "precio_por_kg":117.0,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/big\/nitro-speed-350g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1559,6 +2012,7 @@
     "precio_por_kg":119.96,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/l-ornitina-hcl-en-polvo\/10529383\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/1600\/1600\/10529383-1224689570490761.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1570,6 +2024,7 @@
     "precio_por_kg":127.5,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/origin-stim-free-pre-workout-muestra\/14269813\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/14269814-1535234423931405.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1581,6 +2036,7 @@
     "precio_por_kg":133.62,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition\/pack-regalo-cellup-oxystorm-348g-tribu-zma-30-caps",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1592,6 +2048,43 @@
     "precio_por_kg":147.9,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/l-teanina-en-polvo\/10530035\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/10530035-2005199723256404.jpg&format=webp&width=1500&height=1500&fit=cover",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CellZoom 315g",
+    "marca":"AMIX NUTRITION",
+    "categoria":"Pre-Entreno",
+    "precio_eur":53.5,
+    "peso_kg":0.315,
+    "precio_por_kg":169.84,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition-cellzoom-315g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOPUMP EN POLVO 150g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":26.62,
+    "peso_kg":0.15,
+    "precio_por_kg":177.47,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evopump-en-polvo",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evopump-powder-sportseries_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOBEAST 50g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":16.76,
+    "peso_kg":0.05,
+    "precio_por_kg":335.2,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evobeast",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evobeast-gral-hsn_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1603,6 +2096,19 @@
     "precio_por_kg":633.75,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/3-x-sachet-powa-3.0-pre-workout-17.8g-cola",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1678217_prozis_3-x-sachet-powa-30-pre-workout-178g-cola_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOSTAMINA 20g",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":17.34,
+    "peso_kg":0.02,
+    "precio_por_kg":867.0,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evostamina",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evostamina-hsn_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1614,28 +2120,7 @@
     "precio_por_kg":1014.0,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/3-x-sachet-powa-3.0-pre-workout-17.5g-apple",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Genesis 50 Caps",
-    "marca":"DEDICATED NUTRITION",
-    "categoria":"Pre-Entreno",
-    "precio_eur":29.99,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/dedicated-nutrition\/genesis-50-caps",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Black Blood Shot 60 ml",
-    "marca":"Biotech USA",
-    "categoria":"Pre-Entreno",
-    "precio_eur":2.7,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa\/black-blood-shot-60-ml",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1678187_prozis_3-x-sachet-powa-30-pre-workout-175g-apple_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1647,6 +2132,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition\/guarex-energy-mental-shot-20-viales-de-60ml",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1658,6 +2144,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/ironmaxx\/hellfire-fatburner-150-caps",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1669,6 +2156,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/monster-energy\/monster-absolutely-zero-500ml",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1680,17 +2168,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/nutrend\/caffeine-caps-60-capsulas",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"ARGININE AKG 150 Caps",
-    "marca":"Arginina Alfa-cetoglutarato",
-    "categoria":"Pre-Entreno",
-    "precio_eur":16.2,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/peak\/arginine-akg-150-caps",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1702,6 +2180,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/monster-energy\/monster-ultra-paradise-500-ml",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1713,6 +2192,7 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/monster-energy\/energy-500ml",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1724,17 +2204,163 @@
     "precio_por_kg":null,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/monster-energy\/monster-ultra-white-500ml",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"NOCCO BCAA 330ml",
-    "marca":"Rico en BCAA y cafeína",
+    "nombre":"NITRIX 2.0 180 Tabs",
+    "marca":"BSN",
     "categoria":"Pre-Entreno",
-    "precio_eur":1.95,
+    "precio_eur":36.9,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/nocco\/nocco-bcaa-330ml",
+    "url":"https:\/\/www.nutritienda.com\/es\/bsn\/nitrix-2-0-180-tabs",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"HELL‘S NO2 100 Caps",
+    "marca":"AMIX NUTRITION",
+    "categoria":"Pre-Entreno",
+    "precio_eur":37.0,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition-hells-no2-100caps",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Myo3 Xplode 120 Caps",
+    "marca":"Beverly Nutrition",
+    "categoria":"Pre-Entreno",
+    "precio_eur":36.9,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/beverly-nutrition\/myo3-xplode-120-caps",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"X-FAT 2 EN 1 SHOT 20 Viales de 60ml",
+    "marca":"Amix Nutrition",
+    "categoria":"Pre-Entreno",
+    "precio_eur":44.0,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/amix-nutrition\/x-fat-2-en-1-shot-20-viales-de-60ml",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EXTRACTO DE AMARANTO Oxystorm® (50:1) 650mg",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":26.68,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/extracto-de-amaranto-oxystorm-50-1-650mg",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/a\/m\/amaranthus-extract-oxystorm-650mg-gral-veg-caps-front-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"L-ALANIL-L-GLUTAMINA 300mg",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":23.2,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/l-alanil-l-glutamina-300mg",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/l\/-\/l-alanyl-l-glutamine-300mg-gral-veg-caps-front-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CAFEÍNA NATURAL 200mg",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":5.15,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/cafeina-natural-200mg",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/n\/a\/natural-caffeine-200mg-vcaps-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"ARGININA ALFA-CETOGLUTARATO 1000mg (AAKG)",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":10.38,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/arginina-alfa-cetoglutarato-1000mg-aakg",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/a\/a\/aakg-1000mg-veg-caps-hsn_1.jpg",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOPUMP",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":32.47,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evopump",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evopump-gral-veg-caps-front-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVORIPPED",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":21.68,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evoripped",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evoripped-gral-veg-caps-front-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"BETA-ALANINA 1000mg (CarnoSyn®)",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":17.34,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/beta-alanina-1000mg-carnosyn",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/c\/a\/carnosyn-beta-alanine-tabs-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CUTTING COMPLEX",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":15.43,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/vitaminalia\/cutting-complex",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/c\/u\/cutting-complex-general-can-front-v2-vitaminalia_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CAFEÍNA HÍBRIDA 200mg",
+    "marca":"",
+    "categoria":"Pre-Entreno",
+    "precio_eur":9.9,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/vitaminalia\/cafeina-hibrida-200mg",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/h\/y\/hybrid-caffeine-front-gral-v2-vitaminalia_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1746,6 +2372,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/big-shot-pre-workout-46-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1718232_prozis_big-shot-pre-workout-46-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1757,6 +2384,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/12-x-big-shot-pre-workout-60-ml",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1688671_prozis_12-x-big-shot-pre-workout-60-ml_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1768,6 +2396,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/powa-3.0-pre-workout-20-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1678105_prozis_powa-30-pre-workout-20-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1779,6 +2408,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/big-shot-pre-workout-sin-cafeina-46-dosis",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1719847_prozis_big-shot-pre-workout-caffeine-free-46-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1790,6 +2420,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/extreme-big-shot-pre-workout-20-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1722384_prozis_extreme-big-shot-pre-workout-20-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1801,6 +2432,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-citrulina-2250-mg-90-comprimidos",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1098607_prozis_l-citrulline-2250-mg-90-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1812,6 +2444,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/x-boost-ultimate-gaming-pre-workout-25-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1455345_prozis_x-boost-ultimate-gaming-pre-workout-25-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1823,6 +2456,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/big-shot-pre-workout-23-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1682695_prozis_big-shot-pre-workout-23-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1834,6 +2468,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-arginina-2400-mg-90-comprimidos",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1085293_prozis_l-arginine-2400-mg-90-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1845,6 +2480,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/beta-alanina-100-capsulas",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1676457_prozis_beta-alanine-100-caps_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1856,6 +2492,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/big-shot-pre-workout-8-sticks",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1519375_prozis_big-shot-pre-workout-8-sticks_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1867,6 +2504,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-arginina-l-ornitina-l-lisina-120-capsulas",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1474552_prozis_l-arginine-l-ornithine-l-lysine-120-caps_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1878,6 +2516,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/aakg-l-arginina-akg-60-capsulas",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1393293_prozis_aakg-l-arginine-akg-60-caps_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1889,6 +2528,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/2-x-big-shot-pre-workout-60ml",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1686700_prozis_2-x-big-shot-pre-workout-60ml_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1900,6 +2540,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/powa-3.0-pre-workout-40-servings",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1538385_prozis_powa-30-pre-workout-40-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1911,6 +2552,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/aakg-l-arginina-akg-180-capsulas",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1398695_prozis_aakg-l-arginine-akg-180-caps_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1922,6 +2564,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-arginina-2400-mg-180-comprimidos",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1085303_prozis_l-arginine-2400-mg-180-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1933,6 +2576,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-arginina-l-ornitina-l-lisina-360-capsulas",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1474563_prozis_l-arginine-l-ornithine-l-lysine-360-caps_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1944,6 +2588,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/big-shot-pre-workout-90-tabs",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1067347_prozis_big-shot-pre-workout-90-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1955,6 +2600,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/ripped-pre-workout-ultra-concentrated-20-dosis",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1268165_prozis_ripped-pre-workout-ultra-concentrated-20-servings_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1966,6 +2612,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/big-shot-pre-workout-180-tabs",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1067357_prozis_big-shot-pre-workout-180-tabs_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1977,6 +2624,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/beta-alanine-90-capsulas",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1712498_prozis_beta-alanine-90-caps_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1988,6 +2636,7 @@
     "precio_por_kg":null,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/2-x-n.o.-maxshot-60ml",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1281126_prozis_2-x-no-maxshot-60ml_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -1999,6 +2648,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/origin-pre-entreno\/12941037\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2010,6 +2660,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/the-electro-hyrox\/14205282\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2021,6 +2672,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-eaa\/11985042\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2032,6 +2684,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/cafeina-pura-comprimidos\/10529801\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2043,6 +2696,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/the-electrofuel-hyrox\/15152024\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2054,6 +2708,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/origin-pre-entreno-dry-scoop\/14024015\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2065,6 +2720,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/l-carnitina-comprimidos\/10530146\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2076,6 +2732,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/origin-pre-entreno-sin-estimulantes\/14269805\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2087,6 +2744,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/mezcla-pre-entreno\/11542703\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2098,6 +2756,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/citrulina-malato\/10529326\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2109,6 +2768,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/thermopure\/10530152\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2120,6 +2780,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/gel-pre-entreno\/10798884\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2131,6 +2792,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/l-glutamina-comprimidos\/10575971\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/10575971-8454860398486322.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2142,6 +2804,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/l-glutamina-en-polvo\/10636931\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2153,6 +2816,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/l-carnitina-liquida\/11162594\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2164,6 +2828,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/beta-alanina-en-polvo\/10529809\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2175,6 +2840,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-eaa-tablets\/12493001\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2186,6 +2852,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/aakg\/10529763\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2197,6 +2864,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/the-pre-workout\/11351672\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2208,6 +2876,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/gominolas-pre-entreno\/12899623\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/14921024-5125170364490654.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2219,6 +2888,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-pre-entreno-deadpool\/15771600\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2230,6 +2900,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/alpha-pre-entreno\/13757999\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2241,6 +2912,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/shot-pre-entreno\/12717736\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2252,6 +2924,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/origin-shred-pre-workout\/16547402\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2263,6 +2936,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/taurina-en-polvo\/10530303\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2274,6 +2948,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/pump-enhancer-capsulas\/10636965\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/10636965-8964860398690451.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2285,6 +2960,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/l-carnitina-en-polvo\/10529729\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2296,6 +2972,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-pre-entreno-lobezno\/15771601\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2307,6 +2984,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/l-tirosina-en-polvo\/10530186\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2318,6 +2996,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/hmb-comprimidos\/10636952\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/14234046-1145294264710698.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2329,6 +3008,19 @@
     "precio_por_kg":12.98,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/quamtrax\/massive-gainer-6-kg",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOWHEY & OATS 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":7.95,
+    "peso_kg":0.5,
+    "precio_por_kg":15.9,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evowhey-oats",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evowhey-and-oats-gral-hsn_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2340,6 +3032,31 @@
     "precio_por_kg":20.04,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/mezcla-de-rendimiento-todo-en-uno\/10530268\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/10530268-9535185426837065.jpg&format=webp&width=1500&height=1500&fit=cover",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"100% WHEY PROTEIN CONCENTRATE 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":11.76,
+    "peso_kg":0.5,
+    "precio_por_kg":23.52,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/100-whey-protein-concentrate",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/1\/0\/100-whey-protein-concentrate-gral-front-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"GOLDEN PROTEIN 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":12.5,
+    "peso_kg":0.5,
+    "precio_por_kg":25.0,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/essential-series\/golden-protein",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/g\/o\/golden-protein-hsn_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2351,6 +3068,7 @@
     "precio_por_kg":25.7,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/whey-fibre-700g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1722939_prozis_whey--fibre-700g_chocolate-hazelnuts_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2362,6 +3080,19 @@
     "precio_por_kg":26.8,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/procell\/whey-core-series-2-kg",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Predator Protein 4Kg",
+    "marca":"AMIX NUTRITION",
+    "categoria":"Proteinas Whey",
+    "precio_eur":118.5,
+    "peso_kg":4.0,
+    "precio_por_kg":29.62,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/predator-protein-4-kg",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2373,6 +3104,7 @@
     "precio_por_kg":31.24,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/sustituto-de-comida-800-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1446017_prozis_meal-replacement-800-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2384,6 +3116,7 @@
     "precio_por_kg":31.24,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/batido-sustitutivo-de-comida-army-800-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1350247_prozis_army-meal-replacement-shake-800-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2395,17 +3128,7 @@
     "precio_por_kg":31.5,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-real-whey-protein-2000g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"100% Whey Protein Bag 1000g",
-    "marca":"Nutrend",
-    "categoria":"Proteinas Whey",
-    "precio_eur":31.9,
-    "peso_kg":1.0,
-    "precio_por_kg":31.9,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/nutrend\/100-por-cien-whey-protein-bag-1000g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1622030_prozis_100-real-whey-protein-2000g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2417,6 +3140,7 @@
     "precio_por_kg":32.0,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/natural-real-whey-protein-2000g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1113464_prozis_natural-real-whey-protein-2000g_vanilla_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2428,6 +3152,19 @@
     "precio_por_kg":32.49,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/battery-nutrition\/battery-complete-whey-800g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"WHEY PROTEIN COMPLEX 100% - 2200 g",
+    "marca":"OLIMP SPORT NUTRITION",
+    "categoria":"Proteinas Whey",
+    "precio_eur":74.2,
+    "peso_kg":2.2,
+    "precio_por_kg":33.73,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/olimp-whey-protein-complex-2200g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2439,6 +3176,7 @@
     "precio_por_kg":34.72,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-real-whey-protein-1814g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1722166_prozis_100-real-whey-protein-1814g_cookies-and-cream_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2450,6 +3188,7 @@
     "precio_por_kg":34.94,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/fire-nutrition\/whey-force-complex-1800g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2461,6 +3200,19 @@
     "precio_por_kg":34.99,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-real-whey-protein-1000-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1730929_prozis_100-real-whey-protein-1000g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"100% WHEY PROTEIN ISOLATE 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":17.5,
+    "peso_kg":0.5,
+    "precio_por_kg":35.0,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/100-whey-protein-isolate",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/1\/0\/100-whey-protein-isolate-hsn_1.jpg",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2472,6 +3224,7 @@
     "precio_por_kg":35.28,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/natural-real-whey-protein-1814g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1722683_prozis_natural-real-whey-protein-1814g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2483,6 +3236,7 @@
     "precio_por_kg":35.54,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/whey-protein-fusion-900-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1042656_prozis_whey-protein-fusion-900-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2494,6 +3248,7 @@
     "precio_por_kg":35.9,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/dmi-innovative-nutrition\/essence-pro-whey-1-kg",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2505,6 +3260,7 @@
     "precio_por_kg":35.99,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-whey-prime-1000-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1559751_prozis_100-whey-prime-1000-g_vanilla_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2516,6 +3272,31 @@
     "precio_por_kg":35.99,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/natural-real-whey-protein-1000-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1113503_prozis_natural-real-whey-protein-1000-g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":18.04,
+    "peso_kg":0.5,
+    "precio_por_kg":36.08,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evoexcel-no-sweeteners-gral-front-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOEXCEL 2.0 (WHEY PROTEIN ISOLATE + CONCENTRATE) 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":18.04,
+    "peso_kg":0.5,
+    "precio_por_kg":36.08,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evoexcel-2-0-whey-protein-isolate-concentrate",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evoexcel-gral-front-hsn_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2527,17 +3308,7 @@
     "precio_por_kg":37.17,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/scitec\/100-beff-protein-1800g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"100% Pure Whey 1000g",
-    "marca":"Biotech USA",
-    "categoria":"Proteinas Whey",
-    "precio_eur":37.9,
-    "peso_kg":1.0,
-    "precio_por_kg":37.9,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/biotech-usa\/100-pure-whey-1000g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2549,6 +3320,7 @@
     "precio_por_kg":38.52,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/vitobest\/whey-protein-100-por-cien-2000g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2560,6 +3332,19 @@
     "precio_por_kg":38.58,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-real-whey-protein-907g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1721729_prozis_100-real-whey-protein-907g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOLATE 2.0 (WHEY ISOLATE CFM) 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":19.38,
+    "peso_kg":0.5,
+    "precio_por_kg":38.76,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evolate-2-0-whey-isolate-cfm",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evolate-2-0-gral-front-hsn_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2571,6 +3356,7 @@
     "precio_por_kg":38.99,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/xtreme-whey-protein-ss-2000-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1620276_prozis_xtreme-whey-protein-2000-g_chocolate_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2582,6 +3368,43 @@
     "precio_por_kg":39.68,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/natural-real-whey-protein-907g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1722610_prozis_natural-real-whey-protein-907g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOLATE 2.0 SIN EDULCORANTES (WHEY ISOLATE CFM) 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":19.92,
+    "peso_kg":0.5,
+    "precio_por_kg":39.84,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evolate-2-0-sin-edulcorantes-whey-isolate-cfm",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evolate-no-sweeteners-gral-front-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOHYDRO 2.0 (HYDRO WHEY) 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":20.09,
+    "peso_kg":0.5,
+    "precio_por_kg":40.18,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evohydro-2-0-hydro-whey",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evohydro-2-0-gral-front-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"100% PROTEÍNA DE SUERO HIDROLIZADO AISLADA 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":20.09,
+    "peso_kg":0.5,
+    "precio_por_kg":40.18,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/100-proteina-de-suero-hidrolizado-aislada",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/1\/0\/100-hydrolysed-whey-prot-iso-gral-front-hsn_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2593,6 +3416,7 @@
     "precio_por_kg":41.38,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/mega-plus\/100-whey-proteina-sabor-chocolate-con-leche-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2604,6 +3428,7 @@
     "precio_por_kg":41.98,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/fire-nutrition\/wheypro-concentrate-2-kg",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2615,6 +3440,7 @@
     "precio_por_kg":42.0,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/myprotein-impact-whey-isolate-chocolate-orange-5kg\/10962939\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2626,6 +3452,7 @@
     "precio_por_kg":42.47,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/whey-protein-freakin-good-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1367964_prozis_whey-protein-freakin-good-400-g_bonbon_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2637,6 +3464,19 @@
     "precio_por_kg":43.33,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/zero-diet-whey-1500-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1438383_prozis_zero-diet-whey-1500-g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Isolate Pro Zero 2 Kg",
+    "marca":"DMI Innovative Nutrition",
+    "categoria":"Proteinas Whey",
+    "precio_eur":86.9,
+    "peso_kg":2.0,
+    "precio_por_kg":43.45,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/dmi-innovative-nutrition\/isolate-pro-zero-2-kg",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2648,6 +3488,7 @@
     "precio_por_kg":44.93,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/keepgoing\/quick-recovery-600g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2659,17 +3500,7 @@
     "precio_por_kg":44.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-real-whey-protein-400-g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Clear Whey Protein y Colágeno 500g",
-    "marca":"",
-    "categoria":"Proteinas Whey",
-    "precio_eur":22.49,
-    "peso_kg":0.5,
-    "precio_por_kg":44.98,
-    "tienda":"MyProtein",
-    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-whey-protein-y-colageno\/17263290\/",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1636715_prozis_100-real-whey-protein-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2681,6 +3512,7 @@
     "precio_por_kg":46.21,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/cellucor\/c4-whey-protein-1700g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2692,6 +3524,7 @@
     "precio_por_kg":47.24,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/bavarian-elite\/isolad-3cfm-protein-1-kg",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2703,6 +3536,31 @@
     "precio_por_kg":47.47,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-whey-prime-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1559603_prozis_100-whey-prime-400-g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"100% Hydro Isolate 2000g",
+    "marca":"Scitec",
+    "categoria":"Proteinas Whey",
+    "precio_eur":95.5,
+    "peso_kg":2.0,
+    "precio_por_kg":47.75,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/scitec\/100-hydro-isolate-2000g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"Isolat Competition 1 Kg",
+    "marca":"Mega Plus",
+    "categoria":"Proteinas Whey",
+    "precio_eur":47.93,
+    "peso_kg":1.0,
+    "precio_por_kg":47.93,
+    "tienda":"Nutritienda",
+    "url":"https:\/\/www.nutritienda.com\/es\/mega-plus\/isolat-competition-1-kg",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2714,6 +3572,7 @@
     "precio_por_kg":47.95,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/fire-nutrition\/isozero-cfm-100-isolate-2-kg",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2725,17 +3584,19 @@
     "precio_por_kg":48.47,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/starlabs-nutrition-i-90-isolac-cfm-900g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"Whey Protein 100% 1 Kg",
-    "marca":"Vitobest",
+    "nombre":"WHEY PROTEIN ISOLATE 2000g",
+    "marca":"¡Perfecta solubilidad!",
     "categoria":"Proteinas Whey",
-    "precio_eur":48.6,
-    "peso_kg":1.0,
-    "precio_por_kg":48.6,
+    "precio_eur":99.9,
+    "peso_kg":2.0,
+    "precio_por_kg":49.95,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/vitobest\/whey-protein-100-1-kg",
+    "url":"https:\/\/www.nutritienda.com\/es\/quamtrax-direct\/whey-protein-isolate-2000g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2747,6 +3608,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/capuchino-proteico-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1244506_prozis_protein-cappuccino-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2758,6 +3620,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/latte-de-caramelo-proteico-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1244415_prozis_protein-caramel-latte-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2769,6 +3632,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/latte-de-avellana-proteico-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1244402_prozis_protein-hazelnut-latte-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2780,6 +3644,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/capuchino-proteico-con-cafeina-extra-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1244493_prozis_protein-cappuccino-extra-caffeine-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2791,6 +3656,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/latte-de-caramelo-proteico-con-cafeina-extra-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1244428_prozis_protein-caramel-latte-extra-caffeine-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2802,6 +3668,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/mocachino-proteico-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1244532_prozis_protein-mochaccino-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2813,6 +3680,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/latte-de-avellana-proteico-con-cafeina-extra-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1244389_prozis_protein-hazelnut-latte-extra-caffeine-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2824,6 +3692,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/mocachino-proteico-con-cafeina-extra-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1244519_prozis_protein-mochaccino-extra-caffeine-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2835,6 +3704,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/latte-proteico-400-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1244480_prozis_protein-latte-400-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2846,6 +3716,7 @@
     "precio_por_kg":50.16,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/natural-real-whey-isolate-1814-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1723086_prozis_natural-real-whey-isolate-1814-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2857,6 +3728,7 @@
     "precio_por_kg":50.65,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/zero-diet-whey-750-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1551843_prozis_zero-diet-whey-750-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2868,6 +3740,19 @@
     "precio_por_kg":51.66,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/crown-sport-nutrition\/whey-protein-871g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOHYDRO 30HD 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":25.94,
+    "peso_kg":0.5,
+    "precio_por_kg":51.88,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evohydro-30hd",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evohydro-30hd-hsn_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2879,6 +3764,7 @@
     "precio_por_kg":52.9,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/quamtrax\/isopro-cfm-1-kg",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2890,6 +3776,7 @@
     "precio_por_kg":53.05,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/cellucor\/c4-whey-protein-770g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2901,6 +3788,7 @@
     "precio_por_kg":54.87,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/drasanvi\/sport-live-iso-whey-protein-800g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2912,17 +3800,7 @@
     "precio_por_kg":55.12,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/natural-real-whey-isolate-907g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"Clear Whey Isolate 488g",
-    "marca":"Proteína Galardonada",
-    "categoria":"Proteinas Whey",
-    "precio_eur":26.95,
-    "peso_kg":0.488,
-    "precio_por_kg":55.23,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/myprotein\/clear-whey-isolate-488g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1723044_prozis_natural-real-whey-isolate-907g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2934,17 +3812,19 @@
     "precio_por_kg":55.95,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/purasana\/proteina-de-suero-sabor-vainilla-400g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"CFM Iso Zero Doypack\t 1 Kg",
-    "marca":"Big",
+    "nombre":"100% Whey Isolate 700g",
+    "marca":"Quamtrax Direct",
     "categoria":"Proteinas Whey",
-    "precio_eur":57.9,
-    "peso_kg":1.0,
-    "precio_por_kg":57.9,
+    "precio_eur":41.9,
+    "peso_kg":0.7,
+    "precio_por_kg":59.86,
     "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/big\/cfm-iso-zero-doypack-1-kg",
+    "url":"https:\/\/www.nutritienda.com\/es\/quamtrax-direct\/100-whey-isolate-700g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2956,17 +3836,7 @@
     "precio_por_kg":59.99,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-whey-hydro-isolate-clear-700g",
-    "fecha_scraping":"2026-04-15"
-  },
-  {
-    "nombre":"TOTAL WHEY 260g",
-    "marca":"Proteína Whey  cómodo formato",
-    "categoria":"Proteinas Whey",
-    "precio_eur":16.19,
-    "peso_kg":0.26,
-    "precio_por_kg":62.27,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/gold-nutrition\/total-whey-concentrado-de-suero-260g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1553769_prozis_100-whey-hydro-isolate-clear-700-g_mango-and-peach_flavor_21.png",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2978,6 +3848,7 @@
     "precio_por_kg":63.8,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/quamtrax\/isopro-cfm-provon-500g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -2989,6 +3860,7 @@
     "precio_por_kg":65.88,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/purasana\/proteina-de-suero-cacao-65-eco-400g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3000,6 +3872,19 @@
     "precio_por_kg":69.86,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/scitec\/100-hydro-isolate-700g",
+    "imagen_url":null,
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"AISLADO DE PROTEÍNA HIDROLIZADA CLEAR WHEY 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":38.94,
+    "peso_kg":0.5,
+    "precio_por_kg":77.88,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/raw-series\/aislado-de-proteina-hidrolizada-clear-whey",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/h\/y\/hydrolysed-clear-protein-hsn_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3011,6 +3896,7 @@
     "precio_por_kg":83.0,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/myvegan-vegan-protein-blend-sample\/11332873\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/12703800-1095173229247117.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3022,6 +3908,7 @@
     "precio_por_kg":83.0,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/aislado-de-proteina-de-soja-muestra\/11332868\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/12689516-1085173229180715.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3033,6 +3920,7 @@
     "precio_por_kg":92.25,
     "tienda":"Nutritienda",
     "url":"https:\/\/www.nutritienda.com\/es\/biotechusa\/iso-whey-clear-400g",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3044,6 +3932,19 @@
     "precio_por_kg":111.2,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/2-x-sachet-100-whey-prime-25g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1505030_prozis_2-x-sachet-100-whey-prime-25-g_1.png",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"KETO WHEY PROTEIN 500g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":65.0,
+    "peso_kg":0.5,
+    "precio_por_kg":130.0,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/keto-series\/keto-whey-protein",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/k\/e\/keto-whey-protein-hsnstore_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3055,17 +3956,91 @@
     "precio_por_kg":139.0,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/3-x-sachet-100-real-whey-protein-30-g",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1478451_prozis_3-x-sachet-100--real-whey-protein-30-g_1.png",
     "fecha_scraping":"2026-04-15"
   },
   {
-    "nombre":"FINISHER FUTURPRO 8 Sobres de 30g",
-    "marca":"Proteína de suero enriquecida",
+    "nombre":"CREMA DE ARROZ PROTEICA 50g",
+    "marca":"",
     "categoria":"Proteinas Whey",
-    "precio_eur":15.92,
+    "precio_eur":7.45,
+    "peso_kg":0.05,
+    "precio_por_kg":149.0,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/food-series\/crema-de-arroz-proteica",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/h\/i\/high-protein-rice-cream-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOBASIC WHEY 30g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":10.34,
     "peso_kg":0.03,
-    "precio_por_kg":530.67,
-    "tienda":"Nutritienda",
-    "url":"https:\/\/www.nutritienda.com\/es\/finisher\/futurpro-proteina-de-suero-8-sobres-de-30-sobres",
+    "precio_por_kg":344.67,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evobasic-whey",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evobasic-whey-gral-front-hsn_1_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CAFÉ PROTEICO #CaféFitConQ 35g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":16.19,
+    "peso_kg":0.035,
+    "precio_por_kg":462.57,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/food-series\/cafe-proteico-cafefitconq",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/p\/r\/protein-coffee-fitconq-front-v2-hsn_1_5_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"CAFÉ PROTEICO SIN EDULCORANTES #CaféFitConQ 35g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":16.19,
+    "peso_kg":0.035,
+    "precio_por_kg":462.57,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/food-series\/cafe-proteico-sin-edulcorantes-cafefitconq",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/c\/a\/cafefitconq-no-sweetener-500g-front-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOCLEAR HYDRO 25g",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":19.66,
+    "peso_kg":0.025,
+    "precio_por_kg":786.4,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evoclear-hydro",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evoclear-hydro-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOWHEY PROTEIN",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":11.76,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evowhey-protein",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evowhey-gral-new-front-hsn_1.webp",
+    "fecha_scraping":"2026-04-15"
+  },
+  {
+    "nombre":"EVOWHEY PROTEIN SIN EDULCORANTES",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":11.2,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evowhey-protein-sin-edulcorantes",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evowhey-no-sweetener-gral-front-hsn_1.webp",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3077,6 +4052,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-whey-protein-colageno\/17725536\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3088,6 +4064,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-whey-protein\/10530943\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3099,6 +4076,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-whey-isolate\/12081395\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3110,6 +4088,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-whey-isolate\/10530911\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3121,6 +4100,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/essential-whey-protein\/11052699\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3132,6 +4112,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/proteina-de-colageno\/11067704\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3143,6 +4124,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/crema-de-arroz\/13337581\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3154,6 +4136,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/mezcla-de-proteina-vegana\/11776868\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3165,6 +4148,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/mezcla-sustitutiva-de-comidas-proteica\/11324199\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3176,6 +4160,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/aislado-de-proteina-de-soja\/10529701\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3187,6 +4172,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/mezcla-ganador-de-peso\/10529988\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3198,6 +4184,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/aislado-de-proteina-de-guisante\/10530136\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3209,6 +4196,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-vegan-protein\/12360400\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3220,6 +4208,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/smoothie-para-el-desayuno\/13251950\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3231,6 +4220,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/myprotein-clear-whey-isolate-sample\/12081401\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3242,6 +4232,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-diet-whey\/10530657\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3253,6 +4244,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-whey-splash\/16111658\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3264,6 +4256,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/origin-protein-con-creatina\/15245849\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3275,6 +4268,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/caseina-de-liberacion-lenta\/10798909\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3286,6 +4280,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/origin-mass-gainer\/15607337\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3297,6 +4292,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-collagen-powder-tub\/12865492\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3308,6 +4304,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/supermezcla-de-clear-protein\/14843629\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3319,6 +4316,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/batidos-essential\/16670299\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3330,6 +4328,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/supermezcla-de-proteina-vegetal\/13972449\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3341,6 +4340,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-whey-electrolyte\/12869895\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3352,6 +4352,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/the-whey\/11353515\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3363,6 +4364,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/impact-whey-protein-elite\/11243021\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3374,6 +4376,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/proteina-de-suero-hidrolizada\/10529805\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3385,6 +4388,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/colageno-marino\/12376959\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3396,6 +4400,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-whey-gainer\/13096868\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3407,6 +4412,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/total-protein\/10529951\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3418,6 +4424,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/advanced-weight-gainer\/10615587\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3429,6 +4436,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/myvegan-plant-protein-superblend-sample\/13972456\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3440,6 +4448,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clara-de-huevo-en-polvo\/10529687\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3451,6 +4460,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-whey-x-chupa-chups-sabor-fresa\/14866280\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/14866281-1475093356308738.jpg&format=webp&width=1500&height=1500&fit=cover",
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3462,6 +4472,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-all-in-one\/13324944\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   },
   {
@@ -3473,6 +4484,7 @@
     "precio_por_kg":null,
     "tienda":"MyProtein",
     "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/origin-protein-iron-man-tarta-red-velvet-marvel\/16003857\/",
+    "imagen_url":null,
     "fecha_scraping":"2026-04-15"
   }
 ]

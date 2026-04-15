@@ -41,7 +41,7 @@
   "@type": "ItemList",
   "name": "Mejor Precio Pre-Entreno España",
   "description": "Compara pre-entrenos en España ordenados por €/kg. Precios actualizados de HSN, MyProtein, Nutritienda y Prozis.",
-  "numberOfItems": 23,
+  "numberOfItems": 34,
   "itemListElement": [
     
     
@@ -115,6 +115,27 @@
       "position": 4,
       "item": {
         "@type": "Product",
+        "name": "BETA-ALANINA EN POLVO 150g",
+        "brand": { "@type": "Brand", "name": "MyProtein" },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "EUR",
+          "lowPrice": "4.58",
+          "highPrice": "7.49",
+          "offerCount": 2,
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    },
+    
+    
+    
+    
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Product",
         "name": "CICLO AMINO DEXTRIN 1500g",
         "brand": { "@type": "Brand", "name": "BIG" },
         "offers": {
@@ -133,7 +154,7 @@
     
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "item": {
         "@type": "Product",
         "name": "Beta-alanina 900 g",
@@ -154,7 +175,7 @@
     
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "item": {
         "@type": "Product",
         "name": "N.O. Shox 660 g",
@@ -175,7 +196,7 @@
     
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "item": {
         "@type": "Product",
         "name": "SMOOTH-8 Hybrid Protein 2,3Kg",
@@ -196,7 +217,7 @@
     
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
       "item": {
         "@type": "Product",
         "name": "L-citrulina malato 300g",
@@ -217,37 +238,16 @@
     
     {
       "@type": "ListItem",
-      "position": 9,
-      "item": {
-        "@type": "Product",
-        "name": "Beta-alanina 300 g",
-        "brand": { "@type": "Brand", "name": "Optimun Nutrition Gold Standard Pre Workout 330G" },
-        "offers": {
-          "@type": "AggregateOffer",
-          "priceCurrency": "EUR",
-          "lowPrice": "12.99",
-          "highPrice": "29.99",
-          "offerCount": 2,
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    },
-    
-    
-    
-    
-    {
-      "@type": "ListItem",
       "position": 10,
       "item": {
         "@type": "Product",
-        "name": "PRE-WORKOUT WOW! 400g",
-        "brand": { "@type": "Brand", "name": "Amazin&#39; Foods" },
+        "name": "C2M Creatine 500g",
+        "brand": { "@type": "Brand", "name": "Soul Project" },
         "offers": {
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",
-          "lowPrice": "21.90",
-          "highPrice": "21.90",
+          "lowPrice": "20.50",
+          "highPrice": "20.50",
           "offerCount": 1,
           "availability": "https://schema.org/InStock"
         }
@@ -1149,7 +1149,7 @@
       Comparativa de pre-entrenos disponibles en tiendas españolas. Ordenado por precio/kg para que compares con criterio.
     </p>
     <div class="cat-stats">
-      <span>📦 <strong>23</strong> productos</span>
+      <span>📦 <strong>34</strong> productos</span>
       <span>🗓️ Actualizado: <strong>2026-04-15</strong></span>
       
       
@@ -1170,6 +1170,8 @@
         <div class="store-filters" id="storeFilters">
           <button class="store-filter-btn active" data-tienda="">Todas</button>
           
+          <button class="store-filter-btn" data-tienda="HSN">HSN</button>
+          
           <button class="store-filter-btn" data-tienda="MyProtein">MyProtein</button>
           
           <button class="store-filter-btn" data-tienda="Nutritienda">Nutritienda</button>
@@ -1184,8 +1186,6 @@
         <select class="filter-select" id="filterMarca">
           <option value="">Todas las marcas</option>
           
-          <option value="226ers">226ers</option>
-          
           <option value="Amazin&#39; Foods">Amazin&#39; Foods</option>
           
           <option value="Amix Nutrition">Amix Nutrition</option>
@@ -1194,7 +1194,13 @@
           
           <option value="Big">Big</option>
           
+          <option value="BioTechUSA">BioTechUSA</option>
+          
           <option value="Cobra Labs">Cobra Labs</option>
+          
+          <option value="Crown Sport Nutrition">Crown Sport Nutrition</option>
+          
+          <option value="HSN">HSN</option>
           
           <option value="MyProtein">MyProtein</option>
           
@@ -1209,6 +1215,8 @@
           <option value="Procell">Procell</option>
           
           <option value="Prozis">Prozis</option>
+          
+          <option value="Soul Project">Soul Project</option>
           
         </select>
       </div>
@@ -1230,14 +1238,14 @@
       
 
       <div class="filter-group filter-group--kg">
-        <span class="filter-label">€/kg: <span id="kgRangeLabel">24.4 – 120.0</span></span>
+        <span class="filter-label">€/kg: <span id="kgRangeLabel">24.4 – 177.5</span></span>
         <div class="range-wrap">
           <input type="range" class="range-input" id="rangeMin"
-            min="24.4" max="120.0" step="0.5"
+            min="24.4" max="177.5" step="0.5"
             value="24.4">
           <input type="range" class="range-input" id="rangeMax"
-            min="24.4" max="120.0" step="0.5"
-            value="120.0">
+            min="24.4" max="177.5" step="0.5"
+            value="177.5">
         </div>
       </div>
     </div>
@@ -1388,6 +1396,58 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/n.o.-shox-1320g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="HSN,MyProtein"
+         data-nombre="beta-alanina en polvo 150g"
+         data-marca="myprotein"
+         data-peso="150"
+         data-precio-kg="30.53"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/beta-alanina-en-polvo-150g-desconocida.webp" alt="BETA-ALANINA EN POLVO 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">BETA-ALANINA EN POLVO 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">4.58 €</div>
+          
+            <div class="pc-price-kg">30.53 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · MyProtein
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">4.58 €</span>
+          
+        </a>
+        
+        <a href="https://www.myprotein.es/p/nutricion-deportiva/beta-alanina-en-polvo/10529809/" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--myprotein);"></span>
+          <span class="pc-store-name">MyProtein</span>
+          <span class="pc-store-price">7.49 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
       </div>
     </div>
     
@@ -1617,7 +1677,7 @@
           
         </a>
         
-        <a href="https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cellup-oxystorm-348g-creatina-30-capsulas" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cellup-oxystorm-348g-tribu-zma-30-caps" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
           <span class="pc-store-name">Nutritienda</span>
           <span class="pc-store-price">46.50 €</span>
@@ -1627,6 +1687,51 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/citrulina-malato/10529326/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="Nutritienda"
+         data-nombre="c2m creatine 500g"
+         data-marca="soul project"
+         data-peso="500"
+         data-precio-kg="41.0"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/placeholder-pre-entreno.svg" alt="C2M Creatine 500g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">C2M Creatine 500g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">20.50 €</div>
+          
+            <div class="pc-price-kg">41.00 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.50 kg · Soul Project
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.nutritienda.com/es/soul-project/c2m-creatine-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
+          <span class="pc-store-name">Nutritienda</span>
+          <span class="pc-store-price">20.50 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.nutritienda.com/es/soul-project/c2m-creatine-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
       </div>
     </div>
     
@@ -1687,6 +1792,96 @@
     
     
     <div class="product-card"
+         data-tiendas="HSN"
+         data-nombre="glycopump® (glicerol) en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="46.0"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/glycopump-glicerol-en-polvo-150g-desconocida.webp" alt="Glycopump® (GLICEROL) EN POLVO 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">Glycopump® (GLICEROL) EN POLVO 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">6.90 €</div>
+          
+            <div class="pc-price-kg">46.00 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · HSN
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">6.90 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="HSN"
+         data-nombre="l-citrulina base en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="49.87"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/l-citrulina-base-en-polvo-150g-desconocida.webp" alt="L-CITRULINA BASE EN POLVO 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">L-CITRULINA BASE EN POLVO 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">7.48 €</div>
+          
+            <div class="pc-price-kg">49.87 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · HSN
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">7.48 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
          data-tiendas="Nutritienda"
          data-nombre="pre-workout wow! 400g"
          data-marca="amazin&#39; foods"
@@ -1734,7 +1929,7 @@
     <div class="product-card"
          data-tiendas="Prozis,Nutritienda"
          data-nombre="l-arginina 300 g"
-         data-marca="amix nutrition"
+         data-marca="crown sport nutrition"
          data-peso="300"
          data-precio-kg="56.63"
          data-tipo="">
@@ -1755,7 +1950,7 @@
         </div>
       </div>
       <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · Amix Nutrition
+        Pre-Entreno · 0.30 kg · Crown Sport Nutrition
       </div>
       <div class="pc-stores">
         
@@ -1766,16 +1961,196 @@
           
         </a>
         
-        <a href="https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cellup-oxystorm-348g-tribu-zma-30-caps" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.nutritienda.com/es/crown-sport-nutrition/pre-workout-pro-st-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
           <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">46.50 €</span>
+          <span class="pc-store-price">34.95 €</span>
           
         </a>
         
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/l-arginina-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="HSN"
+         data-nombre="evobomb 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="57.67"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/evobomb-150g-desconocida.webp" alt="EVOBOMB 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">EVOBOMB 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">8.65 €</div>
+          
+            <div class="pc-price-kg">57.67 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · HSN
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobomb" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">8.65 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobomb" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="HSN"
+         data-nombre="l-arginina alfa-cetoglutarato (aakg) en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="57.67"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/l-arginina-alfa-cetoglutarato-aakg-en-polvo-150g-desconocida.webp" alt="L-ARGININA ALFA-CETOGLUTARATO (AAKG) EN POLVO 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">L-ARGININA ALFA-CETOGLUTARATO (AAKG) EN POLVO 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">8.65 €</div>
+          
+            <div class="pc-price-kg">57.67 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · HSN
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">8.65 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="HSN"
+         data-nombre="d-ribosa en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="57.67"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/d-ribosa-en-polvo-150g-desconocida.webp" alt="D-RIBOSA EN POLVO 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">D-RIBOSA EN POLVO 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">8.65 €</div>
+          
+            <div class="pc-price-kg">57.67 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · HSN
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">8.65 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="HSN"
+         data-nombre="ácido málico en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="57.67"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/acido-malico-en-polvo-150g-desconocida.webp" alt="ÁCIDO MÁLICO EN POLVO 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">ÁCIDO MÁLICO EN POLVO 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">8.65 €</div>
+          
+            <div class="pc-price-kg">57.67 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · HSN
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">8.65 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
       </div>
     </div>
     
@@ -1866,6 +2241,51 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/wheyland/mode-on-pre-workout-450g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="HSN"
+         data-nombre="beta-alanina (carnosyn®) en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="76.93"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/beta-alanina-carnosyn-en-polvo-150g-desconocida.webp" alt="BETA-ALANINA (CarnoSyn®) EN POLVO 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">BETA-ALANINA (CarnoSyn®) EN POLVO 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">11.54 €</div>
+          
+            <div class="pc-price-kg">76.93 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · HSN
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/raw-series/beta-alanina-carnosyn-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">11.54 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/raw-series/beta-alanina-carnosyn-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
       </div>
     </div>
     
@@ -2010,42 +2430,42 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="redweiler 480 g"
-         data-marca="optimum nutrition"
-         data-peso="480"
-         data-precio-kg="85.42"
+         data-nombre="amino energy zero 360g"
+         data-marca="biotechusa"
+         data-peso="360"
+         data-precio-kg="91.39"
          data-tipo="">
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/redweiler-480-g-optimum-nutrition.webp" alt="REDWEILER 480 g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/placeholder-pre-entreno.svg" alt="Amino Energy Zero 360g" width="80" height="80" loading="lazy">
         </div>
         <div class="pc-name">
-          <span class="pc-name-text">REDWEILER 480 g</span>
+          <span class="pc-name-text">Amino Energy Zero 360g</span>
           
         </div>
         <div class="pc-price-block">
-          <div class="pc-price">41.00 €</div>
+          <div class="pc-price">32.90 €</div>
           
-            <div class="pc-price-kg">85.42 €/kg</div>
+            <div class="pc-price-kg">91.39 €/kg</div>
           
           
         </div>
       </div>
       <div class="pc-meta">
-        Pre-Entreno · 0.48 kg · Optimum Nutrition
+        Pre-Entreno · 0.36 kg · BioTechUSA
       </div>
       <div class="pc-stores">
         
-        <a href="https://www.nutritienda.com/es/olimp-redweiler-480-g" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.nutritienda.com/es/biotech-usa/amino-energy-zero-360g" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
           <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">41.00 €</span>
+          <span class="pc-store-price">32.90 €</span>
           
         </a>
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/olimp-redweiler-480-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/biotech-usa/amino-energy-zero-360g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
       </div>
     </div>
     
@@ -2145,51 +2565,6 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda"
-         data-nombre="pre workout 300g"
-         data-marca="226ers"
-         data-peso="300"
-         data-precio-kg="105.0"
-         data-tipo="">
-      <div class="pc-top">
-        <div class="pc-img">
-          <img src="/img/productos/pre-workout-300g-226ers.webp" alt="Pre Workout 300g" width="80" height="80" loading="lazy">
-        </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Pre Workout 300g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price">31.50 €</div>
-          
-            <div class="pc-price-kg">105.00 €/kg</div>
-          
-          
-        </div>
-      </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · 226ers
-      </div>
-      <div class="pc-stores">
-        
-        <a href="https://www.nutritienda.com/es/226ers/pre-workout-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
-          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
-          <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">31.50 €</span>
-          
-        </a>
-        
-      </div>
-      <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/226ers/pre-workout-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
-      </div>
-    </div>
-    
-    
-    
-    
-    
-    <div class="product-card"
-         data-tiendas="Nutritienda"
          data-nombre="the shadow 270 g"
          data-marca="cobra labs"
          data-peso="270"
@@ -2226,6 +2601,51 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/cobra-labs/the-shadow-270g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="HSN"
+         data-nombre="evordx 2.0 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="115.6"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/evordx-2-0-150g-desconocida.webp" alt="EVORDX 2.0 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">EVORDX 2.0 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">17.34 €</div>
+          
+            <div class="pc-price-kg">115.60 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · HSN
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/sport-series/evordx-2-0" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">17.34 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evordx-2-0" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
       </div>
     </div>
     
@@ -2319,6 +2739,96 @@
       </div>
     </div>
     
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="Nutritienda"
+         data-nombre="cellzoom 315g"
+         data-marca="optimum nutrition"
+         data-peso="315"
+         data-precio-kg="169.84"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/placeholder-pre-entreno.svg" alt="CellZoom 315g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">CellZoom 315g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">53.50 €</div>
+          
+            <div class="pc-price-kg">169.84 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.32 kg · Optimum Nutrition
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.nutritienda.com/es/amix-nutrition-cellzoom-315g" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
+          <span class="pc-store-name">Nutritienda</span>
+          <span class="pc-store-price">53.50 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.nutritienda.com/es/amix-nutrition-cellzoom-315g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="HSN"
+         data-nombre="evopump en polvo 150g"
+         data-marca="hsn"
+         data-peso="150"
+         data-precio-kg="177.47"
+         data-tipo="">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/evopump-en-polvo-150g-desconocida.webp" alt="EVOPUMP EN POLVO 150g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">EVOPUMP EN POLVO 150g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price">26.62 €</div>
+          
+            <div class="pc-price-kg">177.47 €/kg</div>
+          
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.15 kg · HSN
+      </div>
+      <div class="pc-stores">
+        
+        <a href="https://www.hsnstore.com/marcas/sport-series/evopump-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--hsn);"></span>
+          <span class="pc-store-name">HSN</span>
+          <span class="pc-store-price">26.62 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evopump-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+      </div>
+    </div>
+    
   </div>
 
   <div class="pagination" id="pagination">
@@ -2404,6 +2914,40 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
       Cápsulas, sachets, muestras y productos sin precio por kilogramo calculable.
     </p>
     <div class="others-list">
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          BICARBONATO DE SODIO EN POLVO 150g
+          <span class="other-marca">Optimum Nutrition</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/raw-series/bicarbonato-de-sodio-en-polvo" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 0.87 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          ISOMALTULOSA (Palatinose™) EN POLVO 1kg
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/raw-series/isomaltulosa-palatinose-en-polvo" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 8.06 €
+          </a>
+          
+        </div>
+      </div>
       
       
       <div class="other-item">
@@ -2510,6 +3054,23 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
       
       <div class="other-item">
         <div class="other-name">
+          EVOBEAST 50g
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evobeast" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 16.76 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
           3 x Sachet POWA 3.0 Pre-Workout 17.8g Cola
           <span class="other-marca">Prozis</span>
         </div>
@@ -2527,6 +3088,23 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
       
       <div class="other-item">
         <div class="other-name">
+          EVOSTAMINA 20g
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evostamina" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 17.34 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
           3 x Sachet POWA 3.0 Pre-Workout 17.5g Apple
           <span class="other-marca">Prozis</span>
         </div>
@@ -2536,40 +3114,6 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
           <a href="https://www.prozis.com/es/es/prozis/3-x-sachet-powa-3.0-pre-workout-17.5g-apple" class="store-pill store-prozis" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--prozis);"></span>
             Prozis · 5.07 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
-          Genesis 50 Caps
-          <span class="other-marca">Optimum Nutrition</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.nutritienda.com/es/dedicated-nutrition/genesis-50-caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 29.99 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
-          Black Blood Shot 60 ml
-          <span class="other-marca">BioTechUSA</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.nutritienda.com/es/biotech-usa/black-blood-shot-60-ml" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 2.70 €
           </a>
           
         </div>
@@ -2646,23 +3190,6 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
       
       <div class="other-item">
         <div class="other-name">
-          ARGININE AKG 150 Caps
-          <span class="other-marca">Peak</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.nutritienda.com/es/peak/arginine-akg-150-caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 16.20 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
           Monster Ultra Paradise 500 ml
           <span class="other-marca">Optimum Nutrition</span>
         </div>
@@ -2714,15 +3241,219 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
       
       <div class="other-item">
         <div class="other-name">
-          NOCCO BCAA 330ml
-          <span class="other-marca">Nocco</span>
+          NITRIX 2.0 180 Tabs
+          <span class="other-marca">BSN</span>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.nutritienda.com/es/nocco/nocco-bcaa-330ml" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.nutritienda.com/es/bsn/nitrix-2-0-180-tabs" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 1.95 €
+            Nutritienda · 36.90 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          HELL‘S NO2 100 Caps
+          <span class="other-marca">Optimum Nutrition</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.nutritienda.com/es/amix-nutrition-hells-no2-100caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
+            Nutritienda · 37.00 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          Myo3 Xplode 120 Caps
+          <span class="other-marca">Optimum Nutrition</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.nutritienda.com/es/beverly-nutrition/myo3-xplode-120-caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
+            Nutritienda · 36.90 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          X-FAT 2 EN 1 SHOT 20 Viales de 60ml
+          <span class="other-marca">Optimum Nutrition</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.nutritienda.com/es/amix-nutrition/x-fat-2-en-1-shot-20-viales-de-60ml" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
+            Nutritienda · 44.00 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          EXTRACTO DE AMARANTO Oxystorm® (50:1) 650mg
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/essential-series/extracto-de-amaranto-oxystorm-50-1-650mg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 26.68 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          L-ALANIL-L-GLUTAMINA 300mg
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/essential-series/l-alanil-l-glutamina-300mg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 23.20 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          CAFEÍNA NATURAL 200mg
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/essential-series/cafeina-natural-200mg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 5.15 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          ARGININA ALFA-CETOGLUTARATO 1000mg (AAKG)
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/essential-series/arginina-alfa-cetoglutarato-1000mg-aakg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 10.38 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          EVOPUMP
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evopump" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 32.47 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          EVORIPPED
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/sport-series/evoripped" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 21.68 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          BETA-ALANINA 1000mg (CarnoSyn®)
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/essential-series/beta-alanina-1000mg-carnosyn" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 17.34 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          CUTTING COMPLEX
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/vitaminalia/cutting-complex" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 15.43 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          CAFEÍNA HÍBRIDA 200mg
+          <span class="other-marca">HSN</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.hsnstore.com/marcas/vitaminalia/cafeina-hibrida-200mg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--hsn);"></span>
+            HSN · 9.90 €
           </a>
           
         </div>
@@ -3139,23 +3870,6 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
       
       <div class="other-item">
         <div class="other-name">
-          Impact EAA
-          <span class="other-marca">MyProtein</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-eaa/11985042/" class="store-pill store-myprotein" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--myprotein);"></span>
-            MyProtein · 15.39 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
           THE Electro - HYROX
           <span class="other-marca">MyProtein</span>
         </div>
@@ -3165,6 +3879,23 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
           <a href="https://www.myprotein.es/p/nutricion-deportiva/the-electro-hyrox/14205282/" class="store-pill store-myprotein" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--myprotein);"></span>
             MyProtein · 21.99 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          Impact EAA
+          <span class="other-marca">MyProtein</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-eaa/11985042/" class="store-pill store-myprotein" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--myprotein);"></span>
+            MyProtein · 15.39 €
           </a>
           
         </div>
@@ -3352,23 +4083,6 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
           <a href="https://www.myprotein.es/p/nutricion-deportiva/l-carnitina-liquida/11162594/" class="store-pill store-myprotein" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--myprotein);"></span>
             MyProtein · 20.99 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
-          Beta Alanina en polvo
-          <span class="other-marca">MyProtein</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.myprotein.es/p/nutricion-deportiva/beta-alanina-en-polvo/10529809/" class="store-pill store-myprotein" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--myprotein);"></span>
-            MyProtein · 7.49 €
           </a>
           
         </div>
