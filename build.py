@@ -21,6 +21,7 @@ Salida:
 """
 
 import json
+import math
 import os
 import re
 import sys
@@ -771,8 +772,8 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
 
     # Rango €/kg
     precios_kg = [p["precio_por_kg_min"] for p in prods_principales if p.get("precio_por_kg_min")]
-    precio_kg_min = round(min(precios_kg), 1) if precios_kg else 0
-    precio_kg_max = round(max(precios_kg), 1) if precios_kg else 999
+    precio_kg_min = math.floor(min(precios_kg) * 10) / 10 if precios_kg else 0
+    precio_kg_max = math.ceil(max(precios_kg) * 10) / 10 if precios_kg else 999
 
     # Ya vienen ordenados por precio_por_kg desde convertir_a_schema_web
     tiendas = sorted(set(
