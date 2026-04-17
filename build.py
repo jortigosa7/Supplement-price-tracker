@@ -497,12 +497,17 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
     grupos = agrupar_productos(productos_para_matching)
 
     def _first_enrich(precios: list[dict], field: str):
-        """Primer valor no-nulo del campo entre las entradas de precio del grupo."""
+        """Primer valor no-nulo/non-NaN del campo entre las entradas de precio del grupo."""
+        import math
         for pr in precios:
             url = pr.get("url_afiliado", "")
             val = enrichment_by_url.get(url, {}).get(field)
-            if val is not None:
-                return val
+            if val is None:
+                continue
+            # Filtrar NaN floats que pandas puede dejar en los records
+            if isinstance(val, float) and math.isnan(val):
+                continue
+            return val
         return None
 
     # Enriquecer con slug de categoría y categoria_display

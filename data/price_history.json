@@ -8938,5 +8938,275 @@
     "fecha": "2026-04-17",
     "precio": 29.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "bcaa-s-instantaneo-2-1-1-2-0-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 4.5,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "bcaa-s-instantaneo-4-1-1-2-0-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 5.64,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evo-4-1-1-bcaa-s-instantaneos-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 12.1,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobcaa-s-complex-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 13.06,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 14.19,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 10.77,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 9.64,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "zero-creatine-150-g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 2.37,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatine-clonapure-500g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 14.82,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evocreatine-500g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 16.48,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-excell-100-creapure-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 23.31,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-excell-1000mg-100-creapure-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 14.19,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-monohidrato-1000mg-creatina-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evokalyn-creatina-alcalina-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 19.89,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "kre-alkalyn-creatina-750mg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 15.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "isomaltulosa-palatinose-en-polvo-1kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 7.92,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobeast-1kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 16.48,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "glycopump-glicerol-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 6.79,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-citrulina-base-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 7.35,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobomb-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-arginina-alfa-cetoglutarato-aakg-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "d-ribosa-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "acido-malico-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evordx-2-0-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 17.04,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "beta-alanina-en-polvo-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 4.5,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "extracto-de-amaranto-oxystorm-50-1-650mg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 26.21,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-alanil-l-glutamina-300mg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 22.79,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "cafeina-natural-200mg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 5.15,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evopump-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 31.91,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evoripped-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 21.68,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-oats-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 7.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "crema-de-arroz-proteica-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobasic-whey-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 10.34,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-protein-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 11.76,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-protein-sin-edulcorantes-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 12.32,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "100-real-whey-protein-2000g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 16.14,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "xtreme-whey-protein-ss-2000-g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 18.04,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evolate-2-0-whey-isolate-cfm-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 19.38,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "100-whey-protein-isolate-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 19.38,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 19.92,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evohydro-2-0-hydro-whey-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 20.09,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "100-proteina-de-suero-hidrolizado-aislada-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 21.63,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evoclear-hydro-1kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 22.03,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "keto-whey-protein-2kg-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 65.0,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evohydro-30hd-500g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 22.75,
+    "tienda": "HSN"
   }
 ]
