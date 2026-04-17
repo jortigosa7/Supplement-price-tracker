@@ -4650,13 +4650,19 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
   const slot1    = document.getElementById('compareSlot1');
   const btnGo    = document.getElementById('compareBtnGo');
   const SITE_URL = 'https://stackfit.es';
+  const SLUGS    = new Set(["beta-alanina-300-g-desconocida-vs-evobeast-1kg-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-taurina-en-polvo-250g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-660-g-desconocida", "n-o-shox-1320g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "n-o-shox-660-g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-300-g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "evobeast-1kg-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "beta-alanina-300-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-en-polvo-150g-desconocida-vs-evobeast-1kg-desconocida", "evobomb-150g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-900-g-desconocida-vs-n-o-shox-1320g-desconocida", "beta-alanina-300-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "n-o-shox-1320g-desconocida-vs-n-o-shox-660-g-desconocida", "evobeast-1kg-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-en-polvo-150g-desconocida-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "beta-alanina-900-g-desconocida-vs-evobeast-1kg-desconocida", "evobeast-1kg-desconocida-vs-n-o-shox-1320g-desconocida", "cellex-unlimited-1-kg-optimum-nutrition-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "glycopump-glicerol-en-polvo-150g-descono-vs-l-citrulina-base-en-polvo-150g-desconoci", "nitrox-therapy-340g-biotechusa-vs-pump-caffeine-free-330g-biotechusa", "impact-pre-entreno-venom-440g-desconocid-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "smooth-8-hybrid-protein-2-3kg-optimum-nu-vs-taurina-en-polvo-250g-desconocida", "impact-pre-entreno-venom-440g-desconocid-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-beta-alanina-900-g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-impact-pre-entreno-venom-440g-desconocid", "beta-alanina-900-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "nitrox-therapy-340g-biotechusa-vs-supernova-282g-biotechusa", "evobomb-150g-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "energy-charge-preentrenamiento-800-g-des-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-900-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "cellex-unlimited-1-kg-optimum-nutrition-vs-pre-workout-explosive-1-kg-optimum-nutri", "beta-alanina-300-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "beta-alanina-900-g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-1320g-desconocida", "n-o-shox-1320g-desconocida-vs-taurina-en-polvo-250g-desconocida", "evobeast-1kg-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "n-o-shox-660-g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "pre-workout-explosive-1-kg-optimum-nutri-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-900-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-900-g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "pump-caffeine-free-330g-biotechusa-vs-supernova-282g-biotechusa", "beta-alanina-900-g-desconocida-vs-n-o-shox-660-g-desconocida", "n-o-shox-660-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-n-o-shox-660-g-desconocida", "evobeast-1kg-desconocida-vs-n-o-shox-660-g-desconocida", "n-o-shox-1320g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "evobeast-1kg-desconocida-vs-evobomb-150g-desconocida", "pre-workout-impact-400g-optimum-nutritio-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-en-polvo-150g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "energy-charge-preentrenamiento-800-g-des-vs-evobeast-1kg-desconocida", "cellex-unlimited-1-kg-optimum-nutrition-vs-pre-workout-impact-400g-optimum-nutritio", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-660-g-desconocida", "pre-workout-explosive-1-kg-optimum-nutri-vs-pre-workout-impact-400g-optimum-nutritio", "beta-alanina-300-g-desconocida-vs-n-o-shox-1320g-desconocida", "l-ornitina-hcl-en-polvo-250g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-1320g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-pre-workout-explosive-1-kg-optimum-nutri", "evobeast-1kg-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "pre-workout-explosive-1-kg-optimum-nutri-vs-taurina-en-polvo-250g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-taurina-en-polvo-250g-desconocida", "evobeast-1kg-desconocida-vs-taurina-en-polvo-250g-desconocida"]);
 
   // selected = [{id, label, btn}, ...]  máx 2
   let selected = [];
 
+  function buildSlug(idA, idB) {
+    const a = idA.slice(0, 40);
+    const b = idB.slice(0, 40);
+    return a <= b ? a + '-vs-' + b : b + '-vs-' + a;
+  }
+
   function updateBar() {
-    // Slots
-    [slot0, slot1].forEach((slot, i) => {
+    [slot0, slot1].forEach(function(slot, i) {
       const item = selected[i];
       if (item) {
         slot.textContent = item.label;
@@ -4666,11 +4672,7 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
         slot.classList.remove('filled');
       }
     });
-
-    // Botón IR
     btnGo.disabled = selected.length < 2;
-
-    // Barra visible cuando hay ≥1 seleccionado
     bar.classList.toggle('visible', selected.length > 0);
   }
 
@@ -4679,15 +4681,14 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
     const id    = card.dataset.id;
     const label = card.dataset.label;
 
-    const idx = selected.findIndex(s => s.id === id);
+    const idx = selected.findIndex(function(s) { return s.id === id; });
     if (idx !== -1) {
-      // Deseleccionar
       selected.splice(idx, 1);
       btn.classList.remove('is-selected');
       btn.textContent = 'Comparar';
     } else {
-      if (selected.length >= 2) return; // ya hay 2
-      selected.push({ id, label, btn });
+      if (selected.length >= 2) return;
+      selected.push({ id: id, label: label, btn: btn });
       btn.classList.add('is-selected');
       btn.textContent = 'Añadido ✓';
     }
@@ -4696,11 +4697,13 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
 
   window.goCompare = function() {
     if (selected.length < 2) return;
-    const [a, b] = selected.map(s => s.id);
-    // Mismo orden que _compare_slug en build.py: menor primero
-    const [idA, idB] = a <= b ? [a, b] : [b, a];
-    const slug = idA.slice(0, 40) + '-vs-' + idB.slice(0, 40);
-    window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    const slug = buildSlug(selected[0].id, selected[1].id);
+    if (SLUGS.has(slug)) {
+      window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    } else {
+      // Par no pre-generado: ir al índice de comparaciones
+      window.location.href = SITE_URL + '/comparar/';
+    }
   };
 
   updateBar();

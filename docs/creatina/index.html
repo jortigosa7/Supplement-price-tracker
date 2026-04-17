@@ -3524,13 +3524,19 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
   const slot1    = document.getElementById('compareSlot1');
   const btnGo    = document.getElementById('compareBtnGo');
   const SITE_URL = 'https://stackfit.es';
+  const SLUGS    = new Set(["creatina-monohidrato-elite-1kg-optimum-n-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-monohidrato-elite-1kg-optimum-n-vs-muscle-recovery-900g-optimum-nutrition", "creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatine-xplode-powder-500g-olimp", "creatina-celular-800g-optimum-nutrition-vs-creatina-creapure-400g-amazin-foods", "creatina-monohidrato-en-polvo-200-mesh-1-vs-muscle-recovery-900g-optimum-nutrition", "creatina-excell-100-creapure-en-polvo-15-vs-evocreatine-500g-desconocida", "creatina-monohidrato-en-polvo-200-mesh-1-vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatina-powder-500g-optimum-nutrition", "cr5-creatina-1000g-ultra-pura-vs-muscle-recovery-900g-optimum-nutrition", "creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-elite-1kg-optimum-n", "creatina-creapure-300-g-desconocida-vs-zero-creatine-150-g-desconocida", "creatina-creapure-400g-amazin-foods-vs-evocreatine-500g-desconocida", "creatina-monohidrato-elite-1kg-optimum-n-vs-evocreatine-500g-desconocida", "creatine-monohydrate-800g-optimum-nutrit-vs-muscle-recovery-900g-optimum-nutrition", "cr5-creatina-1000g-ultra-pura-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-en-polvo-200-mesh-1", "cr5-creatina-1000g-ultra-pura-vs-creatina-creapure-400g-amazin-foods", "creatina-celular-800g-optimum-nutrition-vs-creatina-powder-500g-optimum-nutrition", "creatina-powder-500g-optimum-nutrition-vs-muscle-recovery-900g-optimum-nutrition", "creatina-powder-500g-optimum-nutrition-vs-creatine-xplode-powder-500g-olimp", "creatine-xplode-powder-500g-olimp-vs-evocreatine-500g-desconocida", "evocreatine-500g-desconocida-vs-muscle-recovery-900g-optimum-nutrition", "creatine-xplode-powder-500g-olimp-vs-muscle-recovery-900g-optimum-nutrition", "creatina-monohidrato-en-polvo-200-mesh-1-vs-creatine-xplode-powder-500g-olimp", "creatine-monohydrate-800g-optimum-nutrit-vs-evocreatine-500g-desconocida", "cr5-creatina-1000g-ultra-pura-vs-creatina-celular-800g-optimum-nutrition", "cr5-creatina-1000g-ultra-pura-vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-celular-800g-optimum-nutrition-vs-creatine-xplode-powder-500g-olimp", "zero-creatine-150-g-desconocida-vs-zero-creatine-300-g-desconocida", "creatina-creapure-400g-amazin-foods-vs-creatine-xplode-powder-500g-olimp", "cr5-creatina-1000g-ultra-pura-vs-creatine-xplode-powder-500g-olimp", "creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-elite-1kg-optimum-n", "cr5-creatina-1000g-ultra-pura-vs-evocreatine-500g-desconocida", "creatina-creapure-400g-amazin-foods-vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-powder-500g-optimum-nutrition-vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-creapure-400g-amazin-foods-vs-muscle-recovery-900g-optimum-nutrition", "cr5-creatina-1000g-ultra-pura-vs-creatina-monohidrato-elite-1kg-optimum-n", "cr5-creatina-1000g-ultra-pura-vs-creatina-powder-500g-optimum-nutrition", "creatina-celular-800g-optimum-nutrition-vs-evocreatine-500g-desconocida", "creatina-creapure-400g-amazin-foods-vs-creatina-powder-500g-optimum-nutrition", "creatina-celular-800g-optimum-nutrition-vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-powder-500g-optimum-nutrition-vs-evocreatine-500g-desconocida", "creatina-creapure-300-g-desconocida-vs-zero-creatine-300-g-desconocida", "creatina-monohidrato-en-polvo-200-mesh-1-vs-creatina-powder-500g-optimum-nutrition", "creatina-monohidrato-en-polvo-200-mesh-1-vs-evocreatine-500g-desconocida", "creatine-monohydrate-800g-optimum-nutrit-vs-creatine-xplode-powder-500g-olimp", "creatina-celular-800g-optimum-nutrition-vs-muscle-recovery-900g-optimum-nutrition"]);
 
   // selected = [{id, label, btn}, ...]  máx 2
   let selected = [];
 
+  function buildSlug(idA, idB) {
+    const a = idA.slice(0, 40);
+    const b = idB.slice(0, 40);
+    return a <= b ? a + '-vs-' + b : b + '-vs-' + a;
+  }
+
   function updateBar() {
-    // Slots
-    [slot0, slot1].forEach((slot, i) => {
+    [slot0, slot1].forEach(function(slot, i) {
       const item = selected[i];
       if (item) {
         slot.textContent = item.label;
@@ -3540,11 +3546,7 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
         slot.classList.remove('filled');
       }
     });
-
-    // Botón IR
     btnGo.disabled = selected.length < 2;
-
-    // Barra visible cuando hay ≥1 seleccionado
     bar.classList.toggle('visible', selected.length > 0);
   }
 
@@ -3553,15 +3555,14 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
     const id    = card.dataset.id;
     const label = card.dataset.label;
 
-    const idx = selected.findIndex(s => s.id === id);
+    const idx = selected.findIndex(function(s) { return s.id === id; });
     if (idx !== -1) {
-      // Deseleccionar
       selected.splice(idx, 1);
       btn.classList.remove('is-selected');
       btn.textContent = 'Comparar';
     } else {
-      if (selected.length >= 2) return; // ya hay 2
-      selected.push({ id, label, btn });
+      if (selected.length >= 2) return;
+      selected.push({ id: id, label: label, btn: btn });
       btn.classList.add('is-selected');
       btn.textContent = 'Añadido ✓';
     }
@@ -3570,11 +3571,13 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
 
   window.goCompare = function() {
     if (selected.length < 2) return;
-    const [a, b] = selected.map(s => s.id);
-    // Mismo orden que _compare_slug en build.py: menor primero
-    const [idA, idB] = a <= b ? [a, b] : [b, a];
-    const slug = idA.slice(0, 40) + '-vs-' + idB.slice(0, 40);
-    window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    const slug = buildSlug(selected[0].id, selected[1].id);
+    if (SLUGS.has(slug)) {
+      window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    } else {
+      // Par no pre-generado: ir al índice de comparaciones
+      window.location.href = SITE_URL + '/comparar/';
+    }
   };
 
   updateBar();

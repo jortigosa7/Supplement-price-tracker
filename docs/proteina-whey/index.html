@@ -5881,13 +5881,19 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
   const slot1    = document.getElementById('compareSlot1');
   const btnGo    = document.getElementById('compareBtnGo');
   const SITE_URL = 'https://stackfit.es';
+  const SLUGS    = new Set(["100-real-whey-protein-1000-g-desconocida-vs-whey-fibre-700g-desconocida", "100-real-whey-protein-1000-g-desconocida-vs-100-whey-prime-1000-g-desconocida", "evobasic-whey-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "hydro-whey-zero-1816g-proteina-sin-glute-vs-iso-whey-zero-450g-biotechusa", "panacea-350g-paleobull-vs-panacea-750g-paleobull", "evowhey-protein-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evowhey-oats-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evowhey-protein-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-w74-wheycore-2000g-optimum-nutrition", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "animal-100-whey-protein-1-kg-optimum-nut-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evobasic-whey-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat", "evowhey-protein-sin-edulcorantes-2kg-des-vs-ultra-pure-whey-2-kg-optimum-nutrition", "hydro-whey-zero-1816g-proteina-sin-glute-vs-iso-whey-zero-black-908g-biotechusa", "100-whey-protein-isolate-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "iso-whey-zero-450g-biotechusa-vs-iso-whey-zero-black-908g-biotechusa", "evowhey-oats-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "evobasic-whey-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "impact-whey-protein-2500g-optimum-nutrit-vs-ultra-pure-whey-2-kg-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "isopro-cfm-2-kg-quamtrax-vs-isopro-cfm-500g-quamtrax", "evobasic-whey-2kg-desconocida-vs-evohydro-2-0-hydro-whey-2kg-desconocida", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "100-real-whey-protein-2000g-desconocida-vs-whey-fibre-700g-desconocida", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "100-whey-protein-isolate-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "evobasic-whey-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-oats-2kg-desconocida", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-oats-2kg-desconocida", "ultra-pure-whey-2-kg-optimum-nutrition-vs-w74-wheycore-2000g-optimum-nutrition", "mezcla-de-rendimiento-todo-en-uno-2-5kg--vs-myprotein-impact-whey-isolate-chocolate-", "evowhey-protein-sin-edulcorantes-2kg-des-vs-w74-wheycore-2000g-optimum-nutrition", "100-real-whey-protein-1000-g-desconocida-vs-100-real-whey-protein-2000g-desconocida", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-protein-sin-edulcorantes-2kg-des", "100-whey-prime-1000-g-desconocida-vs-whey-fibre-700g-desconocida", "impact-whey-protein-2500g-optimum-nutrit-vs-w74-wheycore-2000g-optimum-nutrition", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-ultra-pure-whey-2-kg-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-evohydro-2-0-hydro-whey-2kg-desconocida", "isopro-cfm-1-kg-quamtrax-vs-isopro-cfm-2-kg-quamtrax", "animal-100-whey-protein-1-kg-optimum-nut-vs-w74-wheycore-2000g-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-evobasic-whey-2kg-desconocida", "evobasic-whey-2kg-desconocida-vs-evowhey-oats-2kg-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-evowhey-oats-2kg-desconocida", "animal-100-whey-protein-1-kg-optimum-nut-vs-impact-whey-protein-2500g-optimum-nutrit", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-oats-2kg-desconocida", "evowhey-oats-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evowhey-oats-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-protein-2kg-desconocida", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-w74-wheycore-2000g-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat", "evowhey-protein-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evobasic-whey-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-protein-2kg-desconocida", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat", "evobasic-whey-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "isopro-cfm-1-kg-quamtrax-vs-isopro-cfm-500g-quamtrax", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-ultra-pure-whey-2-kg-optimum-nutrition", "100-real-whey-protein-2000g-desconocida-vs-100-whey-prime-1000-g-desconocida"]);
 
   // selected = [{id, label, btn}, ...]  máx 2
   let selected = [];
 
+  function buildSlug(idA, idB) {
+    const a = idA.slice(0, 40);
+    const b = idB.slice(0, 40);
+    return a <= b ? a + '-vs-' + b : b + '-vs-' + a;
+  }
+
   function updateBar() {
-    // Slots
-    [slot0, slot1].forEach((slot, i) => {
+    [slot0, slot1].forEach(function(slot, i) {
       const item = selected[i];
       if (item) {
         slot.textContent = item.label;
@@ -5897,11 +5903,7 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
         slot.classList.remove('filled');
       }
     });
-
-    // Botón IR
     btnGo.disabled = selected.length < 2;
-
-    // Barra visible cuando hay ≥1 seleccionado
     bar.classList.toggle('visible', selected.length > 0);
   }
 
@@ -5910,15 +5912,14 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
     const id    = card.dataset.id;
     const label = card.dataset.label;
 
-    const idx = selected.findIndex(s => s.id === id);
+    const idx = selected.findIndex(function(s) { return s.id === id; });
     if (idx !== -1) {
-      // Deseleccionar
       selected.splice(idx, 1);
       btn.classList.remove('is-selected');
       btn.textContent = 'Comparar';
     } else {
-      if (selected.length >= 2) return; // ya hay 2
-      selected.push({ id, label, btn });
+      if (selected.length >= 2) return;
+      selected.push({ id: id, label: label, btn: btn });
       btn.classList.add('is-selected');
       btn.textContent = 'Añadido ✓';
     }
@@ -5927,11 +5928,13 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
 
   window.goCompare = function() {
     if (selected.length < 2) return;
-    const [a, b] = selected.map(s => s.id);
-    // Mismo orden que _compare_slug en build.py: menor primero
-    const [idA, idB] = a <= b ? [a, b] : [b, a];
-    const slug = idA.slice(0, 40) + '-vs-' + idB.slice(0, 40);
-    window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    const slug = buildSlug(selected[0].id, selected[1].id);
+    if (SLUGS.has(slug)) {
+      window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    } else {
+      // Par no pre-generado: ir al índice de comparaciones
+      window.location.href = SITE_URL + '/comparar/';
+    }
   };
 
   updateBar();

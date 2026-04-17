@@ -487,13 +487,19 @@
   const slot1    = document.getElementById('compareSlot1');
   const btnGo    = document.getElementById('compareBtnGo');
   const SITE_URL = '{{ site_url }}';
+  const SLUGS    = new Set({{ slugs_comparacion | safe }});
 
   // selected = [{id, label, btn}, ...]  máx 2
   let selected = [];
 
+  function buildSlug(idA, idB) {
+    const a = idA.slice(0, 40);
+    const b = idB.slice(0, 40);
+    return a <= b ? a + '-vs-' + b : b + '-vs-' + a;
+  }
+
   function updateBar() {
-    // Slots
-    [slot0, slot1].forEach((slot, i) => {
+    [slot0, slot1].forEach(function(slot, i) {
       const item = selected[i];
       if (item) {
         slot.textContent = item.label;
@@ -503,11 +509,7 @@
         slot.classList.remove('filled');
       }
     });
-
-    // Botón IR
     btnGo.disabled = selected.length < 2;
-
-    // Barra visible cuando hay ≥1 seleccionado
     bar.classList.toggle('visible', selected.length > 0);
   }
 
@@ -516,15 +518,14 @@
     const id    = card.dataset.id;
     const label = card.dataset.label;
 
-    const idx = selected.findIndex(s => s.id === id);
+    const idx = selected.findIndex(function(s) { return s.id === id; });
     if (idx !== -1) {
-      // Deseleccionar
       selected.splice(idx, 1);
       btn.classList.remove('is-selected');
       btn.textContent = 'Comparar';
     } else {
-      if (selected.length >= 2) return; // ya hay 2
-      selected.push({ id, label, btn });
+      if (selected.length >= 2) return;
+      selected.push({ id: id, label: label, btn: btn });
       btn.classList.add('is-selected');
       btn.textContent = 'Añadido ✓';
     }
@@ -533,11 +534,13 @@
 
   window.goCompare = function() {
     if (selected.length < 2) return;
-    const [a, b] = selected.map(s => s.id);
-    // Mismo orden que _compare_slug en build.py: menor primero
-    const [idA, idB] = a <= b ? [a, b] : [b, a];
-    const slug = idA.slice(0, 40) + '-vs-' + idB.slice(0, 40);
-    window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    const slug = buildSlug(selected[0].id, selected[1].id);
+    if (SLUGS.has(slug)) {
+      window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    } else {
+      // Par no pre-generado: ir al índice de comparaciones
+      window.location.href = SITE_URL + '/comparar/';
+    }
   };
 
   updateBar();

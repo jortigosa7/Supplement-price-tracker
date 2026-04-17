@@ -3552,13 +3552,19 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
   const slot1    = document.getElementById('compareSlot1');
   const btnGo    = document.getElementById('compareBtnGo');
   const SITE_URL = 'https://stackfit.es';
+  const SLUGS    = new Set(["bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-zero-bcaa-300-g-desconocida", "bcaa-glutamine-500g-ramificados-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-s-glutamina-400g-aminoacidos-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-glutamine-500g-ramificados-vs-zero-bcaa-300-g-desconocida", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "zero-bcaa-150-g-desconocida-vs-zero-bcaa-300-g-desconocida", "bcaa-8-1-1-300-g-desconocida-vs-zero-bcaa-150-g-desconocida", "bcaa-glutamine-concept-500g-optimum-nutr-vs-bcaa-sensation-345g-optimum-nutrition", "bcaa-glutamine-500g-ramificados-vs-bcaa-s-glutamina-400g-aminoacidos", "premium-bcaa-zero-8-1-1-l-glutamina-500g-vs-recovery-total-700g-vitobest", "bcaa-s-glutamina-400g-aminoacidos-vs-zero-bcaa-300-g-desconocida", "bcaa-s-instantaneo-4-1-1-2-0-150g-descon-vs-zero-bcaa-300-g-desconocida", "bcaa-s-instantaneo-4-1-1-2-0-150g-descon-vs-evo-4-1-1-bcaa-s-instantaneos-en-polvo-1", "recovery-total-700g-vitobest-vs-zero-bcaa-300-g-desconocida", "bcaa-glutamine-500g-quamtrax-vs-bcaa-glutamine-500g-ramificados", "bcaa-2-1-1-500g-optimum-nutrition-vs-pack-regalo-glutamina-bcaa-530g-multimeg", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-glutamine-500g-quamtrax-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-glutamine-500g-ramificados", "bcaa-glutamine-500g-quamtrax-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-recovery-total-700g-vitobest", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-evobcaa-s-complex-en-polvo-150g-desconoc", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-bcaa-s-instantaneo-4-1-1-2-0-150g-descon", "bcaa-2-1-1-300-g-desconocida-vs-zero-bcaa-300-g-desconocida", "premium-bcaa-zero-8-1-1-l-glutamina-500g-vs-zero-bcaa-300-g-desconocida", "bcaa-2-1-1-300-g-desconocida-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-s-glutamina-400g-aminoacidos-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-glutamine-500g-quamtrax", "bcaa-s-instantaneo-4-1-1-2-0-150g-descon-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "after-420g-biotechusa-vs-bcaa-glutamine-zero-480g-biotechusa", "bcaa-glutamine-500g-ramificados-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-glutamine-500g-ramificados-vs-recovery-total-700g-vitobest", "bcaa-glutamine-500g-quamtrax-vs-hydra-bcaa-s-420g-quamtrax", "bcaa-2-1-1-300-g-desconocida-vs-zero-bcaa-150-g-desconocida", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-glutamine-500g-ramificados-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-evo-4-1-1-bcaa-s-instantaneos-en-polvo-1", "bcaa-sensation-345g-optimum-nutrition-vs-pack-regalo-glutamina-bcaa-530g-multimeg", "bcaa-s-instantaneo-4-1-1-2-0-150g-descon-vs-evobcaa-s-complex-en-polvo-150g-desconoc", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-s-instantaneo-4-1-1-2-0-150g-descon", "bcaa-glutamine-500g-quamtrax-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-glutamine-500g-quamtrax-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-s-glutamina-400g-aminoacidos-vs-recovery-total-700g-vitobest", "bcaa-glutamine-concept-500g-optimum-nutr-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-glutamine-concept-500g-optimum-nutr-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-glutamine-500g-quamtrax-vs-recovery-total-700g-vitobest", "bcaa-glutamine-concept-500g-optimum-nutr-vs-recovery-total-700g-vitobest", "bcaa-glutamine-concept-500g-optimum-nutr-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-sensation-345g-optimum-nutrition", "bcaa-glutamine-concept-500g-optimum-nutr-vs-pack-regalo-glutamina-bcaa-530g-multimeg", "bcaa-2-1-1-300-g-desconocida-vs-recovery-total-700g-vitobest", "bcaa-glutamine-concept-500g-optimum-nutr-vs-bcaa-s-instantaneo-4-1-1-2-0-150g-descon", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-8-1-1-300-g-desconocida", "bcaa-s-instantaneo-4-1-1-2-0-150g-descon-vs-recovery-total-700g-vitobest", "bcaa-glutamine-concept-500g-optimum-nutr-vs-zero-bcaa-300-g-desconocida", "bcaa-glutamine-500g-quamtrax-vs-zero-bcaa-300-g-desconocida", "evo-4-1-1-bcaa-s-instantaneos-en-polvo-1-vs-evobcaa-s-complex-en-polvo-150g-desconoc", "bcaa-s-glutamina-400g-aminoacidos-vs-bcaa-s-instantaneo-4-1-1-2-0-150g-descon", "bcaa-glutamine-500g-ramificados-vs-bcaa-s-instantaneo-4-1-1-2-0-150g-descon", "bcaa-glutamine-500g-quamtrax-vs-bcaa-s-instantaneo-4-1-1-2-0-150g-descon", "bcaa-8-1-1-300-g-desconocida-vs-zero-bcaa-300-g-desconocida"]);
 
   // selected = [{id, label, btn}, ...]  máx 2
   let selected = [];
 
+  function buildSlug(idA, idB) {
+    const a = idA.slice(0, 40);
+    const b = idB.slice(0, 40);
+    return a <= b ? a + '-vs-' + b : b + '-vs-' + a;
+  }
+
   function updateBar() {
-    // Slots
-    [slot0, slot1].forEach((slot, i) => {
+    [slot0, slot1].forEach(function(slot, i) {
       const item = selected[i];
       if (item) {
         slot.textContent = item.label;
@@ -3568,11 +3574,7 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
         slot.classList.remove('filled');
       }
     });
-
-    // Botón IR
     btnGo.disabled = selected.length < 2;
-
-    // Barra visible cuando hay ≥1 seleccionado
     bar.classList.toggle('visible', selected.length > 0);
   }
 
@@ -3581,15 +3583,14 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
     const id    = card.dataset.id;
     const label = card.dataset.label;
 
-    const idx = selected.findIndex(s => s.id === id);
+    const idx = selected.findIndex(function(s) { return s.id === id; });
     if (idx !== -1) {
-      // Deseleccionar
       selected.splice(idx, 1);
       btn.classList.remove('is-selected');
       btn.textContent = 'Comparar';
     } else {
-      if (selected.length >= 2) return; // ya hay 2
-      selected.push({ id, label, btn });
+      if (selected.length >= 2) return;
+      selected.push({ id: id, label: label, btn: btn });
       btn.classList.add('is-selected');
       btn.textContent = 'Añadido ✓';
     }
@@ -3598,11 +3599,13 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
 
   window.goCompare = function() {
     if (selected.length < 2) return;
-    const [a, b] = selected.map(s => s.id);
-    // Mismo orden que _compare_slug en build.py: menor primero
-    const [idA, idB] = a <= b ? [a, b] : [b, a];
-    const slug = idA.slice(0, 40) + '-vs-' + idB.slice(0, 40);
-    window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    const slug = buildSlug(selected[0].id, selected[1].id);
+    if (SLUGS.has(slug)) {
+      window.location.href = SITE_URL + '/comparar/' + slug + '/';
+    } else {
+      // Par no pre-generado: ir al índice de comparaciones
+      window.location.href = SITE_URL + '/comparar/';
+    }
   };
 
   updateBar();

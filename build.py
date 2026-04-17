@@ -804,7 +804,7 @@ def _tipo_proteina(nombre: str) -> str:
     return "Otra"
 
 
-def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str):
+def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None):
     """Genera docs/{slug}/index.html para una categoría."""
     template = env.get_template("category.html")
 
@@ -835,16 +835,21 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
         for pr in p["precios"]
     ))
 
+    # Mapa de slugs de comparación para esta categoría (para el JS del comparador)
+    slugs_cat = {s for s in (slugs_comparacion or set())
+                 if any(p["id"][:40] in s for p in prods_principales)}
+
     ctx = {
         **contexto_base(last_updated),
-        "active_slug":     cfg["slug"],
-        "cat":             cfg,
-        "products":        prods_principales,
-        "products_otros":  prods_otros,
-        "tiendas":         tiendas,
-        "marcas":          marcas,
-        "precio_kg_min":   precio_kg_min,
-        "precio_kg_max":   precio_kg_max,
+        "active_slug":       cfg["slug"],
+        "cat":               cfg,
+        "products":          prods_principales,
+        "products_otros":    prods_otros,
+        "tiendas":           tiendas,
+        "marcas":            marcas,
+        "precio_kg_min":     precio_kg_min,
+        "precio_kg_max":     precio_kg_max,
+        "slugs_comparacion": json.dumps(list(slugs_cat)),
     }
 
     html = template.render(**ctx)
@@ -1565,8 +1570,9 @@ if __name__ == "__main__":
 
     generar_home(env, productos_web, last_updated, comparaciones_populares=comparaciones_populares_home)
 
+    slugs_set = set(compare_slugs)
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
-        generar_categoria(env, cat_raw, cfg, productos_web, last_updated)
+        generar_categoria(env, cat_raw, cfg, productos_web, last_updated, slugs_comparacion=slugs_set)
 
     # 5. Páginas legales, test y sobre nosotros
     for pagina in PAGINAS_LEGALES:
