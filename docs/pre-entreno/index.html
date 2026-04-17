@@ -593,6 +593,99 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+
+    /* ── Compare button ────────────────────────────── */
+    .pc-btn-compare { flex: 0 0 auto; }
+    .pc-btn-compare.is-selected {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+    }
+
+    /* ── Compare bar ───────────────────────────────── */
+    .compare-bar {
+      position: fixed;
+      bottom: -100px;
+      left: 0; right: 0;
+      z-index: 999;
+      transition: bottom 0.3s ease;
+      padding: 0 16px 12px;
+      pointer-events: none;
+    }
+    .compare-bar.visible {
+      bottom: 0;
+      pointer-events: all;
+    }
+    .compare-bar-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .compare-slots {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .compare-slot {
+      flex: 1;
+      min-width: 0;
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .compare-slot.filled {
+      border-color: var(--accent);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .compare-vs {
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .compare-bar-btn {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: var(--accent);
+      border: none;
+      color: #000;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+    .compare-bar-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .compare-bar-btn:not(:disabled):hover { opacity: 0.85; }
+    @media (max-width: 480px) {
+      .compare-bar-inner { padding: 10px 12px; gap: 8px; }
+      .compare-bar-btn { width: 100%; }
+      .compare-slots { flex-basis: 100%; }
+    }
     .pc-btn {
       flex: 1;
       display: block;
@@ -1261,7 +1354,9 @@
          data-marca="hsn"
          data-peso="1000"
          data-precio-kg="16.48"
-         data-tipo="">
+         data-tipo=""
+         data-id="evobeast-1kg-desconocida"
+         data-label="EVOBEAST 1kg">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/evobeast-1kg-desconocida.webp" alt="EVOBEAST 1kg" width="80" height="80" loading="lazy">
@@ -1295,6 +1390,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/marcas/sport-series/evobeast" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1308,7 +1404,9 @@
          data-marca="prozis"
          data-peso="800"
          data-precio-kg="28.74"
-         data-tipo="">
+         data-tipo=""
+         data-id="energy-charge-preentrenamiento-800-g-desconocida"
+         data-label="Energy Charge - Preentrenamiento 800 g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/placeholder-pre-entreno.svg" alt="Energy Charge - Preentrenamiento 800 g" width="80" height="80" loading="lazy">
@@ -1340,6 +1438,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/energy-charge-preentrenamiento-800-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1353,7 +1452,9 @@
          data-marca="myprotein"
          data-peso="150"
          data-precio-kg="30.0"
-         data-tipo="">
+         data-tipo=""
+         data-id="beta-alanina-en-polvo-150g-desconocida"
+         data-label="BETA-ALANINA EN POLVO 150g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/beta-alanina-en-polvo-150g-desconocida.webp" alt="BETA-ALANINA EN POLVO 150g" width="80" height="80" loading="lazy">
@@ -1392,6 +1493,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1405,7 +1507,9 @@
          data-marca="prozis"
          data-peso="1320"
          data-precio-kg="30.3"
-         data-tipo="">
+         data-tipo=""
+         data-id="n-o-shox-1320g-desconocida"
+         data-label="N.O. Shox 1320g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/placeholder-pre-entreno.svg" alt="N.O. Shox 1320g" width="80" height="80" loading="lazy">
@@ -1437,6 +1541,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/n.o.-shox-1320g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1450,7 +1555,9 @@
          data-marca="prozis"
          data-peso="900"
          data-precio-kg="33.32"
-         data-tipo="">
+         data-tipo=""
+         data-id="beta-alanina-900-g-desconocida"
+         data-label="Beta-alanina 900 g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/placeholder-pre-entreno.svg" alt="Beta-alanina 900 g" width="80" height="80" loading="lazy">
@@ -1482,6 +1589,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/beta-alanina-900-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1495,7 +1603,9 @@
          data-marca="optimum nutrition"
          data-peso="1000"
          data-precio-kg="36.4"
-         data-tipo="">
+         data-tipo=""
+         data-id="pre-workout-explosive-1-kg-optimum-nutrition"
+         data-label="PRE WORKOUT EXPLOSIVE 1 Kg">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/pre-workout-explosive-1-kg-optimum-nutrition.webp" alt="PRE WORKOUT EXPLOSIVE 1 Kg" width="80" height="80" loading="lazy">
@@ -1527,6 +1637,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition-pre-workout-explosive-1000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1540,7 +1651,9 @@
          data-marca="prozis"
          data-peso="660"
          data-precio-kg="37.86"
-         data-tipo="">
+         data-tipo=""
+         data-id="n-o-shox-660-g-desconocida"
+         data-label="N.O. Shox 660 g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/placeholder-pre-entreno.svg" alt="N.O. Shox 660 g" width="80" height="80" loading="lazy">
@@ -1572,6 +1685,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/n.o.-shox-660-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1585,7 +1699,9 @@
          data-marca="optimum nutrition"
          data-peso="2300"
          data-precio-kg="38.04"
-         data-tipo="">
+         data-tipo=""
+         data-id="smooth-8-hybrid-protein-2-3kg-optimum-nutrition"
+         data-label="SMOOTH-8 Hybrid Protein 2,3Kg">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/smooth-8-hybrid-protein-2-3kg-optimum-nutrition.webp" alt="SMOOTH-8 Hybrid Protein 2,3Kg" width="80" height="80" loading="lazy">
@@ -1617,6 +1733,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition-smooth-8-hybrid-protein-2300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1630,7 +1747,9 @@
          data-marca="myprotein"
          data-peso="250"
          data-precio-kg="39.96"
-         data-tipo="">
+         data-tipo=""
+         data-id="taurina-en-polvo-250g-desconocida"
+         data-label="Taurina en polvo 250g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/placeholder-pre-entreno.svg" alt="Taurina en polvo 250g" width="80" height="80" loading="lazy">
@@ -1662,6 +1781,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/taurina-en-polvo/10530303/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1675,7 +1795,9 @@
          data-marca="prozis"
          data-peso="300"
          data-precio-kg="43.3"
-         data-tipo="">
+         data-tipo=""
+         data-id="beta-alanina-300-g-desconocida"
+         data-label="Beta-alanina 300 g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/beta-alanina-300-g-desconocida.webp" alt="Beta-alanina 300 g" width="80" height="80" loading="lazy">
@@ -1707,6 +1829,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/beta-alanina-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1720,7 +1843,9 @@
          data-marca="hsn"
          data-peso="150"
          data-precio-kg="45.27"
-         data-tipo="">
+         data-tipo=""
+         data-id="glycopump-glicerol-en-polvo-150g-desconocida"
+         data-label="Glycopump® (GLICEROL) EN POLVO 150g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/glycopump-glicerol-en-polvo-150g-desconocida.webp" alt="Glycopump® (GLICEROL) EN POLVO 150g" width="80" height="80" loading="lazy">
@@ -1752,6 +1877,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1765,7 +1891,9 @@
          data-marca="hsn"
          data-peso="150"
          data-precio-kg="49.0"
-         data-tipo="">
+         data-tipo=""
+         data-id="l-citrulina-base-en-polvo-150g-desconocida"
+         data-label="L-CITRULINA BASE EN POLVO 150g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/l-citrulina-base-en-polvo-150g-desconocida.webp" alt="L-CITRULINA BASE EN POLVO 150g" width="80" height="80" loading="lazy">
@@ -1797,6 +1925,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1810,7 +1939,9 @@
          data-marca="nutrisport"
          data-peso="400"
          data-precio-kg="51.97"
-         data-tipo="">
+         data-tipo=""
+         data-id="b10-pump-effect-pre-workout-400g-nutrisport"
+         data-label="B10 PUMP EFFECT PRE WORKOUT 400g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/b10-pump-effect-pre-workout-400g-nutrisport.webp" alt="B10 PUMP EFFECT PRE WORKOUT 400g" width="80" height="80" loading="lazy">
@@ -1842,6 +1973,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport/b-10-pump-effect-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1855,7 +1987,9 @@
          data-marca="hsn"
          data-peso="150"
          data-precio-kg="56.6"
-         data-tipo="">
+         data-tipo=""
+         data-id="evobomb-150g-desconocida"
+         data-label="EVOBOMB 150g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/evobomb-150g-desconocida.webp" alt="EVOBOMB 150g" width="80" height="80" loading="lazy">
@@ -1887,6 +2021,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/marcas/sport-series/evobomb" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1900,7 +2035,9 @@
          data-marca="hsn"
          data-peso="150"
          data-precio-kg="56.6"
-         data-tipo="">
+         data-tipo=""
+         data-id="l-arginina-alfa-cetoglutarato-aakg-en-polvo-150g-desconocida"
+         data-label="L-ARGININA ALFA-CETOGLUTARATO (AAK…">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/l-arginina-alfa-cetoglutarato-aakg-en-polvo-150g-desconocida.webp" alt="L-ARGININA ALFA-CETOGLUTARATO (AAKG) EN POLVO 150g" width="80" height="80" loading="lazy">
@@ -1932,6 +2069,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1945,7 +2083,9 @@
          data-marca="hsn"
          data-peso="150"
          data-precio-kg="56.6"
-         data-tipo="">
+         data-tipo=""
+         data-id="d-ribosa-en-polvo-150g-desconocida"
+         data-label="D-RIBOSA EN POLVO 150g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/d-ribosa-en-polvo-150g-desconocida.webp" alt="D-RIBOSA EN POLVO 150g" width="80" height="80" loading="lazy">
@@ -1977,6 +2117,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -1990,7 +2131,9 @@
          data-marca="hsn"
          data-peso="150"
          data-precio-kg="56.6"
-         data-tipo="">
+         data-tipo=""
+         data-id="acido-malico-en-polvo-150g-desconocida"
+         data-label="ÁCIDO MÁLICO EN POLVO 150g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/acido-malico-en-polvo-150g-desconocida.webp" alt="ÁCIDO MÁLICO EN POLVO 150g" width="80" height="80" loading="lazy">
@@ -2022,6 +2165,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2035,7 +2179,9 @@
          data-marca="prozis"
          data-peso="300"
          data-precio-kg="56.63"
-         data-tipo="">
+         data-tipo=""
+         data-id="l-arginina-300-g-desconocida"
+         data-label="L-arginina 300 g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/l-arginina-300-g-desconocida.webp" alt="L-arginina 300 g" width="80" height="80" loading="lazy">
@@ -2067,6 +2213,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/l-arginina-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2080,7 +2227,9 @@
          data-marca="best protein"
          data-peso="300"
          data-precio-kg="64.9"
-         data-tipo="">
+         data-tipo=""
+         data-id="pre-workout-300g-best-protein"
+         data-label="Pre Workout 300g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/pre-workout-300g-best-protein.webp" alt="Pre Workout 300g" width="80" height="80" loading="lazy">
@@ -2112,6 +2261,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/best-protein/pre-workout-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2125,7 +2275,9 @@
          data-marca="prozis"
          data-peso="300"
          data-precio-kg="66.63"
-         data-tipo="">
+         data-tipo=""
+         data-id="l-citrulina-malato-300g-desconocida"
+         data-label="L-citrulina malato 300g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/placeholder-pre-entreno.svg" alt="L-citrulina malato 300g" width="80" height="80" loading="lazy">
@@ -2157,6 +2309,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/l-citrulina-malato-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2170,7 +2323,9 @@
          data-marca="optimum nutrition"
          data-peso="400"
          data-precio-kg="69.97"
-         data-tipo="">
+         data-tipo=""
+         data-id="pre-workout-impact-400g-optimum-nutrition"
+         data-label="PRE WORKOUT IMPACT 400g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/pre-workout-impact-400g-optimum-nutrition.webp" alt="PRE WORKOUT IMPACT 400g" width="80" height="80" loading="lazy">
@@ -2202,6 +2357,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition/pre-workout-impact-pre-entrenamiento-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2215,7 +2371,9 @@
          data-marca="fórmula mejorada"
          data-peso="375"
          data-precio-kg="75.76"
-         data-tipo="">
+         data-tipo=""
+         data-id="total-rush-2-0-375g-formula-mejorada"
+         data-label="TOTAL RUSH 2.0 375g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/total-rush-2-0-375g-formula-mejorada.webp" alt="TOTAL RUSH 2.0 375g" width="80" height="80" loading="lazy">
@@ -2247,6 +2405,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/weider/total-rush-2-pre-entrenamiento-375g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2260,7 +2419,9 @@
          data-marca="optimum nutrition"
          data-peso="1000"
          data-precio-kg="76.7"
-         data-tipo="">
+         data-tipo=""
+         data-id="cellex-unlimited-1-kg-optimum-nutrition"
+         data-label="Cellex Unlimited 1 Kg">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/cellex-unlimited-1-kg-optimum-nutrition.webp" alt="Cellex Unlimited 1 Kg" width="80" height="80" loading="lazy">
@@ -2292,6 +2453,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/cellex-unlimited-1-kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2305,7 +2467,9 @@
          data-marca="vitobest"
          data-peso="300"
          data-precio-kg="76.8"
-         data-tipo="">
+         data-tipo=""
+         data-id="glycopump-300g-vitobest"
+         data-label="Glycopump 300g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/glycopump-300g-vitobest.webp" alt="Glycopump 300g" width="80" height="80" loading="lazy">
@@ -2337,6 +2501,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/glycopump-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2350,7 +2515,9 @@
          data-marca="biotechusa"
          data-peso="340"
          data-precio-kg="79.12"
-         data-tipo="">
+         data-tipo=""
+         data-id="nitrox-therapy-340g-biotechusa"
+         data-label="NITROX THERAPY 340g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/nitrox-therapy-340g-biotechusa.webp" alt="NITROX THERAPY 340g" width="80" height="80" loading="lazy">
@@ -2382,6 +2549,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/nitrox-therapy-pre-entrenamiento-340g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2395,7 +2563,9 @@
          data-marca="myprotein"
          data-peso="440"
          data-precio-kg="79.52"
-         data-tipo="">
+         data-tipo=""
+         data-id="impact-pre-entreno-venom-440g-desconocida"
+         data-label="Impact Pre-Entreno – Venom 440g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/placeholder-pre-entreno.svg" alt="Impact Pre-Entreno – Venom 440g" width="80" height="80" loading="lazy">
@@ -2427,6 +2597,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-pre-entreno-venom/17585477/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2440,7 +2611,9 @@
          data-marca="optimum nutrition"
          data-peso="360"
          data-precio-kg="90.28"
-         data-tipo="">
+         data-tipo=""
+         data-id="yeep-pump-no-caff-360g-optimum-nutrition"
+         data-label="Yeep Pump No Caff 360g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/yeep-pump-no-caff-360g-optimum-nutrition.webp" alt="Yeep Pump No Caff 360g" width="80" height="80" loading="lazy">
@@ -2472,6 +2645,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/yeep-pump-no-caff-360g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2485,7 +2659,9 @@
          data-marca="biotechusa"
          data-peso="330"
          data-precio-kg="90.61"
-         data-tipo="">
+         data-tipo=""
+         data-id="pump-caffeine-free-330g-biotechusa"
+         data-label="Pump Caffeine Free 330g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/pump-caffeine-free-330g-biotechusa.webp" alt="Pump Caffeine Free 330g" width="80" height="80" loading="lazy">
@@ -2517,6 +2693,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/pump-caffeine-free-330g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2530,7 +2707,9 @@
          data-marca="optimum nutrition"
          data-peso="300"
          data-precio-kg="99.67"
-         data-tipo="">
+         data-tipo=""
+         data-id="venom-pre-workout-full-strenght-300g-optimum-nutrition"
+         data-label="Venom Pre Workout Full Strenght 300g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/venom-pre-workout-full-strenght-300g-optimum-nutrition.webp" alt="Venom Pre Workout Full Strenght 300g" width="80" height="80" loading="lazy">
@@ -2562,6 +2741,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/life-pro-nutrition/venom-pre-workout-full-strenght-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2575,7 +2755,9 @@
          data-marca="biotechusa"
          data-peso="282"
          data-precio-kg="106.03"
-         data-tipo="">
+         data-tipo=""
+         data-id="supernova-282g-biotechusa"
+         data-label="SUPERNOVA 282g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/supernova-282g-biotechusa.webp" alt="SUPERNOVA 282g" width="80" height="80" loading="lazy">
@@ -2607,6 +2789,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/supernova-pre-entrenamiento-282g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2620,7 +2803,9 @@
          data-marca="optimum nutrition"
          data-peso="400"
          data-precio-kg="107.25"
-         data-tipo="">
+         data-tipo=""
+         data-id="wild-pump-400g-optimum-nutrition"
+         data-label="Wild Pump 400g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/wild-pump-400g-optimum-nutrition.webp" alt="Wild Pump 400g" width="80" height="80" loading="lazy">
@@ -2652,6 +2837,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/life-pro-nutrition/wild-pump-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2665,7 +2851,9 @@
          data-marca="hsn"
          data-peso="150"
          data-precio-kg="113.6"
-         data-tipo="">
+         data-tipo=""
+         data-id="evordx-2-0-150g-desconocida"
+         data-label="EVORDX 2.0 150g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/evordx-2-0-150g-desconocida.webp" alt="EVORDX 2.0 150g" width="80" height="80" loading="lazy">
@@ -2697,6 +2885,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/marcas/sport-series/evordx-2-0" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2710,7 +2899,9 @@
          data-marca="myprotein"
          data-peso="250"
          data-precio-kg="119.96"
-         data-tipo="">
+         data-tipo=""
+         data-id="l-ornitina-hcl-en-polvo-250g-desconocida"
+         data-label="L-Ornitina HCL en polvo 250g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/placeholder-pre-entreno.svg" alt="L-Ornitina HCL en polvo 250g" width="80" height="80" loading="lazy">
@@ -2742,6 +2933,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/l-ornitina-hcl-en-polvo/10529383/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2755,7 +2947,9 @@
          data-marca="fórmula pre-entreno"
          data-peso="330"
          data-precio-kg="123.94"
-         data-tipo="">
+         data-tipo=""
+         data-id="black-blood-nox-330g-formula-pre-entreno"
+         data-label="BLACK BLOOD NOX 330g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/black-blood-nox-330g-formula-pre-entreno.webp" alt="BLACK BLOOD NOX 330g" width="80" height="80" loading="lazy">
@@ -2787,6 +2981,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/black-blood-nox-pre-entrenamiento-330g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2800,7 +2995,9 @@
          data-marca="optimum nutrition"
          data-peso="348"
          data-precio-kg="133.62"
-         data-tipo="">
+         data-tipo=""
+         data-id="cellup-with-oxystorm-348g-optimum-nutrition"
+         data-label="Cellup With Oxystorm 348g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/cellup-with-oxystorm-348g-optimum-nutrition.webp" alt="Cellup With Oxystorm 348g" width="80" height="80" loading="lazy">
@@ -2832,6 +3029,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/cellup-with-oxystorm-348g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2845,7 +3043,9 @@
          data-marca="optimum nutrition"
          data-peso="348"
          data-precio-kg="133.62"
-         data-tipo="">
+         data-tipo=""
+         data-id="pack-regalo-cellup-oxystorm-348g-tribu-zma-30-caps-optimum-nutrition"
+         data-label="Pack Regalo Cellup Oxystorm 348g +…">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/pack-regalo-cellup-oxystorm-348g-tribu-zma-30-caps-optimum-nutrition.webp" alt="Pack Regalo Cellup Oxystorm 348g + Tribu ZMA 30 Caps" width="80" height="80" loading="lazy">
@@ -2877,6 +3077,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cellup-oxystorm-348g-tribu-zma-30-caps" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
@@ -2890,7 +3091,9 @@
          data-marca="optimum nutrition"
          data-peso="315"
          data-precio-kg="169.84"
-         data-tipo="">
+         data-tipo=""
+         data-id="cellzoom-315g-optimum-nutrition"
+         data-label="CellZoom 315g">
       <div class="pc-top">
         <div class="pc-img">
           <img src="/img/productos/cellzoom-315g-optimum-nutrition.webp" alt="CellZoom 315g" width="80" height="80" loading="lazy">
@@ -2922,9 +3125,22 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition-cellzoom-315g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     
+  </div>
+
+  <!-- ── Barra de comparación ─────────────────────── -->
+  <div id="compareBar" class="compare-bar" aria-live="polite">
+    <div class="compare-bar-inner">
+      <div class="compare-slots">
+        <div class="compare-slot" id="compareSlot0"><span class="compare-slot-empty">Elige un producto</span></div>
+        <div class="compare-vs">VS</div>
+        <div class="compare-slot" id="compareSlot1"><span class="compare-slot-empty">Elige un producto</span></div>
+      </div>
+      <button class="compare-bar-btn" id="compareBtnGo" onclick="goCompare()" disabled>Ver comparación →</button>
+    </div>
   </div>
 
   <div class="pagination" id="pagination">
@@ -4425,6 +4641,69 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
   };
 
   render();
+})();
+
+// ── Comparador ────────────────────────────────────────────────────────────────
+(function() {
+  const bar      = document.getElementById('compareBar');
+  const slot0    = document.getElementById('compareSlot0');
+  const slot1    = document.getElementById('compareSlot1');
+  const btnGo    = document.getElementById('compareBtnGo');
+  const SITE_URL = 'https://stackfit.es';
+
+  // selected = [{id, label, btn}, ...]  máx 2
+  let selected = [];
+
+  function updateBar() {
+    // Slots
+    [slot0, slot1].forEach((slot, i) => {
+      const item = selected[i];
+      if (item) {
+        slot.textContent = item.label;
+        slot.classList.add('filled');
+      } else {
+        slot.innerHTML = '<span class="compare-slot-empty">Elige un producto</span>';
+        slot.classList.remove('filled');
+      }
+    });
+
+    // Botón IR
+    btnGo.disabled = selected.length < 2;
+
+    // Barra visible cuando hay ≥1 seleccionado
+    bar.classList.toggle('visible', selected.length > 0);
+  }
+
+  window.toggleCompare = function(btn) {
+    const card  = btn.closest('.product-card');
+    const id    = card.dataset.id;
+    const label = card.dataset.label;
+
+    const idx = selected.findIndex(s => s.id === id);
+    if (idx !== -1) {
+      // Deseleccionar
+      selected.splice(idx, 1);
+      btn.classList.remove('is-selected');
+      btn.textContent = 'Comparar';
+    } else {
+      if (selected.length >= 2) return; // ya hay 2
+      selected.push({ id, label, btn });
+      btn.classList.add('is-selected');
+      btn.textContent = 'Añadido ✓';
+    }
+    updateBar();
+  };
+
+  window.goCompare = function() {
+    if (selected.length < 2) return;
+    const [a, b] = selected.map(s => s.id);
+    // Mismo orden que _compare_slug en build.py: menor primero
+    const [idA, idB] = a <= b ? [a, b] : [b, a];
+    const slug = idA.slice(0, 40) + '-vs-' + idB.slice(0, 40);
+    window.location.href = SITE_URL + '/comparar/' + slug + '/';
+  };
+
+  updateBar();
 })();
 </script>
 

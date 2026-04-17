@@ -193,7 +193,9 @@
          data-marca="{{ p.marca | lower }}"
          data-peso="{{ (p.peso_kg * 1000) | int if p.peso_kg else 0 }}"
          data-precio-kg="{{ p.precio_por_kg_min if p.precio_por_kg_min else 9999 }}"
-         data-tipo="{{ p.tipo_proteina if p.tipo_proteina is defined else '' }}">
+         data-tipo="{{ p.tipo_proteina if p.tipo_proteina is defined else '' }}"
+         data-id="{{ p.id }}"
+         data-label="{{ p.nombre_normalizado | truncate(35, True, '…') }}">
       <div class="pc-top">
         <div class="pc-img">
           <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="80" height="80" loading="lazy">
@@ -231,9 +233,22 @@
       </div>
       <div class="pc-actions">
         <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" onclick="toggleCompare(this)" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     {% endfor %}
+  </div>
+
+  <!-- ── Barra de comparación ─────────────────────── -->
+  <div id="compareBar" class="compare-bar" aria-live="polite">
+    <div class="compare-bar-inner">
+      <div class="compare-slots">
+        <div class="compare-slot" id="compareSlot0"><span class="compare-slot-empty">Elige un producto</span></div>
+        <div class="compare-vs">VS</div>
+        <div class="compare-slot" id="compareSlot1"><span class="compare-slot-empty">Elige un producto</span></div>
+      </div>
+      <button class="compare-bar-btn" id="compareBtnGo" onclick="goCompare()" disabled>Ver comparación →</button>
+    </div>
   </div>
 
   <div class="pagination" id="pagination">
@@ -463,6 +478,69 @@
   };
 
   render();
+})();
+
+// ── Comparador ────────────────────────────────────────────────────────────────
+(function() {
+  const bar      = document.getElementById('compareBar');
+  const slot0    = document.getElementById('compareSlot0');
+  const slot1    = document.getElementById('compareSlot1');
+  const btnGo    = document.getElementById('compareBtnGo');
+  const SITE_URL = '{{ site_url }}';
+
+  // selected = [{id, label, btn}, ...]  máx 2
+  let selected = [];
+
+  function updateBar() {
+    // Slots
+    [slot0, slot1].forEach((slot, i) => {
+      const item = selected[i];
+      if (item) {
+        slot.textContent = item.label;
+        slot.classList.add('filled');
+      } else {
+        slot.innerHTML = '<span class="compare-slot-empty">Elige un producto</span>';
+        slot.classList.remove('filled');
+      }
+    });
+
+    // Botón IR
+    btnGo.disabled = selected.length < 2;
+
+    // Barra visible cuando hay ≥1 seleccionado
+    bar.classList.toggle('visible', selected.length > 0);
+  }
+
+  window.toggleCompare = function(btn) {
+    const card  = btn.closest('.product-card');
+    const id    = card.dataset.id;
+    const label = card.dataset.label;
+
+    const idx = selected.findIndex(s => s.id === id);
+    if (idx !== -1) {
+      // Deseleccionar
+      selected.splice(idx, 1);
+      btn.classList.remove('is-selected');
+      btn.textContent = 'Comparar';
+    } else {
+      if (selected.length >= 2) return; // ya hay 2
+      selected.push({ id, label, btn });
+      btn.classList.add('is-selected');
+      btn.textContent = 'Añadido ✓';
+    }
+    updateBar();
+  };
+
+  window.goCompare = function() {
+    if (selected.length < 2) return;
+    const [a, b] = selected.map(s => s.id);
+    // Mismo orden que _compare_slug en build.py: menor primero
+    const [idA, idB] = a <= b ? [a, b] : [b, a];
+    const slug = idA.slice(0, 40) + '-vs-' + idB.slice(0, 40);
+    window.location.href = SITE_URL + '/comparar/' + slug + '/';
+  };
+
+  updateBar();
 })();
 </script>
 {% endblock %}

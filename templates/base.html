@@ -331,6 +331,99 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+
+    /* ── Compare button ────────────────────────────── */
+    .pc-btn-compare { flex: 0 0 auto; }
+    .pc-btn-compare.is-selected {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+    }
+
+    /* ── Compare bar ───────────────────────────────── */
+    .compare-bar {
+      position: fixed;
+      bottom: -100px;
+      left: 0; right: 0;
+      z-index: 999;
+      transition: bottom 0.3s ease;
+      padding: 0 16px 12px;
+      pointer-events: none;
+    }
+    .compare-bar.visible {
+      bottom: 0;
+      pointer-events: all;
+    }
+    .compare-bar-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .compare-slots {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .compare-slot {
+      flex: 1;
+      min-width: 0;
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .compare-slot.filled {
+      border-color: var(--accent);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .compare-vs {
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .compare-bar-btn {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: var(--accent);
+      border: none;
+      color: #000;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+    .compare-bar-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .compare-bar-btn:not(:disabled):hover { opacity: 0.85; }
+    @media (max-width: 480px) {
+      .compare-bar-inner { padding: 10px 12px; gap: 8px; }
+      .compare-bar-btn { width: 100%; }
+      .compare-slots { flex-basis: 100%; }
+    }
     .pc-btn {
       flex: 1;
       display: block;
