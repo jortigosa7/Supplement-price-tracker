@@ -163,7 +163,7 @@
       </div>
     </div>
 
-    <button id="btnComparar" class="selector-btn" disabled>Comparar →</button>
+    <button id="btnComparar" class="selector-btn">Comparar →</button>
   </div>
 
   <!-- ── Comparison result (dynamic) ── -->
@@ -244,7 +244,7 @@
   function refreshSelects() {
     populateSelect(selA, selB.value);
     populateSelect(selB, selA.value);
-    btn.disabled = !selA.value || !selB.value;
+    btn.style.opacity = (!selA.value || !selB.value) ? '0.35' : '1';
   }
 
   selCat.addEventListener('change', () => {
@@ -252,10 +252,12 @@
     selB.innerHTML = '<option value="">— Elige producto —</option>';
     refreshSelects();
     document.getElementById('cmpResult').style.display = 'none';
-    btn.disabled = true;
   });
   selA.addEventListener('change', refreshSelects);
   selB.addEventListener('change', refreshSelects);
+  // también input por si acaso (algunos navegadores móvil)
+  selA.addEventListener('input', refreshSelects);
+  selB.addEventListener('input', refreshSelects);
 
   refreshSelects();
 
@@ -371,9 +373,12 @@
     document.getElementById('cmpResult').scrollIntoView({ behavior:'smooth', block:'start' });
   }
 
-  btn.addEventListener('click', () => {
-    const pa = getById(selA.value);
-    const pb = getById(selB.value);
+  btn.addEventListener('click', function() {
+    // Releer valores en el momento del click (por si change no disparó en móvil)
+    const idA = selA.options[selA.selectedIndex] ? selA.options[selA.selectedIndex].value : '';
+    const idB = selB.options[selB.selectedIndex] ? selB.options[selB.selectedIndex].value : '';
+    const pa = getById(idA);
+    const pb = getById(idB);
     if (!pa || !pb) return;
     const slug = canonicSlug(pa, pb);
     const pregenUrl = MAPA_PARES[slug] || null;
