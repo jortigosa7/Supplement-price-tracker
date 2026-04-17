@@ -1,0 +1,382 @@
+{% extends "base.html" %}
+
+{% block title %}Comparador de Suplementos: Compara Lado a Lado | {{ site_name }}{% endblock %}
+{% block meta_desc %}Compara cualquier par de suplementos lado a lado: precio por kg, características, tiendas. {{ total_comparaciones }} comparativas disponibles.{% endblock %}
+{% block canonical_path %}/comparar/{% endblock %}
+{% block og_title %}Comparador de Suplementos | {{ site_name }}{% endblock %}
+{% block og_path %}/comparar/{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* ── Hero ── */
+  .cidx-hero { background:#0a0b0c; padding:40px 0 32px; }
+  .cidx-hero h1 { font-size:clamp(1.3rem,3.5vw,2rem); font-weight:900; color:#fff; margin-bottom:10px; text-transform:uppercase; letter-spacing:-0.3px; }
+  .cidx-hero p { font-size:0.9rem; color:#555; max-width:520px; }
+
+  /* ── Selector panel ── */
+  .cidx-wrap { background:#fff; }
+  .selector-panel {
+    background:#f9f9f9;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:22px 22px 18px;
+    margin:28px 0;
+  }
+  .selector-panel-title { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#aaa; margin-bottom:16px; }
+  .selector-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+  @media (max-width:560px) { .selector-row { grid-template-columns:1fr; } }
+  .selector-group label { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#aaa; display:block; margin-bottom:5px; }
+  .selector-select {
+    width:100%;
+    padding:10px 14px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:10px;
+    color:#111;
+    font-family:var(--font-body);
+    font-size:0.88rem;
+    cursor:pointer;
+    transition:border-color 0.15s;
+  }
+  .selector-select:focus { outline:none; border-color:var(--accent-border); }
+  .selector-cat-row { margin-bottom:14px; }
+  .selector-cat-row label { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#aaa; display:block; margin-bottom:5px; }
+  .selector-btn {
+    width:100%;
+    padding:12px 20px;
+    background:#0a0b0c;
+    color:var(--accent);
+    border:none;
+    border-radius:10px;
+    font-family:var(--font-display);
+    font-size:0.9rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    cursor:pointer;
+    transition:opacity 0.15s;
+  }
+  .selector-btn:hover { opacity:0.85; }
+  .selector-btn:disabled { opacity:0.35; cursor:not-allowed; }
+
+  /* ── Comparison result ── */
+  #cmpResult { display:none; margin-bottom:32px; }
+  .cmp-result-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .cmp-result-title { font-size:1rem; font-weight:700; color:#111; }
+  .cmp-result-link {
+    font-size:0.8rem;
+    font-weight:600;
+    color:var(--accent);
+    background:#0a0b0c;
+    padding:5px 12px;
+    border-radius:20px;
+    text-decoration:none;
+  }
+  .cmp-result-link:hover { opacity:0.85; }
+
+  /* Dynamic comparison cards */
+  .dyn-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:20px; }
+  @media (max-width:480px) { .dyn-cards { grid-template-columns:1fr; } }
+  .dyn-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .dyn-card.is-winner { border-color:var(--accent); }
+  .dyn-card-img { width:64px; height:64px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .dyn-card-img img { width:64px; height:64px; object-fit:contain; }
+  .dyn-card-name { font-size:0.88rem; font-weight:700; color:#111; line-height:1.3; }
+  .dyn-card-meta { font-size:0.74rem; color:#999; }
+  .dyn-card-kg { display:inline-flex; background:#0a0b0c; color:var(--accent); font-size:0.74rem; font-weight:800; padding:2px 8px; border-radius:8px; }
+  .dyn-card-price { font-size:1.25rem; font-weight:800; color:#111; line-height:1; }
+
+  /* Dynamic table */
+  .dyn-table-wrap { overflow-x:auto; margin-bottom:16px; }
+  .dyn-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .dyn-table th, .dyn-table td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:0.83rem; }
+  .dyn-table tr:last-child td { border-bottom:none; }
+  .dyn-table th { background:#f7f7f7; font-weight:700; font-size:0.76rem; color:#555; }
+  .dyn-table th.winner-col { background:rgba(200,255,77,0.08); }
+  .dyn-table td.label-col { color:#999; font-size:0.76rem; width:120px; }
+  .dyn-table td.winner-cell { background:rgba(200,255,77,0.06); font-weight:600; color:#111; }
+  .kg-badge { display:inline-block; background:#0a0b0c; color:var(--accent); font-size:0.73rem; font-weight:800; padding:1px 7px; border-radius:7px; }
+  .na-txt { color:#ccc; font-style:italic; font-size:0.78rem; }
+
+  /* ── Popular grid ── */
+  .popular-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:16px; }
+  @media (min-width:640px) { .popular-grid { grid-template-columns:repeat(3,1fr); } }
+  .popular-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:12px 14px; text-decoration:none; transition:border-color 0.15s; display:block; }
+  .popular-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
+  .popular-vs { font-size:0.64rem; color:#aaa; text-transform:uppercase; letter-spacing:0.06em; }
+  .popular-names { font-size:0.8rem; font-weight:600; color:#111; line-height:1.35; margin-top:2px; }
+  .popular-kg { font-size:0.72rem; color:#aaa; margin-top:3px; }
+
+  .sec-title { font-size:0.95rem; font-weight:700; color:#111; margin-bottom:6px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+  .sec-sub { font-size:0.8rem; color:#aaa; margin-bottom:16px; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ── Hero ── -->
+<div class="cidx-hero">
+  <div class="container">
+    <div class="breadcrumb" style="margin-bottom:14px;">
+      <a href="{{ site_url }}/" style="color:#555;">Inicio</a>
+      <span>›</span>
+      <span style="color:#777;">Comparar</span>
+    </div>
+    <h1>Compara suplementos<br><em style="color:var(--accent);font-style:normal;">lado a lado</em></h1>
+    <p>Elige dos productos y compara precio €/kg, características y tiendas disponibles. {{ total_comparaciones }} comparativas pre-generadas.</p>
+  </div>
+</div>
+
+<div class="cidx-wrap">
+<div class="container" style="padding-bottom:64px;">
+
+  <!-- ── Selector ── -->
+  <div class="selector-panel">
+    <div class="selector-panel-title">Selecciona dos productos para comparar</div>
+
+    <div class="selector-cat-row">
+      <label for="selCat">Categoría</label>
+      <select id="selCat" class="selector-select">
+        <option value="">Todas las categorías</option>
+        <option value="proteina-whey">Proteína Whey</option>
+        <option value="creatina">Creatina</option>
+        <option value="bcaa">BCAA</option>
+        <option value="pre-entreno">Pre-Entreno</option>
+      </select>
+    </div>
+
+    <div class="selector-row">
+      <div class="selector-group">
+        <label for="selA">Producto A</label>
+        <select id="selA" class="selector-select"><option value="">— Elige producto —</option></select>
+      </div>
+      <div class="selector-group">
+        <label for="selB">Producto B</label>
+        <select id="selB" class="selector-select"><option value="">— Elige producto —</option></select>
+      </div>
+    </div>
+
+    <button id="btnComparar" class="selector-btn" disabled>Comparar →</button>
+  </div>
+
+  <!-- ── Comparison result (dynamic) ── -->
+  <div id="cmpResult">
+    <div class="cmp-result-header">
+      <div class="cmp-result-title" id="cmpResultTitle"></div>
+      <a id="cmpResultLink" href="#" class="cmp-result-link" style="display:none;">Ver comparativa completa →</a>
+    </div>
+    <div id="cmpCards" class="dyn-cards"></div>
+    <div class="dyn-table-wrap"><table id="cmpTable" class="dyn-table"></table></div>
+  </div>
+
+  <!-- ── Comparaciones populares ── -->
+  <div style="margin-top:40px;">
+    <h2 class="sec-title">Comparaciones populares</h2>
+    <p class="sec-sub">Las {{ pares_populares | length }} comparativas más relevantes por precio €/kg</p>
+    <div class="popular-grid">
+      {% for par in pares_populares %}
+      <a href="{{ site_url }}/comparar/{{ par.slug }}/" class="popular-card">
+        <div class="popular-vs">{{ par.categoria | replace('-',' ') }}</div>
+        <div class="popular-names">{{ par.nombre_a }}<br><span style="color:#aaa;font-weight:400;">vs</span><br>{{ par.nombre_b }}</div>
+        {% if par.precio_kg_a and par.precio_kg_b %}
+        <div class="popular-kg">{{ "%.2f"|format(par.precio_kg_a) }} vs {{ "%.2f"|format(par.precio_kg_b) }} €/kg</div>
+        {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+</div><!-- /.container -->
+</div><!-- /.cidx-wrap -->
+
+<script>
+(function() {
+  const SITE_URL = '{{ site_url }}';
+  const STORE_COLORS = {
+    'HSN':'var(--hsn)', 'Nutritienda':'var(--nutritienda)',
+    'Prozis':'var(--prozis)', 'MyProtein':'var(--myprotein)'
+  };
+  const STORE_CLASSES = {
+    'HSN':'store-hsn','Nutritienda':'store-nutritienda',
+    'Prozis':'store-prozis','MyProtein':'store-myprotein'
+  };
+
+  const allProds = {{ all_products_json | safe }};
+  const MAPA_PARES = {{ mapa_pares_json | safe }};
+
+  const selCat = document.getElementById('selCat');
+  const selA   = document.getElementById('selA');
+  const selB   = document.getElementById('selB');
+  const btn    = document.getElementById('btnComparar');
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function filteredProds() {
+    const cat = selCat.value;
+    return cat ? allProds.filter(p => p.categoria === cat) : allProds;
+  }
+
+  function populateSelect(sel, excl) {
+    const prods = filteredProds();
+    const cur = sel.value;
+    sel.innerHTML = '<option value="">— Elige producto —</option>';
+    prods.forEach(p => {
+      if (p.id === excl) return;
+      const opt = document.createElement('option');
+      opt.value = p.id;
+      opt.textContent = p.nombre + (p.marca ? ' — ' + p.marca : '') + (p.peso_kg ? ' (' + p.peso_kg.toFixed(2) + ' kg)' : '');
+      if (p.id === cur) opt.selected = true;
+      sel.appendChild(opt);
+    });
+  }
+
+  function refreshSelects() {
+    populateSelect(selA, selB.value);
+    populateSelect(selB, selA.value);
+    btn.disabled = !selA.value || !selB.value;
+  }
+
+  selCat.addEventListener('change', () => {
+    selA.innerHTML = '<option value="">— Elige producto —</option>';
+    selB.innerHTML = '<option value="">— Elige producto —</option>';
+    refreshSelects();
+    document.getElementById('cmpResult').style.display = 'none';
+    btn.disabled = true;
+  });
+  selA.addEventListener('change', refreshSelects);
+  selB.addEventListener('change', refreshSelects);
+
+  refreshSelects();
+
+  // ── Comparison render ──────────────────────────────────────────
+  function getById(id) { return allProds.find(p => p.id === id); }
+
+  function canonicSlug(pa, pb) {
+    const ia = pa.id.slice(0,40), ib = pb.id.slice(0,40);
+    return ia <= ib ? `${ia}-vs-${ib}` : `${ib}-vs-${ia}`;
+  }
+
+  function renderComparison(pa, pb) {
+    const slug = canonicSlug(pa, pb);
+    const pregenUrl = MAPA_PARES[slug] || null;
+
+    // Title & link
+    document.getElementById('cmpResultTitle').textContent =
+      pa.nombre + ' vs ' + pb.nombre;
+    const linkEl = document.getElementById('cmpResultLink');
+    if (pregenUrl) {
+      linkEl.href = SITE_URL + pregenUrl;
+      linkEl.style.display = '';
+    } else {
+      linkEl.style.display = 'none';
+    }
+
+    // Determine winner by €/kg
+    const kgA = pa.precio_kg, kgB = pb.precio_kg;
+    const winnerSide = (kgA && kgB) ? (kgA < kgB ? 'a' : kgB < kgA ? 'b' : null) : null;
+
+    // ── Cards ──
+    function renderCard(p, side) {
+      const isWin = winnerSide === side;
+      const bestStore = p.precios[0];
+      const stores = p.precios.map(pr => {
+        const cls  = STORE_CLASSES[pr.tienda] || 'store-default';
+        const oferta = pr.oferta ? '<span class="pc-store-sale">OFERTA</span>' : '';
+        return `<a href="${esc(pr.url)}" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:${STORE_COLORS[pr.tienda]||'#888'};"></span>
+          <span class="pc-store-name">${esc(pr.tienda)}</span>
+          <span class="pc-store-price">${pr.precio.toFixed(2)} €</span>${oferta}
+        </a>`;
+      }).join('');
+      return `<div class="dyn-card${isWin ? ' is-winner' : ''}">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="dyn-card-img"><img src="${esc(p.img)}" alt="${esc(p.nombre)}" width="64" height="64" loading="lazy"></div>
+          <div>
+            <div class="dyn-card-name">${esc(p.nombre)}</div>
+            <div class="dyn-card-meta">${esc(p.marca)}${p.peso_kg ? ' · ' + p.peso_kg.toFixed(2) + ' kg' : ''}</div>
+          </div>
+        </div>
+        ${p.precio_kg ? `<div><div class="dyn-card-price">${bestStore.precio.toFixed(2)} €</div><div class="dyn-card-kg">${p.precio_kg.toFixed(2)} €/kg</div></div>` : ''}
+        <div class="pc-stores">${stores}</div>
+        <a href="${esc(bestStore.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
+      </div>`;
+    }
+    document.getElementById('cmpCards').innerHTML =
+      renderCard(pa, 'a') + renderCard(pb, 'b');
+
+    // ── Table ──
+    function cell(val, isWin) {
+      const cls = isWin ? ' class="winner-cell"' : '';
+      return `<td${cls}>${val}</td>`;
+    }
+    function naCell(label) { return `<td><span class="na-txt">${label}</span></td>`; }
+    function kgCell(val, isWin) {
+      const cls = isWin ? ' class="winner-cell"' : '';
+      return `<td${cls}><span class="kg-badge">${val.toFixed(2)} €/kg</span></td>`;
+    }
+
+    const winA = winnerSide === 'a', winB = winnerSide === 'b';
+    const thA = `<th${winA ? ' class="winner-col"' : ''}>${esc(pa.nombre)}${winA ? ' <span class="kg-badge">✓</span>':''}</th>`;
+    const thB = `<th${winB ? ' class="winner-col"' : ''}>${esc(pb.nombre)}${winB ? ' <span class="kg-badge">✓</span>':''}</th>`;
+
+    let rows = `<thead><tr><th class="label-col"></th>${thA}${thB}</tr></thead><tbody>`;
+
+    // Marca
+    rows += `<tr><td class="label-col">Marca</td>${cell(esc(pa.marca||'—'),false)}${cell(esc(pb.marca||'—'),false)}</tr>`;
+    // Peso
+    const pesoA = pa.peso_kg ? pa.peso_kg.toFixed(2)+' kg' : '—';
+    const pesoB = pb.peso_kg ? pb.peso_kg.toFixed(2)+' kg' : '—';
+    rows += `<tr><td class="label-col">Peso</td>${cell(pesoA,false)}${cell(pesoB,false)}</tr>`;
+    // €/kg
+    rows += `<tr><td class="label-col">Precio €/kg</td>`;
+    rows += pa.precio_kg ? kgCell(pa.precio_kg, winA) : naCell('—');
+    rows += pb.precio_kg ? kgCell(pb.precio_kg, winB) : naCell('—');
+    rows += '</tr>';
+    // Mejor precio total
+    const bestA = pa.precios[0], bestB = pb.precios[0];
+    rows += `<tr><td class="label-col">Mejor precio</td>
+      ${cell(bestA ? bestA.precio.toFixed(2)+' € ('+esc(bestA.tienda)+')' : '—', winA)}
+      ${cell(bestB ? bestB.precio.toFixed(2)+' € ('+esc(bestB.tienda)+')' : '—', winB)}
+    </tr>`;
+    // Tipo proteína
+    if (pa.protein_type || pb.protein_type) {
+      rows += `<tr><td class="label-col">Tipo proteína</td>
+        ${cell(esc(pa.protein_type||'—'),false)}${cell(esc(pb.protein_type||'—'),false)}</tr>`;
+    }
+    // Tiendas
+    function storePills(p) {
+      return p.precios.map(pr =>
+        `<span class="store-pill ${STORE_CLASSES[pr.tienda]||'store-default'}" style="margin-right:3px;display:inline-flex;">
+          <span class="store-pill-dot"></span>${esc(pr.tienda)}
+        </span>`
+      ).join('');
+    }
+    rows += `<tr><td class="label-col">Tiendas</td><td>${storePills(pa)}</td><td>${storePills(pb)}</td></tr>`;
+
+    rows += '</tbody>';
+    document.getElementById('cmpTable').innerHTML = rows;
+
+    document.getElementById('cmpResult').style.display = '';
+    document.getElementById('cmpResult').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  btn.addEventListener('click', () => {
+    const pa = getById(selA.value);
+    const pb = getById(selB.value);
+    if (pa && pb) renderComparison(pa, pb);
+  });
+})();
+</script>
+
+{% endblock %}

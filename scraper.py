@@ -19,6 +19,7 @@ Salida:
 import sys
 import os
 import json
+import glob
 
 # Forzar UTF-8 en stdout (necesario en Windows con cp1252)
 if hasattr(sys.stdout, "reconfigure"):
@@ -40,8 +41,14 @@ def guardar_dataset(df: pd.DataFrame) -> tuple[str, str]:
     """Guarda el DataFrame como CSV y JSON con timestamp."""
     timestamp = datetime.now().strftime("%Y%m%d")
 
-    columnas = ["nombre", "marca", "categoria", "precio_eur", "peso_kg",
-                "precio_por_kg", "tienda", "url", "imagen_url", "fecha_scraping"]
+    columnas = [
+        "nombre", "marca", "categoria", "precio_eur", "peso_kg",
+        "precio_por_kg", "tienda", "url", "imagen_url", "fecha_scraping",
+        # Campos de enriquecimiento (pueden estar null si el scraper no los extrajo)
+        "protein_per_serving_g", "serving_size_g", "servings_per_container",
+        "sweetener_free", "vegan", "flavors_available",
+        "store_rating", "store_rating_count", "store_rating_url",
+    ]
     cols_ok = [c for c in columnas if c in df.columns]
     df_out  = df[cols_ok].copy()
 
@@ -124,6 +131,22 @@ if __name__ == "__main__":
     if not todos:
         print("\n  Sin productos. Revisa la conexion o los selectores.")
         sys.exit(1)
+
+    # ── Safeguard: verificar que no perdemos >20% vs el scrape anterior ──────
+    prev_files = sorted(glob.glob(os.path.join(OUTPUT_DIR, "suplementos_*.json")), reverse=True)
+    if prev_files:
+        try:
+            with open(prev_files[0], encoding="utf-8") as _f:
+                prev_count = len(json.load(_f))
+            if len(todos) < prev_count * 0.80:
+                print(
+                    f"\n⚠️  ABORTANDO: solo {len(todos)} productos scrapeados "
+                    f"vs {prev_count} en el scrape anterior (< 80%). "
+                    f"Revisa los scrapers antes de sobreescribir products.json."
+                )
+                sys.exit(1)
+        except Exception as _e:
+            print(f"  Aviso: no se pudo leer dataset anterior: {_e}")
 
     # Limpiar
     df = limpiar_dataset(todos)
