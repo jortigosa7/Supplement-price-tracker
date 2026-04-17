@@ -374,7 +374,14 @@
   btn.addEventListener('click', () => {
     const pa = getById(selA.value);
     const pb = getById(selB.value);
-    if (pa && pb) renderComparison(pa, pb);
+    if (!pa || !pb) return;
+    const slug = canonicSlug(pa, pb);
+    const pregenUrl = MAPA_PARES[slug] || null;
+    if (pregenUrl) {
+      window.location.href = SITE_URL + pregenUrl;
+    } else {
+      renderComparison(pa, pb);
+    }
   });
 })();
 </script>
