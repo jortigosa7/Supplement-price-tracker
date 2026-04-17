@@ -178,10 +178,11 @@ def scrape() -> list[dict]:
 
                 imagen_url = None
                 contenedor = item.parent or item
-                img = contenedor.select_one("img[src]")
+                # Nutritienda usa lazy-load Sirv: data-src en img.Sirv
+                img = contenedor.select_one("img.Sirv") or contenedor.find("img")
                 if img:
                     src = img.get("data-src") or img.get("src", "")
-                    if src and "placeholder" not in src.lower() and src.startswith("http"):
+                    if src and src.startswith("http") and "placeholder" not in src.lower():
                         imagen_url = src
 
                 if nombre:

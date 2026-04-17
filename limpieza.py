@@ -123,7 +123,15 @@ def limpiar_dataset(productos: list[dict]) -> pd.DataFrame:
     
     df = pd.DataFrame(productos)
     print(f"\n🧹 Limpiando {len(df)} productos...")
-    
+
+    # Columnas extra que deben sobrevivir tal cual (no se procesan pero se preservan)
+    _PASS_THROUGH = [
+        "imagen_url",
+        "protein_per_serving_g", "serving_size_g", "servings_per_container",
+        "sweetener_free", "vegan", "flavors_available",
+        "store_rating", "store_rating_count", "store_rating_url",
+    ]
+
     # 1. Limpiar precios
     df["precio_eur"] = df["precio"].apply(limpiar_precio)
     

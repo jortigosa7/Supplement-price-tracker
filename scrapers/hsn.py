@@ -229,8 +229,8 @@ def scrape(debug: bool = False) -> list[dict]:
                 )
                 precio = precio_el.get_text(strip=True) if precio_el else "N/A"
 
-                # Imagen (lazy-loaded: data-src antes que src)
-                img = item.select_one("img.product-image-photo")
+                # Imagen: primer <img> dentro del form (no usa clase fija)
+                img = item.find("img")
                 imagen_url = None
                 if img:
                     src = img.get("data-src") or img.get("src") or ""

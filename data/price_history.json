@@ -9208,5 +9208,443 @@
     "fecha": "2026-04-17",
     "precio": 22.75,
     "tienda": "HSN"
+  },
+  {
+    "producto_id": "bcaa-sensation-345g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 24.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-glutamina-bcaa-530g-multimega-30-caps-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 39.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-xt-120-caps-amix",
+    "fecha": "2026-04-17",
+    "precio": 26.3,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-monohidrato-en-polvo-200-mesh-150g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 2.37,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-powder-500g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 14.82,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-celular-800g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 26.96,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "cr5-creatina-1000g-ultra-pura",
+    "fecha": "2026-04-17",
+    "precio": 60.21,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-200g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 13.49,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-200g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 16.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "premium-creatine-100-creapure-375g-weider",
+    "fecha": "2026-04-17",
+    "precio": 28.41,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "cr5-creatine-200g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 15.75,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-micronized-300g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 25.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatine-monohydrate-micronized-300g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 32.2,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-200mesh-300g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 27.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-200mesh-300g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 28.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pack-regalo-cellup-oxystorm-348g-creatina-30-caps-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 38.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-excell-100-creapure-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 43.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-20-x-10g-nutrisport",
+    "fecha": "2026-04-17",
+    "precio": 15.84,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "kre-alkalyn-3000-120-caps-quamtrax",
+    "fecha": "2026-04-17",
+    "precio": 28.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "cgt-3-200-caps-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 25.7,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "black-line-creatine-creapure-capsules-120-vcaps-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 31.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-zero-effervescent-16-tabs-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 7.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "kre-alkalyn-120-30-caps-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 41.7,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-ph-x-210-caps-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 29.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-micronizada-creapure-capsulas-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 29.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-micronizada-creapure-capsulas-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 37.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "pack-proteico-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 61.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "beta-alanina-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 4.5,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "beta-alanina-en-polvo-150g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 7.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "pre-workout-explosive-1-kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 36.4,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "smooth-8-hybrid-protein-2-3kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 87.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pre-workout-impact-400g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 27.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "total-rush-2-0-375g-formula-mejorada",
+    "fecha": "2026-04-17",
+    "precio": 28.41,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "cellex-unlimited-1-kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 76.7,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "glycopump-300g-vitobest",
+    "fecha": "2026-04-17",
+    "precio": 23.04,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "nitrox-therapy-340g-biotechusa",
+    "fecha": "2026-04-17",
+    "precio": 26.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "yeep-pump-no-caff-360g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 32.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pump-caffeine-free-330g-biotechusa",
+    "fecha": "2026-04-17",
+    "precio": 29.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "supernova-282g-biotechusa",
+    "fecha": "2026-04-17",
+    "precio": 29.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "wild-pump-400g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 42.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "black-blood-nox-330g-formula-pre-entreno",
+    "fecha": "2026-04-17",
+    "precio": 40.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "cellup-shot-20-ud-60-ml-energia-para-tomar-directamente",
+    "fecha": "2026-04-17",
+    "precio": 45.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "x-fat-2-en-1-shot-20-viales-de-60ml-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 44.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "citrulina-malato-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 13.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "citrulina-malato-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 13.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "w74-wheycore-2000g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 16.14,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "w74-wheycore-2000g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 62.91,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "ultra-pure-whey-2-kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 18.04,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "ultra-pure-whey-2-kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 85.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-gold-protein-2-kg-nutrisport",
+    "fecha": "2026-04-17",
+    "precio": 54.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "impact-whey-protein-2500g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 74.04,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "animal-100-whey-protein-1-kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 34.59,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-protein-2000g-perfecta-solubilidad",
+    "fecha": "2026-04-17",
+    "precio": 69.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "100-whey-gold-standard-2-27-kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 79.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "protein-hydrolyzed-zero-delicatesse-1000g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 37.35,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-predator-protein-2-kg-osteo-anagenesis-30-caps-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 74.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "hd8-hydropro-1-8-kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 69.21,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isolate-whey-100-cfm-908-g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 34.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "isolate-whey-100-cfm-908-g-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 44.97,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-pure-fusion-4kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 165.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "predator-protein-1kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 41.7,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "hd8-hydropro-908g-hidrolizado-de-proteina-de-suero",
+    "fecha": "2026-04-17",
+    "precio": 38.61,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "100-pure-whey-454g-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 20.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "panacea-750g-paleobull",
+    "fecha": "2026-04-17",
+    "precio": 35.22,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isopro-cfm-2-kg-quamtrax",
+    "fecha": "2026-04-17",
+    "precio": 94.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-protein-isolate-2000g-perfecta-solubilidad",
+    "fecha": "2026-04-17",
+    "precio": 99.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isopro-cfm-1-kg-quamtrax",
+    "fecha": "2026-04-17",
+    "precio": 52.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-isoprime-cfm-isolate-2-kg-multimega-30-caps-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 111.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-cfm-nitro-isolate-2-kg-triptofano-30-caps-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 115.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "iso-whey-zero-black-908g-biotechusa",
+    "fecha": "2026-04-17",
+    "precio": 55.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "black-cfm-isolate-1-kg-optimum-nutrition",
+    "fecha": "2026-04-17",
+    "precio": 67.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "iso-whey-zero-450g-biotechusa",
+    "fecha": "2026-04-17",
+    "precio": 31.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "clear-whey-protein-y-colageno-desconocida",
+    "fecha": "2026-04-17",
+    "precio": 27.99,
+    "tienda": "MyProtein"
   }
 ]

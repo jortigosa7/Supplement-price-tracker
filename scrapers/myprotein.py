@@ -175,17 +175,22 @@ def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None
     variantes = []
     imagen_url = None
 
-    for schema in _parsear_schemas_jsonld(html):
-        if schema.get("@type") not in ("Product", "IndividualProduct"):
-            continue
+    schemas = _parsear_schemas_jsonld(html)
 
-        # Imagen del producto
+    # Imagen: buscar en cualquier schema Product/ProductGroup/IndividualProduct
+    for schema in schemas:
         if not imagen_url:
             img = schema.get("image")
             if isinstance(img, str) and img.startswith("http"):
                 imagen_url = img
             elif isinstance(img, list) and img:
                 imagen_url = img[0] if isinstance(img[0], str) else None
+        if imagen_url:
+            break
+
+    for schema in schemas:
+        if schema.get("@type") not in ("Product", "IndividualProduct"):
+            continue
 
         offers = schema.get("offers", [])
         if isinstance(offers, dict):
