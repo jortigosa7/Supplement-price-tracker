@@ -481,15 +481,16 @@
 })();
 
 // ── Comparador ────────────────────────────────────────────────────────────────
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
+  var list   = document.getElementById('productsList');
   var bar    = document.getElementById('compareBar');
   var slot0  = document.getElementById('compareSlot0');
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
+  if (!list || !bar || !btnGo) return; // guard por si falla algún ID
   var SLUGS  = new Set({{ slugs_comparacion | safe }});
   var BASE   = '{{ site_url }}/comparar/';
-
-  var selected = []; // [{id, label, btn}]
+  var selected = [];
 
   function buildSlug(a, b) {
     var x = a.slice(0,40), y = b.slice(0,40);
@@ -511,10 +512,11 @@
     bar.classList.toggle('visible', selected.length > 0);
   }
 
-  // Delegación de eventos en la lista de productos (funciona con paginación)
-  document.getElementById('productsList').addEventListener('click', function(e) {
+  list.addEventListener('click', function(e) {
     var btn = e.target.closest('.pc-btn-compare');
     if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
     var card  = btn.closest('.product-card');
     var id    = card.dataset.id;
     var label = card.dataset.label;
@@ -539,6 +541,6 @@
   });
 
   updateBar();
-})();
+});
 </script>
 {% endblock %}
