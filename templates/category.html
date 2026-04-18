@@ -15,15 +15,20 @@
   "@type": "ItemList",
   "name": "{{ cat.h1 }}",
   "description": "{{ cat.seo_desc }}",
-  "numberOfItems": {{ products | length }},
+  "numberOfItems": {{ [products | length, 10] | min }},
   "itemListElement": [
+    {% set ns = namespace(count=0) %}
     {% for p in products[:10] %}
-    {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
+    {% set precios_validos = p.precios | selectattr('precio_eur') | list %}
+    {% if precios_validos %}
+    {% set precios_ord = precios_validos | sort(attribute='precio_eur') %}
     {% set low  = precios_ord | first %}
     {% set high = precios_ord | last %}
+    {% if ns.count > 0 %},{% endif %}
+    {% set ns.count = ns.count + 1 %}
     {
       "@type": "ListItem",
-      "position": {{ loop.index }},
+      "position": {{ ns.count }},
       "item": {
         "@type": "Product",
         "name": "{{ p.nombre_normalizado | replace('"', '\\"') }}",
@@ -31,13 +36,14 @@
         "offers": {
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",
-          "lowPrice": "{{ '%.2f' | format(low.precio_eur) }}",
-          "highPrice": "{{ '%.2f' | format(high.precio_eur) }}",
-          "offerCount": {{ p.precios | length }},
+          "lowPrice": {{ '%.2f' | format(low.precio_eur) }},
+          "highPrice": {{ '%.2f' | format(high.precio_eur) }},
+          "offerCount": {{ [precios_validos | length, 1] | max }},
           "availability": "https://schema.org/InStock"
         }
       }
-    }{% if not loop.last %},{% endif %}
+    }
+    {% endif %}
     {% endfor %}
   ]
 }
