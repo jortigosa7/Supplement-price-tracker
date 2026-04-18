@@ -58,6 +58,7 @@
       "item": {
         "@type": "Product",
         "name": "EVOBEAST 1kg",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evobeast",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -84,6 +85,7 @@
       "item": {
         "@type": "Product",
         "name": "Energy Charge - Preentrenamiento 800 g",
+        "url": "https://www.prozis.com/es/es/prozis/energy-charge-preentrenamiento-800-g",
         "brand": { "@type": "Brand", "name": "Prozis" },
         "offers": {
           "@type": "AggregateOffer",
@@ -110,6 +112,7 @@
       "item": {
         "@type": "Product",
         "name": "BETA-ALANINA EN POLVO 150g",
+        "url": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo",
         "brand": { "@type": "Brand", "name": "MyProtein" },
         "offers": {
           "@type": "AggregateOffer",
@@ -136,6 +139,7 @@
       "item": {
         "@type": "Product",
         "name": "N.O. Shox 1320g",
+        "url": "https://www.prozis.com/es/es/prozis/n.o.-shox-1320g",
         "brand": { "@type": "Brand", "name": "Prozis" },
         "offers": {
           "@type": "AggregateOffer",
@@ -162,6 +166,7 @@
       "item": {
         "@type": "Product",
         "name": "Beta-alanina 900 g",
+        "url": "https://www.prozis.com/es/es/prozis/beta-alanina-900-g",
         "brand": { "@type": "Brand", "name": "Prozis" },
         "offers": {
           "@type": "AggregateOffer",
@@ -188,6 +193,7 @@
       "item": {
         "@type": "Product",
         "name": "PRE WORKOUT EXPLOSIVE 1 Kg",
+        "url": "https://www.nutritienda.com/es/gold-nutrition-pre-workout-explosive-1000g",
         "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
         "offers": {
           "@type": "AggregateOffer",
@@ -214,6 +220,7 @@
       "item": {
         "@type": "Product",
         "name": "N.O. Shox 660 g",
+        "url": "https://www.prozis.com/es/es/prozis/n.o.-shox-660-g",
         "brand": { "@type": "Brand", "name": "Prozis" },
         "offers": {
           "@type": "AggregateOffer",
@@ -240,6 +247,7 @@
       "item": {
         "@type": "Product",
         "name": "SMOOTH-8 Hybrid Protein 2,3Kg",
+        "url": "https://www.nutritienda.com/es/amix-nutrition-smooth-8-hybrid-protein-2300g",
         "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
         "offers": {
           "@type": "AggregateOffer",
@@ -266,6 +274,7 @@
       "item": {
         "@type": "Product",
         "name": "Taurina en polvo 250g",
+        "url": "https://www.myprotein.es/p/nutricion-deportiva/taurina-en-polvo/10530303/",
         "brand": { "@type": "Brand", "name": "MyProtein" },
         "offers": {
           "@type": "AggregateOffer",
@@ -292,6 +301,7 @@
       "item": {
         "@type": "Product",
         "name": "Beta-alanina 300 g",
+        "url": "https://www.prozis.com/es/es/prozis/beta-alanina-300-g",
         "brand": { "@type": "Brand", "name": "Prozis" },
         "offers": {
           "@type": "AggregateOffer",
@@ -4702,7 +4712,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
   if (!list || !bar || !btnGo) return; // guard por si falla algún ID
-  var SLUGS  = new Set(["l-ornitina-hcl-en-polvo-250g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-300-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-300-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "evobeast-1kg-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-300-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "glycopump-glicerol-en-polvo-150g-descono-vs-l-citrulina-base-en-polvo-150g-desconoci", "evobeast-1kg-desconocida-vs-taurina-en-polvo-250g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-1320g-desconocida", "evobeast-1kg-desconocida-vs-n-o-shox-660-g-desconocida", "beta-alanina-300-g-desconocida-vs-n-o-shox-660-g-desconocida", "n-o-shox-1320g-desconocida-vs-n-o-shox-660-g-desconocida", "n-o-shox-1320g-desconocida-vs-taurina-en-polvo-250g-desconocida", "n-o-shox-1320g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-900-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-1320g-desconocida", "cellex-unlimited-1-kg-optimum-nutrition-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "cellex-unlimited-1-kg-optimum-nutrition-vs-pre-workout-impact-400g-optimum-nutritio", "beta-alanina-900-g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "evobeast-1kg-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "smooth-8-hybrid-protein-2-3kg-optimum-nu-vs-taurina-en-polvo-250g-desconocida", "n-o-shox-660-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "n-o-shox-1320g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "beta-alanina-en-polvo-150g-desconocida-vs-evobeast-1kg-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-660-g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-660-g-desconocida", "pre-workout-impact-400g-optimum-nutritio-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "n-o-shox-660-g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "evobomb-150g-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "pre-workout-explosive-1-kg-optimum-nutri-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-en-polvo-150g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-en-polvo-150g-desconocida-vs-impact-pre-entreno-venom-440g-desconocid", "beta-alanina-900-g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "beta-alanina-300-g-desconocida-vs-n-o-shox-1320g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-taurina-en-polvo-250g-desconocida", "impact-pre-entreno-venom-440g-desconocid-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "n-o-shox-660-g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-900-g-desconocida-vs-n-o-shox-660-g-desconocida", "evobeast-1kg-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "impact-pre-entreno-venom-440g-desconocid-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "evobeast-1kg-desconocida-vs-n-o-shox-1320g-desconocida", "evobomb-150g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-en-polvo-150g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "beta-alanina-en-polvo-150g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-900-g-desconocida-vs-n-o-shox-1320g-desconocida", "beta-alanina-300-g-desconocida-vs-beta-alanina-900-g-desconocida", "beta-alanina-300-g-desconocida-vs-evobeast-1kg-desconocida", "evobeast-1kg-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "beta-alanina-900-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "nitrox-therapy-340g-biotechusa-vs-supernova-282g-biotechusa", "cellex-unlimited-1-kg-optimum-nutrition-vs-pre-workout-explosive-1-kg-optimum-nutri", "energy-charge-preentrenamiento-800-g-des-vs-evobeast-1kg-desconocida", "evobeast-1kg-desconocida-vs-evobomb-150g-desconocida", "beta-alanina-900-g-desconocida-vs-evobeast-1kg-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "pre-workout-explosive-1-kg-optimum-nutri-vs-taurina-en-polvo-250g-desconocida", "nitrox-therapy-340g-biotechusa-vs-pump-caffeine-free-330g-biotechusa", "beta-alanina-en-polvo-150g-desconocida-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-pre-workout-explosive-1-kg-optimum-nutri", "pump-caffeine-free-330g-biotechusa-vs-supernova-282g-biotechusa", "pre-workout-explosive-1-kg-optimum-nutri-vs-pre-workout-impact-400g-optimum-nutritio", "beta-alanina-900-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida"]);
+  var SLUGS  = new Set(["beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-1320g-desconocida", "n-o-shox-660-g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "energy-charge-preentrenamiento-800-g-des-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "pre-workout-explosive-1-kg-optimum-nutri-vs-pre-workout-impact-400g-optimum-nutritio", "evobeast-1kg-desconocida-vs-evobomb-150g-desconocida", "evobeast-1kg-desconocida-vs-n-o-shox-1320g-desconocida", "n-o-shox-660-g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-1320g-desconocida", "cellex-unlimited-1-kg-optimum-nutrition-vs-pre-workout-impact-400g-optimum-nutritio", "n-o-shox-1320g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-300-g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "n-o-shox-660-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-660-g-desconocida", "beta-alanina-900-g-desconocida-vs-evobeast-1kg-desconocida", "beta-alanina-300-g-desconocida-vs-evobeast-1kg-desconocida", "beta-alanina-900-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-300-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "beta-alanina-300-g-desconocida-vs-n-o-shox-660-g-desconocida", "evobeast-1kg-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "evobomb-150g-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "energy-charge-preentrenamiento-800-g-des-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-beta-alanina-900-g-desconocida", "pump-caffeine-free-330g-biotechusa-vs-supernova-282g-biotechusa", "glycopump-glicerol-en-polvo-150g-descono-vs-l-citrulina-base-en-polvo-150g-desconoci", "beta-alanina-900-g-desconocida-vs-n-o-shox-1320g-desconocida", "beta-alanina-300-g-desconocida-vs-n-o-shox-1320g-desconocida", "n-o-shox-1320g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "nitrox-therapy-340g-biotechusa-vs-pump-caffeine-free-330g-biotechusa", "cellex-unlimited-1-kg-optimum-nutrition-vs-pre-workout-explosive-1-kg-optimum-nutri", "evobeast-1kg-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "beta-alanina-en-polvo-150g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "evobeast-1kg-desconocida-vs-n-o-shox-660-g-desconocida", "n-o-shox-1320g-desconocida-vs-n-o-shox-660-g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-660-g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-evobeast-1kg-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-900-g-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "pre-workout-impact-400g-optimum-nutritio-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-en-polvo-150g-desconocida-vs-impact-pre-entreno-venom-440g-desconocid", "beta-alanina-300-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-900-g-desconocida-vs-n-o-shox-660-g-desconocida", "cellex-unlimited-1-kg-optimum-nutrition-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "impact-pre-entreno-venom-440g-desconocid-vs-taurina-en-polvo-250g-desconocida", "pre-workout-explosive-1-kg-optimum-nutri-vs-taurina-en-polvo-250g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-pre-workout-explosive-1-kg-optimum-nutri", "nitrox-therapy-340g-biotechusa-vs-supernova-282g-biotechusa", "beta-alanina-en-polvo-150g-desconocida-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "beta-alanina-900-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "beta-alanina-900-g-desconocida-vs-pre-workout-explosive-1-kg-optimum-nutri", "evobeast-1kg-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "evobeast-1kg-desconocida-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "pre-workout-explosive-1-kg-optimum-nutri-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "smooth-8-hybrid-protein-2-3kg-optimum-nu-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-evobeast-1kg-desconocida", "evobomb-150g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-en-polvo-150g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "evobeast-1kg-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-900-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "n-o-shox-1320g-desconocida-vs-taurina-en-polvo-250g-desconocida", "impact-pre-entreno-venom-440g-desconocid-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "l-ornitina-hcl-en-polvo-250g-desconocida-vs-taurina-en-polvo-250g-desconocida"]);
   var BASE   = 'https://stackfit.es/comparar/';
   var selected = [];
 

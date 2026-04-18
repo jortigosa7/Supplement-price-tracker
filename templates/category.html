@@ -31,8 +31,9 @@
       "position": {{ ns.count }},
       "item": {
         "@type": "Product",
-        "name": "{{ p.nombre_normalizado | replace('"', '\\"') }}",
-        "brand": { "@type": "Brand", "name": "{{ p.marca | replace('"', '\\"') }}" },
+        "name": {{ p.nombre_normalizado | tojson }},
+        "url": {{ low.url_afiliado | tojson }},
+        "brand": { "@type": "Brand", "name": {{ p.marca | tojson }} },
         "offers": {
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",

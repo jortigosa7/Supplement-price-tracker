@@ -57,7 +57,8 @@
       "position": 1,
       "item": {
         "@type": "Product",
-        "name": "EVOWHEY &amp; OATS 2kg",
+        "name": "EVOWHEY \u0026 OATS 2kg",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evowhey-oats",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -84,6 +85,7 @@
       "item": {
         "@type": "Product",
         "name": "EVOBASIC WHEY 2kg",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evobasic-whey",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -110,6 +112,7 @@
       "item": {
         "@type": "Product",
         "name": "EVOWHEY PROTEIN 2kg",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -136,6 +139,7 @@
       "item": {
         "@type": "Product",
         "name": "EVOWHEY PROTEIN SIN EDULCORANTES 2kg",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein-sin-edulcorantes",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -162,6 +166,7 @@
       "item": {
         "@type": "Product",
         "name": "W74 WHEYCORE 2000g",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate",
         "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
         "offers": {
           "@type": "AggregateOffer",
@@ -188,6 +193,7 @@
       "item": {
         "@type": "Product",
         "name": "Ultra Pure Whey 2 Kg",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evoexcel-2-0-whey-protein-isolate-concentrate",
         "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
         "offers": {
           "@type": "AggregateOffer",
@@ -214,6 +220,7 @@
       "item": {
         "@type": "Product",
         "name": "EVOLATE 2.0 (WHEY ISOLATE CFM) 2kg",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-whey-isolate-cfm",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -240,6 +247,7 @@
       "item": {
         "@type": "Product",
         "name": "100% WHEY PROTEIN ISOLATE 2kg",
+        "url": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-isolate",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -266,6 +274,7 @@
       "item": {
         "@type": "Product",
         "name": "EVOLATE 2.0 SIN EDULCORANTES (WHEY ISOLATE CFM) 2kg",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-sin-edulcorantes-whey-isolate-cfm",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -292,6 +301,7 @@
       "item": {
         "@type": "Product",
         "name": "EVOHYDRO 2.0 (HYDRO WHEY) 2kg",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evohydro-2-0-hydro-whey",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -5933,7 +5943,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
   if (!list || !bar || !btnGo) return; // guard por si falla algún ID
-  var SLUGS  = new Set(["evobasic-whey-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "100-whey-prime-1000-g-desconocida-vs-whey-fibre-700g-desconocida", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-oats-2kg-desconocida", "ultra-pure-whey-2-kg-optimum-nutrition-vs-w74-wheycore-2000g-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "mezcla-de-rendimiento-todo-en-uno-2-5kg--vs-myprotein-impact-whey-isolate-chocolate-", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evowhey-oats-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "100-real-whey-protein-2000g-desconocida-vs-100-whey-prime-1000-g-desconocida", "evobasic-whey-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "evowhey-protein-sin-edulcorantes-2kg-des-vs-ultra-pure-whey-2-kg-optimum-nutrition", "iso-whey-zero-450g-biotechusa-vs-iso-whey-zero-black-908g-biotechusa", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-protein-2kg-desconocida", "isopro-cfm-2-kg-quamtrax-vs-isopro-cfm-500g-quamtrax", "100-whey-protein-isolate-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-w74-wheycore-2000g-optimum-nutrition", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat", "impact-whey-protein-2500g-optimum-nutrit-vs-w74-wheycore-2000g-optimum-nutrition", "panacea-350g-paleobull-vs-panacea-750g-paleobull", "evowhey-protein-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evowhey-protein-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-w74-wheycore-2000g-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "100-whey-protein-isolate-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-oats-2kg-desconocida", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-oats-2kg-desconocida", "100-real-whey-protein-1000-g-desconocida-vs-whey-fibre-700g-desconocida", "evobasic-whey-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "evowhey-oats-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evowhey-protein-sin-edulcorantes-2kg-des-vs-w74-wheycore-2000g-optimum-nutrition", "evobasic-whey-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "hydro-whey-zero-1816g-proteina-sin-glute-vs-iso-whey-zero-450g-biotechusa", "100-real-whey-protein-1000-g-desconocida-vs-100-whey-prime-1000-g-desconocida", "evobasic-whey-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat", "impact-whey-protein-2500g-optimum-nutrit-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evowhey-protein-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "animal-100-whey-protein-1-kg-optimum-nut-vs-impact-whey-protein-2500g-optimum-nutrit", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evobasic-whey-2kg-desconocida-vs-evowhey-oats-2kg-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-evobasic-whey-2kg-desconocida", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-protein-2kg-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-evohydro-2-0-hydro-whey-2kg-desconocida", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-ultra-pure-whey-2-kg-optimum-nutrition", "animal-100-whey-protein-1-kg-optimum-nut-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evowhey-oats-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "isopro-cfm-1-kg-quamtrax-vs-isopro-cfm-500g-quamtrax", "isopro-cfm-1-kg-quamtrax-vs-isopro-cfm-2-kg-quamtrax", "100-real-whey-protein-1000-g-desconocida-vs-100-real-whey-protein-2000g-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat", "100-whey-protein-isolate-2kg-desconocida-vs-evowhey-oats-2kg-desconocida", "100-real-whey-protein-2000g-desconocida-vs-whey-fibre-700g-desconocida", "evobasic-whey-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "hydro-whey-zero-1816g-proteina-sin-glute-vs-iso-whey-zero-black-908g-biotechusa", "evobasic-whey-2kg-desconocida-vs-evohydro-2-0-hydro-whey-2kg-desconocida", "animal-100-whey-protein-1-kg-optimum-nut-vs-w74-wheycore-2000g-optimum-nutrition", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "evowhey-oats-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition"]);
+  var SLUGS  = new Set(["evowhey-oats-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "hydro-whey-zero-1816g-proteina-sin-glute-vs-iso-whey-zero-450g-biotechusa", "hydro-whey-zero-1816g-proteina-sin-glute-vs-iso-whey-zero-black-908g-biotechusa", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-w74-wheycore-2000g-optimum-nutrition", "100-real-whey-protein-1000-g-desconocida-vs-100-whey-prime-1000-g-desconocida", "100-whey-prime-1000-g-desconocida-vs-whey-fibre-700g-desconocida", "isopro-cfm-1-kg-quamtrax-vs-isopro-cfm-500g-quamtrax", "100-whey-protein-isolate-2kg-desconocida-vs-evowhey-oats-2kg-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evobasic-whey-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "impact-whey-protein-2500g-optimum-nutrit-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evobasic-whey-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "100-real-whey-protein-1000-g-desconocida-vs-whey-fibre-700g-desconocida", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-oats-2kg-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-evohydro-2-0-hydro-whey-2kg-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "evowhey-protein-sin-edulcorantes-2kg-des-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evobasic-whey-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "evowhey-protein-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "isopro-cfm-1-kg-quamtrax-vs-isopro-cfm-2-kg-quamtrax", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono", "evowhey-oats-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-protein-2kg-desconocida", "evobasic-whey-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-evobasic-whey-2kg-desconocida", "evowhey-protein-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-w74-wheycore-2000g-optimum-nutrition", "evobasic-whey-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat", "iso-whey-zero-450g-biotechusa-vs-iso-whey-zero-black-908g-biotechusa", "ultra-pure-whey-2-kg-optimum-nutrition-vs-w74-wheycore-2000g-optimum-nutrition", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat", "evowhey-protein-sin-edulcorantes-2kg-des-vs-w74-wheycore-2000g-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evowhey-oats-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-ultra-pure-whey-2-kg-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat", "mezcla-de-rendimiento-todo-en-uno-2-5kg--vs-myprotein-impact-whey-isolate-chocolate-", "100-real-whey-protein-1000-g-desconocida-vs-100-real-whey-protein-2000g-desconocida", "panacea-350g-paleobull-vs-panacea-750g-paleobull", "evobasic-whey-2kg-desconocida-vs-evohydro-2-0-hydro-whey-2kg-desconocida", "evowhey-protein-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "100-real-whey-protein-2000g-desconocida-vs-100-whey-prime-1000-g-desconocida", "animal-100-whey-protein-1-kg-optimum-nut-vs-w74-wheycore-2000g-optimum-nutrition", "animal-100-whey-protein-1-kg-optimum-nut-vs-impact-whey-protein-2500g-optimum-nutrit", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-oats-2kg-desconocida", "evobasic-whey-2kg-desconocida-vs-evowhey-oats-2kg-desconocida", "evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-protein-sin-edulcorantes-2kg-des", "animal-100-whey-protein-1-kg-optimum-nut-vs-ultra-pure-whey-2-kg-optimum-nutrition", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des", "evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-protein-2kg-desconocida", "evowhey-oats-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "100-whey-protein-isolate-2kg-desconocida-vs-evowhey-protein-2kg-desconocida", "100-whey-protein-isolate-2kg-desconocida-vs-w74-wheycore-2000g-optimum-nutrition", "isopro-cfm-2-kg-quamtrax-vs-isopro-cfm-500g-quamtrax", "impact-whey-protein-2500g-optimum-nutrit-vs-w74-wheycore-2000g-optimum-nutrition", "100-real-whey-protein-2000g-desconocida-vs-whey-fibre-700g-desconocida", "evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-oats-2kg-desconocida", "evobasic-whey-2kg-desconocida-vs-ultra-pure-whey-2-kg-optimum-nutrition"]);
   var BASE   = 'https://stackfit.es/comparar/';
   var selected = [];
 
