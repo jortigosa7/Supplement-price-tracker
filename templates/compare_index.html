@@ -197,188 +197,186 @@
 </div><!-- /.cidx-wrap -->
 
 <script>
-    (function() {
-      const SITE_URL = '{{ site_url }}';
-      const STORE_COLORS = {
-        'HSN':'var(--hsn)', 'Nutritienda':'var(--nutritienda)',
-        'Prozis':'var(--prozis)', 'MyProtein':'var(--myprotein)'
-      };
-      const STORE_CLASSES = {
-        'HSN':'store-hsn','Nutritienda':'store-nutritienda',
-        'Prozis':'store-prozis','MyProtein':'store-myprotein'
-      };
-    
-      const allProds = {{ all_products_json | safe }};
-      const MAPA_PARES = {{ mapa_pares_json | safe }};
-    
-      const selCat = document.getElementById('selCat');
-      const selA   = document.getElementById('selA');
-      const selB   = document.getElementById('selB');
-      const btn    = document.getElementById('btnComparar');
-    
-      function esc(s) {
-        return String(s == null ? '' : s)
-          .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-          .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-      }
-    
-      function absolutizePairUrl(pathOrUrl) {
-        if (!pathOrUrl) return '';
-        if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
-        return String(SITE_URL).replace(/\/$/, '') + '/' + String(pathOrUrl).replace(/^\//, '');
-      }
-    
-      function filteredProds() {
-        const cat = selCat.value;
-        return cat ? allProds.filter(p => p.categoria === cat) : allProds;
-      }
-    
-      function populateSelect(sel, excl) {
-        const prods = filteredProds();
-        const cur = sel.value;
-        sel.innerHTML = '<option value="">— Elige producto —</option>';
-        prods.forEach(p => {
-          if (String(p.id) === String(excl || '')) return;
-          const opt = document.createElement('option');
-          opt.value = p.id;
-          opt.textContent = p.nombre + (p.marca ? ' — ' + p.marca : '') + (p.peso_kg ? ' (' + p.peso_kg.toFixed(2) + ' kg)' : '');
-          if (String(p.id) === String(cur || '')) opt.selected = true;
-          sel.appendChild(opt);
-        });
-      }
-    
-      function refreshSelects() {
-        populateSelect(selA, selB.value);
-        populateSelect(selB, selA.value);
-        btn.style.opacity = (!selA.value || !selB.value) ? '0.35' : '1';
-      }
-    
-      selCat.addEventListener('change', () => {
-        selA.innerHTML = '<option value="">— Elige producto —</option>';
-        selB.innerHTML = '<option value="">— Elige producto —</option>';
-        refreshSelects();
-        document.getElementById('cmpResult').style.display = 'none';
-      });
-      selA.addEventListener('change', refreshSelects);
-      selB.addEventListener('change', refreshSelects);
-      selA.addEventListener('input', refreshSelects);
-      selB.addEventListener('input', refreshSelects);
-    
-      refreshSelects();
-    
-      function getById(id) {
-        return allProds.find(p => String(p.id) === String(id));
-      }
-    
-      function canonicSlug(pa, pb) {
-        const ia = String(pa.id).slice(0,40), ib = String(pb.id).slice(0,40);
-        return ia <= ib ? ${ia}-vs-${ib} : ${ib}-vs-${ia};
-      }
-    
-      function renderComparison(pa, pb) {
-        const slug = canonicSlug(pa, pb);
-        const pregenUrl = MAPA_PARES[slug] || null;
-    
-        document.getElementById('cmpResultTitle').textContent =
-          pa.nombre + ' vs ' + pb.nombre;
-        const linkEl = document.getElementById('cmpResultLink');
-        if (pregenUrl) {
-          linkEl.href = absolutizePairUrl(pregenUrl);
-          linkEl.style.display = '';
-        } else {
-          linkEl.style.display = 'none';
-        }
-    
-        const kgA = pa.precio_kg, kgB = pb.precio_kg;
-        const winnerSide = (kgA && kgB) ? (kgA < kgB ? 'a' : kgB < kgA ? 'b' : null) : null;
-    
-        function renderCard(p, side) {
-          const isWin = winnerSide === side;
-          const bestStore = p.precios[0];
-          const stores = p.precios.map(pr => {
-            const oferta = pr.oferta ? '<span class="pc-store-sale">OFERTA</span>' : '';
-            return `<a href="${esc(pr.url)}" class="pc-store" target="_blank" rel="nofollow sponsored">
-              <span class="pc-store-dot" style="background:${STORE_COLORS[pr.tienda]||'#888'};"></span>
-              <span class="pc-store-name">${esc(pr.tienda)}</span>
-              <span class="pc-store-price">${pr.precio.toFixed(2)} €</span>${oferta}
-            </a>`;
-          }).join('');
-          return `<div class="dyn-card${isWin ? ' is-winner' : ''}">
-            <div style="display:flex;align-items:center;gap:10px;">
-              <div class="dyn-card-img"><img src="${esc(p.img)}" alt="${esc(p.nombre)}" width="64" height="64" loading="lazy"></div>
-              <div>
-                <div class="dyn-card-name">${esc(p.nombre)}</div>
-                <div class="dyn-card-meta">${esc(p.marca)}${p.peso_kg ? ' · ' + p.peso_kg.toFixed(2) + ' kg' : ''}</div>
-              </div>
-            </div>
-            ${p.precio_kg ? <div><div class="dyn-card-price">${bestStore.precio.toFixed(2)} €</div><div class="dyn-card-kg">${p.precio_kg.toFixed(2)} €/kg</div></div> : ''}
-            <div class="pc-stores">${stores}</div>
-            <a href="${esc(bestStore.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
-          </div>`;
-        }
-        document.getElementById('cmpCards').innerHTML =
-          renderCard(pa, 'a') + renderCard(pb, 'b');
-    
-        function cell(val, isWin) {
-          return <td${isWin ? ' class="winner-cell"' : ''}>${val}</td>;
-        }
-        function naCell(label) { return <td><span class="na-txt">${label}</span></td>; }
-        function kgCell(val, isWin) {
-          return <td${isWin ? ' class="winner-cell"' : ''}><span class="kg-badge">${val.toFixed(2)} €/kg</span></td>;
-        }
-    
-        const winA = winnerSide === 'a', winB = winnerSide === 'b';
-        const thA = <th${winA ? ' class="winner-col"' : ''}>${esc(pa.nombre)}${winA ? ' <span class="kg-badge">✓</span>':''}</th>;
-        const thB = <th${winB ? ' class="winner-col"' : ''}>${esc(pb.nombre)}${winB ? ' <span class="kg-badge">✓</span>':''}</th>;
-    
-        let rows = <thead><tr><th class="label-col"></th>${thA}${thB}</tr></thead><tbody>;
-        rows += <tr><td class="label-col">Marca</td>${cell(esc(pa.marca||'—'),false)}${cell(esc(pb.marca||'—'),false)}</tr>;
-        const pesoA = pa.peso_kg ? pa.peso_kg.toFixed(2)+' kg' : '—';
-        const pesoB = pb.peso_kg ? pb.peso_kg.toFixed(2)+' kg' : '—';
-        rows += <tr><td class="label-col">Peso</td>${cell(pesoA,false)}${cell(pesoB,false)}</tr>;
-        rows += <tr><td class="label-col">Precio €/kg</td>;
-        rows += pa.precio_kg ? kgCell(pa.precio_kg, winA) : naCell('—');
-        rows += pb.precio_kg ? kgCell(pb.precio_kg, winB) : naCell('—');
-        rows += '</tr>';
-        const bestA = pa.precios[0], bestB = pb.precios[0];
-        rows += `<tr><td class="label-col">Mejor precio</td>
-          ${cell(bestA ? bestA.precio.toFixed(2)+' € ('+esc(bestA.tienda)+')' : '—', winA)}
-          ${cell(bestB ? bestB.precio.toFixed(2)+' € ('+esc(bestB.tienda)+')' : '—', winB)}
-        </tr>`;
-        if (pa.protein_type || pb.protein_type) {
-          rows += `<tr><td class="label-col">Tipo proteína</td>
-            ${cell(esc(pa.protein_type||'—'),false)}${cell(esc(pb.protein_type||'—'),false)}</tr>`;
-        }
-        function storePills(p) {
-          return p.precios.map(pr =>
-            `<span class="store-pill ${STORE_CLASSES[pr.tienda]||'store-default'}" style="margin-right:3px;display:inline-flex;">
-              <span class="store-pill-dot"></span>${esc(pr.tienda)}
-            </span>`
-          ).join('');
-        }
-        rows += <tr><td class="label-col">Tiendas</td><td>${storePills(pa)}</td><td>${storePills(pb)}</td></tr>;
-        rows += '</tbody>';
-        document.getElementById('cmpTable').innerHTML = rows;
-    
-        document.getElementById('cmpResult').style.display = 'block';
-        document.getElementById('cmpResult').scrollIntoView({ behavior:'smooth', block:'start' });
-      }
-    
-      btn.addEventListener('click', function() {
-        const idA = selA.value;
-        const idB = selB.value;
-        const pa = getById(idA);
-        const pb = getById(idB);
-        if (!pa || !pb) return;
-        const slug = canonicSlug(pa, pb);
-        const pregenUrl = MAPA_PARES[slug] || null;
-        if (pregenUrl) {
-          window.location.assign(absolutizePairUrl(pregenUrl));
-        } else {
-          renderComparison(pa, pb);
-        }
-      });
-    })();
+(function() {
+  const SITE_URL = '{{ site_url }}';
+  const STORE_COLORS = {
+    'HSN':'var(--hsn)', 'Nutritienda':'var(--nutritienda)',
+    'Prozis':'var(--prozis)', 'MyProtein':'var(--myprotein)'
+  };
+  const STORE_CLASSES = {
+    'HSN':'store-hsn','Nutritienda':'store-nutritienda',
+    'Prozis':'store-prozis','MyProtein':'store-myprotein'
+  };
+
+  const allProds = {{ all_products_json | safe }};
+  const MAPA_PARES = {{ mapa_pares_json | safe }};
+
+  const selCat = document.getElementById('selCat');
+  const selA   = document.getElementById('selA');
+  const selB   = document.getElementById('selB');
+  const btn    = document.getElementById('btnComparar');
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function absolutizePairUrl(pathOrUrl) {
+    if (!pathOrUrl) return '';
+    if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
+    return String(SITE_URL).replace(/\/$/, '') + '/' + String(pathOrUrl).replace(/^\//, '');
+  }
+
+  function filteredProds() {
+    const cat = selCat.value;
+    return cat ? allProds.filter(p => p.categoria === cat) : allProds;
+  }
+
+  function populateSelect(sel, excl) {
+    const prods = filteredProds();
+    const cur = sel.value;
+    sel.innerHTML = '<option value="">— Elige producto —</option>';
+    prods.forEach(p => {
+      if (String(p.id) === String(excl || '')) return;
+      const opt = document.createElement('option');
+      opt.value = p.id;
+      opt.textContent = p.nombre + (p.marca ? ' — ' + p.marca : '') + (p.peso_kg ? ' (' + p.peso_kg.toFixed(2) + ' kg)' : '');
+      if (String(p.id) === String(cur || '')) opt.selected = true;
+      sel.appendChild(opt);
+    });
+  }
+
+  function refreshSelects() {
+    populateSelect(selA, selB.value);
+    populateSelect(selB, selA.value);
+    btn.style.opacity = (!selA.value || !selB.value) ? '0.35' : '1';
+  }
+
+  selCat.addEventListener('change', () => {
+    selA.innerHTML = '<option value="">— Elige producto —</option>';
+    selB.innerHTML = '<option value="">— Elige producto —</option>';
+    refreshSelects();
+    document.getElementById('cmpResult').style.display = 'none';
+  });
+  selA.addEventListener('change', refreshSelects);
+  selB.addEventListener('change', refreshSelects);
+  selA.addEventListener('input', refreshSelects);
+  selB.addEventListener('input', refreshSelects);
+
+  refreshSelects();
+
+  function getById(id) {
+    return allProds.find(p => String(p.id) === String(id));
+  }
+
+  function canonicSlug(pa, pb) {
+    const ia = String(pa.id).slice(0,40), ib = String(pb.id).slice(0,40);
+    return ia <= ib ? `${ia}-vs-${ib}` : `${ib}-vs-${ia}`;
+  }
+
+  function renderComparison(pa, pb) {
+    const slug = canonicSlug(pa, pb);
+    const pregenUrl = MAPA_PARES[slug] || null;
+
+    document.getElementById('cmpResultTitle').textContent = pa.nombre + ' vs ' + pb.nombre;
+    const linkEl = document.getElementById('cmpResultLink');
+    if (pregenUrl) {
+      linkEl.href = absolutizePairUrl(pregenUrl);
+      linkEl.style.display = '';
+    } else {
+      linkEl.style.display = 'none';
+    }
+
+    const kgA = pa.precio_kg, kgB = pb.precio_kg;
+    const winnerSide = (kgA && kgB) ? (kgA < kgB ? 'a' : kgB < kgA ? 'b' : null) : null;
+
+    function renderCard(p, side) {
+      const isWin = winnerSide === side;
+      const bestStore = p.precios[0];
+      const stores = p.precios.map(pr => {
+        const oferta = pr.oferta ? '<span class="pc-store-sale">OFERTA</span>' : '';
+        return `<a href="${esc(pr.url)}" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:${STORE_COLORS[pr.tienda]||'#888'};"></span>
+          <span class="pc-store-name">${esc(pr.tienda)}</span>
+          <span class="pc-store-price">${pr.precio.toFixed(2)} €</span>${oferta}
+        </a>`;
+      }).join('');
+      return `<div class="dyn-card${isWin ? ' is-winner' : ''}">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="dyn-card-img"><img src="${esc(p.img)}" alt="${esc(p.nombre)}" width="64" height="64" loading="lazy"></div>
+          <div>
+            <div class="dyn-card-name">${esc(p.nombre)}</div>
+            <div class="dyn-card-meta">${esc(p.marca)}${p.peso_kg ? ' · ' + p.peso_kg.toFixed(2) + ' kg' : ''}</div>
+          </div>
+        </div>
+        ${p.precio_kg ? `<div><div class="dyn-card-price">${bestStore.precio.toFixed(2)} €</div><div class="dyn-card-kg">${p.precio_kg.toFixed(2)} €/kg</div></div>` : ''}
+        <div class="pc-stores">${stores}</div>
+        <a href="${esc(bestStore.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
+      </div>`;
+    }
+    document.getElementById('cmpCards').innerHTML = renderCard(pa, 'a') + renderCard(pb, 'b');
+
+    function cell(val, isWin) {
+      return `<td${isWin ? ' class="winner-cell"' : ''}>${val}</td>`;
+    }
+    function naCell(label) { return `<td><span class="na-txt">${label}</span></td>`; }
+    function kgCell(val, isWin) {
+      return `<td${isWin ? ' class="winner-cell"' : ''}><span class="kg-badge">${val.toFixed(2)} €/kg</span></td>`;
+    }
+
+    const winA = winnerSide === 'a', winB = winnerSide === 'b';
+    const thA = `<th${winA ? ' class="winner-col"' : ''}>${esc(pa.nombre)}${winA ? ' <span class="kg-badge">✓</span>' : ''}</th>`;
+    const thB = `<th${winB ? ' class="winner-col"' : ''}>${esc(pb.nombre)}${winB ? ' <span class="kg-badge">✓</span>' : ''}</th>`;
+
+    let rows = `<thead><tr><th class="label-col"></th>${thA}${thB}</tr></thead><tbody>`;
+    rows += `<tr><td class="label-col">Marca</td>${cell(esc(pa.marca||'—'),false)}${cell(esc(pb.marca||'—'),false)}</tr>`;
+    const pesoA = pa.peso_kg ? pa.peso_kg.toFixed(2)+' kg' : '—';
+    const pesoB = pb.peso_kg ? pb.peso_kg.toFixed(2)+' kg' : '—';
+    rows += `<tr><td class="label-col">Peso</td>${cell(pesoA,false)}${cell(pesoB,false)}</tr>`;
+    rows += `<tr><td class="label-col">Precio €/kg</td>`;
+    rows += pa.precio_kg ? kgCell(pa.precio_kg, winA) : naCell('—');
+    rows += pb.precio_kg ? kgCell(pb.precio_kg, winB) : naCell('—');
+    rows += '</tr>';
+    const bestA = pa.precios[0], bestB = pb.precios[0];
+    rows += `<tr><td class="label-col">Mejor precio</td>
+      ${cell(bestA ? bestA.precio.toFixed(2)+' € ('+esc(bestA.tienda)+')' : '—', winA)}
+      ${cell(bestB ? bestB.precio.toFixed(2)+' € ('+esc(bestB.tienda)+')' : '—', winB)}
+    </tr>`;
+    if (pa.protein_type || pb.protein_type) {
+      rows += `<tr><td class="label-col">Tipo proteína</td>
+        ${cell(esc(pa.protein_type||'—'),false)}${cell(esc(pb.protein_type||'—'),false)}</tr>`;
+    }
+    function storePills(p) {
+      return p.precios.map(pr =>
+        `<span class="store-pill ${STORE_CLASSES[pr.tienda]||'store-default'}" style="margin-right:3px;display:inline-flex;">
+          <span class="store-pill-dot"></span>${esc(pr.tienda)}
+        </span>`
+      ).join('');
+    }
+    rows += `<tr><td class="label-col">Tiendas</td><td>${storePills(pa)}</td><td>${storePills(pb)}</td></tr>`;
+    rows += '</tbody>';
+    document.getElementById('cmpTable').innerHTML = rows;
+
+    document.getElementById('cmpResult').style.display = 'block';
+    document.getElementById('cmpResult').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  btn.addEventListener('click', function() {
+    const idA = selA.value;
+    const idB = selB.value;
+    const pa = getById(idA);
+    const pb = getById(idB);
+    if (!pa || !pb) return;
+    const slug = canonicSlug(pa, pb);
+    const pregenUrl = MAPA_PARES[slug] || null;
+    if (pregenUrl) {
+      window.location.assign(absolutizePairUrl(pregenUrl));
+    } else {
+      renderComparison(pa, pb);
+    }
+  });
+})();
 </script>
 
 {% endblock %}
