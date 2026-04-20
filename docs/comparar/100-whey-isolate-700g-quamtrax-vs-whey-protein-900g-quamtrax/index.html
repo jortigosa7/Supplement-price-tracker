@@ -52,7 +52,8 @@
       "mainEntity": [
         {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, 100% Whey Isolate 700g o Whey Protein 900g?","acceptedAnswer":{"@type":"Answer","text":"Whey Protein 900g es m\u00e1s barato con 39.89 \u20ac/kg frente a 59.86 \u20ac/kg de 100% Whey Isolate 700g \u2014 una diferencia de 19.97 \u20ac/kg."}},
         {"@type":"Question","name":"\u00bfD\u00f3nde comprar 100% Whey Isolate 700g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de 100% Whey Isolate 700g est\u00e1 en Nutritienda, a 41.90 \u20ac."}},
-        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Whey Protein 900g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Whey Protein 900g est\u00e1 en Nutritienda, a 35.90 \u20ac."}}
+        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Whey Protein 900g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Whey Protein 900g est\u00e1 en Nutritienda, a 35.90 \u20ac."}},
+        {"@type":"Question","name":"\u00bfCu\u00e1l tiene m\u00e1s prote\u00edna por dosis?","acceptedAnswer":{"@type":"Answer","text":"100% Whey Isolate 700g aporta m\u00e1s prote\u00edna por dosis: 24 g por toma."}}
       ]
     }
   ]
@@ -61,12 +62,12 @@
 <style>
   /* ── Hero comparación ───── */
   .cmp-hero { background:#0a0b0c; padding:36px 0 28px; }
-  .cmp-breadcrumb { font-size:0.8rem; color:#444; margin-bottom:14px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
-  .cmp-breadcrumb a { color:#555; }
+  .cmp-breadcrumb { font-size:0.8rem; color:#aaa; margin-bottom:14px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .cmp-breadcrumb a { color:#bbb; }
   .cmp-breadcrumb a:hover { color:var(--accent); }
   .cmp-hero-label { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
   .cmp-hero h1 { font-size:clamp(1.1rem,3vw,1.6rem); font-weight:800; line-height:1.3; color:#fff; max-width:780px; margin-bottom:8px; }
-  .cmp-hero-sub { font-size:0.84rem; color:#555; }
+  .cmp-hero-sub { font-size:0.84rem; color:#aaa; }
 
   /* ── Sections ─────────── */
   .cmp-wrap { background:#fff; }
@@ -79,21 +80,21 @@
   .verdict-card { background:#f9f9f9; border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
   .verdict-card.has-winner { border-color:var(--accent-border); background:var(--accent-bg); }
   .verdict-icon { font-size:1.1rem; margin-bottom:5px; }
-  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#aaa; margin-bottom:4px; }
+  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#666; margin-bottom:4px; }
   .verdict-winner { font-size:0.82rem; font-weight:700; color:#111; line-height:1.3; margin-bottom:2px; }
-  .verdict-value { font-size:0.75rem; color:#888; }
-  .verdict-na { font-size:0.78rem; color:#ccc; font-style:italic; }
+  .verdict-value { font-size:0.75rem; color:#444; }
+  .verdict-na { font-size:0.78rem; color:#888; font-style:italic; }
 
   /* ── Tabla ────────────── */
   .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
   .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
   .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; }
   .cmp-table tr:last-child td { border-bottom:none; }
-  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#555; white-space:nowrap; }
+  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#333; white-space:nowrap; }
   .cmp-table th.winner-col { background:rgba(200,255,77,0.08); }
-  .cmp-table td.label-col { color:#999; font-size:0.78rem; width:130px; white-space:nowrap; }
+  .cmp-table td.label-col { color:#555; font-size:0.78rem; width:130px; white-space:nowrap; }
   .cmp-table td.winner-cell { background:rgba(200,255,77,0.06); font-weight:600; color:#111; }
-  .cmp-table td.na-cell { color:#ccc; font-style:italic; font-size:0.8rem; }
+  .cmp-table td.na-cell { color:#888; font-style:italic; font-size:0.8rem; }
   .cmp-val-badge { display:inline-block; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; }
 
   /* ── Cards con CTAs ────── */
@@ -104,12 +105,12 @@
   .cmp-card-img { width:72px; height:72px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
   .cmp-card-name { font-weight:700; font-size:0.9rem; color:#111; line-height:1.3; }
-  .cmp-card-meta { font-size:0.76rem; color:#999; }
+  .cmp-card-meta { font-size:0.76rem; color:#555; }
   .cmp-card-price { font-size:1.35rem; font-weight:800; color:#111; line-height:1; }
   .cmp-card-kg { display:inline-flex; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; }
 
   /* ── Editorial ────────── */
-  .editorial-text { font-size:0.88rem; color:#555; line-height:1.8; max-width:760px; }
+  .editorial-text { font-size:0.88rem; color:#333; line-height:1.8; max-width:760px; }
   .editorial-text p { margin-bottom:12px; }
 
   /* ── Relacionadas ─────── */
@@ -117,7 +118,7 @@
   @media (min-width:640px) { .related-grid { grid-template-columns:repeat(3,1fr); } }
   .related-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
   .related-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
-  .related-tag { font-size:0.65rem; color:#aaa; text-transform:uppercase; letter-spacing:0.06em; }
+  .related-tag { font-size:0.65rem; color:#666; text-transform:uppercase; letter-spacing:0.06em; }
   .related-title { font-size:0.8rem; font-weight:600; color:#111; line-height:1.3; margin-top:2px; }
 </style>
 
@@ -417,6 +418,99 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+
+    /* ── Compare button ────────────────────────────── */
+    .pc-btn-compare { flex: 0 0 auto; }
+    .pc-btn-compare.is-selected {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+    }
+
+    /* ── Compare bar ───────────────────────────────── */
+    .compare-bar {
+      position: fixed;
+      bottom: -100px;
+      left: 0; right: 0;
+      z-index: 999;
+      transition: bottom 0.3s ease;
+      padding: 0 16px 12px;
+      pointer-events: none;
+    }
+    .compare-bar.visible {
+      bottom: 0;
+      pointer-events: all;
+    }
+    .compare-bar-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .compare-slots {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .compare-slot {
+      flex: 1;
+      min-width: 0;
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .compare-slot.filled {
+      border-color: var(--accent);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .compare-vs {
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .compare-bar-btn {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: var(--accent);
+      border: none;
+      color: #000;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+    .compare-bar-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .compare-bar-btn:not(:disabled):hover { opacity: 0.85; }
+    @media (max-width: 480px) {
+      .compare-bar-inner { padding: 10px 12px; gap: 8px; }
+      .compare-bar-btn { width: 100%; }
+      .compare-slots { flex-basis: 100%; }
+    }
     .pc-btn {
       flex: 1;
       display: block;
@@ -948,6 +1042,7 @@
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
+        <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);">🎯 Test</a>
         <a href="https://stackfit.es/comparar/" class="active" style="border-color:var(--accent-border);color:var(--accent);">Comparar</a>
       </div>
     </nav>
@@ -966,7 +1061,7 @@
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>100% Whey Isolate 700g vs Whey Protein 900g: comparativa completa</h1>
-    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Actualizado 2026-04-15.</p>
+    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Actualizado 2026-04-20.</p>
   </div>
 </div>
 
@@ -988,19 +1083,23 @@
       
     </div>
 
-    <div class="verdict-card">
+    <div class="verdict-card has-winner">
       <div class="verdict-icon">🥩</div>
       <div class="verdict-label">Más proteína/dosis</div>
       
-        <div class="verdict-na">No disponible</div>
+        
+        <div class="verdict-winner">100% Whey Isolate 700g</div>
+        <div class="verdict-value">24 g/dosis</div>
       
     </div>
 
-    <div class="verdict-card">
+    <div class="verdict-card has-winner">
       <div class="verdict-icon">⭐</div>
       <div class="verdict-label">Mejor valorado</div>
       
-        <div class="verdict-na">No disponible</div>
+        
+        <div class="verdict-winner">Whey Protein 900g</div>
+        <div class="verdict-value">4.64 / 5</div>
       
     </div>
 
@@ -1010,7 +1109,7 @@
       
         
         <div class="verdict-winner">Whey Protein 900g</div>
-        <div class="verdict-value">Menor €/kg</div>
+        <div class="verdict-value">Mayor g proteína por €</div>
       
     </div>
 
@@ -1083,17 +1182,17 @@
         
         <tr>
           <td class="label-col">Proteína/dosis</td>
-          <td>
-            <span class="na-cell">No disponible</span>
+          <td class="winner-cell">
+            24.0 g
           </td>
           <td>
-            <span class="na-cell">No disponible</span>
+            22.0 g
           </td>
         </tr>
         <tr>
           <td class="label-col">Dosis por bote</td>
-          <td><span class="na-cell">No disponible</span></td>
-          <td><span class="na-cell">No disponible</span></td>
+          <td>23.0</td>
+          <td>30.0</td>
         </tr>
         <tr>
           <td class="label-col">Tiendas</td>
@@ -1117,19 +1216,33 @@
         <tr>
           <td class="label-col">Valoración</td>
           <td>
-            <span class="na-cell">No disponible</span>
+            
+              4.47 / 5
+              
+                <span style="color:#999;font-size:0.78rem;">(8.0 reseñas)</span>
+              
+            
           </td>
           <td>
-            <span class="na-cell">No disponible</span>
+            
+              4.64 / 5
+              
+                <span style="color:#999;font-size:0.78rem;">(1.0 reseñas)</span>
+              
+            
           </td>
         </tr>
         <tr>
           <td class="label-col">Sabores disponibles</td>
           <td>
-            <span class="na-cell">No disponible</span>
+            
+              Chocolate, Fresa, Cookies &amp; Cream, Galleta Negra, Chocolate Blanco-Frambuesa, Vainilla-Caramelo
+            
           </td>
           <td>
-            <span class="na-cell">No disponible</span>
+            
+              Chocolate, Fresa, Cookies &amp; Cream, Galleta Negra, Vainilla-Caramelo, Chocolate Blanco-Frambuesa
+            
           </td>
         </tr>
         <tr>
@@ -1231,6 +1344,8 @@
     
     <p>Si buscas el mejor precio por kilogramo, <strong>Whey Protein 900g</strong> es la opción más económica con <strong>39.89 €/kg</strong>, 19.97 €/kg menos que 100% Whey Isolate 700g (59.86 €/kg).</p>
     
+    <p>En cuanto a proteína por dosis, <strong>100% Whey Isolate 700g</strong> aporta 24 g por toma frente a los 22 g de Whey Protein 900g, una diferencia de 2 g por servicio.</p>
+    
     <p>Whey Protein 900g viene en un formato de 0.90 kg frente a los 0.70 kg de 100% Whey Isolate 700g. El precio por kilogramo ya normaliza esta diferencia de tamaño.</p>
     
   </div>
@@ -1257,38 +1372,16 @@
       <p class="faq-answer">El mejor precio de Whey Protein 900g está en Nutritienda, a 35.90 €.</p>
     </details>
     
+    <details class="faq-item">
+      <summary>¿Cuál tiene más proteína por dosis?<span class="faq-plus">+</span></summary>
+      <p class="faq-answer">100% Whey Isolate 700g aporta más proteína por dosis: 24 g por toma.</p>
+    </details>
+    
   </div>
 </div>
 
 
 <!-- ── Relacionadas ─── -->
-
-<div class="cmp-section" style="margin-bottom:48px;">
-  <h2 class="cmp-section-title">Otras comparaciones relacionadas</h2>
-  <div class="related-grid">
-    
-    <a href="https://stackfit.es/comparar/100-whey-isolate-700g-quamtrax-vs-golden-protein-500g-desconocida/" class="related-card">
-      <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Whey Isolate 700g vs GOLDEN PROTEIN 500g</div>
-    </a>
-    
-    <a href="https://stackfit.es/comparar/100-whey-isolate-700g-quamtrax-vs-isowhey-2267g-quamtrax/" class="related-card">
-      <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Whey Isolate 700g vs ISOWHEY 2267g</div>
-    </a>
-    
-    <a href="https://stackfit.es/comparar/golden-protein-500g-desconocida-vs-whey-protein-900g-quamtrax/" class="related-card">
-      <div class="related-tag">comparativa</div>
-      <div class="related-title">GOLDEN PROTEIN 500g vs Whey Protein 900g</div>
-    </a>
-    
-    <a href="https://stackfit.es/comparar/isowhey-2267g-quamtrax-vs-whey-protein-900g-quamtrax/" class="related-card">
-      <div class="related-tag">comparativa</div>
-      <div class="related-title">ISOWHEY 2267g vs Whey Protein 900g</div>
-    </a>
-    
-  </div>
-</div>
 
 
 </div><!-- /.container -->
@@ -1313,6 +1406,7 @@
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
+        <a href="https://stackfit.es/test/">Test de suplementos</a>
       </div>
       <div class="footer-links">
         <div class="footer-links-label">Herramientas</div>
@@ -1322,7 +1416,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-04-15</div>
+    <div class="footer-bottom">Última actualización: 2026-04-20</div>
   </footer>
 
 </body>

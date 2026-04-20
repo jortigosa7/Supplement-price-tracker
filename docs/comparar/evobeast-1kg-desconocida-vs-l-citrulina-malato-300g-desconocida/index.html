@@ -50,8 +50,8 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, EVOBEAST 1kg o L-citrulina malato 300g?","acceptedAnswer":{"@type":"Answer","text":"EVOBEAST 1kg es m\u00e1s barato con 16.48 \u20ac/kg frente a 46.63 \u20ac/kg de L-citrulina malato 300g \u2014 una diferencia de 30.15 \u20ac/kg."}},
-        {"@type":"Question","name":"\u00bfD\u00f3nde comprar EVOBEAST 1kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de EVOBEAST 1kg est\u00e1 en HSN, a 16.48 \u20ac."}},
+        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, EVOBEAST 1kg o L-citrulina malato 300g?","acceptedAnswer":{"@type":"Answer","text":"EVOBEAST 1kg es m\u00e1s barato con 16.18 \u20ac/kg frente a 46.63 \u20ac/kg de L-citrulina malato 300g \u2014 una diferencia de 30.45 \u20ac/kg."}},
+        {"@type":"Question","name":"\u00bfD\u00f3nde comprar EVOBEAST 1kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de EVOBEAST 1kg est\u00e1 en HSN, a 16.18 \u20ac."}},
         {"@type":"Question","name":"\u00bfD\u00f3nde comprar L-citrulina malato 300g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de L-citrulina malato 300g est\u00e1 en MyProtein, a 13.99 \u20ac."}}
       ]
     }
@@ -61,12 +61,12 @@
 <style>
   /* ── Hero comparación ───── */
   .cmp-hero { background:#0a0b0c; padding:36px 0 28px; }
-  .cmp-breadcrumb { font-size:0.8rem; color:#444; margin-bottom:14px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
-  .cmp-breadcrumb a { color:#555; }
+  .cmp-breadcrumb { font-size:0.8rem; color:#aaa; margin-bottom:14px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .cmp-breadcrumb a { color:#bbb; }
   .cmp-breadcrumb a:hover { color:var(--accent); }
   .cmp-hero-label { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
   .cmp-hero h1 { font-size:clamp(1.1rem,3vw,1.6rem); font-weight:800; line-height:1.3; color:#fff; max-width:780px; margin-bottom:8px; }
-  .cmp-hero-sub { font-size:0.84rem; color:#555; }
+  .cmp-hero-sub { font-size:0.84rem; color:#aaa; }
 
   /* ── Sections ─────────── */
   .cmp-wrap { background:#fff; }
@@ -79,21 +79,21 @@
   .verdict-card { background:#f9f9f9; border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
   .verdict-card.has-winner { border-color:var(--accent-border); background:var(--accent-bg); }
   .verdict-icon { font-size:1.1rem; margin-bottom:5px; }
-  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#aaa; margin-bottom:4px; }
+  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#666; margin-bottom:4px; }
   .verdict-winner { font-size:0.82rem; font-weight:700; color:#111; line-height:1.3; margin-bottom:2px; }
-  .verdict-value { font-size:0.75rem; color:#888; }
-  .verdict-na { font-size:0.78rem; color:#ccc; font-style:italic; }
+  .verdict-value { font-size:0.75rem; color:#444; }
+  .verdict-na { font-size:0.78rem; color:#888; font-style:italic; }
 
   /* ── Tabla ────────────── */
   .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
   .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
   .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; }
   .cmp-table tr:last-child td { border-bottom:none; }
-  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#555; white-space:nowrap; }
+  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#333; white-space:nowrap; }
   .cmp-table th.winner-col { background:rgba(200,255,77,0.08); }
-  .cmp-table td.label-col { color:#999; font-size:0.78rem; width:130px; white-space:nowrap; }
+  .cmp-table td.label-col { color:#555; font-size:0.78rem; width:130px; white-space:nowrap; }
   .cmp-table td.winner-cell { background:rgba(200,255,77,0.06); font-weight:600; color:#111; }
-  .cmp-table td.na-cell { color:#ccc; font-style:italic; font-size:0.8rem; }
+  .cmp-table td.na-cell { color:#888; font-style:italic; font-size:0.8rem; }
   .cmp-val-badge { display:inline-block; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; }
 
   /* ── Cards con CTAs ────── */
@@ -104,12 +104,12 @@
   .cmp-card-img { width:72px; height:72px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
   .cmp-card-name { font-weight:700; font-size:0.9rem; color:#111; line-height:1.3; }
-  .cmp-card-meta { font-size:0.76rem; color:#999; }
+  .cmp-card-meta { font-size:0.76rem; color:#555; }
   .cmp-card-price { font-size:1.35rem; font-weight:800; color:#111; line-height:1; }
   .cmp-card-kg { display:inline-flex; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; }
 
   /* ── Editorial ────────── */
-  .editorial-text { font-size:0.88rem; color:#555; line-height:1.8; max-width:760px; }
+  .editorial-text { font-size:0.88rem; color:#333; line-height:1.8; max-width:760px; }
   .editorial-text p { margin-bottom:12px; }
 
   /* ── Relacionadas ─────── */
@@ -117,7 +117,7 @@
   @media (min-width:640px) { .related-grid { grid-template-columns:repeat(3,1fr); } }
   .related-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
   .related-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
-  .related-tag { font-size:0.65rem; color:#aaa; text-transform:uppercase; letter-spacing:0.06em; }
+  .related-tag { font-size:0.65rem; color:#666; text-transform:uppercase; letter-spacing:0.06em; }
   .related-title { font-size:0.8rem; font-weight:600; color:#111; line-height:1.3; margin-top:2px; }
 </style>
 
@@ -417,6 +417,99 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+
+    /* ── Compare button ────────────────────────────── */
+    .pc-btn-compare { flex: 0 0 auto; }
+    .pc-btn-compare.is-selected {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+    }
+
+    /* ── Compare bar ───────────────────────────────── */
+    .compare-bar {
+      position: fixed;
+      bottom: -100px;
+      left: 0; right: 0;
+      z-index: 999;
+      transition: bottom 0.3s ease;
+      padding: 0 16px 12px;
+      pointer-events: none;
+    }
+    .compare-bar.visible {
+      bottom: 0;
+      pointer-events: all;
+    }
+    .compare-bar-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .compare-slots {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .compare-slot {
+      flex: 1;
+      min-width: 0;
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .compare-slot.filled {
+      border-color: var(--accent);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .compare-vs {
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .compare-bar-btn {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: var(--accent);
+      border: none;
+      color: #000;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+    .compare-bar-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .compare-bar-btn:not(:disabled):hover { opacity: 0.85; }
+    @media (max-width: 480px) {
+      .compare-bar-inner { padding: 10px 12px; gap: 8px; }
+      .compare-bar-btn { width: 100%; }
+      .compare-slots { flex-basis: 100%; }
+    }
     .pc-btn {
       flex: 1;
       display: block;
@@ -967,7 +1060,7 @@
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>EVOBEAST 1kg vs L-citrulina malato 300g: comparativa completa</h1>
-    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Actualizado 2026-04-17.</p>
+    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Actualizado 2026-04-20.</p>
   </div>
 </div>
 
@@ -985,7 +1078,7 @@
       
         
         <div class="verdict-winner">EVOBEAST 1kg</div>
-        <div class="verdict-value">16.48 €/kg</div>
+        <div class="verdict-value">16.18 €/kg</div>
       
     </div>
 
@@ -1041,13 +1134,13 @@
       <tbody>
         <tr>
           <td class="label-col">Imagen</td>
-          <td><img src="/img/productos/placeholder-pre-entreno.svg" alt="EVOBEAST 1kg" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
+          <td><img src="/img/productos/evobeast-1kg-desconocida.webp" alt="EVOBEAST 1kg" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
           <td><img src="/img/productos/placeholder-pre-entreno.svg" alt="L-citrulina malato 300g" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
         </tr>
         <tr>
           <td class="label-col">Marca</td>
-          <td>HSN</td>
-          <td>Life Pro Nutrition</td>
+          <td>Amix Nutrition</td>
+          <td>BioTechUSA</td>
         </tr>
         <tr>
           <td class="label-col">Categoría</td>
@@ -1062,7 +1155,7 @@
         <tr>
           <td class="label-col">Mejor precio total</td>
           <td class="winner-cell">
-            16.48 € (HSN)
+            16.18 € (HSN)
           </td>
           <td>
             13.99 € (MyProtein)
@@ -1071,7 +1164,7 @@
         <tr>
           <td class="label-col">Precio €/kg</td>
           <td class="winner-cell">
-            <span class="cmp-val-badge">16.48 €/kg</span>
+            <span class="cmp-val-badge">16.18 €/kg</span>
           </td>
           <td>
             <span class="cmp-val-badge">46.63 €/kg</span>
@@ -1081,7 +1174,7 @@
         <tr>
           <td class="label-col">Proteína/dosis</td>
           <td>
-            <span class="na-cell">No disponible</span>
+            7.4 g
           </td>
           <td>
             <span class="na-cell">No disponible</span>
@@ -1089,8 +1182,8 @@
         </tr>
         <tr>
           <td class="label-col">Dosis por bote</td>
-          <td>20</td>
           <td>20.0</td>
+          <td>100.0</td>
         </tr>
         <tr>
           <td class="label-col">Tiendas</td>
@@ -1099,6 +1192,11 @@
               
               <span class="store-pill store-hsn" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
                 <span class="store-pill-dot"></span>HSN
+              </span>
+            
+              
+              <span class="store-pill store-nutritienda" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
+                <span class="store-pill-dot"></span>Nutritienda
               </span>
             
           </td>
@@ -1127,7 +1225,7 @@
             
               4.65 / 5
               
-                <span style="color:#999;font-size:0.78rem;">(267 reseñas)</span>
+                <span style="color:#999;font-size:0.78rem;">(267.0 reseñas)</span>
               
             
           </td>
@@ -1179,18 +1277,18 @@
     <div class="cmp-card is-winner">
       <div style="display:flex;align-items:center;gap:12px;">
         <div class="cmp-card-img">
-          <img src="/img/productos/placeholder-pre-entreno.svg" alt="EVOBEAST 1kg" width="72" height="72" loading="lazy">
+          <img src="/img/productos/evobeast-1kg-desconocida.webp" alt="EVOBEAST 1kg" width="72" height="72" loading="lazy">
         </div>
         <div>
           <div class="cmp-card-name">EVOBEAST 1kg</div>
-          <div class="cmp-card-meta">HSN · 1.00 kg</div>
+          <div class="cmp-card-meta">Amix Nutrition · 1.00 kg</div>
         </div>
       </div>
       
       <div>
-        <div class="cmp-card-price">16.48 €</div>
+        <div class="cmp-card-price">16.18 €</div>
         
-        <div class="cmp-card-kg">16.48 €/kg</div>
+        <div class="cmp-card-kg">16.18 €/kg</div>
         
       </div>
       
@@ -1199,7 +1297,14 @@
         <a href="https://www.hsnstore.com/marcas/sport-series/evobeast" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
-          <span class="pc-store-price">16.48 €</span>
+          <span class="pc-store-price">16.18 €</span>
+          
+        </a>
+        
+        <a href="https://www.nutritienda.com/es/amix-nutrition/cellex-unlimited-1-kg" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
+          <span class="pc-store-name">Nutritienda</span>
+          <span class="pc-store-price">76.70 €</span>
           
         </a>
         
@@ -1217,7 +1322,7 @@
         </div>
         <div>
           <div class="cmp-card-name">L-citrulina malato 300g</div>
-          <div class="cmp-card-meta">Life Pro Nutrition · 0.30 kg</div>
+          <div class="cmp-card-meta">BioTechUSA · 0.30 kg</div>
         </div>
       </div>
       
@@ -1244,10 +1349,10 @@
           
         </a>
         
-        <a href="https://www.nutritienda.com/es/life-pro-nutrition/venmo-pre-workout-non-stimulant-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.nutritienda.com/es/biotech-usa/citrulina-malato-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
           <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">29.90 €</span>
+          <span class="pc-store-price">28.90 €</span>
           
         </a>
         
@@ -1264,11 +1369,11 @@
   <h2 class="cmp-section-title">Análisis comparativo</h2>
   <div class="editorial-text">
     
-    <p>Si buscas el mejor precio por kilogramo, <strong>EVOBEAST 1kg</strong> es la opción más económica con <strong>16.48 €/kg</strong>, 30.15 €/kg menos que L-citrulina malato 300g (46.63 €/kg).</p>
+    <p>Si buscas el mejor precio por kilogramo, <strong>EVOBEAST 1kg</strong> es la opción más económica con <strong>16.18 €/kg</strong>, 30.45 €/kg menos que L-citrulina malato 300g (46.63 €/kg).</p>
     
     <p>EVOBEAST 1kg viene en un formato de 1.00 kg frente a los 0.30 kg de L-citrulina malato 300g. El precio por kilogramo ya normaliza esta diferencia de tamaño.</p>
     
-    <p>EVOBEAST 1kg está disponible en HSN pero no L-citrulina malato 300g. L-citrulina malato 300g está disponible en MyProtein, Nutritienda, Prozis pero no EVOBEAST 1kg.</p>
+    <p>EVOBEAST 1kg está disponible en HSN pero no L-citrulina malato 300g. L-citrulina malato 300g está disponible en MyProtein, Prozis pero no EVOBEAST 1kg.</p>
     
   </div>
 </div>
@@ -1281,12 +1386,12 @@
     
     <details class="faq-item">
       <summary>¿Cuál es más barato, EVOBEAST 1kg o L-citrulina malato 300g?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">EVOBEAST 1kg es más barato con 16.48 €/kg frente a 46.63 €/kg de L-citrulina malato 300g — una diferencia de 30.15 €/kg.</p>
+      <p class="faq-answer">EVOBEAST 1kg es más barato con 16.18 €/kg frente a 46.63 €/kg de L-citrulina malato 300g — una diferencia de 30.45 €/kg.</p>
     </details>
     
     <details class="faq-item">
       <summary>¿Dónde comprar EVOBEAST 1kg al mejor precio?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">El mejor precio de EVOBEAST 1kg está en HSN, a 16.48 €.</p>
+      <p class="faq-answer">El mejor precio de EVOBEAST 1kg está en HSN, a 16.18 €.</p>
     </details>
     
     <details class="faq-item">
@@ -1309,6 +1414,11 @@
       <div class="related-title">Energy Charge - Preentrenamiento 800 g vs EVOBEAST 1kg</div>
     </a>
     
+    <a href="https://stackfit.es/comparar/beta-alanina-en-polvo-150g-desconocida-vs-evobeast-1kg-desconocida/" class="related-card">
+      <div class="related-tag">comparativa</div>
+      <div class="related-title">BETA-ALANINA EN POLVO 150g vs EVOBEAST 1kg</div>
+    </a>
+    
     <a href="https://stackfit.es/comparar/evobeast-1kg-desconocida-vs-n-o-shox-1320g-desconocida/" class="related-card">
       <div class="related-tag">comparativa</div>
       <div class="related-title">EVOBEAST 1kg vs N.O. Shox 1320g</div>
@@ -1327,11 +1437,6 @@
     <a href="https://stackfit.es/comparar/evobeast-1kg-desconocida-vs-taurina-en-polvo-250g-desconocida/" class="related-card">
       <div class="related-tag">comparativa</div>
       <div class="related-title">EVOBEAST 1kg vs Taurina en polvo 250g</div>
-    </a>
-    
-    <a href="https://stackfit.es/comparar/beta-alanina-300-g-desconocida-vs-evobeast-1kg-desconocida/" class="related-card">
-      <div class="related-tag">comparativa</div>
-      <div class="related-title">Beta-alanina 300 g vs EVOBEAST 1kg</div>
     </a>
     
   </div>
@@ -1370,7 +1475,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-04-17</div>
+    <div class="footer-bottom">Última actualización: 2026-04-20</div>
   </footer>
 
 </body>
