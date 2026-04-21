@@ -78,12 +78,11 @@
   .verdict-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:28px; }
   @media (min-width:640px) { .verdict-grid { grid-template-columns:repeat(4,1fr); } }
   .verdict-card { background:#f9f9f9; border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
-  .verdict-card.has-winner { border-color:var(--accent-border); background:var(--accent-bg); }
   .verdict-icon { font-size:1.1rem; margin-bottom:5px; }
-  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#666; margin-bottom:4px; }
+  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#111; margin-bottom:4px; }
   .verdict-winner { font-size:0.82rem; font-weight:700; color:#111; line-height:1.3; margin-bottom:2px; }
-  .verdict-value { font-size:0.75rem; color:#444; }
-  .verdict-na { font-size:0.78rem; color:#888; font-style:italic; }
+  .verdict-value { font-size:0.75rem; color:#1a1a1a; }
+  .verdict-na { font-size:0.78rem; color:#555; font-style:italic; }
 
   /* ── Tabla ────────────── */
   .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
@@ -91,26 +90,23 @@
   .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; }
   .cmp-table tr:last-child td { border-bottom:none; }
   .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#333; white-space:nowrap; }
-  .cmp-table th.winner-col { background:rgba(200,255,77,0.08); }
-  .cmp-table td.label-col { color:#555; font-size:0.78rem; width:130px; white-space:nowrap; }
-  .cmp-table td.winner-cell { background:rgba(200,255,77,0.06); font-weight:600; color:#111; }
-  .cmp-table td.na-cell { color:#888; font-style:italic; font-size:0.8rem; }
-  .cmp-val-badge { display:inline-block; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; }
+  .cmp-table td.label-col { color:#111; font-size:0.78rem; width:130px; white-space:nowrap; }
+  .cmp-table td.na-cell { color:#555; font-style:italic; font-size:0.8rem; }
+  .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
 
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
   @media (max-width:480px) { .cmp-cards { grid-template-columns:1fr; } }
   .cmp-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
-  .cmp-card.is-winner { border-color:var(--accent); }
   .cmp-card-img { width:72px; height:72px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
   .cmp-card-name { font-weight:700; font-size:0.9rem; color:#111; line-height:1.3; }
-  .cmp-card-meta { font-size:0.76rem; color:#555; }
+  .cmp-card-meta { font-size:0.76rem; color:#111; }
   .cmp-card-price { font-size:1.35rem; font-weight:800; color:#111; line-height:1; }
-  .cmp-card-kg { display:inline-flex; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; }
+  .cmp-card-kg { display:inline-flex; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; border:1px solid #ddd; }
 
   /* ── Editorial ────────── */
-  .editorial-text { font-size:0.88rem; color:#333; line-height:1.8; max-width:760px; }
+  .editorial-text { font-size:0.88rem; color:#111; line-height:1.8; max-width:760px; }
   .editorial-text p { margin-bottom:12px; }
 
   /* ── Relacionadas ─────── */
@@ -118,7 +114,7 @@
   @media (min-width:640px) { .related-grid { grid-template-columns:repeat(3,1fr); } }
   .related-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
   .related-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
-  .related-tag { font-size:0.65rem; color:#666; text-transform:uppercase; letter-spacing:0.06em; }
+  .related-tag { font-size:0.65rem; color:#111; text-transform:uppercase; letter-spacing:0.06em; }
   .related-title { font-size:0.8rem; font-weight:600; color:#111; line-height:1.3; margin-top:2px; }
 </style>
 
@@ -1043,7 +1039,7 @@
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
         <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);">🎯 Test</a>
-        <a href="https://stackfit.es/comparar/" class="active" style="border-color:var(--accent-border);color:var(--accent);">Comparar</a>
+        <a href="https://stackfit.es/comparar/" class="active">Comparar</a>
       </div>
     </nav>
   </header>
@@ -1057,7 +1053,7 @@
     <div class="cmp-breadcrumb">
       <a href="https://stackfit.es/">Inicio</a><span>›</span>
       <a href="https://stackfit.es/comparar/">Comparar</a><span>›</span>
-      <span style="color:#666;">EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg vs EVOWHEY PROTEIN 2kg</span>
+      <span style="color:#ccc;">EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg vs EVOWHEY PROTEIN 2kg</span>
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg vs EVOWHEY PROTEIN 2kg: comparativa completa</h1>
@@ -1073,7 +1069,7 @@
   <h2 class="cmp-section-title">Veredicto rápido</h2>
   <div class="verdict-grid">
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">💰</div>
       <div class="verdict-label">Mejor precio</div>
       
@@ -1083,7 +1079,7 @@
       
     </div>
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">🥩</div>
       <div class="verdict-label">Más proteína/dosis</div>
       
@@ -1093,7 +1089,7 @@
       
     </div>
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">⭐</div>
       <div class="verdict-label">Mejor valorado</div>
       
@@ -1103,7 +1099,7 @@
       
     </div>
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">🏆</div>
       <div class="verdict-label">Mejor relación calidad-precio</div>
       
@@ -1124,26 +1120,20 @@
       <thead>
         <tr>
           <th class="label-col"></th>
-          <th>
-            EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg
-            
-          </th>
-          <th class="winner-col">
-            EVOWHEY PROTEIN 2kg
-            <span class="cmp-val-badge" style="margin-left:6px;">✓ Mejor precio</span>
-          </th>
+          <th>EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg</th>
+          <th>EVOWHEY PROTEIN 2kg</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="label-col">Imagen</td>
-          <td><img src="/img/productos/placeholder-proteina-whey.svg" alt="EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
+          <td><img src="/img/productos/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-optimum-nutrition.webp" alt="EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
           <td><img src="/img/productos/evowhey-protein-2kg-desconocida.webp" alt="EVOWHEY PROTEIN 2kg" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
         </tr>
         <tr>
           <td class="label-col">Marca</td>
           <td>Optimum Nutrition</td>
-          <td>HSN</td>
+          <td>Amix Nutrition</td>
         </tr>
         <tr>
           <td class="label-col">Categoría</td>
@@ -1157,21 +1147,13 @@
         </tr>
         <tr>
           <td class="label-col">Mejor precio total</td>
-          <td>
-            18.04 € (HSN)
-          </td>
-          <td class="winner-cell">
-            11.76 € (HSN)
-          </td>
+          <td>18.04 € (HSN)</td>
+          <td>11.76 € (HSN)</td>
         </tr>
         <tr>
           <td class="label-col">Precio €/kg</td>
-          <td>
-            <span class="cmp-val-badge">9.02 €/kg</span>
-          </td>
-          <td class="winner-cell">
-            <span class="cmp-val-badge">5.88 €/kg</span>
-          </td>
+          <td><span class="cmp-val-badge">9.02 €/kg</span></td>
+          <td><span class="cmp-val-badge">5.88 €/kg</span></td>
         </tr>
         
         <tr>
@@ -1182,12 +1164,8 @@
         
         <tr>
           <td class="label-col">Proteína/dosis</td>
-          <td class="winner-cell">
-            24.0 g
-          </td>
-          <td>
-            23.0 g
-          </td>
+          <td>24.0 g</td>
+          <td>23.0 g</td>
         </tr>
         <tr>
           <td class="label-col">Dosis por bote</td>
@@ -1211,6 +1189,11 @@
                 <span class="store-pill-dot"></span>HSN
               </span>
             
+              
+              <span class="store-pill store-nutritienda" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
+                <span class="store-pill-dot"></span>Nutritienda
+              </span>
+            
           </td>
         </tr>
         <tr>
@@ -1219,7 +1202,7 @@
             
               4.60 / 5
               
-                <span style="color:#999;font-size:0.78rem;">(5.0 reseñas)</span>
+                <span style="color:#555;font-size:0.78rem;">(5.0 reseñas)</span>
               
             
           </td>
@@ -1227,7 +1210,7 @@
             
               4.70 / 5
               
-                <span style="color:#999;font-size:0.78rem;">(20323.0 reseñas)</span>
+                <span style="color:#555;font-size:0.78rem;">(20323.0 reseñas)</span>
               
             
           </td>
@@ -1271,7 +1254,7 @@
     <div class="cmp-card">
       <div style="display:flex;align-items:center;gap:12px;">
         <div class="cmp-card-img">
-          <img src="/img/productos/placeholder-proteina-whey.svg" alt="EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg" width="72" height="72" loading="lazy">
+          <img src="/img/productos/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-optimum-nutrition.webp" alt="EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg" width="72" height="72" loading="lazy">
         </div>
         <div>
           <div class="cmp-card-name">EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg</div>
@@ -1302,14 +1285,14 @@
     
     
     
-    <div class="cmp-card is-winner">
+    <div class="cmp-card">
       <div style="display:flex;align-items:center;gap:12px;">
         <div class="cmp-card-img">
           <img src="/img/productos/evowhey-protein-2kg-desconocida.webp" alt="EVOWHEY PROTEIN 2kg" width="72" height="72" loading="lazy">
         </div>
         <div>
           <div class="cmp-card-name">EVOWHEY PROTEIN 2kg</div>
-          <div class="cmp-card-meta">HSN · 2.00 kg</div>
+          <div class="cmp-card-meta">Amix Nutrition · 2.00 kg</div>
         </div>
       </div>
       
@@ -1329,6 +1312,13 @@
           
         </a>
         
+        <a href="https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cfm-nitro-isolate-2000g-detonatrol-30-capsulas" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
+          <span class="pc-store-name">Nutritienda</span>
+          <span class="pc-store-price">115.50 €</span>
+          
+        </a>
+        
       </div>
       
       <a href="https://www.hsnstore.com/marcas/sport-series/evowhey-protein" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
@@ -1345,6 +1335,8 @@
     <p>Si buscas el mejor precio por kilogramo, <strong>EVOWHEY PROTEIN 2kg</strong> es la opción más económica con <strong>5.88 €/kg</strong>, 3.14 €/kg menos que EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg (9.02 €/kg).</p>
     
     <p>En cuanto a proteína por dosis, <strong>EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg</strong> aporta 24 g por toma frente a los 23 g de EVOWHEY PROTEIN 2kg, una diferencia de 1 g por servicio.</p>
+    
+    <p>EVOWHEY PROTEIN 2kg está disponible en Nutritienda pero no EVOEXCEL SIN EDULCORANTES (WHEY PROTEIN ISOLATE + CONCENTRATE) 2kg.</p>
     
   </div>
 </div>

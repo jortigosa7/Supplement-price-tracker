@@ -49,12 +49,11 @@
   .verdict-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:28px; }
   @media (min-width:640px) { .verdict-grid { grid-template-columns:repeat(4,1fr); } }
   .verdict-card { background:#f9f9f9; border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
-  .verdict-card.has-winner { border-color:var(--accent-border); background:var(--accent-bg); }
   .verdict-icon { font-size:1.1rem; margin-bottom:5px; }
-  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#666; margin-bottom:4px; }
+  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#111; margin-bottom:4px; }
   .verdict-winner { font-size:0.82rem; font-weight:700; color:#111; line-height:1.3; margin-bottom:2px; }
-  .verdict-value { font-size:0.75rem; color:#444; }
-  .verdict-na { font-size:0.78rem; color:#888; font-style:italic; }
+  .verdict-value { font-size:0.75rem; color:#1a1a1a; }
+  .verdict-na { font-size:0.78rem; color:#555; font-style:italic; }
 
   /* ── Tabla ────────────── */
   .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
@@ -62,26 +61,23 @@
   .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; }
   .cmp-table tr:last-child td { border-bottom:none; }
   .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#333; white-space:nowrap; }
-  .cmp-table th.winner-col { background:rgba(200,255,77,0.08); }
-  .cmp-table td.label-col { color:#555; font-size:0.78rem; width:130px; white-space:nowrap; }
-  .cmp-table td.winner-cell { background:rgba(200,255,77,0.06); font-weight:600; color:#111; }
-  .cmp-table td.na-cell { color:#888; font-style:italic; font-size:0.8rem; }
-  .cmp-val-badge { display:inline-block; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; }
+  .cmp-table td.label-col { color:#111; font-size:0.78rem; width:130px; white-space:nowrap; }
+  .cmp-table td.na-cell { color:#555; font-style:italic; font-size:0.8rem; }
+  .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
 
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
   @media (max-width:480px) { .cmp-cards { grid-template-columns:1fr; } }
   .cmp-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
-  .cmp-card.is-winner { border-color:var(--accent); }
   .cmp-card-img { width:72px; height:72px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
   .cmp-card-name { font-weight:700; font-size:0.9rem; color:#111; line-height:1.3; }
-  .cmp-card-meta { font-size:0.76rem; color:#555; }
+  .cmp-card-meta { font-size:0.76rem; color:#111; }
   .cmp-card-price { font-size:1.35rem; font-weight:800; color:#111; line-height:1; }
-  .cmp-card-kg { display:inline-flex; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; }
+  .cmp-card-kg { display:inline-flex; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; border:1px solid #ddd; }
 
   /* ── Editorial ────────── */
-  .editorial-text { font-size:0.88rem; color:#333; line-height:1.8; max-width:760px; }
+  .editorial-text { font-size:0.88rem; color:#111; line-height:1.8; max-width:760px; }
   .editorial-text p { margin-bottom:12px; }
 
   /* ── Relacionadas ─────── */
@@ -89,7 +85,7 @@
   @media (min-width:640px) { .related-grid { grid-template-columns:repeat(3,1fr); } }
   .related-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
   .related-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
-  .related-tag { font-size:0.65rem; color:#666; text-transform:uppercase; letter-spacing:0.06em; }
+  .related-tag { font-size:0.65rem; color:#111; text-transform:uppercase; letter-spacing:0.06em; }
   .related-title { font-size:0.8rem; font-weight:600; color:#111; line-height:1.3; margin-top:2px; }
 </style>
 {% endblock %}
@@ -102,7 +98,7 @@
     <div class="cmp-breadcrumb">
       <a href="{{ site_url }}/">Inicio</a><span>›</span>
       <a href="{{ site_url }}/comparar/">Comparar</a><span>›</span>
-      <span style="color:#666;">{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}</span>
+      <span style="color:#ccc;">{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}</span>
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}: comparativa completa</h1>
@@ -118,7 +114,7 @@
   <h2 class="cmp-section-title">Veredicto rápido</h2>
   <div class="verdict-grid">
 
-    <div class="verdict-card{% if veredicto.mejor_precio.side %} has-winner{% endif %}">
+    <div class="verdict-card">
       <div class="verdict-icon">💰</div>
       <div class="verdict-label">Mejor precio</div>
       {% if veredicto.mejor_precio.side %}
@@ -133,7 +129,7 @@
       {% endif %}
     </div>
 
-    <div class="verdict-card{% if veredicto.mas_proteina.side %} has-winner{% endif %}">
+    <div class="verdict-card">
       <div class="verdict-icon">🥩</div>
       <div class="verdict-label">Más proteína/dosis</div>
       {% if veredicto.mas_proteina.side %}
@@ -145,7 +141,7 @@
       {% endif %}
     </div>
 
-    <div class="verdict-card{% if veredicto.mejor_valorado.side %} has-winner{% endif %}">
+    <div class="verdict-card">
       <div class="verdict-icon">⭐</div>
       <div class="verdict-label">Mejor valorado</div>
       {% if veredicto.mejor_valorado.side %}
@@ -157,7 +153,7 @@
       {% endif %}
     </div>
 
-    <div class="verdict-card{% if veredicto.mejor_ratio.side %} has-winner{% endif %}">
+    <div class="verdict-card">
       <div class="verdict-icon">🏆</div>
       <div class="verdict-label">Mejor relación calidad-precio</div>
       {% if veredicto.mejor_ratio.side %}
@@ -180,14 +176,8 @@
       <thead>
         <tr>
           <th class="label-col"></th>
-          <th{% if veredicto.mejor_precio.side == 'a' %} class="winner-col"{% endif %}>
-            {{ producto_a.nombre_normalizado }}
-            {% if veredicto.mejor_precio.side == 'a' %}<span class="cmp-val-badge" style="margin-left:6px;">✓ Mejor precio</span>{% endif %}
-          </th>
-          <th{% if veredicto.mejor_precio.side == 'b' %} class="winner-col"{% endif %}>
-            {{ producto_b.nombre_normalizado }}
-            {% if veredicto.mejor_precio.side == 'b' %}<span class="cmp-val-badge" style="margin-left:6px;">✓ Mejor precio</span>{% endif %}
-          </th>
+          <th>{{ producto_a.nombre_normalizado }}</th>
+          <th>{{ producto_b.nombre_normalizado }}</th>
         </tr>
       </thead>
       <tbody>
@@ -213,21 +203,13 @@
         </tr>
         <tr>
           <td class="label-col">Mejor precio total</td>
-          <td{% if veredicto.mejor_precio.side == 'a' %} class="winner-cell"{% endif %}>
-            {% if producto_a.precio_min %}{{ "%.2f"|format(producto_a.precio_min) }} € ({{ producto_a.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}
-          </td>
-          <td{% if veredicto.mejor_precio.side == 'b' %} class="winner-cell"{% endif %}>
-            {% if producto_b.precio_min %}{{ "%.2f"|format(producto_b.precio_min) }} € ({{ producto_b.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}
-          </td>
+          <td>{% if producto_a.precio_min %}{{ "%.2f"|format(producto_a.precio_min) }} € ({{ producto_a.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.precio_min %}{{ "%.2f"|format(producto_b.precio_min) }} € ({{ producto_b.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         <tr>
           <td class="label-col">Precio €/kg</td>
-          <td{% if veredicto.mejor_precio.side == 'a' %} class="winner-cell"{% endif %}>
-            {% if producto_a.precio_por_kg_min %}<span class="cmp-val-badge">{{ "%.2f"|format(producto_a.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}
-          </td>
-          <td{% if veredicto.mejor_precio.side == 'b' %} class="winner-cell"{% endif %}>
-            {% if producto_b.precio_por_kg_min %}<span class="cmp-val-badge">{{ "%.2f"|format(producto_b.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}
-          </td>
+          <td>{% if producto_a.precio_por_kg_min %}<span class="cmp-val-badge">{{ "%.2f"|format(producto_a.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.precio_por_kg_min %}<span class="cmp-val-badge">{{ "%.2f"|format(producto_b.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         {% if producto_a.protein_type or producto_b.protein_type %}
         <tr>
@@ -238,12 +220,8 @@
         {% endif %}
         <tr>
           <td class="label-col">Proteína/dosis</td>
-          <td{% if veredicto.mas_proteina.side == 'a' %} class="winner-cell"{% endif %}>
-            {% if producto_a.protein_per_serving_g %}{{ producto_a.protein_per_serving_g }} g{% else %}<span class="na-cell">No disponible</span>{% endif %}
-          </td>
-          <td{% if veredicto.mas_proteina.side == 'b' %} class="winner-cell"{% endif %}>
-            {% if producto_b.protein_per_serving_g %}{{ producto_b.protein_per_serving_g }} g{% else %}<span class="na-cell">No disponible</span>{% endif %}
-          </td>
+          <td>{% if producto_a.protein_per_serving_g %}{{ producto_a.protein_per_serving_g }} g{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+          <td>{% if producto_b.protein_per_serving_g %}{{ producto_b.protein_per_serving_g }} g{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
         </tr>
         <tr>
           <td class="label-col">Dosis por bote</td>
@@ -275,7 +253,7 @@
             {% if producto_a.store_rating %}
               {{ "%.2f"|format(producto_a.store_rating) }} / 5
               {% if producto_a.store_rating_count %}
-                <span style="color:#999;font-size:0.78rem;">({{ producto_a.store_rating_count }} reseñas)</span>
+                <span style="color:#555;font-size:0.78rem;">({{ producto_a.store_rating_count }} reseñas)</span>
               {% endif %}
             {% else %}<span class="na-cell">No disponible</span>{% endif %}
           </td>
@@ -283,7 +261,7 @@
             {% if producto_b.store_rating %}
               {{ "%.2f"|format(producto_b.store_rating) }} / 5
               {% if producto_b.store_rating_count %}
-                <span style="color:#999;font-size:0.78rem;">({{ producto_b.store_rating_count }} reseñas)</span>
+                <span style="color:#555;font-size:0.78rem;">({{ producto_b.store_rating_count }} reseñas)</span>
               {% endif %}
             {% else %}<span class="na-cell">No disponible</span>{% endif %}
           </td>
@@ -324,7 +302,7 @@
     {% for prod in [producto_a, producto_b] %}
     {% set side = 'a' if loop.index == 1 else 'b' %}
     {% set is_win = veredicto.mejor_precio.side == side %}
-    <div class="cmp-card{% if is_win %} is-winner{% endif %}">
+    <div class="cmp-card">
       <div style="display:flex;align-items:center;gap:12px;">
         <div class="cmp-card-img">
           <img src="{{ prod.img_src }}" alt="{{ prod.nombre_normalizado }}" width="72" height="72" loading="lazy">

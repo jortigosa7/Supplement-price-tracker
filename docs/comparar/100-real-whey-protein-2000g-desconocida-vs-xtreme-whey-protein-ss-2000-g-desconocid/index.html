@@ -50,10 +50,9 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, 100% Real Whey Protein 2000g o Xtreme Whey Protein SS 2000 g?","acceptedAnswer":{"@type":"Answer","text":"100% Real Whey Protein 2000g es m\u00e1s barato con 8.07 \u20ac/kg frente a 9.02 \u20ac/kg de Xtreme Whey Protein SS 2000 g \u2014 una diferencia de 0.95 \u20ac/kg."}},
-        {"@type":"Question","name":"\u00bfD\u00f3nde comprar 100% Real Whey Protein 2000g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de 100% Real Whey Protein 2000g est\u00e1 en HSN, a 16.14 \u20ac."}},
-        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Xtreme Whey Protein SS 2000 g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Xtreme Whey Protein SS 2000 g est\u00e1 en HSN, a 18.04 \u20ac."}},
-        {"@type":"Question","name":"\u00bfCu\u00e1l tiene m\u00e1s prote\u00edna por dosis?","acceptedAnswer":{"@type":"Answer","text":"Xtreme Whey Protein SS 2000 g aporta m\u00e1s prote\u00edna por dosis: 25 g por toma."}}
+        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, 100% Real Whey Protein 2000g o Xtreme Whey Protein SS 2000 g?","acceptedAnswer":{"@type":"Answer","text":"100% Real Whey Protein 2000g es m\u00e1s barato con 34.99 \u20ac/kg frente a 38.99 \u20ac/kg de Xtreme Whey Protein SS 2000 g \u2014 una diferencia de 4.00 \u20ac/kg."}},
+        {"@type":"Question","name":"\u00bfD\u00f3nde comprar 100% Real Whey Protein 2000g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de 100% Real Whey Protein 2000g est\u00e1 en Prozis, a 69.99 \u20ac."}},
+        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Xtreme Whey Protein SS 2000 g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Xtreme Whey Protein SS 2000 g est\u00e1 en Prozis, a 77.99 \u20ac."}}
       ]
     }
   ]
@@ -62,12 +61,12 @@
 <style>
   /* ── Hero comparación ───── */
   .cmp-hero { background:#0a0b0c; padding:36px 0 28px; }
-  .cmp-breadcrumb { font-size:0.8rem; color:#444; margin-bottom:14px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
-  .cmp-breadcrumb a { color:#555; }
+  .cmp-breadcrumb { font-size:0.8rem; color:#aaa; margin-bottom:14px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .cmp-breadcrumb a { color:#bbb; }
   .cmp-breadcrumb a:hover { color:var(--accent); }
   .cmp-hero-label { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
   .cmp-hero h1 { font-size:clamp(1.1rem,3vw,1.6rem); font-weight:800; line-height:1.3; color:#fff; max-width:780px; margin-bottom:8px; }
-  .cmp-hero-sub { font-size:0.84rem; color:#555; }
+  .cmp-hero-sub { font-size:0.84rem; color:#aaa; }
 
   /* ── Sections ─────────── */
   .cmp-wrap { background:#fff; }
@@ -78,39 +77,35 @@
   .verdict-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:28px; }
   @media (min-width:640px) { .verdict-grid { grid-template-columns:repeat(4,1fr); } }
   .verdict-card { background:#f9f9f9; border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
-  .verdict-card.has-winner { border-color:var(--accent-border); background:var(--accent-bg); }
   .verdict-icon { font-size:1.1rem; margin-bottom:5px; }
-  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#aaa; margin-bottom:4px; }
+  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#111; margin-bottom:4px; }
   .verdict-winner { font-size:0.82rem; font-weight:700; color:#111; line-height:1.3; margin-bottom:2px; }
-  .verdict-value { font-size:0.75rem; color:#888; }
-  .verdict-na { font-size:0.78rem; color:#ccc; font-style:italic; }
+  .verdict-value { font-size:0.75rem; color:#1a1a1a; }
+  .verdict-na { font-size:0.78rem; color:#555; font-style:italic; }
 
   /* ── Tabla ────────────── */
   .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
   .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
   .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; }
   .cmp-table tr:last-child td { border-bottom:none; }
-  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#555; white-space:nowrap; }
-  .cmp-table th.winner-col { background:rgba(200,255,77,0.08); }
-  .cmp-table td.label-col { color:#999; font-size:0.78rem; width:130px; white-space:nowrap; }
-  .cmp-table td.winner-cell { background:rgba(200,255,77,0.06); font-weight:600; color:#111; }
-  .cmp-table td.na-cell { color:#ccc; font-style:italic; font-size:0.8rem; }
-  .cmp-val-badge { display:inline-block; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; }
+  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#333; white-space:nowrap; }
+  .cmp-table td.label-col { color:#111; font-size:0.78rem; width:130px; white-space:nowrap; }
+  .cmp-table td.na-cell { color:#555; font-style:italic; font-size:0.8rem; }
+  .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
 
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
   @media (max-width:480px) { .cmp-cards { grid-template-columns:1fr; } }
   .cmp-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
-  .cmp-card.is-winner { border-color:var(--accent); }
   .cmp-card-img { width:72px; height:72px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
   .cmp-card-name { font-weight:700; font-size:0.9rem; color:#111; line-height:1.3; }
-  .cmp-card-meta { font-size:0.76rem; color:#999; }
+  .cmp-card-meta { font-size:0.76rem; color:#111; }
   .cmp-card-price { font-size:1.35rem; font-weight:800; color:#111; line-height:1; }
-  .cmp-card-kg { display:inline-flex; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; }
+  .cmp-card-kg { display:inline-flex; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; border:1px solid #ddd; }
 
   /* ── Editorial ────────── */
-  .editorial-text { font-size:0.88rem; color:#555; line-height:1.8; max-width:760px; }
+  .editorial-text { font-size:0.88rem; color:#111; line-height:1.8; max-width:760px; }
   .editorial-text p { margin-bottom:12px; }
 
   /* ── Relacionadas ─────── */
@@ -118,7 +113,7 @@
   @media (min-width:640px) { .related-grid { grid-template-columns:repeat(3,1fr); } }
   .related-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
   .related-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
-  .related-tag { font-size:0.65rem; color:#aaa; text-transform:uppercase; letter-spacing:0.06em; }
+  .related-tag { font-size:0.65rem; color:#111; text-transform:uppercase; letter-spacing:0.06em; }
   .related-title { font-size:0.8rem; font-weight:600; color:#111; line-height:1.3; margin-top:2px; }
 </style>
 
@@ -418,6 +413,99 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+
+    /* ── Compare button ────────────────────────────── */
+    .pc-btn-compare { flex: 0 0 auto; }
+    .pc-btn-compare.is-selected {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+    }
+
+    /* ── Compare bar ───────────────────────────────── */
+    .compare-bar {
+      position: fixed;
+      bottom: -100px;
+      left: 0; right: 0;
+      z-index: 999;
+      transition: bottom 0.3s ease;
+      padding: 0 16px 12px;
+      pointer-events: none;
+    }
+    .compare-bar.visible {
+      bottom: 0;
+      pointer-events: all;
+    }
+    .compare-bar-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .compare-slots {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .compare-slot {
+      flex: 1;
+      min-width: 0;
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .compare-slot.filled {
+      border-color: var(--accent);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .compare-vs {
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .compare-bar-btn {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: var(--accent);
+      border: none;
+      color: #000;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+    .compare-bar-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .compare-bar-btn:not(:disabled):hover { opacity: 0.85; }
+    @media (max-width: 480px) {
+      .compare-bar-inner { padding: 10px 12px; gap: 8px; }
+      .compare-bar-btn { width: 100%; }
+      .compare-slots { flex-basis: 100%; }
+    }
     .pc-btn {
       flex: 1;
       display: block;
@@ -950,7 +1038,7 @@
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
         <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);">🎯 Test</a>
-        <a href="https://stackfit.es/comparar/" class="active" style="border-color:var(--accent-border);color:var(--accent);">Comparar</a>
+        <a href="https://stackfit.es/comparar/" class="active">Comparar</a>
       </div>
     </nav>
   </header>
@@ -964,11 +1052,11 @@
     <div class="cmp-breadcrumb">
       <a href="https://stackfit.es/">Inicio</a><span>›</span>
       <a href="https://stackfit.es/comparar/">Comparar</a><span>›</span>
-      <span style="color:#666;">100% Real Whey Protein 2000g vs Xtreme Whey Protein SS 2000 g</span>
+      <span style="color:#ccc;">100% Real Whey Protein 2000g vs Xtreme Whey Protein SS 2000 g</span>
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>100% Real Whey Protein 2000g vs Xtreme Whey Protein SS 2000 g: comparativa completa</h1>
-    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Actualizado 2026-04-17.</p>
+    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Actualizado 2026-04-20.</p>
   </div>
 </div>
 
@@ -980,43 +1068,41 @@
   <h2 class="cmp-section-title">Veredicto rápido</h2>
   <div class="verdict-grid">
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">💰</div>
       <div class="verdict-label">Mejor precio</div>
       
         
         <div class="verdict-winner">100% Real Whey Protein 2000g</div>
-        <div class="verdict-value">8.07 €/kg</div>
+        <div class="verdict-value">34.99 €/kg</div>
       
     </div>
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">🥩</div>
       <div class="verdict-label">Más proteína/dosis</div>
       
-        
-        <div class="verdict-winner">Xtreme Whey Protein SS 2000 g</div>
-        <div class="verdict-value">25 g/dosis</div>
+        <div class="verdict-na">No disponible</div>
       
     </div>
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">⭐</div>
       <div class="verdict-label">Mejor valorado</div>
       
         
-        <div class="verdict-winner">Xtreme Whey Protein SS 2000 g</div>
-        <div class="verdict-value">4.65 / 5</div>
+        <div class="verdict-winner">100% Real Whey Protein 2000g</div>
+        <div class="verdict-value">4.73 / 5</div>
       
     </div>
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">🏆</div>
       <div class="verdict-label">Mejor relación calidad-precio</div>
       
         
         <div class="verdict-winner">100% Real Whey Protein 2000g</div>
-        <div class="verdict-value">Mayor g proteína por €</div>
+        <div class="verdict-value">Menor €/kg</div>
       
     </div>
 
@@ -1031,14 +1117,8 @@
       <thead>
         <tr>
           <th class="label-col"></th>
-          <th class="winner-col">
-            100% Real Whey Protein 2000g
-            <span class="cmp-val-badge" style="margin-left:6px;">✓ Mejor precio</span>
-          </th>
-          <th>
-            Xtreme Whey Protein SS 2000 g
-            
-          </th>
+          <th>100% Real Whey Protein 2000g</th>
+          <th>Xtreme Whey Protein SS 2000 g</th>
         </tr>
       </thead>
       <tbody>
@@ -1049,8 +1129,8 @@
         </tr>
         <tr>
           <td class="label-col">Marca</td>
-          <td>Vitobest</td>
-          <td>Isoprime Cfm 2 Kg</td>
+          <td>Prozis</td>
+          <td>Prozis</td>
         </tr>
         <tr>
           <td class="label-col">Categoría</td>
@@ -1064,72 +1144,40 @@
         </tr>
         <tr>
           <td class="label-col">Mejor precio total</td>
-          <td class="winner-cell">
-            16.14 € (HSN)
-          </td>
-          <td>
-            18.04 € (HSN)
-          </td>
+          <td>69.99 € (Prozis)</td>
+          <td>77.99 € (Prozis)</td>
         </tr>
         <tr>
           <td class="label-col">Precio €/kg</td>
-          <td class="winner-cell">
-            <span class="cmp-val-badge">8.07 €/kg</span>
-          </td>
-          <td>
-            <span class="cmp-val-badge">9.02 €/kg</span>
-          </td>
+          <td><span class="cmp-val-badge">34.99 €/kg</span></td>
+          <td><span class="cmp-val-badge">38.99 €/kg</span></td>
         </tr>
         
         <tr>
           <td class="label-col">Proteína/dosis</td>
-          <td>
-            24.0 g
-          </td>
-          <td class="winner-cell">
-            25.0 g
-          </td>
+          <td><span class="na-cell">No disponible</span></td>
+          <td><span class="na-cell">No disponible</span></td>
         </tr>
         <tr>
           <td class="label-col">Dosis por bote</td>
-          <td>17</td>
-          <td>67</td>
+          <td><span class="na-cell">No disponible</span></td>
+          <td><span class="na-cell">No disponible</span></td>
         </tr>
         <tr>
           <td class="label-col">Tiendas</td>
           <td>
             
               
-              <span class="store-pill store-hsn" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
-                <span class="store-pill-dot"></span>HSN
-              </span>
-            
-              
               <span class="store-pill store-prozis" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
                 <span class="store-pill-dot"></span>Prozis
-              </span>
-            
-              
-              <span class="store-pill store-nutritienda" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
-                <span class="store-pill-dot"></span>Nutritienda
               </span>
             
           </td>
           <td>
             
               
-              <span class="store-pill store-hsn" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
-                <span class="store-pill-dot"></span>HSN
-              </span>
-            
-              
               <span class="store-pill store-prozis" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
                 <span class="store-pill-dot"></span>Prozis
-              </span>
-            
-              
-              <span class="store-pill store-nutritienda" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
-                <span class="store-pill-dot"></span>Nutritienda
               </span>
             
           </td>
@@ -1138,17 +1186,17 @@
           <td class="label-col">Valoración</td>
           <td>
             
-              4.60 / 5
+              4.73 / 5
               
-                <span style="color:#999;font-size:0.78rem;">(5 reseñas)</span>
+                <span style="color:#555;font-size:0.78rem;">(1.0 reseñas)</span>
               
             
           </td>
           <td>
             
-              4.65 / 5
+              4.59 / 5
               
-                <span style="color:#999;font-size:0.78rem;">(1457 reseñas)</span>
+                <span style="color:#555;font-size:0.78rem;">(1.0 reseñas)</span>
               
             
           </td>
@@ -1157,12 +1205,12 @@
           <td class="label-col">Sabores disponibles</td>
           <td>
             
-              CAFÉ CON LECHE, MATCHA CON LECHE, SMOOTHIE DE BAYAS, TÉ CHAI CON LECHE, VAINILLA, CHOCOLATE
+              Brownie de chocolate, Café y Caramelo, Chocolate, Chocolate belga, Chocolate blanco, Chocolate con Leche, Chocolate negro, Chocolate y avellanas, Chocolate y caramelo, Fresa, Fresa y Plátano, Galletas y crema, Mango, Mango y Melocotón, Neutro, Plátano, Speculoos, Stracciatella, Vainilla
             
           </td>
           <td>
             
-              CHOCOLATE, CHOCOLATE BLANCO, CHOCOLATE Y AVELLANAS, CHOCOLATE Y CACAHUETE, CHOCOLATE Y GALLETAS, FRESA, FRESA Y PLÁTANO, TARTA DE QUESO DE FRUTAS DEL BOSQUE, TURRÓN, VAINILLA
+              Chocolate, Chocolate blanco, Fresa, Galletas y crema, Vainilla
             
           </td>
         </tr>
@@ -1173,8 +1221,8 @@
         </tr>
         <tr>
           <td class="label-col">Sin edulcorantes</td>
-          <td>Sí</td>
-          <td>No</td>
+          <td><span class="na-cell">No disponible</span></td>
+          <td><span class="na-cell">No disponible</span></td>
         </tr>
       </tbody>
     </table>
@@ -1189,32 +1237,25 @@
     
     
     
-    <div class="cmp-card is-winner">
+    <div class="cmp-card">
       <div style="display:flex;align-items:center;gap:12px;">
         <div class="cmp-card-img">
           <img src="/img/productos/100-real-whey-protein-2000g-desconocida.webp" alt="100% Real Whey Protein 2000g" width="72" height="72" loading="lazy">
         </div>
         <div>
           <div class="cmp-card-name">100% Real Whey Protein 2000g</div>
-          <div class="cmp-card-meta">Vitobest · 2.00 kg</div>
+          <div class="cmp-card-meta">Prozis · 2.00 kg</div>
         </div>
       </div>
       
       <div>
-        <div class="cmp-card-price">16.14 €</div>
+        <div class="cmp-card-price">69.99 €</div>
         
-        <div class="cmp-card-kg">8.07 €/kg</div>
+        <div class="cmp-card-kg">34.99 €/kg</div>
         
       </div>
       
       <div class="pc-stores">
-        
-        <a href="https://www.hsnstore.com/marcas/sport-series/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate" class="pc-store" target="_blank" rel="nofollow sponsored">
-          <span class="pc-store-dot" style="background:var(--hsn);"></span>
-          <span class="pc-store-name">HSN</span>
-          <span class="pc-store-price">16.14 €</span>
-          
-        </a>
         
         <a href="https://www.prozis.com/es/es/prozis/100-real-whey-protein-2000g" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--prozis);"></span>
@@ -1223,16 +1264,9 @@
           
         </a>
         
-        <a href="https://www.nutritienda.com/es/vitobest/whey-protein-100-por-cien-2000g" class="pc-store" target="_blank" rel="nofollow sponsored">
-          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
-          <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">77.04 €</span>
-          
-        </a>
-        
       </div>
       
-      <a href="https://www.hsnstore.com/marcas/sport-series/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
+      <a href="https://www.prozis.com/es/es/prozis/100-real-whey-protein-2000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
     </div>
     
     
@@ -1244,25 +1278,18 @@
         </div>
         <div>
           <div class="cmp-card-name">Xtreme Whey Protein SS 2000 g</div>
-          <div class="cmp-card-meta">Isoprime Cfm 2 Kg · 2.00 kg</div>
+          <div class="cmp-card-meta">Prozis · 2.00 kg</div>
         </div>
       </div>
       
       <div>
-        <div class="cmp-card-price">18.04 €</div>
+        <div class="cmp-card-price">77.99 €</div>
         
-        <div class="cmp-card-kg">9.02 €/kg</div>
+        <div class="cmp-card-kg">38.99 €/kg</div>
         
       </div>
       
       <div class="pc-stores">
-        
-        <a href="https://www.hsnstore.com/marcas/sport-series/evoexcel-2-0-whey-protein-isolate-concentrate" class="pc-store" target="_blank" rel="nofollow sponsored">
-          <span class="pc-store-dot" style="background:var(--hsn);"></span>
-          <span class="pc-store-name">HSN</span>
-          <span class="pc-store-price">18.04 €</span>
-          
-        </a>
         
         <a href="https://www.prozis.com/es/es/prozis/xtreme-whey-protein-ss-2000-g" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--prozis);"></span>
@@ -1271,16 +1298,9 @@
           
         </a>
         
-        <a href="https://www.nutritienda.com/es/isoprime-cfm-2-kg" class="pc-store" target="_blank" rel="nofollow sponsored">
-          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
-          <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">111.90 €</span>
-          
-        </a>
-        
       </div>
       
-      <a href="https://www.hsnstore.com/marcas/sport-series/evoexcel-2-0-whey-protein-isolate-concentrate" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
+      <a href="https://www.prozis.com/es/es/prozis/xtreme-whey-protein-ss-2000-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
     </div>
     
   </div>
@@ -1291,9 +1311,7 @@
   <h2 class="cmp-section-title">Análisis comparativo</h2>
   <div class="editorial-text">
     
-    <p>Si buscas el mejor precio por kilogramo, <strong>100% Real Whey Protein 2000g</strong> es la opción más económica con <strong>8.07 €/kg</strong>, 0.95 €/kg menos que Xtreme Whey Protein SS 2000 g (9.02 €/kg).</p>
-    
-    <p>En cuanto a proteína por dosis, <strong>Xtreme Whey Protein SS 2000 g</strong> aporta 25 g por toma frente a los 24 g de 100% Real Whey Protein 2000g, una diferencia de 1 g por servicio.</p>
+    <p>Si buscas el mejor precio por kilogramo, <strong>100% Real Whey Protein 2000g</strong> es la opción más económica con <strong>34.99 €/kg</strong>, 4.00 €/kg menos que Xtreme Whey Protein SS 2000 g (38.99 €/kg).</p>
     
   </div>
 </div>
@@ -1306,22 +1324,17 @@
     
     <details class="faq-item">
       <summary>¿Cuál es más barato, 100% Real Whey Protein 2000g o Xtreme Whey Protein SS 2000 g?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">100% Real Whey Protein 2000g es más barato con 8.07 €/kg frente a 9.02 €/kg de Xtreme Whey Protein SS 2000 g — una diferencia de 0.95 €/kg.</p>
+      <p class="faq-answer">100% Real Whey Protein 2000g es más barato con 34.99 €/kg frente a 38.99 €/kg de Xtreme Whey Protein SS 2000 g — una diferencia de 4.00 €/kg.</p>
     </details>
     
     <details class="faq-item">
       <summary>¿Dónde comprar 100% Real Whey Protein 2000g al mejor precio?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">El mejor precio de 100% Real Whey Protein 2000g está en HSN, a 16.14 €.</p>
+      <p class="faq-answer">El mejor precio de 100% Real Whey Protein 2000g está en Prozis, a 69.99 €.</p>
     </details>
     
     <details class="faq-item">
       <summary>¿Dónde comprar Xtreme Whey Protein SS 2000 g al mejor precio?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">El mejor precio de Xtreme Whey Protein SS 2000 g está en HSN, a 18.04 €.</p>
-    </details>
-    
-    <details class="faq-item">
-      <summary>¿Cuál tiene más proteína por dosis?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">Xtreme Whey Protein SS 2000 g aporta más proteína por dosis: 25 g por toma.</p>
+      <p class="faq-answer">El mejor precio de Xtreme Whey Protein SS 2000 g está en Prozis, a 77.99 €.</p>
     </details>
     
   </div>
@@ -1334,34 +1347,24 @@
   <h2 class="cmp-section-title">Otras comparaciones relacionadas</h2>
   <div class="related-grid">
     
-    <a href="https://stackfit.es/comparar/100-real-whey-protein-2000g-desconocida-vs-evowhey-oats-2kg-desconocida/" class="related-card">
+    <a href="https://stackfit.es/comparar/100-real-whey-protein-2000g-desconocida-vs-whey-fibre-700g-desconocida/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Real Whey Protein 2000g vs EVOWHEY &amp; OATS 2kg</div>
+      <div class="related-title">100% Real Whey Protein 2000g vs Whey + Fibre 700g</div>
     </a>
     
-    <a href="https://stackfit.es/comparar/100-real-whey-protein-2000g-desconocida-vs-evobasic-whey-2kg-desconocida/" class="related-card">
+    <a href="https://stackfit.es/comparar/100-real-whey-protein-1814g-desconocida-vs-100-real-whey-protein-2000g-desconocida/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Real Whey Protein 2000g vs EVOBASIC WHEY 2kg</div>
+      <div class="related-title">100% Real Whey Protein 1814g vs 100% Real Whey Protein 2000g</div>
     </a>
     
-    <a href="https://stackfit.es/comparar/100-real-whey-protein-2000g-desconocida-vs-evowhey-protein-2kg-desconocida/" class="related-card">
+    <a href="https://stackfit.es/comparar/whey-fibre-700g-desconocida-vs-xtreme-whey-protein-ss-2000-g-desconocid/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Real Whey Protein 2000g vs EVOWHEY PROTEIN 2kg</div>
+      <div class="related-title">Whey + Fibre 700g vs Xtreme Whey Protein SS 2000 g</div>
     </a>
     
-    <a href="https://stackfit.es/comparar/100-real-whey-protein-2000g-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des/" class="related-card">
+    <a href="https://stackfit.es/comparar/100-real-whey-protein-1814g-desconocida-vs-xtreme-whey-protein-ss-2000-g-desconocid/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Real Whey Protein 2000g vs EVOWHEY PROTEIN SIN EDULCORANTES 2kg</div>
-    </a>
-    
-    <a href="https://stackfit.es/comparar/100-real-whey-protein-2000g-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono/" class="related-card">
-      <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Real Whey Protein 2000g vs EVOLATE 2.0 (WHEY ISOLATE CFM) 2kg</div>
-    </a>
-    
-    <a href="https://stackfit.es/comparar/100-real-whey-protein-2000g-desconocida-vs-100-whey-protein-isolate-2kg-desconocida/" class="related-card">
-      <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Real Whey Protein 2000g vs 100% WHEY PROTEIN ISOLATE 2kg</div>
+      <div class="related-title">100% Real Whey Protein 1814g vs Xtreme Whey Protein SS 2000 g</div>
     </a>
     
   </div>
@@ -1400,7 +1403,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-04-17</div>
+    <div class="footer-bottom">Última actualización: 2026-04-20</div>
   </footer>
 
 </body>

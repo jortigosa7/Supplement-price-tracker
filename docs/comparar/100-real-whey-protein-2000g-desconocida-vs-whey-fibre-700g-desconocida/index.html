@@ -77,12 +77,11 @@
   .verdict-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:28px; }
   @media (min-width:640px) { .verdict-grid { grid-template-columns:repeat(4,1fr); } }
   .verdict-card { background:#f9f9f9; border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
-  .verdict-card.has-winner { border-color:var(--accent-border); background:var(--accent-bg); }
   .verdict-icon { font-size:1.1rem; margin-bottom:5px; }
-  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#666; margin-bottom:4px; }
+  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#111; margin-bottom:4px; }
   .verdict-winner { font-size:0.82rem; font-weight:700; color:#111; line-height:1.3; margin-bottom:2px; }
-  .verdict-value { font-size:0.75rem; color:#444; }
-  .verdict-na { font-size:0.78rem; color:#888; font-style:italic; }
+  .verdict-value { font-size:0.75rem; color:#1a1a1a; }
+  .verdict-na { font-size:0.78rem; color:#555; font-style:italic; }
 
   /* ── Tabla ────────────── */
   .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
@@ -90,26 +89,23 @@
   .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; }
   .cmp-table tr:last-child td { border-bottom:none; }
   .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#333; white-space:nowrap; }
-  .cmp-table th.winner-col { background:rgba(200,255,77,0.08); }
-  .cmp-table td.label-col { color:#555; font-size:0.78rem; width:130px; white-space:nowrap; }
-  .cmp-table td.winner-cell { background:rgba(200,255,77,0.06); font-weight:600; color:#111; }
-  .cmp-table td.na-cell { color:#888; font-style:italic; font-size:0.8rem; }
-  .cmp-val-badge { display:inline-block; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; }
+  .cmp-table td.label-col { color:#111; font-size:0.78rem; width:130px; white-space:nowrap; }
+  .cmp-table td.na-cell { color:#555; font-style:italic; font-size:0.8rem; }
+  .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
 
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
   @media (max-width:480px) { .cmp-cards { grid-template-columns:1fr; } }
   .cmp-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
-  .cmp-card.is-winner { border-color:var(--accent); }
   .cmp-card-img { width:72px; height:72px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
   .cmp-card-name { font-weight:700; font-size:0.9rem; color:#111; line-height:1.3; }
-  .cmp-card-meta { font-size:0.76rem; color:#555; }
+  .cmp-card-meta { font-size:0.76rem; color:#111; }
   .cmp-card-price { font-size:1.35rem; font-weight:800; color:#111; line-height:1; }
-  .cmp-card-kg { display:inline-flex; background:#0a0b0c; color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; }
+  .cmp-card-kg { display:inline-flex; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; border:1px solid #ddd; }
 
   /* ── Editorial ────────── */
-  .editorial-text { font-size:0.88rem; color:#333; line-height:1.8; max-width:760px; }
+  .editorial-text { font-size:0.88rem; color:#111; line-height:1.8; max-width:760px; }
   .editorial-text p { margin-bottom:12px; }
 
   /* ── Relacionadas ─────── */
@@ -117,7 +113,7 @@
   @media (min-width:640px) { .related-grid { grid-template-columns:repeat(3,1fr); } }
   .related-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
   .related-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
-  .related-tag { font-size:0.65rem; color:#666; text-transform:uppercase; letter-spacing:0.06em; }
+  .related-tag { font-size:0.65rem; color:#111; text-transform:uppercase; letter-spacing:0.06em; }
   .related-title { font-size:0.8rem; font-weight:600; color:#111; line-height:1.3; margin-top:2px; }
 </style>
 
@@ -1042,7 +1038,7 @@
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
         <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);">🎯 Test</a>
-        <a href="https://stackfit.es/comparar/" class="active" style="border-color:var(--accent-border);color:var(--accent);">Comparar</a>
+        <a href="https://stackfit.es/comparar/" class="active">Comparar</a>
       </div>
     </nav>
   </header>
@@ -1056,7 +1052,7 @@
     <div class="cmp-breadcrumb">
       <a href="https://stackfit.es/">Inicio</a><span>›</span>
       <a href="https://stackfit.es/comparar/">Comparar</a><span>›</span>
-      <span style="color:#666;">100% Real Whey Protein 2000g vs Whey + Fibre 700g</span>
+      <span style="color:#ccc;">100% Real Whey Protein 2000g vs Whey + Fibre 700g</span>
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>100% Real Whey Protein 2000g vs Whey + Fibre 700g: comparativa completa</h1>
@@ -1072,7 +1068,7 @@
   <h2 class="cmp-section-title">Veredicto rápido</h2>
   <div class="verdict-grid">
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">💰</div>
       <div class="verdict-label">Mejor precio</div>
       
@@ -1090,7 +1086,7 @@
       
     </div>
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">⭐</div>
       <div class="verdict-label">Mejor valorado</div>
       
@@ -1100,7 +1096,7 @@
       
     </div>
 
-    <div class="verdict-card has-winner">
+    <div class="verdict-card">
       <div class="verdict-icon">🏆</div>
       <div class="verdict-label">Mejor relación calidad-precio</div>
       
@@ -1121,14 +1117,8 @@
       <thead>
         <tr>
           <th class="label-col"></th>
-          <th>
-            100% Real Whey Protein 2000g
-            
-          </th>
-          <th class="winner-col">
-            Whey + Fibre 700g
-            <span class="cmp-val-badge" style="margin-left:6px;">✓ Mejor precio</span>
-          </th>
+          <th>100% Real Whey Protein 2000g</th>
+          <th>Whey + Fibre 700g</th>
         </tr>
       </thead>
       <tbody>
@@ -1154,31 +1144,19 @@
         </tr>
         <tr>
           <td class="label-col">Mejor precio total</td>
-          <td>
-            69.99 € (Prozis)
-          </td>
-          <td class="winner-cell">
-            17.99 € (Prozis)
-          </td>
+          <td>69.99 € (Prozis)</td>
+          <td>17.99 € (Prozis)</td>
         </tr>
         <tr>
           <td class="label-col">Precio €/kg</td>
-          <td>
-            <span class="cmp-val-badge">34.99 €/kg</span>
-          </td>
-          <td class="winner-cell">
-            <span class="cmp-val-badge">25.70 €/kg</span>
-          </td>
+          <td><span class="cmp-val-badge">34.99 €/kg</span></td>
+          <td><span class="cmp-val-badge">25.70 €/kg</span></td>
         </tr>
         
         <tr>
           <td class="label-col">Proteína/dosis</td>
-          <td>
-            <span class="na-cell">No disponible</span>
-          </td>
-          <td>
-            <span class="na-cell">No disponible</span>
-          </td>
+          <td><span class="na-cell">No disponible</span></td>
+          <td><span class="na-cell">No disponible</span></td>
         </tr>
         <tr>
           <td class="label-col">Dosis por bote</td>
@@ -1210,7 +1188,7 @@
             
               4.73 / 5
               
-                <span style="color:#999;font-size:0.78rem;">(1.0 reseñas)</span>
+                <span style="color:#555;font-size:0.78rem;">(1.0 reseñas)</span>
               
             
           </td>
@@ -1218,7 +1196,7 @@
             
               4.58 / 5
               
-                <span style="color:#999;font-size:0.78rem;">(1.0 reseñas)</span>
+                <span style="color:#555;font-size:0.78rem;">(1.0 reseñas)</span>
               
             
           </td>
@@ -1293,7 +1271,7 @@
     
     
     
-    <div class="cmp-card is-winner">
+    <div class="cmp-card">
       <div style="display:flex;align-items:center;gap:12px;">
         <div class="cmp-card-img">
           <img src="/img/productos/placeholder-proteina-whey.svg" alt="Whey + Fibre 700g" width="72" height="72" loading="lazy">
@@ -1371,24 +1349,24 @@
   <h2 class="cmp-section-title">Otras comparaciones relacionadas</h2>
   <div class="related-grid">
     
-    <a href="https://stackfit.es/comparar/100-real-whey-protein-1000-g-desconocida-vs-100-real-whey-protein-2000g-desconocida/" class="related-card">
-      <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Real Whey Protein 1000 g vs 100% Real Whey Protein 2000g</div>
-    </a>
-    
     <a href="https://stackfit.es/comparar/100-real-whey-protein-1814g-desconocida-vs-100-real-whey-protein-2000g-desconocida/" class="related-card">
       <div class="related-tag">comparativa</div>
       <div class="related-title">100% Real Whey Protein 1814g vs 100% Real Whey Protein 2000g</div>
     </a>
     
-    <a href="https://stackfit.es/comparar/100-real-whey-protein-1000-g-desconocida-vs-whey-fibre-700g-desconocida/" class="related-card">
+    <a href="https://stackfit.es/comparar/100-real-whey-protein-2000g-desconocida-vs-xtreme-whey-protein-ss-2000-g-desconocid/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">100% Real Whey Protein 1000 g vs Whey + Fibre 700g</div>
+      <div class="related-title">100% Real Whey Protein 2000g vs Xtreme Whey Protein SS 2000 g</div>
     </a>
     
     <a href="https://stackfit.es/comparar/100-real-whey-protein-1814g-desconocida-vs-whey-fibre-700g-desconocida/" class="related-card">
       <div class="related-tag">comparativa</div>
       <div class="related-title">100% Real Whey Protein 1814g vs Whey + Fibre 700g</div>
+    </a>
+    
+    <a href="https://stackfit.es/comparar/whey-fibre-700g-desconocida-vs-xtreme-whey-protein-ss-2000-g-desconocid/" class="related-card">
+      <div class="related-tag">comparativa</div>
+      <div class="related-title">Whey + Fibre 700g vs Xtreme Whey Protein SS 2000 g</div>
     </a>
     
   </div>
