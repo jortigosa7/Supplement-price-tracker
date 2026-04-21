@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-04-20",
+  "last_updated": "2026-04-21",
   "site": "StackFit",
-  "total": 333,
+  "total": 329,
   "products": [
     {
       "id": "bcaa-s-instantaneo-2-1-1-2-0-150g-desconocida",
@@ -148,6 +148,43 @@
       "store_rating_url": "https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g"
     },
     {
+      "id": "bcaa-glutamine-concept-500g-optimum-nutrition",
+      "nombre_normalizado": "Bcaa+Glutamine Concept 500g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 44.08,
+      "precio_min": 22.04,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 22.04,
+          "url_afiliado": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": 10.0,
+      "servings_per_container": 50.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Limón",
+        "Piña",
+        "Tropical"
+      ],
+      "store_rating": 4.71,
+      "store_rating_count": 1.0,
+      "store_rating_url": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g"
+    },
+    {
       "id": "bcaa-s-glutamina-400g-aminoacidos",
       "nombre_normalizado": "BCAA'S + GLUTAMINA 400g",
       "categoria": "bcaa",
@@ -268,43 +305,6 @@
       "store_rating": 4.62,
       "store_rating_count": 1.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-bcaa-300-g"
-    },
-    {
-      "id": "bcaa-glutamine-concept-500g-optimum-nutrition",
-      "nombre_normalizado": "Bcaa+Glutamine Concept 500g",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 56.1,
-      "precio_min": 28.05,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 28.05,
-          "url_afiliado": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": 10.0,
-      "servings_per_container": 50.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Limón",
-        "Piña",
-        "Tropical"
-      ],
-      "store_rating": 4.71,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g"
     },
     {
       "id": "bcaa-2-1-1-300-g-desconocida",
@@ -1356,21 +1356,21 @@
       "store_rating_url": "https://www.nutritienda.com/es/226ers/6-4-amino-glutamina-bcaas-120-caps"
     },
     {
-      "id": "bcaas-60-tabs-optimum-nutrition",
-      "nombre_normalizado": "BCAAS 60 Tabs",
+      "id": "xxx-amino-pool-1000-tabs-watt",
+      "nombre_normalizado": "XXX Amino Pool 1000 Tabs",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
-      "marca": "Optimum Nutrition",
+      "marca": "+Watt",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 13.95,
+      "precio_min": 72.0,
       "tienda_mas_barata": "Nutritienda",
       "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 13.95,
-          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition-bcaas-60-tabs",
+          "precio_eur": 72.0,
+          "url_afiliado": "https://www.nutritienda.com/es/watt/xxx-amino-pool-1000-tabs",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1378,15 +1378,15 @@
         }
       ],
       "protein_type": null,
-      "protein_per_serving_g": null,
+      "protein_per_serving_g": 10.0,
       "serving_size_g": null,
-      "servings_per_container": 30.0,
+      "servings_per_container": 100.0,
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [],
-      "store_rating": 3.81,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.nutritienda.com/es/gold-nutrition-bcaas-60-tabs"
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null
     },
     {
       "id": "evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12-desconocida",
@@ -1734,6 +1734,44 @@
       "store_rating_url": "https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-wild-berry"
     },
     {
+      "id": "2-x-recovery-rtd-500-ml-orange-desconocida",
+      "nombre_normalizado": "2 x Recovery RTD 500 mL Orange",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Prozis",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 3.18,
+      "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Prozis",
+          "precio_eur": 3.18,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-orange",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Cola",
+        "Frutos del bosque",
+        "Limón",
+        "Naranja"
+      ],
+      "store_rating": 4.55,
+      "store_rating_count": 1.0,
+      "store_rating_url": "https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-orange"
+    },
+    {
       "id": "3-x-bcaa-drink-500-ml-desconocida",
       "nombre_normalizado": "3 x BCAA Drink 500 mL",
       "categoria": "bcaa",
@@ -1806,44 +1844,6 @@
       "store_rating": 4.74,
       "store_rating_count": 1.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/bcaa-glutamine-60-servings"
-    },
-    {
-      "id": "2-x-recovery-rtd-500-ml-orange-desconocida",
-      "nombre_normalizado": "2 x Recovery RTD 500 mL Orange",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "Prozis",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 3.18,
-      "tienda_mas_barata": "Prozis",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Prozis",
-          "precio_eur": 3.18,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-orange",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Cola",
-        "Frutos del bosque",
-        "Limón",
-        "Naranja"
-      ],
-      "store_rating": 4.55,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-orange"
     },
     {
       "id": "bcaa-2-1-1-200-tabs-desconocida",
@@ -2542,21 +2542,21 @@
       "store_rating_url": "https://www.nutritienda.com/es/vitobest/creatine-clonapure-200g"
     },
     {
-      "id": "100-creatine-monohydrate-sabores-300g-optimum-nutrition",
-      "nombre_normalizado": "100% Creatine Monohydrate Sabores 300g",
+      "id": "creatina-monohidrato-creapure-280g-optimum-nutrition",
+      "nombre_normalizado": "Creatina Monohidrato Creapure 280g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Optimum Nutrition",
-      "peso_kg": 0.3,
-      "precio_por_kg_min": 74.7,
-      "precio_min": 22.41,
+      "peso_kg": 0.28,
+      "precio_por_kg_min": 72.93,
+      "precio_min": 20.42,
       "tienda_mas_barata": "Nutritienda",
       "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 22.41,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/100-creatine-monohydrate-sabores-300g",
+          "precio_eur": 20.42,
+          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition/creatina-monohidrato-creapure-280g",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -2574,16 +2574,16 @@
       ],
       "protein_type": null,
       "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
+      "serving_size_g": 5.0,
+      "servings_per_container": 50.0,
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [
         "Limonada rosa"
       ],
-      "store_rating": 4.64,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-glycofusion-300-g"
+      "store_rating": 4.38,
+      "store_rating_count": 2.0,
+      "store_rating_url": "https://www.nutritienda.com/es/gold-nutrition/creatina-monohidrato-creapure-280g"
     },
     {
       "id": "cr5-creatine-500-g-optimum-nutrition",
@@ -2666,6 +2666,39 @@
       "store_rating": 4.38,
       "store_rating_count": 6.0,
       "store_rating_url": "https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-300g"
+    },
+    {
+      "id": "100-creatine-monohydrate-micronized-500g-optimum-nutrition",
+      "nombre_normalizado": "100% CREATINE MONOHYDRATE MICRONIZED 500g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 79.8,
+      "precio_min": 39.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 39.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa-100-creatine-monohidrate-micronized-500g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": 0.0,
+      "serving_size_g": 3.4,
+      "servings_per_container": 147.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.43,
+      "store_rating_count": 19.0,
+      "store_rating_url": "https://www.nutritienda.com/es/biotech-usa-100-creatine-monohidrate-micronized-500g"
     },
     {
       "id": "monohidrato-de-creatina-600-g-optimum-nutrition",
@@ -2871,46 +2904,6 @@
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-creapure-300-g"
     },
     {
-      "id": "creatina-micronpure-600g-optimum-nutrition",
-      "nombre_normalizado": "Creatina MicronPure 600g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.6,
-      "precio_por_kg_min": 116.65,
-      "precio_min": 69.99,
-      "tienda_mas_barata": "Prozis",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Prozis",
-          "precio_eur": 69.99,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Cola",
-        "Lima-Limón",
-        "Mango y Melocotón",
-        "Naranja",
-        "Neutro",
-        "Sandía"
-      ],
-      "store_rating": 4.67,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600g"
-    },
-    {
       "id": "creatina-micronpure-600-g-optimum-nutrition",
       "nombre_normalizado": "Creatina MicronPure 600 g",
       "categoria": "creatina",
@@ -2949,6 +2942,46 @@
       "store_rating": 4.67,
       "store_rating_count": 1.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600-g"
+    },
+    {
+      "id": "creatina-micronpure-600g-optimum-nutrition",
+      "nombre_normalizado": "Creatina MicronPure 600g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.6,
+      "precio_por_kg_min": 116.65,
+      "precio_min": 69.99,
+      "tienda_mas_barata": "Prozis",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Prozis",
+          "precio_eur": 69.99,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Cola",
+        "Lima-Limón",
+        "Mango y Melocotón",
+        "Naranja",
+        "Neutro",
+        "Sandía"
+      ],
+      "store_rating": 4.67,
+      "store_rating_count": 1.0,
+      "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600g"
     },
     {
       "id": "zero-creatine-300-g-desconocida",
@@ -3133,39 +3166,6 @@
       "store_rating_url": "https://www.nutritienda.com/es/amazin-foods/kre-alkalyn-120-capsulas-vegetales"
     },
     {
-      "id": "kre-alkalyn-2250-mg-100-caps-optimum-nutrition",
-      "nombre_normalizado": "Kre-Alkalyn 2250 mg 100 Caps",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Optimum Nutrition",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 23.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 23.9,
-          "url_afiliado": "https://www.nutritienda.com/es/life-pro-nutrition/kre-alkalyn-2250-mg-100-capsulas",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": 33.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": null,
-      "store_rating_count": null,
-      "store_rating_url": null
-    },
-    {
       "id": "creatina-ph-x-90-caps-optimum-nutrition",
       "nombre_normalizado": "CREATINA PH-X 90 Caps",
       "categoria": "creatina",
@@ -3197,39 +3197,6 @@
       "store_rating": 4.62,
       "store_rating_count": 4.0,
       "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/creatina-ph-x-90-caps"
-    },
-    {
-      "id": "creator-120-caps-combina-5-tipos-de-creatinas",
-      "nombre_normalizado": "CREATOR 120 Caps",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Combina 5 tipos de creatinas",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 25.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 25.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creator-120-caps",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": 0.2,
-      "serving_size_g": null,
-      "servings_per_container": 20.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": null,
-      "store_rating_count": null,
-      "store_rating_url": null
     },
     {
       "id": "creatina-ph-x-210-caps-optimum-nutrition",
@@ -3331,39 +3298,6 @@
       "store_rating": 4.86,
       "store_rating_count": 20.0,
       "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/creatine-zero-effervescent-16-tabs"
-    },
-    {
-      "id": "kre-alkalyn-100-caps-vitobest",
-      "nombre_normalizado": "Kre-Alkalyn 100 Caps",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Vitobest",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 28.64,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 28.64,
-          "url_afiliado": "https://www.nutritienda.com/es/vitobest/kre-alkalyn-100-capsulas",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": 25.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.44,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.nutritienda.com/es/vitobest/kre-alkalyn-100-capsulas"
     },
     {
       "id": "kr2-creapure-ph10-120-caps-optimum-nutrition",
@@ -3496,6 +3430,72 @@
       "store_rating": 4.45,
       "store_rating_count": 56.0,
       "store_rating_url": "https://www.nutritienda.com/es/animal-pump-30-packs"
+    },
+    {
+      "id": "creatine-monohydrate-220-caps-optimum-nutrition",
+      "nombre_normalizado": "Creatine Monohydrate 220 Caps",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Optimum Nutrition",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 40.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 40.9,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition-creatina-monohidrato-220-caps",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": 4.73,
+      "serving_size_g": null,
+      "servings_per_container": 36.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.57,
+      "store_rating_count": 2.0,
+      "store_rating_url": "https://www.nutritienda.com/es/amix-nutrition-creatina-monohidrato-220-caps"
+    },
+    {
+      "id": "kre-alkalyn-3000-120-caps-quamtrax",
+      "nombre_normalizado": "Kre-Alkalyn 3000 120 Caps",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Quamtrax",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 28.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 28.9,
+          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-kre-alkalyn-3000-120-caps",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": 0.0,
+      "serving_size_g": null,
+      "servings_per_container": 30.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.39,
+      "store_rating_count": 27.0,
+      "store_rating_url": "https://www.nutritienda.com/es/quamtrax-kre-alkalyn-3000-120-caps"
     },
     {
       "id": "creatina-excell-1000mg-100-creapure-desconocida",
@@ -5133,6 +5133,39 @@
       "store_rating_url": null
     },
     {
+      "id": "super-shock-600g-quamtrax",
+      "nombre_normalizado": "Super Shock 600g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Quamtrax",
+      "peso_kg": 0.6,
+      "precio_por_kg_min": 69.83,
+      "precio_min": 41.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 41.9,
+          "url_afiliado": "https://www.nutritienda.com/es/quamtrax/super-shock-600g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": 30.0,
+      "servings_per_container": 20.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null
+    },
+    {
       "id": "glycopump-300g-vitobest",
       "nombre_normalizado": "Glycopump 300g",
       "categoria": "pre-entreno",
@@ -5380,6 +5413,42 @@
       "store_rating_url": "https://www.nutritienda.com/es/universal-nutrition/animal-fury-pre-entrenamiento-320g"
     },
     {
+      "id": "myocell-5-phase-500-g-optimum-nutrition",
+      "nombre_normalizado": "MYOCELL 5-PHASE 500 g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Optimum Nutrition",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 107.0,
+      "precio_min": 53.5,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 53.5,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition-myocell-5-phase-500g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": 11.2,
+      "serving_size_g": 25.0,
+      "servings_per_container": 20.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Ponche de Fruta",
+        "Lima-Limón"
+      ],
+      "store_rating": 4.04,
+      "store_rating_count": 13.0,
+      "store_rating_url": "https://www.nutritienda.com/es/amix-nutrition-myocell-5-phase-500g"
+    },
+    {
       "id": "c4-original-195g-desconocida",
       "nombre_normalizado": "C4 ORIGINAL 195g",
       "categoria": "pre-entreno",
@@ -5567,43 +5636,6 @@
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [],
-      "store_rating": null,
-      "store_rating_count": null,
-      "store_rating_url": null
-    },
-    {
-      "id": "cellup-with-oxystorm-348g-optimum-nutrition",
-      "nombre_normalizado": "Cellup With Oxystorm 348g",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.348,
-      "precio_por_kg_min": 133.62,
-      "precio_min": 46.5,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 46.5,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/cellup-with-oxystorm-348g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": 11.6,
-      "servings_per_container": 30.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Frutos Rojos",
-        "Cola",
-        "Piruleta"
-      ],
       "store_rating": null,
       "store_rating_count": null,
       "store_rating_url": null
@@ -5887,41 +5919,6 @@
       "store_rating_url": null
     },
     {
-      "id": "black-blood-shot-60-ml-biotechusa",
-      "nombre_normalizado": "Black Blood Shot 60 ml",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "BioTechUSA",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 2.7,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 2.7,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/black-blood-shot-60-ml",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": 2.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Grapefruit"
-      ],
-      "store_rating": 4.77,
-      "store_rating_count": 2.0,
-      "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/black-blood-shot-60-ml"
-    },
-    {
       "id": "cellup-pre-workout-drink-500-ml-optimum-nutrition",
       "nombre_normalizado": "Cellup Pre-Workout Drink 500 ml",
       "categoria": "pre-entreno",
@@ -6038,6 +6035,43 @@
       "store_rating": 4.54,
       "store_rating_count": 33.0,
       "store_rating_url": "https://www.nutritienda.com/es/usp-labs-jack3d-45-servicios"
+    },
+    {
+      "id": "cellup-shot-20-ud-60-ml-energia-para-tomar-directamente",
+      "nombre_normalizado": "CELLUP SHOT 20 Ud 60 ml",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "¡Energía para tomar directamente!",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 45.0,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 45.0,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-pro/cellup-shot-pre-entrenamiento-20-unidades-de-60ml",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": 20.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Mango",
+        "Red Energy",
+        "Cola"
+      ],
+      "store_rating": 4.21,
+      "store_rating_count": 7.0,
+      "store_rating_url": "https://www.nutritienda.com/es/amix-pro/cellup-shot-pre-entrenamiento-20-unidades-de-60ml"
     },
     {
       "id": "extracto-de-amaranto-oxystorm-50-1-650mg-desconocida",
@@ -7961,7 +7995,7 @@
       "nombre_normalizado": "EVOWHEY & OATS 2kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Starlabs Nutrition",
+      "marca": "Bigman",
       "peso_kg": 2.0,
       "precio_por_kg_min": 3.98,
       "precio_min": 7.95,
@@ -7979,8 +8013,8 @@
         },
         {
           "tienda": "Nutritienda",
-          "precio_eur": 62.91,
-          "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition/w74-wheycore-2000g",
+          "precio_eur": 68.5,
+          "url_afiliado": "https://www.nutritienda.com/es/bigman/ultimate-whey-protein-2000g",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8017,7 +8051,7 @@
       "nombre_normalizado": "CREMA DE ARROZ PROTEICA 2kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Bigman",
+      "marca": "Amix Nutrition",
       "peso_kg": 2.0,
       "precio_por_kg_min": 4.17,
       "precio_min": 8.35,
@@ -8035,8 +8069,8 @@
         },
         {
           "tienda": "Nutritienda",
-          "precio_eur": 68.5,
-          "url_afiliado": "https://www.nutritienda.com/es/bigman/ultimate-whey-protein-2000g",
+          "precio_eur": 85.5,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/ultra-pure-whey-2-kg",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8072,7 +8106,7 @@
       "nombre_normalizado": "EVOBASIC WHEY 2kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Predator Protein 2 Kg",
+      "marca": "Mega Plus",
       "peso_kg": 2.0,
       "precio_por_kg_min": 5.17,
       "precio_min": 10.34,
@@ -8090,8 +8124,8 @@
         },
         {
           "tienda": "Nutritienda",
-          "precio_eur": 74.9,
-          "url_afiliado": "https://www.nutritienda.com/es/predator-protein-2-kg",
+          "precio_eur": 94.46,
+          "url_afiliado": "https://www.nutritienda.com/es/mega-plus/isolat-competition-2-kg",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8118,7 +8152,7 @@
       "nombre_normalizado": "EVOWHEY PROTEIN SIN EDULCORANTES 2kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Mega Plus",
+      "marca": "Amix Nutrition",
       "peso_kg": 2.0,
       "precio_por_kg_min": 5.6,
       "precio_min": 11.2,
@@ -8136,8 +8170,8 @@
         },
         {
           "tienda": "Nutritienda",
-          "precio_eur": 94.46,
-          "url_afiliado": "https://www.nutritienda.com/es/mega-plus/isolat-competition-2-kg",
+          "precio_eur": 111.9,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-isoprime-cfm-isolate-2-kg-multimega-30-caps",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8169,7 +8203,7 @@
       "nombre_normalizado": "EVOWHEY PROTEIN 2kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "HSN",
+      "marca": "Amix Nutrition",
       "peso_kg": 2.0,
       "precio_por_kg_min": 5.88,
       "precio_min": 11.76,
@@ -8180,6 +8214,15 @@
           "tienda": "HSN",
           "precio_eur": 11.76,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 115.5,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cfm-nitro-isolate-2000g-detonatrol-30-capsulas",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8739,7 +8782,7 @@
       "nombre_normalizado": "Sustituto de Comida 800 g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Prozis",
+      "marca": "Gold Nutrition",
       "peso_kg": 0.8,
       "precio_por_kg_min": 31.24,
       "precio_min": 24.99,
@@ -8750,6 +8793,15 @@
           "tienda": "Prozis",
           "precio_eur": 24.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/sustituto-de-comida-800-g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 31.73,
+          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition/total-whey-800g",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8901,45 +8953,6 @@
       "store_rating_url": "https://www.nutritienda.com/es/scitec/100-por-cien-whey-protein-professional-2350g"
     },
     {
-      "id": "whey-protein-2000g-perfecta-solubilidad",
-      "nombre_normalizado": "WHEY PROTEIN 2000g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Perfecta solubilidad",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": 34.95,
-      "precio_min": 69.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 69.9,
-          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/whey-protein-2000g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": 45.8,
-      "serving_size_g": 60.0,
-      "servings_per_container": 33.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Fresa",
-        "Galletas con Nata",
-        "Chocolate",
-        "Chocolate con Leche",
-        "Vainilla-Caramelo"
-      ],
-      "store_rating": 4.61,
-      "store_rating_count": 12.0,
-      "store_rating_url": "https://www.nutritienda.com/es/quamtrax-direct/whey-protein-2000g"
-    },
-    {
       "id": "100-real-whey-protein-2000g-desconocida",
       "nombre_normalizado": "100% Real Whey Protein 2000g",
       "categoria": "proteina-whey",
@@ -9030,7 +9043,7 @@
       "nombre_normalizado": "100% Whey Prime 1000 g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Amix Nutrition",
+      "marca": "Life Pro Nutrition",
       "peso_kg": 1.0,
       "precio_por_kg_min": 35.99,
       "precio_min": 35.99,
@@ -9048,8 +9061,8 @@
         },
         {
           "tienda": "Nutritienda",
-          "precio_eur": 69.5,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/clear-iso-whey-1-kg",
+          "precio_eur": 37.9,
+          "url_afiliado": "https://www.nutritienda.com/es/life-pro-nutrition/whey-protein-bolsa-1-kg",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -9057,9 +9070,9 @@
         }
       ],
       "protein_type": null,
-      "protein_per_serving_g": 22.0,
-      "serving_size_g": 25.0,
-      "servings_per_container": 40.0,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [
@@ -9084,7 +9097,7 @@
       "nombre_normalizado": "Clear Whey Diet 500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Mega Plus",
+      "marca": "Amix Nutrition",
       "peso_kg": 0.5,
       "precio_por_kg_min": 36.18,
       "precio_min": 18.09,
@@ -9102,8 +9115,47 @@
         },
         {
           "tienda": "Nutritienda",
-          "precio_eur": 20.24,
-          "url_afiliado": "https://www.nutritienda.com/es/mega-plus/100-whey-proteina-sabor-chocolate-con-leche-500g",
+          "precio_eur": 22.95,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/100-predator-protein-500g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": 19.5,
+      "serving_size_g": 35.0,
+      "servings_per_container": 14.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Fresa",
+        "Chocolate",
+        "Vainilla",
+        "Plátano",
+        "Galletas con Nata"
+      ],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null
+    },
+    {
+      "id": "iso-whey-cero-cero-1-kg-nutrisport",
+      "nombre_normalizado": "Iso Whey Cero Cero 1 Kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "NutriSport",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 37.2,
+      "precio_min": 37.2,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 37.2,
+          "url_afiliado": "https://www.nutritienda.com/es/nutrisport/iso-whey-cero-cero-fresa-1-kg",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -9126,7 +9178,7 @@
       "nombre_normalizado": "100% Real Whey Protein 1000 g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Prozis",
+      "marca": "Amix Nutrition",
       "peso_kg": 1.0,
       "precio_por_kg_min": 37.99,
       "precio_min": 37.99,
@@ -9141,12 +9193,21 @@
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-20"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 49.5,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/ultra-pure-whey-1-kg",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
         }
       ],
       "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
+      "protein_per_serving_g": 26.0,
+      "serving_size_g": 35.0,
+      "servings_per_container": 28.0,
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [
@@ -9247,12 +9308,21 @@
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-20"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 51.29,
+          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition/total-hydro-whey-900g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
         }
       ],
       "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
+      "protein_per_serving_g": 26.0,
+      "serving_size_g": 30.0,
+      "servings_per_container": 30.0,
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [
@@ -9269,7 +9339,7 @@
       "nombre_normalizado": "EVOCLEAR HYDRO 1kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "HSN",
+      "marca": "Amix Nutrition",
       "peso_kg": 1.0,
       "precio_por_kg_min": 38.94,
       "precio_min": 38.94,
@@ -9280,6 +9350,15 @@
           "tienda": "HSN",
           "precio_eur": 38.94,
           "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoclear-hydro",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        },
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 69.5,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/clear-iso-whey-1-kg",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -9393,46 +9472,6 @@
       "store_rating_url": "https://www.prozis.com/es/es/prozis/natural-real-whey-protein-1814g"
     },
     {
-      "id": "whey-protein-900g-quamtrax",
-      "nombre_normalizado": "Whey Protein 900g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Quamtrax",
-      "peso_kg": 0.9,
-      "precio_por_kg_min": 39.89,
-      "precio_min": 35.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 35.9,
-          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/whey-protein-900g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": 22.0,
-      "serving_size_g": 30.0,
-      "servings_per_container": 30.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Chocolate",
-        "Fresa",
-        "Cookies & Cream",
-        "Galleta Negra",
-        "Vainilla-Caramelo",
-        "Chocolate Blanco-Frambuesa"
-      ],
-      "store_rating": 4.64,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.nutritienda.com/es/quamtrax-direct/whey-protein-900g"
-    },
-    {
       "id": "natural-real-whey-protein-1000-g-desconocida",
       "nombre_normalizado": "Natural Real Whey Protein 1000 g",
       "categoria": "proteina-whey",
@@ -9469,6 +9508,39 @@
       "store_rating": 4.58,
       "store_rating_count": 1.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/natural-real-whey-protein-1000-g"
+    },
+    {
+      "id": "nitro-whey-super-formula-908g-weider",
+      "nombre_normalizado": "Nitro Whey Super Formula 908g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Weider",
+      "peso_kg": 0.908,
+      "precio_por_kg_min": 41.84,
+      "precio_min": 37.99,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 37.99,
+          "url_afiliado": "https://www.nutritienda.com/es/weider/nitro-whey-super-formula-908g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null
     },
     {
       "id": "100-real-whey-protein-907g-desconocida",
@@ -9557,79 +9629,43 @@
       "store_rating_url": null
     },
     {
-      "id": "hd8-hydropro-908g-hidrolizado-de-proteina-de-suero",
-      "nombre_normalizado": "HD8 HYDROPRO 908g",
+      "id": "whey-protein-500g-quamtrax",
+      "nombre_normalizado": "Whey Protein 500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Hidrolizado de proteína de suero",
-      "peso_kg": 0.908,
-      "precio_por_kg_min": 42.52,
-      "precio_min": 38.61,
+      "marca": "Quamtrax",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 43.0,
+      "precio_min": 21.5,
       "tienda_mas_barata": "Nutritienda",
       "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 38.61,
-          "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition/hd8-hydropro-908g",
+          "precio_eur": 21.5,
+          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/whey-protein-500g",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-20"
         }
       ],
-      "protein_type": "Hidrolizada",
-      "protein_per_serving_g": 48.0,
+      "protein_type": null,
+      "protein_per_serving_g": 22.0,
       "serving_size_g": 30.0,
-      "servings_per_container": 60.0,
+      "servings_per_container": 16.0,
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [
-        "Vainilla",
-        "Chocolate",
-        "Fresa"
-      ],
-      "store_rating": 4.62,
-      "store_rating_count": 9.0,
-      "store_rating_url": "https://www.nutritienda.com/es/starlabs-nutrition/hd8-hydropro-908g"
-    },
-    {
-      "id": "isolate-whey-100-cfm-2000g-maxima-calidad",
-      "nombre_normalizado": "ISOLATE WHEY 100 CFM 2000g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Máxima calidad",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": 42.74,
-      "precio_min": 85.49,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 85.49,
-          "url_afiliado": "https://www.nutritienda.com/es/weider/isolate-whey-100-cfm-2000g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": "Isolate",
-      "protein_per_serving_g": 25.0,
-      "serving_size_g": 30.0,
-      "servings_per_container": 66.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Chocolate",
-        "Vainilla",
+        "Galletas con Nata",
+        "Chocolate con Leche",
         "Fresa",
-        "Cookies & Cream"
+        "Vainilla-Canela",
+        "Natillas con Galleta"
       ],
-      "store_rating": 4.75,
-      "store_rating_count": 16.0,
-      "store_rating_url": "https://www.nutritienda.com/es/weider/isolate-whey-100-cfm-2000g"
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null
     },
     {
       "id": "natural-real-whey-protein-907g-desconocida",
@@ -9692,8 +9728,8 @@
         },
         {
           "tienda": "Nutritienda",
-          "precio_eur": 22.95,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/100-predator-protein-500g",
+          "precio_eur": 26.9,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/ultra-pure-whey-500g",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -9713,91 +9749,6 @@
       "store_rating": 4.3,
       "store_rating_count": 9.0,
       "store_rating_url": "https://www.hsnstore.com/marcas/sport-series/evohydro-30hd"
-    },
-    {
-      "id": "100-pure-whey-454g-optimum-nutrition",
-      "nombre_normalizado": "100% PURE WHEY 454g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.454,
-      "precio_por_kg_min": 46.04,
-      "precio_min": 20.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 20.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/pure-whey-100-concentrado-de-suero-454g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": 44.0,
-      "serving_size_g": 28.0,
-      "servings_per_container": 16.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Chocolate",
-        "Vainilla Bourbon",
-        "Galleta",
-        "Chocolate-Mantequilla de Cacahuetes",
-        "Bollo de Canela",
-        "Fresa",
-        "Caramelo Salado",
-        "Frambuesa-Tarta de queso",
-        "Avellana",
-        "Arroz con Leche",
-        "Banana",
-        "Coco-Chocolate",
-        "Caramelo-Capuchino",
-        "Galleta Negra"
-      ],
-      "store_rating": 4.59,
-      "store_rating_count": 3.0,
-      "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/pure-whey-100-concentrado-de-suero-454g"
-    },
-    {
-      "id": "panacea-750g-paleobull",
-      "nombre_normalizado": "Panacea 750g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Paleobull",
-      "peso_kg": 0.75,
-      "precio_por_kg_min": 46.96,
-      "precio_min": 35.22,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 35.22,
-          "url_afiliado": "https://www.nutritienda.com/es/paleobull/panacea-750g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": 86.37,
-      "serving_size_g": 100.0,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Chocolate",
-        "Vainilla",
-        "Neutro"
-      ],
-      "store_rating": 4.78,
-      "store_rating_count": 42.0,
-      "store_rating_url": "https://www.nutritienda.com/es/paleobull/panacea-750g"
     },
     {
       "id": "zero-diet-whey-1500-g-desconocida",
@@ -9973,38 +9924,39 @@
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-400-g"
     },
     {
-      "id": "gourmet-protein-mr-poppers-1000g-proteina",
-      "nombre_normalizado": "GOURMET PROTEIN MR. POPPERS 1000g",
+      "id": "isolate-cfm-zero-1-kg-vitobest",
+      "nombre_normalizado": "Isolate CFM Zero 1 Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Yamamoto Nutrition",
+      "marca": "Vitobest",
       "peso_kg": 1.0,
-      "precio_por_kg_min": 50.9,
-      "precio_min": 50.9,
+      "precio_por_kg_min": 50.58,
+      "precio_min": 50.58,
       "tienda_mas_barata": "Nutritienda",
       "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 50.9,
-          "url_afiliado": "https://www.nutritienda.com/es/amix/gourmet-protein-concentrado-de-suero-1000g",
+          "precio_eur": 50.58,
+          "url_afiliado": "https://www.nutritienda.com/es/vitobest/isolate-cfm-zero-1-kg",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-04-20"
         }
       ],
-      "protein_type": null,
-      "protein_per_serving_g": 19.6,
+      "protein_type": "Isolate",
+      "protein_per_serving_g": 25.0,
       "serving_size_g": 30.0,
       "servings_per_container": 33.0,
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [
-        "Arándano-Yogurt",
-        "Chocolate-Coco",
-        "Chocolate Blanco-Fresa",
-        "Vainilla-Coco"
+        "Chocolate",
+        "Chocolate Blanco-Galleta Negra",
+        "Fresa",
+        "Galleta Maria",
+        "Vainilla"
       ],
       "store_rating": null,
       "store_rating_count": null,
@@ -10085,6 +10037,84 @@
       "store_rating_url": null
     },
     {
+      "id": "isopro-cfm-1-kg-quamtrax",
+      "nombre_normalizado": "Isopro CFM 1 Kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Quamtrax",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 52.9,
+      "precio_min": 52.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 52.9,
+          "url_afiliado": "https://www.nutritienda.com/es/quamtrax/isopro-cfm-1-kg",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": 26.0,
+      "serving_size_g": 30.0,
+      "servings_per_container": 33.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Galletas con Nata",
+        "Créme Brúlée",
+        "Chocolate con Leche",
+        "Fresa",
+        "Vainilla-Galleta",
+        "Vainilla-Canela",
+        "Chocolate Blanco"
+      ],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null
+    },
+    {
+      "id": "iso-whey-zero-black-1816g-biotechusa",
+      "nombre_normalizado": "Iso Whey Zero Black 1816g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "BioTechUSA",
+      "peso_kg": 1.816,
+      "precio_por_kg_min": 53.91,
+      "precio_min": 97.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 97.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black-1816g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": 27.0,
+      "serving_size_g": 30.0,
+      "servings_per_container": 60.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Chocolate",
+        "Fresa",
+        "Vainilla"
+      ],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null
+    },
+    {
       "id": "panacea-350g-paleobull",
       "nombre_normalizado": "Panacea 350g",
       "categoria": "proteina-whey",
@@ -10122,21 +10152,21 @@
       "store_rating_url": "https://www.nutritienda.com/es/paleobull/panacea-350g"
     },
     {
-      "id": "proteina-de-suero-sabor-vainilla-400g-whey-premium",
-      "nombre_normalizado": "Proteína de Suero Sabor Vainilla 400g",
+      "id": "iso-whey-zero-clear-1-kg-biotechusa",
+      "nombre_normalizado": "Iso Whey Zero Clear 1 Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Purasana",
-      "peso_kg": 0.4,
-      "precio_por_kg_min": 55.95,
-      "precio_min": 22.38,
+      "marca": "BioTechUSA",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 54.9,
+      "precio_min": 54.9,
       "tienda_mas_barata": "Nutritienda",
       "imagen_url": null,
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 22.38,
-          "url_afiliado": "https://www.nutritienda.com/es/purasana/proteina-de-suero-sabor-vainilla-400g",
+          "precio_eur": 54.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-clear-1-kg",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -10144,12 +10174,17 @@
         }
       ],
       "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
+      "protein_per_serving_g": 21.0,
+      "serving_size_g": 25.0,
+      "servings_per_container": 40.0,
       "sweetener_free": null,
       "vegan": null,
-      "flavors_available": [],
+      "flavors_available": [
+        "Té de Melocotón",
+        "Frutas Tropicales",
+        "Lima",
+        "Sandía"
+      ],
       "store_rating": null,
       "store_rating_count": null,
       "store_rating_url": null
@@ -10586,86 +10621,6 @@
       "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-908g"
     },
     {
-      "id": "zeropro-protein-1kg-aislado-de-suero",
-      "nombre_normalizado": "ZEROPRO PROTEIN 1Kg",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Aislado de suero",
-      "peso_kg": 1.0,
-      "precio_por_kg_min": 59.85,
-      "precio_min": 59.85,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 59.85,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/zeropro-protein-1000g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": 99.3,
-      "serving_size_g": 35.0,
-      "servings_per_container": 28.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Natural",
-        "Chocolate Doble",
-        "Chocolate Blanco",
-        "Helado de Fresa",
-        "Galletas con Nata",
-        "Vainilla-Tarta de Queso"
-      ],
-      "store_rating": 4.44,
-      "store_rating_count": 19.0,
-      "store_rating_url": "https://www.nutritienda.com/es/amix-nutrition/zeropro-protein-1000g"
-    },
-    {
-      "id": "100-whey-isolate-700g-quamtrax",
-      "nombre_normalizado": "100% Whey Isolate 700g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Quamtrax",
-      "peso_kg": 0.7,
-      "precio_por_kg_min": 59.86,
-      "precio_min": 41.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 41.9,
-          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/100-whey-isolate-700g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": "Isolate",
-      "protein_per_serving_g": 24.0,
-      "serving_size_g": 30.0,
-      "servings_per_container": 23.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Chocolate",
-        "Fresa",
-        "Cookies & Cream",
-        "Galleta Negra",
-        "Chocolate Blanco-Frambuesa",
-        "Vainilla-Caramelo"
-      ],
-      "store_rating": 4.47,
-      "store_rating_count": 8.0,
-      "store_rating_url": "https://www.nutritienda.com/es/quamtrax-direct/100-whey-isolate-700g"
-    },
-    {
       "id": "total-iso-whey-450g-optimum-nutrition",
       "nombre_normalizado": "Total Iso Whey 450g",
       "categoria": "proteina-whey",
@@ -10740,43 +10695,6 @@
       "store_rating_url": "https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-907g"
     },
     {
-      "id": "iso-whey-zero-black-908g-biotechusa",
-      "nombre_normalizado": "Iso Whey Zero Black 908g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "BioTechUSA",
-      "peso_kg": 0.908,
-      "precio_por_kg_min": 61.56,
-      "precio_min": 55.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 55.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black-908g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": 27.0,
-      "serving_size_g": 30.0,
-      "servings_per_container": 30.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Vainilla",
-        "Chocolate",
-        "Fresa"
-      ],
-      "store_rating": 4.79,
-      "store_rating_count": 8.0,
-      "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black-908g"
-    },
-    {
       "id": "total-whey-260g-proteina-whey-comodo-formato",
       "nombre_normalizado": "TOTAL WHEY 260g",
       "categoria": "proteina-whey",
@@ -10814,6 +10732,41 @@
       "store_rating": 4.67,
       "store_rating_count": 5.0,
       "store_rating_url": "https://www.nutritienda.com/es/gold-nutrition/total-whey-concentrado-de-suero-260g"
+    },
+    {
+      "id": "isopro-cfm-500g-quamtrax",
+      "nombre_normalizado": "Isopro CFM 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Quamtrax",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": 63.8,
+      "precio_min": 31.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": null,
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 31.9,
+          "url_afiliado": "https://www.nutritienda.com/es/quamtrax/isopro-cfm-500g",
+          "imagen_url": null,
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-04-20"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": 26.0,
+      "serving_size_g": 30.0,
+      "servings_per_container": 16.0,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Cookies & Cream"
+      ],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null
     },
     {
       "id": "isopro-cfm-provon-500g-optimum-nutrition",
@@ -10892,86 +10845,6 @@
       "store_rating": 4.67,
       "store_rating_count": 1.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-clear-700g"
-    },
-    {
-      "id": "iso-hd-90-cfm-protein-500g-amix",
-      "nombre_normalizado": "Iso HD 90 CFM Protein 500g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Amix",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 73.0,
-      "precio_min": 36.5,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 36.5,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-pro/iso-hd-90-cfm-protein-500g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": 27.0,
-      "serving_size_g": 30.0,
-      "servings_per_container": 16.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Chocolate Doble",
-        "Chocolate Blanco",
-        "Moca-Chocolate-Café",
-        "Vainilla"
-      ],
-      "store_rating": 4.55,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.nutritienda.com/es/amix-pro/iso-hd-90-cfm-protein-500g"
-    },
-    {
-      "id": "isoprime-cfm-isolate-500g-optimum-nutrition",
-      "nombre_normalizado": "Isoprime CFM Isolate 500g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Optimum Nutrition",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 73.8,
-      "precio_min": 36.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": null,
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 36.9,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/isoprime-cfm-isolate-500g",
-          "imagen_url": null,
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-04-20"
-        }
-      ],
-      "protein_type": "Isolate",
-      "protein_per_serving_g": 31.5,
-      "serving_size_g": 35.0,
-      "servings_per_container": 14.0,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Fresa",
-        "Chocolate",
-        "Vainilla",
-        "Galletas con Nata",
-        "Moca-Chocolate-Café",
-        "Frutas del Bosque",
-        "Chocolate Blanco",
-        "Cacahuete Chocolate Caramelo"
-      ],
-      "store_rating": 4.55,
-      "store_rating_count": 11.0,
-      "store_rating_url": "https://www.nutritienda.com/es/amix-nutrition/isoprime-cfm-isolate-500g"
     },
     {
       "id": "aislado-de-proteina-de-soja-muestra-30g-desconocida",

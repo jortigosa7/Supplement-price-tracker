@@ -11806,5 +11806,137 @@
     "fecha": "2026-04-20",
     "precio": 29.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "xxx-amino-pool-1000-tabs-watt",
+    "fecha": "2026-04-20",
+    "precio": 72.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-monohidrato-creapure-280g-optimum-nutrition",
+    "fecha": "2026-04-20",
+    "precio": 20.42,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-monohidrato-creapure-280g-optimum-nutrition",
+    "fecha": "2026-04-20",
+    "precio": 25.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-creatine-monohydrate-micronized-500g-optimum-nutrition",
+    "fecha": "2026-04-20",
+    "precio": 39.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-220-caps-optimum-nutrition",
+    "fecha": "2026-04-20",
+    "precio": 40.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "kre-alkalyn-3000-120-caps-quamtrax",
+    "fecha": "2026-04-20",
+    "precio": 28.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "super-shock-600g-quamtrax",
+    "fecha": "2026-04-20",
+    "precio": 41.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "myocell-5-phase-500-g-optimum-nutrition",
+    "fecha": "2026-04-20",
+    "precio": 53.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "cellup-shot-20-ud-60-ml-energia-para-tomar-directamente",
+    "fecha": "2026-04-20",
+    "precio": 45.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evowhey-protein-2kg-desconocida",
+    "fecha": "2026-04-20",
+    "precio": 115.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "sustituto-de-comida-800-g-desconocida",
+    "fecha": "2026-04-20",
+    "precio": 31.73,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "iso-whey-cero-cero-1-kg-nutrisport",
+    "fecha": "2026-04-20",
+    "precio": 37.2,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "100-real-whey-protein-1000-g-desconocida",
+    "fecha": "2026-04-20",
+    "precio": 49.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-protein-fusion-900-g-optimum-nutrition",
+    "fecha": "2026-04-20",
+    "precio": 51.29,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "evoclear-hydro-1kg-desconocida",
+    "fecha": "2026-04-20",
+    "precio": 69.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "nitro-whey-super-formula-908g-weider",
+    "fecha": "2026-04-20",
+    "precio": 37.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-protein-500g-quamtrax",
+    "fecha": "2026-04-20",
+    "precio": 21.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isolate-cfm-zero-1-kg-vitobest",
+    "fecha": "2026-04-20",
+    "precio": 50.58,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isopro-cfm-1-kg-quamtrax",
+    "fecha": "2026-04-20",
+    "precio": 52.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "iso-whey-zero-black-1816g-biotechusa",
+    "fecha": "2026-04-20",
+    "precio": 97.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "iso-whey-zero-clear-1-kg-biotechusa",
+    "fecha": "2026-04-20",
+    "precio": 54.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isopro-cfm-500g-quamtrax",
+    "fecha": "2026-04-20",
+    "precio": 31.9,
+    "tienda": "Nutritienda"
   }
 ]

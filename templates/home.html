@@ -192,20 +192,20 @@
   <!-- ── Comparaciones populares ────────────────────────── -->
   {% if comparaciones_populares %}
   <section id="secComparaciones" style="margin-bottom:48px;">
-    <p class="section-label">Comparativas populares</p>
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+      <p class="section-label" style="margin-bottom:0;">Comparativas populares</p>
+      <a href="{{ site_url }}/comparar/" style="font-size:0.8rem; color:var(--accent); font-weight:600; text-decoration:none; letter-spacing:0.03em;">Ver todas →</a>
+    </div>
     <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;">
       {% for par in comparaciones_populares %}
       <a href="{{ site_url }}/comparar/{{ par.slug }}/"
-         style="background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:12px 14px; text-decoration:none; display:block; transition:border-color 0.15s;"
-         onmouseover="this.style.borderColor='rgba(200,255,77,0.5)'"
-         onmouseout="this.style.borderColor='var(--border)'">
-        <div style="font-size:0.64rem; color:#aaa; text-transform:uppercase; letter-spacing:0.06em;">{{ par.categoria | replace('-',' ') }}</div>
-        <div style="font-size:0.82rem; font-weight:600; color:#111; line-height:1.35; margin-top:3px;">{{ par.nombre_a }}<br><span style="color:#aaa; font-weight:400;">vs</span><br>{{ par.nombre_b }}</div>
+         style="background:rgba(200,255,77,0.04); border:1px solid rgba(200,255,77,0.18); border-radius:10px; padding:12px 14px; text-decoration:none; display:block; transition:border-color 0.2s, background 0.2s;"
+         onmouseover="this.style.borderColor='rgba(200,255,77,0.5)'; this.style.background='rgba(200,255,77,0.09)'"
+         onmouseout="this.style.borderColor='rgba(200,255,77,0.18)'; this.style.background='rgba(200,255,77,0.04)'">
+        <div style="font-size:0.62rem; color:var(--accent); opacity:0.7; text-transform:uppercase; letter-spacing:0.07em; font-weight:600;">{{ par.categoria | replace('-',' ') }}</div>
+        <div style="font-size:0.8rem; font-weight:600; color:#e8e8e8; line-height:1.4; margin-top:4px;">{{ par.nombre_a }}<br><span style="color:rgba(200,255,77,0.5); font-weight:500; font-size:0.72rem;">vs</span><br>{{ par.nombre_b }}</div>
       </a>
       {% endfor %}
-    </div>
-    <div style="margin-top:12px; text-align:right;">
-      <a href="{{ site_url }}/comparar/" style="font-size:0.82rem; color:#888;">Ver todas las comparativas →</a>
     </div>
   </section>
   {% endif %}
