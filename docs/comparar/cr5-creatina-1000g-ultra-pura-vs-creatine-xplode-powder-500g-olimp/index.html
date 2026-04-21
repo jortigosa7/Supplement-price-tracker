@@ -86,12 +86,14 @@
   /* ── Tabla ────────────── */
   .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
   .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
-  .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; }
+  .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; color:#111; }
   .cmp-table tr:last-child td { border-bottom:none; }
-  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#333; white-space:nowrap; }
-  .cmp-table td.label-col { color:#111; font-size:0.78rem; width:130px; white-space:nowrap; }
-  .cmp-table td.na-cell { color:#555; font-style:italic; font-size:0.8rem; }
+  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#111; white-space:nowrap; }
+  .cmp-table td.label-col { color:#555; font-size:0.78rem; width:130px; white-space:nowrap; font-weight:500; }
+  .cmp-table td.na-cell { color:#aaa; font-style:italic; font-size:0.8rem; }
+  .cmp-table td.winner-cell { font-weight:700; color:#111; }
   .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
+  .cmp-val-badge.win { background:rgba(200,255,77,0.15); color:#4a6b00; border-color:rgba(200,255,77,0.6); }
 
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
@@ -1142,12 +1144,12 @@
         </tr>
         <tr>
           <td class="label-col">Mejor precio total</td>
-          <td>60.21 € (Nutritienda)</td>
+          <td class="winner-cell">60.21 € (Nutritienda)</td>
           <td>30.28 € (Nutritienda)</td>
         </tr>
         <tr>
           <td class="label-col">Precio €/kg</td>
-          <td><span class="cmp-val-badge">60.21 €/kg</span></td>
+          <td><span class="cmp-val-badge win">60.21 €/kg</span></td>
           <td><span class="cmp-val-badge">60.56 €/kg</span></td>
         </tr>
         
@@ -1186,7 +1188,7 @@
             
               5.00 / 5
               
-                <span style="color:#555;font-size:0.78rem;">(2.0 reseñas)</span>
+                <span style="color:#888;font-size:0.78rem;">(2.0 reseñas)</span>
               
             
           </td>
