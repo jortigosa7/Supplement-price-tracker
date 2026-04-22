@@ -20,6 +20,7 @@ Salida:
     docs/.nojekyll
 """
 
+import base64
 import json
 import math
 import os
@@ -322,6 +323,28 @@ NUTRITIENDA_SLUG_MARCA = {
     "finisher":                 "Finisher",
     "cellucor":                 "Cellucor",
 }
+
+
+_HSN_AFFID = "JORTIGOSA"
+
+def _hsn_affiliate_link(url: str) -> str:
+    raw = f"product||||{_HSN_AFFID}||{url}"
+    encoded = base64.b64encode(raw.encode()).decode()
+    return f"https://www.hsnstore.com/affiliate/click/index?linkid={encoded}"
+
+
+def aplicar_afiliados_hsn(productos_web: list[dict]) -> list[dict]:
+    """Convierte los url_afiliado de HSN al formato de link de afiliado (en memoria)."""
+    convertidos = 0
+    for p in productos_web:
+        for pr in p.get("precios", []):
+            if pr.get("tienda", "").lower() == "hsn":
+                url = pr.get("url_afiliado", "")
+                if url and "affiliate/click" not in url:
+                    pr["url_afiliado"] = _hsn_affiliate_link(url)
+                    convertidos += 1
+    print(f"   → {convertidos} links HSN convertidos a afiliado (ID: {_HSN_AFFID})")
+    return productos_web
 
 
 def corregir_marcas(productos_web: list[dict]) -> list[dict]:
@@ -1532,6 +1555,10 @@ if __name__ == "__main__":
     print("\n🔄 Convirtiendo al schema web...")
     productos_web = convertir_a_schema_web(productos_flat)
     print(f"   → {len(productos_web)} productos en nuevo schema")
+
+    # 2b. Aplicar links de afiliado HSN
+    print("\n🔗 Aplicando links de afiliado...")
+    productos_web = aplicar_afiliados_hsn(productos_web)
 
     # Stats por categoría
     for cfg in CATEGORIA_CONFIG.values():
