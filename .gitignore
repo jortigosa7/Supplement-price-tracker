@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Entorno virtual
+venv/
+.env
+
+# Debug HTML generados por scrapers
+debug_*.html
+
+# Datasets temporales (los definitivos sí se commitean)
+*.log
