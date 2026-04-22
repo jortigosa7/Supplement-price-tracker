@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(python3:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(gh run:*)",
+      "Bash(ls:*)",
+      "Bash(pip show:*)"
     ]
   }
 }
