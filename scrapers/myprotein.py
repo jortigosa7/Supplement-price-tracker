@@ -18,6 +18,7 @@ import re
 import time
 from bs4 import BeautifulSoup
 from .base import hacer_peticion, producto_base
+from .detail_cache import get_cached, save_cache
 
 TIENDA   = "MyProtein"
 BASE_URL = "https://www.myprotein.es"
@@ -124,7 +125,47 @@ def _extraer_listado(html: str) -> list[dict]:
     return productos
 
 
-# ── Fase 2: página de producto (pesos + precios por talla) ───────────────────
+# ── Fase 2: página de producto (pesos + precios + enriquecimiento) ───────────
+
+def _extraer_enriquecimiento(html: str) -> dict:
+    """
+    Extrae campos de enriquecimiento del JSON-LD @graph de la página de producto.
+    No extrae nutricionales (protein_per_serving_g, etc.) porque MyProtein los carga
+    vía JS — solo rating y flavors son extraíbles desde el HTML estático.
+
+    - store_rating:       ProductGroup.aggregateRating.ratingValue (escala 0-5)
+    - store_rating_count: aggregateRating.reviewCount
+    - flavors_available:  hasVariant[].additionalProperty[name="flavour"] → únicos
+    """
+    enrichment: dict = {}
+    for schema in _parsear_schemas_jsonld(html):
+        if schema.get("@type") != "ProductGroup":
+            continue
+
+        agg = schema.get("aggregateRating", {})
+        rv = agg.get("ratingValue")
+        rc = agg.get("reviewCount")
+        if rv:
+            enrichment["store_rating"] = round(float(rv), 2)
+        if rc:
+            enrichment["store_rating_count"] = int(rc)
+
+        # Flavors desde hasVariant[].additionalProperty
+        sabores: list[str] = []
+        seen: set = set()
+        for variant in schema.get("hasVariant", []):
+            for prop in variant.get("additionalProperty", []):
+                if prop.get("name", "").lower() == "flavour":
+                    sabor = str(prop.get("value", "")).strip()
+                    if sabor and sabor not in seen:
+                        seen.add(sabor)
+                        sabores.append(sabor)
+        if sabores:
+            enrichment["flavors_available"] = sabores
+        break  # solo el primer ProductGroup
+
+    return enrichment
+
 
 def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None]:
     """
@@ -134,17 +175,22 @@ def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None
     variantes = []
     imagen_url = None
 
-    for schema in _parsear_schemas_jsonld(html):
-        if schema.get("@type") not in ("Product", "IndividualProduct"):
-            continue
+    schemas = _parsear_schemas_jsonld(html)
 
-        # Imagen del producto
+    # Imagen: buscar en cualquier schema Product/ProductGroup/IndividualProduct
+    for schema in schemas:
         if not imagen_url:
             img = schema.get("image")
             if isinstance(img, str) and img.startswith("http"):
                 imagen_url = img
             elif isinstance(img, list) and img:
                 imagen_url = img[0] if isinstance(img[0], str) else None
+        if imagen_url:
+            break
+
+    for schema in schemas:
+        if schema.get("@type") not in ("Product", "IndividualProduct"):
+            continue
 
         offers = schema.get("offers", [])
         if isinstance(offers, dict):
@@ -232,34 +278,58 @@ def scrape(debug: bool = False) -> list[dict]:
     if debug:
         return []
 
-    # ── Fase 2: visitar cada producto para obtener peso y precio exacto ───
-    print(f"\n  Obteniendo tallas ({len(productos_raw)} productos)...")
+    # ── Fase 2: visitar cada producto (peso, precio, rating, flavors) ────────
+    print(f"\n  Obteniendo tallas y enriquecimiento ({len(productos_raw)} productos)...")
     productos = []
+    stats = {"cached": 0, "fetched": 0, "errors": 0}
 
     for i, d in enumerate(productos_raw):
         nombre_final = d["nombre"]
         precio_final = d["precio_listing"]
-
         imagen_url = None
+        enrichment: dict = {}
+
         try:
-            resp = hacer_peticion(d["url"])
-            if resp:
-                html_prod = resp.content.decode("utf-8", errors="replace")
+            html_prod = get_cached("myprotein", d["url"])
+            if html_prod is not None:
+                stats["cached"] += 1
+            else:
+                resp = hacer_peticion(d["url"])
+                if resp:
+                    html_prod = resp.content.decode("utf-8", errors="replace")
+                    save_cache("myprotein", d["url"], html_prod)
+                    stats["fetched"] += 1
+                else:
+                    stats["errors"] += 1
+
+            if html_prod:
                 variantes, imagen_url = _extraer_variantes(html_prod)
                 if variantes:
                     peso_min, precio_min = variantes[0]
                     nombre_final = f"{d['nombre']} {_talla_str(peso_min)}"
                     precio_final = str(precio_min)
+                enrichment = _extraer_enriquecimiento(html_prod)
+                if enrichment.get("store_rating_count"):
+                    enrichment["store_rating_url"] = d["url"]
         except Exception:
-            pass
+            stats["errors"] += 1
 
-        productos.append(
-            producto_base(nombre_final, precio_final, "", d["categoria"], TIENDA, d["url"], imagen_url)
+        prod = producto_base(
+            nombre_final, precio_final, "", d["categoria"], TIENDA, d["url"], imagen_url
         )
+        prod.update(enrichment)
+        productos.append(prod)
 
         if (i + 1) % 10 == 0:
-            print(f"  ... {i+1}/{len(productos_raw)}")
+            print(
+                f"  ... {i+1}/{len(productos_raw)} "
+                f"(caché:{stats['cached']} / fetch:{stats['fetched']} / err:{stats['errors']})"
+            )
         time.sleep(1)
 
     print(f"\n  Total {TIENDA}: {len(productos)} productos")
+    print(
+        f"  Detalle: {stats['fetched']} fetcheados, "
+        f"{stats['cached']} desde caché, {stats['errors']} errores"
+    )
     return productos

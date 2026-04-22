@@ -1,0 +1,385 @@
+{% extends "base.html" %}
+
+{% block title %}{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}: ¿Cuál es mejor? | {{ site_name }}{% endblock %}
+{% block meta_desc %}Comparativa completa entre {{ producto_a.nombre_normalizado }} y {{ producto_b.nombre_normalizado }}: precio por kg, características, tiendas disponibles y cuál conviene más según tu objetivo.{% endblock %}
+{% block meta_keywords %}{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}, comparar suplementos, mejor precio suplementos España{% endblock %}
+{% block canonical_path %}/comparar/{{ slug_comparacion }}/{% endblock %}
+{% block og_title %}{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }} | {{ site_name }}{% endblock %}
+{% block og_desc %}Comparativa de precio, características y dónde comprar más barato en España.{% endblock %}
+{% block og_path %}/comparar/{{ slug_comparacion }}/{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Inicio","item":"{{ site_url }}/"},
+        {"@type":"ListItem","position":2,"name":"Comparar","item":"{{ site_url }}/comparar/"},
+        {"@type":"ListItem","position":3,"name":"{{ producto_a.nombre_normalizado|e }} vs {{ producto_b.nombre_normalizado|e }}","item":"{{ site_url }}/comparar/{{ slug_comparacion }}/"}
+      ]
+    }{% if faqs %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [{% for f in faqs %}
+        {"@type":"Question","name":{{ f.q|tojson }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a|tojson }}}}{% if not loop.last %},{% endif %}{% endfor %}
+      ]
+    }{% endif %}
+  ]
+}
+</script>
+<style>
+  /* ── Hero comparación ───── */
+  .cmp-hero { background:#0a0b0c; padding:36px 0 28px; }
+  .cmp-breadcrumb { font-size:0.8rem; color:#aaa; margin-bottom:14px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .cmp-breadcrumb a { color:#bbb; }
+  .cmp-breadcrumb a:hover { color:var(--accent); }
+  .cmp-hero-label { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+  .cmp-hero h1 { font-size:clamp(1.1rem,3vw,1.6rem); font-weight:800; line-height:1.3; color:#fff; max-width:780px; margin-bottom:8px; }
+  .cmp-hero-sub { font-size:0.84rem; color:#aaa; }
+
+  /* ── Sections ─────────── */
+  .cmp-wrap { background:#fff; }
+  .cmp-section { padding:28px 0 0; }
+  .cmp-section-title { font-size:0.95rem; font-weight:700; color:#111; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+
+  /* ── Veredicto ────────── */
+  .verdict-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:28px; }
+  @media (min-width:640px) { .verdict-grid { grid-template-columns:repeat(4,1fr); } }
+  .verdict-card { background:#f9f9f9; border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
+  .verdict-icon { font-size:1.1rem; margin-bottom:5px; }
+  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#111; margin-bottom:4px; }
+  .verdict-winner { font-size:0.82rem; font-weight:700; color:#111; line-height:1.3; margin-bottom:2px; }
+  .verdict-value { font-size:0.75rem; color:#1a1a1a; }
+  .verdict-na { font-size:0.78rem; color:#555; font-style:italic; }
+
+  /* ── Tabla ────────────── */
+  .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
+  .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; color:#111; }
+  .cmp-table tr:last-child td { border-bottom:none; }
+  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#111; white-space:nowrap; }
+  .cmp-table td.label-col { color:#555; font-size:0.78rem; width:130px; white-space:nowrap; font-weight:500; }
+  .cmp-table td.na-cell { color:#aaa; font-style:italic; font-size:0.8rem; }
+  .cmp-table td.winner-cell { font-weight:700; color:#111; }
+  .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
+  .cmp-val-badge.win { background:rgba(200,255,77,0.15); color:#4a6b00; border-color:rgba(200,255,77,0.6); }
+
+  /* ── Cards con CTAs ────── */
+  .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
+  @media (max-width:480px) { .cmp-cards { grid-template-columns:1fr; } }
+  .cmp-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
+  .cmp-card-img { width:72px; height:72px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
+  .cmp-card-name { font-weight:700; font-size:0.9rem; color:#111; line-height:1.3; }
+  .cmp-card-meta { font-size:0.76rem; color:#111; }
+  .cmp-card-price { font-size:1.35rem; font-weight:800; color:#111; line-height:1; }
+  .cmp-card-kg { display:inline-flex; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; border:1px solid #ddd; }
+
+  /* ── Editorial ────────── */
+  .editorial-text { font-size:0.88rem; color:#111; line-height:1.8; max-width:760px; }
+  .editorial-text p { margin-bottom:12px; }
+
+  /* ── Relacionadas ─────── */
+  .related-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:14px; }
+  @media (min-width:640px) { .related-grid { grid-template-columns:repeat(3,1fr); } }
+  .related-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
+  .related-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
+  .related-tag { font-size:0.65rem; color:#111; text-transform:uppercase; letter-spacing:0.06em; }
+  .related-title { font-size:0.8rem; font-weight:600; color:#111; line-height:1.3; margin-top:2px; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ── Hero ─── -->
+<div class="cmp-hero">
+  <div class="container">
+    <div class="cmp-breadcrumb">
+      <a href="{{ site_url }}/">Inicio</a><span>›</span>
+      <a href="{{ site_url }}/comparar/">Comparar</a><span>›</span>
+      <span style="color:#ccc;">{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}</span>
+    </div>
+    <div class="cmp-hero-label">Comparativa</div>
+    <h1>{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}: comparativa completa</h1>
+    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Actualizado {{ last_updated }}.</p>
+  </div>
+</div>
+
+<div class="cmp-wrap">
+<div class="container" style="padding-bottom:60px;">
+
+<!-- ── Veredicto rápido ─── -->
+<div class="cmp-section">
+  <h2 class="cmp-section-title">Veredicto rápido</h2>
+  <div class="verdict-grid">
+
+    <div class="verdict-card">
+      <div class="verdict-icon">💰</div>
+      <div class="verdict-label">Mejor precio</div>
+      {% if veredicto.mejor_precio.side %}
+        {% set g = producto_a if veredicto.mejor_precio.side == 'a' else producto_b %}
+        <div class="verdict-winner">{{ g.nombre_normalizado }}</div>
+        <div class="verdict-value">{{ veredicto.mejor_precio.valor }}</div>
+      {% elif veredicto.mejor_precio.valor == "Empate" %}
+        <div class="verdict-winner">Empate</div>
+        <div class="verdict-value">Mismo precio/kg</div>
+      {% else %}
+        <div class="verdict-na">No disponible</div>
+      {% endif %}
+    </div>
+
+    <div class="verdict-card">
+      <div class="verdict-icon">🥩</div>
+      <div class="verdict-label">Más proteína/dosis</div>
+      {% if veredicto.mas_proteina.side %}
+        {% set g = producto_a if veredicto.mas_proteina.side == 'a' else producto_b %}
+        <div class="verdict-winner">{{ g.nombre_normalizado }}</div>
+        <div class="verdict-value">{{ veredicto.mas_proteina.valor }}</div>
+      {% else %}
+        <div class="verdict-na">No disponible</div>
+      {% endif %}
+    </div>
+
+    <div class="verdict-card">
+      <div class="verdict-icon">⭐</div>
+      <div class="verdict-label">Mejor valorado</div>
+      {% if veredicto.mejor_valorado.side %}
+        {% set g = producto_a if veredicto.mejor_valorado.side == 'a' else producto_b %}
+        <div class="verdict-winner">{{ g.nombre_normalizado }}</div>
+        <div class="verdict-value">{{ veredicto.mejor_valorado.valor }}</div>
+      {% else %}
+        <div class="verdict-na">No disponible</div>
+      {% endif %}
+    </div>
+
+    <div class="verdict-card">
+      <div class="verdict-icon">🏆</div>
+      <div class="verdict-label">Mejor relación calidad-precio</div>
+      {% if veredicto.mejor_ratio.side %}
+        {% set g = producto_a if veredicto.mejor_ratio.side == 'a' else producto_b %}
+        <div class="verdict-winner">{{ g.nombre_normalizado }}</div>
+        <div class="verdict-value">{{ veredicto.mejor_ratio.valor }}</div>
+      {% else %}
+        <div class="verdict-na">No disponible</div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Tabla comparativa ─── -->
+<div class="cmp-section">
+  <h2 class="cmp-section-title">Comparativa detallada</h2>
+  <div class="cmp-table-wrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th class="label-col"></th>
+          <th>{{ producto_a.nombre_normalizado }}</th>
+          <th>{{ producto_b.nombre_normalizado }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-col">Imagen</td>
+          <td><img src="{{ producto_a.img_src }}" alt="{{ producto_a.nombre_normalizado }}" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
+          <td><img src="{{ producto_b.img_src }}" alt="{{ producto_b.nombre_normalizado }}" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
+        </tr>
+        <tr>
+          <td class="label-col">Marca</td>
+          <td>{{ producto_a.marca }}</td>
+          <td>{{ producto_b.marca }}</td>
+        </tr>
+        <tr>
+          <td class="label-col">Categoría</td>
+          <td>{{ producto_a.categoria_display }}</td>
+          <td>{{ producto_b.categoria_display }}</td>
+        </tr>
+        <tr>
+          <td class="label-col">Peso</td>
+          <td>{% if producto_a.peso_kg %}{{ "%.2f"|format(producto_a.peso_kg) }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.peso_kg %}{{ "%.2f"|format(producto_b.peso_kg) }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
+        </tr>
+        <tr>
+          <td class="label-col">Mejor precio total</td>
+          <td{% if veredicto.mejor_precio.side == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.precio_min %}{{ "%.2f"|format(producto_a.precio_min) }} € ({{ producto_a.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td{% if veredicto.mejor_precio.side == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.precio_min %}{{ "%.2f"|format(producto_b.precio_min) }} € ({{ producto_b.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
+        </tr>
+        <tr>
+          <td class="label-col">Precio €/kg</td>
+          <td>{% if producto_a.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'a' %} win{% endif %}">{{ "%.2f"|format(producto_a.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'b' %} win{% endif %}">{{ "%.2f"|format(producto_b.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+        </tr>
+        {% if producto_a.protein_type or producto_b.protein_type %}
+        <tr>
+          <td class="label-col">Tipo proteína</td>
+          <td>{{ producto_a.protein_type or '—' }}</td>
+          <td>{{ producto_b.protein_type or '—' }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td class="label-col">Proteína/dosis</td>
+          <td{% if veredicto.mas_proteina.side == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.protein_per_serving_g %}{{ producto_a.protein_per_serving_g }} g{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+          <td{% if veredicto.mas_proteina.side == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.protein_per_serving_g %}{{ producto_b.protein_per_serving_g }} g{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+        </tr>
+        <tr>
+          <td class="label-col">Dosis por bote</td>
+          <td>{% if producto_a.servings_per_container %}{{ producto_a.servings_per_container }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+          <td>{% if producto_b.servings_per_container %}{{ producto_b.servings_per_container }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+        </tr>
+        <tr>
+          <td class="label-col">Tiendas</td>
+          <td>
+            {% for pr in producto_a.precios | sort(attribute='precio_eur') %}
+              {% set sclass = pr.tienda | lower | replace(' ','') %}
+              <span class="store-pill store-{{ sclass }}" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
+                <span class="store-pill-dot"></span>{{ pr.tienda }}
+              </span>
+            {% endfor %}
+          </td>
+          <td>
+            {% for pr in producto_b.precios | sort(attribute='precio_eur') %}
+              {% set sclass = pr.tienda | lower | replace(' ','') %}
+              <span class="store-pill store-{{ sclass }}" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
+                <span class="store-pill-dot"></span>{{ pr.tienda }}
+              </span>
+            {% endfor %}
+          </td>
+        </tr>
+        <tr>
+          <td class="label-col">Valoración</td>
+          <td{% if veredicto.mejor_valorado.side == 'a' %} class="winner-cell"{% endif %}>
+            {% if producto_a.store_rating %}
+              {{ "%.2f"|format(producto_a.store_rating) }} / 5
+              {% if producto_a.store_rating_count %}
+                <span style="color:#888;font-size:0.78rem;">({{ producto_a.store_rating_count }} reseñas)</span>
+              {% endif %}
+            {% else %}<span class="na-cell">No disponible</span>{% endif %}
+          </td>
+          <td{% if veredicto.mejor_valorado.side == 'b' %} class="winner-cell"{% endif %}>
+            {% if producto_b.store_rating %}
+              {{ "%.2f"|format(producto_b.store_rating) }} / 5
+              {% if producto_b.store_rating_count %}
+                <span style="color:#888;font-size:0.78rem;">({{ producto_b.store_rating_count }} reseñas)</span>
+              {% endif %}
+            {% else %}<span class="na-cell">No disponible</span>{% endif %}
+          </td>
+        </tr>
+        <tr>
+          <td class="label-col">Sabores disponibles</td>
+          <td>
+            {% if producto_a.flavors_available %}
+              {{ producto_a.flavors_available | join(", ") }}
+            {% else %}<span class="na-cell">No disponible</span>{% endif %}
+          </td>
+          <td>
+            {% if producto_b.flavors_available %}
+              {{ producto_b.flavors_available | join(", ") }}
+            {% else %}<span class="na-cell">No disponible</span>{% endif %}
+          </td>
+        </tr>
+        <tr>
+          <td class="label-col">Vegano</td>
+          <td>{% if producto_a.vegan is not none %}{{ "Sí" if producto_a.vegan else "No" }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+          <td>{% if producto_b.vegan is not none %}{{ "Sí" if producto_b.vegan else "No" }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+        </tr>
+        <tr>
+          <td class="label-col">Sin edulcorantes</td>
+          <td>{% if producto_a.sweetener_free is not none %}{{ "Sí" if producto_a.sweetener_free else "No" }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+          <td>{% if producto_b.sweetener_free is not none %}{{ "Sí" if producto_b.sweetener_free else "No" }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ── Cards con CTAs ─── -->
+{% set store_colors = {"HSN":"var(--hsn)","Nutritienda":"var(--nutritienda)","Prozis":"var(--prozis)","MyProtein":"var(--myprotein)"} %}
+<div class="cmp-section">
+  <h2 class="cmp-section-title">Precios y dónde comprar</h2>
+  <div class="cmp-cards">
+    {% for prod in [producto_a, producto_b] %}
+    {% set side = 'a' if loop.index == 1 else 'b' %}
+    {% set is_win = veredicto.mejor_precio.side == side %}
+    <div class="cmp-card">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="cmp-card-img">
+          <img src="{{ prod.img_src }}" alt="{{ prod.nombre_normalizado }}" width="72" height="72" loading="lazy">
+        </div>
+        <div>
+          <div class="cmp-card-name">{{ prod.nombre_normalizado }}</div>
+          <div class="cmp-card-meta">{{ prod.marca }}{% if prod.peso_kg %} · {{ "%.2f"|format(prod.peso_kg) }} kg{% endif %}</div>
+        </div>
+      </div>
+      {% if prod.precio_min %}
+      <div>
+        <div class="cmp-card-price">{{ "%.2f"|format(prod.precio_min) }} €</div>
+        {% if prod.precio_por_kg_min %}
+        <div class="cmp-card-kg">{{ "%.2f"|format(prod.precio_por_kg_min) }} €/kg</div>
+        {% endif %}
+      </div>
+      {% endif %}
+      <div class="pc-stores">
+        {% for pr in prod.precios | sort(attribute='precio_eur') %}
+        <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
+          <span class="pc-store-name">{{ pr.tienda }}</span>
+          <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
+          {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
+        </a>
+        {% endfor %}
+      </div>
+      {% set best = prod.precios | sort(attribute='precio_eur') | first %}
+      <a href="{{ best.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- ── Editorial ─── -->
+<div class="cmp-section">
+  <h2 class="cmp-section-title">Análisis comparativo</h2>
+  <div class="editorial-text">
+    {% for parrafo in editorial %}
+    <p>{{ parrafo | safe }}</p>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- ── FAQ ─── -->
+{% if faqs %}
+<div class="cmp-section" style="margin-bottom:32px;">
+  <h2 class="cmp-section-title">Preguntas frecuentes</h2>
+  <div class="faq-list">
+    {% for item in faqs %}
+    <details class="faq-item">
+      <summary>{{ item.q }}<span class="faq-plus">+</span></summary>
+      <p class="faq-answer">{{ item.a }}</p>
+    </details>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- ── Relacionadas ─── -->
+{% if comparaciones_relacionadas %}
+<div class="cmp-section" style="margin-bottom:48px;">
+  <h2 class="cmp-section-title">Otras comparaciones relacionadas</h2>
+  <div class="related-grid">
+    {% for rel in comparaciones_relacionadas %}
+    <a href="{{ site_url }}/comparar/{{ rel.slug }}/" class="related-card">
+      <div class="related-tag">comparativa</div>
+      <div class="related-title">{{ rel.nombre_a }} vs {{ rel.nombre_b }}</div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+</div><!-- /.container -->
+</div><!-- /.cmp-wrap -->
+
+{% endblock %}

@@ -26,7 +26,9 @@ import os
 import re
 import sys
 import glob
+import html as html_mod
 from datetime import datetime
+from itertools import combinations
 from jinja2 import Environment, FileSystemLoader
 
 # Forzar UTF-8 en stdout (necesario en Windows con cp1252)
@@ -445,12 +447,35 @@ def slugify(texto: str) -> str:
     return texto
 
 
+_ENRICHMENT_FIELDS = [
+    "protein_per_serving_g", "serving_size_g", "servings_per_container",
+    "sweetener_free", "vegan", "flavors_available",
+    "store_rating", "store_rating_count", "store_rating_url",
+]
+
+
 def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
     """
     Convierte el dataset plano al schema web con precios[] por tienda.
     Usa matching.py para agrupar productos del mismo tipo entre tiendas.
     """
     from matching import agrupar_productos
+
+    # Lookup de enriquecimiento por URL: {url → {campo → valor}}
+    # Permite que build.py use los campos extraídos en los scrapers sin modificar
+    # agrupar_productos(). El primer valor no-nulo de cualquier tienda gana.
+    enrichment_by_url: dict[str, dict] = {}
+    for p in productos_flat:
+        url = p.get("url", "")
+        if not url:
+            continue
+        entry: dict = {}
+        for field in _ENRICHMENT_FIELDS:
+            val = p.get(field)
+            if val is not None and val != [] and val != "":
+                entry[field] = val
+        if entry:
+            enrichment_by_url[url] = entry
 
     # El dataset plano ya tiene precio_eur y peso_kg (viene de limpiar_dataset).
     # agrupar_productos espera el campo "precio" en texto; le pasamos precio_eur
@@ -471,6 +496,20 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
 
     grupos = agrupar_productos(productos_para_matching)
 
+    def _first_enrich(precios: list[dict], field: str):
+        """Primer valor no-nulo/non-NaN del campo entre las entradas de precio del grupo."""
+        import math
+        for pr in precios:
+            url = pr.get("url_afiliado", "")
+            val = enrichment_by_url.get(url, {}).get(field)
+            if val is None:
+                continue
+            # Filtrar NaN floats que pandas puede dejar en los records
+            if isinstance(val, float) and math.isnan(val):
+                continue
+            return val
+        return None
+
     # Enriquecer con slug de categoría y categoria_display
     productos_web = []
     for g in grupos:
@@ -486,6 +525,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
         cat_slug    = cat_config.get("slug", slugify(cat_raw))
         cat_display = cat_config.get("display", cat_raw)
 
+        _pt = _tipo_proteina(g["nombre_normalizado"]) if cat_slug == "proteina-whey" else None
         productos_web.append({
             "id":                  f"{slugify(g['nombre_normalizado'])}-{slugify(g['marca'])}"[:80],
             "nombre_normalizado":  g["nombre_normalizado"],
@@ -498,6 +538,18 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "tienda_mas_barata":   g.get("tienda_mas_barata"),
             "imagen_url":          g.get("imagen_url"),
             "precios":             g["precios"],
+            # Tipo de proteína inferido por keywords del nombre
+            "protein_type":             _pt if _pt and _pt != "Otra" else None,
+            # Campos de enriquecimiento: primer valor no-nulo entre las tiendas del grupo
+            "protein_per_serving_g":    _first_enrich(g["precios"], "protein_per_serving_g"),
+            "serving_size_g":           _first_enrich(g["precios"], "serving_size_g"),
+            "servings_per_container":   _first_enrich(g["precios"], "servings_per_container"),
+            "sweetener_free":           _first_enrich(g["precios"], "sweetener_free"),
+            "vegan":                    _first_enrich(g["precios"], "vegan"),
+            "flavors_available":        _first_enrich(g["precios"], "flavors_available") or [],
+            "store_rating":             _first_enrich(g["precios"], "store_rating"),
+            "store_rating_count":       _first_enrich(g["precios"], "store_rating_count"),
+            "store_rating_url":         _first_enrich(g["precios"], "store_rating_url"),
         })
 
     # Ordenar por categoria slug + precio_por_kg
@@ -599,7 +651,7 @@ def contexto_base(last_updated: str) -> dict:
     }
 
 
-def generar_home(env, productos_web: list[dict], last_updated: str):
+def generar_home(env, productos_web: list[dict], last_updated: str, comparaciones_populares: list | None = None):
     """Genera docs/index.html."""
     template = env.get_template("home.html")
 
@@ -670,13 +722,14 @@ def generar_home(env, productos_web: list[dict], last_updated: str):
 
     ctx = {
         **contexto_base(last_updated),
-        "total_productos":   len(productos_web),
-        "total_tiendas":     len(tiendas),
-        "tiendas_lista":     sorted(tiendas),
-        "categories":        categories,
-        "top_deals":         top_deals,
-        "ahorro_medio":      ahorro_medio,
-        "all_products_json": json.dumps(all_search, ensure_ascii=False),
+        "total_productos":      len(productos_web),
+        "total_tiendas":        len(tiendas),
+        "tiendas_lista":        sorted(tiendas),
+        "categories":           categories,
+        "top_deals":            top_deals,
+        "ahorro_medio":         ahorro_medio,
+        "all_products_json":    json.dumps(all_search, ensure_ascii=False),
+        "comparaciones_populares": comparaciones_populares or [],
     }
 
     html = template.render(**ctx)
@@ -751,7 +804,7 @@ def _tipo_proteina(nombre: str) -> str:
     return "Otra"
 
 
-def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str):
+def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None):
     """Genera docs/{slug}/index.html para una categoría."""
     template = env.get_template("category.html")
 
@@ -782,16 +835,21 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
         for pr in p["precios"]
     ))
 
+    # Mapa de slugs de comparación para esta categoría (para el JS del comparador)
+    slugs_cat = {s for s in (slugs_comparacion or set())
+                 if any(p["id"][:40] in s for p in prods_principales)}
+
     ctx = {
         **contexto_base(last_updated),
-        "active_slug":     cfg["slug"],
-        "cat":             cfg,
-        "products":        prods_principales,
-        "products_otros":  prods_otros,
-        "tiendas":         tiendas,
-        "marcas":          marcas,
-        "precio_kg_min":   precio_kg_min,
-        "precio_kg_max":   precio_kg_max,
+        "active_slug":       cfg["slug"],
+        "cat":               cfg,
+        "products":          prods_principales,
+        "products_otros":    prods_otros,
+        "tiendas":           tiendas,
+        "marcas":            marcas,
+        "precio_kg_min":     precio_kg_min,
+        "precio_kg_max":     precio_kg_max,
+        "slugs_comparacion": json.dumps(list(slugs_cat)),
     }
 
     html = template.render(**ctx)
@@ -802,6 +860,412 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     with open(path, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"✅ Generado: {path}  ({len(prods_cat)} productos)")
+
+
+# ============================================================
+# PASO 4b: Comparaciones producto vs producto
+# ============================================================
+
+def _compare_slug(pa: dict, pb: dict) -> str:
+    """Slug único para el par, normalizado (menor id siempre primero)."""
+    id_a, id_b = pa["id"][:40], pb["id"][:40]
+    if id_a > id_b:
+        id_a, id_b = id_b, id_a
+    return f"{id_a}-vs-{id_b}"
+
+
+def generar_veredicto(pa: dict, pb: dict) -> dict:
+    """Calcula el ganador en cada métrica. side ∈ {'a','b', None}."""
+    def _side(va, vb, menor_es_mejor=True):
+        if va is None or vb is None:
+            return None
+        if menor_es_mejor:
+            return "a" if va < vb else ("b" if vb < va else None)
+        else:
+            return "a" if va > vb else ("b" if vb > va else None)
+
+    kg_a = pa.get("precio_por_kg_min")
+    kg_b = pb.get("precio_por_kg_min")
+    prot_a = pa.get("protein_per_serving_g")
+    prot_b = pb.get("protein_per_serving_g")
+
+    # Mejor precio €/kg
+    side_kg = _side(kg_a, kg_b, menor_es_mejor=True)
+    if kg_a and kg_b and kg_a == kg_b:
+        mejor_precio = {"side": None, "valor": "Empate"}
+    elif kg_a and kg_b:
+        ganador_kg = kg_a if side_kg == "a" else kg_b
+        mejor_precio = {"side": side_kg, "valor": f"{ganador_kg:.2f} €/kg"}
+    else:
+        mejor_precio = {"side": None, "valor": None}
+
+    # Más proteína por dosis
+    side_prot = _side(prot_a, prot_b, menor_es_mejor=False)
+    if prot_a and prot_b:
+        mejor_prot = {"side": side_prot, "valor": f"{max(prot_a, prot_b):.0f} g/dosis"}
+    else:
+        mejor_prot = {"side": None, "valor": None}
+
+    # Mejor ratio proteína/€ (o solo precio si no hay proteína)
+    if prot_a and prot_b and kg_a and kg_b:
+        ratio_a = prot_a / kg_a
+        ratio_b = prot_b / kg_b
+        side_ratio = _side(ratio_a, ratio_b, menor_es_mejor=False)
+        mejor_ratio = {"side": side_ratio, "valor": "Mayor g proteína por €"}
+    elif kg_a and kg_b:
+        mejor_ratio = {"side": side_kg, "valor": "Menor €/kg"}
+    else:
+        mejor_ratio = {"side": None, "valor": None}
+
+    # Mejor valorado: usa store_rating (escala 0-5, homogeneizada en todos los scrapers)
+    rat_a = pa.get("store_rating")
+    rat_b = pb.get("store_rating")
+    side_rat = _side(rat_a, rat_b, menor_es_mejor=False)
+    if rat_a and rat_b:
+        mejor_rat = {"side": side_rat, "valor": f"{max(rat_a, rat_b):.2f} / 5"}
+    else:
+        mejor_rat = {"side": None, "valor": None}
+
+    return {
+        "mejor_precio":   mejor_precio,
+        "mas_proteina":   mejor_prot,
+        "mejor_valorado": mejor_rat,
+        "mejor_ratio":    mejor_ratio,
+    }
+
+
+def generar_editorial(pa: dict, pb: dict) -> list:
+    """Párrafos de texto editorial basados solo en datos objetivos."""
+    parrafos = []
+    kg_a = pa.get("precio_por_kg_min")
+    kg_b = pb.get("precio_por_kg_min")
+
+    na = html_mod.escape(pa["nombre_normalizado"])
+    nb = html_mod.escape(pb["nombre_normalizado"])
+
+    if kg_a and kg_b:
+        diff = abs(kg_a - kg_b)
+        if diff > 0.01:
+            barato = (na, f"{kg_a:.2f}") if kg_a < kg_b else (nb, f"{kg_b:.2f}")
+            caro   = (nb, f"{kg_b:.2f}") if kg_a < kg_b else (na, f"{kg_a:.2f}")
+            parrafos.append(
+                f"Si buscas el mejor precio por kilogramo, <strong>{barato[0]}</strong> "
+                f"es la opción más económica con <strong>{barato[1]} €/kg</strong>, "
+                f"{diff:.2f} €/kg menos que {caro[0]} ({caro[1]} €/kg)."
+            )
+        else:
+            parrafos.append(
+                f"Ambos productos tienen un precio por kilogramo muy similar: "
+                f"<strong>{na}</strong> a {kg_a:.2f} €/kg y "
+                f"<strong>{nb}</strong> a {kg_b:.2f} €/kg."
+            )
+
+    prot_a = pa.get("protein_per_serving_g")
+    prot_b = pb.get("protein_per_serving_g")
+    if prot_a and prot_b:
+        diff_p = abs(prot_a - prot_b)
+        if diff_p >= 1:
+            mas  = (na, prot_a) if prot_a > prot_b else (nb, prot_b)
+            menos = (nb, prot_b) if prot_a > prot_b else (na, prot_a)
+            parrafos.append(
+                f"En cuanto a proteína por dosis, <strong>{mas[0]}</strong> aporta "
+                f"{mas[1]:.0f} g por toma frente a los {menos[1]:.0f} g de {menos[0]}, "
+                f"una diferencia de {diff_p:.0f} g por servicio."
+            )
+
+    tipo_a = pa.get("protein_type")
+    tipo_b = pb.get("protein_type")
+    if tipo_a and tipo_b:
+        if tipo_a != tipo_b:
+            parrafos.append(
+                f"Respecto al tipo de proteína, {na} es una whey "
+                f"<strong>{tipo_a.lower()}</strong>, mientras que {nb} es "
+                f"<strong>{tipo_b.lower()}</strong>."
+            )
+        else:
+            parrafos.append(
+                f"Ambos productos son proteína whey de tipo "
+                f"<strong>{tipo_a.lower()}</strong>; la diferencia principal es el precio por kilogramo."
+            )
+
+    peso_a = pa.get("peso_kg")
+    peso_b = pb.get("peso_kg")
+    if peso_a and peso_b and abs(peso_a - peso_b) > 0.05:
+        mayor = (na, peso_a) if peso_a > peso_b else (nb, peso_b)
+        menor = (nb, peso_b) if peso_a > peso_b else (na, peso_a)
+        parrafos.append(
+            f"{mayor[0]} viene en un formato de {mayor[1]:.2f} kg "
+            f"frente a los {menor[1]:.2f} kg de {menor[0]}. "
+            f"El precio por kilogramo ya normaliza esta diferencia de tamaño."
+        )
+
+    # Tiendas disponibles
+    tiendas_a = {pr["tienda"] for pr in pa.get("precios", [])}
+    tiendas_b = {pr["tienda"] for pr in pb.get("precios", [])}
+    solo_en_a = tiendas_a - tiendas_b
+    solo_en_b = tiendas_b - tiendas_a
+    if solo_en_a or solo_en_b:
+        frases = []
+        if solo_en_a:
+            frases.append(f"{na} está disponible en {', '.join(sorted(solo_en_a))} pero no {nb}")
+        if solo_en_b:
+            frases.append(f"{nb} está disponible en {', '.join(sorted(solo_en_b))} pero no {na}")
+        parrafos.append(". ".join(frases) + ".")
+
+    if not parrafos:
+        parrafos.append(
+            f"Compara el precio por kilogramo de {na} y {nb} para "
+            f"encontrar la opción que mejor se ajusta a tu presupuesto."
+        )
+
+    return parrafos
+
+
+def generar_faq_comparacion(pa: dict, pb: dict) -> list:
+    """3-4 preguntas FAQ generadas a partir de datos objetivos."""
+    faqs = []
+    na = pa["nombre_normalizado"]
+    nb = pb["nombre_normalizado"]
+    kg_a = pa.get("precio_por_kg_min")
+    kg_b = pb.get("precio_por_kg_min")
+
+    if kg_a and kg_b:
+        diff = abs(kg_a - kg_b)
+        barato, caro = (pa, pb) if kg_a < kg_b else (pb, pa)
+        faqs.append({
+            "q": f"¿Cuál es más barato, {na} o {nb}?",
+            "a": (
+                f"{barato['nombre_normalizado']} es más barato con "
+                f"{barato['precio_por_kg_min']:.2f} €/kg frente a "
+                f"{caro['precio_por_kg_min']:.2f} €/kg de {caro['nombre_normalizado']} "
+                f"— una diferencia de {diff:.2f} €/kg."
+            ),
+        })
+
+    if pa.get("tienda_mas_barata") and pa.get("precio_min"):
+        faqs.append({
+            "q": f"¿Dónde comprar {na} al mejor precio?",
+            "a": (
+                f"El mejor precio de {na} está en {pa['tienda_mas_barata']}, "
+                f"a {pa['precio_min']:.2f} €."
+            ),
+        })
+
+    if pb.get("tienda_mas_barata") and pb.get("precio_min"):
+        faqs.append({
+            "q": f"¿Dónde comprar {nb} al mejor precio?",
+            "a": (
+                f"El mejor precio de {nb} está en {pb['tienda_mas_barata']}, "
+                f"a {pb['precio_min']:.2f} €."
+            ),
+        })
+
+    prot_a = pa.get("protein_per_serving_g")
+    prot_b = pb.get("protein_per_serving_g")
+    if prot_a and prot_b:
+        mas = pa if prot_a >= prot_b else pb
+        faqs.append({
+            "q": f"¿Cuál tiene más proteína por dosis?",
+            "a": (
+                f"{mas['nombre_normalizado']} aporta más proteína por dosis: "
+                f"{max(prot_a, prot_b):.0f} g por toma."
+            ),
+        })
+
+    return faqs[:4]
+
+
+def generar_pares_comparacion(productos_web: list) -> dict:
+    """
+    Genera los pares según las reglas del spec.
+    Devuelve {slug_par: (pa, pb)} con los productos siempre en orden canónico.
+    Imprime conteo por regla.
+    """
+    pares = {}
+
+    def _add(pa, pb):
+        # orden canónico: id menor primero
+        if pa["id"] > pb["id"]:
+            pa, pb = pb, pa
+        slug = _compare_slug(pa, pb)
+        if slug not in pares:
+            pares[slug] = (pa, pb)
+
+    for cat_slug in ["proteina-whey", "creatina", "bcaa", "pre-entreno"]:
+        prods = [p for p in productos_web
+                 if p["categoria"] == cat_slug and not _excluir_producto(p)]
+        prods.sort(key=lambda x: x.get("precio_por_kg_min") or 9999)
+
+        antes = len(pares)
+
+        # Regla 1: Top 10 por €/kg dentro de la misma categoría
+        top = prods[:10]
+        for pa, pb in combinations(top, 2):
+            _add(pa, pb)
+
+        r1 = len(pares) - antes
+
+        # Regla 2: Misma marca, misma categoría (máx. 4 productos por marca)
+        by_brand: dict = {}
+        for p in prods:
+            brand = (p.get("marca") or "").strip()
+            if brand:
+                by_brand.setdefault(brand, []).append(p)
+
+        antes2 = len(pares)
+        for brand, bprods in by_brand.items():
+            if len(bprods) >= 2:
+                bprods_sorted = sorted(bprods, key=lambda x: x.get("precio_por_kg_min") or 9999)[:4]
+                for pa, pb in combinations(bprods_sorted, 2):
+                    _add(pa, pb)
+
+        r2 = len(pares) - antes2
+        print(f"   • {cat_slug}: {r1} pares top-10 + {r2} pares misma marca")
+
+    return pares
+
+
+def generar_comparaciones(env, productos_web: list, last_updated: str) -> list:
+    """
+    Genera docs/comparar/<slug>/index.html para cada par y docs/comparar/index.html.
+    Devuelve la lista de slugs generados (para el sitemap).
+    """
+    pares = generar_pares_comparacion(productos_web)
+    n_total = len(pares)
+    print(f"   → {n_total} pares en total")
+
+    # Añadir img_src a cada producto que aparezca en comparaciones
+    productos_idx = {p["id"]: p for p in productos_web}
+    for p in productos_web:
+        if "img_src" not in p:
+            p["img_src"] = _img_local(p["id"], p["categoria"])
+
+    template = env.get_template("compare.html")
+
+    # Índice de comparaciones por producto para "relacionadas"
+    comp_por_id: dict = {}
+    for slug, (pa, pb) in pares.items():
+        entry = {
+            "slug":    slug,
+            "nombre_a": pa["nombre_normalizado"],
+            "nombre_b": pb["nombre_normalizado"],
+            "categoria": pa["categoria"],
+        }
+        comp_por_id.setdefault(pa["id"], []).append(entry)
+        comp_por_id.setdefault(pb["id"], []).append(entry)
+
+    slugs_generados = []
+    for slug_par, (pa, pb) in pares.items():
+        # Relacionadas: otras comparaciones de pa o pb (excluir la actual)
+        rel_vistos = {slug_par}
+        relacionadas = []
+        for comp in comp_por_id.get(pa["id"], []) + comp_por_id.get(pb["id"], []):
+            if comp["slug"] not in rel_vistos:
+                relacionadas.append(comp)
+                rel_vistos.add(comp["slug"])
+        relacionadas = relacionadas[:6]
+
+        veredicto  = generar_veredicto(pa, pb)
+        editorial  = generar_editorial(pa, pb)
+        faqs       = generar_faq_comparacion(pa, pb)
+
+        ctx = {
+            **contexto_base(last_updated),
+            "active_slug":              "comparar",
+            "producto_a":               pa,
+            "producto_b":               pb,
+            "slug_comparacion":         slug_par,
+            "veredicto":                veredicto,
+            "editorial":                editorial,
+            "faqs":                     faqs,
+            "comparaciones_relacionadas": relacionadas,
+        }
+
+        html_out = template.render(**ctx)
+        outdir   = os.path.join(DOCS_DIR, "comparar", slug_par)
+        os.makedirs(outdir, exist_ok=True)
+        path = os.path.join(outdir, "index.html")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html_out)
+        slugs_generados.append(slug_par)
+
+    # ── Página índice ────────────────────────────────────
+    template_idx = env.get_template("compare_index.html")
+
+    # Top 20 populares: los pares con menor precio €/kg promedio
+    def _avg_kg(slug):
+        pa, pb = pares[slug]
+        ka = pa.get("precio_por_kg_min") or 9999
+        kb = pb.get("precio_por_kg_min") or 9999
+        return (ka + kb) / 2
+
+    pares_populares_slugs = sorted(pares.keys(), key=_avg_kg)[:20]
+    pares_populares = [
+        {
+            "slug":      s,
+            "nombre_a":  pares[s][0]["nombre_normalizado"],
+            "nombre_b":  pares[s][1]["nombre_normalizado"],
+            "marca_a":   pares[s][0].get("marca", ""),
+            "marca_b":   pares[s][1].get("marca", ""),
+            "categoria": pares[s][0]["categoria"],
+            "precio_kg_a": pares[s][0].get("precio_por_kg_min"),
+            "precio_kg_b": pares[s][1].get("precio_por_kg_min"),
+        }
+        for s in pares_populares_slugs
+    ]
+
+    # Datos para el selector dinámico (productos principales)
+    prods_selector = [
+        {
+            "id":       p["id"],
+            "nombre":   p["nombre_normalizado"],
+            "marca":    p.get("marca", ""),
+            "categoria": p["categoria"],
+            "cat_display": p["categoria_display"],
+            "peso_kg":  p.get("peso_kg"),
+            "precio_kg": p.get("precio_por_kg_min"),
+            "tienda":   p.get("tienda_mas_barata", ""),
+            "img":      p.get("img_src") or _img_local(p["id"], p["categoria"]),
+            "protein_type": p.get("protein_type"),
+            "precios": [
+                {
+                    "tienda":  pr["tienda"],
+                    "precio":  pr["precio_eur"],
+                    "url":     pr["url_afiliado"],
+                    "oferta":  pr["en_oferta"],
+                }
+                for pr in sorted(p["precios"], key=lambda x: x["precio_eur"])
+            ],
+        }
+        for p in productos_web
+        if not _excluir_producto(p)
+    ]
+
+    # Mapa slug_a-vs-slug_b → URL para que el JS pueda enlazar a la página pre-generada
+    mapa_pares_json = json.dumps(
+        {s: f"/comparar/{s}/" for s in slugs_generados},
+        ensure_ascii=False,
+    )
+
+    ctx_idx = {
+        **contexto_base(last_updated),
+        "active_slug":         "comparar",
+        "pares_populares":     pares_populares,
+        "all_products_json":   json.dumps(prods_selector, ensure_ascii=False),
+        "mapa_pares_json":     mapa_pares_json,
+        "total_comparaciones": n_total,
+    }
+
+    html_idx = template_idx.render(**ctx_idx)
+    outdir_idx = os.path.join(DOCS_DIR, "comparar")
+    os.makedirs(outdir_idx, exist_ok=True)
+    path_idx = os.path.join(outdir_idx, "index.html")
+    with open(path_idx, "w", encoding="utf-8") as f:
+        f.write(html_idx)
+
+    print(f"✅ Generadas: {len(slugs_generados)} páginas de comparación")
+    print(f"✅ Generado: {path_idx}")
+    return slugs_generados
 
 
 # ============================================================
@@ -972,7 +1436,7 @@ def generar_test(env, productos_web: list[dict], last_updated: str):
     print(f"✅ Generado: {path}  ({len(products_for_js)} productos)")
 
 
-def generar_sitemap(last_updated: str):
+def generar_sitemap(last_updated: str, compare_slugs: list | None = None):
     """Genera docs/sitemap.xml."""
     urls = [
         {"loc": f"{SITE_URL}/",             "priority": "1.0", "changefreq": "weekly"},
@@ -994,6 +1458,19 @@ def generar_sitemap(last_updated: str):
         "priority":   "0.7",
         "changefreq": "weekly",
     })
+    # Comparaciones
+    if compare_slugs:
+        urls.append({
+            "loc":        f"{SITE_URL}/comparar/",
+            "priority":   "0.7",
+            "changefreq": "weekly",
+        })
+        for slug in compare_slugs:
+            urls.append({
+                "loc":        f"{SITE_URL}/comparar/{slug}/",
+                "priority":   "0.6",
+                "changefreq": "weekly",
+            })
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
     lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
@@ -1070,10 +1547,32 @@ if __name__ == "__main__":
     print("\n🏗️  Generando HTML...")
     env = setup_jinja()
 
-    generar_home(env, productos_web, last_updated)
+    # Generar comparaciones primero para pasar populares a la home
+    print("\n⚖️  Generando comparaciones...")
+    compare_slugs = generar_comparaciones(env, productos_web, last_updated)
 
+    # Recuperar las 6 populares (misma lógica que en generar_comparaciones)
+    from itertools import combinations as _combinations
+    _pares_home = generar_pares_comparacion(productos_web)
+    def _avg_kg_home(s):
+        pa2, pb2 = _pares_home[s]
+        return ((pa2.get("precio_por_kg_min") or 9999) + (pb2.get("precio_por_kg_min") or 9999)) / 2
+    _top6_slugs = sorted(_pares_home.keys(), key=_avg_kg_home)[:6]
+    comparaciones_populares_home = [
+        {
+            "slug":     s,
+            "nombre_a": _pares_home[s][0]["nombre_normalizado"],
+            "nombre_b": _pares_home[s][1]["nombre_normalizado"],
+            "categoria": _pares_home[s][0]["categoria"],
+        }
+        for s in _top6_slugs
+    ]
+
+    generar_home(env, productos_web, last_updated, comparaciones_populares=comparaciones_populares_home)
+
+    slugs_set = set(compare_slugs)
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
-        generar_categoria(env, cat_raw, cfg, productos_web, last_updated)
+        generar_categoria(env, cat_raw, cfg, productos_web, last_updated, slugs_comparacion=slugs_set)
 
     # 5. Páginas legales, test y sobre nosotros
     for pagina in PAGINAS_LEGALES:
@@ -1083,17 +1582,18 @@ if __name__ == "__main__":
 
     # 6. Sitemap, robots, .nojekyll
     print("\n📋 Generando ficheros auxiliares...")
-    generar_sitemap(last_updated)
+    generar_sitemap(last_updated, compare_slugs=compare_slugs)
     generar_robots()
     generar_nojekyll()
 
     duracion = (datetime.now() - inicio).total_seconds()
-    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1  # +1 for /test/
+    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1 + len(compare_slugs)  # +1 for /test/
 
     print("\n" + "=" * 54)
     print(f"  BUILD COMPLETADO en {duracion:.1f}s")
     print(f"  {total_paginas} paginas HTML generadas en docs/")
     print(f"  {len(productos_web)} productos  |  {last_updated}")
+    print(f"  {len(compare_slugs)} páginas de comparación")
     print()
     print("  SIGUIENTE PASO:")
     print('  git add docs/ data/ && git commit -m "build: update site"')

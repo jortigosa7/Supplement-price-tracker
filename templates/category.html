@@ -15,29 +15,36 @@
   "@type": "ItemList",
   "name": "{{ cat.h1 }}",
   "description": "{{ cat.seo_desc }}",
-  "numberOfItems": {{ products | length }},
+  "numberOfItems": {{ [products | length, 10] | min }},
   "itemListElement": [
+    {% set ns = namespace(count=0) %}
     {% for p in products[:10] %}
-    {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
+    {% set precios_validos = p.precios | selectattr('precio_eur') | list %}
+    {% if precios_validos %}
+    {% set precios_ord = precios_validos | sort(attribute='precio_eur') %}
     {% set low  = precios_ord | first %}
     {% set high = precios_ord | last %}
+    {% if ns.count > 0 %},{% endif %}
+    {% set ns.count = ns.count + 1 %}
     {
       "@type": "ListItem",
-      "position": {{ loop.index }},
+      "position": {{ ns.count }},
       "item": {
         "@type": "Product",
-        "name": "{{ p.nombre_normalizado | replace('"', '\\"') }}",
-        "brand": { "@type": "Brand", "name": "{{ p.marca | replace('"', '\\"') }}" },
+        "name": {{ p.nombre_normalizado | tojson }},
+        "url": {{ low.url_afiliado | tojson }},
+        "brand": { "@type": "Brand", "name": {{ p.marca | tojson }} },
         "offers": {
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",
-          "lowPrice": "{{ '%.2f' | format(low.precio_eur) }}",
-          "highPrice": "{{ '%.2f' | format(high.precio_eur) }}",
-          "offerCount": {{ p.precios | length }},
+          "lowPrice": {{ '%.2f' | format(low.precio_eur) }},
+          "highPrice": {{ '%.2f' | format(high.precio_eur) }},
+          "offerCount": {{ [precios_validos | length, 1] | max }},
           "availability": "https://schema.org/InStock"
         }
       }
-    }{% if not loop.last %},{% endif %}
+    }
+    {% endif %}
     {% endfor %}
   ]
 }
@@ -193,7 +200,9 @@
          data-marca="{{ p.marca | lower }}"
          data-peso="{{ (p.peso_kg * 1000) | int if p.peso_kg else 0 }}"
          data-precio-kg="{{ p.precio_por_kg_min if p.precio_por_kg_min else 9999 }}"
-         data-tipo="{{ p.tipo_proteina if p.tipo_proteina is defined else '' }}">
+         data-tipo="{{ p.tipo_proteina if p.tipo_proteina is defined else '' }}"
+         data-id="{{ p.id }}"
+         data-label="{{ p.nombre_normalizado | truncate(35, True, '…') }}">
       <div class="pc-top">
         <div class="pc-img">
           <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="80" height="80" loading="lazy">
@@ -231,9 +240,22 @@
       </div>
       <div class="pc-actions">
         <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
     {% endfor %}
+  </div>
+
+  <!-- ── Barra de comparación ─────────────────────── -->
+  <div id="compareBar" class="compare-bar" aria-live="polite">
+    <div class="compare-bar-inner">
+      <div class="compare-slots">
+        <div class="compare-slot" id="compareSlot0"><span class="compare-slot-empty">Elige un producto</span></div>
+        <div class="compare-vs">VS</div>
+        <div class="compare-slot" id="compareSlot1"><span class="compare-slot-empty">Elige un producto</span></div>
+      </div>
+      <button class="compare-bar-btn" id="compareBtnGo" disabled>Ver comparación →</button>
+    </div>
   </div>
 
   <div class="pagination" id="pagination">
@@ -464,5 +486,68 @@
 
   render();
 })();
+
+// ── Comparador ────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  var list   = document.getElementById('productsList');
+  var bar    = document.getElementById('compareBar');
+  var slot0  = document.getElementById('compareSlot0');
+  var slot1  = document.getElementById('compareSlot1');
+  var btnGo  = document.getElementById('compareBtnGo');
+  if (!list || !bar || !btnGo) return; // guard por si falla algún ID
+  var SLUGS  = new Set({{ slugs_comparacion | safe }});
+  var BASE   = '{{ site_url }}/comparar/';
+  var selected = [];
+
+  function buildSlug(a, b) {
+    var x = a.slice(0,40), y = b.slice(0,40);
+    return x <= y ? x+'-vs-'+y : y+'-vs-'+x;
+  }
+
+  function updateBar() {
+    [slot0, slot1].forEach(function(slot, i) {
+      var item = selected[i];
+      if (item) {
+        slot.textContent = item.label;
+        slot.classList.add('filled');
+      } else {
+        slot.innerHTML = '<span class="compare-slot-empty">Elige un producto</span>';
+        slot.classList.remove('filled');
+      }
+    });
+    btnGo.disabled = (selected.length < 2);
+    bar.classList.toggle('visible', selected.length > 0);
+  }
+
+  list.addEventListener('click', function(e) {
+    var btn = e.target.closest('.pc-btn-compare');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var card  = btn.closest('.product-card');
+    var id    = card.dataset.id;
+    var label = card.dataset.label;
+    var idx   = selected.findIndex(function(s) { return s.id === id; });
+    if (idx !== -1) {
+      selected.splice(idx, 1);
+      btn.classList.remove('is-selected');
+      btn.textContent = 'Comparar';
+    } else {
+      if (selected.length >= 2) return;
+      selected.push({id: id, label: label, btn: btn});
+      btn.classList.add('is-selected');
+      btn.textContent = 'Añadido ✓';
+    }
+    updateBar();
+  });
+
+  btnGo.addEventListener('click', function() {
+    if (selected.length < 2) return;
+    var slug = buildSlug(selected[0].id, selected[1].id);
+    window.location.href = BASE + (SLUGS.has(slug) ? slug + '/' : '');
+  });
+
+  updateBar();
+});
 </script>
 {% endblock %}
