@@ -29,6 +29,9 @@ jobs:
       - name: Run scraper
         run: python scraper.py
 
+      - name: Add affiliate links (HSN)
+        run: python añadir_afiliados.py
+
       - name: Run build
         run: python build.py
 
