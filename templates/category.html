@@ -281,6 +281,12 @@
   </div>
   {% endif %}
 
+  {% if cat.guia_extra_html %}
+  <div class="guide-section" style="margin-top:0;">
+    {{ cat.guia_extra_html | safe }}
+  </div>
+  {% endif %}
+
   <!-- ── Cómo comparamos ───────────────────────────── -->
   {% if cat.como_comparamos %}
   <div class="guide-section" style="margin-top:0;">

@@ -145,6 +145,12 @@ CATEGORIA_CONFIG = {
             "Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa calvicie "
             "y no es un esteroide. Es uno de los suplementos más seguros y estudiados del mercado."
         ),
+        "guia_extra_html": (
+            "<h2>¿Creapure o creatina monohidrato normal?</h2>"
+            "<p>Creapure es simplemente creatina monohidrato fabricada en Alemania por AlzChem, con un nivel de pureza del 99,99% certificado. No es un tipo distinto de creatina, es el mismo compuesto con garantía de origen.</p>"
+            "<p>¿Vale la pena pagar más? Depende del precio. En stackfit puedes comparar en tiempo real lo que cuesta cada opción: si la diferencia es menos de 5-8 €/kg, Creapure es una buena elección. Si la diferencia supera los 10-15 €/kg, el monohidrato genérico de calidad funciona igual de bien.</p>"
+            "<p>Lo que sí tiene sentido evitar son marcas sin certificación de terceros ni información de origen. Ahí sí puede haber diferencias reales de pureza.</p>"
+        ),
         "como_comparamos": (
             "Comparamos precios de creatina monohidrato, Creapure y otras formas en HSN, MyProtein, "
             "Nutritienda y Prozis. El precio/kg es especialmente útil aquí porque los formatos varían "
