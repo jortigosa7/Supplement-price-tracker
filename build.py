@@ -1154,6 +1154,13 @@ def generar_pares_comparacion(productos_web: list) -> dict:
     return pares
 
 
+def _nombre_seo(nombre: str) -> str:
+    """Elimina gramaje (150g, 2kg, 500 ml…) y devuelve en sentence case."""
+    limpio = re.sub(r'\s*\d+\s*(kg|g|ml)\b', '', nombre, flags=re.IGNORECASE).strip()
+    titled = limpio.title()
+    return re.sub(r"'([A-Z])", lambda m: "'" + m.group(1).lower(), titled)
+
+
 def generar_comparaciones(env, productos_web: list, last_updated: str) -> list:
     """
     Genera docs/comparar/<slug>/index.html para cada par y docs/comparar/index.html.
@@ -1193,6 +1200,9 @@ def generar_comparaciones(env, productos_web: list, last_updated: str) -> list:
                 relacionadas.append(comp)
                 rel_vistos.add(comp["slug"])
         relacionadas = relacionadas[:6]
+
+        pa["nombre_seo"] = _nombre_seo(pa["nombre_normalizado"])
+        pb["nombre_seo"] = _nombre_seo(pb["nombre_normalizado"])
 
         veredicto  = generar_veredicto(pa, pb)
         editorial  = generar_editorial(pa, pb)
