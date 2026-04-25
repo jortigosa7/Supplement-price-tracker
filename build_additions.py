@@ -36,8 +36,17 @@ def _load_history() -> dict[str, list[dict]]:
     return by_id
 
 
+_COLOR_UP   = "#ef4444"  # rojo — precio subió
+_COLOR_DOWN = "#22c55e"  # verde — precio bajó o igual
+
+
 def _build_spark_svg(prices: list[float]) -> str:
-    """Genera un SVG sparkline inline a partir de una lista de precios (al menos 2)."""
+    """Genera un SVG sparkline inline con segmentos coloreados por dirección de precio.
+
+    Verde = precio bajó o se mantuvo respecto al punto anterior.
+    Rojo  = precio subió respecto al punto anterior.
+    Eje Y estándar: precios altos en la parte superior del gráfico.
+    """
     if len(prices) < 2:
         return ""
     lo = min(prices)
@@ -48,17 +57,31 @@ def _build_spark_svg(prices: list[float]) -> str:
         return round(SPARK_W * i / (len(prices) - 1), 2)
 
     def _y(v):
-        # Invertir eje Y: precio alto → y pequeño (arriba)
+        # Precio alto → y pequeño (arriba del SVG): gráfico estándar
         return round(SPARK_H - SPARK_H * (v - lo) / span, 2)
 
-    points = " ".join(f"{_x(i)},{_y(v)}" for i, v in enumerate(prices))
+    # Generar un <line> por segmento coloreado por dirección
+    segments = []
+    for i in range(len(prices) - 1):
+        v1, v2 = prices[i], prices[i + 1]
+        x1, y1 = _x(i), _y(v1)
+        x2, y2 = _x(i + 1), _y(v2)
+        color = _COLOR_DOWN if v2 <= v1 else _COLOR_UP
+        segments.append(
+            f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" '
+            f'stroke="{color}" stroke-width="{SPARK_STROKE_WIDTH}" '
+            f'stroke-linecap="round"/>'
+        )
+
+    # Punto en el precio actual, con el color del último movimiento
+    last_color = _COLOR_DOWN if prices[-1] <= prices[-2] else _COLOR_UP
+    lx, ly = _x(len(prices) - 1), _y(prices[-1])
+    dot = f'<circle cx="{lx}" cy="{ly}" r="2.5" fill="{last_color}"/>'
 
     return (
         f'<svg viewBox="0 0 {SPARK_W} {SPARK_H}" width="{SPARK_W}" height="{SPARK_H}" '
         f'xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
-        f'<polyline points="{points}" fill="none" '
-        f'stroke="{SPARK_STROKE}" stroke-width="{SPARK_STROKE_WIDTH}" '
-        f'stroke-linejoin="round" stroke-linecap="round"/>'
+        + "".join(segments) + dot +
         f'</svg>'
     )
 

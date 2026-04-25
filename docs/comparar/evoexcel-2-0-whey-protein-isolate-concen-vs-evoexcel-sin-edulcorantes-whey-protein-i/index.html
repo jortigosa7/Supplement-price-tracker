@@ -85,7 +85,7 @@
   .verdict-na { font-size:0.78rem; color:#555; font-style:italic; }
 
   /* ── Tabla ────────────── */
-  .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
+  .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; -webkit-overflow-scrolling:touch; }
   .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
   .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; color:#111; }
   .cmp-table tr:last-child td { border-bottom:none; }
@@ -95,6 +95,52 @@
   .cmp-table td.winner-cell { font-weight:700; color:#111; }
   .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
   .cmp-val-badge.win { background:rgba(200,255,77,0.15); color:#4a6b00; border-color:rgba(200,255,77,0.6); }
+
+  /* ── Tabla móvil: columna label sticky, columnas producto anchas ── */
+  @media (max-width: 767px) {
+    .cmp-table-wrap {
+      scroll-snap-type: x mandatory;
+    }
+    .cmp-table {
+      table-layout: fixed;
+      /* label 96px + dos columnas producto que juntas no caben en pantalla */
+      width: calc(96px + 2 * (100vw - 56px));
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+    .cmp-table td.label-col,
+    .cmp-table th:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      width: 96px;
+      min-width: 96px;
+      max-width: 96px;
+      white-space: normal;
+      word-break: break-word;
+      background: #f7f7f7;
+    }
+    .cmp-table th:not(:first-child),
+    .cmp-table td:not(.label-col) {
+      width: calc(100vw - 116px);
+      min-width: calc(100vw - 116px);
+      scroll-snap-align: start;
+    }
+    /* Indicador visual de scroll */
+    .cmp-scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: center;
+      font-size: 0.72rem;
+      color: #888;
+      margin: -16px 0 20px;
+    }
+  }
+  @media (min-width: 768px) {
+    .cmp-scroll-hint { display: none; }
+  }
 
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
@@ -252,7 +298,7 @@
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 800;
-      color: var(--text-primary);
+      color: #f0f0f0;
       margin-bottom: 24px;
     }
 
@@ -754,7 +800,7 @@
       color: #888888;
       margin: 14px 0 20px;
     }
-    .cat-stats strong { color: #111111; }
+    .cat-stats strong { color: #f0f0f0; }
     .cat-stats .green { color: var(--accent); }
 
     /* ── Advanced filters ──────────────────────────── */
@@ -873,12 +919,12 @@
       font-weight: 700;
       margin-bottom: 14px;
       padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-      color: #111111;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
     }
     .guide-text {
       font-size: 0.9rem;
-      color: #666666;
+      color: #aaaaaa;
       line-height: 1.8;
       max-width: 760px;
       white-space: pre-line;
@@ -1163,6 +1209,7 @@
   <h2 class="cmp-section-title">Comparativa detallada</h2>
   <div class="cmp-table-wrap">
     <table class="cmp-table">
+
       <thead>
         <tr>
           <th class="label-col"></th>
@@ -1282,6 +1329,7 @@
       </tbody>
     </table>
   </div>
+  <div class="cmp-scroll-hint">← desliza para ver ambos productos →</div>
 </div>
 
 <!-- ── Cards con CTAs ─── -->
