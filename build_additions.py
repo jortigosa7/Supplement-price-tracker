@@ -36,16 +36,16 @@ def _load_history() -> dict[str, list[dict]]:
     return by_id
 
 
-_COLOR_UP   = "#ef4444"  # rojo — precio subió
-_COLOR_DOWN = "#22c55e"  # verde — precio bajó o igual
+_COLOR_BAJADA = "#22c55e"  # verde — precio actual menor o igual al inicial
+_COLOR_SUBIDA = "#ef4444"  # rojo  — precio actual mayor que el inicial
 
 
 def _build_spark_svg(prices: list[float]) -> str:
-    """Genera un SVG sparkline inline con segmentos coloreados por dirección de precio.
+    """Genera un SVG sparkline inline con color único según tendencia global.
 
-    Verde = precio bajó o se mantuvo respecto al punto anterior.
-    Rojo  = precio subió respecto al punto anterior.
-    Eje Y estándar: precios altos en la parte superior del gráfico.
+    Verde si el precio actual (último) es <= al precio inicial (primero): línea baja.
+    Rojo  si el precio actual es > al precio inicial: línea sube.
+    Eje Y estándar: precio alto arriba, precio bajo abajo.
     """
     if len(prices) < 2:
         return ""
@@ -57,31 +57,21 @@ def _build_spark_svg(prices: list[float]) -> str:
         return round(SPARK_W * i / (len(prices) - 1), 2)
 
     def _y(v):
-        # Precio alto → y pequeño (arriba del SVG): gráfico estándar
+        # Precio alto → y pequeño (arriba): gráfico estándar
         return round(SPARK_H - SPARK_H * (v - lo) / span, 2)
 
-    # Generar un <line> por segmento coloreado por dirección
-    segments = []
-    for i in range(len(prices) - 1):
-        v1, v2 = prices[i], prices[i + 1]
-        x1, y1 = _x(i), _y(v1)
-        x2, y2 = _x(i + 1), _y(v2)
-        color = _COLOR_DOWN if v2 <= v1 else _COLOR_UP
-        segments.append(
-            f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" '
-            f'stroke="{color}" stroke-width="{SPARK_STROKE_WIDTH}" '
-            f'stroke-linecap="round"/>'
-        )
+    # Color único basado en tendencia global (primer precio → último precio)
+    color = _COLOR_BAJADA if prices[-1] <= prices[0] else _COLOR_SUBIDA
 
-    # Punto en el precio actual, con el color del último movimiento
-    last_color = _COLOR_DOWN if prices[-1] <= prices[-2] else _COLOR_UP
+    points = " ".join(f"{_x(i)},{_y(v)}" for i, v in enumerate(prices))
     lx, ly = _x(len(prices) - 1), _y(prices[-1])
-    dot = f'<circle cx="{lx}" cy="{ly}" r="2.5" fill="{last_color}"/>'
 
     return (
         f'<svg viewBox="0 0 {SPARK_W} {SPARK_H}" width="{SPARK_W}" height="{SPARK_H}" '
         f'xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
-        + "".join(segments) + dot +
+        f'<polyline points="{points}" fill="none" stroke="{color}" '
+        f'stroke-width="{SPARK_STROKE_WIDTH}" stroke-linejoin="round" stroke-linecap="round"/>'
+        f'<circle cx="{lx}" cy="{ly}" r="2.5" fill="{color}"/>'
         f'</svg>'
     )
 
