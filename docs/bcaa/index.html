@@ -58,7 +58,7 @@
       "item": {
         "@type": "Product",
         "name": "BCAA\u0027S INSTANT\u00c1NEO 2:1:1 2.0 150g",
-        "url": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2Fhcy1pbnN0YW50YW5lby0yLTEtMS0yLTA=",
+        "url": "https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -138,6 +138,33 @@
       "position": 4,
       "item": {
         "@type": "Product",
+        "name": "Bcaa+Glutamine Concept 500g",
+        "url": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g",
+        "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "EUR",
+          "lowPrice": 22.04,
+          "highPrice": 22.04,
+          "offerCount": 1,
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    }
+    
+    
+    
+    
+    
+    
+    
+    ,
+    
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Product",
         "name": "BCAA\u0027S + GLUTAMINA 400g",
         "url": "https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g",
         "brand": { "@type": "Brand", "name": "Amazin\u0027 Foods" },
@@ -162,7 +189,7 @@
     
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "item": {
         "@type": "Product",
         "name": "BCAA + Glutamine 500g",
@@ -189,7 +216,7 @@
     
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "item": {
         "@type": "Product",
         "name": "Zero BCAA 300 g",
@@ -201,33 +228,6 @@
           "lowPrice": 15.90,
           "highPrice": 24.99,
           "offerCount": 2,
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    }
-    
-    
-    
-    
-    
-    
-    
-    ,
-    
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "item": {
-        "@type": "Product",
-        "name": "Bcaa+Glutamine Concept 500g",
-        "url": "https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g",
-        "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
-        "offers": {
-          "@type": "AggregateOffer",
-          "priceCurrency": "EUR",
-          "lowPrice": 28.05,
-          "highPrice": 28.05,
-          "offerCount": 1,
           "availability": "https://schema.org/InStock"
         }
       }
@@ -421,7 +421,7 @@
     main {
       flex: 1;
       padding-bottom: 80px;
-      background: #ffffff;
+      background: #0a0b0c;
     }
 
     /* ── Animations ────────────────────────────────── */
@@ -585,42 +585,36 @@
       align-items: flex-end;
       gap: 4px;
     }
-    .pc-price {
+    .pc-price-kg {
       font-family: var(--font-syne);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #111111;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--accent);
       line-height: 1;
+      font-variant-numeric: tabular-nums;
     }
-    .pc-price::before {
-      content: 'precio total';
+    .pc-price-kg::before {
+      content: '€/kg';
       display: block;
       font-family: var(--font-body);
       font-size: 9px;
-      font-weight: 400;
-      color: #cccccc;
+      font-weight: 600;
+      color: #888888;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.1em;
       line-height: 1;
       margin-bottom: 3px;
     }
-    .pc-price-kg {
-      display: inline-flex;
-      align-items: center;
-      background: #0a0b0c;
-      color: var(--accent);
-      font-family: var(--font-syne);
-      font-weight: 800;
-      font-size: 0.81rem;
-      padding: 3px 9px;
-      border-radius: 12px;
-      line-height: 1.5;
+    .pc-price {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #888888;
+      line-height: 1.4;
+      margin-top: 4px;
     }
-    .pc-price-old {
-      font-size: 0.76rem;
-      color: #cccccc;
-      text-decoration: line-through;
-    }
+    .pc-price::before { content: 'total: '; font-weight: 400; }
+    .pc-price-old { font-size: 0.72rem; color: #666666; text-decoration: line-through; }
     .pc-meta { font-size: 0.78rem; color: #aaaaaa; }
 
     .pc-stores { display: flex; flex-direction: column; gap: 5px; }
@@ -766,16 +760,8 @@
       letter-spacing: 0.03em;
     }
     .pc-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .pc-btn.pc-btn-primary {
-      background: var(--coral);
-      border-color: var(--coral);
-      color: #ffffff;
-    }
-    .pc-btn.pc-btn-primary:hover {
-      background: #e05a20;
-      border-color: #e05a20;
-      color: #ffffff;
-    }
+    .pc-btn.pc-btn-primary { background: var(--accent); border-color: var(--accent); color: #000000; }
+    .pc-btn.pc-btn-primary:hover { background: var(--accent-dim); border-color: var(--accent-dim); color: #000000; }
 
     /* ── Pagination ────────────────────────────────── */
     .pagination {
@@ -1220,6 +1206,55 @@
       .pc-actions { flex-direction: column; }
     }
 
+    /* Ticker */
+    .ticker-strip { background: rgba(200,255,77,0.04); border-bottom: 1px solid rgba(200,255,77,0.1); padding: 7px 0; overflow: hidden; white-space: nowrap; }
+    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 30s linear infinite; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { font-size: 0.7rem; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    /* Sparkline */
+    .spark-row { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin: 8px 0; }
+    .spark-info { flex: 1; }
+    .spark-label { font-size: 0.6rem; color: #666; margin-bottom: 4px; }
+    .spark-stats { text-align: right; }
+    .spark-min { font-size: 0.82rem; font-weight: 800; color: var(--accent); }
+    /* Alert banner */
+    .alert-banner { background: #111214; border: 1px solid rgba(200,255,77,0.2); border-radius: 16px; padding: 24px 28px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 48px; }
+    .alert-pulse-wrap { position: relative; width: 44px; height: 44px; flex-shrink: 0; }
+    .alert-pulse-ring { position: absolute; inset: 0; background: rgba(200,255,77,0.15); border-radius: 50%; animation: pulse 2s ease infinite; }
+    .alert-pulse-icon { position: absolute; inset: 8px; background: rgba(200,255,77,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .alert-title { font-size: 1rem; font-weight: 800; color: #f0f0f0; margin-bottom: 4px; }
+    .alert-desc { font-size: 0.78rem; color: #666; line-height: 1.5; }
+    .alert-form { display: flex; width: 100%; max-width: 380px; flex-shrink: 0; }
+    .alert-input { flex: 1; padding: 12px 16px; background: #16181a; border: 1.5px solid rgba(255,255,255,0.08); border-right: none; border-radius: 10px 0 0 10px; outline: none; color: #f0f0f0; font-family: var(--font-body); font-size: 0.88rem; }
+    .alert-input::placeholder { color: #444; }
+    .alert-btn { padding: 0 20px; background: var(--accent); border: none; color: #000; font-family: var(--font-body); font-weight: 900; font-size: 0.82rem; cursor: pointer; border-radius: 0 10px 10px 0; }
+    /* Mobile subnav */
+    .mobile-subnav { display: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 8px 16px; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+    .mobile-subnav::-webkit-scrollbar { display: none; }
+    .mobile-subnav a { flex-shrink: 0; padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); color: #666; font-size: 0.75rem; text-decoration: none; white-space: nowrap; }
+    .mobile-subnav a.active { border-color: var(--accent-border); color: var(--accent); background: var(--accent-bg); }
+    @media (max-width: 640px) { .mobile-subnav { display: flex; } }
+    /* Cards dark */
+    .product-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .product-card.is-best { border-color: var(--accent); }
+    .product-card:hover { border-color: rgba(255,255,255,0.14); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .pc-name-text { color: #e8e8e8; }
+    .pc-meta { color: #666; }
+    a.pc-store { background: #16181a; border-color: rgba(255,255,255,0.07); }
+    a.pc-store:first-child { background: rgba(200,255,77,0.06); border-color: rgba(200,255,77,0.2); }
+    a.pc-store:hover { background: #1e2022; }
+    .pc-store-name { color: #888; }
+    .pc-store-price { color: #e8e8e8; }
+    .pc-btn { background: #16181a; border-color: rgba(255,255,255,0.08); color: #666; }
+    .search-input, .search-select { background: #111214; border-color: rgba(255,255,255,0.08); color: #e8e8e8; }
+    .cat-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .cat-name { color: #e8e8e8; }
+    .cat-price { color: var(--accent); }
+    .step-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .step-title { color: #e8e8e8; }
+    .step-desc { color: #666; }
+
     /* ── Footer ────────────────────────────────────── */
     .site-footer {
       background: #0a0b0c;
@@ -1282,7 +1317,143 @@
         <a href="https://stackfit.es/comparar/" style="border-color:var(--accent-border);color:var(--accent);">⚖️ Comparar</a>
       </div>
     </nav>
+    <div class="mobile-subnav">
+      <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/creatina/">Creatina</a>
+      <a href="https://stackfit.es/bcaa/" class="active">BCAA</a>
+      <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
+      <a href="https://stackfit.es/test/" style="color:var(--accent);">🎯 Test</a>
+      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">⚖️ Comparar</a>
+    </div>
   </header>
+
+  
+
+<div class="ticker-strip"><div class="ticker-inner">
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g → 15.80€/kg ▼94.6%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g → 15.80€/kg ▼94.6%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">ISOMALTULOSA (Palatinose™) EN POLVO 1kg → 7.79€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">ISOMALTULOSA (Palatinose™) EN POLVO 1kg → 7.79€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN 2kg → 5.88€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN 2kg → 5.88€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN SIN EDULCORANTES 2kg → 5.60€/kg ▼88.1%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN SIN EDULCORANTES 2kg → 5.60€/kg ▼88.1%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREMA DE ARROZ PROTEICA 2kg → 4.17€/kg ▼87.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREMA DE ARROZ PROTEICA 2kg → 4.17€/kg ▼87.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY &amp; OATS 2kg → 3.98€/kg ▼87.3%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY &amp; OATS 2kg → 3.98€/kg ▼87.3%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBASIC WHEY 2kg → 5.17€/kg ▼86.2%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBASIC WHEY 2kg → 5.17€/kg ▼86.2%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Aislado de Proteína de Soja (Muestra) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Aislado de Proteína de Soja (Muestra) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Myvegan Vegan Protein Blend (Sample) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Myvegan Vegan Protein Blend (Sample) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">2 x Sachet 100% Whey Prime 25g → 111.20€/kg ▼83.7%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">2 x Sachet 100% Whey Prime 25g → 111.20€/kg ▼83.7%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBEAST 1kg → 16.18€/kg ▼78.9%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBEAST 1kg → 16.18€/kg ▼78.9%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Pre-workout Protein Mug Cake - Speculoos 400 g → 24.97€/kg ▼76.7%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Pre-workout Protein Mug Cake - Speculoos 400 g → 24.97€/kg ▼76.7%</span>
+  </span>
+  
+</div></div>
+
+
 
   <main>
     
@@ -1447,19 +1618,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">29.47</div>
           <div class="pc-price">4.42 €</div>
-          
-            <div class="pc-price-kg">29.47 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,3.53 40.0,0.0 60.0,3.53 80.0,7.07" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">26.33 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2Fhcy1pbnN0YW50YW5lby0yLTEtMS0yLTA=" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">4.42 €</span>
@@ -1468,7 +1643,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2Fhcy1pbnN0YW50YW5lby0yLTEtMS0yLTA=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1495,16 +1670,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">34.20</div>
           <div class="pc-price">23.94 €</div>
-          
-            <div class="pc-price-kg">34.20 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.70 kg · Vitobest
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">34.20 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/vitobest/recovery-total-700g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1516,7 +1695,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/vitobest/recovery-total-700g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/vitobest/recovery-total-700g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1543,16 +1722,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">42.60</div>
           <div class="pc-price">21.30 €</div>
-          
-            <div class="pc-price-kg">42.60 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.50 kg · Best Protein
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,0.0 40.0,0.0 60.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">42.56 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1564,7 +1747,59 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="Nutritienda"
+         data-nombre="bcaa+glutamine concept 500g"
+         data-marca="optimum nutrition"
+         data-peso="500"
+         data-precio-kg="44.08"
+         data-tipo=""
+         data-id="bcaa-glutamine-concept-500g-optimum-nutrition"
+         data-label="Bcaa+Glutamine Concept 500g">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/bcaa-glutamine-concept-500g-optimum-nutrition.webp" alt="Bcaa+Glutamine Concept 500g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">Bcaa+Glutamine Concept 500g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price-kg">44.08</div>
+          <div class="pc-price">22.04 €</div>
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        BCAA · 0.50 kg · Optimum Nutrition
+      </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">44.08 €/kg</div></div>
+      </div>
+      
+      <div class="pc-stores">
+        
+        <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
+          <span class="pc-store-name">Nutritienda</span>
+          <span class="pc-store-price">22.04 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1591,16 +1826,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">47.47</div>
           <div class="pc-price">18.99 €</div>
-          
-            <div class="pc-price-kg">47.47 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.40 kg · Amazin&#39; Foods
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">47.47 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1612,7 +1851,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1639,16 +1878,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">53.00</div>
           <div class="pc-price">26.50 €</div>
-          
-            <div class="pc-price-kg">53.00 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.50 kg · Quamtrax
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">53.00 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1660,7 +1903,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamine-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1687,16 +1930,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">53.00</div>
           <div class="pc-price">15.90 €</div>
-          
-            <div class="pc-price-kg">53.00 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.30 kg · Dedicated Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 10.0,0.0 20.0,28.0 30.0,24.72 40.0,6.0 50.0,24.72 60.0,6.0 70.0,24.72 80.0,6.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">47.70 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-300-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1715,55 +1962,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
-      </div>
-    </div>
-    
-    
-    
-    
-    
-    <div class="product-card"
-         data-tiendas="Nutritienda"
-         data-nombre="bcaa+glutamine concept 500g"
-         data-marca="optimum nutrition"
-         data-peso="500"
-         data-precio-kg="56.1"
-         data-tipo=""
-         data-id="bcaa-glutamine-concept-500g-optimum-nutrition"
-         data-label="Bcaa+Glutamine Concept 500g">
-      <div class="pc-top">
-        <div class="pc-img">
-          <img src="/img/productos/bcaa-glutamine-concept-500g-optimum-nutrition.webp" alt="Bcaa+Glutamine Concept 500g" width="80" height="80" loading="lazy">
-        </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Bcaa+Glutamine Concept 500g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price">28.05 €</div>
-          
-            <div class="pc-price-kg">56.10 €/kg</div>
-          
-          
-        </div>
-      </div>
-      <div class="pc-meta">
-        BCAA · 0.50 kg · Optimum Nutrition
-      </div>
-      <div class="pc-stores">
-        
-        <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
-          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
-          <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">28.05 €</span>
-          
-        </a>
-        
-      </div>
-      <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1790,16 +1989,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">56.63</div>
           <div class="pc-price">16.99 €</div>
-          
-            <div class="pc-price-kg">56.63 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.30 kg · Prozis
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 13.33,0.0 26.67,28.0 40.0,0.0 53.33,17.1 66.67,17.1 80.0,17.1" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">39.63 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/bcaa-211-300-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1811,7 +2014,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/bcaa-211-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/bcaa-211-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1838,16 +2041,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">56.96</div>
           <div class="pc-price">28.48 €</div>
-          
-            <div class="pc-price-kg">56.96 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.50 kg · Weider
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">56.96 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1859,7 +2066,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1886,16 +2093,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">57.80</div>
           <div class="pc-price">28.90 €</div>
-          
-            <div class="pc-price-kg">57.80 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.50 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">57.80 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1907,7 +2118,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1934,16 +2145,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">60.47</div>
           <div class="pc-price">18.14 €</div>
-          
-            <div class="pc-price-kg">60.47 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.30 kg · Procell
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">60.47 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1955,7 +2170,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1982,16 +2197,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">61.28</div>
           <div class="pc-price">23.90 €</div>
-          
-            <div class="pc-price-kg">61.28 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.39 kg · Mutant
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">61.28 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2003,7 +2222,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2030,16 +2249,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">68.81</div>
           <div class="pc-price">28.90 €</div>
-          
-            <div class="pc-price-kg">68.81 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.42 kg · Quamtrax
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">68.81 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2051,7 +2274,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2078,16 +2301,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">68.83</div>
           <div class="pc-price">20.65 €</div>
-          
-            <div class="pc-price-kg">68.83 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.30 kg · Be Essential
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">68.83 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2099,7 +2326,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2126,16 +2353,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">71.19</div>
           <div class="pc-price">29.90 €</div>
-          
-            <div class="pc-price-kg">71.19 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.42 kg · BioTechUSA
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">71.19 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2147,7 +2378,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2174,16 +2405,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">71.68</div>
           <div class="pc-price">43.01 €</div>
-          
-            <div class="pc-price-kg">71.68 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.60 kg · MEGA PLUS
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">71.68 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2195,7 +2430,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2222,16 +2457,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">72.25</div>
           <div class="pc-price">28.90 €</div>
-          
-            <div class="pc-price-kg">72.25 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.40 kg · MuscleTech
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">72.25 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/muscletech/amino-build-400g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2243,7 +2482,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/muscletech/amino-build-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/muscletech/amino-build-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2270,16 +2509,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">76.50</div>
           <div class="pc-price">22.95 €</div>
-          
-            <div class="pc-price-kg">76.50 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.30 kg · 226ers
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 26.67,28.0 53.33,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">76.50 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/226ers-bcaa-8-1-1-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2291,7 +2534,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/226ers-bcaa-8-1-1-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/226ers-bcaa-8-1-1-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2318,19 +2561,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">80.67</div>
           <div class="pc-price">12.10 €</div>
-          
-            <div class="pc-price-kg">80.67 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">80.67 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtaW5zdGFudGFuZW9zLWVuLXBvbHZv" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">12.10 €</span>
@@ -2339,7 +2586,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtaW5zdGFudGFuZW9zLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2366,16 +2613,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">81.04</div>
           <div class="pc-price">38.90 €</div>
-          
-            <div class="pc-price-kg">81.04 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.48 kg · BioTechUSA
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">81.04 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2387,7 +2638,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2414,16 +2665,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">83.30</div>
           <div class="pc-price">24.99 €</div>
-          
-            <div class="pc-price-kg">83.30 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.30 kg · Prozis
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,-0.0 60.0,-0.0 80.0,-0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">62.47 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/bcaa-811-300-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2435,7 +2690,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/bcaa-811-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/bcaa-811-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2462,19 +2717,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">85.53</div>
           <div class="pc-price">12.83 €</div>
-          
-            <div class="pc-price-kg">85.53 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,3.35 40.0,0.0 60.0,3.35 80.0,6.89" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">76.33 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWFzLWNvbXBsZXgtZW4tcG9sdm8=" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">12.83 €</span>
@@ -2483,7 +2742,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWFzLWNvbXBsZXgtZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2510,16 +2769,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">86.60</div>
           <div class="pc-price">12.99 €</div>
-          
-            <div class="pc-price-kg">86.60 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.15 kg · Prozis
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,0.0 60.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">73.60 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-150-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2531,7 +2794,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-150-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-150-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2558,19 +2821,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">93.00</div>
           <div class="pc-price">13.95 €</div>
-          
-            <div class="pc-price-kg">93.00 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,3.52 40.0,0.0 60.0,3.52 80.0,6.9" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">83.00 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWEtcy0yLTAtYmNhYXMtMTItMS0xLWdsdXRhbWluYQ==" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">13.95 €</span>
@@ -2579,7 +2846,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWEtcy0yLTAtYmNhYXMtMTItMS0xLWdsdXRhbWluYQ==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2606,16 +2873,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">94.38</div>
           <div class="pc-price">37.75 €</div>
-          
-            <div class="pc-price-kg">94.38 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.40 kg · Big
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">94.38 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2627,7 +2898,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2654,16 +2925,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">94.64</div>
           <div class="pc-price">26.50 €</div>
-          
-            <div class="pc-price-kg">94.64 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.28 kg · Scitec Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,0.0 40.0,0.0 60.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">88.93 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/scitec/bcaa-xpress-280g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2675,7 +2950,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/scitec/bcaa-xpress-280g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/scitec/bcaa-xpress-280g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2702,19 +2977,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">100.40</div>
           <div class="pc-price">15.06 €</div>
-          
-            <div class="pc-price-kg">100.40 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,26.19 40.0,0.0 60.0,26.19 80.0,1.42" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">33.00 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2FhLXMtaW5zdGFudGFuZW8tNC0xLTEtMi0w" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">15.06 €</span>
@@ -2723,7 +3002,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2FhLXMtaW5zdGFudGFuZW8tNC0xLTEtMi0w" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2750,16 +3029,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">113.33</div>
           <div class="pc-price">34.00 €</div>
-          
-            <div class="pc-price-kg">113.33 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         BCAA · 0.30 kg · Amix
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">113.33 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2771,7 +3054,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -3032,15 +3315,15 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
       
       <div class="other-item">
         <div class="other-name">
-          BCAAS 60 Tabs
-          <span class="other-marca">Optimum Nutrition</span>
+          XXX Amino Pool 1000 Tabs
+          <span class="other-marca">+Watt</span>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.nutritienda.com/es/gold-nutrition-bcaas-60-tabs" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.nutritienda.com/es/watt/xxx-amino-pool-1000-tabs" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 13.95 €
+            Nutritienda · 72.00 €
           </a>
           
         </div>
@@ -3055,7 +3338,7 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by0yLTEtMS1iY2FhLXMtMi0xLTEtdml0YW1pbmFzLWI2LXktYjEy" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/sport-series/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 9.46 €
           </a>
@@ -3072,7 +3355,7 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtNC0xLTEtdml0YW1pbmFzLWI2LXktYjEy" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 10.58 €
           </a>
@@ -3219,6 +3502,23 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
       
       <div class="other-item">
         <div class="other-name">
+          2 x Recovery RTD 500 mL Orange
+          <span class="other-marca">Prozis</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-orange" class="store-pill store-prozis" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--prozis);"></span>
+            Prozis · 3.18 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
           3 x BCAA Drink 500 mL
           <span class="other-marca">Prozis</span>
         </div>
@@ -3245,23 +3545,6 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
           <a href="https://www.prozis.com/es/es/prozis/bcaa-glutamine-60-servings" class="store-pill store-prozis" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--prozis);"></span>
             Prozis · 26.99 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
-          2 x Recovery RTD 500 mL Orange
-          <span class="other-marca">Prozis</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.prozis.com/es/es/prozis/2-x-recovery-rtd-500-ml-orange" class="store-pill store-prozis" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--prozis);"></span>
-            Prozis · 3.18 €
           </a>
           
         </div>
@@ -3546,7 +3829,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
   if (!list || !bar || !btnGo) return; // guard por si falla algún ID
-  var SLUGS  = new Set(["bcaa-2-1-1-500g-optimum-nutrition-vs-zero-bcaa-300-g-desconocida", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-glutamine-concept-500g-optimum-nutr-vs-recovery-total-700g-vitobest", "bcaa-glutamine-500g-quamtrax-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-glutamine-500g-ramificados", "recovery-total-700g-vitobest-vs-zero-bcaa-300-g-desconocida", "bcaa-2-1-1-300-g-desconocida-vs-zero-bcaa-150-g-desconocida", "bcaa-2-1-1-500g-optimum-nutrition-vs-recovery-total-700g-vitobest", "bcaa-glutamine-500g-quamtrax-vs-recovery-total-700g-vitobest", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-glutamine-500g-quamtrax", "bcaa-2-1-1-500g-optimum-nutrition-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-s-glutamina-400g-aminoacidos-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "after-420g-biotechusa-vs-bcaa-glutamine-zero-480g-biotechusa", "bcaa-s-glutamina-400g-aminoacidos-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "premium-bcaa-zero-8-1-1-l-glutamina-500g-vs-zero-bcaa-300-g-desconocida", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-glutamine-concept-500g-optimum-nutr-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-glutamine-500g-quamtrax-vs-bcaa-glutamine-500g-ramificados", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-15", "bcaa-glutamine-500g-quamtrax-vs-zero-bcaa-300-g-desconocida", "bcaa-glutamine-concept-500g-optimum-nutr-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-glutamine-500g-ramificados-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-s-glutamina-400g-aminoacidos", "premium-bcaa-zero-8-1-1-l-glutamina-500g-vs-recovery-total-700g-vitobest", "bcaa-glutamine-500g-quamtrax-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-2-1-1-500g-optimum-nutrition", "bcaa-glutamine-500g-ramificados-vs-recovery-total-700g-vitobest", "bcaa-glutamine-concept-500g-optimum-nutr-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-evo-4-1-1-bcaa-s-instantaneos-en-polvo-1", "bcaa-2-1-1-300-g-desconocida-vs-zero-bcaa-300-g-desconocida", "bcaa-s-glutamina-400g-aminoacidos-vs-recovery-total-700g-vitobest", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-s-glutamina-400g-aminoacidos-vs-zero-bcaa-300-g-desconocida", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-glutamine-500g-ramificados", "bcaa-2-1-1-300-g-desconocida-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-recovery-total-700g-vitobest", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-glutamine-500g-quamtrax-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-8-1-1-300-g-desconocida", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-glutamine-500g-quamtrax", "bcaa-glutamine-500g-ramificados-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-2-1-1-300-g-desconocida-vs-recovery-total-700g-vitobest", "bcaa-glutamine-500g-ramificados-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-glutamine-concept-500g-optimum-nutr-vs-zero-bcaa-300-g-desconocida", "bcaa-glutamine-500g-quamtrax-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-glutamine-500g-quamtrax-vs-hydra-bcaa-s-420g-quamtrax", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-evobcaa-s-complex-en-polvo-150g-desconoc", "evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-15-vs-evobcaa-s-complex-en-polvo-150g-desconoc", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-8-1-1-300-g-desconocida-vs-zero-bcaa-150-g-desconocida", "bcaa-glutamine-500g-ramificados-vs-zero-bcaa-300-g-desconocida", "evo-4-1-1-bcaa-s-instantaneos-en-polvo-1-vs-evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-15", "evo-4-1-1-bcaa-s-instantaneos-en-polvo-1-vs-evobcaa-s-complex-en-polvo-150g-desconoc", "bcaa-glutamine-500g-ramificados-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-zero-bcaa-300-g-desconocida"]);
+  var SLUGS  = new Set(["bcaa-2-1-1-300-g-desconocida-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-glutamine-500g-quamtrax-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-15", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-glutamine-500g-ramificados-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-glutamine-concept-500g-optimum-nutr-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-evobcaa-s-complex-en-polvo-150g-desconoc", "bcaa-s-glutamina-400g-aminoacidos-vs-recovery-total-700g-vitobest", "bcaa-2-1-1-300-g-desconocida-vs-recovery-total-700g-vitobest", "evo-4-1-1-bcaa-s-instantaneos-en-polvo-1-vs-evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-15", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-s-glutamina-400g-aminoacidos", "after-420g-biotechusa-vs-bcaa-glutamine-zero-480g-biotechusa", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-2-1-1-500g-optimum-nutrition", "bcaa-2-1-1-300-g-desconocida-vs-zero-bcaa-150-g-desconocida", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-8-1-1-300-g-desconocida", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-glutamine-500g-ramificados", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-evo-4-1-1-bcaa-s-instantaneos-en-polvo-1", "bcaa-8-1-1-300-g-desconocida-vs-zero-bcaa-150-g-desconocida", "bcaa-s-glutamina-400g-aminoacidos-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-s-glutamina-400g-aminoacidos-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-glutamine-500g-ramificados", "bcaa-2-1-1-300-g-desconocida-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-2-1-1-300-g-desconocida-vs-zero-bcaa-300-g-desconocida", "bcaa-glutamine-500g-quamtrax-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "premium-bcaa-zero-8-1-1-l-glutamina-500g-vs-zero-bcaa-300-g-desconocida", "bcaa-2-1-1-500g-optimum-nutrition-vs-bcaa-glutamine-500g-quamtrax", "bcaa-s-glutamina-400g-aminoacidos-vs-zero-bcaa-300-g-desconocida", "premium-bcaa-zero-8-1-1-l-glutamina-500g-vs-recovery-total-700g-vitobest", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-zero-bcaa-300-g-desconocida", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-glutamine-500g-quamtrax", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-2-1-1-500g-optimum-nutrition-vs-zero-bcaa-300-g-desconocida", "bcaa-glutamine-500g-ramificados-vs-zero-bcaa-300-g-desconocida", "bcaa-glutamine-500g-ramificados-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-glutamine-500g-quamtrax-vs-recovery-total-700g-vitobest", "bcaa-2-1-1-500g-optimum-nutrition-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-glutamine-concept-500g-optimum-nutr-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "evo-4-1-1-bcaa-s-instantaneos-en-polvo-1-vs-evobcaa-s-complex-en-polvo-150g-desconoc", "evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-15-vs-evobcaa-s-complex-en-polvo-150g-desconoc", "bcaa-glutamine-concept-500g-optimum-nutr-vs-recovery-total-700g-vitobest", "bcaa-glutamine-500g-ramificados-vs-bcaa-s-instantaneo-2-1-1-2-0-150g-descon", "bcaa-glutamine-concept-500g-optimum-nutr-vs-zero-bcaa-300-g-desconocida", "bcaa-glutamine-500g-quamtrax-vs-bcaa-glutamine-500g-ramificados", "bcaa-glutamine-500g-quamtrax-vs-bcaa-s-glutamina-400g-aminoacidos", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-recovery-total-700g-vitobest", "bcaa-glutamine-500g-quamtrax-vs-hydra-bcaa-s-420g-quamtrax", "recovery-total-700g-vitobest-vs-zero-bcaa-300-g-desconocida", "bcaa-2-1-1-500g-optimum-nutrition-vs-recovery-total-700g-vitobest", "bcaa-glutamine-500g-quamtrax-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-glutamine-500g-quamtrax-vs-zero-bcaa-300-g-desconocida", "bcaa-2-1-1-300-g-desconocida-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-glutamine-500g-ramificados-vs-bcaa-glutamine-concept-500g-optimum-nutr", "bcaa-glutamine-concept-500g-optimum-nutr-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g", "bcaa-glutamine-500g-ramificados-vs-recovery-total-700g-vitobest", "bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-premium-bcaa-zero-8-1-1-l-glutamina-500g"]);
   var BASE   = 'https://stackfit.es/comparar/';
   var selected = [];
 

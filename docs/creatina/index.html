@@ -58,7 +58,7 @@
       "item": {
         "@type": "Product",
         "name": "CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g",
-        "url": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==",
+        "url": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh",
         "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
         "offers": {
           "@type": "AggregateOffer",
@@ -85,7 +85,7 @@
       "item": {
         "@type": "Product",
         "name": "CREATINA MONOHIDRATO ULTRAFINA EN POLVO (500 MESH) 500g",
-        "url": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by11bHRyYWZpbmEtZW4tcG9sdm8tNTAwLW1lc2g=",
+        "url": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh",
         "brand": { "@type": "Brand", "name": "Optimum Nutrition" },
         "offers": {
           "@type": "AggregateOffer",
@@ -112,7 +112,7 @@
       "item": {
         "@type": "Product",
         "name": "EVOCREATINE 500g",
-        "url": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NyZWF0aW5l",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evocreatine",
         "brand": { "@type": "Brand", "name": "Quamtrax Direct" },
         "offers": {
           "@type": "AggregateOffer",
@@ -421,7 +421,7 @@
     main {
       flex: 1;
       padding-bottom: 80px;
-      background: #ffffff;
+      background: #0a0b0c;
     }
 
     /* ── Animations ────────────────────────────────── */
@@ -585,42 +585,36 @@
       align-items: flex-end;
       gap: 4px;
     }
-    .pc-price {
+    .pc-price-kg {
       font-family: var(--font-syne);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #111111;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--accent);
       line-height: 1;
+      font-variant-numeric: tabular-nums;
     }
-    .pc-price::before {
-      content: 'precio total';
+    .pc-price-kg::before {
+      content: '€/kg';
       display: block;
       font-family: var(--font-body);
       font-size: 9px;
-      font-weight: 400;
-      color: #cccccc;
+      font-weight: 600;
+      color: #888888;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.1em;
       line-height: 1;
       margin-bottom: 3px;
     }
-    .pc-price-kg {
-      display: inline-flex;
-      align-items: center;
-      background: #0a0b0c;
-      color: var(--accent);
-      font-family: var(--font-syne);
-      font-weight: 800;
-      font-size: 0.81rem;
-      padding: 3px 9px;
-      border-radius: 12px;
-      line-height: 1.5;
+    .pc-price {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #888888;
+      line-height: 1.4;
+      margin-top: 4px;
     }
-    .pc-price-old {
-      font-size: 0.76rem;
-      color: #cccccc;
-      text-decoration: line-through;
-    }
+    .pc-price::before { content: 'total: '; font-weight: 400; }
+    .pc-price-old { font-size: 0.72rem; color: #666666; text-decoration: line-through; }
     .pc-meta { font-size: 0.78rem; color: #aaaaaa; }
 
     .pc-stores { display: flex; flex-direction: column; gap: 5px; }
@@ -766,16 +760,8 @@
       letter-spacing: 0.03em;
     }
     .pc-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .pc-btn.pc-btn-primary {
-      background: var(--coral);
-      border-color: var(--coral);
-      color: #ffffff;
-    }
-    .pc-btn.pc-btn-primary:hover {
-      background: #e05a20;
-      border-color: #e05a20;
-      color: #ffffff;
-    }
+    .pc-btn.pc-btn-primary { background: var(--accent); border-color: var(--accent); color: #000000; }
+    .pc-btn.pc-btn-primary:hover { background: var(--accent-dim); border-color: var(--accent-dim); color: #000000; }
 
     /* ── Pagination ────────────────────────────────── */
     .pagination {
@@ -1220,6 +1206,55 @@
       .pc-actions { flex-direction: column; }
     }
 
+    /* Ticker */
+    .ticker-strip { background: rgba(200,255,77,0.04); border-bottom: 1px solid rgba(200,255,77,0.1); padding: 7px 0; overflow: hidden; white-space: nowrap; }
+    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 30s linear infinite; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { font-size: 0.7rem; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    /* Sparkline */
+    .spark-row { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin: 8px 0; }
+    .spark-info { flex: 1; }
+    .spark-label { font-size: 0.6rem; color: #666; margin-bottom: 4px; }
+    .spark-stats { text-align: right; }
+    .spark-min { font-size: 0.82rem; font-weight: 800; color: var(--accent); }
+    /* Alert banner */
+    .alert-banner { background: #111214; border: 1px solid rgba(200,255,77,0.2); border-radius: 16px; padding: 24px 28px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 48px; }
+    .alert-pulse-wrap { position: relative; width: 44px; height: 44px; flex-shrink: 0; }
+    .alert-pulse-ring { position: absolute; inset: 0; background: rgba(200,255,77,0.15); border-radius: 50%; animation: pulse 2s ease infinite; }
+    .alert-pulse-icon { position: absolute; inset: 8px; background: rgba(200,255,77,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .alert-title { font-size: 1rem; font-weight: 800; color: #f0f0f0; margin-bottom: 4px; }
+    .alert-desc { font-size: 0.78rem; color: #666; line-height: 1.5; }
+    .alert-form { display: flex; width: 100%; max-width: 380px; flex-shrink: 0; }
+    .alert-input { flex: 1; padding: 12px 16px; background: #16181a; border: 1.5px solid rgba(255,255,255,0.08); border-right: none; border-radius: 10px 0 0 10px; outline: none; color: #f0f0f0; font-family: var(--font-body); font-size: 0.88rem; }
+    .alert-input::placeholder { color: #444; }
+    .alert-btn { padding: 0 20px; background: var(--accent); border: none; color: #000; font-family: var(--font-body); font-weight: 900; font-size: 0.82rem; cursor: pointer; border-radius: 0 10px 10px 0; }
+    /* Mobile subnav */
+    .mobile-subnav { display: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 8px 16px; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+    .mobile-subnav::-webkit-scrollbar { display: none; }
+    .mobile-subnav a { flex-shrink: 0; padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); color: #666; font-size: 0.75rem; text-decoration: none; white-space: nowrap; }
+    .mobile-subnav a.active { border-color: var(--accent-border); color: var(--accent); background: var(--accent-bg); }
+    @media (max-width: 640px) { .mobile-subnav { display: flex; } }
+    /* Cards dark */
+    .product-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .product-card.is-best { border-color: var(--accent); }
+    .product-card:hover { border-color: rgba(255,255,255,0.14); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .pc-name-text { color: #e8e8e8; }
+    .pc-meta { color: #666; }
+    a.pc-store { background: #16181a; border-color: rgba(255,255,255,0.07); }
+    a.pc-store:first-child { background: rgba(200,255,77,0.06); border-color: rgba(200,255,77,0.2); }
+    a.pc-store:hover { background: #1e2022; }
+    .pc-store-name { color: #888; }
+    .pc-store-price { color: #e8e8e8; }
+    .pc-btn { background: #16181a; border-color: rgba(255,255,255,0.08); color: #666; }
+    .search-input, .search-select { background: #111214; border-color: rgba(255,255,255,0.08); color: #e8e8e8; }
+    .cat-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .cat-name { color: #e8e8e8; }
+    .cat-price { color: var(--accent); }
+    .step-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .step-title { color: #e8e8e8; }
+    .step-desc { color: #666; }
+
     /* ── Footer ────────────────────────────────────── */
     .site-footer {
       background: #0a0b0c;
@@ -1282,7 +1317,143 @@
         <a href="https://stackfit.es/comparar/" style="border-color:var(--accent-border);color:var(--accent);">⚖️ Comparar</a>
       </div>
     </nav>
+    <div class="mobile-subnav">
+      <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/creatina/" class="active">Creatina</a>
+      <a href="https://stackfit.es/bcaa/">BCAA</a>
+      <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
+      <a href="https://stackfit.es/test/" style="color:var(--accent);">🎯 Test</a>
+      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">⚖️ Comparar</a>
+    </div>
   </header>
+
+  
+
+<div class="ticker-strip"><div class="ticker-inner">
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g → 15.80€/kg ▼94.6%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g → 15.80€/kg ▼94.6%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">ISOMALTULOSA (Palatinose™) EN POLVO 1kg → 7.79€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">ISOMALTULOSA (Palatinose™) EN POLVO 1kg → 7.79€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN 2kg → 5.88€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN 2kg → 5.88€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN SIN EDULCORANTES 2kg → 5.60€/kg ▼88.1%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN SIN EDULCORANTES 2kg → 5.60€/kg ▼88.1%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREMA DE ARROZ PROTEICA 2kg → 4.17€/kg ▼87.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREMA DE ARROZ PROTEICA 2kg → 4.17€/kg ▼87.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY &amp; OATS 2kg → 3.98€/kg ▼87.3%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY &amp; OATS 2kg → 3.98€/kg ▼87.3%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBASIC WHEY 2kg → 5.17€/kg ▼86.2%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBASIC WHEY 2kg → 5.17€/kg ▼86.2%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Aislado de Proteína de Soja (Muestra) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Aislado de Proteína de Soja (Muestra) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Myvegan Vegan Protein Blend (Sample) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Myvegan Vegan Protein Blend (Sample) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">2 x Sachet 100% Whey Prime 25g → 111.20€/kg ▼83.7%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">2 x Sachet 100% Whey Prime 25g → 111.20€/kg ▼83.7%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBEAST 1kg → 16.18€/kg ▼78.9%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBEAST 1kg → 16.18€/kg ▼78.9%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Pre-workout Protein Mug Cake - Speculoos 400 g → 24.97€/kg ▼76.7%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Pre-workout Protein Mug Cake - Speculoos 400 g → 24.97€/kg ▼76.7%</span>
+  </span>
+  
+</div></div>
+
+
 
   <main>
     
@@ -1304,7 +1475,7 @@
       Comparativa de creatina en tiendas españolas. La creatina monohidrato es el suplemento más estudiado — aquí encuentras la opción más económica.
     </p>
     <div class="cat-stats">
-      <span>📦 <strong>25</strong> productos</span>
+      <span>📦 <strong>26</strong> productos</span>
       <span>🗓️ Actualizado: <strong>2026-04-20</strong></span>
       
       
@@ -1433,19 +1604,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">15.80</div>
           <div class="pc-price">2.37 €</div>
-          
-            <div class="pc-price-kg">15.80 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.15 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 10.0,8.88 20.0,26.94 30.0,8.88 40.0,26.9 50.0,0.0 60.0,28.0 70.0,28.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">15.80 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">2.37 €</span>
@@ -1461,7 +1636,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1488,19 +1663,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">29.10</div>
           <div class="pc-price">14.55 €</div>
-          
-            <div class="pc-price-kg">29.10 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.50 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,27.63 11.43,0.0 22.86,27.63 34.29,13.79 45.71,27.29 57.14,0.48 68.57,28.0 80.0,26.67" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">29.10 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by11bHRyYWZpbmEtZW4tcG9sdm8tNTAwLW1lc2g=" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">14.55 €</span>
@@ -1516,7 +1695,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by11bHRyYWZpbmEtZW4tcG9sdm8tNTAwLW1lc2g=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1543,19 +1722,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">32.36</div>
           <div class="pc-price">16.18 €</div>
-          
-            <div class="pc-price-kg">32.36 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.50 kg · Quamtrax Direct
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,15.81 11.43,28.0 22.86,16.73 34.29,28.0 45.71,3.04 57.14,15.81 68.57,16.38 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">19.98 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NyZWF0aW5l" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evocreatine" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">16.18 €</span>
@@ -1571,7 +1754,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NyZWF0aW5l" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/sport-series/evocreatine" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1598,16 +1781,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">33.70</div>
           <div class="pc-price">26.96 €</div>
-          
-            <div class="pc-price-kg">33.70 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.80 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 26.67,28.0 53.33,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">33.70 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/keepgoing/creatina-celular-800g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1619,7 +1806,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/keepgoing/creatina-celular-800g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/keepgoing/creatina-celular-800g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1646,16 +1833,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">41.22</div>
           <div class="pc-price">20.61 €</div>
-          
-            <div class="pc-price-kg">41.22 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.50 kg · NUTRISPORT
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">41.22 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/nutrisport-creatina-celular-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1667,7 +1858,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/nutrisport-creatina-celular-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/nutrisport-creatina-celular-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1694,16 +1885,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">44.99</div>
           <div class="pc-price">44.99 €</div>
-          
-            <div class="pc-price-kg">44.99 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 1.00 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">44.99 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-elite/10872819/" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1715,7 +1910,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-elite/10872819/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-elite/10872819/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1742,16 +1937,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">49.81</div>
           <div class="pc-price">39.85 €</div>
-          
-            <div class="pc-price-kg">49.81 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.80 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">49.81 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-800g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1763,7 +1962,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-800g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/qnt-sport/creatine-monohydrate-800g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1790,16 +1989,15 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">56.36</div>
           <div class="pc-price">14.09 €</div>
-          
-            <div class="pc-price-kg">56.36 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.25 kg · MyProtein
       </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/myprotein/pro-the-creatine-creapure-250g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1811,7 +2009,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/myprotein/pro-the-creatine-creapure-250g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/myprotein/pro-the-creatine-creapure-250g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1838,16 +2036,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">60.21</div>
           <div class="pc-price">60.21 €</div>
-          
-            <div class="pc-price-kg">60.21 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 1.00 kg · Starlabs Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">60.21 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatina-1000g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1859,7 +2061,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatina-1000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatina-1000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1886,16 +2088,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">60.56</div>
           <div class="pc-price">30.28 €</div>
-          
-            <div class="pc-price-kg">60.56 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.50 kg · Olimp
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">60.56 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/olimp/creatine-xplode-powder-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1907,7 +2113,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/olimp/creatine-xplode-powder-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/olimp/creatine-xplode-powder-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1934,16 +2140,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">62.25</div>
           <div class="pc-price">24.90 €</div>
-          
-            <div class="pc-price-kg">62.25 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.40 kg · Amazin&#39; Foods
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">62.25 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1955,7 +2165,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1982,16 +2192,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">62.72</div>
           <div class="pc-price">15.68 €</div>
-          
-            <div class="pc-price-kg">62.72 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.25 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 11.43,17.91 22.86,17.91 34.29,0.0 45.71,25.73 57.14,17.91 68.57,25.73 80.0,17.91" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">61.20 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/vitobest/creatine-clonapure-200g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2010,7 +2224,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/vitobest/creatine-clonapure-200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/vitobest/creatine-clonapure-200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2021,38 +2235,42 @@
     
     <div class="product-card"
          data-tiendas="Nutritienda,Prozis"
-         data-nombre="100% creatine monohydrate sabores 300g"
+         data-nombre="creatina monohidrato creapure 280g"
          data-marca="optimum nutrition"
-         data-peso="300"
-         data-precio-kg="74.7"
+         data-peso="280"
+         data-precio-kg="72.93"
          data-tipo=""
-         data-id="100-creatine-monohydrate-sabores-300g-optimum-nutrition"
-         data-label="100% Creatine Monohydrate Sabores 300g">
+         data-id="creatina-monohidrato-creapure-280g-optimum-nutrition"
+         data-label="Creatina Monohidrato Creapure 280g">
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/100-creatine-monohydrate-sabores-300g-optimum-nutrition.webp" alt="100% Creatine Monohydrate Sabores 300g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/placeholder-creatina.svg" alt="Creatina Monohidrato Creapure 280g" width="80" height="80" loading="lazy">
         </div>
         <div class="pc-name">
-          <span class="pc-name-text">100% Creatine Monohydrate Sabores 300g</span>
+          <span class="pc-name-text">Creatina Monohidrato Creapure 280g</span>
           
         </div>
         <div class="pc-price-block">
-          <div class="pc-price">22.41 €</div>
-          
-            <div class="pc-price-kg">74.70 €/kg</div>
-          
+          <div class="pc-price-kg">72.93</div>
+          <div class="pc-price">20.42 €</div>
           
         </div>
       </div>
       <div class="pc-meta">
-        Creatina · 0.30 kg · Optimum Nutrition
+        Creatina · 0.28 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">72.93 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.nutritienda.com/es/biotech-usa/100-creatine-monohydrate-sabores-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.nutritienda.com/es/gold-nutrition/creatina-monohidrato-creapure-280g" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
           <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">22.41 €</span>
+          <span class="pc-store-price">20.42 €</span>
           
         </a>
         
@@ -2065,7 +2283,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/biotech-usa/100-creatine-monohydrate-sabores-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/gold-nutrition/creatina-monohidrato-creapure-280g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2092,16 +2310,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">74.70</div>
           <div class="pc-price">37.35 €</div>
-          
-            <div class="pc-price-kg">74.70 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.50 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">74.70 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2113,7 +2335,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2140,16 +2362,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">76.50</div>
           <div class="pc-price">22.95 €</div>
-          
-            <div class="pc-price-kg">76.50 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.30 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 26.67,0.0 53.33,28.0 80.0,17.46" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">76.50 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2168,7 +2394,59 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/starlabs-nutrition-cr5-creatine-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="Nutritienda"
+         data-nombre="100% creatine monohydrate micronized 500g"
+         data-marca="optimum nutrition"
+         data-peso="500"
+         data-precio-kg="79.8"
+         data-tipo=""
+         data-id="100-creatine-monohydrate-micronized-500g-optimum-nutrition"
+         data-label="100% CREATINE MONOHYDRATE MICRONIZ…">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/placeholder-creatina.svg" alt="100% CREATINE MONOHYDRATE MICRONIZED 500g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">100% CREATINE MONOHYDRATE MICRONIZED 500g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price-kg">79.80</div>
+          <div class="pc-price">39.90 €</div>
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Creatina · 0.50 kg · Optimum Nutrition
+      </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">79.80 €/kg</div></div>
+      </div>
+      
+      <div class="pc-stores">
+        
+        <a href="https://www.nutritienda.com/es/biotech-usa-100-creatine-monohidrate-micronized-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
+          <span class="pc-store-name">Nutritienda</span>
+          <span class="pc-store-price">39.90 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.nutritienda.com/es/biotech-usa-100-creatine-monohidrate-micronized-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2195,16 +2473,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">80.55</div>
           <div class="pc-price">48.33 €</div>
-          
-            <div class="pc-price-kg">80.55 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.60 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 16.0,9.78 32.0,28.0 48.0,0.0 64.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">54.15 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2216,7 +2498,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2243,16 +2525,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">89.43</div>
           <div class="pc-price">26.83 €</div>
-          
-            <div class="pc-price-kg">89.43 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.30 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,-0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">89.43 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/infisport/creatina-monohidrato-creapure-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2271,7 +2557,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/infisport/creatina-monohidrato-creapure-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/infisport/creatina-monohidrato-creapure-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2298,16 +2584,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">89.67</div>
           <div class="pc-price">26.90 €</div>
-          
-            <div class="pc-price-kg">89.67 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.30 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">89.67 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/quamtrax/creatina-monohydrate-creapure-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2319,7 +2609,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/quamtrax/creatina-monohydrate-creapure-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/quamtrax/creatina-monohydrate-creapure-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2346,16 +2636,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">103.50</div>
           <div class="pc-price">41.40 €</div>
-          
-            <div class="pc-price-kg">103.50 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.40 kg · Calidad Creapure
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">103.50 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/nutrisport/creatina-monohidrato-cn-creapure-400g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2367,7 +2661,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/nutrisport/creatina-monohidrato-cn-creapure-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/nutrisport/creatina-monohidrato-cn-creapure-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2394,16 +2688,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">116.63</div>
           <div class="pc-price">34.99 €</div>
-          
-            <div class="pc-price-kg">116.63 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.30 kg · Amix
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 10.0,22.63 20.0,28.0 30.0,24.75 40.0,13.57 50.0,0.0 60.0,13.57 70.0,13.57 80.0,11.31" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">75.80 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-300-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2422,55 +2720,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
-      </div>
-    </div>
-    
-    
-    
-    
-    
-    <div class="product-card"
-         data-tiendas="Prozis"
-         data-nombre="creatina micronpure 600g"
-         data-marca="optimum nutrition"
-         data-peso="600"
-         data-precio-kg="116.65"
-         data-tipo=""
-         data-id="creatina-micronpure-600g-optimum-nutrition"
-         data-label="Creatina MicronPure 600g">
-      <div class="pc-top">
-        <div class="pc-img">
-          <img src="/img/productos/placeholder-creatina.svg" alt="Creatina MicronPure 600g" width="80" height="80" loading="lazy">
-        </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Creatina MicronPure 600g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price">69.99 €</div>
-          
-            <div class="pc-price-kg">116.65 €/kg</div>
-          
-          
-        </div>
-      </div>
-      <div class="pc-meta">
-        Creatina · 0.60 kg · Optimum Nutrition
-      </div>
-      <div class="pc-stores">
-        
-        <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600g" class="pc-store" target="_blank" rel="nofollow sponsored">
-          <span class="pc-store-dot" style="background:var(--prozis);"></span>
-          <span class="pc-store-name">Prozis</span>
-          <span class="pc-store-price">69.99 €</span>
-          
-        </a>
-        
-      </div>
-      <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2497,16 +2747,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">116.65</div>
           <div class="pc-price">69.99 €</div>
-          
-            <div class="pc-price-kg">116.65 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.60 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,0.0 60.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">69.98 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2518,7 +2772,59 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="Prozis"
+         data-nombre="creatina micronpure 600g"
+         data-marca="optimum nutrition"
+         data-peso="600"
+         data-precio-kg="116.65"
+         data-tipo=""
+         data-id="creatina-micronpure-600g-optimum-nutrition"
+         data-label="Creatina MicronPure 600g">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/placeholder-creatina.svg" alt="Creatina MicronPure 600g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">Creatina MicronPure 600g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price-kg">116.65</div>
+          <div class="pc-price">69.99 €</div>
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Creatina · 0.60 kg · Optimum Nutrition
+      </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,0.0 60.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">104.98 €/kg</div></div>
+      </div>
+      
+      <div class="pc-stores">
+        
+        <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600g" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--prozis);"></span>
+          <span class="pc-store-name">Prozis</span>
+          <span class="pc-store-price">69.99 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2545,16 +2851,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">123.63</div>
           <div class="pc-price">37.09 €</div>
-          
-            <div class="pc-price-kg">123.63 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.30 kg · Amix Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 13.33,0.0 26.67,28.0 40.0,20.09 53.33,20.09 66.67,20.09 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">111.27 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/zero-creatine-300-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2573,7 +2883,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/zero-creatine-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/zero-creatine-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2600,19 +2910,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">152.67</div>
           <div class="pc-price">22.90 €</div>
-          
-            <div class="pc-price-kg">152.67 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,27.46 16.0,27.46 32.0,26.91 48.0,27.46 64.0,0.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">152.67 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwLWNyZWFwdXJlLWVuLXBvbHZv" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">22.90 €</span>
@@ -2621,7 +2935,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwLWNyZWFwdXJlLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2648,16 +2962,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">159.93</div>
           <div class="pc-price">23.99 €</div>
-          
-            <div class="pc-price-kg">159.93 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Creatina · 0.15 kg · Prozis
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,3.11 16.0,3.11 32.0,0.0 48.0,0.0 64.0,28.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">15.80 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/zero-creatine-150-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2669,7 +2987,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/zero-creatine-150-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/zero-creatine-150-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2815,23 +3133,6 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
       
       <div class="other-item">
         <div class="other-name">
-          Kre-Alkalyn 2250 mg 100 Caps
-          <span class="other-marca">Optimum Nutrition</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.nutritienda.com/es/life-pro-nutrition/kre-alkalyn-2250-mg-100-capsulas" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 23.90 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
           CREATINA PH-X 90 Caps
           <span class="other-marca">Optimum Nutrition</span>
         </div>
@@ -2841,23 +3142,6 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
           <a href="https://www.nutritienda.com/es/biotech-usa/creatina-ph-x-90-caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
             Nutritienda · 17.90 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
-          CREATOR 120 Caps
-          <span class="other-marca">Combina 5 tipos de creatinas</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.nutritienda.com/es/biotech-usa/creator-120-caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 25.90 €
           </a>
           
         </div>
@@ -2909,23 +3193,6 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
           <a href="https://www.nutritienda.com/es/biotech-usa/creatine-zero-effervescent-16-tabs" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
             Nutritienda · 7.50 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
-          Kre-Alkalyn 100 Caps
-          <span class="other-marca">Vitobest</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.nutritienda.com/es/vitobest/kre-alkalyn-100-capsulas" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 28.64 €
           </a>
           
         </div>
@@ -3002,13 +3269,47 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
       
       <div class="other-item">
         <div class="other-name">
+          Creatine Monohydrate 220 Caps
+          <span class="other-marca">Optimum Nutrition</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.nutritienda.com/es/amix-nutrition-creatina-monohidrato-220-caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
+            Nutritienda · 40.90 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          Kre-Alkalyn 3000 120 Caps
+          <span class="other-marca">Quamtrax</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.nutritienda.com/es/quamtrax-kre-alkalyn-3000-120-caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
+            Nutritienda · 28.90 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
           CREATINA EXCELL 1000mg (100% Creapure®)
           <span class="other-marca">HSN</span>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwMG1nLTEwMC1jcmVhcHVyZQ==" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/essential-series/creatina-excell-1000mg-100-creapure" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 13.95 €
           </a>
@@ -3025,7 +3326,7 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by0xMDAwbWctY3JlYXRpbmE=" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 8.35 €
           </a>
@@ -3042,7 +3343,7 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2thbHluLWNyZWF0aW5hLWFsY2FsaW5h" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 19.55 €
           </a>
@@ -3059,7 +3360,7 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvbm93LWZvb2RzL2tyZS1hbGthbHluLWNyZWF0aW5hLTc1MG1n" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/now-foods/kre-alkalyn-creatina-750mg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 15.49 €
           </a>
@@ -3505,7 +3806,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
   if (!list || !bar || !btnGo) return; // guard por si falla algún ID
-  var SLUGS  = new Set(["creatina-celular-500g-nutrisport-vs-evocreatine-500g-desconocida", "creatine-monohydrate-800g-optimum-nutrit-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatine-xplode-powder-500g-olimp", "creatina-monohidrato-ultrafina-en-polvo--vs-evocreatine-500g-desconocida", "cr5-creatina-1000g-ultra-pura-vs-creatine-monohydrate-800g-optimum-nutrit", "cr5-creatina-1000g-ultra-pura-vs-creatina-celular-800g-optimum-nutrition", "creatina-celular-800g-optimum-nutrition-vs-creatine-monohydrate-800g-optimum-nutrit", "cr5-creatina-1000g-ultra-pura-vs-evocreatine-500g-desconocida", "creatina-celular-500g-nutrisport-vs-creatine-monohydrate-800g-optimum-nutrit", "creatine-monohydrate-800g-optimum-nutrit-vs-evocreatine-500g-desconocida", "creatina-monohidrato-en-polvo-200-mesh-1-vs-creatine-xplode-powder-500g-olimp", "creatina-monohidrato-ultrafina-en-polvo--vs-creatine-xplode-powder-500g-olimp", "creatine-monohydrate-800g-optimum-nutrit-vs-creatine-xplode-powder-500g-olimp", "creatina-celular-500g-nutrisport-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-celular-500g-nutrisport-vs-creatina-monohidrato-elite-1kg-optimum-n", "cr5-creatina-1000g-ultra-pura-vs-creatine-xplode-powder-500g-olimp", "creatina-celular-500g-nutrisport-vs-creatina-monohidrato-ultrafina-en-polvo-", "creatina-celular-500g-nutrisport-vs-creatina-celular-800g-optimum-nutrition", "creatina-monohidrato-en-polvo-200-mesh-1-vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-monohidrato-elite-1kg-optimum-n-vs-evocreatine-500g-desconocida", "creatina-celular-500g-nutrisport-vs-creatine-xplode-powder-500g-olimp", "creatine-xplode-powder-500g-olimp-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-monohidrato-elite-1kg-optimum-n-vs-pro-the-creatine-creapure-250g-myprotein", "evocreatine-500g-desconocida-vs-pro-the-creatine-creapure-250g-myprotein", "cr5-creatina-1000g-ultra-pura-vs-creatina-monohidrato-ultrafina-en-polvo-", "cr5-creatina-1000g-ultra-pura-vs-pro-the-creatine-creapure-250g-myprotein", "cr5-creatina-1000g-ultra-pura-vs-creatina-celular-500g-nutrisport", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatine-monohydrate-800g-optimum-nutrit", "creatine-xplode-powder-500g-olimp-vs-evocreatine-500g-desconocida", "cr5-creatina-1000g-ultra-pura-vs-creatina-monohidrato-elite-1kg-optimum-n", "creatina-monohidrato-en-polvo-200-mesh-1-vs-evocreatine-500g-desconocida", "creatina-celular-800g-optimum-nutrition-vs-evocreatine-500g-desconocida", "creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-monohidrato-en-polvo-200-mesh-1-vs-creatina-monohidrato-ultrafina-en-polvo-", "cr5-creatina-1000g-ultra-pura-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatina-monohidrato-ultrafina-en-polvo-", "creatina-celular-500g-nutrisport-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-celular-800g-optimum-nutrition-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-ultrafina-en-polvo-", "creatina-celular-800g-optimum-nutrition-vs-creatine-xplode-powder-500g-olimp", "creatina-monohidrato-en-polvo-200-mesh-1-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-monohidrato-ultrafina-en-polvo--vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-elite-1kg-optimum-n", "creatina-monohidrato-ultrafina-en-polvo--vs-pro-the-creatine-creapure-250g-myprotein", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatina-monohidrato-en-polvo-200-mesh-1"]);
+  var SLUGS  = new Set(["cr5-creatina-1000g-ultra-pura-vs-creatina-celular-500g-nutrisport", "creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-ultrafina-en-polvo-", "creatina-celular-500g-nutrisport-vs-creatina-celular-800g-optimum-nutrition", "cr5-creatina-1000g-ultra-pura-vs-creatina-monohidrato-elite-1kg-optimum-n", "creatine-monohydrate-800g-optimum-nutrit-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-celular-800g-optimum-nutrition-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-elite-1kg-optimum-n", "creatina-monohidrato-ultrafina-en-polvo--vs-pro-the-creatine-creapure-250g-myprotein", "evocreatine-500g-desconocida-vs-pro-the-creatine-creapure-250g-myprotein", "creatine-monohydrate-800g-optimum-nutrit-vs-creatine-xplode-powder-500g-olimp", "creatine-monohydrate-800g-optimum-nutrit-vs-evocreatine-500g-desconocida", "creatina-celular-500g-nutrisport-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-celular-800g-optimum-nutrition-vs-evocreatine-500g-desconocida", "creatina-celular-500g-nutrisport-vs-creatine-xplode-powder-500g-olimp", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-monohidrato-elite-1kg-optimum-n-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-celular-800g-optimum-nutrition-vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-monohidrato-ultrafina-en-polvo--vs-evocreatine-500g-desconocida", "cr5-creatina-1000g-ultra-pura-vs-creatine-monohydrate-800g-optimum-nutrit", "cr5-creatina-1000g-ultra-pura-vs-creatine-xplode-powder-500g-olimp", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatine-xplode-powder-500g-olimp", "creatina-celular-500g-nutrisport-vs-creatina-monohidrato-elite-1kg-optimum-n", "creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-celular-500g-nutrisport-vs-creatina-monohidrato-ultrafina-en-polvo-", "creatina-celular-800g-optimum-nutrition-vs-creatine-xplode-powder-500g-olimp", "creatina-monohidrato-en-polvo-200-mesh-1-vs-creatine-xplode-powder-500g-olimp", "creatina-celular-500g-nutrisport-vs-creatine-monohydrate-800g-optimum-nutrit", "creatine-xplode-powder-500g-olimp-vs-evocreatine-500g-desconocida", "creatine-xplode-powder-500g-olimp-vs-pro-the-creatine-creapure-250g-myprotein", "cr5-creatina-1000g-ultra-pura-vs-evocreatine-500g-desconocida", "cr5-creatina-1000g-ultra-pura-vs-creatina-celular-800g-optimum-nutrition", "creatina-monohidrato-en-polvo-200-mesh-1-vs-pro-the-creatine-creapure-250g-myprotein", "cr5-creatina-1000g-ultra-pura-vs-creatina-monohidrato-ultrafina-en-polvo-", "creatina-celular-500g-nutrisport-vs-evocreatine-500g-desconocida", "creatina-monohidrato-elite-1kg-optimum-n-vs-evocreatine-500g-desconocida", "creatina-monohidrato-ultrafina-en-polvo--vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-monohidrato-en-polvo-200-mesh-1-vs-evocreatine-500g-desconocida", "cr5-creatina-1000g-ultra-pura-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-monohidrato-ultrafina-en-polvo--vs-creatine-xplode-powder-500g-olimp", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatine-monohydrate-800g-optimum-nutrit", "creatina-celular-500g-nutrisport-vs-pro-the-creatine-creapure-250g-myprotein", "creatina-monohidrato-elite-1kg-optimum-n-vs-creatina-monohidrato-ultrafina-en-polvo-", "creatina-monohidrato-en-polvo-200-mesh-1-vs-creatine-monohydrate-800g-optimum-nutrit", "cr5-creatina-1000g-ultra-pura-vs-creatina-monohidrato-en-polvo-200-mesh-1", "creatina-monohidrato-en-polvo-200-mesh-1-vs-creatina-monohidrato-ultrafina-en-polvo-"]);
   var BASE   = 'https://stackfit.es/comparar/';
   var selected = [];
 

@@ -58,7 +58,7 @@
       "item": {
         "@type": "Product",
         "name": "EVOBEAST 1kg",
-        "url": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JlYXN0",
+        "url": "https://www.hsnstore.com/marcas/sport-series/evobeast",
         "brand": { "@type": "Brand", "name": "Amix Nutrition" },
         "offers": {
           "@type": "AggregateOffer",
@@ -112,7 +112,7 @@
       "item": {
         "@type": "Product",
         "name": "BETA-ALANINA EN POLVO 150g",
-        "url": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iZXRhLWFsYW5pbmEtZW4tcG9sdm8=",
+        "url": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo",
         "brand": { "@type": "Brand", "name": "MyProtein" },
         "offers": {
           "@type": "AggregateOffer",
@@ -274,7 +274,7 @@
       "item": {
         "@type": "Product",
         "name": "Glycopump\u00ae (GLICEROL) EN POLVO 150g",
-        "url": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9nbHljb3B1bXAtZ2xpY2Vyb2wtZW4tcG9sdm8=",
+        "url": "https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo",
         "brand": { "@type": "Brand", "name": "HSN" },
         "offers": {
           "@type": "AggregateOffer",
@@ -421,7 +421,7 @@
     main {
       flex: 1;
       padding-bottom: 80px;
-      background: #ffffff;
+      background: #0a0b0c;
     }
 
     /* ── Animations ────────────────────────────────── */
@@ -585,42 +585,36 @@
       align-items: flex-end;
       gap: 4px;
     }
-    .pc-price {
+    .pc-price-kg {
       font-family: var(--font-syne);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #111111;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--accent);
       line-height: 1;
+      font-variant-numeric: tabular-nums;
     }
-    .pc-price::before {
-      content: 'precio total';
+    .pc-price-kg::before {
+      content: '€/kg';
       display: block;
       font-family: var(--font-body);
       font-size: 9px;
-      font-weight: 400;
-      color: #cccccc;
+      font-weight: 600;
+      color: #888888;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.1em;
       line-height: 1;
       margin-bottom: 3px;
     }
-    .pc-price-kg {
-      display: inline-flex;
-      align-items: center;
-      background: #0a0b0c;
-      color: var(--accent);
-      font-family: var(--font-syne);
-      font-weight: 800;
-      font-size: 0.81rem;
-      padding: 3px 9px;
-      border-radius: 12px;
-      line-height: 1.5;
+    .pc-price {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #888888;
+      line-height: 1.4;
+      margin-top: 4px;
     }
-    .pc-price-old {
-      font-size: 0.76rem;
-      color: #cccccc;
-      text-decoration: line-through;
-    }
+    .pc-price::before { content: 'total: '; font-weight: 400; }
+    .pc-price-old { font-size: 0.72rem; color: #666666; text-decoration: line-through; }
     .pc-meta { font-size: 0.78rem; color: #aaaaaa; }
 
     .pc-stores { display: flex; flex-direction: column; gap: 5px; }
@@ -766,16 +760,8 @@
       letter-spacing: 0.03em;
     }
     .pc-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .pc-btn.pc-btn-primary {
-      background: var(--coral);
-      border-color: var(--coral);
-      color: #ffffff;
-    }
-    .pc-btn.pc-btn-primary:hover {
-      background: #e05a20;
-      border-color: #e05a20;
-      color: #ffffff;
-    }
+    .pc-btn.pc-btn-primary { background: var(--accent); border-color: var(--accent); color: #000000; }
+    .pc-btn.pc-btn-primary:hover { background: var(--accent-dim); border-color: var(--accent-dim); color: #000000; }
 
     /* ── Pagination ────────────────────────────────── */
     .pagination {
@@ -1220,6 +1206,55 @@
       .pc-actions { flex-direction: column; }
     }
 
+    /* Ticker */
+    .ticker-strip { background: rgba(200,255,77,0.04); border-bottom: 1px solid rgba(200,255,77,0.1); padding: 7px 0; overflow: hidden; white-space: nowrap; }
+    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 30s linear infinite; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { font-size: 0.7rem; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    /* Sparkline */
+    .spark-row { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin: 8px 0; }
+    .spark-info { flex: 1; }
+    .spark-label { font-size: 0.6rem; color: #666; margin-bottom: 4px; }
+    .spark-stats { text-align: right; }
+    .spark-min { font-size: 0.82rem; font-weight: 800; color: var(--accent); }
+    /* Alert banner */
+    .alert-banner { background: #111214; border: 1px solid rgba(200,255,77,0.2); border-radius: 16px; padding: 24px 28px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 48px; }
+    .alert-pulse-wrap { position: relative; width: 44px; height: 44px; flex-shrink: 0; }
+    .alert-pulse-ring { position: absolute; inset: 0; background: rgba(200,255,77,0.15); border-radius: 50%; animation: pulse 2s ease infinite; }
+    .alert-pulse-icon { position: absolute; inset: 8px; background: rgba(200,255,77,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .alert-title { font-size: 1rem; font-weight: 800; color: #f0f0f0; margin-bottom: 4px; }
+    .alert-desc { font-size: 0.78rem; color: #666; line-height: 1.5; }
+    .alert-form { display: flex; width: 100%; max-width: 380px; flex-shrink: 0; }
+    .alert-input { flex: 1; padding: 12px 16px; background: #16181a; border: 1.5px solid rgba(255,255,255,0.08); border-right: none; border-radius: 10px 0 0 10px; outline: none; color: #f0f0f0; font-family: var(--font-body); font-size: 0.88rem; }
+    .alert-input::placeholder { color: #444; }
+    .alert-btn { padding: 0 20px; background: var(--accent); border: none; color: #000; font-family: var(--font-body); font-weight: 900; font-size: 0.82rem; cursor: pointer; border-radius: 0 10px 10px 0; }
+    /* Mobile subnav */
+    .mobile-subnav { display: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 8px 16px; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+    .mobile-subnav::-webkit-scrollbar { display: none; }
+    .mobile-subnav a { flex-shrink: 0; padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); color: #666; font-size: 0.75rem; text-decoration: none; white-space: nowrap; }
+    .mobile-subnav a.active { border-color: var(--accent-border); color: var(--accent); background: var(--accent-bg); }
+    @media (max-width: 640px) { .mobile-subnav { display: flex; } }
+    /* Cards dark */
+    .product-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .product-card.is-best { border-color: var(--accent); }
+    .product-card:hover { border-color: rgba(255,255,255,0.14); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .pc-name-text { color: #e8e8e8; }
+    .pc-meta { color: #666; }
+    a.pc-store { background: #16181a; border-color: rgba(255,255,255,0.07); }
+    a.pc-store:first-child { background: rgba(200,255,77,0.06); border-color: rgba(200,255,77,0.2); }
+    a.pc-store:hover { background: #1e2022; }
+    .pc-store-name { color: #888; }
+    .pc-store-price { color: #e8e8e8; }
+    .pc-btn { background: #16181a; border-color: rgba(255,255,255,0.08); color: #666; }
+    .search-input, .search-select { background: #111214; border-color: rgba(255,255,255,0.08); color: #e8e8e8; }
+    .cat-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .cat-name { color: #e8e8e8; }
+    .cat-price { color: var(--accent); }
+    .step-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .step-title { color: #e8e8e8; }
+    .step-desc { color: #666; }
+
     /* ── Footer ────────────────────────────────────── */
     .site-footer {
       background: #0a0b0c;
@@ -1282,7 +1317,143 @@
         <a href="https://stackfit.es/comparar/" style="border-color:var(--accent-border);color:var(--accent);">⚖️ Comparar</a>
       </div>
     </nav>
+    <div class="mobile-subnav">
+      <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/creatina/">Creatina</a>
+      <a href="https://stackfit.es/bcaa/">BCAA</a>
+      <a href="https://stackfit.es/pre-entreno/" class="active">Pre-Entreno</a>
+      <a href="https://stackfit.es/test/" style="color:var(--accent);">🎯 Test</a>
+      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">⚖️ Comparar</a>
+    </div>
   </header>
+
+  
+
+<div class="ticker-strip"><div class="ticker-inner">
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g → 15.80€/kg ▼94.6%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREATINA MONOHIDRATO EN POLVO (200 MESH) 150g → 15.80€/kg ▼94.6%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">ISOMALTULOSA (Palatinose™) EN POLVO 1kg → 7.79€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">ISOMALTULOSA (Palatinose™) EN POLVO 1kg → 7.79€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN 2kg → 5.88€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN 2kg → 5.88€/kg ▼89.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN SIN EDULCORANTES 2kg → 5.60€/kg ▼88.1%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY PROTEIN SIN EDULCORANTES 2kg → 5.60€/kg ▼88.1%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREMA DE ARROZ PROTEICA 2kg → 4.17€/kg ▼87.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">CREMA DE ARROZ PROTEICA 2kg → 4.17€/kg ▼87.8%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY &amp; OATS 2kg → 3.98€/kg ▼87.3%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOWHEY &amp; OATS 2kg → 3.98€/kg ▼87.3%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBASIC WHEY 2kg → 5.17€/kg ▼86.2%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBASIC WHEY 2kg → 5.17€/kg ▼86.2%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Aislado de Proteína de Soja (Muestra) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Aislado de Proteína de Soja (Muestra) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Myvegan Vegan Protein Blend (Sample) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Myvegan Vegan Protein Blend (Sample) 30g → 83.00€/kg ▼85.4%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">2 x Sachet 100% Whey Prime 25g → 111.20€/kg ▼83.7%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">2 x Sachet 100% Whey Prime 25g → 111.20€/kg ▼83.7%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBEAST 1kg → 16.18€/kg ▼78.9%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">EVOBEAST 1kg → 16.18€/kg ▼78.9%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Pre-workout Protein Mug Cake - Speculoos 400 g → 24.97€/kg ▼76.7%</span>
+  </span>
+  
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:#c8ff4d;"></span>
+    <span style="color:#c8ff4d;">Pre-workout Protein Mug Cake - Speculoos 400 g → 24.97€/kg ▼76.7%</span>
+  </span>
+  
+</div></div>
+
+
 
   <main>
     
@@ -1304,7 +1475,7 @@
       Comparativa de pre-entrenos disponibles en tiendas españolas. Ordenado por precio/kg para que compares con criterio.
     </p>
     <div class="cat-stats">
-      <span>📦 <strong>32</strong> productos</span>
+      <span>📦 <strong>33</strong> productos</span>
       <span>🗓️ Actualizado: <strong>2026-04-20</strong></span>
       
       
@@ -1366,6 +1537,8 @@
           <option value="Pre-entrenamiento">Pre-entrenamiento</option>
           
           <option value="Prozis">Prozis</option>
+          
+          <option value="Quamtrax">Quamtrax</option>
           
           <option value="Vitobest">Vitobest</option>
           
@@ -1439,19 +1612,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">16.18</div>
           <div class="pc-price">16.18 €</div>
-          
-            <div class="pc-price-kg">16.18 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 1.00 kg · Amix Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,27.86 40.0,28.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">16.18 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JlYXN0" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobeast" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">16.18 €</span>
@@ -1467,7 +1644,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JlYXN0" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobeast" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1494,16 +1671,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">28.74</div>
           <div class="pc-price">22.99 €</div>
-          
-            <div class="pc-price-kg">28.74 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.80 kg · Prozis
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,0.0 60.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">24.42 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/energy-charge-preentrenamiento-800-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1515,7 +1696,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/energy-charge-preentrenamiento-800-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/energy-charge-preentrenamiento-800-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1542,19 +1723,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">29.47</div>
           <div class="pc-price">4.42 €</div>
-          
-            <div class="pc-price-kg">29.47 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.15 kg · MyProtein
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 8.89,0.0 17.78,23.65 26.67,0.0 35.56,23.02 44.44,0.0 53.33,23.65 62.22,0.0 71.11,24.27 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">26.33 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iZXRhLWFsYW5pbmEtZW4tcG9sdm8=" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">4.42 €</span>
@@ -1570,7 +1755,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iZXRhLWFsYW5pbmEtZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1597,16 +1782,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">30.30</div>
           <div class="pc-price">39.99 €</div>
-          
-            <div class="pc-price-kg">30.30 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 1.32 kg · Prozis
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,0.0 60.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">27.27 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/n.o.-shox-1320g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1618,7 +1807,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/n.o.-shox-1320g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/n.o.-shox-1320g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1645,16 +1834,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">33.32</div>
           <div class="pc-price">29.99 €</div>
-          
-            <div class="pc-price-kg">33.32 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.90 kg · Prozis
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,-0.0 60.0,-0.0 80.0,-0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">26.66 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/beta-alanina-900-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1666,7 +1859,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/beta-alanina-900-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/beta-alanina-900-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1693,16 +1886,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">37.86</div>
           <div class="pc-price">24.99 €</div>
-          
-            <div class="pc-price-kg">37.86 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.66 kg · Prozis
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,0.0 60.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">34.08 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/n.o.-shox-660-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1714,7 +1911,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/n.o.-shox-660-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/n.o.-shox-660-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1741,16 +1938,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">39.96</div>
           <div class="pc-price">9.99 €</div>
-          
-            <div class="pc-price-kg">39.96 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.25 kg · MyProtein
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">39.96 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.myprotein.es/p/nutricion-deportiva/taurina-en-polvo/10530303/" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1762,7 +1963,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.myprotein.es/p/nutricion-deportiva/taurina-en-polvo/10530303/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.myprotein.es/p/nutricion-deportiva/taurina-en-polvo/10530303/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1789,16 +1990,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">43.30</div>
           <div class="pc-price">12.99 €</div>
-          
-            <div class="pc-price-kg">43.30 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.30 kg · Amix Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 8.89,12.14 17.78,28.0 26.67,0.0 35.56,25.53 44.44,12.58 53.33,25.53 62.22,10.66 71.11,25.53 80.0,10.66" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">32.47 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/beta-alanina-300-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1817,7 +2022,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/beta-alanina-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/beta-alanina-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1844,19 +2049,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">44.47</div>
           <div class="pc-price">6.67 €</div>
-          
-            <div class="pc-price-kg">44.47 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,3.23 40.0,0.0 60.0,3.23 80.0,6.77" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">39.67 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9nbHljb3B1bXAtZ2xpY2Vyb2wtZW4tcG9sdm8=" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">6.67 €</span>
@@ -1865,7 +2074,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9nbHljb3B1bXAtZ2xpY2Vyb2wtZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1892,16 +2101,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">46.63</div>
           <div class="pc-price">13.99 €</div>
-          
-            <div class="pc-price-kg">46.63 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.30 kg · BioTechUSA
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 6.67,23.13 13.33,26.38 20.0,23.13 26.67,28.0 33.33,21.51 40.0,0.0 46.67,26.38 53.33,21.51 60.0,13.47 66.67,26.38 73.33,21.51 80.0,14.28" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">39.97 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.myprotein.es/p/nutricion-deportiva/citrulina-malato/10529326/" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -1927,7 +2140,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.myprotein.es/p/nutricion-deportiva/citrulina-malato/10529326/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.myprotein.es/p/nutricion-deportiva/citrulina-malato/10529326/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -1954,19 +2167,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">48.20</div>
           <div class="pc-price">7.23 €</div>
-          
-            <div class="pc-price-kg">48.20 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,3.55 40.0,0.0 60.0,3.55 80.0,6.81" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">43.00 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9sLWNpdHJ1bGluYS1iYXNlLWVuLXBvbHZv" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">7.23 €</span>
@@ -1975,7 +2192,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9sLWNpdHJ1bGluYS1iYXNlLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2002,16 +2219,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">51.97</div>
           <div class="pc-price">20.79 €</div>
-          
-            <div class="pc-price-kg">51.97 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.40 kg · NUTRISPORT
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">51.97 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/nutrisport/b-10-pump-effect-400g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2023,7 +2244,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/nutrisport/b-10-pump-effect-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/nutrisport/b-10-pump-effect-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2050,19 +2271,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">55.67</div>
           <div class="pc-price">8.35 €</div>
-          
-            <div class="pc-price-kg">55.67 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,5.11 20.0,0.0 40.0,27.51 60.0,27.77 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">55.67 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JvbWI=" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobomb" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">8.35 €</span>
@@ -2071,7 +2296,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JvbWI=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/sport-series/evobomb" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2098,19 +2323,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">55.67</div>
           <div class="pc-price">8.35 €</div>
-          
-            <div class="pc-price-kg">55.67 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,3.75 40.0,0.0 60.0,3.75 80.0,7.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">49.67 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9hcmdpbmluYS1hbGZhLWNldG9nbHV0YXJhdG8tYWFrZy1lbi1wb2x2bw==" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">8.35 €</span>
@@ -2119,7 +2348,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9hcmdpbmluYS1hbGZhLWNldG9nbHV0YXJhdG8tYWFrZy1lbi1wb2x2bw==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2146,19 +2375,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">55.67</div>
           <div class="pc-price">8.35 €</div>
-          
-            <div class="pc-price-kg">55.67 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,3.75 40.0,0.0 60.0,3.75 80.0,7.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">49.67 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9kLXJpYm9zYS1lbi1wb2x2bw==" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">8.35 €</span>
@@ -2167,7 +2400,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9kLXJpYm9zYS1lbi1wb2x2bw==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2194,19 +2427,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">55.67</div>
           <div class="pc-price">8.35 €</div>
-          
-            <div class="pc-price-kg">55.67 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,3.75 40.0,0.0 60.0,3.75 80.0,7.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">49.67 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9hY2lkby1tYWxpY28tZW4tcG9sdm8=" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">8.35 €</span>
@@ -2215,7 +2452,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9hY2lkby1tYWxpY28tZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2242,16 +2479,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">56.63</div>
           <div class="pc-price">16.99 €</div>
-          
-            <div class="pc-price-kg">56.63 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.30 kg · Life Pro Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 8.89,0.0 17.78,28.0 26.67,4.81 35.56,25.08 44.44,4.81 53.33,25.08 62.22,18.27 71.11,25.08 80.0,16.21" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">42.47 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/l-arginina-300-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2270,7 +2511,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/l-arginina-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/l-arginina-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2297,16 +2538,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">58.03</div>
           <div class="pc-price">21.76 €</div>
-          
-            <div class="pc-price-kg">58.03 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.38 kg · Weider
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">58.03 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/weider/intense-pre-workout-375g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2318,7 +2563,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/weider/intense-pre-workout-375g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/weider/intense-pre-workout-375g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2345,16 +2590,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">64.90</div>
           <div class="pc-price">19.47 €</div>
-          
-            <div class="pc-price-kg">64.90 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.30 kg · Best Protein
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">64.90 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/best-protein/pre-workout-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2366,7 +2615,59 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/best-protein/pre-workout-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/best-protein/pre-workout-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="Nutritienda"
+         data-nombre="super shock 600g"
+         data-marca="quamtrax"
+         data-peso="600"
+         data-precio-kg="69.83"
+         data-tipo=""
+         data-id="super-shock-600g-quamtrax"
+         data-label="Super Shock 600g">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/super-shock-600g-quamtrax.webp" alt="Super Shock 600g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">Super Shock 600g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price-kg">69.83</div>
+          <div class="pc-price">41.90 €</div>
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.60 kg · Quamtrax
+      </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">69.83 €/kg</div></div>
+      </div>
+      
+      <div class="pc-stores">
+        
+        <a href="https://www.nutritienda.com/es/quamtrax/super-shock-600g" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
+          <span class="pc-store-name">Nutritienda</span>
+          <span class="pc-store-price">41.90 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.nutritienda.com/es/quamtrax/super-shock-600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2393,16 +2694,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">76.80</div>
           <div class="pc-price">23.04 €</div>
-          
-            <div class="pc-price-kg">76.80 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.30 kg · Vitobest
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">76.80 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/vitobest/glycopump-300g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2414,7 +2719,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/vitobest/glycopump-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/vitobest/glycopump-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2441,16 +2746,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">79.52</div>
           <div class="pc-price">34.99 €</div>
-          
-            <div class="pc-price-kg">79.52 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.44 kg · MyProtein
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">79.52 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-pre-entreno-venom/17585477/" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2462,7 +2771,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-pre-entreno-venom/17585477/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-pre-entreno-venom/17585477/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2489,16 +2798,15 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">83.12</div>
           <div class="pc-price">39.90 €</div>
-          
-            <div class="pc-price-kg">83.12 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.48 kg · Pre-entrenamiento
       </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/universal-nutrition/animal-fury-480g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2510,7 +2818,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/universal-nutrition/animal-fury-480g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/universal-nutrition/animal-fury-480g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2537,16 +2845,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">90.61</div>
           <div class="pc-price">29.90 €</div>
-          
-            <div class="pc-price-kg">90.61 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.33 kg · BioTechUSA
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">90.61 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/biotech-usa/pump-caffeine-free-330g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2558,7 +2870,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/biotech-usa/pump-caffeine-free-330g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/biotech-usa/pump-caffeine-free-330g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2585,16 +2897,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">91.39</div>
           <div class="pc-price">32.90 €</div>
-          
-            <div class="pc-price-kg">91.39 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.36 kg · BioTechUSA
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">91.39 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/biotech-usa/amino-energy-zero-360g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2606,7 +2922,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/biotech-usa/amino-energy-zero-360g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/biotech-usa/amino-energy-zero-360g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2633,16 +2949,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">93.27</div>
           <div class="pc-price">13.99 €</div>
-          
-            <div class="pc-price-kg">93.27 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.15 kg · Prozis
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,0.0 60.0,0.0 80.0,0.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">83.93 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.prozis.com/es/es/prozis/l-citrulina-malato-150-g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2654,7 +2974,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.prozis.com/es/es/prozis/l-citrulina-malato-150-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.prozis.com/es/es/prozis/l-citrulina-malato-150-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2681,16 +3001,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">99.84</div>
           <div class="pc-price">31.95 €</div>
-          
-            <div class="pc-price-kg">99.84 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.32 kg · Máximo rendimiento
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">99.84 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/universal-nutrition/animal-fury-pre-entrenamiento-320g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2702,7 +3026,59 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/universal-nutrition/animal-fury-pre-entrenamiento-320g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/universal-nutrition/animal-fury-pre-entrenamiento-320g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="Nutritienda"
+         data-nombre="myocell 5-phase 500 g"
+         data-marca="optimum nutrition"
+         data-peso="500"
+         data-precio-kg="107.0"
+         data-tipo=""
+         data-id="myocell-5-phase-500-g-optimum-nutrition"
+         data-label="MYOCELL 5-PHASE 500 g">
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="/img/productos/placeholder-pre-entreno.svg" alt="MYOCELL 5-PHASE 500 g" width="80" height="80" loading="lazy">
+        </div>
+        <div class="pc-name">
+          <span class="pc-name-text">MYOCELL 5-PHASE 500 g</span>
+          
+        </div>
+        <div class="pc-price-block">
+          <div class="pc-price-kg">107.00</div>
+          <div class="pc-price">53.50 €</div>
+          
+        </div>
+      </div>
+      <div class="pc-meta">
+        Pre-Entreno · 0.50 kg · Optimum Nutrition
+      </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">107.00 €/kg</div></div>
+      </div>
+      
+      <div class="pc-stores">
+        
+        <a href="https://www.nutritienda.com/es/amix-nutrition-myocell-5-phase-500g" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
+          <span class="pc-store-name">Nutritienda</span>
+          <span class="pc-store-price">53.50 €</span>
+          
+        </a>
+        
+      </div>
+      <div class="pc-actions">
+        <a href="https://www.nutritienda.com/es/amix-nutrition-myocell-5-phase-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2729,16 +3105,15 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">107.13</div>
           <div class="pc-price">20.89 €</div>
-          
-            <div class="pc-price-kg">107.13 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.20 kg · Cellucor
       </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/cellucor/c4-original-pre-entrenamiento-195g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2750,7 +3125,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/cellucor/c4-original-pre-entrenamiento-195g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/cellucor/c4-original-pre-entrenamiento-195g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2777,19 +3152,23 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">111.60</div>
           <div class="pc-price">16.74 €</div>
-          
-            <div class="pc-price-kg">111.60 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.15 kg · HSN
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,0.0 60.0,3.52 80.0,7.03" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">99.67 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3JkeC0yLTA=" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="https://www.hsnstore.com/marcas/sport-series/evordx-2-0" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
           <span class="pc-store-price">16.74 €</span>
@@ -2798,7 +3177,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3JkeC0yLTA=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.hsnstore.com/marcas/sport-series/evordx-2-0" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2825,16 +3204,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">119.96</div>
           <div class="pc-price">29.99 €</div>
-          
-            <div class="pc-price-kg">119.96 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.25 kg · MyProtein
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">119.96 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.myprotein.es/p/nutricion-deportiva/l-ornitina-hcl-en-polvo/10529383/" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2846,7 +3229,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.myprotein.es/p/nutricion-deportiva/l-ornitina-hcl-en-polvo/10529383/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.myprotein.es/p/nutricion-deportiva/l-ornitina-hcl-en-polvo/10529383/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2873,16 +3256,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">126.47</div>
           <div class="pc-price">43.00 €</div>
-          
-            <div class="pc-price-kg">126.47 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.34 kg · Amix Pro
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">126.47 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/amix-pro/map-glyceromax-340g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2894,55 +3281,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/amix-pro/map-glyceromax-340g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
-      </div>
-    </div>
-    
-    
-    
-    
-    
-    <div class="product-card"
-         data-tiendas="Nutritienda"
-         data-nombre="cellup with oxystorm 348g"
-         data-marca="optimum nutrition"
-         data-peso="348"
-         data-precio-kg="133.62"
-         data-tipo=""
-         data-id="cellup-with-oxystorm-348g-optimum-nutrition"
-         data-label="Cellup With Oxystorm 348g">
-      <div class="pc-top">
-        <div class="pc-img">
-          <img src="/img/productos/cellup-with-oxystorm-348g-optimum-nutrition.webp" alt="Cellup With Oxystorm 348g" width="80" height="80" loading="lazy">
-        </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Cellup With Oxystorm 348g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price">46.50 €</div>
-          
-            <div class="pc-price-kg">133.62 €/kg</div>
-          
-          
-        </div>
-      </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.35 kg · Optimum Nutrition
-      </div>
-      <div class="pc-stores">
-        
-        <a href="https://www.nutritienda.com/es/amix-nutrition/cellup-with-oxystorm-348g" class="pc-store" target="_blank" rel="nofollow sponsored">
-          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
-          <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">46.50 €</span>
-          
-        </a>
-        
-      </div>
-      <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/amix-nutrition/cellup-with-oxystorm-348g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/amix-pro/map-glyceromax-340g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -2969,16 +3308,20 @@
           
         </div>
         <div class="pc-price-block">
+          <div class="pc-price-kg">169.84</div>
           <div class="pc-price">53.50 €</div>
-          
-            <div class="pc-price-kg">169.84 €/kg</div>
-          
           
         </div>
       </div>
       <div class="pc-meta">
         Pre-Entreno · 0.32 kg · Optimum Nutrition
       </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 40.0,28.0 80.0,28.0" fill="none" stroke="#c8ff4d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">169.84 €/kg</div></div>
+      </div>
+      
       <div class="pc-stores">
         
         <a href="https://www.nutritienda.com/es/amix-nutrition-cellzoom-315g" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -2990,7 +3333,7 @@
         
       </div>
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/amix-nutrition-cellzoom-315g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="https://www.nutritienda.com/es/amix-nutrition-cellzoom-315g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -3104,7 +3447,7 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9pc29tYWx0dWxvc2EtcGFsYXRpbm9zZS1lbi1wb2x2bw==" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/raw-series/isomaltulosa-palatinose-en-polvo" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 7.79 €
           </a>
@@ -3331,23 +3674,6 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
       
       <div class="other-item">
         <div class="other-name">
-          Black Blood Shot 60 ml
-          <span class="other-marca">BioTechUSA</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.nutritienda.com/es/biotech-usa/black-blood-shot-60-ml" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
-            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 2.70 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
           Cellup Pre-Workout Drink 500 ml
           <span class="other-marca">Optimum Nutrition</span>
         </div>
@@ -3399,13 +3725,30 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
       
       <div class="other-item">
         <div class="other-name">
+          CELLUP SHOT 20 Ud 60 ml
+          <span class="other-marca">¡Energía para tomar directamente!</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.nutritienda.com/es/amix-pro/cellup-shot-pre-entrenamiento-20-unidades-de-60ml" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored">
+            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
+            Nutritienda · 45.00 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
           EXTRACTO DE AMARANTO Oxystorm® (50:1) 650mg
           <span class="other-marca">HSN</span>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9leHRyYWN0by1kZS1hbWFyYW50by1veHlzdG9ybS01MC0xLTY1MG1n" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/essential-series/extracto-de-amaranto-oxystorm-50-1-650mg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 25.75 €
           </a>
@@ -3422,7 +3765,7 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9sLWFsYW5pbC1sLWdsdXRhbWluYS0zMDBtZw==" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/essential-series/l-alanil-l-glutamina-300mg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 22.40 €
           </a>
@@ -3439,7 +3782,7 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jYWZlaW5hLW5hdHVyYWwtMjAwbWc=" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/essential-series/cafeina-natural-200mg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 5.54 €
           </a>
@@ -3456,7 +3799,7 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9hcmdpbmluYS1hbGZhLWNldG9nbHV0YXJhdG8tMTAwMG1nLWFha2c=" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/essential-series/arginina-alfa-cetoglutarato-1000mg-aakg" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 10.02 €
           </a>
@@ -3473,7 +3816,7 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
           
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3B1bXA=" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
+          <a href="https://www.hsnstore.com/marcas/sport-series/evopump" class="store-pill store-hsn" target="_blank" rel="nofollow sponsored">
             <span class="store-pill-dot" style="background:var(--hsn);"></span>
             HSN · 31.35 €
           </a>
@@ -4474,7 +4817,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
   if (!list || !bar || !btnGo) return; // guard por si falla algún ID
-  var SLUGS  = new Set(["glycopump-glicerol-en-polvo-150g-descono-vs-l-citrulina-base-en-polvo-150g-desconoci", "n-o-shox-660-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-n-o-shox-660-g-desconocida", "beta-alanina-300-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "l-arginina-alfa-cetoglutarato-aakg-en-po-vs-l-citrulina-base-en-polvo-150g-desconoci", "l-citrulina-malato-300g-desconocida-vs-n-o-shox-1320g-desconocida", "beta-alanina-900-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-900-g-desconocida-vs-evobeast-1kg-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-glycopump-glicerol-en-polvo-150g-descono", "glycopump-glicerol-en-polvo-150g-descono-vs-l-citrulina-malato-300g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-1320g-desconocida", "glycopump-glicerol-en-polvo-150g-descono-vs-n-o-shox-660-g-desconocida", "evobeast-1kg-desconocida-vs-n-o-shox-660-g-desconocida", "evobomb-150g-desconocida-vs-l-arginina-alfa-cetoglutarato-aakg-en-po", "evobeast-1kg-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-300-g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-300-g-desconocida-vs-l-citrulina-malato-300g-desconocida", "glycopump-glicerol-en-polvo-150g-descono-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "evobeast-1kg-desconocida-vs-taurina-en-polvo-250g-desconocida", "l-citrulina-malato-300g-desconocida-vs-n-o-shox-660-g-desconocida", "impact-pre-entreno-venom-440g-desconocid-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "l-citrulina-malato-300g-desconocida-vs-pump-caffeine-free-330g-biotechusa", "amino-energy-zero-360g-biotechusa-vs-l-citrulina-malato-300g-desconocida", "glycopump-glicerol-en-polvo-150g-descono-vs-l-arginina-alfa-cetoglutarato-aakg-en-po", "n-o-shox-1320g-desconocida-vs-taurina-en-polvo-250g-desconocida", "amino-energy-zero-360g-biotechusa-vs-pump-caffeine-free-330g-biotechusa", "l-citrulina-malato-300g-desconocida-vs-taurina-en-polvo-250g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-1320g-desconocida", "cellup-with-oxystorm-348g-optimum-nutrit-vs-cellzoom-315g-optimum-nutrition", "evobeast-1kg-desconocida-vs-l-citrulina-malato-300g-desconocida", "evobeast-1kg-desconocida-vs-n-o-shox-1320g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-evobeast-1kg-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "evobomb-150g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-660-g-desconocida", "beta-alanina-300-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "evobomb-150g-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "beta-alanina-900-g-desconocida-vs-n-o-shox-1320g-desconocida", "beta-alanina-900-g-desconocida-vs-n-o-shox-660-g-desconocida", "beta-alanina-900-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-en-polvo-150g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "glycopump-glicerol-en-polvo-150g-descono-vs-n-o-shox-1320g-desconocida", "beta-alanina-300-g-desconocida-vs-evobeast-1kg-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-l-citrulina-malato-300g-desconocida", "beta-alanina-300-g-desconocida-vs-beta-alanina-900-g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-l-citrulina-malato-300g-desconocida", "impact-pre-entreno-venom-440g-desconocid-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-900-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-evobeast-1kg-desconocida", "beta-alanina-900-g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-en-polvo-150g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-n-o-shox-1320g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-660-g-desconocida", "l-ornitina-hcl-en-polvo-250g-desconocida-vs-taurina-en-polvo-250g-desconocida", "n-o-shox-1320g-desconocida-vs-n-o-shox-660-g-desconocida", "beta-alanina-900-g-desconocida-vs-l-citrulina-malato-300g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-impact-pre-entreno-venom-440g-desconocid"]);
+  var SLUGS  = new Set(["glycopump-glicerol-en-polvo-150g-descono-vs-n-o-shox-660-g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-1320g-desconocida", "evobeast-1kg-desconocida-vs-n-o-shox-1320g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-900-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "beta-alanina-900-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "evobeast-1kg-desconocida-vs-l-citrulina-malato-300g-desconocida", "l-ornitina-hcl-en-polvo-250g-desconocida-vs-taurina-en-polvo-250g-desconocida", "glycopump-glicerol-en-polvo-150g-descono-vs-l-citrulina-malato-300g-desconocida", "amino-energy-zero-360g-biotechusa-vs-pump-caffeine-free-330g-biotechusa", "beta-alanina-900-g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-300-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "beta-alanina-300-g-desconocida-vs-beta-alanina-900-g-desconocida", "evobeast-1kg-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "energy-charge-preentrenamiento-800-g-des-vs-evobeast-1kg-desconocida", "beta-alanina-900-g-desconocida-vs-n-o-shox-660-g-desconocida", "evobeast-1kg-desconocida-vs-n-o-shox-660-g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-1320g-desconocida", "impact-pre-entreno-venom-440g-desconocid-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "glycopump-glicerol-en-polvo-150g-descono-vs-n-o-shox-1320g-desconocida", "l-citrulina-malato-300g-desconocida-vs-pump-caffeine-free-330g-biotechusa", "beta-alanina-en-polvo-150g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-300-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "l-citrulina-malato-300g-desconocida-vs-n-o-shox-1320g-desconocida", "l-citrulina-malato-300g-desconocida-vs-taurina-en-polvo-250g-desconocida", "glycopump-glicerol-en-polvo-150g-descono-vs-l-citrulina-base-en-polvo-150g-desconoci", "n-o-shox-660-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-l-citrulina-malato-300g-desconocida", "evobeast-1kg-desconocida-vs-taurina-en-polvo-250g-desconocida", "glycopump-glicerol-en-polvo-150g-descono-vs-taurina-en-polvo-250g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-l-citrulina-malato-300g-desconocida", "beta-alanina-300-g-desconocida-vs-n-o-shox-1320g-desconocida", "glycopump-glicerol-en-polvo-150g-descono-vs-l-arginina-alfa-cetoglutarato-aakg-en-po", "beta-alanina-en-polvo-150g-desconocida-vs-impact-pre-entreno-venom-440g-desconocid", "impact-pre-entreno-venom-440g-desconocid-vs-taurina-en-polvo-250g-desconocida", "evobomb-150g-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "beta-alanina-en-polvo-150g-desconocida-vs-l-citrulina-malato-300g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-660-g-desconocida", "evobomb-150g-desconocida-vs-l-arginina-alfa-cetoglutarato-aakg-en-po", "beta-alanina-300-g-desconocida-vs-taurina-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-n-o-shox-660-g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-l-ornitina-hcl-en-polvo-250g-desconocida", "beta-alanina-300-g-desconocida-vs-evobeast-1kg-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-glycopump-glicerol-en-polvo-150g-descono", "beta-alanina-en-polvo-150g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-300-g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "l-arginina-alfa-cetoglutarato-aakg-en-po-vs-l-citrulina-base-en-polvo-150g-desconoci", "beta-alanina-900-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "cellzoom-315g-optimum-nutrition-vs-myocell-5-phase-500-g-optimum-nutrition", "beta-alanina-en-polvo-150g-desconocida-vs-evobeast-1kg-desconocida", "beta-alanina-900-g-desconocida-vs-evobeast-1kg-desconocida", "beta-alanina-900-g-desconocida-vs-n-o-shox-1320g-desconocida", "evobomb-150g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "amino-energy-zero-360g-biotechusa-vs-l-citrulina-malato-300g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-660-g-desconocida", "beta-alanina-900-g-desconocida-vs-l-citrulina-malato-300g-desconocida", "n-o-shox-1320g-desconocida-vs-n-o-shox-660-g-desconocida", "l-citrulina-malato-300g-desconocida-vs-n-o-shox-660-g-desconocida", "n-o-shox-1320g-desconocida-vs-taurina-en-polvo-250g-desconocida"]);
   var BASE   = 'https://stackfit.es/comparar/';
   var selected = [];
 
