@@ -23,61 +23,54 @@
 </script>
 {% endblock %}
 
+{% block ticker %}
+{% if ticker_items %}
+<div class="ticker-strip"><div class="ticker-inner">
+  {% for item in ticker_items %}{% for _ in [1,2] %}
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:{{ '#c8ff4d' if item.delta < 0 else ('#ff6b2b' if item.delta > 0 else '#444') }};"></span>
+    <span style="color:{{ '#c8ff4d' if item.delta < 0 else ('#ff6b2b' if item.delta > 0 else '#666') }};">{{ item.nombre }} → {{ "%.2f"|format(item.precio_kg) }}€/kg {% if item.delta < 0 %}▼{{ item.delta|abs }}%{% elif item.delta > 0 %}▲{{ item.delta }}%{% endif %}</span>
+  </span>
+  {% endfor %}{% endfor %}
+</div></div>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="container">
 
   <!-- ── Hero ─────────────────────────────────────────── -->
-  <section style="background:#0a0b0c; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); padding:48px 20px; text-align:center;">
-    <div class="hero-badge" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent-bg); border:1px solid var(--accent-border); border-radius:var(--radius-pill); padding:5px 14px; margin-bottom:22px; font-size:0.8rem; color:#cccccc; animation:fadeUp 0.45s ease both;">
-      <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite;flex-shrink:0;"></span>
+  <section style="padding:48px 0 36px;">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:var(--radius-pill);padding:5px 16px;margin-bottom:24px;font-size:0.76rem;color:#aaa;">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite;flex-shrink:0;"></span>
       Precios actualizados · {{ last_updated }}
     </div>
-    <h1 style="font-family:var(--font-display); font-size:clamp(1.75rem,4vw,2.625rem); font-weight:900; text-transform:uppercase; letter-spacing:-0.5px; line-height:1.1; color:#ffffff; margin-bottom:16px; animation:fadeUp 0.45s 0.08s ease both;">
-      EL MEJOR PRECIO<br>EN <em style="color:var(--accent); font-style:normal;">SUPLEMENTOS</em><br>FITNESS EN ESPAÑA
+    <h1 style="font-size:clamp(2rem,5vw,3.2rem);font-weight:900;text-transform:uppercase;letter-spacing:-1px;line-height:1.02;color:#fff;margin-bottom:16px;">
+      EL MEJOR PRECIO<br>EN <em style="color:var(--accent);font-style:normal;">SUPLEMENTOS</em><br>FITNESS EN ESPAÑA
     </h1>
-    <p style="font-size:0.95rem; color:#cccccc; max-width:500px; margin:0 auto; line-height:1.7; animation:fadeUp 0.45s 0.16s ease both;">
+    <p style="font-size:0.95rem;color:#888;max-width:520px;line-height:1.7;margin-bottom:28px;">
       Comparamos HSN, Nutritienda, Prozis y MyProtein — ordenados por €/kg para que nunca pagues de más.
     </p>
-    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; animation:fadeUp 0.45s 0.24s ease both;">
-      <a href="#ofertas" style="display:inline-block; padding:11px 20px; border:2px solid #c8ff4d; background:transparent; color:#c8ff4d; font-family:'Space Grotesk',sans-serif; font-weight:800; font-size:0.95rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:background 0.15s,color 0.15s;">Ver todas las ofertas</a>
-      <a href="#secComoFunciona" style="display:inline-block; padding:11px 20px; border:2px solid #c8ff4d; background:transparent; color:#c8ff4d; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.95rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:background 0.15s,color 0.15s;">Cómo funciona</a>
-      <a href="{{ site_url }}/test/" style="display:inline-block; padding:11px 20px; border:1px solid rgba(200,255,77,0.3); background:rgba(200,255,77,0.07); color:#c8ff4d; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.95rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:background 0.15s,color 0.15s;">🎯 ¿No sabes qué comprar? Haz el test →</a>
-      <a href="{{ site_url }}/comparar/" style="display:inline-block; padding:11px 20px; border:1px solid rgba(200,255,77,0.3); background:rgba(200,255,77,0.07); color:#c8ff4d; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.95rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:background 0.15s,color 0.15s;">⚖️ Comparar productos →</a>
+    <div style="display:flex;gap:28px;flex-wrap:wrap;margin-bottom:28px;">
+      <div><div style="font-size:1.5rem;font-weight:900;color:var(--accent);line-height:1;">{{ total_productos }}</div><div style="font-size:0.62rem;color:#555;text-transform:uppercase;letter-spacing:0.1em;margin-top:3px;">Productos</div></div>
+      <div><div style="font-size:1.5rem;font-weight:900;color:var(--accent);line-height:1;">{{ total_tiendas }}</div><div style="font-size:0.62rem;color:#555;text-transform:uppercase;letter-spacing:0.1em;margin-top:3px;">Tiendas</div></div>
+      <div><div style="font-size:1.5rem;font-weight:900;color:var(--accent);line-height:1;">{{ ahorro_medio }}%</div><div style="font-size:0.62rem;color:#555;text-transform:uppercase;letter-spacing:0.1em;margin-top:3px;">Ahorro medio</div></div>
     </div>
-  </section>
-
-  <!-- ── Search bar ────────────────────────────────────── -->
-  <section style="margin-bottom:28px;">
-    <div class="search-bar">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
+      <a href="#ofertas" style="padding:13px 28px;background:var(--accent);color:#000;font-weight:900;font-size:0.95rem;border-radius:8px;text-transform:uppercase;text-decoration:none;">Ver mejores precios →</a>
+      <a href="{{ site_url }}/test/" style="padding:13px 20px;background:transparent;color:var(--accent);border:1.5px solid var(--accent-border);border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;">🎯 ¿Qué comprar?</a>
+      <a href="{{ site_url }}/comparar/" style="padding:13px 20px;background:transparent;color:var(--accent);border:1.5px solid var(--accent-border);border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;">⚖️ Comparar productos</a>
+    </div>
+    <div class="search-bar" style="max-width:600px;">
       <input class="search-input" type="text" id="searchInput" placeholder="Buscar producto…" autocomplete="off">
       <select class="search-select" id="filterCat">
         <option value="">Todas las categorías</option>
-        {% for cat in categories %}
-        <option value="{{ cat.slug }}">{{ cat.display }}</option>
-        {% endfor %}
+        {% for cat in categories %}<option value="{{ cat.slug }}">{{ cat.display }}</option>{% endfor %}
       </select>
       <select class="search-select" id="sortOrder">
-        <option value="precio_kg">Ordenar: €/kg</option>
-        <option value="precio_total">Ordenar: Precio total</option>
+        <option value="precio_kg">€/kg</option>
+        <option value="precio_total">Precio total</option>
       </select>
-    </div>
-  </section>
-
-  <!-- ── Métricas ──────────────────────────────────────── -->
-  <section style="margin-bottom:40px;">
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-value">{{ total_productos }}</div>
-        <div class="metric-label">Productos</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">{{ total_tiendas }}</div>
-        <div class="metric-label">Tiendas</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value accent">{{ ahorro_medio }}%</div>
-        <div class="metric-label">Ahorro medio</div>
-      </div>
     </div>
   </section>
 
@@ -118,6 +111,19 @@
     </div>
   </section>
 
+  <!-- ── Alertas de precio ────────────────────────────────── -->
+  <section id="alertas" class="alert-banner">
+    <div class="alert-pulse-wrap"><div class="alert-pulse-ring"></div><div class="alert-pulse-icon">🔔</div></div>
+    <div style="flex:1;min-width:200px;">
+      <div class="alert-title">Alertas de precio gratis</div>
+      <div class="alert-desc">Recibe un email cuando baje cualquier producto. Sin spam, cancelable en 1 clic.</div>
+    </div>
+    <form class="alert-form" onsubmit="handleAlertSubmit(event)">
+      <input class="alert-input" type="email" placeholder="tu@email.com" required>
+      <button class="alert-btn" type="submit">Activar alertas</button>
+    </form>
+  </section>
+
   <!-- ── Top ofertas ─────────────────────────────────────── -->
   <section id="ofertas" style="margin-bottom:48px;">
     <p class="section-label">Top Ofertas</p>
@@ -151,18 +157,20 @@
             {% endif %}
           </div>
           <div class="pc-price-block">
+            {% if p.precio_por_kg_min %}<div class="pc-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }}</div>{% endif %}
             <div class="pc-price">{{ "%.2f"|format(offer.precio_eur) }} €</div>
-            {% if p.precio_por_kg_min %}
-              <div class="pc-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</div>
-            {% endif %}
-            {% if is_deal %}
-              <div class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</div>
-            {% endif %}
+            {% if is_deal %}<div class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</div>{% endif %}
           </div>
         </div>
         <div class="pc-meta">
           {{ p.categoria_display }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %} · {{ p.marca }}
         </div>
+        {% if p.spark_svg %}
+        <div class="spark-row">
+          <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div>{{ p.spark_svg | safe }}</div>
+          <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">{{ "%.2f"|format(p.spark_min) }} €/kg</div></div>
+        </div>
+        {% endif %}
         <div class="pc-stores">
           {% for pr in p.precios | sort(attribute='precio_eur') %}
           <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -174,8 +182,8 @@
           {% endfor %}
         </div>
         <div class="pc-actions">
-          <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn pc-btn-primary">Ver en categoría ↗</a>
-          <a href="{{ offer.url_afiliado }}" class="pc-btn" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+          <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
+          <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn">Ver categoría</a>
         </div>
       </div>
       {% endfor %}
@@ -215,17 +223,12 @@
   <section id="secComoFunciona" style="margin-bottom:24px;">
     <p class="section-label">Cómo funciona</p>
     <div class="steps-grid">
-      {% for num, icon, title, desc in [
-        ("01", "🔍", "Rastreamos precios", "Nuestros scrapers revisan HSN, Nutritienda, Prozis y MyProtein varias veces por semana."),
-        ("02", "📊", "Normalizamos por kg", "Convertimos todos los precios a €/kg para comparar botes de distintos tamaños de forma justa."),
-        ("03", "✅", "Tú decides", "Ves todos los precios ordenados de más barato a más caro. Sin registro, sin spam.")
+      {% for num, title, desc in [
+        ("01", "Rastreamos precios", "Nuestros scrapers revisan HSN, Nutritienda, Prozis y MyProtein varias veces por semana."),
+        ("02", "Normalizamos por kg", "Convertimos todos los precios a €/kg para comparar botes de distintos tamaños de forma justa."),
+        ("03", "Tú decides", "Ves todos los precios ordenados de más barato a más caro. Sin registro, sin spam.")
       ] %}
-      <div class="step-card">
-        <span class="step-num">{{ num }}</span>
-        <div class="step-icon">{{ icon }}</div>
-        <div class="step-title">{{ title }}</div>
-        <div class="step-desc">{{ desc }}</div>
-      </div>
+      <div class="step-card"><span class="step-num">{{ num }}</span><div class="step-title">{{ title }}</div><div class="step-desc">{{ desc }}</div></div>
       {% endfor %}
     </div>
   </section>
@@ -418,5 +421,15 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
 
   update();
 })();
+</script>
+<script>
+function handleAlertSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.alert-btn');
+  btn.textContent = '✓ ¡Activado!';
+  btn.style.background = '#a8d900';
+  e.target.querySelector('.alert-input').disabled = true;
+  btn.disabled = true;
+}
 </script>
 {% endblock %}

@@ -31,6 +31,7 @@ import html as html_mod
 from datetime import datetime
 from itertools import combinations
 from jinja2 import Environment, FileSystemLoader
+from build_additions import compute_spark_data, build_ticker_items
 
 # Forzar UTF-8 en stdout (necesario en Windows con cp1252)
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
@@ -593,6 +594,11 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
     return productos_web
 
 
+def aplicar_afiliados_hsn(productos_web):
+    """Stub: devuelve la lista sin modificar si añadir_afiliados no está disponible."""
+    return productos_web
+
+
 def guardar_products_json(productos_web: list[dict]):
     """Guarda data/products.json."""
     os.makedirs(DATA_DIR, exist_ok=True)
@@ -680,7 +686,7 @@ def contexto_base(last_updated: str) -> dict:
     }
 
 
-def generar_home(env, productos_web: list[dict], last_updated: str, comparaciones_populares: list | None = None):
+def generar_home(env, productos_web: list[dict], last_updated: str, comparaciones_populares: list | None = None, ticker_items: list | None = None):
     """Genera docs/index.html."""
     template = env.get_template("home.html")
 
@@ -759,6 +765,7 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
         "ahorro_medio":         ahorro_medio,
         "all_products_json":    json.dumps(all_search, ensure_ascii=False),
         "comparaciones_populares": comparaciones_populares or [],
+        "ticker_items": ticker_items or [],
     }
 
     html = template.render(**ctx)
@@ -833,7 +840,7 @@ def _tipo_proteina(nombre: str) -> str:
     return "Otra"
 
 
-def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None):
+def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None, ticker_items: list | None = None):
     """Genera docs/{slug}/index.html para una categoría."""
     template = env.get_template("category.html")
 
@@ -879,6 +886,7 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
         "precio_kg_min":     precio_kg_min,
         "precio_kg_max":     precio_kg_max,
         "slugs_comparacion": json.dumps(list(slugs_cat)),
+        "ticker_items": ticker_items or [],
     }
 
     html = template.render(**ctx)
@@ -1575,6 +1583,8 @@ if __name__ == "__main__":
     # 2b. Aplicar links de afiliado HSN
     print("\n🔗 Aplicando links de afiliado...")
     productos_web = aplicar_afiliados_hsn(productos_web)
+    productos_web = compute_spark_data(productos_web)
+    ticker_items  = build_ticker_items(productos_web)
 
     # Stats por categoría
     for cfg in CATEGORIA_CONFIG.values():
@@ -1611,11 +1621,11 @@ if __name__ == "__main__":
         for s in _top6_slugs
     ]
 
-    generar_home(env, productos_web, last_updated, comparaciones_populares=comparaciones_populares_home)
+    generar_home(env, productos_web, last_updated, comparaciones_populares=comparaciones_populares_home, ticker_items=ticker_items)
 
     slugs_set = set(compare_slugs)
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
-        generar_categoria(env, cat_raw, cfg, productos_web, last_updated, slugs_comparacion=slugs_set)
+        generar_categoria(env, cat_raw, cfg, productos_web, last_updated, slugs_comparacion=slugs_set, ticker_items=ticker_items)
 
     # 5. Páginas legales, test y sobre nosotros
     for pagina in PAGINAS_LEGALES:

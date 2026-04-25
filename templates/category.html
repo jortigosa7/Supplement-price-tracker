@@ -78,6 +78,19 @@
 {% endif %}
 {% endblock %}
 
+{% block ticker %}
+{% if ticker_items %}
+<div class="ticker-strip"><div class="ticker-inner">
+  {% for item in ticker_items %}{% for _ in [1,2] %}
+  <span class="ticker-item">
+    <span class="ticker-dot" style="background:{{ '#c8ff4d' if item.delta < 0 else ('#ff6b2b' if item.delta > 0 else '#444') }};"></span>
+    <span style="color:{{ '#c8ff4d' if item.delta < 0 else ('#ff6b2b' if item.delta > 0 else '#666') }};">{{ item.nombre }} → {{ "%.2f"|format(item.precio_kg) }}€/kg {% if item.delta < 0 %}▼{{ item.delta|abs }}%{% elif item.delta > 0 %}▲{{ item.delta }}%{% endif %}</span>
+  </span>
+  {% endfor %}{% endfor %}
+</div></div>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="container">
 
@@ -216,18 +229,20 @@
           {% endif %}
         </div>
         <div class="pc-price-block">
+          {% if p.precio_por_kg_min %}<div class="pc-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }}</div>{% endif %}
           <div class="pc-price">{{ "%.2f"|format(offer.precio_eur) }} €</div>
-          {% if p.precio_por_kg_min %}
-            <div class="pc-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }} €/kg</div>
-          {% endif %}
-          {% if is_deal %}
-            <div class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</div>
-          {% endif %}
+          {% if is_deal %}<div class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</div>{% endif %}
         </div>
       </div>
       <div class="pc-meta">
         {{ cat.display }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %} · {{ p.marca }}
       </div>
+      {% if p.spark_svg %}
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div>{{ p.spark_svg | safe }}</div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">{{ "%.2f"|format(p.spark_min) }} €/kg</div></div>
+      </div>
+      {% endif %}
       <div class="pc-stores">
         {% for pr in precios_ord %}
         <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored">
@@ -239,7 +254,7 @@
         {% endfor %}
       </div>
       <div class="pc-actions">
-        <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
