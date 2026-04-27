@@ -96,17 +96,22 @@ def compute_spark_data(productos_web: list[dict]) -> list[dict]:
             continue
 
         peso_kg = p.get("peso_kg") or 1.0
-        # Calcular €/kg por entrada usando el precio de la entrada y el peso del producto
-        prices_kg: list[float] = []
+        # Agrupar por fecha y tomar el mínimo €/kg del día entre todas las tiendas.
+        # Así el último punto del sparkline coincide siempre con el precio mínimo actual
+        # y no con la última tienda scrapeada (que puede ser la más cara).
+        prices_by_date: dict[str, list[float]] = {}
         for e in entries:
             precio = e.get("precio")
-            if precio is not None and peso_kg > 0:
+            fecha = e.get("fecha", "")
+            if precio is not None and fecha and peso_kg > 0:
                 try:
                     pkg = float(precio) / float(peso_kg)
                     if pkg > 0 and not math.isnan(pkg):
-                        prices_kg.append(round(pkg, 2))
+                        prices_by_date.setdefault(fecha, []).append(round(pkg, 2))
                 except (TypeError, ValueError, ZeroDivisionError):
                     pass
+
+        prices_kg = [min(v) for _, v in sorted(prices_by_date.items())]
 
         if len(prices_kg) < 2:
             p["spark_svg"] = ""
@@ -144,16 +149,19 @@ def build_ticker_items(productos_web: list[dict]) -> list[dict]:
             continue
 
         peso_kg = p.get("peso_kg") or 1.0
-        prices_kg: list[float] = []
+        prices_by_date: dict[str, list[float]] = {}
         for e in entries:
             precio = e.get("precio")
-            if precio is not None and peso_kg > 0:
+            fecha = e.get("fecha", "")
+            if precio is not None and fecha and peso_kg > 0:
                 try:
                     pkg = float(precio) / float(peso_kg)
                     if pkg > 0 and not math.isnan(pkg):
-                        prices_kg.append(pkg)
+                        prices_by_date.setdefault(fecha, []).append(pkg)
                 except (TypeError, ValueError, ZeroDivisionError):
                     pass
+
+        prices_kg = [min(v) for _, v in sorted(prices_by_date.items())]
 
         if len(prices_kg) < 2:
             continue

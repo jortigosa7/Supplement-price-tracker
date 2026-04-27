@@ -50,9 +50,9 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, Panacea 350g o Panacea 750g?","acceptedAnswer":{"@type":"Answer","text":"Panacea 750g es m\u00e1s barato con 46.96 \u20ac/kg frente a 54.23 \u20ac/kg de Panacea 350g \u2014 una diferencia de 7.27 \u20ac/kg."}},
+        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, Panacea 350g o Panacea 750g?","acceptedAnswer":{"@type":"Answer","text":"Panacea 750g es m\u00e1s barato con 47.45 \u20ac/kg frente a 54.23 \u20ac/kg de Panacea 350g \u2014 una diferencia de 6.78 \u20ac/kg."}},
         {"@type":"Question","name":"\u00bfD\u00f3nde comprar Panacea 350g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Panacea 350g est\u00e1 en Nutritienda, a 18.98 \u20ac."}},
-        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Panacea 750g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Panacea 750g est\u00e1 en Nutritienda, a 35.22 \u20ac."}},
+        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Panacea 750g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Panacea 750g est\u00e1 en Nutritienda, a 35.59 \u20ac."}},
         {"@type":"Question","name":"\u00bfCu\u00e1l tiene m\u00e1s prote\u00edna por dosis?","acceptedAnswer":{"@type":"Answer","text":"Panacea 350g aporta m\u00e1s prote\u00edna por dosis: 86 g por toma."}}
       ]
     }
@@ -85,7 +85,7 @@
   .verdict-na { font-size:0.78rem; color:#555; font-style:italic; }
 
   /* ── Tabla ────────────── */
-  .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; }
+  .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; -webkit-overflow-scrolling:touch; }
   .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
   .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; color:#111; }
   .cmp-table tr:last-child td { border-bottom:none; }
@@ -95,6 +95,52 @@
   .cmp-table td.winner-cell { font-weight:700; color:#111; }
   .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
   .cmp-val-badge.win { background:rgba(200,255,77,0.15); color:#4a6b00; border-color:rgba(200,255,77,0.6); }
+
+  /* ── Tabla móvil: columna label sticky, columnas producto anchas ── */
+  @media (max-width: 767px) {
+    .cmp-table-wrap {
+      scroll-snap-type: x mandatory;
+    }
+    .cmp-table {
+      table-layout: fixed;
+      /* label 96px + dos columnas producto que juntas no caben en pantalla */
+      width: calc(96px + 2 * (100vw - 56px));
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+    .cmp-table td.label-col,
+    .cmp-table th:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      width: 96px;
+      min-width: 96px;
+      max-width: 96px;
+      white-space: normal;
+      word-break: break-word;
+      background: #f7f7f7;
+    }
+    .cmp-table th:not(:first-child),
+    .cmp-table td:not(.label-col) {
+      width: calc(100vw - 116px);
+      min-width: calc(100vw - 116px);
+      scroll-snap-align: start;
+    }
+    /* Indicador visual de scroll */
+    .cmp-scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: center;
+      font-size: 0.72rem;
+      color: #888;
+      margin: -16px 0 20px;
+    }
+  }
+  @media (min-width: 768px) {
+    .cmp-scroll-hint { display: none; }
+  }
 
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
@@ -183,7 +229,7 @@
     main {
       flex: 1;
       padding-bottom: 80px;
-      background: #ffffff;
+      background: #0a0b0c;
     }
 
     /* ── Animations ────────────────────────────────── */
@@ -252,7 +298,7 @@
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 800;
-      color: var(--text-primary);
+      color: #f0f0f0;
       margin-bottom: 24px;
     }
 
@@ -347,42 +393,36 @@
       align-items: flex-end;
       gap: 4px;
     }
-    .pc-price {
+    .pc-price-kg {
       font-family: var(--font-syne);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #111111;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--accent);
       line-height: 1;
+      font-variant-numeric: tabular-nums;
     }
-    .pc-price::before {
-      content: 'precio total';
+    .pc-price-kg::before {
+      content: '€/kg';
       display: block;
       font-family: var(--font-body);
       font-size: 9px;
-      font-weight: 400;
-      color: #cccccc;
+      font-weight: 600;
+      color: #888888;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.1em;
       line-height: 1;
       margin-bottom: 3px;
     }
-    .pc-price-kg {
-      display: inline-flex;
-      align-items: center;
-      background: #0a0b0c;
-      color: var(--accent);
-      font-family: var(--font-syne);
-      font-weight: 800;
-      font-size: 0.81rem;
-      padding: 3px 9px;
-      border-radius: 12px;
-      line-height: 1.5;
+    .pc-price {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #888888;
+      line-height: 1.4;
+      margin-top: 4px;
     }
-    .pc-price-old {
-      font-size: 0.76rem;
-      color: #cccccc;
-      text-decoration: line-through;
-    }
+    .pc-price::before { content: 'total: '; font-weight: 400; }
+    .pc-price-old { font-size: 0.72rem; color: #666666; text-decoration: line-through; }
     .pc-meta { font-size: 0.78rem; color: #aaaaaa; }
 
     .pc-stores { display: flex; flex-direction: column; gap: 5px; }
@@ -528,16 +568,8 @@
       letter-spacing: 0.03em;
     }
     .pc-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .pc-btn.pc-btn-primary {
-      background: var(--coral);
-      border-color: var(--coral);
-      color: #ffffff;
-    }
-    .pc-btn.pc-btn-primary:hover {
-      background: #e05a20;
-      border-color: #e05a20;
-      color: #ffffff;
-    }
+    .pc-btn.pc-btn-primary { background: var(--accent); border-color: var(--accent); color: #000000; }
+    .pc-btn.pc-btn-primary:hover { background: var(--accent-dim); border-color: var(--accent-dim); color: #000000; }
 
     /* ── Pagination ────────────────────────────────── */
     .pagination {
@@ -768,7 +800,7 @@
       color: #888888;
       margin: 14px 0 20px;
     }
-    .cat-stats strong { color: #111111; }
+    .cat-stats strong { color: #f0f0f0; }
     .cat-stats .green { color: var(--accent); }
 
     /* ── Advanced filters ──────────────────────────── */
@@ -887,12 +919,12 @@
       font-weight: 700;
       margin-bottom: 14px;
       padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-      color: #111111;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
     }
     .guide-text {
       font-size: 0.9rem;
-      color: #666666;
+      color: #aaaaaa;
       line-height: 1.8;
       max-width: 760px;
       white-space: pre-line;
@@ -982,6 +1014,55 @@
       .pc-actions { flex-direction: column; }
     }
 
+    /* Ticker */
+    .ticker-strip { background: rgba(200,255,77,0.04); border-bottom: 1px solid rgba(200,255,77,0.1); padding: 7px 0; overflow: hidden; white-space: nowrap; }
+    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 30s linear infinite; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { font-size: 0.7rem; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    /* Sparkline */
+    .spark-row { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin: 8px 0; }
+    .spark-info { flex: 1; }
+    .spark-label { font-size: 0.6rem; color: #666; margin-bottom: 4px; }
+    .spark-stats { text-align: right; }
+    .spark-min { font-size: 0.82rem; font-weight: 800; color: var(--accent); }
+    /* Alert banner */
+    .alert-banner { background: #111214; border: 1px solid rgba(200,255,77,0.2); border-radius: 16px; padding: 24px 28px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 48px; }
+    .alert-pulse-wrap { position: relative; width: 44px; height: 44px; flex-shrink: 0; }
+    .alert-pulse-ring { position: absolute; inset: 0; background: rgba(200,255,77,0.15); border-radius: 50%; animation: pulse 2s ease infinite; }
+    .alert-pulse-icon { position: absolute; inset: 8px; background: rgba(200,255,77,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .alert-title { font-size: 1rem; font-weight: 800; color: #f0f0f0; margin-bottom: 4px; }
+    .alert-desc { font-size: 0.78rem; color: #666; line-height: 1.5; }
+    .alert-form { display: flex; width: 100%; max-width: 380px; flex-shrink: 0; }
+    .alert-input { flex: 1; padding: 12px 16px; background: #16181a; border: 1.5px solid rgba(255,255,255,0.08); border-right: none; border-radius: 10px 0 0 10px; outline: none; color: #f0f0f0; font-family: var(--font-body); font-size: 0.88rem; }
+    .alert-input::placeholder { color: #444; }
+    .alert-btn { padding: 0 20px; background: var(--accent); border: none; color: #000; font-family: var(--font-body); font-weight: 900; font-size: 0.82rem; cursor: pointer; border-radius: 0 10px 10px 0; }
+    /* Mobile subnav */
+    .mobile-subnav { display: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 8px 16px; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+    .mobile-subnav::-webkit-scrollbar { display: none; }
+    .mobile-subnav a { flex-shrink: 0; padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); color: #666; font-size: 0.75rem; text-decoration: none; white-space: nowrap; }
+    .mobile-subnav a.active { border-color: var(--accent-border); color: var(--accent); background: var(--accent-bg); }
+    @media (max-width: 640px) { .mobile-subnav { display: flex; } }
+    /* Cards dark */
+    .product-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .product-card.is-best { border-color: var(--accent); }
+    .product-card:hover { border-color: rgba(255,255,255,0.14); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .pc-name-text { color: #e8e8e8; }
+    .pc-meta { color: #666; }
+    a.pc-store { background: #16181a; border-color: rgba(255,255,255,0.07); }
+    a.pc-store:first-child { background: rgba(200,255,77,0.06); border-color: rgba(200,255,77,0.2); }
+    a.pc-store:hover { background: #1e2022; }
+    .pc-store-name { color: #888; }
+    .pc-store-price { color: #e8e8e8; }
+    .pc-btn { background: #16181a; border-color: rgba(255,255,255,0.08); color: #666; }
+    .search-input, .search-select { background: #111214; border-color: rgba(255,255,255,0.08); color: #e8e8e8; }
+    .cat-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .cat-name { color: #e8e8e8; }
+    .cat-price { color: var(--accent); }
+    .step-card { background: #111214; border-color: rgba(255,255,255,0.07); }
+    .step-title { color: #e8e8e8; }
+    .step-desc { color: #666; }
+
     /* ── Footer ────────────────────────────────────── */
     .site-footer {
       background: #0a0b0c;
@@ -1044,7 +1125,17 @@
         <a href="https://stackfit.es/comparar/" class="active" style="border-color:var(--accent-border);color:var(--accent);">⚖️ Comparar</a>
       </div>
     </nav>
+    <div class="mobile-subnav">
+      <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/creatina/">Creatina</a>
+      <a href="https://stackfit.es/bcaa/">BCAA</a>
+      <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
+      <a href="https://stackfit.es/test/" style="color:var(--accent);">🎯 Test</a>
+      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">⚖️ Comparar</a>
+    </div>
   </header>
+
+  
 
   <main>
     
@@ -1059,7 +1150,7 @@
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>Panacea vs Panacea: comparativa completa</h1>
-    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Actualizado 2026-04-20.</p>
+    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Actualizado 2026-04-26.</p>
   </div>
 </div>
 
@@ -1077,7 +1168,7 @@
       
         
         <div class="verdict-winner">Panacea 750g</div>
-        <div class="verdict-value">46.96 €/kg</div>
+        <div class="verdict-value">47.45 €/kg</div>
       
     </div>
 
@@ -1117,6 +1208,7 @@
   <h2 class="cmp-section-title">Comparativa detallada</h2>
   <div class="cmp-table-wrap">
     <table class="cmp-table">
+
       <thead>
         <tr>
           <th class="label-col"></th>
@@ -1148,12 +1240,12 @@
         <tr>
           <td class="label-col">Mejor precio total</td>
           <td>18.98 € (Nutritienda)</td>
-          <td class="winner-cell">35.22 € (Nutritienda)</td>
+          <td class="winner-cell">35.59 € (Nutritienda)</td>
         </tr>
         <tr>
           <td class="label-col">Precio €/kg</td>
           <td><span class="cmp-val-badge">54.23 €/kg</span></td>
-          <td><span class="cmp-val-badge win">46.96 €/kg</span></td>
+          <td><span class="cmp-val-badge win">47.45 €/kg</span></td>
         </tr>
         
         <tr>
@@ -1230,6 +1322,7 @@
       </tbody>
     </table>
   </div>
+  <div class="cmp-scroll-hint">← desliza para ver ambos productos →</div>
 </div>
 
 <!-- ── Cards con CTAs ─── -->
@@ -1286,9 +1379,9 @@
       </div>
       
       <div>
-        <div class="cmp-card-price">35.22 €</div>
+        <div class="cmp-card-price">35.59 €</div>
         
-        <div class="cmp-card-kg">46.96 €/kg</div>
+        <div class="cmp-card-kg">47.45 €/kg</div>
         
       </div>
       
@@ -1297,7 +1390,7 @@
         <a href="https://www.nutritienda.com/es/paleobull/panacea-750g" class="pc-store" target="_blank" rel="nofollow sponsored">
           <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
           <span class="pc-store-name">Nutritienda</span>
-          <span class="pc-store-price">35.22 €</span>
+          <span class="pc-store-price">35.59 €</span>
           
         </a>
         
@@ -1314,7 +1407,7 @@
   <h2 class="cmp-section-title">Análisis comparativo</h2>
   <div class="editorial-text">
     
-    <p>Si buscas el mejor precio por kilogramo, <strong>Panacea 750g</strong> es la opción más económica con <strong>46.96 €/kg</strong>, 7.27 €/kg menos que Panacea 350g (54.23 €/kg).</p>
+    <p>Si buscas el mejor precio por kilogramo, <strong>Panacea 750g</strong> es la opción más económica con <strong>47.45 €/kg</strong>, 6.78 €/kg menos que Panacea 350g (54.23 €/kg).</p>
     
     <p>Panacea 750g viene en un formato de 0.75 kg frente a los 0.35 kg de Panacea 350g. El precio por kilogramo ya normaliza esta diferencia de tamaño.</p>
     
@@ -1329,7 +1422,7 @@
     
     <details class="faq-item">
       <summary>¿Cuál es más barato, Panacea 350g o Panacea 750g?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">Panacea 750g es más barato con 46.96 €/kg frente a 54.23 €/kg de Panacea 350g — una diferencia de 7.27 €/kg.</p>
+      <p class="faq-answer">Panacea 750g es más barato con 47.45 €/kg frente a 54.23 €/kg de Panacea 350g — una diferencia de 6.78 €/kg.</p>
     </details>
     
     <details class="faq-item">
@@ -1339,7 +1432,7 @@
     
     <details class="faq-item">
       <summary>¿Dónde comprar Panacea 750g al mejor precio?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">El mejor precio de Panacea 750g está en Nutritienda, a 35.22 €.</p>
+      <p class="faq-answer">El mejor precio de Panacea 750g está en Nutritienda, a 35.59 €.</p>
     </details>
     
     <details class="faq-item">
@@ -1386,7 +1479,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-04-20</div>
+    <div class="footer-bottom">Última actualización: 2026-04-26</div>
   </footer>
 
 </body>

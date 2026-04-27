@@ -1583,6 +1583,11 @@ if __name__ == "__main__":
     # 2b. Aplicar links de afiliado HSN
     print("\n🔗 Aplicando links de afiliado...")
     productos_web = aplicar_afiliados_hsn(productos_web)
+
+    # Guardar historial ANTES de los sparklines para que el último punto
+    # del sparkline refleje los precios de hoy y no los del scraping anterior
+    guardar_price_history(productos_web)
+
     productos_web = compute_spark_data(productos_web)
     ticker_items  = build_ticker_items(productos_web)
 
@@ -1591,10 +1596,9 @@ if __name__ == "__main__":
         n = sum(1 for p in productos_web if p["categoria"] == cfg["slug"])
         print(f"   • {cfg['display']}: {n} productos")
 
-    # 3. Guardar products.json y price_history.json
+    # 3. Guardar products.json
     print()
     guardar_products_json(productos_web)
-    guardar_price_history(productos_web)
 
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")
