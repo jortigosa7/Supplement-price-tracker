@@ -594,11 +594,6 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
     return productos_web
 
 
-def aplicar_afiliados_hsn(productos_web):
-    """Stub: devuelve la lista sin modificar si añadir_afiliados no está disponible."""
-    return productos_web
-
-
 def guardar_products_json(productos_web: list[dict]):
     """Guarda data/products.json."""
     os.makedirs(DATA_DIR, exist_ok=True)

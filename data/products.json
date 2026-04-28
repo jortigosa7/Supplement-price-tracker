@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-04-28",
   "site": "StackFit",
   "total": 329,
   "products": [
@@ -18,7 +18,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 4.1,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2Fhcy1pbnN0YW50YW5lby0yLTEtMS0yLTA=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -800,7 +800,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 11.91,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWFzLWNvbXBsZXgtZW4tcG9sdm8=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -839,7 +839,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 12.1,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtaW5zdGFudGFuZW9zLWVuLXBvbHZv",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -964,7 +964,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 12.95,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWEtcy0yLTAtYmNhYXMtMTItMS0xLWdsdXRhbWluYQ==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1050,7 +1050,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 13.99,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2FhLXMtaW5zdGFudGFuZW8tNC0xLTEtMi0w",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1447,7 +1447,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 9.3,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by0yLTEtMS1iY2FhLXMtMi0xLTEtdml0YW1pbmFzLWI2LXktYjEy",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -1482,7 +1482,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 10.02,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtNC0xLTEtdml0YW1pbmFzLWI2LXktYjEy",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -2153,7 +2153,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 2.37,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -2199,7 +2199,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 15.07,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-ultrafina-en-polvo-500-mesh",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by11bHRyYWZpbmEtZW4tcG9sdm8tNTAwLW1lc2g=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -2243,7 +2243,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 16.76,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evocreatine",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NyZWF0aW5l",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -3168,7 +3168,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 23.72,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwLWNyZWFwdXJlLWVuLXBvbHZv",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -3702,7 +3702,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 14.44,
-          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/creatina-excell-1000mg-100-creapure",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwMG1nLTEwMC1jcmVhcHVyZQ==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -3737,7 +3737,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 8.65,
-          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by0xMDAwbWctY3JlYXRpbmE=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -3772,7 +3772,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 20.24,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2thbHluLWNyZWF0aW5hLWFsY2FsaW5h",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -3807,7 +3807,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 15.49,
-          "url_afiliado": "https://www.hsnstore.com/marcas/now-foods/kre-alkalyn-creatina-750mg",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvbm93LWZvb2RzL2tyZS1hbGthbHluLWNyZWF0aW5hLTc1MG1n",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -4442,7 +4442,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 7.79,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/isomaltulosa-palatinose-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9pc29tYWx0dWxvc2EtcGFsYXRpbm9zZS1lbi1wb2x2bw==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -4488,7 +4488,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 15.9,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobeast",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JlYXN0",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -4717,7 +4717,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 3.95,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iZXRhLWFsYW5pbmEtZW4tcG9sdm8=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -4997,7 +4997,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 6.79,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9nbHljb3B1bXAtZ2xpY2Vyb2wtZW4tcG9sdm8=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -5089,7 +5089,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 7.1,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9sLWNpdHJ1bGluYS1iYXNlLWVuLXBvbHZv",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -5161,7 +5161,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 8.04,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9hcmdpbmluYS1hbGZhLWNldG9nbHV0YXJhdG8tYWFrZy1lbi1wb2x2bw==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -5196,7 +5196,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 8.2,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9kLXJpYm9zYS1lbi1wb2x2bw==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -5231,7 +5231,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 8.2,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9hY2lkby1tYWxpY28tZW4tcG9sdm8=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -5624,7 +5624,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 16.45,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evordx-2-0",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3JkeC0yLTA=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -5817,7 +5817,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 24.7,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobomb",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JvbWI=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -6411,7 +6411,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 26.68,
-          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/extracto-de-amaranto-oxystorm-50-1-650mg",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9leHRyYWN0by1kZS1hbWFyYW50by1veHlzdG9ybS01MC0xLTY1MG1n",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -6446,7 +6446,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 23.2,
-          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/l-alanil-l-glutamina-300mg",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9sLWFsYW5pbC1sLWdsdXRhbWluYS0zMDBtZw==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -6481,7 +6481,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 5.45,
-          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/cafeina-natural-200mg",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jYWZlaW5hLW5hdHVyYWwtMjAwbWc=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -6516,7 +6516,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 9.85,
-          "url_afiliado": "https://www.hsnstore.com/marcas/essential-series/arginina-alfa-cetoglutarato-1000mg-aakg",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9hcmdpbmluYS1hbGZhLWNldG9nbHV0YXJhdG8tMTAwMG1nLWFha2c=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -6551,7 +6551,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 30.8,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evopump",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3B1bXA=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8475,7 +8475,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 8.65,
-          "url_afiliado": "https://www.hsnstore.com/marcas/food-series/crema-de-arroz-proteica",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvY3JlbWEtZGUtYXJyb3otcHJvdGVpY2E=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8532,7 +8532,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 10.34,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evobasic-whey",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2Jhc2ljLXdoZXk=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8580,7 +8580,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 11.2,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein-sin-edulcorantes",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3doZXktcHJvdGVpbi1zaW4tZWR1bGNvcmFudGVz",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8633,7 +8633,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 11.76,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evowhey-protein",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3doZXktcHJvdGVpbg==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8733,7 +8733,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 11.76,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy8xMDAtd2hleS1wcm90ZWluLWNvbmNlbnRyYXRl",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8770,7 +8770,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 16.14,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-2-0-whey-protein-isolate-concentrate",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2V4Y2VsLTItMC13aGV5LXByb3RlaW4taXNvbGF0ZS1jb25jZW50cmF0ZQ==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8816,7 +8816,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 17.5,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-whey-isolate-cfm",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2xhdGUtMi0wLXdoZXktaXNvbGF0ZS1jZm0=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8883,7 +8883,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 17.5,
-          "url_afiliado": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-isolate",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy8xMDAtd2hleS1wcm90ZWluLWlzb2xhdGU=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -8980,7 +8980,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 18.04,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2V4Y2VsLXNpbi1lZHVsY29yYW50ZXMtd2hleS1wcm90ZWluLWlzb2xhdGUtY29uY2VudHJhdGU=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -9022,7 +9022,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 19.92,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-sin-edulcorantes-whey-isolate-cfm",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2xhdGUtMi0wLXNpbi1lZHVsY29yYW50ZXMtd2hleS1pc29sYXRlLWNmbQ==",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -9065,7 +9065,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 20.09,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-2-0-hydro-whey",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2h5ZHJvLTItMC1oeWRyby13aGV5",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -9186,7 +9186,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 22.03,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evoclear-hydro",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NsZWFyLWh5ZHJv",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -9413,7 +9413,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 65.0,
-          "url_afiliado": "https://www.hsnstore.com/marcas/keto-series/keto-whey-protein",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMva2V0by1zZXJpZXMva2V0by13aGV5LXByb3RlaW4=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -10549,7 +10549,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 25.94,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evohydro-30hd",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2h5ZHJvLTMwaGQ=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -11329,7 +11329,7 @@
         {
           "tienda": "HSN",
           "precio_eur": 41.12,
-          "url_afiliado": "https://www.hsnstore.com/marcas/sport-series/evopept-peptopro",
+          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3BlcHQtcGVwdG9wcm8=",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
