@@ -132,12 +132,37 @@ if __name__ == "__main__":
         print("\n  Sin productos. Revisa la conexion o los selectores.")
         sys.exit(1)
 
-    # ── Safeguard: verificar que no perdemos >20% vs el scrape anterior ──────
+        # ── Fallback por tienda: si un scraper devolvió 0, reutilizar datos anteriores ──
     prev_files = sorted(glob.glob(os.path.join(OUTPUT_DIR, "suplementos_*.json")), reverse=True)
+    prev_data: list[dict] = []
     if prev_files:
         try:
             with open(prev_files[0], encoding="utf-8") as _f:
-                prev_count = len(json.load(_f))
+                prev_data = json.load(_f)
+        except Exception as _e:
+            print(f"  Aviso: no se pudo leer dataset anterior para fallback: {_e}")
+
+    if prev_data:
+        tiendas_nuevas = {p.get("tienda", "") for p in todos if p.get("tienda")}
+        tiendas_prev   = {p.get("tienda", "") for p in prev_data if p.get("tienda")}
+        tiendas_bloqueadas = tiendas_prev - tiendas_nuevas
+        for tienda in sorted(tiendas_bloqueadas):
+            fallback = [p for p in prev_data if p.get("tienda") == tienda]
+            if not fallback:
+                continue
+            for p in fallback:
+                if "precio" not in p and "precio_eur" in p and p["precio_eur"] is not None:
+                    p["precio"] = str(p["precio_eur"])
+            todos.extend(fallback)
+            print(
+                f"\n  ⚠️  {tienda}: 0 productos nuevos — "
+                f"usando {len(fallback)} productos del dataset anterior como fallback"
+            )
+
+    # ── Safeguard: verificar que no perdemos >20% vs el scrape anterior ──────
+    if prev_data:
+        try:
+            prev_count = len(prev_data)
             if len(todos) < prev_count * 0.80:
                 print(
                     f"\n⚠️  ABORTANDO: solo {len(todos)} productos scrapeados "
@@ -146,7 +171,7 @@ if __name__ == "__main__":
                 )
                 sys.exit(1)
         except Exception as _e:
-            print(f"  Aviso: no se pudo leer dataset anterior: {_e}")
+            print(f"  Aviso safeguard: {_e}")
 
     # Limpiar
     df = limpiar_dataset(todos)
