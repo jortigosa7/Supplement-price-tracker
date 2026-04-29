@@ -930,7 +930,7 @@
     "nombre":"BCAA 2:1:1 200 tabs",
     "marca":"",
     "categoria":"BCAA",
-    "precio_eur":17.99,
+    "precio_eur":9.0,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"Prozis",
@@ -1061,7 +1061,7 @@
     "nombre":"BCAA 2:1:1",
     "marca":"",
     "categoria":"BCAA",
-    "precio_eur":16.99,
+    "precio_eur":13.49,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -1093,7 +1093,7 @@
     "nombre":"BCAA Comprimidos",
     "marca":"",
     "categoria":"BCAA",
-    "precio_eur":10.99,
+    "precio_eur":8.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -2338,6 +2338,26 @@
     "store_rating_url":null
   },
   {
+    "nombre":"Creatina Monohidrato en Tabletas",
+    "marca":"",
+    "categoria":"Creatina",
+    "precio_eur":16.49,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"MyProtein",
+    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/creatina-monohidrato-en-tabletas\/10575029\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/10575029-5045293752284607.jpg&format=webp&width=1500&height=1500&fit=cover",
+    "fecha_scraping":"2026-04-29",
+    "protein_per_serving_g":null,
+    "serving_size_g":null,
+    "servings_per_container":null,
+    "sweetener_free":null,
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
+  },
+  {
     "nombre":"Creatina Monohidrato en polvo",
     "marca":"",
     "categoria":"Creatina",
@@ -2578,26 +2598,6 @@
       "Tropical Dragon Fruit",
       "Té de Melocotón"
     ],
-    "store_rating":null,
-    "store_rating_count":null,
-    "store_rating_url":null
-  },
-  {
-    "nombre":"Pack Proteico",
-    "marca":"",
-    "categoria":"Creatina",
-    "precio_eur":61.99,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"MyProtein",
-    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/pack-proteico\/15722525\/",
-    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/15722530-2145192371854291.jpg&format=webp&width=1500&height=1500&fit=cover",
-    "fecha_scraping":"2026-04-29",
-    "protein_per_serving_g":null,
-    "serving_size_g":null,
-    "servings_per_container":null,
-    "sweetener_free":null,
-    "flavors_available":null,
     "store_rating":null,
     "store_rating_count":null,
     "store_rating_url":null
@@ -2868,15 +2868,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Café y Caramelo",
-      "Chocolate",
-      "Speculoos",
-      "Vainilla y pepitas de chocolate"
-    ],
-    "store_rating":4.59,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/pre-workout-protein-mug-cake-speculoos-400-g"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Pre-workout Protein Mug Cake - Café y Caramelo 400 g",
@@ -2893,15 +2888,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Café y Caramelo",
-      "Chocolate",
-      "Speculoos",
-      "Vainilla y pepitas de chocolate"
-    ],
-    "store_rating":4.64,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/pre-workout-protein-mug-cake-cafe-y-caramelo-400-g"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Pre-workout Protein Mug Cake - Chocolate 400 g",
@@ -2918,15 +2908,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Café y Caramelo",
-      "Chocolate",
-      "Speculoos",
-      "Vainilla y pepitas de chocolate"
-    ],
-    "store_rating":4.67,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/pre-workout-protein-mug-cake-chocolate-400-g"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Pre-workout Protein Mug Cake Premix - Vainilla y Pepitas de Chocolate 400 g",
@@ -2943,15 +2928,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Café y Caramelo",
-      "Chocolate",
-      "Speculoos",
-      "Vainilla y pepitas de chocolate"
-    ],
-    "store_rating":4.71,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400-g"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"BETA-ALANINA EN POLVO 150g",
@@ -3011,14 +2991,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Cola",
-      "Limón",
-      "Naranja"
-    ],
-    "store_rating":4.32,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/n.o.-shox-1320g"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Beta-alanina 900 g",
@@ -3035,12 +3011,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Neutro"
-    ],
-    "store_rating":4.71,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/beta-alanina-900-g"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"PRE WORKOUT EXPLOSIVE 1 Kg",
@@ -3077,14 +3051,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Cola",
-      "Limón",
-      "Naranja"
-    ],
-    "store_rating":4.32,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/n.o.-shox-660-g"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Origin Jacked Pre-Workout 750g",
@@ -3379,14 +3349,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Neutro",
-      "Manzana verde",
-      "Sandía"
-    ],
-    "store_rating":4.71,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-citrulina-malato-300g"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Super Shock 600g",
@@ -3893,13 +3859,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Cola",
-      "Manzana"
-    ],
-    "store_rating":4.64,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/3-x-sachet-powa-3.0-pre-workout-17.8g-cola"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"3 x Sachet POWA 3.0 Pre-Workout 17.5g Apple",
@@ -4366,13 +4329,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Cola",
-      "Manzana"
-    ],
-    "store_rating":4.64,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/powa-3.0-pre-workout-40-servings"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"AAKG - L-arginina AKG 180 cápsulas",
@@ -4390,9 +4350,9 @@
     "servings_per_container":null,
     "sweetener_free":null,
     "flavors_available":null,
-    "store_rating":4.68,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/aakg-l-arginina-akg-180-capsulas"
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"L-Arginina 2400 mg 180 comprimidos",
@@ -4410,9 +4370,9 @@
     "servings_per_container":null,
     "sweetener_free":null,
     "flavors_available":null,
-    "store_rating":4.67,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-arginina-2400-mg-180-comprimidos"
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"L-arginina L-ornitina L-lisina 360 cápsulas",
@@ -4430,9 +4390,9 @@
     "servings_per_container":null,
     "sweetener_free":null,
     "flavors_available":null,
-    "store_rating":4.68,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/l-arginina-l-ornitina-l-lisina-360-capsulas"
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Big Shot - Pre-Workout 90 tabs",
@@ -4450,9 +4410,9 @@
     "servings_per_container":null,
     "sweetener_free":null,
     "flavors_available":null,
-    "store_rating":4.49,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/big-shot-pre-workout-90-tabs"
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"RIPPED Pre-Workout Ultra Concentrated 20 dosis",
@@ -4469,14 +4429,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Cola",
-      "Frambuesa azul",
-      "Mango y Fruta de la Pasión"
-    ],
-    "store_rating":4.67,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/ripped-pre-workout-ultra-concentrated-20-dosis"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Big Shot - Pre-Workout 180 tabs",
@@ -4494,9 +4450,9 @@
     "servings_per_container":null,
     "sweetener_free":null,
     "flavors_available":null,
-    "store_rating":4.62,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/big-shot-pre-workout-180-tabs"
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Beta-Alanine 90 cápsulas",
@@ -4514,9 +4470,9 @@
     "servings_per_container":null,
     "sweetener_free":null,
     "flavors_available":null,
-    "store_rating":4.69,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/beta-alanine-90-capsulas"
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"2 x N.O. MaxShot 60ml",
@@ -4533,12 +4489,10 @@
     "serving_size_g":null,
     "servings_per_container":null,
     "sweetener_free":null,
-    "flavors_available":[
-      "Limón"
-    ],
-    "store_rating":4.39,
-    "store_rating_count":1.0,
-    "store_rating_url":"https:\/\/www.prozis.com\/es\/es\/prozis\/2-x-n.o.-maxshot-60ml"
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   },
   {
     "nombre":"Origin Pre-Entreno",
@@ -4624,7 +4578,7 @@
     "nombre":"Impact EAA",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":19.99,
+    "precio_eur":16.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -4700,7 +4654,7 @@
     "nombre":"L-Carnitina Comprimidos",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":8.99,
+    "precio_eur":7.49,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -4751,7 +4705,7 @@
     "nombre":"Citrulina Malato",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":13.99,
+    "precio_eur":11.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -4798,7 +4752,7 @@
     "nombre":"Thermopure",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":19.99,
+    "precio_eur":16.49,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -4843,7 +4797,7 @@
     "nombre":"L-glutamina Comprimidos",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":14.99,
+    "precio_eur":11.49,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -4863,7 +4817,7 @@
     "nombre":"L-Carnitina Líquida",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":20.99,
+    "precio_eur":14.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -5033,7 +4987,7 @@
     "nombre":"Shot Pre-Entreno",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":28.99,
+    "precio_eur":23.49,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -5080,7 +5034,7 @@
     "nombre":"Taurina en polvo",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":9.99,
+    "precio_eur":7.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -5124,7 +5078,7 @@
     "nombre":"HMB Comprimidos",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":14.99,
+    "precio_eur":12.49,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -5164,7 +5118,7 @@
     "nombre":"L-Carnitina en polvo",
     "marca":"",
     "categoria":"Pre-Entreno",
-    "precio_eur":23.99,
+    "precio_eur":17.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -5372,6 +5326,40 @@
     "store_rating":null,
     "store_rating_count":null,
     "store_rating_url":null
+  },
+  {
+    "nombre":"EVOWHEY & OATS 2kg",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":7.95,
+    "peso_kg":2.0,
+    "precio_por_kg":3.98,
+    "tienda":"HSN",
+    "url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evowhey-oats",
+    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/e\/v\/evowhey-and-oats-gral-hsn_1.webp",
+    "fecha_scraping":"2026-04-29",
+    "protein_per_serving_g":22.0,
+    "serving_size_g":50.0,
+    "servings_per_container":10.0,
+    "sweetener_free":false,
+    "flavors_available":[
+      "BROWNIE",
+      "CAPUCHINO ITALIANO",
+      "CHOCOLATE",
+      "CHOCOLATE BLANCO Y LIMÓN",
+      "CHOCOLATE Y CACAHUETE",
+      "CHOCOLATE Y GALLETAS",
+      "FRESA Y COCO",
+      "GALLETAS Y CREMA",
+      "NATILLA",
+      "STRUDEL DE MANZANA",
+      "TARTA DE ZANAHORIA Y PLÁTANO",
+      "VAINILLA",
+      "GALLETA Y NATA"
+    ],
+    "store_rating":4.75,
+    "store_rating_count":591.0,
+    "store_rating_url":"https:\/\/www.hsnstore.com\/marcas\/sport-series\/evowhey-oats"
   },
   {
     "nombre":"CREMA DE ARROZ PROTEICA 2kg",
@@ -5883,7 +5871,7 @@
     "precio_por_kg":31.24,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/sustituto-de-comida-800-g",
-    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1446017_prozis_meal-replacement-800-g_1.png",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1446029_prozis_meal-replacement-800-g_chocolate_flavor_21.png",
     "fecha_scraping":"2026-04-29",
     "protein_per_serving_g":null,
     "serving_size_g":null,
@@ -5987,26 +5975,6 @@
     "store_rating":4.76,
     "store_rating_count":79.0,
     "store_rating_url":"https:\/\/www.nutritienda.com\/es\/scitec\/100-por-cien-whey-protein-professional-2350g"
-  },
-  {
-    "nombre":"CAFÉ PROTEICO #CaféFitConQ 500g",
-    "marca":"",
-    "categoria":"Proteinas Whey",
-    "precio_eur":17.09,
-    "peso_kg":0.5,
-    "precio_por_kg":34.18,
-    "tienda":"HSN",
-    "url":"https:\/\/www.hsnstore.com\/marcas\/food-series\/cafe-proteico-cafefitconq",
-    "imagen_url":"https:\/\/www.hsnstore.com\/media\/catalog\/product\/cache\/67ee89799642c567a71fc92f3699d937\/p\/r\/protein-coffee-fitconq-front-v2-hsn_1_5_1.webp",
-    "fecha_scraping":"2026-04-29",
-    "protein_per_serving_g":24.0,
-    "serving_size_g":35.0,
-    "servings_per_container":14.0,
-    "sweetener_free":false,
-    "flavors_available":null,
-    "store_rating":4.6,
-    "store_rating_count":373.0,
-    "store_rating_url":"https:\/\/www.hsnstore.com\/marcas\/food-series\/cafe-proteico-cafefitconq"
   },
   {
     "nombre":"Whey Protein Golden Edtition 2 Kg",
@@ -6175,7 +6143,7 @@
     "precio_por_kg":35.99,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-whey-prime-1000-g",
-    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1735068_prozis_100-whey-prime-1000g_vanilla_flavor_21.png",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1735077_prozis_100-whey-prime-1000g_white-chocolate_flavor_21.png",
     "fecha_scraping":"2026-04-29",
     "protein_per_serving_g":null,
     "serving_size_g":null,
@@ -6354,7 +6322,7 @@
     "precio_por_kg":38.99,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/xtreme-whey-protein-ss-2000-g",
-    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1620276_prozis_xtreme-whey-protein-2000-g_chocolate_flavor_21.png",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1620279_prozis_xtreme-whey-protein-2000-g_cookies-and-cream_flavor_21.png",
     "fecha_scraping":"2026-04-29",
     "protein_per_serving_g":null,
     "serving_size_g":null,
@@ -6526,7 +6494,7 @@
     "precio_por_kg":41.89,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-real-whey-protein-907g",
-    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1721729_prozis_100-real-whey-protein-907g_1.png",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1721760_prozis_100-real-whey-protein-907g_unflavoured_flavor_21.png",
     "fecha_scraping":"2026-04-29",
     "protein_per_serving_g":null,
     "serving_size_g":null,
@@ -6823,7 +6791,7 @@
     "precio_por_kg":49.97,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-real-whey-protein-400-g",
-    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1636715_prozis_100-real-whey-protein-400-g_1.png",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1636727_prozis_100-real-whey-protein-400-g_cookies-and-cream_flavor_21.png",
     "fecha_scraping":"2026-04-29",
     "protein_per_serving_g":null,
     "serving_size_g":null,
@@ -7026,7 +6994,7 @@
     "precio_por_kg":55.99,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/zero-diet-whey-750-g",
-    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1551843_prozis_zero-diet-whey-750-g_1.png",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1551858_prozis_zero-diet-whey-750-g_cookies-and-cream_flavor_21.png",
     "fecha_scraping":"2026-04-29",
     "protein_per_serving_g":null,
     "serving_size_g":null,
@@ -7395,7 +7363,7 @@
     "precio_por_kg":65.7,
     "tienda":"Prozis",
     "url":"https:\/\/www.prozis.com\/es\/es\/prozis\/100-whey-hydro-isolate-clear-700g",
-    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1553769_prozis_100-whey-hydro-isolate-clear-700-g_mango-and-peach_flavor_21.png",
+    "imagen_url":"\/\/static.sscontent.com\/thumb\/750\/750\/t\/products\/124\/v1553765_prozis_100-whey-hydro-isolate-clear-700-g_orange_flavor_21.png",
     "fecha_scraping":"2026-04-29",
     "protein_per_serving_g":null,
     "serving_size_g":null,
@@ -7650,7 +7618,7 @@
     "nombre":"Impact Whey Protein",
     "marca":"",
     "categoria":"Proteinas Whey",
-    "precio_eur":29.49,
+    "precio_eur":31.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -7664,14 +7632,13 @@
     "flavors_available":[
       "Sirope de Oro",
       "Chocolate Negro",
-      "Brownie de Chocolate",
       "Vainilla y miel con trocitos de galleta crujientes",
-      "Chocolate y caramelo con trocitos de galleta crujientes",
       "Chocolate Blanco y Coco",
       "Acai",
       "Caramelo Salado",
       "Crema de Fresas",
       "Chocolate Blanco",
+      "Brownie de Chocolate",
       "Plátano",
       "Chocolate y Caramelo",
       "Matcha Latte",
@@ -8082,11 +8049,12 @@
     "servings_per_container":null,
     "sweetener_free":null,
     "flavors_available":[
-      "Helado de Vainilla",
       "Caramelo Salado",
+      "Helado de Vainilla",
       "Chocolate y Caramelo (Fudge)",
       "Banana Milkshake",
       "White Chocolate Swirl",
+      "Cookie Crumble",
       "Chocolate Milk"
     ],
     "store_rating":null,
@@ -8336,7 +8304,7 @@
     "nombre":"THE Whey",
     "marca":"",
     "categoria":"Proteinas Whey",
-    "precio_eur":30.49,
+    "precio_eur":44.99,
     "peso_kg":null,
     "precio_por_kg":null,
     "tienda":"MyProtein",
@@ -8552,30 +8520,6 @@
     "store_rating_url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/myvegan-plant-protein-superblend-sample\/13972456\/"
   },
   {
-    "nombre":"Advanced Weight Gainer",
-    "marca":"",
-    "categoria":"Proteinas Whey",
-    "precio_eur":49.99,
-    "peso_kg":null,
-    "precio_por_kg":null,
-    "tienda":"MyProtein",
-    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/advanced-weight-gainer\/10615587\/",
-    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/10615587-1225180242397985.jpg&format=webp&width=1500&height=1500&fit=cover",
-    "fecha_scraping":"2026-04-29",
-    "protein_per_serving_g":null,
-    "serving_size_g":null,
-    "servings_per_container":null,
-    "sweetener_free":null,
-    "flavors_available":[
-      "Crema de Fresas",
-      "Vainilla",
-      "Sin Sabor - Nuevo y Mejorado"
-    ],
-    "store_rating":4.42,
-    "store_rating_count":114.0,
-    "store_rating_url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/advanced-weight-gainer\/10615587\/"
-  },
-  {
     "nombre":"Aislado de Proteína de Soja (Muestra)",
     "marca":"",
     "categoria":"Proteinas Whey",
@@ -8597,6 +8541,29 @@
     "store_rating":2.75,
     "store_rating_count":4.0,
     "store_rating_url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/aislado-de-proteina-de-soja-muestra\/11332868\/"
+  },
+  {
+    "nombre":"Advanced Weight Gainer",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":49.99,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"MyProtein",
+    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/advanced-weight-gainer\/10615587\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/10615587-1225180242397985.jpg&format=webp&width=1500&height=1500&fit=cover",
+    "fecha_scraping":"2026-04-29",
+    "protein_per_serving_g":null,
+    "serving_size_g":null,
+    "servings_per_container":null,
+    "sweetener_free":null,
+    "flavors_available":[
+      "Crema de Fresas",
+      "Sin Sabor - Nuevo y Mejorado"
+    ],
+    "store_rating":4.42,
+    "store_rating_count":114.0,
+    "store_rating_url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/advanced-weight-gainer\/10615587\/"
   },
   {
     "nombre":"Clear Whey x Chupa Chups® sabor fresa",
@@ -8664,5 +8631,65 @@
     "store_rating":3.0,
     "store_rating_count":2.0,
     "store_rating_url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/clear-all-in-one\/13324944\/"
+  },
+  {
+    "nombre":"Myprotein Impact Whey Protein 2 x 30 Serve Bundle - Unflavoured (Amazon)",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":76.8,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"MyProtein",
+    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/myprotein-impact-whey-protein-2-x-30-serve-bundle-unflavoured-amazon\/17829880\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/17829880-8035332353450675.jpg&format=webp&width=1500&height=1500&fit=cover",
+    "fecha_scraping":"2026-04-29",
+    "protein_per_serving_g":null,
+    "serving_size_g":null,
+    "servings_per_container":null,
+    "sweetener_free":null,
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
+  },
+  {
+    "nombre":"Myprotein Impact Whey Protein 2 x 30 Serve Bundle - Natural Chocolate (Amazon)",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":76.8,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"MyProtein",
+    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/myprotein-impact-whey-protein-2-x-30-serve-bundle-natural-chocolate-amazon\/17829887\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/17829887-1605332353378216.jpg&format=webp&width=1500&height=1500&fit=cover",
+    "fecha_scraping":"2026-04-29",
+    "protein_per_serving_g":null,
+    "serving_size_g":null,
+    "servings_per_container":null,
+    "sweetener_free":null,
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
+  },
+  {
+    "nombre":"Myprotein Impact Whey Protein 2 x 30 Serve Bundle - Chocolate Smooth (Amazon)",
+    "marca":"",
+    "categoria":"Proteinas Whey",
+    "precio_eur":76.8,
+    "peso_kg":null,
+    "precio_por_kg":null,
+    "tienda":"MyProtein",
+    "url":"https:\/\/www.myprotein.es\/p\/nutricion-deportiva\/myprotein-impact-whey-protein-2-x-30-serve-bundle-chocolate-smooth-amazon\/17829888\/",
+    "imagen_url":"https:\/\/main.thgimages.com?url=https:\/\/static.thcdn.com\/productimg\/original\/17829888-4235332353419646.jpg&format=webp&width=1500&height=1500&fit=cover",
+    "fecha_scraping":"2026-04-29",
+    "protein_per_serving_g":null,
+    "serving_size_g":null,
+    "servings_per_container":null,
+    "sweetener_free":null,
+    "flavors_available":null,
+    "store_rating":null,
+    "store_rating_count":null,
+    "store_rating_url":null
   }
 ]

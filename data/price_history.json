@@ -15958,5 +15958,41 @@
     "fecha": "2026-04-29",
     "precio": 29.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "creatina-monohidrato-en-tabletas-optimum-nutrition",
+    "fecha": "2026-04-29",
+    "precio": 16.49,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "evowhey-oats-2kg-desconocida",
+    "fecha": "2026-04-29",
+    "precio": 7.95,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-oats-2kg-desconocida",
+    "fecha": "2026-04-26",
+    "precio": 69.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "myprotein-impact-whey-protein-2-x-30-serve-bundle-unflavoured-amazon-myprotein",
+    "fecha": "2026-04-29",
+    "precio": 76.8,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "myprotein-impact-whey-protein-2-x-30-serve-bundle-natural-chocolate-amazon-mypro",
+    "fecha": "2026-04-29",
+    "precio": 76.8,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "myprotein-impact-whey-protein-2-x-30-serve-bundle-chocolate-smooth-amazon-myprot",
+    "fecha": "2026-04-29",
+    "precio": 76.8,
+    "tienda": "MyProtein"
   }
 ]
