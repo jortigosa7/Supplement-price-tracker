@@ -7,9 +7,18 @@ __pycache__/
 # Entorno virtual
 venv/
 .env
+*.env
 
 # Debug HTML generados por scrapers
 debug_*.html
+
+# Cache de scrapers
+cache/
+
+# Artefactos de desarrollo
+_fix_*.py
+_script_dump.txt
+_test_compare.js
 
 # Datasets temporales (los definitivos sí se commitean)
 *.log
