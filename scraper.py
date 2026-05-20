@@ -150,9 +150,11 @@ if __name__ == "__main__":
             fallback = [p for p in prev_data if p.get("tienda") == tienda]
             if not fallback:
                 continue
+            hoy = datetime.now().strftime("%Y-%m-%d")
             for p in fallback:
                 if "precio" not in p and "precio_eur" in p and p["precio_eur"] is not None:
                     p["precio"] = str(p["precio_eur"])
+                p["fecha_scraping"] = hoy
             todos.extend(fallback)
             print(
                 f"\n  ⚠️  {tienda}: 0 productos nuevos — "
