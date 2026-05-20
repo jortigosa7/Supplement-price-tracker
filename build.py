@@ -522,6 +522,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "fecha_scraping": p.get("fecha_scraping", ""),
             # peso ya calculado — lo pasamos para no recalcular
             "peso_kg":       p.get("peso_kg"),
+            "imagen_url":    p.get("imagen_url"),
         })
 
     grupos = agrupar_productos(productos_para_matching)
