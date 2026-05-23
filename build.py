@@ -816,6 +816,21 @@ def _excluir_producto(p: dict) -> bool:
 
 IMG_PRODUCTOS_DIR = os.path.join(DOCS_DIR, "img", "productos")
 
+MESES_ES = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+]
+
+
+def _mes_anio_es(fecha_iso: str) -> str:
+    """Convierte '2026-05-22' → 'mayo 2026'."""
+    try:
+        partes = fecha_iso.split("-")
+        return f"{MESES_ES[int(partes[1]) - 1]} {partes[0]}"
+    except Exception:
+        return fecha_iso
+
+
 def _img_local(producto_id: str, categoria: str, imagen_url: str | None = None) -> str:
     """Devuelve: webp local > imagen_url del CDN > placeholder SVG de categoría."""
     webp = os.path.join(IMG_PRODUCTOS_DIR, f"{producto_id}.webp")
@@ -873,10 +888,21 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     slugs_cat = {s for s in (slugs_comparacion or set())
                  if any(p["id"][:40] in s for p in prods_principales)}
 
+    mes_anio = _mes_anio_es(last_updated)
+    cat_ctx = {
+        **cfg,
+        "seo_title": f"Comparador de {cfg['display']} en España: precios €/kg actualizados | StackFit",
+        "seo_desc":  (
+            f"Compara precios de {cfg['display']} de HSN, MyProtein, Prozis y Nutritienda "
+            f"normalizados a €/kg. Encuentra la marca más barata en España. "
+            f"Actualizado en {mes_anio}."
+        ),
+    }
+
     ctx = {
         **contexto_base(last_updated),
         "active_slug":       cfg["slug"],
-        "cat":               cfg,
+        "cat":               cat_ctx,
         "products":          prods_principales,
         "products_otros":    prods_otros,
         "tiendas":           tiendas,
