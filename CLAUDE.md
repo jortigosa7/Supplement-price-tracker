@@ -49,6 +49,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - **Tipado**: no uses type hints exhaustivos. Hints solo en funciones públicas o donde aclaren algo de verdad.
 - **Comentarios**: en español, solo cuando el código no se explica solo. No comentes lo obvio.
 - **Commits**: mensajes en español, presente, imperativo. Ejemplo: "arregla selector de HSN para BCAA".
+- **Campos del JSON de productos**: están en español (`imagen_url`, `precio_min`, `tienda_mas_barata`, etc.). Si añades campos nuevos, mantén esta convención.
 
 ## Frontend
 

@@ -717,7 +717,7 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
     top_deals = []
     for p in top_deals_raw:
         p = dict(p)
-        p["img_src"] = _img_local(p["id"], p["categoria"])
+        p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
         top_deals.append(p)
 
     # Ahorro medio: diferencia % entre precio más caro y más barato entre tiendas
@@ -816,11 +816,13 @@ def _excluir_producto(p: dict) -> bool:
 
 IMG_PRODUCTOS_DIR = os.path.join(DOCS_DIR, "img", "productos")
 
-def _img_local(producto_id: str, categoria: str) -> str:
-    """Devuelve la ruta web de la imagen local, o el placeholder SVG de categoría."""
+def _img_local(producto_id: str, categoria: str, imagen_url: str | None = None) -> str:
+    """Devuelve: webp local > imagen_url del CDN > placeholder SVG de categoría."""
     webp = os.path.join(IMG_PRODUCTOS_DIR, f"{producto_id}.webp")
     if os.path.exists(webp):
         return f"/img/productos/{producto_id}.webp"
+    if imagen_url:
+        return imagen_url
     return f"/img/productos/placeholder-{categoria}.svg"
 
 
@@ -848,7 +850,7 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
 
     # Añadir tipo_proteina a whey y ruta de imagen local
     for p in prods_principales:
-        p["img_src"] = _img_local(p["id"], cfg["slug"])
+        p["img_src"] = _img_local(p["id"], cfg["slug"], p.get("imagen_url"))
         if cfg["slug"] == "proteina-whey":
             p["tipo_proteina"] = _tipo_proteina(p["nombre_normalizado"])
 
@@ -1178,7 +1180,7 @@ def generar_comparaciones(env, productos_web: list, last_updated: str) -> list:
     productos_idx = {p["id"]: p for p in productos_web}
     for p in productos_web:
         if "img_src" not in p:
-            p["img_src"] = _img_local(p["id"], p["categoria"])
+            p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
 
     template = env.get_template("compare.html")
 
@@ -1268,7 +1270,7 @@ def generar_comparaciones(env, productos_web: list, last_updated: str) -> list:
             "peso_kg":  p.get("peso_kg"),
             "precio_kg": p.get("precio_por_kg_min"),
             "tienda":   p.get("tienda_mas_barata", ""),
-            "img":      p.get("img_src") or _img_local(p["id"], p["categoria"]),
+            "img":      p.get("img_src") or _img_local(p["id"], p["categoria"], p.get("imagen_url")),
             "protein_type": p.get("protein_type"),
             "precios": [
                 {
