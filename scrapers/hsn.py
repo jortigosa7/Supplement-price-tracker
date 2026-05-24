@@ -36,12 +36,11 @@ CATEGORIAS = [
 
 def _extraer_peso_kg_desde_select(soup: BeautifulSoup) -> float | None:
     """
-    El select anónimo (sin id) contiene opciones con nombre completo + peso + sabor,
-    ej. "EVOLATE 2.0 2Kg CHOCOLATE". Extrae el peso de la primera opción con unidad.
+    Busca el select con id='product_information_select' (formato actual de HSN),
+    con opciones del tipo "EVOLATE 2.0 2Kg CHOCOLATE". Extrae el peso de la primera opción.
+    Fallback: cualquier select cuya primera opción contenga unidad de peso.
     """
     for sel in soup.find_all("select"):
-        if sel.get("id"):
-            continue  # saltar selects con id (selectProductSimple y otros)
         opts = [o.get_text(strip=True) for o in sel.find_all("option") if o.get_text(strip=True)]
         if not opts:
             continue
@@ -57,14 +56,12 @@ def _extraer_peso_kg_desde_select(soup: BeautifulSoup) -> float | None:
 
 def _extraer_sabores_desde_select(soup: BeautifulSoup, nombre_producto: str) -> list[str]:
     """
-    Extrae los sabores del select anónimo.
+    Extrae los sabores del select de variantes de HSN.
     Cada opción tiene formato "NOMBRE_PRODUCTO Xkg SABOR".
     Elimina el prefijo de nombre+peso para obtener solo el sabor.
     """
     nombre_norm = re.sub(r"\s+", " ", nombre_producto.strip().lower())
     for sel in soup.find_all("select"):
-        if sel.get("id"):
-            continue
         opts = [o.get_text(strip=True) for o in sel.find_all("option") if o.get_text(strip=True)]
         if not opts or len(opts) < 2:
             continue

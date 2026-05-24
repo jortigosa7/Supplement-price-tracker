@@ -169,7 +169,10 @@ def _extraer_enriquecimiento(html: str) -> dict:
 
 def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None]:
     """
-    Extrae variantes (peso_kg, precio_eur) del JSON-LD @type Product.
+    Extrae variantes (peso_kg, precio_eur) del JSON-LD de la página de producto.
+    Intenta dos estructuras (MyProtein ha cambiado su schema con el tiempo):
+      1. @type Product/IndividualProduct con offers[].name  (formato antiguo)
+      2. @type ProductGroup con hasVariant[].name           (formato actual)
     Devuelve (lista ordenada por peso ascendente, imagen_url o None).
     """
     variantes = []
@@ -188,6 +191,7 @@ def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None
         if imagen_url:
             break
 
+    # Formato antiguo: Product/IndividualProduct con offers
     for schema in schemas:
         if schema.get("@type") not in ("Product", "IndividualProduct"):
             continue
@@ -207,6 +211,28 @@ def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None
                 continue
             if precio > 0:
                 variantes.append((peso, precio))
+
+    # Formato actual: ProductGroup con hasVariant[].name + offers.price
+    if not variantes:
+        for schema in schemas:
+            if schema.get("@type") != "ProductGroup":
+                continue
+            for variant in schema.get("hasVariant", []):
+                vname = variant.get("name", "")
+                peso = _peso_kg_de_texto(vname)
+                if not peso:
+                    continue
+                voffers = variant.get("offers", {})
+                if isinstance(voffers, list):
+                    voffers = voffers[0] if voffers else {}
+                try:
+                    precio = float(str(voffers.get("price", "0")).replace(",", "."))
+                except (TypeError, ValueError):
+                    continue
+                if precio > 0:
+                    variantes.append((peso, precio))
+            if variantes:
+                break
 
     by_peso: dict[float, float] = {}
     for peso, precio in variantes:

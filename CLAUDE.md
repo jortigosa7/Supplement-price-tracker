@@ -63,16 +63,19 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 ### Funciona
 
 - Build estático completo y desplegado.
-- Scrapers de MyProtein y Nutritienda.
+- Scrapers de HSN y MyProtein: extraen peso correctamente (fix mayo 2026 — HSN select con id, MyProtein ProductGroup.hasVariant[]).
+- Scraper de Nutritienda (con fallback a dataset anterior si hay 403).
 - Sistema de filtros y comparador.
 - Quiz recomendador.
 - Afiliación HSN activa (ID `JORTIGOSA`) — los enlaces ya van con afiliado.
 - Tag de Amazon `suplemento0f1-21` activo (requiere ventas para mantenerse).
 - Google Search Console configurado, indexación en fase temprana.
+- Imágenes de producto: cascade webp local → imagen_url del CDN → placeholder SVG.
+- SEO titles y meta descriptions de categoría con mes/año dinámico.
 
 ### Roto o pendiente
 
-- **Scrapers HSN y Prozis**: selectores rotos, los sitios cambiaron HTML. Prioridad alta.
+- **Scraper Prozis**: no se tocó en el round de mayo 2026, puede seguir con selectores desactualizados.
 - **GitHub Actions**: el job de scrape enriquecido se queda sin tiempo, hay que subir el timeout.
 - **`añadir_afiliados.py`**: staged y listo, usa variables de entorno de Awin. Bloqueado por aprobación de Awin para MyProtein, Prozis y Nutritienda. Cuando lleguen aprobaciones: rellenar `.env` con los IDs y correr el script.
 - **MyProtein**: la solicitud Awin fue rechazada una vez. Reintentar más adelante u outreach directo.
@@ -82,6 +85,10 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - Stack estático (no migrar a SSR/SPA).
 - Cuatro tiendas iniciales — no añadir tiendas nuevas hasta estabilizar tráfico y scrapers actuales.
 - Categoría perfumes / cualquier comparador paralelo: **no**. Ya se descartó.
+
+## Deuda técnica conocida
+
+- **IDs de producto con "desconocida"**: hay productos legacy cuyos IDs (y por tanto URLs de comparación) contienen la palabra "desconocida" porque se scrapearon antes del fix de marca de mayo 2026. Ejemplos: `evobasic-whey-2kg-desconocida`, `evocreatine-500g-desconocida`. Estas URLs están indexadas en Google, devuelven 200 y muestran contenido correcto (la marca se resuelve bien en `matching.py`). **No tocar para preservar SEO.** Si en algún momento se decide regenerar los IDs limpios, hay que generar meta-refresh para las URLs viejas con tráfico (consultar Search Console primero antes de cualquier cambio).
 
 ## Pending / ideas en la nevera
 
@@ -128,3 +135,12 @@ python -m http.server 8000 -d docs
 # Outreach
 cd outreach && python outreach.py status
 ```
+
+## Mantenimiento de este fichero
+
+Actualizar CLAUDE.md al cerrar una sesión cuando:
+- Se cierra un bug o se mueve algo de "Roto" a "Funciona".
+- Se toma una decisión técnica con impacto futuro (añadir a "Decisiones tomadas" o "Deuda técnica").
+- Cambia una convención de código o de commits.
+
+No documentar cada cambio menor (refactors pequeños, tweaks de CSS, ajustes de copy). El historial de git cubre eso.
