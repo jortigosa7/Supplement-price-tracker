@@ -522,6 +522,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "fecha_scraping": p.get("fecha_scraping", ""),
             # peso ya calculado — lo pasamos para no recalcular
             "peso_kg":       p.get("peso_kg"),
+            "imagen_url":    p.get("imagen_url"),
         })
 
     grupos = agrupar_productos(productos_para_matching)
@@ -716,7 +717,7 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
     top_deals = []
     for p in top_deals_raw:
         p = dict(p)
-        p["img_src"] = _img_local(p["id"], p["categoria"])
+        p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
         top_deals.append(p)
 
     # Ahorro medio: diferencia % entre precio más caro y más barato entre tiendas
@@ -815,11 +816,28 @@ def _excluir_producto(p: dict) -> bool:
 
 IMG_PRODUCTOS_DIR = os.path.join(DOCS_DIR, "img", "productos")
 
-def _img_local(producto_id: str, categoria: str) -> str:
-    """Devuelve la ruta web de la imagen local, o el placeholder SVG de categoría."""
+MESES_ES = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+]
+
+
+def _mes_anio_es(fecha_iso: str) -> str:
+    """Convierte '2026-05-22' → 'mayo 2026'."""
+    try:
+        partes = fecha_iso.split("-")
+        return f"{MESES_ES[int(partes[1]) - 1]} {partes[0]}"
+    except Exception:
+        return fecha_iso
+
+
+def _img_local(producto_id: str, categoria: str, imagen_url: str | None = None) -> str:
+    """Devuelve: webp local > imagen_url del CDN > placeholder SVG de categoría."""
     webp = os.path.join(IMG_PRODUCTOS_DIR, f"{producto_id}.webp")
     if os.path.exists(webp):
         return f"/img/productos/{producto_id}.webp"
+    if imagen_url:
+        return imagen_url
     return f"/img/productos/placeholder-{categoria}.svg"
 
 
@@ -847,7 +865,7 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
 
     # Añadir tipo_proteina a whey y ruta de imagen local
     for p in prods_principales:
-        p["img_src"] = _img_local(p["id"], cfg["slug"])
+        p["img_src"] = _img_local(p["id"], cfg["slug"], p.get("imagen_url"))
         if cfg["slug"] == "proteina-whey":
             p["tipo_proteina"] = _tipo_proteina(p["nombre_normalizado"])
 
@@ -870,10 +888,21 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     slugs_cat = {s for s in (slugs_comparacion or set())
                  if any(p["id"][:40] in s for p in prods_principales)}
 
+    mes_anio = _mes_anio_es(last_updated)
+    cat_ctx = {
+        **cfg,
+        "seo_title": f"Comparador de {cfg['display']} en España: precios €/kg actualizados | StackFit",
+        "seo_desc":  (
+            f"Compara precios de {cfg['display']} de HSN, MyProtein, Prozis y Nutritienda "
+            f"normalizados a €/kg. Encuentra la marca más barata en España. "
+            f"Actualizado en {mes_anio}."
+        ),
+    }
+
     ctx = {
         **contexto_base(last_updated),
         "active_slug":       cfg["slug"],
-        "cat":               cfg,
+        "cat":               cat_ctx,
         "products":          prods_principales,
         "products_otros":    prods_otros,
         "tiendas":           tiendas,
@@ -1177,7 +1206,7 @@ def generar_comparaciones(env, productos_web: list, last_updated: str) -> list:
     productos_idx = {p["id"]: p for p in productos_web}
     for p in productos_web:
         if "img_src" not in p:
-            p["img_src"] = _img_local(p["id"], p["categoria"])
+            p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
 
     template = env.get_template("compare.html")
 
@@ -1267,7 +1296,7 @@ def generar_comparaciones(env, productos_web: list, last_updated: str) -> list:
             "peso_kg":  p.get("peso_kg"),
             "precio_kg": p.get("precio_por_kg_min"),
             "tienda":   p.get("tienda_mas_barata", ""),
-            "img":      p.get("img_src") or _img_local(p["id"], p["categoria"]),
+            "img":      p.get("img_src") or _img_local(p["id"], p["categoria"], p.get("imagen_url")),
             "protein_type": p.get("protein_type"),
             "precios": [
                 {
