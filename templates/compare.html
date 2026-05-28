@@ -1,11 +1,45 @@
 {% extends "base.html" %}
 
-{% block title %}{{ producto_a.nombre_seo }} vs {{ producto_b.nombre_seo }}: ¿Cuál es mejor? | {{ site_name }}{% endblock %}
-{% block meta_desc %}Comparativa completa entre {{ producto_a.nombre_normalizado }} y {{ producto_b.nombre_normalizado }}: precio por kg, características, tiendas disponibles y cuál conviene más según tu objetivo.{% endblock %}
+{% block title %}
+{%- set _t_full  = producto_a.nombre_seo ~ " vs " ~ producto_b.nombre_seo ~ ": precio, valoraciones y características | " ~ site_name -%}
+{%- set _t_mid   = producto_a.nombre_seo ~ " vs " ~ producto_b.nombre_seo ~ ": precio, valoraciones y características" -%}
+{%- set _t_short = producto_a.nombre_seo ~ " vs " ~ producto_b.nombre_seo ~ ": precio y comparativa" -%}
+{%- if _t_full|length <= 60 -%}{{ _t_full }}
+{%- elif _t_mid|length <= 60 -%}{{ _t_mid }}
+{%- else -%}{{ _t_short }}
+{%- endif -%}
+{% endblock %}
+{% block meta_desc %}
+{%- set _na = producto_a.nombre_seo -%}
+{%- set _nb = producto_b.nombre_seo -%}
+{%- if producto_a.store_rating and producto_b.store_rating and producto_a.precio_por_kg_min and producto_b.precio_por_kg_min -%}
+  {%- if (producto_a.precio_por_kg_min < producto_b.precio_por_kg_min and producto_a.store_rating < producto_b.store_rating) or
+         (producto_b.precio_por_kg_min < producto_a.precio_por_kg_min and producto_b.store_rating < producto_a.store_rating) -%}
+    {{- _na ~ " vs " ~ _nb ~ ": uno es más barato, otro está mejor valorado. Comparamos precio, €/kg y reseñas para que decidas tú." -}}
+  {%- else -%}
+    {{- _na ~ " vs " ~ _nb ~ ": comparamos precio, €/kg, valoraciones y características. Mira cuál te compensa." -}}
+  {%- endif -%}
+{%- else -%}
+  {{- _na ~ " vs " ~ _nb ~ ": comparamos precio, €/kg y características. Elige según lo que más te importe." -}}
+{%- endif -%}
+{% endblock %}
 {% block meta_keywords %}{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}, comparar suplementos, mejor precio suplementos España{% endblock %}
 {% block canonical_path %}/comparar/{{ slug_comparacion }}/{% endblock %}
-{% block og_title %}{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }} | {{ site_name }}{% endblock %}
-{% block og_desc %}Comparativa de precio, características y dónde comprar más barato en España.{% endblock %}
+{% block og_title %}{{ producto_a.nombre_seo }} vs {{ producto_b.nombre_seo }}: precio, €/kg y valoraciones | {{ site_name }}{% endblock %}
+{% block og_desc %}
+{%- set _na = producto_a.nombre_seo -%}
+{%- set _nb = producto_b.nombre_seo -%}
+{%- if producto_a.store_rating and producto_b.store_rating and producto_a.precio_por_kg_min and producto_b.precio_por_kg_min -%}
+  {%- if (producto_a.precio_por_kg_min < producto_b.precio_por_kg_min and producto_a.store_rating < producto_b.store_rating) or
+         (producto_b.precio_por_kg_min < producto_a.precio_por_kg_min and producto_b.store_rating < producto_a.store_rating) -%}
+    {{- _na ~ " vs " ~ _nb ~ ": uno es más barato, otro está mejor valorado. Comparamos precio, €/kg y reseñas para que decidas tú." -}}
+  {%- else -%}
+    {{- _na ~ " vs " ~ _nb ~ ": comparamos precio, €/kg, valoraciones y características. Mira cuál te compensa." -}}
+  {%- endif -%}
+{%- else -%}
+  {{- _na ~ " vs " ~ _nb ~ ": comparamos precio, €/kg y características. Elige según lo que más te importe." -}}
+{%- endif -%}
+{% endblock %}
 {% block og_path %}/comparar/{{ slug_comparacion }}/{% endblock %}
 
 {% block extra_head %}
@@ -250,11 +284,14 @@
           <td>{% if producto_a.peso_kg %}{{ "%.2f"|format(producto_a.peso_kg) }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
           <td>{% if producto_b.peso_kg %}{{ "%.2f"|format(producto_b.peso_kg) }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
+        {% if producto_a.precio_min is not none or producto_b.precio_min is not none %}
+        {% set _win_precio_total = 'a' if (producto_a.precio_min and producto_b.precio_min and producto_a.precio_min < producto_b.precio_min) else ('b' if (producto_a.precio_min and producto_b.precio_min and producto_b.precio_min < producto_a.precio_min) else none) %}
         <tr>
           <td class="label-col">Mejor precio total</td>
-          <td{% if veredicto.mejor_precio.side == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.precio_min %}{{ "%.2f"|format(producto_a.precio_min) }} € ({{ producto_a.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
-          <td{% if veredicto.mejor_precio.side == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.precio_min %}{{ "%.2f"|format(producto_b.precio_min) }} € ({{ producto_b.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td{% if _win_precio_total == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.precio_min is not none %}{{ "%.2f"|format(producto_a.precio_min) }} € ({{ producto_a.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td{% if _win_precio_total == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.precio_min is not none %}{{ "%.2f"|format(producto_b.precio_min) }} € ({{ producto_b.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
+        {% endif %}
         <tr>
           <td class="label-col">Precio €/kg</td>
           <td>{% if producto_a.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'a' %} win{% endif %}">{{ "%.2f"|format(producto_a.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
@@ -267,16 +304,20 @@
           <td>{{ producto_b.protein_type or '—' }}</td>
         </tr>
         {% endif %}
+        {% if producto_a.protein_per_serving_g is not none or producto_b.protein_per_serving_g is not none %}
         <tr>
           <td class="label-col">Proteína/dosis</td>
-          <td{% if veredicto.mas_proteina.side == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.protein_per_serving_g %}{{ producto_a.protein_per_serving_g }} g{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
-          <td{% if veredicto.mas_proteina.side == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.protein_per_serving_g %}{{ producto_b.protein_per_serving_g }} g{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+          <td{% if veredicto.mas_proteina.side == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.protein_per_serving_g is not none %}{{ producto_a.protein_per_serving_g }} g{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td{% if veredicto.mas_proteina.side == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.protein_per_serving_g is not none %}{{ producto_b.protein_per_serving_g }} g{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
+        {% endif %}
+        {% if producto_a.servings_per_container is not none or producto_b.servings_per_container is not none %}
         <tr>
           <td class="label-col">Dosis por bote</td>
-          <td>{% if producto_a.servings_per_container %}{{ producto_a.servings_per_container }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
-          <td>{% if producto_b.servings_per_container %}{{ producto_b.servings_per_container }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+          <td>{% if producto_a.servings_per_container is not none %}{{ producto_a.servings_per_container | int }}{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.servings_per_container is not none %}{{ producto_b.servings_per_container | int }}{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
+        {% endif %}
         <tr>
           <td class="label-col">Tiendas</td>
           <td>
@@ -296,48 +337,54 @@
             {% endfor %}
           </td>
         </tr>
+        {% if producto_a.store_rating is not none or producto_b.store_rating is not none %}
         <tr>
           <td class="label-col">Valoración</td>
           <td{% if veredicto.mejor_valorado.side == 'a' %} class="winner-cell"{% endif %}>
-            {% if producto_a.store_rating %}
+            {% if producto_a.store_rating is not none %}
               {{ "%.2f"|format(producto_a.store_rating) }} / 5
               {% if producto_a.store_rating_count %}
-                <span style="color:#888;font-size:0.78rem;">({{ producto_a.store_rating_count }} reseñas)</span>
+                <span style="color:#888;font-size:0.78rem;">({{ producto_a.store_rating_count | int }} reseñas)</span>
               {% endif %}
-            {% else %}<span class="na-cell">No disponible</span>{% endif %}
+            {% else %}<span class="na-cell">—</span>{% endif %}
           </td>
           <td{% if veredicto.mejor_valorado.side == 'b' %} class="winner-cell"{% endif %}>
-            {% if producto_b.store_rating %}
+            {% if producto_b.store_rating is not none %}
               {{ "%.2f"|format(producto_b.store_rating) }} / 5
               {% if producto_b.store_rating_count %}
-                <span style="color:#888;font-size:0.78rem;">({{ producto_b.store_rating_count }} reseñas)</span>
+                <span style="color:#888;font-size:0.78rem;">({{ producto_b.store_rating_count | int }} reseñas)</span>
               {% endif %}
-            {% else %}<span class="na-cell">No disponible</span>{% endif %}
+            {% else %}<span class="na-cell">—</span>{% endif %}
           </td>
         </tr>
+        {% endif %}
+        {% if producto_a.flavors_available or producto_b.flavors_available %}
         <tr>
-          <td class="label-col">Sabores disponibles</td>
+          <td class="label-col">Sabores</td>
           <td>
-            {% if producto_a.flavors_available %}
-              {{ producto_a.flavors_available | join(", ") }}
-            {% else %}<span class="na-cell">No disponible</span>{% endif %}
+            {% if producto_a.flavors_available %}{{ producto_a.flavors_available | join(", ") }}
+            {% else %}<span class="na-cell">—</span>{% endif %}
           </td>
           <td>
-            {% if producto_b.flavors_available %}
-              {{ producto_b.flavors_available | join(", ") }}
-            {% else %}<span class="na-cell">No disponible</span>{% endif %}
+            {% if producto_b.flavors_available %}{{ producto_b.flavors_available | join(", ") }}
+            {% else %}<span class="na-cell">—</span>{% endif %}
           </td>
         </tr>
+        {% endif %}
+        {% if producto_a.vegan is not none or producto_b.vegan is not none %}
         <tr>
           <td class="label-col">Vegano</td>
-          <td>{% if producto_a.vegan is not none %}{{ "Sí" if producto_a.vegan else "No" }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
-          <td>{% if producto_b.vegan is not none %}{{ "Sí" if producto_b.vegan else "No" }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+          <td>{% if producto_a.vegan is not none %}{{ "Sí" if producto_a.vegan else "No" }}{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.vegan is not none %}{{ "Sí" if producto_b.vegan else "No" }}{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
+        {% endif %}
+        {% if producto_a.sweetener_free is not none or producto_b.sweetener_free is not none %}
         <tr>
           <td class="label-col">Sin edulcorantes</td>
-          <td>{% if producto_a.sweetener_free is not none %}{{ "Sí" if producto_a.sweetener_free else "No" }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
-          <td>{% if producto_b.sweetener_free is not none %}{{ "Sí" if producto_b.sweetener_free else "No" }}{% else %}<span class="na-cell">No disponible</span>{% endif %}</td>
+          <td>{% if producto_a.sweetener_free is not none %}{{ "Sí" if producto_a.sweetener_free else "No" }}{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.sweetener_free is not none %}{{ "Sí" if producto_b.sweetener_free else "No" }}{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
+        {% endif %}
       </tbody>
     </table>
   </div>
