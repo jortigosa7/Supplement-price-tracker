@@ -26812,5 +26812,293 @@
     "fecha": "2026-05-29",
     "precio": 49.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-200-tabs-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 17.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-200-tabs-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 35.25,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-speculoos-400-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 9.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-speculoos-400-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 29.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-cafe-y-caramelo-400-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 9.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-chocolate-400-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 9.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400-g-descon",
+    "fecha": "2026-05-29",
+    "precio": 9.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "energy-charge-preentrenamiento-800-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 22.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "n-o-shox-1320g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 39.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanina-900-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 29.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "n-o-shox-660-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 24.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "powered-cafe-preentrenamiento-250-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 10.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-300-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 12.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-300-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 29.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "beta-alanina-300-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 12.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanina-300-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 46.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "l-citrulina-malato-300g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-citrulina-malato-300g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 28.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "l-citrulina-malato-150-g-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 13.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "3-x-sachet-powa-3-0-pre-workout-17-8g-cola-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 5.07,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "3-x-sachet-powa-3-0-pre-workout-17-5g-apple-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 5.07,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "cafeina-hibrida-200mg-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 7.9,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-46-servings-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 24.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "12-x-big-shot-pre-workout-60-ml-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "powa-3-0-pre-workout-20-servings-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 29.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "extreme-big-shot-pre-workout-20-servings-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 24.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-sin-cafeina-46-dosis-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 24.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "x-boost-ultimate-gaming-pre-workout-25-servings-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 34.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-citrulina-2250-mg-90-comprimidos-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 17.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-23-servings-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 15.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-8-sticks-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 6.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-2400-mg-90-comprimidos-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 11.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanina-100-capsulas-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 12.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "aakg-l-arginina-akg-60-capsulas-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-l-ornitina-l-lisina-120-capsulas-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 10.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanine-90-capsulas-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 9.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-100-caps-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "cogniview-ultimate-gaming-cognitive-vision-complex-60-caps-optimum-nutrition",
+    "fecha": "2026-05-29",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "2-x-big-shot-pre-workout-60ml-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 3.38,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "powa-3-0-pre-workout-40-servings-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 49.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "aakg-l-arginina-akg-180-capsulas-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 21.58,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-2400-mg-180-comprimidos-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 23.98,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-l-ornitina-l-lisina-360-capsulas-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 24.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-90-tabs-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 18.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "ripped-pre-workout-ultra-concentrated-20-dosis-optimum-nutrition",
+    "fecha": "2026-05-29",
+    "precio": 29.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-180-tabs-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 29.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "2-x-n-o-maxshot-60ml-desconocida",
+    "fecha": "2026-05-29",
+    "precio": 3.58,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-optimum-nutrition",
+    "fecha": "2026-05-29",
+    "precio": 111.9,
+    "tienda": "Nutritienda"
   }
 ]
