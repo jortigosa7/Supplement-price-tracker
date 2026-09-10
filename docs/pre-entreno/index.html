@@ -1537,8 +1537,6 @@
           
           <option value="Weider">Weider</option>
           
-          <option value="¡Entrenamientos intensos!">¡Entrenamientos intensos!</option>
-          
         </select>
       </div>
     </div>
@@ -3596,7 +3594,7 @@
     <div class="product-card"
          data-tiendas="Nutritienda"
          data-nombre="citrulina malato 300g"
-         data-marca="¡entrenamientos intensos!"
+         data-marca="biotechusa"
          data-peso="300"
          data-precio-kg="96.33"
          data-tipo=""
@@ -3617,7 +3615,7 @@
         </div>
       </div>
       <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · ¡Entrenamientos intensos!
+        Pre-Entreno · 0.30 kg · BioTechUSA
       </div>
       
       <div class="spark-row">
@@ -5300,7 +5298,7 @@ Tolerancia y ciclado: la cafeína genera tolerancia rápidamente. Si usas pre-en
       <div class="other-item">
         <div class="other-name">
           CELLUP SHOT 20 Ud 60 ml
-          <span class="other-marca">¡Energía para tomar directamente!</span>
+          <span class="other-marca">Amix Pro</span>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           
@@ -5507,7 +5505,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
   if (!list || !bar || !btnGo) return; // guard por si falla algún ID
-  var SLUGS  = new Set(["beta-alanina-900-g-desconocida-vs-origin-pre-entreno-sin-estimulantes-600g", "beta-alanina-en-polvo-250g-desconocida-vs-origin-pre-entreno-600g-desconocida", "acido-malico-en-polvo-150g-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "evobeast-1kg-desconocida-vs-n-o-shox-1320g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-evobeast-1kg-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-powered-cafe-preentrenamiento-250-g-desc", "beta-alanina-en-polvo-150g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "origin-pre-entreno-sin-estimulantes-600g-vs-origin-shred-pre-workout-660g-desconocid", "beta-alanina-900-g-desconocida-vs-powered-cafe-preentrenamiento-250-g-desc", "acido-malico-en-polvo-150g-desconocida-vs-origin-pre-entreno-600g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-origin-pre-entreno-600g-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-900-g-desconocida-vs-beta-alanina-en-polvo-250g-desconocida", "nitrox-therapy-340g-biotechusa-vs-supernova-282g-biotechusa", "beta-alanina-en-polvo-150g-desconocida-vs-n-o-shox-1320g-desconocida", "acido-malico-en-polvo-150g-desconocida-vs-evobeast-1kg-desconocida", "myocell-5-phase-500-g-optimum-nutrition-vs-smooth-8-hybrid-protein-2-3kg-optimum-nu", "beta-alanina-900-g-desconocida-vs-n-o-shox-1320g-desconocida", "beta-alanina-900-g-desconocida-vs-origin-shred-pre-workout-660g-desconocid", "energy-charge-preentrenamiento-800-g-des-vs-origin-shred-pre-workout-660g-desconocid", "glycopump-glicerol-en-polvo-150g-descono-vs-l-citrulina-base-en-polvo-150g-desconoci", "beta-alanina-en-polvo-250g-desconocida-vs-evobeast-1kg-desconocida", "n-o-shox-1320g-desconocida-vs-powered-cafe-preentrenamiento-250-g-desc", "beta-alanina-900-g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-en-polvo-250g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "beta-alanina-en-polvo-250g-desconocida-vs-origin-shred-pre-workout-660g-desconocid", "beta-alanina-en-polvo-150g-desconocida-vs-l-citrulina-base-en-polvo-150g-desconoci", "origin-pre-entreno-600g-desconocida-vs-origin-pre-entreno-sin-estimulantes-600g", "beta-alanina-en-polvo-150g-desconocida-vs-origin-shred-pre-workout-660g-desconocid", "beta-alanina-900-g-desconocida-vs-evobeast-1kg-desconocida", "beta-alanina-en-polvo-150g-desconocida-vs-beta-alanina-en-polvo-250g-desconocida", "acido-malico-en-polvo-150g-desconocida-vs-origin-pre-entreno-sin-estimulantes-600g", "acido-malico-en-polvo-150g-desconocida-vs-origin-shred-pre-workout-660g-desconocid", "pump-caffeine-free-330g-biotechusa-vs-supernova-282g-biotechusa", "n-o-shox-1320g-desconocida-vs-origin-pre-entreno-600g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-origin-pre-entreno-sin-estimulantes-600g", "beta-alanina-en-polvo-150g-desconocida-vs-origin-pre-entreno-sin-estimulantes-600g", "beta-alanina-300-g-desconocida-vs-evobeast-1kg-desconocida", "acido-malico-en-polvo-150g-desconocida-vs-energy-charge-preentrenamiento-800-g-des", "acido-malico-en-polvo-150g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "energy-charge-preentrenamiento-800-g-des-vs-n-o-shox-1320g-desconocida", "n-o-shox-1320g-desconocida-vs-origin-shred-pre-workout-660g-desconocid", "beta-alanina-900-g-desconocida-vs-origin-pre-entreno-600g-desconocida", "beta-alanina-en-polvo-250g-desconocida-vs-origin-pre-entreno-sin-estimulantes-600g", "acido-malico-en-polvo-150g-desconocida-vs-beta-alanina-en-polvo-250g-desconocida", "origin-pre-entreno-600g-desconocida-vs-origin-shred-pre-workout-660g-desconocid", "energy-charge-preentrenamiento-800-g-des-vs-evobeast-1kg-desconocida", "beta-alanina-900-g-desconocida-vs-beta-alanina-en-polvo-150g-desconocida", "evobeast-1kg-desconocida-vs-origin-pre-entreno-600g-desconocida", "acido-malico-en-polvo-150g-desconocida-vs-glycopump-glicerol-en-polvo-150g-descono", "evobeast-1kg-desconocida-vs-origin-shred-pre-workout-660g-desconocid", "acido-malico-en-polvo-150g-desconocida-vs-beta-alanina-900-g-desconocida", "beta-alanina-en-polvo-250g-desconocida-vs-n-o-shox-1320g-desconocida", "evobeast-1kg-desconocida-vs-origin-pre-entreno-sin-estimulantes-600g", "n-o-shox-1320g-desconocida-vs-origin-pre-entreno-sin-estimulantes-600g", "acido-malico-en-polvo-150g-desconocida-vs-n-o-shox-1320g-desconocida", "nitrox-therapy-340g-biotechusa-vs-pump-caffeine-free-330g-biotechusa", "beta-alanina-en-polvo-150g-desconocida-vs-origin-pre-entreno-600g-desconocida"]);
+  var SLUGS  = new Set([]);
   var BASE   = 'https://stackfit.es/comparar/';
   var selected = [];
 
