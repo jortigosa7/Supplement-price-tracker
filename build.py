@@ -534,6 +534,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             # peso ya calculado — lo pasamos para no recalcular
             "peso_kg":       p.get("peso_kg"),
             "imagen_url":    p.get("imagen_url"),
+            "_precio_sin_confirmar": p.get("_precio_sin_confirmar", False),
         })
 
     grupos = agrupar_productos(productos_para_matching)
@@ -1207,22 +1208,31 @@ def generar_pares_comparacion(productos_web: list) -> dict:
     # Índice por id para lookup rápido
     by_id = {p["id"]: p for p in productos_web}
     pares: dict = {}
-    omitidos = 0
+    ids_faltantes: list[str] = []
 
     for par in comp_data.get("pares", []):
         id_a = par["id_a"]
         id_b = par["id_b"]
         pa = by_id.get(id_a)
         pb = by_id.get(id_b)
+        if pa is None:
+            ids_faltantes.append(id_a)
+        if pb is None:
+            ids_faltantes.append(id_b)
         if pa is None or pb is None:
-            omitidos += 1
             continue
         slug = _compare_slug(pa, pb)
         if slug not in pares:
             pares[slug] = (pa, pb)
 
-    if omitidos:
-        print(f"   ⚠️  {omitidos} pares omitidos (producto no encontrado en catálogo actual)")
+    if ids_faltantes:
+        print("\n❌ ERROR FATAL: IDs de comparaciones.json no encontrados en el catálogo:")
+        for fid in ids_faltantes:
+            print(f"   • {fid}")
+        print("\n  Causa probable: el scraper no encontró ese producto o cambió su nombre.")
+        print("  Revisa el scraper o actualiza comparaciones.json antes de publicar.\n")
+        sys.exit(1)
+
     print(f"   → {len(pares)} pares cargados desde comparaciones.json")
     return pares
 

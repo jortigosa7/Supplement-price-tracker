@@ -160,6 +160,9 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
             "precio_original": None,
             "fecha":         fecha,
             "_peso_kg":      peso_kg,  # peso del producto de esta entrada concreta
+            # True cuando el precio es de lista (no de la opción concreta de HSN):
+            # en ese caso precio y peso pueden ser de formatos distintos → €/kg = None
+            "_precio_sin_confirmar": p.get("_precio_sin_confirmar", False),
         }
 
         # 1. Intentar match por clave exacta en grupos existentes
@@ -214,12 +217,14 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
         g["tienda_mas_barata"] = mejor["tienda"]
 
         # Precio/kg: usa el peso de la MISMA entrada que tiene el precio más bajo.
-        # Si el peso de esa entrada difiere del peso canónico del grupo (puede ocurrir
-        # cuando dos productos con pesos distintos se fusionan por similitud de nombre),
-        # no se puede garantizar que precio y peso sean del mismo formato → None.
+        # Si el precio no está confirmado para ese formato (precio de lista en vez
+        # del optionPrice de HSN), o si los pesos difieren >15%, €/kg = None.
         peso_mejor = mejor.get("_peso_kg")
         peso_grupo = g.get("peso_kg")
-        if peso_mejor and peso_mejor > 0:
+        if mejor.get("_precio_sin_confirmar"):
+            # Precio de lista: no sabemos a qué formato corresponde → no dividir
+            g["precio_por_kg_min"] = None
+        elif peso_mejor and peso_mejor > 0:
             # Pesos distintos en más de un 15%: inconsistencia precio/formato
             if peso_grupo and abs(peso_mejor - peso_grupo) / max(peso_mejor, peso_grupo) > 0.15:
                 g["precio_por_kg_min"] = None
@@ -230,9 +235,10 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
         else:
             g["precio_por_kg_min"] = None
 
-        # Eliminar el campo interno antes de devolver
+        # Eliminar campos internos antes de devolver
         for pr in g["precios"]:
             pr.pop("_peso_kg", None)
+            pr.pop("_precio_sin_confirmar", None)
 
         # Imagen: usar la de la tienda más barata; si no tiene, la primera disponible
         g["imagen_url"] = mejor.get("imagen_url") or next(

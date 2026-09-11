@@ -15662,12 +15662,12 @@
       "spark_min": 45.99
     },
     {
-      "id": "100-whey-protein-concentrate-desconocida",
-      "nombre_normalizado": "100% Whey protein concentrate",
+      "id": "100-whey-protein-concentrate-2kg-desconocida",
+      "nombre_normalizado": "100% Whey protein concentrate 2kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
       "marca": "HSN",
-      "peso_kg": null,
+      "peso_kg": 2.0,
       "precio_por_kg_min": null,
       "precio_min": 19.92,
       "tienda_mas_barata": "HSN",
@@ -15695,9 +15695,9 @@
       "store_rating": 4.75,
       "store_rating_count": 1891,
       "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate",
-      "slug_publico": "100-whey-protein-concentrate-hsn",
-      "spark_svg": "",
-      "spark_min": null
+      "slug_publico": "100-whey-protein-concentrate-2kg-hsn",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 9.96
     }
   ]
 }

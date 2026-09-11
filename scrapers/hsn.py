@@ -7,7 +7,15 @@ por lo que NO necesitamos Playwright para el listado.
 
 Las páginas de detalle también se sirven en SSR: rating (JSON-LD), tabla nutricional
 (div.nutritionalTable), servings (texto) y flavors (select anónimo) son extraíbles
-con requests + BeautifulSoup. Las páginas se cachean 7 días.
+con requests + BeautifulSoup.
+
+Estrategia de caché:
+  - Precio y peso: SIEMPRE petición fresca (no se cachean). Cada ejecución del
+    scraper hace una petición por producto para obtener el precio actual.
+  - Enriquecimiento (rating, nutrición, sabores): caché de 7 días.
+    La petición fresca del paso anterior actualiza la caché, así que el
+    enriquecimiento usa el HTML recién descargado sin petición adicional.
+  → Peticiones por ejecución: ~7 (listados) + 1 por producto (detalle fresco)
 """
 
 import json
@@ -190,23 +198,37 @@ def _scrape_detalle(url: str, nombre: str) -> dict:
         re.search(r"sin edulcorantes", nombre, re.IGNORECASE)
     )
 
-    # ── Peso y precio del producto para el formato correcto ────────────────
-    # HSN muestra en la lista el precio "desde" (el formato más barato).
-    # Extrae el peso Y el precio de la PRIMERA opción del select (mismo formato),
-    # para que precio y peso correspondan siempre al mismo formato.
-    peso_kg, option_id = _extraer_peso_y_opcion_desde_select(soup)
-    if peso_kg:
-        enrichment["_peso_kg"] = peso_kg
-        # Precio para esa opción concreta desde el JSON optionPrices de Magento 2
-        precio_opcion = _extraer_precio_opcion_detalle(html, option_id)
-        if precio_opcion:
-            enrichment["_precio_primer_formato"] = precio_opcion
-        # Si no se puede determinar el precio para esa opción, no usar el peso
-        # (evita dividir precio de un formato entre kg de otro formato).
-        else:
-            del enrichment["_peso_kg"]
-
     return enrichment
+
+
+def _obtener_precio_peso_fresco(url: str) -> tuple[float | None, float | None]:
+    """
+    Hace SIEMPRE una petición fresca (sin caché) a la ficha de detalle de HSN
+    para obtener el precio actual del primer formato y su peso.
+
+    Actualiza la caché de detalle con el HTML descargado, de modo que la llamada
+    posterior a _scrape_detalle() (enriquecimiento) use el HTML recién descargado
+    sin hacer una petición adicional.
+
+    Devuelve (peso_kg, precio_eur):
+      - peso_kg  : float si se encuentra en el select, None si no
+      - precio_eur: float si está en optionPrices JSON, None si no
+    Si precio_eur es None el precio de lista se usará como fallback y el €/kg
+    quedará como None (precio no confirmado para ese formato).
+    """
+    r = hacer_peticion(url)
+    if not r or r.status_code != 200:
+        return None, None
+    html = r.text
+    save_cache("hsn", url, html)  # actualiza caché para que _scrape_detalle() use este HTML
+
+    soup = BeautifulSoup(html, "html.parser")
+    peso_kg, option_id = _extraer_peso_y_opcion_desde_select(soup)
+    if not peso_kg:
+        return None, None
+
+    precio = _extraer_precio_opcion_detalle(html, option_id)
+    return peso_kg, precio  # precio puede ser None si no está en optionPrices
 
 
 def _talla_str(peso_kg: float) -> str:
@@ -299,32 +321,33 @@ def scrape(debug: bool = False) -> list[dict]:
         print(f"\n  [DEBUG] {len(productos_raw)} productos encontrados en listados")
         return []
 
-    # ── Paso 2: páginas de detalle (enriquecimiento + peso) ──────────────────
-    print(f"\n  Enriqueciendo {len(productos_raw)} productos (detalle + caché 7 días)...")
+    # ── Paso 2: páginas de detalle (precio fresco + enriquecimiento cacheado) ──
+    # _obtener_precio_peso_fresco() hace SIEMPRE una petición a HSN y guarda
+    # el HTML en caché. _scrape_detalle() lee inmediatamente esa caché fresca.
+    # → 1 petición de red por producto (nunca 0, nunca 2).
+    print(f"\n  Obteniendo precios frescos y enriqueciendo {len(productos_raw)} productos...")
     productos: list[dict] = []
-    stats = {"cached": 0, "fetched": 0, "errors": 0}
+    stats = {"ok": 0, "sin_precio_opcion": 0, "errors": 0}
 
     for i, d in enumerate(productos_raw):
-        from .detail_cache import get_cached as _gc  # lazy import para test unitario
-        cached_check = _gc("hsn", d["url"])
-        if cached_check is not None:
-            stats["cached"] += 1
-        else:
-            stats["fetched"] += 1
-
-        enrichment = _scrape_detalle(d["url"], d["nombre"])
-        if not enrichment and cached_check is None:
+        peso_kg, precio_confirmado = _obtener_precio_peso_fresco(d["url"])
+        if peso_kg is None and precio_confirmado is None:
             stats["errors"] += 1
+        elif precio_confirmado is None:
+            stats["sin_precio_opcion"] += 1
+        else:
+            stats["ok"] += 1
 
-        # Construir nombre con peso si el select lo proporcionó.
-        # Precio: usa el del detalle (formato concreto) en vez del de la lista
-        # (que puede ser el "desde" de otro formato más pequeño).
+        # Enriquecimiento desde la caché recién actualizada (sin petición extra)
+        enrichment = _scrape_detalle(d["url"], d["nombre"])
+
+        # Nombre: añadir peso si el select lo indica y el nombre no lo tiene ya
         nombre_final = d["nombre"]
-        peso_kg = enrichment.pop("_peso_kg", None)
-        precio_detalle = enrichment.pop("_precio_primer_formato", None)
         if peso_kg and not re.search(r"\d+[\.,]?\d*\s*(kg|g)\b", nombre_final, re.I):
             nombre_final = f"{nombre_final} {_talla_str(peso_kg)}"
-        precio_final = str(precio_detalle) if precio_detalle else d["precio"]
+
+        # Precio: usar el de la opción concreta (confirmado) o el de lista como fallback
+        precio_final = str(precio_confirmado) if precio_confirmado else d["precio"]
 
         prod = producto_base(
             nombre_final,
@@ -335,13 +358,22 @@ def scrape(debug: bool = False) -> list[dict]:
             d["url"],
             d.get("imagen_url"),
         )
-        prod.update(enrichment)  # añade todos los campos de enriquecimiento
+        prod.update(enrichment)
+
+        # Si el peso se conoce pero el precio no está confirmado para ese formato,
+        # marcar para que matching.py no calcule €/kg con precio/peso inconsistentes.
+        if peso_kg and not precio_confirmado:
+            prod["_precio_sin_confirmar"] = True
+
         productos.append(prod)
 
         if (i + 1) % 10 == 0:
-            print(f"  ... {i+1}/{len(productos_raw)} (caché:{stats['cached']} / fetch:{stats['fetched']} / err:{stats['errors']})")
+            print(f"  ... {i+1}/{len(productos_raw)} "
+                  f"(ok:{stats['ok']} / sin_precio_opcion:{stats['sin_precio_opcion']} / err:{stats['errors']})")
         time.sleep(1)
 
     print(f"\n  Total HSN: {len(productos)} productos")
-    print(f"  Detalle: {stats['fetched']} fetcheados, {stats['cached']} desde caché, {stats['errors']} errores")
+    print(f"  Detalle: {stats['ok']} precio confirmado, "
+          f"{stats['sin_precio_opcion']} sin precio de opción (€/kg=None), "
+          f"{stats['errors']} errores")
     return productos

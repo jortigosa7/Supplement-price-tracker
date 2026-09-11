@@ -8542,7 +8542,7 @@
     "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/peptopro-hidrolizado-de-caseina-en-polvo"
   },
   {
-    "nombre": "100% Whey protein concentrate",
+    "nombre": "100% Whey protein concentrate 2kg",
     "marca": "",
     "categoria": "Proteinas Whey",
     "precio_eur": 19.92,
@@ -8561,7 +8561,8 @@
     ],
     "store_rating": 4.75,
     "store_rating_count": 1891,
-    "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate"
+    "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate",
+    "_precio_sin_confirmar": true
   },
   {
     "nombre": "Golden protein 2kg",
