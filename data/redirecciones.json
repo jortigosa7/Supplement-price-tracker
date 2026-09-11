@@ -1,59 +1,75 @@
 [
   {
     "desde": "comparar/evobasic-whey-2kg-desconocida-vs-evowhey-protein-2kg-desconocida/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-2kg-desconocida-vs-evobasic-whey-2kg-desconocida/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
+  },
+  {
+    "desde": "comparar/creatine-monohydrate-creapure-200g-vitob-vs-evocreatine-500g-desconocida/",
+    "hasta": "/comparar/creatine-monohydrate-creapure-200g-vitobest-vs-evocreatine-500g-hsn/"
+  },
+  {
+    "desde": "comparar/evocreatine-500g-desconocida-vs-creatine-monohydrate-creapure-200g-vitob/",
+    "hasta": "/comparar/creatine-monohydrate-creapure-200g-vitobest-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/evobasic-whey-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-sin-edulcorantes-2kg-des-vs-evobasic-whey-2kg-desconocida/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
-    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-sin-edulcorantes-2kg-des-vs-evohydro-2-0-hydro-whey-2kg-desconocida/",
-    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/100-whey-protein-isolate-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat/",
-    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix/"
+    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-sin-edulcorantes-whey-isolat-vs-100-whey-protein-isolate-2kg-desconocida/",
-    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix/"
+    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evohydro-2-0-hydro-whey-2kg-desconocida-vs-evowhey-protein-2kg-desconocida/",
-    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-2kg-desconocida-vs-evohydro-2-0-hydro-whey-2kg-desconocida/",
-    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
+  },
+  {
+    "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1-vs-creatine-monohydrate-creapure-200g-vitob/",
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-hsn-vs-creatine-monohydrate-creapure-200g-vitobest/"
+  },
+  {
+    "desde": "comparar/creatine-monohydrate-creapure-200g-vitob-vs-creatina-monohidrato-en-polvo-200-mesh-1/",
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-hsn-vs-creatine-monohydrate-creapure-200g-vitobest/"
   },
   {
     "desde": "comparar/evobasic-whey-2kg-desconocida-vs-evowhey-oats-2kg-desconocida/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evowhey-oats-2kg-amix-nutrition/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evowhey-oats-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-oats-2kg-desconocida-vs-evobasic-whey-2kg-desconocida/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evowhey-oats-2kg-amix-nutrition/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evowhey-oats-2kg-hsn/"
   },
   {
     "desde": "comparar/100-whey-protein-isolate-2kg-desconocida-vs-evowhey-protein-2kg-desconocida/",
-    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-2kg-desconocida-vs-100-whey-protein-isolate-2kg-desconocida/",
-    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/100-whey-protein-isolate-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono/",
@@ -81,167 +97,171 @@
   },
   {
     "desde": "comparar/evolate-2-0-sin-edulcorantes-whey-isolat-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
-    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-sin-edulcorantes-2kg-des-vs-evolate-2-0-sin-edulcorantes-whey-isolat/",
-    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/creatina-creapure-400g-amazin-foods-vs-evocreatine-500g-desconocida/",
-    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-evocreatine-500g-quamtrax-direct/"
+    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/evocreatine-500g-desconocida-vs-creatina-creapure-400g-amazin-foods/",
-    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-evocreatine-500g-quamtrax-direct/"
+    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/evobasic-whey-2kg-desconocida-vs-golden-protein-2kg-desconocida/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-golden-protein-2kg-amix-nutrition/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-golden-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/golden-protein-2kg-desconocida-vs-evobasic-whey-2kg-desconocida/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-golden-protein-2kg-amix-nutrition/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-golden-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1-vs-evocreatine-500g-desconocida/",
-    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-optimum-vs-evocreatine-500g-quamtrax-direct/"
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-hsn-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/evocreatine-500g-desconocida-vs-creatina-monohidrato-en-polvo-200-mesh-1/",
-    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-optimum-vs-evocreatine-500g-quamtrax-direct/"
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-hsn-vs-evocreatine-500g-hsn/"
   },
   {
-    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evowhey-protein-2kg-desconocida/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "desde": "comparar/100-whey-protein-concentrate-2kg-descono-vs-evowhey-protein-2kg-desconocida/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
-    "desde": "comparar/evowhey-protein-2kg-desconocida-vs-100-whey-protein-concentrate-2kg-optimum/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "desde": "comparar/evowhey-protein-2kg-desconocida-vs-100-whey-protein-concentrate-2kg-descono/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/iso-whey-zero-black-908g-biotechusa-vs-iso-whey-zero-450g-biotechusa/",
     "hasta": "/comparar/iso-whey-zero-450g-biotechusa-vs-iso-whey-zero-black-908g-biotechusa/"
   },
   {
-    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evobasic-whey-2kg-desconocida/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evobasic-whey-2kg-bigman/"
+    "desde": "comparar/100-whey-protein-concentrate-2kg-descono-vs-evobasic-whey-2kg-desconocida/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evobasic-whey-2kg-hsn/"
   },
   {
-    "desde": "comparar/evobasic-whey-2kg-desconocida-vs-100-whey-protein-concentrate-2kg-optimum/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evobasic-whey-2kg-bigman/"
+    "desde": "comparar/evobasic-whey-2kg-desconocida-vs-100-whey-protein-concentrate-2kg-descono/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evobasic-whey-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
-    "hasta": "/comparar/evowhey-protein-2kg-optimum-nutrition-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evowhey-protein-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-sin-edulcorantes-2kg-des-vs-evowhey-protein-2kg-desconocida/",
-    "hasta": "/comparar/evowhey-protein-2kg-optimum-nutrition-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evowhey-protein-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/100-whey-protein-isolate-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
-    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-sin-edulcorantes-2kg-des-vs-100-whey-protein-isolate-2kg-desconocida/",
-    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/evohydro-2-0-hydro-whey-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat/",
-    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix/"
+    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-sin-edulcorantes-whey-isolat-vs-evohydro-2-0-hydro-whey-2kg-desconocida/",
-    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix/"
+    "hasta": "/comparar/evohydro-2-0-hydro-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evoexcel-sin-edulcorantes-whey-protein-i-vs-evowhey-oats-2kg-desconocida/",
-    "hasta": "/comparar/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evowhey-oats-2kg-amix-nutrition/"
+    "hasta": "/comparar/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evowhey-oats-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-oats-2kg-desconocida-vs-evoexcel-sin-edulcorantes-whey-protein-i/",
-    "hasta": "/comparar/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evowhey-oats-2kg-amix-nutrition/"
+    "hasta": "/comparar/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evowhey-oats-2kg-hsn/"
   },
   {
     "desde": "comparar/100-proteina-de-suero-hidrolizado-aislad-vs-evolate-2-0-whey-isolate-cfm-2kg-descono/",
-    "hasta": "/comparar/100-proteina-de-suero-hidrolizado-aislada-2kg-amix-nutrition-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
+    "hasta": "/comparar/100-proteina-de-suero-hidrolizado-aislada-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-whey-isolate-cfm-2kg-descono-vs-100-proteina-de-suero-hidrolizado-aislad/",
-    "hasta": "/comparar/100-proteina-de-suero-hidrolizado-aislada-2kg-amix-nutrition-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
+    "hasta": "/comparar/100-proteina-de-suero-hidrolizado-aislada-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-2kg-desconocida-vs-golden-protein-2kg-desconocida/",
-    "hasta": "/comparar/evowhey-protein-2kg-optimum-nutrition-vs-golden-protein-2kg-amix-nutrition/"
+    "hasta": "/comparar/evowhey-protein-2kg-hsn-vs-golden-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/golden-protein-2kg-desconocida-vs-evowhey-protein-2kg-desconocida/",
-    "hasta": "/comparar/evowhey-protein-2kg-optimum-nutrition-vs-golden-protein-2kg-amix-nutrition/"
+    "hasta": "/comparar/evowhey-protein-2kg-hsn-vs-golden-protein-2kg-hsn/"
   },
   {
-    "desde": "comparar/creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-en-polvo-200-mesh-1/",
-    "hasta": "/comparar/creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-en-polvo-200-mesh-150g-optimum/"
+    "desde": "comparar/creatina-celular-800g-creatina-monohidra-vs-creatina-monohidrato-en-polvo-200-mesh-1/",
+    "hasta": "/comparar/creatina-celular-800g-keepgoing-vs-creatina-monohidrato-en-polvo-200-mesh-150g-hsn/"
   },
   {
-    "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1-vs-creatina-celular-800g-optimum-nutrition/",
-    "hasta": "/comparar/creatina-celular-800g-optimum-nutrition-vs-creatina-monohidrato-en-polvo-200-mesh-150g-optimum/"
+    "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1-vs-creatina-celular-800g-creatina-monohidra/",
+    "hasta": "/comparar/creatina-celular-800g-keepgoing-vs-creatina-monohidrato-en-polvo-200-mesh-150g-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
-    "hasta": "/comparar/evolate-2-0-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evolate-2-0-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-sin-edulcorantes-2kg-des-vs-evolate-2-0-whey-isolate-cfm-2kg-descono/",
-    "hasta": "/comparar/evolate-2-0-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "hasta": "/comparar/evolate-2-0-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evowhey-protein-2kg-desconocida/",
-    "hasta": "/comparar/evolate-2-0-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evolate-2-0-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-2kg-desconocida-vs-evolate-2-0-whey-isolate-cfm-2kg-descono/",
-    "hasta": "/comparar/evolate-2-0-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evolate-2-0-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
-    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evolate-2-0-whey-isolate-cfm-2kg-descono/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
+    "desde": "comparar/100-whey-protein-concentrate-2kg-descono-vs-evolate-2-0-whey-isolate-cfm-2kg-descono/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
   },
   {
-    "desde": "comparar/evolate-2-0-whey-isolate-cfm-2kg-descono-vs-100-whey-protein-concentrate-2kg-optimum/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
+    "desde": "comparar/evolate-2-0-whey-isolate-cfm-2kg-descono-vs-100-whey-protein-concentrate-2kg-descono/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-1/",
-    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-150g-optimum/"
+    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-150g-hsn/"
   },
   {
     "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1-vs-creatina-creapure-400g-amazin-foods/",
-    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-150g-optimum/"
+    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-150g-hsn/"
   },
   {
     "desde": "comparar/evoexcel-sin-edulcorantes-whey-protein-i-vs-evolate-2-0-sin-edulcorantes-whey-isolat/",
-    "hasta": "/comparar/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix/"
+    "hasta": "/comparar/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-sin-edulcorantes-whey-isolat-vs-evoexcel-sin-edulcorantes-whey-protein-i/",
-    "hasta": "/comparar/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix/"
+    "hasta": "/comparar/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-sin-edulcorantes-whey-isolat-vs-evolate-2-0-whey-isolate-cfm-2kg-descono/",
-    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
+    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-whey-isolate-cfm-2kg-descono-vs-evolate-2-0-sin-edulcorantes-whey-isolat/",
-    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
+    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
   },
   {
-    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "desde": "comparar/creatina-creapure-400g-amazin-foods-vs-100-creatina-monohidrato-500g-quamtrax/",
+    "hasta": "/comparar/100-creatina-monohidrato-500g-quamtrax-vs-creatina-creapure-400g-amazin-foods/"
   },
   {
-    "desde": "comparar/evowhey-protein-sin-edulcorantes-2kg-des-vs-100-whey-protein-concentrate-2kg-optimum/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evowhey-protein-sin-edulcorantes-2kg-amix-nutrition/"
+    "desde": "comparar/100-whey-protein-concentrate-2kg-descono-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
+  },
+  {
+    "desde": "comparar/evowhey-protein-sin-edulcorantes-2kg-des-vs-100-whey-protein-concentrate-2kg-descono/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
   },
   {
     "desde": "comparar/100-whey-protein-isolate-2kg-desconocida-vs-evohydro-2-0-hydro-whey-2kg-desconocida/",
@@ -253,91 +273,107 @@
   },
   {
     "desde": "comparar/evowhey-oats-2kg-desconocida-vs-golden-protein-2kg-desconocida/",
-    "hasta": "/comparar/evowhey-oats-2kg-amix-nutrition-vs-golden-protein-2kg-amix-nutrition/"
+    "hasta": "/comparar/evowhey-oats-2kg-hsn-vs-golden-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/golden-protein-2kg-desconocida-vs-evowhey-oats-2kg-desconocida/",
-    "hasta": "/comparar/evowhey-oats-2kg-amix-nutrition-vs-golden-protein-2kg-amix-nutrition/"
+    "hasta": "/comparar/evowhey-oats-2kg-hsn-vs-golden-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/100-whey-protein-isolate-2kg-desconocida-vs-evowhey-oats-2kg-desconocida/",
-    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-oats-2kg-amix-nutrition/"
+    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-oats-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-oats-2kg-desconocida-vs-100-whey-protein-isolate-2kg-desconocida/",
-    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-oats-2kg-amix-nutrition/"
+    "hasta": "/comparar/100-whey-protein-isolate-2kg-hsn-vs-evowhey-oats-2kg-hsn/"
   },
   {
-    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evowhey-oats-2kg-desconocida/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evowhey-oats-2kg-amix-nutrition/"
+    "desde": "comparar/100-whey-protein-concentrate-2kg-descono-vs-evowhey-oats-2kg-desconocida/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-oats-2kg-hsn/"
   },
   {
-    "desde": "comparar/evowhey-oats-2kg-desconocida-vs-100-whey-protein-concentrate-2kg-optimum/",
-    "hasta": "/comparar/100-whey-protein-concentrate-2kg-optimum-nutrition-vs-evowhey-oats-2kg-amix-nutrition/"
+    "desde": "comparar/evowhey-oats-2kg-desconocida-vs-100-whey-protein-concentrate-2kg-descono/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-oats-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-oats-2kg-desconocida-vs-evowhey-protein-2kg-desconocida/",
-    "hasta": "/comparar/evowhey-oats-2kg-amix-nutrition-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evowhey-oats-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-2kg-desconocida-vs-evowhey-oats-2kg-desconocida/",
-    "hasta": "/comparar/evowhey-oats-2kg-amix-nutrition-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evowhey-oats-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-sin-edulcorantes-2kg-des-vs-keto-whey-protein-2kg-desconocida/",
-    "hasta": "/comparar/evowhey-protein-sin-edulcorantes-2kg-amix-nutrition-vs-keto-whey-protein-2kg-isoprime-cfm-2-kg/"
+    "hasta": "/comparar/evowhey-protein-sin-edulcorantes-2kg-hsn-vs-keto-whey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/keto-whey-protein-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
-    "hasta": "/comparar/evowhey-protein-sin-edulcorantes-2kg-amix-nutrition-vs-keto-whey-protein-2kg-isoprime-cfm-2-kg/"
+    "hasta": "/comparar/evowhey-protein-sin-edulcorantes-2kg-hsn-vs-keto-whey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-sin-edulcorantes-whey-isolat-vs-keto-whey-protein-2kg-desconocida/",
-    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix-vs-keto-whey-protein-2kg-isoprime-cfm-2-kg/"
+    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-keto-whey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/keto-whey-protein-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat/",
-    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix-vs-keto-whey-protein-2kg-isoprime-cfm-2-kg/"
+    "hasta": "/comparar/evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-keto-whey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1-vs-the-creatine-creapure-250g-desconocida/",
-    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-optimum-vs-the-creatine-creapure-250g-myprotein/"
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-hsn-vs-the-creatine-creapure-250g-myprotein/"
   },
   {
     "desde": "comparar/the-creatine-creapure-250g-desconocida-vs-creatina-monohidrato-en-polvo-200-mesh-1/",
-    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-optimum-vs-the-creatine-creapure-250g-myprotein/"
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-hsn-vs-the-creatine-creapure-250g-myprotein/"
   },
   {
     "desde": "comparar/evobasic-whey-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evolate-2-0-sin-edulcorantes-whey-isolat-vs-evobasic-whey-2kg-desconocida/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-amix/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn/"
   },
   {
     "desde": "comparar/evobeast-1kg-desconocida-vs-origin-jacked-pump-620g-desconocida/",
-    "hasta": "/comparar/evobeast-1kg-amix-nutrition-vs-origin-jacked-pump-620g-myprotein/"
+    "hasta": "/comparar/evobeast-1kg-hsn-vs-origin-jacked-pump-620g-myprotein/"
   },
   {
     "desde": "comparar/origin-jacked-pump-620g-desconocida-vs-evobeast-1kg-desconocida/",
-    "hasta": "/comparar/evobeast-1kg-amix-nutrition-vs-origin-jacked-pump-620g-myprotein/"
+    "hasta": "/comparar/evobeast-1kg-hsn-vs-origin-jacked-pump-620g-myprotein/"
+  },
+  {
+    "desde": "comparar/100-whey-gold-standard-2000g-optimum-nut-vs-predator-protein-2kg-amix/",
+    "hasta": "/comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-predator-protein-2kg-amix/"
+  },
+  {
+    "desde": "comparar/predator-protein-2kg-amix-vs-100-whey-gold-standard-2000g-optimum-nut/",
+    "hasta": "/comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-predator-protein-2kg-amix/"
   },
   {
     "desde": "comparar/bcaa-2-1-1-300-g-desconocida-vs-bcaa-8-1-1-300-g-desconocida/",
-    "hasta": "/comparar/bcaa-2-1-1-300-g-beverly-nutrition-vs-bcaa-8-1-1-300-g-prozis/"
+    "hasta": "/comparar/bcaa-2-1-1-300-g-prozis-vs-bcaa-8-1-1-300-g-prozis/"
   },
   {
     "desde": "comparar/bcaa-8-1-1-300-g-desconocida-vs-bcaa-2-1-1-300-g-desconocida/",
-    "hasta": "/comparar/bcaa-2-1-1-300-g-beverly-nutrition-vs-bcaa-8-1-1-300-g-prozis/"
+    "hasta": "/comparar/bcaa-2-1-1-300-g-prozis-vs-bcaa-8-1-1-300-g-prozis/"
+  },
+  {
+    "desde": "comparar/creatina-celular-800g-creatina-monohidra-vs-creatine-monohydrate-creapure-200g-vitob/",
+    "hasta": "/comparar/creatina-celular-800g-keepgoing-vs-creatine-monohydrate-creapure-200g-vitobest/"
+  },
+  {
+    "desde": "comparar/creatine-monohydrate-creapure-200g-vitob-vs-creatina-celular-800g-creatina-monohidra/",
+    "hasta": "/comparar/creatina-celular-800g-keepgoing-vs-creatine-monohydrate-creapure-200g-vitobest/"
   },
   {
     "desde": "comparar/creatina-celular-500g-nutrisport-vs-evocreatine-500g-desconocida/",
-    "hasta": "/comparar/creatina-celular-500g-nutrisport-vs-evocreatine-500g-quamtrax-direct/"
+    "hasta": "/comparar/creatina-celular-500g-nutrisport-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/evocreatine-500g-desconocida-vs-creatina-celular-500g-nutrisport/",
-    "hasta": "/comparar/creatina-celular-500g-nutrisport-vs-evocreatine-500g-quamtrax-direct/"
+    "hasta": "/comparar/creatina-celular-500g-nutrisport-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/zero-creatine-150-g-desconocida-vs-zero-creatine-300-g-desconocida/",
@@ -349,51 +385,59 @@
   },
   {
     "desde": "comparar/l-arginina-300-g-desconocida-vs-n-o-shox-1320g-desconocida/",
-    "hasta": "/comparar/l-arginina-300-g-life-pro-nutrition-vs-n-o-shox-1320g-prozis/"
+    "hasta": "/comparar/l-arginina-300-g-prozis-vs-n-o-shox-1320g-prozis/"
   },
   {
     "desde": "comparar/n-o-shox-1320g-desconocida-vs-l-arginina-300-g-desconocida/",
-    "hasta": "/comparar/l-arginina-300-g-life-pro-nutrition-vs-n-o-shox-1320g-prozis/"
+    "hasta": "/comparar/l-arginina-300-g-prozis-vs-n-o-shox-1320g-prozis/"
   },
   {
     "desde": "comparar/evobasic-whey-2kg-desconocida-vs-evoexcel-whey-protein-isolate-concentrat/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evoexcel-whey-protein-isolate-concentrate-2kg-optimum/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evoexcel-whey-protein-isolate-concentrate-2kg-hsn/"
   },
   {
     "desde": "comparar/evoexcel-whey-protein-isolate-concentrat-vs-evobasic-whey-2kg-desconocida/",
-    "hasta": "/comparar/evobasic-whey-2kg-bigman-vs-evoexcel-whey-protein-isolate-concentrate-2kg-optimum/"
+    "hasta": "/comparar/evobasic-whey-2kg-hsn-vs-evoexcel-whey-protein-isolate-concentrate-2kg-hsn/"
   },
   {
     "desde": "comparar/evoexcel-whey-protein-isolate-concentrat-vs-evowhey-protein-2kg-desconocida/",
-    "hasta": "/comparar/evoexcel-whey-protein-isolate-concentrate-2kg-optimum-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evoexcel-whey-protein-isolate-concentrate-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/evowhey-protein-2kg-desconocida-vs-evoexcel-whey-protein-isolate-concentrat/",
-    "hasta": "/comparar/evoexcel-whey-protein-isolate-concentrate-2kg-optimum-vs-evowhey-protein-2kg-optimum-nutrition/"
+    "hasta": "/comparar/evoexcel-whey-protein-isolate-concentrate-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/golden-protein-2kg-desconocida-vs-keto-whey-protein-2kg-desconocida/",
-    "hasta": "/comparar/golden-protein-2kg-amix-nutrition-vs-keto-whey-protein-2kg-isoprime-cfm-2-kg/"
+    "hasta": "/comparar/golden-protein-2kg-hsn-vs-keto-whey-protein-2kg-hsn/"
   },
   {
     "desde": "comparar/keto-whey-protein-2kg-desconocida-vs-golden-protein-2kg-desconocida/",
-    "hasta": "/comparar/golden-protein-2kg-amix-nutrition-vs-keto-whey-protein-2kg-isoprime-cfm-2-kg/"
+    "hasta": "/comparar/golden-protein-2kg-hsn-vs-keto-whey-protein-2kg-hsn/"
   },
   {
-    "desde": "comparar/creatina-monohidrato-elite-1kg-optimum-n-vs-creatina-monohidrato-en-polvo-200-mesh-1/",
-    "hasta": "/comparar/creatina-monohidrato-elite-1kg-optimum-nutrition-vs-creatina-monohidrato-en-polvo-200-mesh-150g-optimum/"
+    "desde": "comparar/100-whey-gold-standard-2000g-optimum-nut-vs-evowhey-protein-2kg-desconocida/",
+    "hasta": "/comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-evowhey-protein-2kg-hsn/"
   },
   {
-    "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1-vs-creatina-monohidrato-elite-1kg-optimum-n/",
-    "hasta": "/comparar/creatina-monohidrato-elite-1kg-optimum-nutrition-vs-creatina-monohidrato-en-polvo-200-mesh-150g-optimum/"
+    "desde": "comparar/evowhey-protein-2kg-desconocida-vs-100-whey-gold-standard-2000g-optimum-nut/",
+    "hasta": "/comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-evowhey-protein-2kg-hsn/"
   },
   {
-    "desde": "comparar/creatina-monohidrato-elite-1kg-optimum-n-vs-evocreatine-500g-desconocida/",
-    "hasta": "/comparar/creatina-monohidrato-elite-1kg-optimum-nutrition-vs-evocreatine-500g-quamtrax-direct/"
+    "desde": "comparar/creatina-monohidrato-elite-1kg-desconoci-vs-creatina-monohidrato-en-polvo-200-mesh-1/",
+    "hasta": "/comparar/creatina-monohidrato-elite-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-150g-hsn/"
   },
   {
-    "desde": "comparar/evocreatine-500g-desconocida-vs-creatina-monohidrato-elite-1kg-optimum-n/",
-    "hasta": "/comparar/creatina-monohidrato-elite-1kg-optimum-nutrition-vs-evocreatine-500g-quamtrax-direct/"
+    "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1-vs-creatina-monohidrato-elite-1kg-desconoci/",
+    "hasta": "/comparar/creatina-monohidrato-elite-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-150g-hsn/"
+  },
+  {
+    "desde": "comparar/creatina-monohidrato-elite-1kg-desconoci-vs-evocreatine-500g-desconocida/",
+    "hasta": "/comparar/creatina-monohidrato-elite-1kg-myprotein-vs-evocreatine-500g-hsn/"
+  },
+  {
+    "desde": "comparar/evocreatine-500g-desconocida-vs-creatina-monohidrato-elite-1kg-desconoci/",
+    "hasta": "/comparar/creatina-monohidrato-elite-1kg-myprotein-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/bcaa-s-instantaneo-2-1-1-2-0-150g-descon-vs-bcaa-s-instantaneo-4-1-1-2-0-150g-descon/",
@@ -413,10 +457,10 @@
   },
   {
     "desde": "comparar/creatina-excell-1000mg-100-creapure-desc-vs-evocreatine-500g-desconocida/",
-    "hasta": "/comparar/creatina-excell-1000mg-100-creapure-hsn-vs-evocreatine-500g-quamtrax-direct/"
+    "hasta": "/comparar/creatina-excell-1000mg-100-creapure-hsn-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/evocreatine-500g-desconocida-vs-creatina-excell-1000mg-100-creapure-desc/",
-    "hasta": "/comparar/creatina-excell-1000mg-100-creapure-hsn-vs-evocreatine-500g-quamtrax-direct/"
+    "hasta": "/comparar/creatina-excell-1000mg-100-creapure-hsn-vs-evocreatine-500g-hsn/"
   }
 ]

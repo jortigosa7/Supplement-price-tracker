@@ -6,6 +6,11 @@
       "fuente": "GSC-252c"
     },
     {
+      "id_a": "creatine-monohydrate-creapure-200g-vitobest",
+      "id_b": "evocreatine-500g-desconocida",
+      "fuente": "GSC-28c"
+    },
+    {
       "id_a": "evobasic-whey-2kg-desconocida",
       "id_b": "evowhey-protein-sin-edulcorantes-2kg-desconocida",
       "fuente": "GSC-19c"
@@ -26,6 +31,11 @@
       "fuente": "GSC-11c"
     },
     {
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "id_b": "creatine-monohydrate-creapure-200g-vitobest",
+      "fuente": "GSC-11c"
+    },
+    {
       "id_a": "evobasic-whey-2kg-desconocida",
       "id_b": "evowhey-oats-2kg-desconocida",
       "fuente": "GSC-10c"
@@ -41,7 +51,7 @@
       "fuente": "GSC-7c"
     },
     {
-      "id_a": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-optimum-nutrition",
+      "id_a": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-desconocida",
       "id_b": "evolate-2-0-whey-isolate-cfm-2kg-desconocida",
       "fuente": "GSC-6c"
     },
@@ -66,12 +76,12 @@
       "fuente": "GSC-4c"
     },
     {
-      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-optimum-nutrition",
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
       "id_b": "evocreatine-500g-desconocida",
       "fuente": "GSC-4c"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-optimum-nutrition",
+      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
       "id_b": "evowhey-protein-2kg-desconocida",
       "fuente": "GSC-4c"
     },
@@ -81,7 +91,7 @@
       "fuente": "GSC-4c"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-optimum-nutrition",
+      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
       "id_b": "evobasic-whey-2kg-desconocida",
       "fuente": "GSC-3c"
     },
@@ -101,7 +111,7 @@
       "fuente": "GSC-2c"
     },
     {
-      "id_a": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-optimum-nutrition",
+      "id_a": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-desconocida",
       "id_b": "evowhey-oats-2kg-desconocida",
       "fuente": "GSC-2c"
     },
@@ -116,8 +126,8 @@
       "fuente": "GSC-2c"
     },
     {
-      "id_a": "creatina-celular-800g-optimum-nutrition",
-      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-optimum-nutrition",
+      "id_a": "creatina-celular-800g-creatina-monohidrato-creapure",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
       "fuente": "GSC-2c"
     },
     {
@@ -131,17 +141,17 @@
       "fuente": "GSC-1c-508i"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-optimum-nutrition",
+      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
       "id_b": "evolate-2-0-whey-isolate-cfm-2kg-desconocida",
       "fuente": "GSC-1c-360i"
     },
     {
       "id_a": "creatina-creapure-400g-amazin-foods",
-      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-optimum-nutrition",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
       "fuente": "GSC-1c-327i"
     },
     {
-      "id_a": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-optimum-nutrition",
+      "id_a": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-desconocida",
       "id_b": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-desconocida",
       "fuente": "GSC-1c-299i"
     },
@@ -151,7 +161,12 @@
       "fuente": "GSC-1c-258i"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-optimum-nutrition",
+      "id_a": "100-creatina-monohidrato-500g-quamtrax",
+      "id_b": "creatina-creapure-400g-amazin-foods",
+      "fuente": "GSC-1c-236i"
+    },
+    {
+      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
       "id_b": "evowhey-protein-sin-edulcorantes-2kg-desconocida",
       "fuente": "GSC-1c-226i"
     },
@@ -171,7 +186,7 @@
       "fuente": "GSC-1c-90i"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-optimum-nutrition",
+      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
       "id_b": "evowhey-oats-2kg-desconocida",
       "fuente": "GSC-1c-64i"
     },
@@ -191,7 +206,7 @@
       "fuente": "GSC-1c-28i"
     },
     {
-      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-optimum-nutrition",
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
       "id_b": "the-creatine-creapure-250g-desconocida",
       "fuente": "GSC-1c-25i"
     },
@@ -206,9 +221,19 @@
       "fuente": "GSC-1c-pre"
     },
     {
+      "id_a": "100-whey-gold-standard-2000g-optimum-nutrition",
+      "id_b": "predator-protein-2kg-amix",
+      "fuente": "GSC-1c"
+    },
+    {
       "id_a": "bcaa-2-1-1-300-g-desconocida",
       "id_b": "bcaa-8-1-1-300-g-desconocida",
       "fuente": "GSC-1c"
+    },
+    {
+      "id_a": "creatina-celular-800g-creatina-monohidrato-creapure",
+      "id_b": "creatine-monohydrate-creapure-200g-vitobest",
+      "fuente": "GSC-1c-15i"
     },
     {
       "id_a": "creatina-celular-500g-nutrisport",
@@ -227,11 +252,11 @@
     },
     {
       "id_a": "evobasic-whey-2kg-desconocida",
-      "id_b": "evoexcel-whey-protein-isolate-concentrate-2kg-optimum-nutrition",
+      "id_b": "evoexcel-whey-protein-isolate-concentrate-2kg-desconocida",
       "fuente": "GrupoB"
     },
     {
-      "id_a": "evoexcel-whey-protein-isolate-concentrate-2kg-optimum-nutrition",
+      "id_a": "evoexcel-whey-protein-isolate-concentrate-2kg-desconocida",
       "id_b": "evowhey-protein-2kg-desconocida",
       "fuente": "GrupoB"
     },
@@ -241,12 +266,17 @@
       "fuente": "GrupoB"
     },
     {
-      "id_a": "creatina-monohidrato-elite-1kg-optimum-nutrition",
-      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-optimum-nutrition",
+      "id_a": "100-whey-gold-standard-2000g-optimum-nutrition",
+      "id_b": "evowhey-protein-2kg-desconocida",
       "fuente": "GrupoB"
     },
     {
-      "id_a": "creatina-monohidrato-elite-1kg-optimum-nutrition",
+      "id_a": "creatina-monohidrato-elite-1kg-desconocida",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "fuente": "GrupoB"
+    },
+    {
+      "id_a": "creatina-monohidrato-elite-1kg-desconocida",
       "id_b": "evocreatine-500g-desconocida",
       "fuente": "GrupoB"
     },
@@ -266,5 +296,5 @@
       "fuente": "ProdMissing-2c"
     }
   ],
-  "total": 53
+  "total": 59
 }

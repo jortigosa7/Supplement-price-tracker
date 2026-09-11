@@ -34,24 +34,51 @@ CATEGORIAS = [
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
-def _extraer_peso_kg_desde_select(soup: BeautifulSoup) -> float | None:
+def _extraer_peso_y_opcion_desde_select(soup: BeautifulSoup) -> tuple[float | None, str | None]:
     """
-    Busca el select con id='product_information_select' (formato actual de HSN),
-    con opciones del tipo "EVOLATE 2.0 2Kg CHOCOLATE". Extrae el peso de la primera opción.
+    Busca el select de variantes de HSN (opciones del tipo "EVOLATE 2.0 2Kg CHOCOLATE").
+    Devuelve (peso_kg, option_value) de la PRIMERA opción con unidad de peso.
+    option_value es el atributo value de la etiqueta <option> (ID de producto en Magento).
     Fallback: cualquier select cuya primera opción contenga unidad de peso.
     """
     for sel in soup.find_all("select"):
-        opts = [o.get_text(strip=True) for o in sel.find_all("option") if o.get_text(strip=True)]
-        if not opts:
-            continue
-        m = re.search(r"(\d+[\.,]?\d*)\s*(kg|g)\b", opts[0], re.IGNORECASE)
-        if m:
-            val = float(m.group(1).replace(",", "."))
-            unit = m.group(2).lower()
-            if unit == "g":
-                val /= 1000
-            return round(val, 3)
+        for opt in sel.find_all("option"):
+            texto = opt.get_text(strip=True)
+            if not texto:
+                continue
+            m = re.search(r"(\d+[\.,]?\d*)\s*(kg|g)\b", texto, re.IGNORECASE)
+            if m:
+                val = float(m.group(1).replace(",", "."))
+                unit = m.group(2).lower()
+                if unit == "g":
+                    val /= 1000
+                peso_kg = round(val, 3)
+                option_id = opt.get("value", "")
+                return peso_kg, option_id
+    return None, None
+
+
+def _extraer_precio_opcion_detalle(html: str, option_id: str) -> float | None:
+    """
+    Extrae el finalPrice del JSON optionPrices de Magento 2 para una opción concreta.
+    Patrón: "OPTION_ID":{"baseOldPrice":...,"finalPrice":{"amount":X}...}
+    """
+    if not option_id:
+        return None
+    idx = html.find(f'"{option_id}":')
+    if idx == -1:
+        return None
+    snippet = html[idx: idx + 400]
+    m = re.search(r'"finalPrice"\s*:\s*\{"amount"\s*:\s*([0-9.]+)', snippet)
+    if m:
+        return round(float(m.group(1)), 2)
     return None
+
+
+# Mantener el nombre anterior como alias para no romper código que lo llame directamente
+def _extraer_peso_kg_desde_select(soup: BeautifulSoup) -> float | None:
+    peso, _ = _extraer_peso_y_opcion_desde_select(soup)
+    return peso
 
 
 def _extraer_sabores_desde_select(soup: BeautifulSoup, nombre_producto: str) -> list[str]:
@@ -163,10 +190,21 @@ def _scrape_detalle(url: str, nombre: str) -> dict:
         re.search(r"sin edulcorantes", nombre, re.IGNORECASE)
     )
 
-    # ── Peso del producto (para nombre_con_peso) ────────────────────────────
-    peso_kg = _extraer_peso_kg_desde_select(soup)
+    # ── Peso y precio del producto para el formato correcto ────────────────
+    # HSN muestra en la lista el precio "desde" (el formato más barato).
+    # Extrae el peso Y el precio de la PRIMERA opción del select (mismo formato),
+    # para que precio y peso correspondan siempre al mismo formato.
+    peso_kg, option_id = _extraer_peso_y_opcion_desde_select(soup)
     if peso_kg:
-        enrichment["_peso_kg"] = peso_kg  # prefijado _ para no confundir con campo schema
+        enrichment["_peso_kg"] = peso_kg
+        # Precio para esa opción concreta desde el JSON optionPrices de Magento 2
+        precio_opcion = _extraer_precio_opcion_detalle(html, option_id)
+        if precio_opcion:
+            enrichment["_precio_primer_formato"] = precio_opcion
+        # Si no se puede determinar el precio para esa opción, no usar el peso
+        # (evita dividir precio de un formato entre kg de otro formato).
+        else:
+            del enrichment["_peso_kg"]
 
     return enrichment
 
@@ -278,15 +316,19 @@ def scrape(debug: bool = False) -> list[dict]:
         if not enrichment and cached_check is None:
             stats["errors"] += 1
 
-        # Construir nombre con peso si el select lo proporcionó
+        # Construir nombre con peso si el select lo proporcionó.
+        # Precio: usa el del detalle (formato concreto) en vez del de la lista
+        # (que puede ser el "desde" de otro formato más pequeño).
         nombre_final = d["nombre"]
         peso_kg = enrichment.pop("_peso_kg", None)
+        precio_detalle = enrichment.pop("_precio_primer_formato", None)
         if peso_kg and not re.search(r"\d+[\.,]?\d*\s*(kg|g)\b", nombre_final, re.I):
             nombre_final = f"{nombre_final} {_talla_str(peso_kg)}"
+        precio_final = str(precio_detalle) if precio_detalle else d["precio"]
 
         prod = producto_base(
             nombre_final,
-            d["precio"],
+            precio_final,
             "",           # marca: matching.py la extrae
             d["categoria"],
             TIENDA,
