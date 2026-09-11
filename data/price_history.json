@@ -123148,5 +123148,359 @@
     "fecha": "2026-09-07",
     "precio": 11.61,
     "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-s-instantaneo-2-1-1-2-0-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 4.5,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobcaa-s-complex-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 4.5,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobcaa-s-2-0-bcaa-s-12-1-1-glutamina-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 5.07,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evo-4-1-1-bcaa-s-instantaneos-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 5.64,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "bcaa-s-instantaneo-4-1-1-2-0-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 5.64,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 9.64,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 10.77,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 2.37,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evocreatine-500g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 16.48,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-excell-100-creapure-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 9.52,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evokalyn-creatina-alcalina-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 19.89,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-excell-1000mg-100-creapure-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 17.04,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "creatina-monohidrato-1000mg-creatina-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 9.68,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "bicarbonato-de-sodio-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 0.86,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "isomaltulosa-palatinose-en-polvo-1kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 7.92,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "acido-malico-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 3.37,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobeast-1kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 28.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "beta-alanina-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 4.5,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evostamina-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 6.22,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evordx-2-0-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 6.26,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "glycopump-glicerol-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 6.55,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-citrulina-base-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 7.35,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobomb-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-arginina-alfa-cetoglutarato-aakg-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "d-ribosa-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evopump-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 9.64,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "beta-alanina-carnosyn-beta-alanine-en-polvo-150g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 11.34,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-carnitina-taurina-liquidas-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 18.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evopump-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 31.91,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evoripped-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 20.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "cafeina-natural-200mg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 9.9,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "beta-alanina-1000mg-carnosyn-beta-alanine-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 29.9,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "arginina-alfa-cetoglutarato-1000mg-aakg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 17.9,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "l-alanil-l-glutamina-300mg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 22.79,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "extracto-de-amaranto-oxystorm-50-1-650mg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 23.45,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "cutting-complex-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 15.43,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "crema-de-arroz-proteica-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 38.39,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-oats-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 38.98,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evobasic-whey-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 43.07,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "smoothie-proteico-con-colageno-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 48.44,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "golden-protein-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 53.0,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-protein-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 54.99,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evowhey-protein-sin-edulcorantes-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 56.99,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "keto-whey-protein-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 64.99,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "cafe-proteico-cafefitconq-500g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 16.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "cafe-proteico-sin-edulcorantes-cafefitconq-500g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 16.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "100-proteina-de-suero-hidrolizado-aislada-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 68.83,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evoexcel-whey-protein-isolate-concentrate-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 76.99,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "aislado-de-proteina-hidrolizada-clear-whey-1kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 38.81,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 78.5,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 81.99,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evoclear-hydro-1kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 42.04,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evohydro-2-0-hydro-whey-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 84.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "100-whey-protein-isolate-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 86.94,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evolate-2-0-whey-isolate-cfm-2kg-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 93.91,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evohydro-30hd-500g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 23.99,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "evopept-2-0-peptopro-500g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 41.6,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "peptopro-hidrolizado-de-caseina-en-polvo-500g-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 41.6,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "100-whey-protein-concentrate-desconocida",
+    "fecha": "2026-09-11",
+    "precio": 19.92,
+    "tienda": "HSN"
   }
 ]

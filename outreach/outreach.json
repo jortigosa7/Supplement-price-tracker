@@ -1,0 +1,74 @@
+{
+  "marcos_vazquez": {
+    "nombre": "Marcos Vázquez",
+    "blog": "Fitness Revolucionario",
+    "contacto": "fitnessrevolucionario@gmail.com",
+    "tier": "1",
+    "draft_file": "borradores\\marcos_vazquez.md",
+    "draft_generated_at": "2026-05-24T22:35:23",
+    "status": "pending_review"
+  },
+  "david_marchante": {
+    "nombre": "David Marchante",
+    "blog": "PowerExplosive",
+    "contacto": "explosivo@powerexplosive.com",
+    "tier": "1",
+    "draft_file": "borradores\\david_marchante.md",
+    "draft_generated_at": "2026-05-24T22:35:24",
+    "status": "pending_review"
+  },
+  "diego_de_castro": {
+    "nombre": "Diego de Castro",
+    "blog": "diegodecastro.es",
+    "contacto": "https://diegodecastro.es/contacta/",
+    "tier": "1",
+    "draft_file": "borradores\\diego_de_castro.md",
+    "draft_generated_at": "2026-05-24T22:35:25",
+    "status": "pending_review"
+  },
+  "mundo_entrenamiento": {
+    "nombre": "Mundo Entrenamiento",
+    "blog": "mundoentrenamiento.com",
+    "contacto": "info@mundoentrenamiento.com",
+    "tier": "2",
+    "draft_file": "borradores\\mundo_entrenamiento.md",
+    "draft_generated_at": "2026-05-24T22:35:26",
+    "status": "pending_review"
+  },
+  "vitonica": {
+    "nombre": "Vitónica",
+    "blog": "vitonica.com",
+    "contacto": "https://www.vitonica.com/contacto",
+    "tier": "2",
+    "draft_file": "borradores\\vitonica.md",
+    "draft_generated_at": "2026-05-24T22:35:27",
+    "status": "pending_review"
+  },
+  "el_referente": {
+    "nombre": "El Referente",
+    "blog": "elreferente.es",
+    "contacto": "emprendedores@elreferente.es",
+    "tier": "3",
+    "draft_file": "borradores\\el_referente.md",
+    "draft_generated_at": "2026-05-24T22:35:29",
+    "status": "pending_review"
+  },
+  "emprendedores": {
+    "nombre": "Emprendedores",
+    "blog": "emprendedores.es",
+    "contacto": "https://emprendedores.es/contacto/",
+    "tier": "3",
+    "draft_file": "borradores\\emprendedores.md",
+    "draft_generated_at": "2026-05-24T22:35:30",
+    "status": "pending_review"
+  },
+  "xataka": {
+    "nombre": "Xataka",
+    "blog": "xataka.com",
+    "contacto": "https://www.xataka.com/contacto",
+    "tier": "3",
+    "draft_file": "borradores\\xataka.md",
+    "draft_generated_at": "2026-05-24T22:35:31",
+    "status": "pending_review"
+  }
+}

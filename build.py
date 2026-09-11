@@ -1673,7 +1673,7 @@ def generar_redirecciones(slugs_generados: set):
             '<!DOCTYPE html><html lang="es"><head>'
             f'<meta charset="UTF-8">'
             f'<meta http-equiv="refresh" content="0; url={html_mod.escape(hasta_url)}">'
-            f'<link rel="canonical" href="{html_mod.escape(hasta_url)}">'
+            f'<link rel="canonical" href="{html_mod.escape(SITE_URL + hasta_url)}">'
             f'<title>Redirigiendo...</title>'
             '</head><body>'
             f'<p>Esta página ha sido movida. '
