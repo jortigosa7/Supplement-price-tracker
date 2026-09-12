@@ -1,0 +1,179 @@
+
+==================================================
+  SUPPLEMENT PRICE SCRAPER
+==================================================
+
+==================================================
+  Scraping: Nutritienda
+==================================================
+
+  Categoria: Proteinas Whey
+   HTTP 403 para https://www.nutritienda.com/es/proteinas-suero-whey
+   HTTP 403 para https://www.nutritienda.com/es/proteinas-suero-whey
+   HTTP 403 para https://www.nutritienda.com/es/proteinas-suero-whey
+  Sin respuesta, saltando...
+
+  Categoria: Creatina
+   HTTP 403 para https://www.nutritienda.com/es/creatina
+   HTTP 403 para https://www.nutritienda.com/es/creatina
+   HTTP 403 para https://www.nutritienda.com/es/creatina
+  Sin respuesta, saltando...
+
+  Categoria: BCAA
+   HTTP 403 para https://www.nutritienda.com/es/bcaas
+   HTTP 403 para https://www.nutritienda.com/es/bcaas
+   HTTP 403 para https://www.nutritienda.com/es/bcaas
+  Sin respuesta, saltando...
+
+  Categoria: Pre-Entreno
+   HTTP 403 para https://www.nutritienda.com/es/pre-entrenamiento
+   HTTP 403 para https://www.nutritienda.com/es/pre-entrenamiento
+   HTTP 403 para https://www.nutritienda.com/es/pre-entrenamiento
+  Sin respuesta, saltando...
+
+  Enriqueciendo 0 productos (detalle + caché 7 días)...
+
+  Total Nutritienda: 0 productos
+  Detalle: 0 fetcheados, 0 desde caché, 0 errores
+  Nutritienda: 0 productos
+
+==================================================
+  Scraping: HSN
+==================================================
+
+  Categoria: Proteinas Whey
+  Página 1: https://www.hsnstore.com/nutricion-deportiva/proteinas/whey
+  +15 productos (acumulado: 15)
+
+  Categoria: Creatina
+  Página 1: https://www.hsnstore.com/nutricion-deportiva/creatina
+  +7 productos (acumulado: 22)
+
+  Categoria: BCAA
+  Página 1: https://www.hsnstore.com/nutricion-deportiva/aminoacidos/bcaa-s-ramificados
+  +8 productos (acumulado: 30)
+
+  Categoria: Pre-Entreno
+  Página 1: https://www.hsnstore.com/nutricion-deportiva/pre-entrenamiento
+  +16 productos (acumulado: 46)
+
+  Enriqueciendo 46 productos (detalle + caché 7 días)...
+  ... 10/46 (caché:10 / fetch:0 / err:0)
+  ... 20/46 (caché:20 / fetch:0 / err:0)
+  ... 30/46 (caché:30 / fetch:0 / err:0)
+  ... 40/46 (caché:40 / fetch:0 / err:0)
+
+  Total HSN: 46 productos
+  Detalle: 0 fetcheados, 46 desde caché, 0 errores
+  HSN: 46 productos
+
+==================================================
+  Scraping: Prozis
+==================================================
+
+  Categoria: Proteinas Whey
+  Página 1: https://www.prozis.com/es/es/nutricion-deportiva/proteina/proteina-whey
+  +35 productos (acumulado: 35)
+
+  Categoria: Creatina
+  Página 1: https://www.prozis.com/es/es/nutricion-deportiva/desarrollo-muscular/creatina
+  +15 productos (acumulado: 50)
+
+  Categoria: BCAA
+  Página 1: https://www.prozis.com/es/es/nutricion-deportiva/desarrollo-muscular/bcaa
+  +17 productos (acumulado: 67)
+
+  Categoria: Pre-Entreno
+  Página 1: https://www.prozis.com/es/es/nutricion-deportiva/desarrollo-muscular/preentrenamiento-y-oxido-nitrico
+  +42 productos (acumulado: 109)
+
+  Enriqueciendo 109 productos (detalle + caché 7 días)...
+  ... 10/109 (caché:10 / fetch:0 / err:0)
+  ... 20/109 (caché:20 / fetch:0 / err:0)
+  ... 30/109 (caché:30 / fetch:0 / err:0)
+  ... 40/109 (caché:40 / fetch:0 / err:0)
+  ... 50/109 (caché:50 / fetch:0 / err:0)
+  ... 60/109 (caché:60 / fetch:0 / err:0)
+  ... 70/109 (caché:70 / fetch:0 / err:0)
+  ... 80/109 (caché:80 / fetch:0 / err:0)
+  ... 90/109 (caché:90 / fetch:0 / err:0)
+  ... 100/109 (caché:100 / fetch:0 / err:0)
+
+  Total Prozis: 109 productos
+  Detalle: 0 fetcheados, 109 desde caché, 0 errores
+  Prozis: 109 productos
+
+==================================================
+  Scraping: MyProtein
+==================================================
+
+  Categoria: Proteinas Whey
+  Página 1: https://www.myprotein.es/c/nutrition/protein/
+  +28 nuevos (acumulado: 28)
+  Página 2: https://www.myprotein.es/c/nutrition/protein/?pageNumber=2
+  +16 nuevos (acumulado: 44)
+  Página 3: https://www.myprotein.es/c/nutrition/protein/?pageNumber=3
+  Sin productos en JSON-LD (fin de paginación).
+
+  Categoria: Creatina
+  Página 1: https://www.myprotein.es/c/nutrition/creatine/
+  +20 nuevos (acumulado: 64)
+  Página 2: https://www.myprotein.es/c/nutrition/creatine/?pageNumber=2
+  Sin productos en JSON-LD (fin de paginación).
+
+  Categoria: BCAA
+  Página 1: https://www.myprotein.es/c/nutrition/amino-acids/bcaa/
+  +5 nuevos (acumulado: 69)
+  Página 2: https://www.myprotein.es/c/nutrition/amino-acids/bcaa/?pageNumber=2
+  Sin productos en JSON-LD (fin de paginación).
+
+  Categoria: Pre-Entreno
+  Página 1: https://www.myprotein.es/c/performance/aminos-preworkout/
+  +28 nuevos (acumulado: 97)
+  Página 2: https://www.myprotein.es/c/performance/aminos-preworkout/?pageNumber=2
+  +15 nuevos (acumulado: 112)
+  Página 3: https://www.myprotein.es/c/performance/aminos-preworkout/?pageNumber=3
+  Sin productos en JSON-LD (fin de paginación).
+
+  Obteniendo tallas y enriquecimiento (112 productos)...
+  ... 10/112 (caché:10 / fetch:0 / err:0)
+  ... 20/112 (caché:20 / fetch:0 / err:0)
+  ... 30/112 (caché:30 / fetch:0 / err:0)
+  ... 40/112 (caché:40 / fetch:0 / err:0)
+  ... 50/112 (caché:50 / fetch:0 / err:0)
+  ... 60/112 (caché:60 / fetch:0 / err:0)
+  ... 70/112 (caché:70 / fetch:0 / err:0)
+  ... 80/112 (caché:80 / fetch:0 / err:0)
+  ... 90/112 (caché:90 / fetch:0 / err:0)
+  ... 100/112 (caché:100 / fetch:0 / err:0)
+  ... 110/112 (caché:110 / fetch:0 / err:0)
+
+  Total MyProtein: 112 productos
+  Detalle: 0 fetcheados, 112 desde caché, 0 errores
+  MyProtein: 112 productos
+
+  Total scrapeados: 267
+
+  ⚠️  Nutritienda: 0 productos nuevos — usando 115 productos del dataset anterior como fallback
+
+🧹 Limpiando 382 productos...
+   Eliminados 4 productos sin precio válido
+   Eliminados 13 duplicados
+✅ Dataset limpio: 365 productos
+
+  Guardado: datasets\suplementos_20260524.json
+
+==================================================
+  RESUMEN
+==================================================
+  Total productos : 365
+    Nutritienda: 115
+    Prozis: 105
+    MyProtein: 102
+    HSN: 43
+  Precio medio    : 27.44 EUR
+  Mejor precio/kg : EVOWHEY & OATS 2kg — 3.98 EUR/kg (HSN)
+
+  Tiempo total: 365.8s
+
+  SIGUIENTE: python build.py

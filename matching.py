@@ -73,7 +73,10 @@ def extraer_marca_normalizada(nombre: str, marca_raw: str) -> str:
     """Devuelve la marca canónica o '' si no se reconoce."""
     texto = normalizar_texto(nombre + " " + marca_raw)
     for patron, marca_canon in MARCAS_NORM.items():
-        if normalizar_texto(patron) in texto:
+        patron_norm = normalizar_texto(patron)
+        # Usar word boundary para evitar falsos positivos: "on" no debe
+        # coincidir dentro de "desconocida" ni dentro de "con" (preposición).
+        if re.search(r"\b" + re.escape(patron_norm) + r"\b", texto):
             return marca_canon
     return ""
 
@@ -156,6 +159,10 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
             "en_oferta":     False,
             "precio_original": None,
             "fecha":         fecha,
+            "_peso_kg":      peso_kg,  # peso del producto de esta entrada concreta
+            # True cuando el precio es de lista (no de la opción concreta de HSN):
+            # en ese caso precio y peso pueden ser de formatos distintos → €/kg = None
+            "_precio_sin_confirmar": p.get("_precio_sin_confirmar", False),
         }
 
         # 1. Intentar match por clave exacta en grupos existentes
@@ -208,10 +215,31 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
         mejor = g["precios"][0]
         g["precio_min"]        = mejor["precio_eur"]
         g["tienda_mas_barata"] = mejor["tienda"]
-        g["precio_por_kg_min"] = (
-            round(mejor["precio_eur"] / g["peso_kg"], 2)
-            if g["peso_kg"] and g["peso_kg"] > 0 else None
-        )
+
+        # Precio/kg: usa el peso de la MISMA entrada que tiene el precio más bajo.
+        # Si el precio no está confirmado para ese formato (precio de lista en vez
+        # del optionPrice de HSN), o si los pesos difieren >15%, €/kg = None.
+        peso_mejor = mejor.get("_peso_kg")
+        peso_grupo = g.get("peso_kg")
+        if mejor.get("_precio_sin_confirmar"):
+            # Precio de lista: no sabemos a qué formato corresponde → no dividir
+            g["precio_por_kg_min"] = None
+        elif peso_mejor and peso_mejor > 0:
+            # Pesos distintos en más de un 15%: inconsistencia precio/formato
+            if peso_grupo and abs(peso_mejor - peso_grupo) / max(peso_mejor, peso_grupo) > 0.15:
+                g["precio_por_kg_min"] = None
+            else:
+                g["precio_por_kg_min"] = round(mejor["precio_eur"] / peso_mejor, 2)
+        elif peso_grupo and peso_grupo > 0:
+            g["precio_por_kg_min"] = round(mejor["precio_eur"] / peso_grupo, 2)
+        else:
+            g["precio_por_kg_min"] = None
+
+        # Eliminar campos internos antes de devolver
+        for pr in g["precios"]:
+            pr.pop("_peso_kg", None)
+            pr.pop("_precio_sin_confirmar", None)
+
         # Imagen: usar la de la tienda más barata; si no tiene, la primera disponible
         g["imagen_url"] = mejor.get("imagen_url") or next(
             (pr["imagen_url"] for pr in g["precios"] if pr.get("imagen_url")), None

@@ -52,32 +52,47 @@ def limpiar_precio(precio_str: str) -> float | None:
 def extraer_peso_kg(nombre: str) -> float | None:
     """
     Extrae el peso del producto del nombre y lo convierte a kg.
-    
+
     Ejemplos:
-        "Evowhey Protein 2kg"           -> 2.0
-        "Impact Whey 2.5kg"             -> 2.5
-        "Creatina Creapure 500g"        -> 0.5
-        "Gold Standard Whey 2.27kg"     -> 2.27
-        "Impact Whey Protein (1000g)"   -> 1.0
+        "Evowhey Protein 2kg"               -> 2.0
+        "Impact Whey 2.5kg"                 -> 2.5
+        "Creatina Creapure 500g"            -> 0.5
+        "Gold Standard Whey 2.27kg"         -> 2.27
+        "Impact Whey Protein (1000g)"       -> 1.0
+        "POWA Pre-Workout 17.8g"            -> 0.018
+        "3 x Sachet POWA 17.8g"             -> 0.053
+        "CREATINA 20 x 10g"                 -> 0.2
+        "Creatine Monohydrate 20 Sticks 3g" -> 0.06
     """
     if pd.isna(nombre) or not nombre:
         return None
-    
+
     texto = str(nombre).lower()
-    
+
     # Buscar kg primero (más específico)
     # Patrones: "2kg", "2.5kg", "2,27kg", "2.5 kg"
     kg_match = re.search(r'(\d+[.,]?\d*)\s*kg', texto)
     if kg_match:
         valor = kg_match.group(1).replace(',', '.')
         return round(float(valor), 3)
-    
-    # Buscar gramos
-    # Patrones: "500g", "1000g", "500 g", "500gr"
-    g_match = re.search(r'(\d+)\s*g(?:r)?(?:\b|$)', texto)
+
+    # Multi-pack: "N x Xg" o "N sticks Xg" → multiplicar
+    # Patrones: "20 x 10g", "3 x 17.8g", "20 sticks 3g", "3 sachets 17.5g"
+    multipack = re.search(
+        r'(\d+)\s*(?:x|×|sticks?|sachets?|sobres?|capsules?|caps?|tab(?:lets?)?)\s*(\d+[.,]?\d*)\s*g(?:r)?(?:\b|$)',
+        texto,
+        re.IGNORECASE,
+    )
+    if multipack:
+        cantidad = float(multipack.group(1))
+        peso_g   = float(multipack.group(2).replace(',', '.'))
+        return round(cantidad * peso_g / 1000, 3)
+
+    # Buscar gramos — admite decimales: "17.8g", "500g", "2,5g"
+    g_match = re.search(r'(\d+[.,]?\d*)\s*g(?:r)?(?:\b|$)', texto)
     if g_match:
-        return round(float(g_match.group(1)) / 1000, 3)
-    
+        return round(float(g_match.group(1).replace(',', '.')) / 1000, 3)
+
     return None
 
 

@@ -1,3 +1,7 @@
+# Search Console exports — nunca commitear
+gsc_*.csv
+gsc_*.csv.csv
+
 # Python
 __pycache__/
 *.pyc
@@ -22,3 +26,4 @@ _test_compare.js
 
 # Datasets temporales (los definitivos sí se commitean)
 *.log
+PROGRESO_LIMPIEZA.md

@@ -99,12 +99,40 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"  ERROR Nutritienda: {e}")
 
-    # ── HSN (Playwright — activo cuando los selectores estén configurados) ──
+    # ── HSN (requests + BeautifulSoup) ──────────────────────────────────────
     try:
-        productos = hsn.scrape(debug=debug_hsn)
-        todos.extend(productos)
-        if productos:
-            print(f"  HSN: {len(productos)} productos")
+        productos_hsn = hsn.scrape(debug=debug_hsn)
+
+        # Ancla de nombre por URL: si un producto salió sin peso en el nombre,
+        # recuperar el nombre anterior (con peso) del último dataset para
+        # mantener el ID estable ante fallos puntuales del scraper.
+        if productos_hsn:
+            from limpieza import extraer_peso_kg as _epk
+            prev_jsons = sorted(glob.glob(os.path.join(OUTPUT_DIR, "suplementos_*.json")), reverse=True)
+            url_to_prev_nombre: dict[str, str] = {}
+            if prev_jsons:
+                try:
+                    with open(prev_jsons[0], encoding="utf-8") as _f:
+                        prev_raw = json.load(_f)
+                    for _p in prev_raw:
+                        if _p.get("tienda") == "HSN" and _epk(_p.get("nombre", "")):
+                            url_to_prev_nombre[_p.get("url", "")] = _p.get("nombre", "")
+                except Exception:
+                    pass
+            restaurados = 0
+            for prod in productos_hsn:
+                if not _epk(prod.get("nombre", "")):
+                    prev_nombre = url_to_prev_nombre.get(prod.get("url", ""))
+                    if prev_nombre and _epk(prev_nombre):
+                        prod["nombre"] = prev_nombre
+                        prod.pop("_precio_sin_confirmar", None)  # peso ya estaba antes, no marcar
+                        restaurados += 1
+            if restaurados:
+                print(f"  ⚠️  HSN: {restaurados} nombre(s) restaurado(s) desde dataset anterior (peso faltante)")
+
+        todos.extend(productos_hsn)
+        if productos_hsn:
+            print(f"  HSN: {len(productos_hsn)} productos")
     except Exception as e:
         print(f"  ERROR HSN: {e}")
 

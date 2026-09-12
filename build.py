@@ -396,6 +396,11 @@ def corregir_marcas(productos_web: list[dict]) -> list[dict]:
         "¡Ultra pura!":                  "Starlabs Nutrition",
         "¡Eficacia y rendimiento!":      "Amazin' Foods",
         "¡Fórmula pre-entrenamiento!":   "Amix Pro",
+        "¡Creatina monohidrato Creapure!": "KeepGoing",
+        "¡Entrenamientos intensos!":     "BioTechUSA",
+        "¡Energía para tomar directamente!": "Amix Pro",
+        "¡Reforzado con creatina!":      "BigMan",
+        "¡Recuperación garantizada!":    "KeepGoing",
         "Proteína sin gluten":           "BioTechUSA",
         "Proteína":                      "Yamamoto Nutrition",
         "Proteína Refrescante":          "BioTechUSA",
@@ -406,6 +411,12 @@ def corregir_marcas(productos_web: list[dict]) -> list[dict]:
         marca = p.get("marca", "")
         if marca in NORMALIZACIONES:
             p["marca"] = NORMALIZACIONES[marca]
+        # Taglines con ! que no estén en el mapa → resolver por URL (fallback genérico)
+        elif "!" in p.get("marca", ""):
+            urls = [pr.get("url_afiliado", "") for pr in p.get("precios", [])]
+            nueva = _marca_desde_urls(urls)
+            if nueva:
+                p["marca"] = nueva
         if p.get("marca") == "Desconocida":
             urls = [pr.get("url_afiliado", "") for pr in p.get("precios", [])]
             nueva = _marca_desde_urls(urls)
@@ -523,6 +534,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             # peso ya calculado — lo pasamos para no recalcular
             "peso_kg":       p.get("peso_kg"),
             "imagen_url":    p.get("imagen_url"),
+            "_precio_sin_confirmar": p.get("_precio_sin_confirmar", False),
         })
 
     grupos = agrupar_productos(productos_para_matching)
@@ -591,6 +603,20 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
 
     # Corregir marcas (Desconocida → tienda/slug, unificar variantes)
     productos_web = corregir_marcas(productos_web)
+
+    # Añadir slug_publico (sin 'desconocida', sin cortes a mitad de palabra)
+    # Se hace DESPUÉS de corregir_marcas para usar la marca definitiva
+    slugs_usados: set[str] = set()
+    for p in productos_web:
+        slug = generar_slug_publico(p["nombre_normalizado"], p.get("marca", ""))
+        # Resolver colisiones añadiendo sufijo numérico
+        if slug in slugs_usados:
+            i = 2
+            while f"{slug}-{i}" in slugs_usados:
+                i += 1
+            slug = f"{slug}-{i}"
+        slugs_usados.add(slug)
+        p["slug_publico"] = slug
 
     return productos_web
 
@@ -927,12 +953,42 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
 # PASO 4b: Comparaciones producto vs producto
 # ============================================================
 
+def generar_slug_publico(nombre: str, marca: str) -> str:
+    """
+    Genera el slug público de un producto a partir de nombre y marca.
+    Diferente del ID interno: sin 'desconocida', sin cortes a mitad de palabra.
+    Se usa en las URLs de páginas de comparación.
+    """
+    base = slugify(nombre)
+    # Eliminar la palabra 'desconocida' si aparece
+    base = re.sub(r'-?desconocida-?', '-', base).strip('-')
+    # Añadir marca si no está ya incluida en el base
+    slug_marca = slugify(marca) if marca else ''
+    if slug_marca and slug_marca not in base and slug_marca != 'desconocida':
+        candidato = f"{base}-{slug_marca}"
+    else:
+        candidato = base
+    # Truncar en límite de palabra (no cortar a mitad de token)
+    if len(candidato) > 60:
+        partes = candidato.split('-')
+        resultado = ''
+        for parte in partes:
+            siguiente = f"{resultado}-{parte}" if resultado else parte
+            if len(siguiente) <= 60:
+                resultado = siguiente
+            else:
+                break
+        candidato = resultado
+    return candidato.strip('-')
+
+
 def _compare_slug(pa: dict, pb: dict) -> str:
-    """Slug único para el par, normalizado (menor id siempre primero)."""
-    id_a, id_b = pa["id"][:40], pb["id"][:40]
-    if id_a > id_b:
-        id_a, id_b = id_b, id_a
-    return f"{id_a}-vs-{id_b}"
+    """Slug único para el par, usando slug_publico. El menor alfabéticamente va primero."""
+    sa = pa.get("slug_publico") or pa["id"][:40]
+    sb = pb.get("slug_publico") or pb["id"][:40]
+    if sa > sb:
+        sa, sb = sb, sa
+    return f"{sa}-vs-{sb}"
 
 
 def generar_veredicto(pa: dict, pb: dict) -> dict:
@@ -1138,51 +1194,46 @@ def generar_faq_comparacion(pa: dict, pb: dict) -> list:
 
 def generar_pares_comparacion(productos_web: list) -> dict:
     """
-    Genera los pares según las reglas del spec.
-    Devuelve {slug_par: (pa, pb)} con los productos siempre en orden canónico.
-    Imprime conteo por regla.
+    Carga los pares aprobados desde data/comparaciones.json.
+    Devuelve {slug_par: (pa, pb)} con los productos en orden canónico de slug_publico.
     """
-    pares = {}
+    comparaciones_path = os.path.join(DATA_DIR, "comparaciones.json")
+    if not os.path.exists(comparaciones_path):
+        print("  ⚠️  data/comparaciones.json no encontrado — sin comparaciones")
+        return {}
 
-    def _add(pa, pb):
-        # orden canónico: id menor primero
-        if pa["id"] > pb["id"]:
-            pa, pb = pb, pa
+    with open(comparaciones_path, encoding="utf-8") as f:
+        comp_data = json.load(f)
+
+    # Índice por id para lookup rápido
+    by_id = {p["id"]: p for p in productos_web}
+    pares: dict = {}
+    ids_faltantes: list[str] = []
+
+    for par in comp_data.get("pares", []):
+        id_a = par["id_a"]
+        id_b = par["id_b"]
+        pa = by_id.get(id_a)
+        pb = by_id.get(id_b)
+        if pa is None:
+            ids_faltantes.append(id_a)
+        if pb is None:
+            ids_faltantes.append(id_b)
+        if pa is None or pb is None:
+            continue
         slug = _compare_slug(pa, pb)
         if slug not in pares:
             pares[slug] = (pa, pb)
 
-    for cat_slug in ["proteina-whey", "creatina", "bcaa", "pre-entreno"]:
-        prods = [p for p in productos_web
-                 if p["categoria"] == cat_slug and not _excluir_producto(p)]
-        prods.sort(key=lambda x: x.get("precio_por_kg_min") or 9999)
+    if ids_faltantes:
+        print("\n❌ ERROR FATAL: IDs de comparaciones.json no encontrados en el catálogo:")
+        for fid in ids_faltantes:
+            print(f"   • {fid}")
+        print("\n  Causa probable: el scraper no encontró ese producto o cambió su nombre.")
+        print("  Revisa el scraper o actualiza comparaciones.json antes de publicar.\n")
+        sys.exit(1)
 
-        antes = len(pares)
-
-        # Regla 1: Top 10 por €/kg dentro de la misma categoría
-        top = prods[:10]
-        for pa, pb in combinations(top, 2):
-            _add(pa, pb)
-
-        r1 = len(pares) - antes
-
-        # Regla 2: Misma marca, misma categoría (máx. 4 productos por marca)
-        by_brand: dict = {}
-        for p in prods:
-            brand = (p.get("marca") or "").strip()
-            if brand:
-                by_brand.setdefault(brand, []).append(p)
-
-        antes2 = len(pares)
-        for brand, bprods in by_brand.items():
-            if len(bprods) >= 2:
-                bprods_sorted = sorted(bprods, key=lambda x: x.get("precio_por_kg_min") or 9999)[:4]
-                for pa, pb in combinations(bprods_sorted, 2):
-                    _add(pa, pb)
-
-        r2 = len(pares) - antes2
-        print(f"   • {cat_slug}: {r1} pares top-10 + {r2} pares misma marca")
-
+    print(f"   → {len(pares)} pares cargados desde comparaciones.json")
     return pares
 
 
@@ -1581,6 +1632,73 @@ def generar_nojekyll():
     print(f"✅ Generado: {path}")
 
 
+def limpiar_comparar_dir():
+    """
+    Borra todo el contenido de docs/comparar/ antes de regenerar.
+    Esto elimina páginas huérfanas de builds anteriores.
+    No toca CNAME, imágenes ni archivos estáticos fuera de comparar/.
+    """
+    import shutil
+    comparar_dir = os.path.join(DOCS_DIR, "comparar")
+    if os.path.isdir(comparar_dir):
+        # Borrar cada subdirectorio de comparación (son slugs de pares)
+        eliminados = 0
+        for entry in os.listdir(comparar_dir):
+            entry_path = os.path.join(comparar_dir, entry)
+            if os.path.isdir(entry_path):
+                shutil.rmtree(entry_path)
+                eliminados += 1
+            elif os.path.isfile(entry_path) and entry == "index.html":
+                os.remove(entry_path)
+        print(f"🗑️  Limpiados {eliminados} subdirectorios de docs/comparar/")
+    else:
+        print("   docs/comparar/ no existe aún, se creará en el build")
+
+
+def generar_redirecciones(slugs_generados: set):
+    """
+    Lee data/redirecciones.json y genera una página HTML mínima con meta-refresh
+    en cada URL antigua que apunte a la URL nueva.
+    Estas páginas NO se incluyen en el sitemap.
+    Solo crea redirecciones para slugs que NO sean ya páginas generadas.
+    """
+    redir_path = os.path.join(DATA_DIR, "redirecciones.json")
+    if not os.path.exists(redir_path):
+        return 0
+
+    with open(redir_path, encoding="utf-8") as f:
+        redirecciones = json.load(f)
+
+    generadas = 0
+    for r in redirecciones:
+        desde_slug = r["desde"].strip("/").removeprefix("comparar/")
+        hasta_url  = r["hasta"]
+        # No sobreescribir una página de comparación real
+        if desde_slug in slugs_generados:
+            continue
+        outdir = os.path.join(DOCS_DIR, "comparar", desde_slug)
+        os.makedirs(outdir, exist_ok=True)
+        path = os.path.join(outdir, "index.html")
+        html = (
+            '<!DOCTYPE html><html lang="es"><head>'
+            f'<meta charset="UTF-8">'
+            f'<meta http-equiv="refresh" content="0; url={html_mod.escape(hasta_url)}">'
+            f'<link rel="canonical" href="{html_mod.escape(SITE_URL + hasta_url)}">'
+            f'<title>Redirigiendo...</title>'
+            '</head><body>'
+            f'<p>Esta página ha sido movida. '
+            f'<a href="{html_mod.escape(hasta_url)}">Haz clic aquí si no eres redirigido automáticamente.</a>'
+            '</p></body></html>'
+        )
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html)
+        generadas += 1
+
+    if generadas:
+        print(f"↪️  Generadas {generadas} páginas de redirección meta-refresh")
+    return generadas
+
+
 # ============================================================
 # MAIN
 # ============================================================
@@ -1626,11 +1744,20 @@ if __name__ == "__main__":
 
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")
+
+    # B1: Limpiar docs/comparar/ antes de regenerar (elimina páginas huérfanas)
+    print("\n🗑️  Limpiando comparaciones anteriores...")
+    limpiar_comparar_dir()
+
     env = setup_jinja()
 
     # Generar comparaciones primero para pasar populares a la home
     print("\n⚖️  Generando comparaciones...")
     compare_slugs = generar_comparaciones(env, productos_web, last_updated)
+
+    # Generar páginas de redirección (old URLs → new slug_publico URLs)
+    slugs_generados_set = set(compare_slugs)
+    n_redir = generar_redirecciones(slugs_generados_set)
 
     # Recuperar las 6 populares (misma lógica que en generar_comparaciones)
     from itertools import combinations as _combinations

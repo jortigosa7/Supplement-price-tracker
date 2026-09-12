@@ -36,7 +36,8 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 ### Páginas generadas
 
 - Home con filtros
-- ~240 páginas de comparación en `/comparar/<producto-vs-producto>/`
+- 59 páginas de comparación en `/comparar/<producto-vs-producto>/` (fijas, desde `data/comparaciones.json`)
+- 116 páginas meta-refresh de redirección desde URLs viejas (no van en sitemap)
 - Recomendador tipo quiz en `/test/`
 - JSON-LD schema markup en todas
 
@@ -63,7 +64,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 ### Funciona
 
 - Build estático completo y desplegado.
-- Scrapers de HSN y MyProtein: extraen peso correctamente (fix mayo 2026 — HSN select con id, MyProtein ProductGroup.hasVariant[]).
+- Scrapers de HSN y MyProtein: extraen peso correctamente (fix mayo 2026 — HSN select con id, MyProtein ProductGroup.hasVariant[]); precio €/kg correcto (fix sep 2026 — HSN usaba precio "desde" de lista en vez del precio del formato concreto).
 - Scraper de Nutritienda (con fallback a dataset anterior si hay 403).
 - Sistema de filtros y comparador.
 - Quiz recomendador.
@@ -88,7 +89,10 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 
 ## Deuda técnica conocida
 
-- **IDs de producto con "desconocida"**: hay productos legacy cuyos IDs (y por tanto URLs de comparación) contienen la palabra "desconocida" porque se scrapearon antes del fix de marca de mayo 2026. Ejemplos: `evobasic-whey-2kg-desconocida`, `evocreatine-500g-desconocida`. Estas URLs están indexadas en Google, devuelven 200 y muestran contenido correcto (la marca se resuelve bien en `matching.py`). **No tocar para preservar SEO.** Si en algún momento se decide regenerar los IDs limpios, hay que generar meta-refresh para las URLs viejas con tráfico (consultar Search Console primero antes de cualquier cambio).
+- **IDs de producto con "desconocida"**: hay productos legacy cuyos IDs internos contienen "desconocida" (antes del fix de marca de mayo 2026). Ejemplos: `evobasic-whey-2kg-desconocida`, `evocreatine-500g-desconocida`. Los IDs internos se preservan para no romper el historial de precios. Las URLs públicas de comparación ya no usan el ID — usan el campo `slug_publico` (limpio, sin "desconocida"). Las URLs viejas (con ID) están en `data/redirecciones.json` y el build genera páginas meta-refresh para ellas.
+- **`slug_publico`**: campo de cada producto en `products.json` y en `productos_web`. Se genera en `build.py::convertir_a_schema_web()` a partir de `nombre_normalizado` + `marca` (con marca ya corregida), sin "desconocida", sin cortes a mitad de palabra (límite 60 chars por fronteras de token). Es la base de las URLs de comparación desde la rama `limpieza-seo`. Si se detectan colisiones, se añade sufijo `-2`, `-3`, etc.
+- **`data/comparaciones.json`**: lista fija de 59 pares aprobados (Grupo A de GSC + Grupo B natural + PROD-MISSING recuperados). El build genera comparaciones exclusivamente a partir de este fichero, no por combinatoria. Para añadir/quitar un par hay que editar este fichero.
+- **`data/redirecciones.json`**: 116 redirecciones desde URLs viejas (ID-based) hacia nuevas URLs (slug_publico). El build genera páginas meta-refresh para estas rutas; no van en el sitemap.
 
 ## Pending / ideas en la nevera
 
