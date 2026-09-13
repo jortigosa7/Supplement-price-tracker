@@ -125,6 +125,56 @@ Las 5 referencias y 10 redirects que se cambiaron por el ID temporal
 | meta-refresh relativa | ✅ /comparar/... |
 | 100% Whey protein concentrate €/kg | ✅ N/A (sin confirmar, correcto) |
 
+## Sesión 4 (2026-09-13) — rama afiliados-enlaces
+
+### Fase B afiliados + ampliación HSN
+
+**Cambios aplicados:**
+
+1. **rel="noopener"**: añadido a los 13 enlaces `target="_blank"` en 5 templates (category, compare, compare_index, home, test).
+
+2. **Nutritienda URLs 301**: `_scrape_detalle()` ahora devuelve `(final_url, enrichment)` usando `r.url` tras la petición, capturando la URL real después de cualquier redirección 301. La URL correcta se almacena en `producto_base()`.
+
+3. **check_links.py** + **`.github/workflows/check-links.yml`**: script de comprobación semanal (lunes 08:00 UTC). Sale con código 1 solo si hay 404 reales; ignora 429 de Prozis y redirecciones 3xx.
+
+4. **Ampliación categorías HSN** (Opción C): añadidas 5 nuevas subcategorías de proteína al scraper de HSN:
+   - caseína (6 productos), vegetal (10), huevo (4), secuencial (2), carne (2)
+   - Todos usan `categoria = "Proteinas Whey"` para que el matching cross-tienda funcione
+   - Nuevo campo `protein_subtype` (whey/caseína/vegetal/huevo/secuencial/carne) en el pipeline completo: scraper → dataset → products.json
+
+5. **Nomenclatura**: `CATEGORIA_CONFIG["Proteínas Whey"]["display"]` cambiado a "Proteínas". El slug `/proteina-whey/` no cambia. `h1` y `seo_title` siguen apuntando a "Proteína Whey" deliberadamente (mayor volumen de búsqueda); actualizar cuando se creen subsecciones.
+
+6. **Quiz test.html**: botón "Proteína Whey" → "Proteínas" (data-value `proteina-whey` sin cambio). CAT_LABELS actualizado.
+
+**Resultados del scrape (2026-09-13):**
+
+| Tienda | Antes | Ahora | Diff |
+|--------|------:|------:|-----:|
+| HSN | 59 | 82 | +23 |
+| MyProtein | 100 | 100 | 0 |
+| Nutritienda | 117 | 117 | 0 |
+| Prozis | 112 | 112 | 0 |
+| **TOTAL** | **388** | **411** | **+23** |
+
+HSN protein_subtype en products.json: whey=22, vegetal=10, caseína=6, huevo=4, secuencial=2, carne=2. Los 119 None son otras tiendas.
+
+Categoría proteínas: 165 productos (era ~63). Afiliados HSN: 82 links convertidos (era 59).
+
+**Nota tiempo de scrape**: el scrape de HSN ahora tarda ~13 min (antes ~9 min) por las 9 categorías + 90 detalles frescos. El workflow de GitHub Actions ya tenía problemas de timeout — habrá que subir el `timeout-minutes` en `scrape-and-build.yml` al hacer merge de esta rama (recomendado: 60 min).
+
+**14 errores en detalle HSN**: productos donde `_obtener_precio_peso_fresco` no encontró optionPrices JSON (select vacío o timeout). Quedan en el catálogo con `precio_por_kg = null` — no se muestran en el ranking de precio/kg pero sí en filtros de tienda.
+
+### Checks sesión 4
+
+| Check | Estado |
+|---|---|
+| Build x2 idempotente | ✅ 68 páginas ambas ejecuciones |
+| Sitemap | ✅ 69 URLs |
+| protein_subtype en products.json | ✅ 46 productos HSN con subtype |
+| Otras categorías sin protein_subtype | ✅ 0 |
+| URLs Nutritienda 301 | ✅ fix aplicado en scraper (próximo scrape captura URL final) |
+| noopener en target="_blank" | ✅ 13 enlaces, 5 templates |
+
 ### Tabla de precios HSN (sesión 3, dataset 2026-09-11)
 
 | Producto | Peso | Precio | €/kg |

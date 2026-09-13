@@ -55,7 +55,7 @@ TEMPLATES_DIR = "templates"
 CATEGORIA_CONFIG = {
     "Proteínas Whey": {
         "slug":     "proteina-whey",
-        "display":  "Proteína Whey",
+        "display":  "Proteínas",
         "icono":    "🥛",
         "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12l-1.5 4H7.5L6 4z"/><path d="M7.5 8c0 0-.5 2-.5 5s.5 5 .5 5h9s.5-2 .5-5-.5-5-.5-5"/><path d="M9 13h6"/></svg>',
         "seo_title": "Mejor Precio Proteína Whey España 2026",
@@ -492,6 +492,7 @@ _ENRICHMENT_FIELDS = [
     "protein_per_serving_g", "serving_size_g", "servings_per_container",
     "sweetener_free", "vegan", "flavors_available",
     "store_rating", "store_rating_count", "store_rating_url",
+    "protein_subtype",  # whey | caseína | vegetal | huevo | secuencial | carne
 ]
 
 
@@ -593,6 +594,8 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "store_rating":             _first_enrich(g["precios"], "store_rating"),
             "store_rating_count":       _first_enrich(g["precios"], "store_rating_count"),
             "store_rating_url":         _first_enrich(g["precios"], "store_rating_url"),
+            # Subtipo de proteína: viene del scraper HSN; null para otras categorías
+            "protein_subtype":          _first_enrich(g["precios"], "protein_subtype"),
         })
 
     # Ordenar por categoria slug + precio_por_kg
