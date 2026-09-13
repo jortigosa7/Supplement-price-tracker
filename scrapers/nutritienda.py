@@ -27,7 +27,7 @@ CATEGORIAS = [
 ]
 
 
-def _scrape_detalle(url: str) -> dict:
+def _scrape_detalle(url: str) -> tuple[str, dict]:
     """
     Visita la página de detalle de un producto Nutritienda (caché 7 días) y extrae:
     - store_rating, store_rating_count, store_rating_url  (JSON-LD Product)
@@ -37,12 +37,16 @@ def _scrape_detalle(url: str) -> dict:
     - protein_per_serving_g   (fila "Proteínas", columna "Dosis")
     - flavors_available       (opciones al inicio del snippet, antes de "Complemento")
     - sweetener_free          (búsqueda de texto en nombre del producto en snippet)
+
+    Devuelve (final_url, enrichment). final_url puede diferir de url si hay redirección 301.
     """
+    final_url = url
     html = get_cached("nutritienda", url)
     if html is None:
         r = hacer_peticion(url)
         if not r or r.status_code != 200:
-            return {}
+            return url, {}
+        final_url = r.url  # URL final tras redirecciones 301
         html = r.text
         save_cache("nutritienda", url, html)
 
@@ -132,7 +136,7 @@ def _scrape_detalle(url: str) -> dict:
                     )
                 break
 
-    return enrichment
+    return final_url, enrichment
 
 
 def scrape() -> list[dict]:
@@ -212,7 +216,7 @@ def scrape() -> list[dict]:
         else:
             stats["fetched"] += 1
 
-        enrichment = _scrape_detalle(d["url"])
+        final_url, enrichment = _scrape_detalle(d["url"])
         if not enrichment and cached_check is None:
             stats["errors"] += 1
 
@@ -222,7 +226,7 @@ def scrape() -> list[dict]:
             d["marca"],
             d["categoria"],
             TIENDA,
-            d["url"],
+            final_url,  # URL final tras redirecciones 301
             d.get("imagen_url"),
         )
         prod.update(enrichment)

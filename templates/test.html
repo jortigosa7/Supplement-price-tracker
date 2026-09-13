@@ -719,7 +719,7 @@ window.ALL_PRODUCTS = {{ products_json | safe }};
           var firstStyle = si === 0
             ? ' style="background:rgba(255,107,43,0.08);border-color:rgba(255,107,43,0.2);"'
             : '';
-          return '<a href="' + pr.url_afiliado + '" class="pc-store"' + firstStyle + ' target="_blank" rel="nofollow sponsored">' +
+          return '<a href="' + pr.url_afiliado + '" class="pc-store"' + firstStyle + ' target="_blank" rel="nofollow sponsored noopener">' +
             '<span class="pc-store-dot" style="background:' + color + ';"></span>' +
             '<span class="pc-store-name">' + esc(pr.tienda) + '</span>' +
             '<span class="pc-store-price">' + pr.precio_eur.toFixed(2) + ' €</span>' +
@@ -756,7 +756,7 @@ window.ALL_PRODUCTS = {{ products_json | safe }};
           '<div class="pc-meta">' + esc(catLabel) + esc(pesoText) + ' · ' + esc(p.marca) + '</div>' +
           '<div class="pc-stores">' + storesHtml + '</div>' +
           '<div class="pc-actions">' +
-            '<a href="' + offer.url_afiliado + '" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>' +
+            '<a href="' + offer.url_afiliado + '" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ir a la tienda →</a>' +
           '</div>';
         grid.appendChild(card);
       });

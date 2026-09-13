@@ -245,7 +245,7 @@
       {% endif %}
       <div class="pc-stores">
         {% for pr in precios_ord %}
-        <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
           <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
           <span class="pc-store-name">{{ pr.tienda }}</span>
           <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
@@ -254,7 +254,7 @@
         {% endfor %}
       </div>
       <div class="pc-actions">
-        <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
+        <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
     </div>
@@ -348,7 +348,7 @@
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
           {% for pr in p.precios | sort(attribute='precio_eur') %}
           {% set sc = sc_map.get(pr.tienda, 'default') %}
-          <a href="{{ pr.url_afiliado }}" class="store-pill store-{{ sc }}" target="_blank" rel="nofollow sponsored">
+          <a href="{{ pr.url_afiliado }}" class="store-pill store-{{ sc }}" target="_blank" rel="nofollow sponsored noopener">
             <span class="store-pill-dot" style="background:{{ {"HSN":"var(--hsn)","Nutritienda":"var(--nutritienda)","Prozis":"var(--prozis)","MyProtein":"var(--myprotein)"}.get(pr.tienda, 'var(--amazon)') }};"></span>
             {{ pr.tienda }} · {{ "%.2f"|format(pr.precio_eur) }} €
           </a>

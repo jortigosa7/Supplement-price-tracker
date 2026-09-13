@@ -1,0 +1,25 @@
+name: Comprobar enlaces de tienda
+
+on:
+  schedule:
+    # Todos los lunes a las 08:00 UTC
+    - cron: "0 8 * * 1"
+  workflow_dispatch:  # permite lanzarlo manualmente desde GitHub
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Comprobar URLs de tienda
+        # Sale con código 1 solo si hay 404 reales → GitHub Actions falla y manda email.
+        # Los 429 de Prozis (rate limit) y las redirecciones 301 no hacen fallar el job.
+        run: python check_links.py

@@ -304,7 +304,7 @@
       const bestStore = p.precios[0];
       const stores = p.precios.map(pr => {
         const oferta = pr.oferta ? '<span class="pc-store-sale">OFERTA</span>' : '';
-        return `<a href="${esc(pr.url)}" class="pc-store" target="_blank" rel="nofollow sponsored">
+        return `<a href="${esc(pr.url)}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
           <span class="pc-store-dot" style="background:${STORE_COLORS[pr.tienda]||'#888'};"></span>
           <span class="pc-store-name">${esc(pr.tienda)}</span>
           <span class="pc-store-price">${pr.precio.toFixed(2)} €</span>${oferta}
@@ -320,7 +320,7 @@
         </div>
         ${p.precio_kg ? `<div><div class="dyn-card-price">${bestStore.precio.toFixed(2)} €</div><div class="dyn-card-kg">${p.precio_kg.toFixed(2)} €/kg</div></div>` : ''}
         <div class="pc-stores">${stores}</div>
-        <a href="${esc(bestStore.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
+        <a href="${esc(bestStore.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver mejor precio →</a>
       </div>`;
     }
     document.getElementById('cmpCards').innerHTML = renderCard(pa, 'a') + renderCard(pb, 'b');
