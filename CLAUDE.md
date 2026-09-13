@@ -65,7 +65,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 
 - Build estático completo y desplegado.
 - Scrapers de HSN y MyProtein: extraen peso correctamente (fix mayo 2026 — HSN select con id, MyProtein ProductGroup.hasVariant[]); precio €/kg correcto (fix sep 2026 — HSN usaba precio "desde" de lista en vez del precio del formato concreto).
-- Scraper de Nutritienda (con fallback a dataset anterior si hay 403).
+- Scraper de Nutritienda: migrado a JSON-LD (sep 2026 — Nutritienda lanzó nuevo frontend Nuxt con Tailwind; selectores CSS anteriores rotos). Usa `ItemList` del listing + `Product` del detalle (`size` como fallback de peso). 160 productos, 71% con peso_kg. Rating ya en escala 0-5 (sin división).
 - Sistema de filtros y comparador.
 - Quiz recomendador.
 - Afiliación HSN activa (ID `JORTIGOSA`) — los enlaces ya van con afiliado.

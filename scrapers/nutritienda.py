@@ -1,13 +1,21 @@
 """
 scrapers/nutritienda.py — Scraper para Nutritienda.com
-Usa requests + BeautifulSoup (HTML server-side renderizado).
+Usa requests + BeautifulSoup sobre JSON-LD (sitio Nuxt desde sep 2026).
 
-Las páginas de detalle se cachean 7 días. La extracción de campos
-de enriquecimiento usa div.nutritional-snippet (texto delimitado por |).
-El rating viene del JSON-LD @type=Product con ratingValue en escala 0-10.
+La página de listado de cada categoría expone un ItemList en JSON-LD con
+nombre, URL, imagen, precio y marca de los productos. Todos los productos
+se obtienen en una sola petición usando el parámetro ?page=N (acumulativo).
+
+Las páginas de detalle se cachean 7 días. Se visitan para obtener el nombre
+completo con peso (field `name` del JSON-LD Product, ej "Evowhey 2 Kg - HSN")
+y el rating (escala 0-5 directamente, sin división).
+
+El nutritional-snippet del HTML anterior desapareció en la migración Nuxt;
+los campos de enrichment nutricional (serving_size_g, etc.) ya no se extraen.
 """
 
 import json
+import math
 import re
 import time
 
@@ -26,19 +34,95 @@ CATEGORIAS = [
     {"nombre": "Pre-Entreno",    "url": "https://www.nutritienda.com/es/pre-entrenamiento"},
 ]
 
+# Máximo de productos por categoría para no sobrecargar el catálogo
+MAX_POR_CATEGORIA = 40
+
+
+def _parse_itemlist(html: str) -> tuple[int, list[dict]]:
+    """
+    Extrae el ItemList del JSON-LD de una página de listado.
+    Devuelve (total_declarado, lista_de_items).
+    Cada item: {nombre, url, imagen_url, precio, marca}
+    """
+    soup = BeautifulSoup(html, "lxml")
+    ld = soup.find("script", type="application/ld+json")
+    if not ld:
+        return 0, []
+    try:
+        data = json.loads(ld.string or "")
+    except Exception:
+        return 0, []
+
+    graph = data.get("@graph", [data]) if isinstance(data, dict) else [data]
+    for node in graph:
+        if node.get("@type") != "ItemList":
+            continue
+        total = node.get("numberOfItems", 0)
+        items = []
+        for entry in node.get("itemListElement", []):
+            item = entry.get("item", {})
+            nombre = item.get("name", "")
+            url = item.get("url", "")
+            imagen_raw = item.get("image", "")
+            imagen_url = imagen_raw if isinstance(imagen_raw, str) else (imagen_raw[0] if imagen_raw else None)
+            marca = item.get("brand", {}).get("name", "")
+            offers = item.get("offers", {})
+            precio = str(offers.get("price") or offers.get("lowPrice") or "")
+            if nombre and url and precio:
+                items.append({
+                    "nombre":     nombre,
+                    "precio":     precio,
+                    "marca":      marca,
+                    "url":        url,
+                    "imagen_url": imagen_url,
+                })
+        return total, items
+    return 0, []
+
+
+def _scrape_listado(url_cat: str) -> list[dict]:
+    """
+    Scrape todos los productos de una categoría.
+    Hace una primera petición para conocer el total, luego pide la última
+    página (que devuelve todos los items de forma acumulativa) y recorta
+    al límite MAX_POR_CATEGORIA.
+    """
+    r = hacer_peticion(url_cat)
+    if not r:
+        return []
+
+    total, items_p1 = _parse_itemlist(r.text)
+    if not total:
+        return items_p1[:MAX_POR_CATEGORIA]
+
+    items_por_pagina = len(items_p1) if items_p1 else 20
+    if total <= items_por_pagina or total <= MAX_POR_CATEGORIA:
+        return items_p1[:MAX_POR_CATEGORIA]
+
+    # Calcular última página necesaria para cubrir MAX_POR_CATEGORIA
+    paginas_necesarias = math.ceil(min(total, MAX_POR_CATEGORIA) / items_por_pagina)
+    if paginas_necesarias <= 1:
+        return items_p1[:MAX_POR_CATEGORIA]
+
+    time.sleep(DELAY)
+    r2 = hacer_peticion(f"{url_cat}?page={paginas_necesarias}")
+    if not r2:
+        return items_p1[:MAX_POR_CATEGORIA]
+
+    _, items_all = _parse_itemlist(r2.text)
+    return items_all[:MAX_POR_CATEGORIA]
+
 
 def _scrape_detalle(url: str) -> tuple[str, dict]:
     """
-    Visita la página de detalle de un producto Nutritienda (caché 7 días) y extrae:
-    - store_rating, store_rating_count, store_rating_url  (JSON-LD Product)
-      NOTA: Nutritienda usa escala 0-10 → se divide entre 2 para normalizar a 0-5.
-    - serving_size_g          (div.nutritional-snippet, campo "Dosis")
-    - servings_per_container  (campo "Dosis por envase")
-    - protein_per_serving_g   (fila "Proteínas", columna "Dosis")
-    - flavors_available       (opciones al inicio del snippet, antes de "Complemento")
-    - sweetener_free          (búsqueda de texto en nombre del producto en snippet)
+    Visita la página de detalle (caché 7 días) y extrae desde JSON-LD Product:
+    - _nombre_completo: nombre con peso incluido (ej "Evowhey protein 2 Kg")
+    - store_rating, store_rating_count, store_rating_url
 
-    Devuelve (final_url, enrichment). final_url puede diferir de url si hay redirección 301.
+    Nota: el nutritional-snippet del HTML anterior no existe en el nuevo sitio.
+    El rating ya está en escala 0-5 (sin división).
+
+    Devuelve (final_url, enrichment).
     """
     final_url = url
     html = get_cached("nutritienda", url)
@@ -53,88 +137,46 @@ def _scrape_detalle(url: str) -> tuple[str, dict]:
     soup = BeautifulSoup(html, "lxml")
     enrichment: dict = {}
 
-    # ── Rating desde JSON-LD ────────────────────────────────────────────────
-    # Nutritienda usa escala 0-10, NO 0-5 como el resto de tiendas.
-    # Se divide entre 2 para homogeneizar la escala antes de guardar.
     for script in soup.find_all("script", type="application/ld+json"):
         try:
             data = json.loads(script.string or "")
-            if data.get("@type") == "Product":
-                agg = data.get("aggregateRating", {})
+            graph = data.get("@graph", [data]) if isinstance(data, dict) else [data]
+            for node in graph:
+                if node.get("@type") != "Product":
+                    continue
+
+                # Nombre completo con peso, stripeando " - Marca" al final.
+                # La capitalización en JSON-LD puede diferir del listing,
+                # por eso se busca case-insensitive desde el final.
+                nombre_raw = node.get("name", "")
+                marca_raw = node.get("brand", {}).get("name", "")
+                nombre_completo = nombre_raw
+                if marca_raw:
+                    patron = re.compile(
+                        r"\s*-\s*" + re.escape(marca_raw) + r".*$",
+                        re.IGNORECASE,
+                    )
+                    nombre_completo = patron.sub("", nombre_raw).strip()
+                if nombre_completo:
+                    enrichment["_nombre_completo"] = nombre_completo
+
+                # Tamaño del producto (fallback si el nombre no tiene peso)
+                size = node.get("size", "")
+                if size:
+                    enrichment["_size"] = size
+
+                # Rating (escala 0-5 directamente en el nuevo sitio)
+                agg = node.get("aggregateRating", {})
                 rv = agg.get("ratingValue")
                 rc = agg.get("reviewCount")
                 if rv:
-                    # ÷ 2: Nutritienda puntúa sobre 10, normalizamos a escala 0-5
-                    enrichment["store_rating"] = round(float(rv) / 2, 2)
+                    enrichment["store_rating"] = round(float(rv), 2)
                 if rc:
                     enrichment["store_rating_count"] = int(rc)
                     enrichment["store_rating_url"] = url
                 break
         except Exception:
             pass
-
-    # ── Datos nutricionales desde div.nutritional-snippet ───────────────────
-    # El snippet es texto delimitado por | con este formato:
-    # NOMBRE|SABOR_1|SABOR_2|...|Complemento Alimenticio|Información Nutricional|
-    # Dosis|X g|Dosis por envase|Y|Dosis diaria|Z g|Cantidad por|Dosis|Día|100 g|
-    # Valor Energético|...|Proteínas|P g|P g|P100g|...
-    div = soup.find("div", class_="nutritional-snippet")
-    if div:
-        parts = [p.strip() for p in div.get_text(separator="|").split("|") if p.strip()]
-
-        # ── Flavors: elementos antes de "Complemento Alimenticio" ──────────
-        # El primer elemento es el nombre del producto; los siguientes son sabores
-        try:
-            comp_idx = next(i for i, p in enumerate(parts) if "complemento" in p.lower())
-            # Sabores: partes 1..comp_idx-1 (saltando el nombre del producto en idx 0)
-            sabores = parts[1:comp_idx]
-            # Descartar si son headers nutricionales o muy cortos
-            sabores = [s for s in sabores if len(s) > 2 and "informaci" not in s.lower()]
-            # Deduplicar manteniendo orden
-            seen: set = set()
-            sabores_uniq = []
-            for s in sabores:
-                if s not in seen:
-                    seen.add(s)
-                    sabores_uniq.append(s)
-            if sabores_uniq:
-                enrichment["flavors_available"] = sabores_uniq
-        except StopIteration:
-            pass
-
-        # ── Serving size ────────────────────────────────────────────────────
-        try:
-            dosis_idx = next(i for i, p in enumerate(parts) if p.lower() == "dosis")
-            dosis_val = parts[dosis_idx + 1] if dosis_idx + 1 < len(parts) else ""
-            m = re.search(r"([\d,\.]+)\s*g\b", dosis_val)
-            if m:
-                enrichment["serving_size_g"] = float(m.group(1).replace(",", "."))
-        except StopIteration:
-            pass
-
-        # ── Servings per container ──────────────────────────────────────────
-        try:
-            dpe_idx = next(
-                i for i, p in enumerate(parts) if "dosis por envase" in p.lower()
-            )
-            dpe_val = parts[dpe_idx + 1] if dpe_idx + 1 < len(parts) else ""
-            m = re.search(r"(\d+)", dpe_val)
-            if m:
-                enrichment["servings_per_container"] = int(m.group(1))
-        except StopIteration:
-            pass
-
-        # ── Protein per serving ─────────────────────────────────────────────
-        # Buscar "Proteínas" en la lista y tomar el valor siguiente (columna Dosis)
-        for i, part in enumerate(parts):
-            if re.match(r"prote[íi]nas?$", part, re.IGNORECASE):
-                val = parts[i + 1] if i + 1 < len(parts) else ""
-                m = re.search(r"([\d,\.]+)\s*g\b", val)
-                if m:
-                    enrichment["protein_per_serving_g"] = float(
-                        m.group(1).replace(",", ".")
-                    )
-                break
 
     return final_url, enrichment
 
@@ -148,63 +190,15 @@ def scrape() -> list[dict]:
 
     for cat in CATEGORIAS:
         print(f"\n  Categoria: {cat['nombre']}")
-        response = hacer_peticion(cat["url"])
-        if not response:
-            print(f"  Sin respuesta, saltando...")
-            continue
-
-        soup = BeautifulSoup(response.text, "lxml")
-        items = soup.select("div.grid-info-wrapper")
-
-        if not items:
-            items_price = soup.find_all("span", class_="price")
-            items = [p.parent.parent for p in items_price if p.parent]
-
-        print(f"  Encontrados: {len(items)} productos")
-
+        items = _scrape_listado(cat["url"])
         for item in items:
-            try:
-                precio_elem = item.select_one("span.price")
-                nombre_elem = item.select_one("h3 a")
-                if not nombre_elem:
-                    continue
-
-                nombre = nombre_elem.get_text(strip=True)
-                precio = precio_elem.get_text(strip=True) if precio_elem else "N/A"
-
-                marca = ""
-                title = nombre_elem.get("title", "")
-                if " - " in title:
-                    marca = title.split(" - ")[-1].strip()
-
-                href = nombre_elem.get("href", "")
-                url = href if href.startswith("http") else "https://www.nutritienda.com" + href
-
-                imagen_url = None
-                contenedor = item.parent or item
-                # Nutritienda usa lazy-load Sirv: data-src en img.Sirv
-                img = contenedor.select_one("img.Sirv") or contenedor.find("img")
-                if img:
-                    src = img.get("data-src") or img.get("src", "")
-                    if src and src.startswith("http") and "placeholder" not in src.lower():
-                        imagen_url = src
-
-                if nombre:
-                    productos_raw.append({
-                        "nombre":     nombre,
-                        "precio":     precio,
-                        "marca":      marca,
-                        "categoria":  cat["nombre"],
-                        "url":        url,
-                        "imagen_url": imagen_url,
-                    })
-            except Exception as e:
-                print(f"  Error en producto: {e}")
-
+            item["categoria"] = cat["nombre"]
+        productos_raw.extend(items)
+        print(f"  Encontrados: {len(items)} productos")
         print(f"  Acumulado: {len(productos_raw)}")
         time.sleep(DELAY)
 
-    # ── Detalle: enriquecimiento ───────────────────────────────────────────
+    # ── Detalle: nombre completo con peso + rating ─────────────────────────
     print(f"\n  Enriqueciendo {len(productos_raw)} productos (detalle + caché 7 días)...")
     productos: list[dict] = []
     stats = {"cached": 0, "fetched": 0, "errors": 0}
@@ -220,13 +214,21 @@ def scrape() -> list[dict]:
         if not enrichment and cached_check is None:
             stats["errors"] += 1
 
+        # Usar nombre completo del detalle; si no tiene peso, añadir el campo size
+        nombre = enrichment.pop("_nombre_completo", d["nombre"])
+        size_raw = enrichment.pop("_size", "")
+        if size_raw and not re.search(r"\d+\s*(kg|g)\b", nombre, re.IGNORECASE):
+            # Normalizar "2270 g" → "2270g", "2 Kg" → "2kg"
+            size_norm = re.sub(r"\s+", "", size_raw).lower()
+            nombre = f"{nombre} {size_norm}"
+
         prod = producto_base(
-            d["nombre"],
+            nombre,
             d["precio"],
             d["marca"],
             d["categoria"],
             TIENDA,
-            final_url,  # URL final tras redirecciones 301
+            final_url,
             d.get("imagen_url"),
         )
         prod.update(enrichment)

@@ -16,9 +16,16 @@ Opciones:
 import argparse
 import base64
 import json
+import os
 import re
 import sys
 import time
+
+# Forzar UTF-8 en stdout (necesario en Windows con cp1252)
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 import urllib.error
 import urllib.request
 
