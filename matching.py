@@ -49,6 +49,38 @@ MARCAS_NORM = {
     "usn": "USN",
 }
 
+# Tokens que impiden el match si están en un nombre pero no en el otro.
+# Un qualifier asimétrico indica que son productos distintos aunque el nombre sea similar.
+QUALIFIER_TOKENS = frozenset({
+    # Tipo de proteína (no mezclar vegetal con animal)
+    "vegan", "vegetal",
+    # Variante sin edulcorantes (formulación distinta al edulcorado)
+    "edulcorantes",         # de "sin edulcorantes"
+    # Forma de proteína (no mezclar isolate con concentrate ni hidrolizado)
+    "isolate", "aislado", "isolado",
+    "hidrolizado", "hidrolizada", "hydrolyzed",
+    "hydro",                # ej. "Hydro Whey" vs "Whey"
+    # Caseína vs whey (subtipo distinto)
+    "caseina",
+    # Formato sólido vs polvo (no mezclar)
+    "capsulas", "comprimidos", "tabletas", "gummies",
+})
+
+
+def qualifiers_compatibles(nombre1: str, nombre2: str) -> bool:
+    """
+    Devuelve False si un qualifier está en uno de los nombres pero no en el otro.
+    Evita agrupar, por ejemplo, una proteína vegetal con una whey o un isolate
+    con un concentrate aunque la similitud Jaccard sea alta.
+    """
+    t1 = tokens(nombre1)
+    t2 = tokens(nombre2)
+    for q in QUALIFIER_TOKENS:
+        if (q in t1) != (q in t2):
+            return False
+    return True
+
+
 # Keywords que identifican el tipo de producto dentro de la categoría
 KEYWORDS_PRODUCTO = {
     "Proteinas Whey": ["concentrate", "isolate", "isolado", "concentrado", "whey gold", "100% whey", "pure whey"],
@@ -190,7 +222,7 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
                 if g["categoria"] != categoria:
                     continue
                 sim = similitud_nombres(nombre, g["nombre_normalizado"])
-                if sim >= 0.65:
+                if sim >= 0.65 and qualifiers_compatibles(nombre, g["nombre_normalizado"]):
                     tiendas_existentes = {pr["tienda"] for pr in g["precios"]}
                     if tienda not in tiendas_existentes:
                         match_grupo = g

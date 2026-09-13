@@ -129,7 +129,7 @@
   },
   {
     "desde": "comparar/iso-whey-zero-black-908g-biotechusa-vs-iso-whey-zero-450g-biotechusa/",
-    "hasta": "/comparar/iso-whey-zero-450g-biotechusa-vs-iso-whey-zero-black-908g-biotechusa/"
+    "hasta": "/proteina-whey/"
   },
   {
     "desde": "comparar/evowhey-protein-2kg-desconocida-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
@@ -229,7 +229,7 @@
   },
   {
     "desde": "comparar/creatina-creapure-400g-amazin-foods-vs-100-creatina-monohidrato-500g-quamtrax/",
-    "hasta": "/comparar/100-creatina-monohidrato-500g-quamtrax-vs-creatina-creapure-400g-amazin-foods/"
+    "hasta": "/creatina/"
   },
   {
     "desde": "comparar/100-whey-protein-isolate-2kg-desconocida-vs-evohydro-2-0-hydro-whey-2kg-desconocida/",
@@ -305,11 +305,11 @@
   },
   {
     "desde": "comparar/100-whey-gold-standard-2000g-optimum-nut-vs-predator-protein-2kg-amix/",
-    "hasta": "/comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-predator-protein-2kg-amix/"
+    "hasta": "/proteina-whey/"
   },
   {
     "desde": "comparar/predator-protein-2kg-amix-vs-100-whey-gold-standard-2000g-optimum-nut/",
-    "hasta": "/comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-predator-protein-2kg-amix/"
+    "hasta": "/proteina-whey/"
   },
   {
     "desde": "comparar/bcaa-2-1-1-300-g-desconocida-vs-bcaa-8-1-1-300-g-desconocida/",
@@ -462,5 +462,41 @@
   {
     "desde": "comparar/evowhey-oats-2kg-desconocida-vs-100-whey-protein-concentrate-2kg-descono/",
     "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-oats-2kg-hsn/"
+  },
+  {
+    "desde": "comparar/creatine-monohydrate-creapure-200g-vitobest-vs-evocreatine-500g-desconocida/",
+    "hasta": "/creatina/"
+  },
+  {
+    "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-150g-desconocida-vs-creatine-monohydrate-creapure-200g-vitobest/",
+    "hasta": "/creatina/"
+  },
+  {
+    "desde": "comparar/iso-whey-zero-450g-biotechusa-vs-iso-whey-zero-black-908g-biotechusa/",
+    "hasta": "/proteina-whey/"
+  },
+  {
+    "desde": "comparar/creatina-celular-800g-creatina-monohidrato-creapure-vs-creatina-monohidrato-en-polvo-200-mesh-150g-desconocida/",
+    "hasta": "/creatina/"
+  },
+  {
+    "desde": "comparar/creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-150g-desconocida/",
+    "hasta": "/creatina/"
+  },
+  {
+    "desde": "comparar/100-creatina-monohidrato-500g-quamtrax-vs-creatina-creapure-400g-amazin-foods/",
+    "hasta": "/creatina/"
+  },
+  {
+    "desde": "comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-predator-protein-2kg-amix/",
+    "hasta": "/proteina-whey/"
+  },
+  {
+    "desde": "comparar/creatina-celular-800g-creatina-monohidrato-creapure-vs-creatine-monohydrate-creapure-200g-vitobest/",
+    "hasta": "/creatina/"
+  },
+  {
+    "desde": "comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-evowhey-protein-2kg-desconocida/",
+    "hasta": "/proteina-whey/"
   }
 ]

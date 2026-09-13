@@ -48,6 +48,18 @@ CATEGORIAS = [
 ]
 
 
+# Productos a excluir aunque aparezcan en las URLs de categoría.
+# Criterio: no son proteínas en polvo para batidos (errores de categorización HSN).
+NOMBRES_EXCLUIR = {
+    "crema de arroz proteica",  # aparece en caseína pero es un carbohidrato
+}
+
+
+def _excluido(nombre: str) -> bool:
+    n = nombre.lower().strip()
+    return any(excl in n for excl in NOMBRES_EXCLUIR)
+
+
 # ── helpers ──────────────────────────────────────────────────────────────────
 
 def _extraer_peso_y_opcion_desde_select(soup: BeautifulSoup) -> tuple[float | None, str | None]:
@@ -283,6 +295,8 @@ def scrape(debug: bool = False) -> list[dict]:
                 nombre = link.get_text(strip=True)
                 url_prod = link.get("href", "")
                 if not nombre or not url_prod:
+                    continue
+                if _excluido(nombre):
                     continue
 
                 # Precio: HSN muestra precio especial en span.special-price .price
