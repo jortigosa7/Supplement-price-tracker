@@ -78,6 +78,19 @@ def qualifiers_compatibles(nombre1: str, nombre2: str) -> bool:
     for q in QUALIFIER_TOKENS:
         if (q in t1) != (q in t2):
             return False
+
+    # Los ratios de BCAA (2:1:1, 4:1:1, 8:1:1…) se pierden en tokens() porque los
+    # dígitos individuales tienen len ≤ 2 y se filtran. Y normalizar_texto elimina
+    # los ":" por lo que hay que buscar el ratio en el texto original.
+    _ratio = re.compile(r"\d+\s*:\s*\d+\s*:\s*\d+")
+    r1 = _ratio.search(nombre1)
+    r2 = _ratio.search(nombre2)
+    # Normalizar el ratio encontrado (quitar espacios) para comparar "4 : 1 : 1" == "4:1:1"
+    ratio_str1 = re.sub(r"\s", "", r1.group()) if r1 else None
+    ratio_str2 = re.sub(r"\s", "", r2.group()) if r2 else None
+    if ratio_str1 != ratio_str2:
+        return False
+
     return True
 
 
@@ -213,8 +226,12 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
                     # Verificar que la tienda no esté ya en este grupo
                     tiendas_existentes = {pr["tienda"] for pr in g["precios"]}
                     if tienda not in tiendas_existentes:
-                        match_grupo = g
-                        break
+                        # Aplicar qualifiers también en clave exacta: dos productos del
+                        # mismo brand y peso pueden ser formulaciones distintas
+                        # (ej. BCAA 2:1:1 vs 4:1:1 de la misma marca a 250g)
+                        if qualifiers_compatibles(nombre, g["nombre_normalizado"]):
+                            match_grupo = g
+                            break
 
         # 2. Si no hay match exacto, buscar por similitud de nombre (umbral 0.65)
         if match_grupo is None:

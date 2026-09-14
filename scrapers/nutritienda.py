@@ -35,7 +35,20 @@ CATEGORIAS = [
 ]
 
 # Máximo de productos por categoría para no sobrecargar el catálogo
-MAX_POR_CATEGORIA = 40
+MAX_POR_CATEGORIA = 80
+
+# Productos fijos que siempre se incluyen aunque estén más allá del cap de listado.
+# Formato: (url, categoria)  — se añaden al batch del listado si aún no están presentes.
+URLS_FIJAS = [
+    # Creatinas más allá del cap que tienen comparaciones con clics en GSC
+    ("https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g",          "Creatina"),
+    ("https://www.nutritienda.com/es/keepgoing/creatina-celular-800g",              "Creatina"),
+    ("https://www.nutritienda.com/es/vitobest/creatine-monohydrate-creapure-200g",  "Creatina"),
+    # Proteínas más allá del cap
+    ("https://www.nutritienda.com/es/optimum-nutrition/100-whey-gold-standard",     "Proteinas Whey"),
+    ("https://www.nutritienda.com/es/amix-nutrition/predator-protein",              "Proteinas Whey"),
+    ("https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black",              "Proteinas Whey"),
+]
 
 
 def _parse_itemlist(html: str) -> tuple[int, list[dict]]:
@@ -110,7 +123,12 @@ def _scrape_listado(url_cat: str) -> list[dict]:
         return items_p1[:MAX_POR_CATEGORIA]
 
     _, items_all = _parse_itemlist(r2.text)
-    return items_all[:MAX_POR_CATEGORIA]
+    resultado = items_all[:MAX_POR_CATEGORIA]
+    # Aviso si seguimos tocando el techo — puede haber más productos sin scraper
+    if len(resultado) >= MAX_POR_CATEGORIA and total > MAX_POR_CATEGORIA:
+        print(f"  ⚠️  AVISO: categoría alcanza el techo ({MAX_POR_CATEGORIA}/{total} productos). "
+              f"Sube MAX_POR_CATEGORIA para no perder productos.")
+    return resultado
 
 
 def _scrape_detalle(url: str) -> tuple[str, dict]:
@@ -181,6 +199,56 @@ def _scrape_detalle(url: str) -> tuple[str, dict]:
     return final_url, enrichment
 
 
+def _scrape_producto_fijo(url: str, categoria: str) -> dict | None:
+    """
+    Extrae un producto completo (nombre, precio, marca, imagen) desde la página
+    de detalle vía JSON-LD Product. Se usa para URLS_FIJAS que pueden estar fuera
+    del cap de listado.
+
+    Devuelve un dict compatible con el formato de _scrape_listado() o None si falla.
+    """
+    html = get_cached("nutritienda", url)
+    final_url = url
+    if html is None:
+        r = hacer_peticion(url)
+        if not r or r.status_code != 200:
+            return None
+        final_url = r.url
+        html = r.text
+        save_cache("nutritienda", url, html)
+
+    soup = BeautifulSoup(html, "lxml")
+    for script in soup.find_all("script", type="application/ld+json"):
+        try:
+            data = json.loads(script.string or "")
+            graph = data.get("@graph", [data]) if isinstance(data, dict) else [data]
+            for node in graph:
+                if node.get("@type") != "Product":
+                    continue
+                nombre_raw = node.get("name", "")
+                marca_raw = node.get("brand", {}).get("name", "")
+                nombre_completo = nombre_raw
+                if marca_raw:
+                    patron = re.compile(r"\s*-\s*" + re.escape(marca_raw) + r".*$", re.IGNORECASE)
+                    nombre_completo = patron.sub("", nombre_raw).strip()
+                offers = node.get("offers", {})
+                precio = str(offers.get("price") or offers.get("lowPrice") or "")
+                imagen_raw = node.get("image", "")
+                imagen_url = imagen_raw if isinstance(imagen_raw, str) else (imagen_raw[0] if imagen_raw else None)
+                if nombre_completo and precio:
+                    return {
+                        "nombre":     nombre_completo,
+                        "precio":     precio,
+                        "marca":      marca_raw,
+                        "categoria":  categoria,
+                        "url":        final_url,
+                        "imagen_url": imagen_url,
+                    }
+        except Exception:
+            pass
+    return None
+
+
 def scrape() -> list[dict]:
     print(f"\n{'='*50}")
     print(f"  Scraping: {TIENDA}")
@@ -197,6 +265,23 @@ def scrape() -> list[dict]:
         print(f"  Encontrados: {len(items)} productos")
         print(f"  Acumulado: {len(productos_raw)}")
         time.sleep(DELAY)
+
+    # ── URLs fijas: productos específicos que deben incluirse siempre ─────────
+    if URLS_FIJAS:
+        urls_ya_presentes = {p["url"] for p in productos_raw}
+        print(f"\n  Añadiendo URLs fijas ({len(URLS_FIJAS)} configuradas)...")
+        for url_fija, cat_fija in URLS_FIJAS:
+            if url_fija in urls_ya_presentes:
+                print(f"  ↩️  Ya en listado: {url_fija.split('/es/')[-1]}")
+                continue
+            time.sleep(DELAY)
+            item_fijo = _scrape_producto_fijo(url_fija, cat_fija)
+            if item_fijo:
+                productos_raw.append(item_fijo)
+                urls_ya_presentes.add(item_fijo["url"])  # usar URL final (tras 301)
+                print(f"  ✅ Fijo añadido: {item_fijo['nombre'][:60]}")
+            else:
+                print(f"  ⚠️  No se pudo obtener URL fija: {url_fija}")
 
     # ── Detalle: nombre completo con peso + rating ─────────────────────────
     print(f"\n  Enriqueciendo {len(productos_raw)} productos (detalle + caché 7 días)...")
@@ -241,9 +326,26 @@ def scrape() -> list[dict]:
             )
         time.sleep(1)
 
-    print(f"\n  Total Nutritienda: {len(productos)} productos")
+    total = len(productos)
+    print(f"\n  Total Nutritienda: {total} productos")
     print(
         f"  Detalle: {stats['fetched']} fetcheados, "
         f"{stats['cached']} desde caché, {stats['errors']} errores"
     )
+
+    # Guardia: falla duro si el scrape devuelve 0 productos (scraper roto)
+    if total == 0:
+        raise RuntimeError(
+            "Nutritienda scraper devolvió 0 productos — "
+            "posible cambio de frontend. Revisa _parse_itemlist."
+        )
+
+    # Aviso si el total es sospechosamente bajo respecto al mínimo histórico
+    MINIMO_ESPERADO = 120  # menos de esto indica scraper parcialmente roto
+    if total < MINIMO_ESPERADO:
+        print(
+            f"  ⚠️  AVISO: solo {total} productos (mínimo esperado: {MINIMO_ESPERADO}). "
+            "Revisar si alguna categoría devolvió 0."
+        )
+
     return productos

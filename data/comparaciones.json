@@ -239,6 +239,51 @@
       "id_a": "creatina-excell-1000mg-100-creapure-desconocida",
       "id_b": "evocreatine-500g-desconocida",
       "fuente": "ProdMissing-2c"
+    },
+    {
+      "id_a": "100-creatina-monohidrato-500g-quamtrax",
+      "id_b": "creatina-creapure-400g-amazin-foods",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-celular-500g-nutrisport",
+      "id_b": "evocreatine-500g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-celular-800g-keepgoing",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-celular-800g-keepgoing",
+      "id_b": "creatine-monohydrate-creapure-200g-vitobest",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-creapure-400g-amazin-foods",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-creapure-400g-amazin-foods",
+      "id_b": "evocreatine-500g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "id_b": "creatine-monohydrate-creapure-200g-vitobest",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatine-monohydrate-creapure-200g-vitobest",
+      "id_b": "evocreatine-500g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "iso-whey-zero-450-g-biotechusa",
+      "id_b": "iso-whey-zero-black-908g-biotechusa",
+      "fuente": "GSC-restaurado"
     }
   ],
   "total": 48
