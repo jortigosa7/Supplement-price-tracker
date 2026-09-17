@@ -301,33 +301,40 @@ def _check_desconocido(docs_dir: str, productos_web: list[dict]) -> list[str]:
 # ── Check 7: €/kg fuera de rango de categoría (alto y bajo) ─────────────────
 
 UMBRAL_KG_BAJO = 0.20   # €/kg < 20% de la mediana → anómalo por abajo
-                        # Calibrado: mass gainer legítimo llega al 21-22%;
-                        # bug HSN-"desde" produce 11% (Evobasic a 5,54 €/kg).
+
+# Gainers y cremas de arroz se excluyen del check por abajo: su precio bajo
+# por kg es estructural (mucha fécula/carbohidrato, poca proteína), no un bug.
+# El check por arriba (>10× mediana) sí les aplica igual.
+_RE_GAINER = re.compile(r"\b(gainer|ganador|arroz)\b", re.IGNORECASE)
+
+
+def _es_gainer(nombre: str) -> bool:
+    return bool(_RE_GAINER.search(nombre))
 
 
 def _check_precio_rango(productos_web: list[dict]) -> list[str]:
     """
     Detecta €/kg fuera del rango razonable de la categoría.
 
-    Por arriba (nuevo en checks.py):
-      €/kg > UMBRAL_KG_ALTO × mediana → suele indicar peso extraído mal
-      (p.ej. 50g en vez de 500g) o precio en céntimos.
+    Por arriba: €/kg > UMBRAL_KG_ALTO × mediana → peso extraído mal o precio
+      en céntimos. Se aplica a todos los productos.
 
-    Por abajo (complementa Regla 1 de build.py):
-      €/kg < UMBRAL_KG_BAJO × mediana → suele indicar precio "desde" incorrecto
-      o página de un formato más pequeño usado como precio del grande.
-      Umbral al 20%: deja pasar gainers/cremas de arroz (21-22%) y coge
-      bugs del tipo Evobasic a 5,54 €/kg (11%).
+    Por abajo: €/kg < UMBRAL_KG_BAJO × mediana → precio "desde" incorrecto o
+      formato equivocado. Se EXCLUYE a gainers y cremas de arroz porque su
+      precio bajo es estructural (carbohidratos diluyen el €/kg), no un error.
+      Umbral 20%: Evobasic a 5,54 €/kg (11%) salta; whey real a 30+ €/kg no.
 
     Excluye monodosis (<100 g) donde €/kg es legítimamente muy alto.
     """
     errores = []
 
+    # La mediana se calcula excluyendo gainers para que no la arrastren hacia abajo
     kg_por_cat: dict[str, list[float]] = defaultdict(list)
     for p in productos_web:
         kg   = p.get("precio_por_kg_min")
         peso = p.get("peso_kg")
-        if kg and float(kg) > 0 and peso and float(peso) >= 0.1:
+        nombre = p.get("nombre_normalizado", "")
+        if kg and float(kg) > 0 and peso and float(peso) >= 0.1 and not _es_gainer(nombre):
             kg_por_cat[p.get("categoria", "?")].append(float(kg))
 
     medianas: dict[str, float] = {}
@@ -354,7 +361,7 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
                 f"ratio={kg_f / mediana:.1f}x (umbral {UMBRAL_KG_ALTO:.0f}x)\n"
                 f"  Acción: verifica el precio y el peso en el scraper de origen."
             )
-        elif kg_f < mediana * UMBRAL_KG_BAJO:
+        elif kg_f < mediana * UMBRAL_KG_BAJO and not _es_gainer(nombre):
             errores.append(
                 f"[CHECK 7] €/kg anormalmente BAJO: [{cat}] {nombre}\n"
                 f"  precio_por_kg={kg_f:.2f} €/kg  mediana_cat={mediana:.2f} €/kg  "

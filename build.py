@@ -1780,12 +1780,16 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> None:
     for pid in hist_by_id:
         hist_by_id[pid].sort(key=lambda x: x[0])
 
-    # Mediana de €/kg por categoría (solo productos con valor confirmado y peso >= 0.1 kg)
+    # Mediana de €/kg por categoría sin gainers/cremas de arroz, cuyo precio
+    # bajo por kg es estructural. Misma lógica que checks.py::_check_precio_rango.
+    _GAINER_KW = ("gainer", "ganador", "arroz")
     kg_por_cat: dict[str, list[float]] = defaultdict(list)
     for p in productos_web:
         kg = p.get("precio_por_kg_min")
         peso = p.get("peso_kg")
-        if kg and float(kg) > 0 and peso and float(peso) >= 0.1:
+        nombre_lower = p.get("nombre_normalizado", "").lower()
+        if (kg and float(kg) > 0 and peso and float(peso) >= 0.1
+                and not any(k in nombre_lower for k in _GAINER_KW)):
             kg_por_cat[p.get("categoria", "?")].append(float(kg))
 
     medianas: dict[str, float] = {}
@@ -1803,12 +1807,15 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> None:
         peso_f = float(peso) if peso else None
         precio_min = p.get("precio_min")
 
-        # Regla 1: €/kg confirmado anormalmente bajo (excluir monodosis <100g)
-        # Umbral: 20% de la mediana de categoría. Calibrado para coger bugs del tipo
-        # HSN-"desde" (Evobasic a 5.54 €/kg cuando la mediana es 50 €/kg = 11%)
-        # sin pillar gainers y cremas de arroz que llegan al 21-22%.
+        # Regla 1: €/kg confirmado anormalmente bajo (excluir monodosis <100g y gainers)
+        # Umbral: 20% de la mediana de categoría. Gainers/cremas de arroz se excluyen
+        # porque su precio bajo es estructural, no un bug. La mediana también se calcula
+        # sin ellos para que no arrastren el suelo hacia abajo.
+        # Lógica espejo de checks.py::_check_precio_rango.
         kg_confirmado = p.get("precio_por_kg_min")
-        if kg_confirmado and peso_f and peso_f >= 0.1 and mediana:
+        _nombre_lower = nombre.lower()
+        _es_gainer = any(k in _nombre_lower for k in ("gainer", "ganador", "arroz"))
+        if kg_confirmado and peso_f and peso_f >= 0.1 and mediana and not _es_gainer:
             kg_f = float(kg_confirmado)
             if kg_f < mediana * 0.20:
                 anomalias.append(
