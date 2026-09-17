@@ -424,6 +424,12 @@ def corregir_marcas(productos_web: list[dict]) -> list[dict]:
             if nueva:
                 p["marca"] = nueva
 
+    # Normalización final de capitalización para marcas conocidas
+    # (ej. 'Myprotein' → 'MyProtein', 'Keepgoing' → 'KeepGoing')
+    from matching import normalizar_marca_final
+    for p in productos_web:
+        p["marca"] = normalizar_marca_final(p.get("marca", ""))
+
     return productos_web
 
 
