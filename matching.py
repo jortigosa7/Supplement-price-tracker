@@ -57,6 +57,7 @@ MARCAS_NORM = {
     "applied nutrition": "Applied Nutrition",
     "mutant": "Mutant",
     "usn": "USN",
+    "keepgoing": "KeepGoing",
 }
 
 # Tokens que impiden el match si están en un nombre pero no en el otro.
@@ -163,6 +164,19 @@ def normalizar_texto(texto: str) -> str:
     texto = re.sub(r"[^a-z0-9\s]", " ", texto)
     texto = re.sub(r"\s+", " ", texto).strip()
     return texto
+
+
+def normalizar_marca_final(marca: str) -> str:
+    """
+    Normaliza la capitalización de una marca ya extraída aplicando MARCAS_NORM.
+    Punto de entrada único para corregir variantes de capitalización (ej. 'Myprotein'
+    → 'MyProtein', 'Keepgoing' → 'KeepGoing') sin tocar los scrapers.
+    Se llama desde build.py como último paso tras corregir_marcas().
+    """
+    if not marca:
+        return marca
+    canon = extraer_marca_normalizada("", marca)
+    return canon if canon else marca.strip()
 
 
 def extraer_marca_normalizada(nombre: str, marca_raw: str) -> str:
