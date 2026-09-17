@@ -484,10 +484,6 @@
     "hasta": "/creatina/"
   },
   {
-    "desde": "comparar/100-creatina-monohidrato-500g-quamtrax-vs-creatina-creapure-400g-amazin-foods/",
-    "hasta": "/creatina/"
-  },
-  {
     "desde": "comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-predator-protein-2kg-amix/",
     "hasta": "/proteina-whey/"
   },
@@ -498,5 +494,41 @@
   {
     "desde": "comparar/100-whey-gold-standard-2000g-optimum-nutrition-vs-evowhey-protein-2kg-desconocida/",
     "hasta": "/proteina-whey/"
+  },
+  {
+    "desde": "comparar/creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-200-mesh-300g-optim/",
+    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-150g-hsn/"
+  },
+  {
+    "desde": "comparar/creatina-monohidrato-200-mesh-300g-optim-vs-creatina-creapure-400g-amazin-foods/",
+    "hasta": "/comparar/creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-150g-hsn/"
+  },
+  {
+    "desde": "comparar/creatina-monohidrato-200-mesh-300g-optim-vs-evocreatine-500g-desconocida/",
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-150g-hsn-vs-evocreatine-500g-hsn/"
+  },
+  {
+    "desde": "comparar/100-creatina-monohidrato-500g-optimum-nu-vs-creatina-creapure-400g-amazin-foods/",
+    "hasta": "/comparar/100-creatina-monohidrato-500g-quamtrax-vs-creatina-creapure-400g-amazin-foods/"
+  },
+  {
+    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evowhey-protein-2kg-desconocida/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-protein-2kg-hsn/"
+  },
+  {
+    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evobasic-whey-2kg-desconocida/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evobasic-whey-2kg-hsn/"
+  },
+  {
+    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evolate-2-0-whey-isolate-cfm-2kg-descono/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn/"
+  },
+  {
+    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evowhey-protein-sin-edulcorantes-2kg-des/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn/"
+  },
+  {
+    "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evowhey-oats-2kg-desconocida/",
+    "hasta": "/comparar/100-whey-protein-concentrate-2kg-hsn-vs-evowhey-oats-2kg-hsn/"
   }
 ]
