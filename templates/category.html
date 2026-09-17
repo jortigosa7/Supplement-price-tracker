@@ -111,7 +111,7 @@
     </p>
     <div class="cat-stats">
       <span>📦 <strong>{{ products | length }}</strong> productos</span>
-      <span>🗓️ Actualizado: <strong>{{ last_updated }}</strong></span>
+      <span>Actualizado el <strong>{{ fecha_datos }}</strong></span>
       {% if products %}
       {% set best = products | selectattr("precio_por_kg_min") | first | default(none) %}
       {% if best and best.precio_por_kg_min %}
