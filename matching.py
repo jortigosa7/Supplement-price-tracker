@@ -14,9 +14,19 @@ Estrategia de matching (por orden de prioridad):
   3. Sin match: cada producto queda como grupo independiente
 """
 
+import math
 import re
 import unicodedata
 from limpieza import extraer_peso_kg
+
+
+def _peso_valido(peso) -> float | None:
+    """Devuelve el peso como float si es un número positivo finito; None en otro caso."""
+    try:
+        f = float(peso)
+        return f if math.isfinite(f) and f > 0 else None
+    except (TypeError, ValueError):
+        return None
 
 # Marcas conocidas para normalización
 MARCAS_NORM = {
@@ -67,6 +77,14 @@ QUALIFIER_TOKENS = frozenset({
 })
 
 
+def _tiene_qualifier(q: str, token_set: set[str]) -> bool:
+    """
+    Comprueba si el qualifier está en el conjunto de tokens, exacto o como subcadena.
+    Necesario para capturar composiciones como "evohydro" → contiene "hydro".
+    """
+    return q in token_set or any(q in t for t in token_set)
+
+
 def qualifiers_compatibles(nombre1: str, nombre2: str) -> bool:
     """
     Devuelve False si un qualifier está en uno de los nombres pero no en el otro.
@@ -76,8 +94,15 @@ def qualifiers_compatibles(nombre1: str, nombre2: str) -> bool:
     t1 = tokens(nombre1)
     t2 = tokens(nombre2)
     for q in QUALIFIER_TOKENS:
-        if (q in t1) != (q in t2):
+        if _tiene_qualifier(q, t1) != _tiene_qualifier(q, t2):
             return False
+
+    # Regla 4: formato dosificado (Xmg por toma) identifica un producto en cápsulas o
+    # sobres dosificados, no polvo a granel. Si un nombre tiene dosis en mg y el otro no,
+    # son productos distintos aunque el nombre base sea similar.
+    _dosis_mg = re.compile(r'\b\d+\s*mg\b', re.IGNORECASE)
+    if bool(_dosis_mg.search(nombre1)) != bool(_dosis_mg.search(nombre2)):
+        return False
 
     # Los ratios de BCAA (2:1:1, 4:1:1, 8:1:1…) se pierden en tokens() porque los
     # dígitos individuales tienen len ≤ 2 y se filtran. Y normalizar_texto elimina
@@ -92,6 +117,32 @@ def qualifiers_compatibles(nombre1: str, nombre2: str) -> bool:
         return False
 
     return True
+
+
+# Tokens genéricos por categoría: presentes en casi todo producto de la categoría.
+# Si la intersección de tokens entre dos nombres se reduce solo a estos, el match
+# es demasiado vago y se rechaza (regla 3).
+_GENERICOS_CAT = {
+    "bcaa":     frozenset({"bcaa"}),
+    "creatina": frozenset({"creatina", "creatine"}),  # español e inglés
+    "pre":      frozenset({"pre", "workout", "entreno", "entrenamiento", "preworkout"}),
+}
+
+
+def _tokens_suficientes(interseccion: set[str], categoria: str) -> bool:
+    """
+    Devuelve False si la intersección solo contiene palabras genéricas de la categoría.
+    Regla 3: un match basado únicamente en el nombre de la categoría no es válido.
+    """
+    cat = normalizar_texto(categoria)
+    genericos: frozenset[str] = frozenset()
+    if "bcaa" in cat:
+        genericos = _GENERICOS_CAT["bcaa"]
+    elif "creatina" in cat:
+        genericos = _GENERICOS_CAT["creatina"]
+    elif "pre" in cat and any(x in cat for x in ("entreno", "workout")):
+        genericos = _GENERICOS_CAT["pre"]
+    return bool(interseccion - genericos)
 
 
 # Keywords que identifican el tipo de producto dentro de la categoría
@@ -127,14 +178,38 @@ def extraer_marca_normalizada(nombre: str, marca_raw: str) -> str:
 
 
 def tokens(texto: str) -> set[str]:
-    """Devuelve el conjunto de tokens relevantes (palabras >2 chars, sin stopwords)."""
+    """
+    Devuelve el conjunto de tokens relevantes (palabras >2 chars, sin stopwords).
+    Las expresiones de peso ("300 g", "2 Kg", "0,3 l"…) se eliminan antes de
+    tokenizar: el peso se compara numéricamente vía peso_kg, no por texto.
+    """
     stopwords = {"de", "la", "el", "en", "con", "para", "y", "a", "e",
-                 "los", "las", "del", "protein", "proteina", "whey", "g", "kg"}
-    return {t for t in normalizar_texto(texto).split() if len(t) > 2 and t not in stopwords}
+                 "los", "las", "del", "protein", "proteina", "whey", "g", "kg",
+                 "the"}  # artículo inglés: no aporta nada al matching
+    # Eliminar expresiones numéricas de peso/volumen: "300g", "300 g", "2 Kg",
+    # "0.3 kg", "2,27kg", "1000ml", "1 l", etc. El \b evita falsos positivos
+    # en palabras como "Gold" (que empieza por "g").
+    texto_sin_peso = re.sub(
+        r'\d+[\d.,]*\s*(?:kg|g|ml|l)\b', '', texto, flags=re.IGNORECASE
+    )
+    # Extraer ratios BCAA antes de normalizar: "2:1:1", "4 : 1 : 1" → token "2:1:1".
+    # normalizar_texto elimina los ":" y deja dígitos sueltos (len ≤ 2 → filtrados).
+    ratios = {re.sub(r'\s', '', m) for m in re.findall(r'\d+\s*:\s*\d+\s*:\s*\d+', texto_sin_peso)}
+    base = {t for t in normalizar_texto(texto_sin_peso).split() if len(t) > 2 and t not in stopwords}
+    return base | ratios
 
 
-def similitud_nombres(nombre1: str, nombre2: str) -> float:
-    """Jaccard similarity entre los tokens de dos nombres. [0.0 – 1.0]"""
+def similitud_nombres(nombre1: str, nombre2: str,
+                       peso_kg1: float | None = None,
+                       peso_kg2: float | None = None) -> float:
+    """
+    Jaccard similarity entre los tokens de dos nombres. [0.0 – 1.0]
+    Si se proporcionan ambos pesos y difieren >15%, devuelve 0.0:
+    mismo nombre en distinto formato (300g vs 500g) → productos distintos.
+    """
+    if peso_kg1 and peso_kg2 and peso_kg1 > 0 and peso_kg2 > 0:
+        if abs(peso_kg1 - peso_kg2) / max(peso_kg1, peso_kg2) > 0.15:
+            return 0.0
     t1 = tokens(nombre1)
     t2 = tokens(nombre2)
     if not t1 or not t2:
@@ -153,11 +228,12 @@ def clave_exacta(producto: dict) -> tuple | None:
     peso  = producto.get("peso_kg")
     cat   = producto.get("categoria", "")
 
-    if not marca or peso is None or peso <= 0:
+    peso_f = _peso_valido(peso)
+    if not marca or peso_f is None:
         return None
 
     # Redondear peso al 0.1 más cercano para absorber diferencias "2kg" vs "2.0kg"
-    peso_r = round(peso, 1)
+    peso_r = round(peso_f, 1)
     return (cat, marca, peso_r)
 
 
@@ -178,6 +254,7 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
     from limpieza import limpiar_precio
 
     grupos: list[dict] = []
+    avisos_ratio: list[str] = []  # Regla 2: pares rechazados por ratio de precio
 
     for p in productos_flat:
         nombre    = p.get("nombre", "").strip()
@@ -229,21 +306,59 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
                         # Aplicar qualifiers también en clave exacta: dos productos del
                         # mismo brand y peso pueden ser formulaciones distintas
                         # (ej. BCAA 2:1:1 vs 4:1:1 de la misma marca a 250g)
-                        if qualifiers_compatibles(nombre, g["nombre_normalizado"]):
-                            match_grupo = g
-                            break
+                        if not qualifiers_compatibles(nombre, g["nombre_normalizado"]):
+                            continue
+                        # Requerir tokens comunes suficientes: mismo brand+peso no basta
+                        # si los nombres comparten solo el nombre de la categoría
+                        # (p.ej. Evowhey vs Evopept, o Impact Creatine vs THE Creatine)
+                        interseccion = tokens(nombre) & tokens(g["nombre_normalizado"])
+                        if not _tokens_suficientes(interseccion, categoria):
+                            continue
+                        match_grupo = g
+                        break
 
         # 2. Si no hay match exacto, buscar por similitud de nombre (umbral 0.65)
         if match_grupo is None:
+            peso_v = _peso_valido(peso_kg)
             for g in grupos:
                 if g["categoria"] != categoria:
                     continue
-                sim = similitud_nombres(nombre, g["nombre_normalizado"])
-                if sim >= 0.65 and qualifiers_compatibles(nombre, g["nombre_normalizado"]):
-                    tiendas_existentes = {pr["tienda"] for pr in g["precios"]}
-                    if tienda not in tiendas_existentes:
-                        match_grupo = g
-                        break
+
+                # Regla 1: sin peso no agrupa con con peso (y viceversa)
+                peso_g_v = _peso_valido(g.get("peso_kg"))
+                if (peso_v is None) != (peso_g_v is None):
+                    continue
+
+                sim = similitud_nombres(nombre, g["nombre_normalizado"],
+                                        peso_kg, g.get("peso_kg"))
+                if sim < 0.65:
+                    continue
+                if not qualifiers_compatibles(nombre, g["nombre_normalizado"]):
+                    continue
+
+                # Regla 3: la intersección no puede ser solo tokens genéricos de la categoría
+                interseccion = tokens(nombre) & tokens(g["nombre_normalizado"])
+                if not _tokens_suficientes(interseccion, categoria):
+                    continue
+
+                tiendas_existentes = {pr["tienda"] for pr in g["precios"]}
+                if tienda in tiendas_existentes:
+                    continue
+
+                # Regla 2: si precios difieren >2.5x con peso conocido en ambos, no es el mismo producto
+                if peso_v is not None and peso_g_v is not None:
+                    precio_g_min = min(pr["precio_eur"] for pr in g["precios"])
+                    ratio = max(precio_eur, precio_g_min) / min(precio_eur, precio_g_min)
+                    if ratio > 2.5:
+                        avisos_ratio.append(
+                            f"  [{categoria}] '{nombre}' {precio_eur:.2f}€ vs "
+                            f"'{g['nombre_normalizado']}' {precio_g_min:.2f}€ "
+                            f"(ratio {ratio:.1f}x) — no agrupado"
+                        )
+                        continue
+
+                match_grupo = g
+                break
 
         if match_grupo is not None:
             match_grupo["precios"].append(entrada_precio)
@@ -284,15 +399,21 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
         else:
             g["precio_por_kg_min"] = None
 
-        # Eliminar campos internos antes de devolver
+        # Eliminar _peso_kg (solo interno); _precio_sin_confirmar se elimina en build.py
+        # DESPUÉS de guardar_price_history para que pueda filtrar entradas inválidas.
         for pr in g["precios"]:
             pr.pop("_peso_kg", None)
-            pr.pop("_precio_sin_confirmar", None)
 
         # Imagen: usar la de la tienda más barata; si no tiene, la primera disponible
         g["imagen_url"] = mejor.get("imagen_url") or next(
             (pr["imagen_url"] for pr in g["precios"] if pr.get("imagen_url")), None
         )
+
+    # Informe de pares rechazados por ratio de precio (regla 2)
+    if avisos_ratio:
+        print(f"\n  AVISO matching — {len(avisos_ratio)} par(es) rechazados por ratio de precio >2.5x:")
+        for aviso in avisos_ratio:
+            print(aviso)
 
     # Ordenar grupos: categoria + precio_por_kg
     grupos.sort(key=lambda g: (
