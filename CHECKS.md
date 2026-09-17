@@ -20,9 +20,10 @@ Las métricas de cada build exitoso se guardan en `data/build_stats.json`.
 | 7b| €/kg < 10% de la mediana (valor absurdo hacia abajo) — en `build.py` | <10% mediana |
 | 7c| Bajada de precio >40% de golpe respecto al build anterior — en `build.py` | >40% bajada |
 | 8 | >10% de IDs del catálogo desaparecen entre builds (posible cambio de formato) | >10% del catálogo |
+| 9 | URL de `/comparar/` con clics en GSC no tiene página ni redirección | cualquier caso nuevo |
 
 Los checks 5, 7b y 7c están implementados directamente en `build.py`.
-Los checks 1–4, 6, 7 y 8 están en `checks.py`.
+Los checks 1–4, 6, 7, 8 y 9 están en `checks.py`.
 
 ---
 
@@ -176,6 +177,22 @@ Guardado al final de cada build que pasa todos los checks. Estructura:
 
 Si necesitas comparar manualmente con el estado anterior, `git log data/build_stats.json`
 muestra el historial de builds.
+
+---
+
+### CHECK 9 — URL con clics en GSC sin cobertura
+
+**Aparece cuando**: `gsc_paginas.csv` contiene una URL de `/comparar/` con al menos 1 clic
+que no existe en `docs/` ni tiene una entrada en `data/redirecciones.json`.
+
+**Condición de omisión**: si `gsc_paginas.csv` no existe en la raíz del repo, el check se salta.
+El fichero no se versiona (está en `.gitignore` como `gsc_*.csv`) — descárgalo de Search Console
+y colócalo en la raíz del repo cuando hagas un scrape de datos de GSC.
+
+**Solución**:
+1. Si el par equivalente existe con productos actuales → añade la redirección en `data/redirecciones.json`.
+2. Si los productos ya no están en el catálogo (ej. marca que dejó de scrapear) → añade la URL
+   a `data/gsc_404_conocidas.json` con el campo `motivo`, para que el check no vuelva a saltarla.
 
 ---
 

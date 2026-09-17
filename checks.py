@@ -16,6 +16,7 @@ Checks implementados:
   6. Desconocida: 'desconocida' no aparece en texto visible; campos críticos no vacíos.
   7. €/kg alto: ningún producto supera 10× la mediana de su categoría.
   8. IDs: aviso si >5% de IDs anteriores desaparece; error si >10%.
+  9. GSC cobertura: URLs con clics en gsc_paginas.csv que no tienen página ni redirección.
 
 Check 5 (IDs de comparaciones.json existen en products.json) → build.py::generar_pares_comparacion.
 Check 7 bajada >40% inter-build → build.py::verificar_anomalias_precio.
@@ -31,9 +32,11 @@ from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
-STATS_FILE  = "data/build_stats.json"
-REDIR_FILE  = "data/redirecciones.json"
-DOCS_DIR    = "docs"
+STATS_FILE       = "data/build_stats.json"
+REDIR_FILE       = "data/redirecciones.json"
+GSC_CSV          = "gsc_paginas.csv"
+GSC_404_FILE     = "data/gsc_404_conocidas.json"
+DOCS_DIR         = "docs"
 
 # Umbrales
 UMBRAL_TIENDA_DROP = 0.30   # bajada de productos por tienda que dispara error
@@ -375,6 +378,86 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
 
 # ── Check 8: Cambio masivo de IDs ────────────────────────────────────────────
 
+def _check_gsc_cobertura(docs_dir: str) -> list[str]:
+    """
+    Check 9: URLs de /comparar/ con clics en gsc_paginas.csv que no tienen
+    página real ni redirección configurada.
+
+    Las 404 intencionadas (productos que ya no existen) están listadas en
+    data/gsc_404_conocidas.json y se excluyen del check.
+
+    Si gsc_paginas.csv no existe, el check se omite (no bloquea el build).
+    """
+    if not os.path.exists(GSC_CSV):
+        return []
+
+    import csv
+
+    with open(GSC_CSV, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        gsc_rows = list(reader)
+
+    if not gsc_rows:
+        return []
+
+    col_url = list(gsc_rows[0].keys())[0]
+
+    # Rutas cubiertas: páginas reales en docs/
+    docs_comparar: set[str] = set()
+    comparar_dir = os.path.join(docs_dir, "comparar")
+    if os.path.isdir(comparar_dir):
+        for d in os.listdir(comparar_dir):
+            if os.path.isdir(os.path.join(comparar_dir, d)):
+                docs_comparar.add("/comparar/" + d + "/")
+
+    # Rutas cubiertas: redirecciones configuradas
+    redir_desde: set[str] = set()
+    if os.path.exists(REDIR_FILE):
+        with open(REDIR_FILE, encoding="utf-8") as f:
+            for r in json.load(f):
+                d = r["desde"]
+                if not d.startswith("/"):
+                    d = "/" + d
+                redir_desde.add(d)
+
+    # 404s intencionadas (productos sin sustituto en catálogo)
+    conocidas: set[str] = set()
+    if os.path.exists(GSC_404_FILE):
+        with open(GSC_404_FILE, encoding="utf-8") as f:
+            for entry in json.load(f):
+                conocidas.add(entry["url"])
+
+    sin_cobertura = []
+    for row in gsc_rows:
+        url = row[col_url]
+        path = url.replace("https://stackfit.es", "")
+        if not path.startswith("/comparar/") or path == "/comparar/":
+            continue
+        clics = int(row.get("Clics", "0") or 0)
+        if clics <= 0:
+            continue
+        if path in docs_comparar or path in redir_desde or path in conocidas:
+            continue
+        sin_cobertura.append((path, clics))
+
+    if not sin_cobertura:
+        return []
+
+    sin_cobertura.sort(key=lambda x: -x[1])
+    lineas = [
+        f"[CHECK 9] {len(sin_cobertura)} URL(s) con clics en GSC sin página ni redirección:\n"
+    ]
+    for path, clics in sin_cobertura[:20]:
+        lineas.append(f"  {clics}c  {path}")
+    if len(sin_cobertura) > 20:
+        lineas.append(f"  ... y {len(sin_cobertura) - 20} más")
+    lineas.append(
+        "\nSolución: añadir redirección en data/redirecciones.json o "
+        "registrar como 404 conocida en data/gsc_404_conocidas.json."
+    )
+    return ["\n".join(lineas)]
+
+
 def _check_ids(ids_act: set[str], ids_ant: set[str]) -> list[str]:
     """
     Si >10% de los IDs anteriores desaparecen de golpe, es probable que
@@ -459,6 +542,7 @@ def run_all_checks(
     errores += _check_desconocido(docs_dir, productos_web)
     errores += _check_precio_rango(productos_web)
     errores += _check_ids(ids_act, set(stats_ant.get("ids", [])))
+    errores += _check_gsc_cobertura(docs_dir)
 
     # ── Reportar ──────────────────────────────────────────────────────────
     if errores:
