@@ -32,6 +32,7 @@ from datetime import datetime
 from itertools import combinations
 from jinja2 import Environment, FileSystemLoader
 from build_additions import compute_spark_data, build_ticker_items
+from checks import run_all_checks
 
 # Forzar UTF-8 en stdout (necesario en Windows con cp1252)
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
@@ -2013,6 +2014,15 @@ if __name__ == "__main__":
     generar_sitemap(last_updated, compare_slugs=compare_slugs)
     generar_robots()
     generar_nojekyll()
+
+    # 7. Checks post-build (redirecciones, links, tiendas, métricas, etc.)
+    print("\n🔍 Ejecutando checks post-build...")
+    run_all_checks(
+        productos_web,
+        n_comparaciones=len(compare_slugs),
+        grupos_multitienda=grupos_mt,
+        docs_dir=DOCS_DIR,
+    )
 
     duracion = (datetime.now() - inicio).total_seconds()
     total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1 + len(compare_slugs)  # +1 for /test/
