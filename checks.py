@@ -18,7 +18,8 @@ Checks implementados:
   8. IDs: aviso si >5% de IDs anteriores desaparece; error si >10%.
 
 Check 5 (IDs de comparaciones.json existen en products.json) → build.py::generar_pares_comparacion.
-Check 7 €/kg bajo (<10% mediana) y bajada >40% inter-build → build.py::verificar_anomalias_precio.
+Check 7 bajada >40% inter-build → build.py::verificar_anomalias_precio.
+  El rango de €/kg (alto y bajo) está ahora en checks.py::_check_precio_rango.
 """
 
 import json
@@ -297,13 +298,28 @@ def _check_desconocido(docs_dir: str, productos_web: list[dict]) -> list[str]:
     return errores
 
 
-# ── Check 7 addendum: €/kg anormalmente alto ─────────────────────────────────
+# ── Check 7: €/kg fuera de rango de categoría (alto y bajo) ─────────────────
 
-def _check_precio_alto(productos_web: list[dict]) -> list[str]:
+UMBRAL_KG_BAJO = 0.20   # €/kg < 20% de la mediana → anómalo por abajo
+                        # Calibrado: mass gainer legítimo llega al 21-22%;
+                        # bug HSN-"desde" produce 11% (Evobasic a 5,54 €/kg).
+
+
+def _check_precio_rango(productos_web: list[dict]) -> list[str]:
     """
-    Complementa verificar_anomalias_precio (que cubre €/kg bajo).
-    Flag si €/kg > 10× la mediana de categoría (umbral configurable arriba).
-    Excluye monodosis (<100 g) que pueden tener €/kg legítimamente altos.
+    Detecta €/kg fuera del rango razonable de la categoría.
+
+    Por arriba (nuevo en checks.py):
+      €/kg > UMBRAL_KG_ALTO × mediana → suele indicar peso extraído mal
+      (p.ej. 50g en vez de 500g) o precio en céntimos.
+
+    Por abajo (complementa Regla 1 de build.py):
+      €/kg < UMBRAL_KG_BAJO × mediana → suele indicar precio "desde" incorrecto
+      o página de un formato más pequeño usado como precio del grande.
+      Umbral al 20%: deja pasar gainers/cremas de arroz (21-22%) y coge
+      bugs del tipo Evobasic a 5,54 €/kg (11%).
+
+    Excluye monodosis (<100 g) donde €/kg es legítimamente muy alto.
     """
     errores = []
 
@@ -320,22 +336,31 @@ def _check_precio_alto(productos_web: list[dict]) -> list[str]:
             medianas[cat] = statistics.median(vals)
 
     for p in productos_web:
-        cat    = p.get("categoria", "?")
-        nombre = p.get("nombre_normalizado", p.get("id", "?"))
-        kg     = p.get("precio_por_kg_min")
-        peso   = p.get("peso_kg")
+        cat     = p.get("categoria", "?")
+        nombre  = p.get("nombre_normalizado", p.get("id", "?"))
+        kg      = p.get("precio_por_kg_min")
+        peso    = p.get("peso_kg")
         mediana = medianas.get(cat)
         if not (kg and peso and mediana):
             continue
         if float(peso) < 0.1:
             continue
         kg_f = float(kg)
+
         if kg_f > mediana * UMBRAL_KG_ALTO:
             errores.append(
                 f"[CHECK 7] €/kg anormalmente ALTO: [{cat}] {nombre}\n"
                 f"  precio_por_kg={kg_f:.2f} €/kg  mediana_cat={mediana:.2f} €/kg  "
-                f"ratio={kg_f / mediana:.1f}× (umbral {UMBRAL_KG_ALTO:.0f}×)\n"
+                f"ratio={kg_f / mediana:.1f}x (umbral {UMBRAL_KG_ALTO:.0f}x)\n"
                 f"  Acción: verifica el precio y el peso en el scraper de origen."
+            )
+        elif kg_f < mediana * UMBRAL_KG_BAJO:
+            errores.append(
+                f"[CHECK 7] €/kg anormalmente BAJO: [{cat}] {nombre}\n"
+                f"  precio_por_kg={kg_f:.2f} €/kg  mediana_cat={mediana:.2f} €/kg  "
+                f"ratio={kg_f / mediana:.0%} de la mediana (umbral {UMBRAL_KG_BAJO:.0%})\n"
+                f"  Acción: revisa que el scraper coja el precio del formato correcto, "
+                f"no el 'desde' del bote más pequeño."
             )
 
     return errores
@@ -425,7 +450,7 @@ def run_all_checks(
     errores += _check_por_tienda(por_tienda, stats_ant.get("por_tienda", {}))
     errores += _check_metricas(stats_act, stats_ant)
     errores += _check_desconocido(docs_dir, productos_web)
-    errores += _check_precio_alto(productos_web)
+    errores += _check_precio_rango(productos_web)
     errores += _check_ids(ids_act, set(stats_ant.get("ids", [])))
 
     # ── Reportar ──────────────────────────────────────────────────────────

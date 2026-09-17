@@ -37,13 +37,20 @@
 {% endblock %}
 
 {% block content %}
+
+{% if datos_obsoletos %}
+<div style="background:#1e1e10;color:#999;font-size:0.74rem;text-align:center;padding:7px 16px;letter-spacing:0.02em;">
+  Precios actualizados por última vez el {{ fecha_datos_larga }}
+</div>
+{% endif %}
+
 <div class="container">
 
   <!-- ── Hero ─────────────────────────────────────────── -->
   <section style="padding:48px 0 36px;">
     <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:var(--radius-pill);padding:5px 16px;margin-bottom:24px;font-size:0.76rem;color:#aaa;">
       <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite;flex-shrink:0;"></span>
-      Precios actualizados · {{ last_updated }}
+      Precios actualizados el {{ fecha_datos }}
     </div>
     <h1 style="font-size:clamp(2rem,5vw,3.2rem);font-weight:900;text-transform:uppercase;letter-spacing:-1px;line-height:1.02;color:#fff;margin-bottom:16px;">
       EL MEJOR PRECIO<br>EN <em style="color:var(--accent);font-style:normal;">SUPLEMENTOS</em><br>FITNESS EN ESPAÑA

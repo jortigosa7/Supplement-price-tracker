@@ -762,11 +762,21 @@ def setup_jinja():
 
 def contexto_base(last_updated: str) -> dict:
     """Contexto común a todas las páginas."""
+    from datetime import date as _date
+    try:
+        lu = datetime.strptime(last_updated, "%Y-%m-%d").date()
+        dias = (_date.today() - lu).days
+    except Exception:
+        dias = 0
     return {
-        "site_url":    SITE_URL,
-        "site_name":   SITE_NAME,
-        "last_updated": last_updated,
-        "active_slug": None,
+        "site_url":         SITE_URL,
+        "site_name":        SITE_NAME,
+        "last_updated":     last_updated,
+        "fecha_datos":      _fecha_corta_es(last_updated),       # "14 sep"
+        "fecha_datos_larga": _fecha_larga_es(last_updated),      # "14 de septiembre"
+        "dias_desde_datos": dias,
+        "datos_obsoletos":  dias > 10,
+        "active_slug":      None,
     }
 
 
@@ -915,6 +925,32 @@ def _mes_anio_es(fecha_iso: str) -> str:
     try:
         partes = fecha_iso.split("-")
         return f"{MESES_ES[int(partes[1]) - 1]} {partes[0]}"
+    except Exception:
+        return fecha_iso
+
+
+MESES_ES_CORTOS = ["ene", "feb", "mar", "abr", "may", "jun",
+                   "jul", "ago", "sep", "oct", "nov", "dic"]
+
+
+def _fecha_corta_es(fecha_iso: str) -> str:
+    """'2026-09-14' → '14 sep'."""
+    try:
+        partes = fecha_iso.split("-")
+        dia = int(partes[2])
+        mes = MESES_ES_CORTOS[int(partes[1]) - 1]
+        return f"{dia} {mes}"
+    except Exception:
+        return fecha_iso
+
+
+def _fecha_larga_es(fecha_iso: str) -> str:
+    """'2026-09-04' → '4 de septiembre'."""
+    try:
+        partes = fecha_iso.split("-")
+        dia = int(partes[2])
+        mes = MESES_ES[int(partes[1]) - 1]
+        return f"{dia} de {mes}"
     except Exception:
         return fecha_iso
 
@@ -1700,10 +1736,10 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> None:
 
     Regla 1 — €/kg confirmado anormalmente bajo:
       Para productos con precio_por_kg_min válido y peso_kg >= 0.1 kg (excluye
-      monodosis/sobres), si €/kg < 10% de la mediana de su categoría.
-      Los productos legítimamente baratos (arroz, bicarbonato) tienen €/kg
-      bien por encima del 10% de mediana; solo un bug llevaría a un whey
-      proteico a 5€/kg cuando la mediana es 50€/kg.
+      monodosis/sobres), si €/kg < 20% de la mediana de su categoría.
+      Umbral calibrado contra el catálogo actual: el producto más barato
+      legítimo (mass gainer / crema de arroz) llega al 21-22% de la mediana;
+      el bug HSN-"desde" produce valores del 11% (Evobasic a 5,54 €/kg).
 
     Regla 2 — Bajada de precio brusca >40% respecto al build anterior:
       Solo las BAJADAS (no subidas, que son cambios de mercado legítimos).
@@ -1768,10 +1804,13 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> None:
         precio_min = p.get("precio_min")
 
         # Regla 1: €/kg confirmado anormalmente bajo (excluir monodosis <100g)
+        # Umbral: 20% de la mediana de categoría. Calibrado para coger bugs del tipo
+        # HSN-"desde" (Evobasic a 5.54 €/kg cuando la mediana es 50 €/kg = 11%)
+        # sin pillar gainers y cremas de arroz que llegan al 21-22%.
         kg_confirmado = p.get("precio_por_kg_min")
         if kg_confirmado and peso_f and peso_f >= 0.1 and mediana:
             kg_f = float(kg_confirmado)
-            if kg_f < mediana * 0.10:
+            if kg_f < mediana * 0.20:
                 anomalias.append(
                     f"  €/kg CONFIRMADO MUY BAJO: [{cat}] {nombre}\n"
                     f"    €/kg={kg_f:.2f}  mediana_cat={mediana:.2f}  ratio={kg_f/mediana:.2f}x"
