@@ -55,7 +55,7 @@ TEMPLATES_DIR = "templates"
 CATEGORIA_CONFIG = {
     "Proteínas Whey": {
         "slug":     "proteina-whey",
-        "display":  "Proteína Whey",
+        "display":  "Proteínas",
         "icono":    "🥛",
         "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12l-1.5 4H7.5L6 4z"/><path d="M7.5 8c0 0-.5 2-.5 5s.5 5 .5 5h9s.5-2 .5-5-.5-5-.5-5"/><path d="M9 13h6"/></svg>',
         "seo_title": "Mejor Precio Proteína Whey España 2026",
@@ -492,6 +492,7 @@ _ENRICHMENT_FIELDS = [
     "protein_per_serving_g", "serving_size_g", "servings_per_container",
     "sweetener_free", "vegan", "flavors_available",
     "store_rating", "store_rating_count", "store_rating_url",
+    "protein_subtype",  # whey | caseína | vegetal | huevo | secuencial | carne
 ]
 
 
@@ -593,6 +594,8 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "store_rating":             _first_enrich(g["precios"], "store_rating"),
             "store_rating_count":       _first_enrich(g["precios"], "store_rating_count"),
             "store_rating_url":         _first_enrich(g["precios"], "store_rating_url"),
+            # Subtipo de proteína: viene del scraper HSN; null para otras categorías
+            "protein_subtype":          _first_enrich(g["precios"], "protein_subtype"),
         })
 
     # Ordenar por categoria slug + precio_por_kg
@@ -621,7 +624,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
     return productos_web
 
 
-def guardar_products_json(productos_web: list[dict]):
+def guardar_products_json(productos_web: list[dict], grupos_multitienda: int | None = None):
     """Guarda data/products.json."""
     os.makedirs(DATA_DIR, exist_ok=True)
     path = os.path.join(DATA_DIR, "products.json")
@@ -630,6 +633,7 @@ def guardar_products_json(productos_web: list[dict]):
         "last_updated": datetime.now().strftime("%Y-%m-%d"),
         "site": SITE_NAME,
         "total": len(productos_web),
+        "grupos_multitienda": grupos_multitienda,
         "products": productos_web,
     }
 
@@ -638,6 +642,40 @@ def guardar_products_json(productos_web: list[dict]):
 
     print(f"💾 Guardado: {path} ({len(productos_web)} productos)")
     return path
+
+
+def verificar_grupos_multitienda(productos_web: list[dict]) -> int:
+    """
+    Comprueba que el número de grupos con precios en más de una tienda no haya
+    caído más de un 40% respecto al build anterior. Si cae, el build falla.
+    Devuelve el count actual para guardarlo en products.json.
+    """
+    actual = sum(1 for p in productos_web if len(p.get("precios", [])) > 1)
+
+    # Leer el count anterior desde products.json (antes de sobreescribirlo)
+    products_path = os.path.join(DATA_DIR, "products.json")
+    anterior = None
+    if os.path.exists(products_path):
+        with open(products_path, encoding="utf-8") as f:
+            data = json.load(f)
+        anterior = data.get("grupos_multitienda")
+
+    if anterior is not None:
+        umbral = max(1, int(anterior * 0.60))
+        if actual < umbral:
+            caida = round((1 - actual / anterior) * 100) if anterior > 0 else 0
+            print(f"\n{'='*60}")
+            print(f"CAIDA DE GRUPOS MULTI-TIENDA — build abortado")
+            print(f"{'='*60}")
+            print(f"  Anterior: {anterior}  Actual: {actual}  Caída: {caida}%")
+            print("  El matching cross-tienda puede estar roto.")
+            print(f"{'='*60}")
+            sys.exit(1)
+        print(f"Grupos multi-tienda: {actual} (anterior: {anterior})")
+    else:
+        print(f"Grupos multi-tienda: {actual} (primera ejecución — sin referencia anterior)")
+
+    return actual
 
 
 def guardar_price_history(productos_web: list[dict]):
@@ -664,9 +702,28 @@ def guardar_price_history(productos_web: list[dict]):
     }
 
     nuevas = 0
+    purgadas = 0
     for producto in productos_web:
         producto_id = producto["id"]
         for precio_info in producto.get("precios", []):
+            if precio_info.get("_precio_sin_confirmar", False):
+                # Precio de lista (formato desconocido) → no añadir al historial.
+                # Además purgar entradas anteriores de esta tienda/producto para no
+                # contaminar el sparkline con precios de un formato incorrecto.
+                antes = len(historial)
+                historial = [
+                    e for e in historial
+                    if not (e["producto_id"] == producto_id
+                            and e["tienda"] == precio_info["tienda"])
+                ]
+                purgadas += antes - len(historial)
+                # Reconstruir índice tras la purga
+                existentes = {
+                    (e["producto_id"], e["fecha"], e["tienda"])
+                    for e in historial
+                }
+                continue
+
             clave = (producto_id, precio_info["fecha"], precio_info["tienda"])
             if clave not in existentes:
                 historial.append({
@@ -681,7 +738,11 @@ def guardar_price_history(productos_web: list[dict]):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(historial, f, ensure_ascii=False, indent=2)
 
-    print(f"📈 Historial: {path} ({nuevas} entradas nuevas, {len(historial)} total)")
+    msg = f"Historial: {path} ({nuevas} entradas nuevas"
+    if purgadas:
+        msg += f", {purgadas} entradas purgadas por precio no confirmado"
+    msg += f", {len(historial)} total)"
+    print(msg)
     return path
 
 
@@ -1632,6 +1693,157 @@ def generar_nojekyll():
     print(f"✅ Generado: {path}")
 
 
+def verificar_anomalias_precio(productos_web: list[dict]) -> None:
+    """
+    Detecta precios que no tienen sentido antes de publicar el build.
+
+    Regla 1 — €/kg confirmado anormalmente bajo:
+      Para productos con precio_por_kg_min válido y peso_kg >= 0.1 kg (excluye
+      monodosis/sobres), si €/kg < 10% de la mediana de su categoría.
+      Los productos legítimamente baratos (arroz, bicarbonato) tienen €/kg
+      bien por encima del 10% de mediana; solo un bug llevaría a un whey
+      proteico a 5€/kg cuando la mediana es 50€/kg.
+
+    Regla 2 — Bajada de precio brusca >40% respecto al build anterior:
+      Solo las BAJADAS (no subidas, que son cambios de mercado legítimos).
+      Compara precio_eur actual con el último precio histórico de la misma
+      tienda para ese producto. El bug HSN-"desde" produce exactamente esto:
+      si el scraper antes devolvía el precio confirmado del formato 2kg (~40€)
+      y ahora devuelve el "desde" del 500g (~20€), hay una bajada del 50%.
+
+    Regla 3 — Mínimo histórico (spark_min) anómalo:
+      Si spark_min existe y hay precio confirmado actual: flag si spark_min
+      < 40% del precio actual (el histórico no puede ser 60% más barato que
+      el precio confirmado de hoy sin que sea un bug).
+      Si no hay precio confirmado pero sí mediana de categoría: flag si
+      spark_min < 25% de la mediana (umbral conservador para productos sin
+      precio confirmado — captura el bug HSN-"desde" si llega al historial).
+
+    Si se detecta alguna anomalía el build falla con sys.exit(1).
+    """
+    import statistics
+
+    # Cargar historial para la comprobación de cambio inter-build
+    history_path = os.path.join(DATA_DIR, "price_history.json")
+    historial_raw: list[dict] = []
+    if os.path.exists(history_path):
+        with open(history_path, encoding="utf-8") as f:
+            historial_raw = json.load(f)
+
+    # Indexar historial: producto_id → [(fecha, tienda, precio), ...] ordenado por fecha
+    from collections import defaultdict
+    hist_by_id: dict[str, list[tuple]] = defaultdict(list)
+    for e in historial_raw:
+        pid = e.get("producto_id", "")
+        fecha = e.get("fecha", "")
+        tienda = e.get("tienda", "")
+        precio = e.get("precio")
+        if pid and fecha and precio is not None:
+            hist_by_id[pid].append((fecha, tienda, float(precio)))
+    for pid in hist_by_id:
+        hist_by_id[pid].sort(key=lambda x: x[0])
+
+    # Mediana de €/kg por categoría (solo productos con valor confirmado y peso >= 0.1 kg)
+    kg_por_cat: dict[str, list[float]] = defaultdict(list)
+    for p in productos_web:
+        kg = p.get("precio_por_kg_min")
+        peso = p.get("peso_kg")
+        if kg and float(kg) > 0 and peso and float(peso) >= 0.1:
+            kg_por_cat[p.get("categoria", "?")].append(float(kg))
+
+    medianas: dict[str, float] = {}
+    for cat, vals in kg_por_cat.items():
+        if vals:
+            medianas[cat] = statistics.median(vals)
+
+    anomalias: list[str] = []
+
+    for p in productos_web:
+        cat    = p.get("categoria", "?")
+        nombre = p.get("nombre_normalizado", p.get("id", "?"))
+        mediana = medianas.get(cat)
+        peso = p.get("peso_kg")
+        peso_f = float(peso) if peso else None
+        precio_min = p.get("precio_min")
+
+        # Regla 1: €/kg confirmado anormalmente bajo (excluir monodosis <100g)
+        kg_confirmado = p.get("precio_por_kg_min")
+        if kg_confirmado and peso_f and peso_f >= 0.1 and mediana:
+            kg_f = float(kg_confirmado)
+            if kg_f < mediana * 0.10:
+                anomalias.append(
+                    f"  €/kg CONFIRMADO MUY BAJO: [{cat}] {nombre}\n"
+                    f"    €/kg={kg_f:.2f}  mediana_cat={mediana:.2f}  ratio={kg_f/mediana:.2f}x"
+                )
+
+        # Regla 3: mínimo histórico (spark_min) inconsistente con precio actual
+        spark_min = p.get("spark_min")
+        if spark_min is not None:
+            spark_f = float(spark_min)
+            if kg_confirmado:
+                # 3a: spark_min > 60% más bajo que precio actual confirmado
+                if spark_f < float(kg_confirmado) * 0.40:
+                    anomalias.append(
+                        f"  SPARK_MIN BAJO vs PRECIO ACTUAL: [{cat}] {nombre}\n"
+                        f"    spark_min={spark_f:.2f}  precio_por_kg={float(kg_confirmado):.2f}"
+                        f"  ratio={spark_f/float(kg_confirmado):.2f}x"
+                    )
+            elif peso_f and peso_f >= 0.1 and mediana:
+                # 3b: sin precio confirmado, spark por debajo del 25% de mediana
+                if spark_f < mediana * 0.25:
+                    anomalias.append(
+                        f"  SPARK_MIN FUERA DE RANGO (sin precio confirmado): [{cat}] {nombre}\n"
+                        f"    spark_min={spark_f:.2f}  mediana_cat={mediana:.2f}"
+                        f"  ratio={spark_f/mediana:.2f}x"
+                    )
+
+        # Regla 2: bajada brusca >40% respecto al build anterior (solo bajadas)
+        pid = p.get("id", "")
+        if not peso_f or peso_f <= 0:
+            continue
+
+        entries = hist_by_id.get(pid, [])
+        for pr_info in p.get("precios", []):
+            tienda = pr_info.get("tienda", "")
+            precio_actual = pr_info.get("precio_eur")
+            if not precio_actual:
+                continue
+            fecha_actual = pr_info.get("fecha", "")
+            previos = [
+                (f, t, pr) for f, t, pr in entries
+                if t == tienda and f < fecha_actual
+            ]
+            if not previos:
+                continue
+            _, _, precio_prev = previos[-1]
+            if precio_prev <= 0:
+                continue
+            bajada = (precio_prev - float(precio_actual)) / precio_prev
+            if bajada > 0.40:
+                kg_actual = float(precio_actual) / peso_f
+                kg_prev   = precio_prev / peso_f
+                anomalias.append(
+                    f"  BAJADA BRUSCA >40%: [{cat}] {nombre} ({tienda})\n"
+                    f"    precio anterior={precio_prev:.2f}  actual={precio_actual:.2f}"
+                    f"  => €/kg anterior={kg_prev:.2f}  actual={kg_actual:.2f}"
+                    f"  bajada={bajada*100:.0f}%"
+                )
+
+    if anomalias:
+        print("\n" + "=" * 60)
+        print("ANOMALIAS DE PRECIO DETECTADAS — build abortado")
+        print("=" * 60)
+        for msg in anomalias:
+            print(msg)
+        print("\nRevisa los productos anteriores antes de publicar.")
+        print("Si los precios son correctos, actualiza el umbral o corrige")
+        print("el scraper que genera el precio erroneo.")
+        print("=" * 60)
+        sys.exit(1)
+
+    print("Precios verificados: sin anomalias detectadas.")
+
+
 def limpiar_comparar_dir():
     """
     Borra todo el contenido de docs/comparar/ antes de regenerar.
@@ -1730,8 +1942,16 @@ if __name__ == "__main__":
     # del sparkline refleje los precios de hoy y no los del scraping anterior
     guardar_price_history(productos_web)
 
+    # Limpiar flag interno (_precio_sin_confirmar) ahora que el historial ya lo usó
+    for _p in productos_web:
+        for _pr in _p.get("precios", []):
+            _pr.pop("_precio_sin_confirmar", None)
+
     productos_web = compute_spark_data(productos_web)
     ticker_items  = build_ticker_items(productos_web)
+
+    verificar_anomalias_precio(productos_web)
+    grupos_mt = verificar_grupos_multitienda(productos_web)
 
     # Stats por categoría
     for cfg in CATEGORIA_CONFIG.values():
@@ -1740,7 +1960,7 @@ if __name__ == "__main__":
 
     # 3. Guardar products.json
     print()
-    guardar_products_json(productos_web)
+    guardar_products_json(productos_web, grupos_multitienda=grupos_mt)
 
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")

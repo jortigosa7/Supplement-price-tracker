@@ -33,11 +33,31 @@ BASE_URL = "https://www.hsnstore.com"
 DELAY    = 2  # segundos entre peticiones
 
 CATEGORIAS = [
-    {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/nutricion-deportiva/proteinas/whey"},
+    # Proteínas — todas van a la misma categoría "Proteinas Whey" para que el
+    # matching cross-tienda funcione. El subtipo se guarda en protein_subtype.
+    {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/nutricion-deportiva/proteinas/whey",               "protein_subtype": "whey"},
+    {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/nutricion-deportiva/proteinas/caseina",             "protein_subtype": "caseína"},
+    {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/nutricion-deportiva/proteinas/vegetales",           "protein_subtype": "vegetal"},
+    {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/nutricion-deportiva/proteinas/albumina-de-huevo",   "protein_subtype": "huevo"},
+    {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/nutricion-deportiva/proteinas/liberacion-secuencial", "protein_subtype": "secuencial"},
+    {"nombre": "Proteinas Whey", "url": f"{BASE_URL}/nutricion-deportiva/proteinas/carne",               "protein_subtype": "carne"},
+    # Otras categorías
     {"nombre": "Creatina",       "url": f"{BASE_URL}/nutricion-deportiva/creatina"},
     {"nombre": "BCAA",           "url": f"{BASE_URL}/nutricion-deportiva/aminoacidos/bcaa-s-ramificados"},
     {"nombre": "Pre-Entreno",    "url": f"{BASE_URL}/nutricion-deportiva/pre-entrenamiento"},
 ]
+
+
+# Productos a excluir aunque aparezcan en las URLs de categoría.
+# Criterio: no son proteínas en polvo para batidos (errores de categorización HSN).
+NOMBRES_EXCLUIR = {
+    "crema de arroz proteica",  # aparece en caseína pero es un carbohidrato
+}
+
+
+def _excluido(nombre: str) -> bool:
+    n = nombre.lower().strip()
+    return any(excl in n for excl in NOMBRES_EXCLUIR)
 
 
 # ── helpers ──────────────────────────────────────────────────────────────────
@@ -276,6 +296,8 @@ def scrape(debug: bool = False) -> list[dict]:
                 url_prod = link.get("href", "")
                 if not nombre or not url_prod:
                     continue
+                if _excluido(nombre):
+                    continue
 
                 # Precio: HSN muestra precio especial en span.special-price .price
                 precio_el = (
@@ -295,11 +317,12 @@ def scrape(debug: bool = False) -> list[dict]:
                         imagen_url = src
 
                 productos_raw.append({
-                    "nombre":     nombre,
-                    "precio":     precio,
-                    "categoria":  cat["nombre"],
-                    "url":        url_prod,
-                    "imagen_url": imagen_url,
+                    "nombre":          nombre,
+                    "precio":          precio,
+                    "categoria":       cat["nombre"],
+                    "url":             url_prod,
+                    "imagen_url":      imagen_url,
+                    "protein_subtype": cat.get("protein_subtype"),
                 })
                 nuevos += 1
 
@@ -359,6 +382,10 @@ def scrape(debug: bool = False) -> list[dict]:
             d.get("imagen_url"),
         )
         prod.update(enrichment)
+
+        # Subtipo de proteína (solo para categorías de proteínas de HSN)
+        if d.get("protein_subtype"):
+            prod["protein_subtype"] = d["protein_subtype"]
 
         # Si el peso se conoce pero el precio no está confirmado para ese formato,
         # marcar para que matching.py no calcule €/kg con precio/peso inconsistentes.

@@ -173,7 +173,7 @@
         {% endif %}
         <div class="pc-stores">
           {% for pr in p.precios | sort(attribute='precio_eur') %}
-          <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored">
+          <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
             <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
             <span class="pc-store-name">{{ pr.tienda }}</span>
             <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
@@ -182,7 +182,7 @@
           {% endfor %}
         </div>
         <div class="pc-actions">
-          <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Comprar al mejor precio →</a>
+          <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
           <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn">Ver categoría</a>
         </div>
       </div>
@@ -296,7 +296,7 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
     const stores = p.tiendas.map(pr => {
       const color  = STORE_COLORS[pr.tienda] || 'var(--amazon)';
       const oferta = pr.oferta ? '<span class="pc-store-sale">OFERTA</span>' : '';
-      return `<a href="${esc(pr.url)}" class="pc-store" target="_blank" rel="nofollow sponsored">
+      return `<a href="${esc(pr.url)}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
         <span class="pc-store-dot" style="background:${color};"></span>
         <span class="pc-store-name">${esc(pr.tienda)}</span>
         <span class="pc-store-price">${pr.precio.toFixed(2)} €</span>${oferta}
@@ -315,7 +315,7 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
       <div class="pc-stores">${stores}</div>
       <div class="pc-actions">
         <a href="${esc(siteUrl)}/${esc(p.cat)}/" class="pc-btn pc-btn-primary">Ver en categoría ↗</a>
-        <a href="${esc(offer.url)}" class="pc-btn" target="_blank" rel="nofollow sponsored">Ir a la tienda →</a>
+        <a href="${esc(offer.url)}" class="pc-btn" target="_blank" rel="nofollow sponsored noopener">Ir a la tienda →</a>
       </div>
     </div>`;
   }

@@ -6,11 +6,6 @@
       "fuente": "GSC-252c"
     },
     {
-      "id_a": "creatine-monohydrate-creapure-200g-vitobest",
-      "id_b": "evocreatine-500g-desconocida",
-      "fuente": "GSC-28c"
-    },
-    {
       "id_a": "evobasic-whey-2kg-desconocida",
       "id_b": "evowhey-protein-sin-edulcorantes-2kg-desconocida",
       "fuente": "GSC-19c"
@@ -28,11 +23,6 @@
     {
       "id_a": "evohydro-2-0-hydro-whey-2kg-desconocida",
       "id_b": "evowhey-protein-2kg-desconocida",
-      "fuente": "GSC-11c"
-    },
-    {
-      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
-      "id_b": "creatine-monohydrate-creapure-200g-vitobest",
       "fuente": "GSC-11c"
     },
     {
@@ -66,11 +56,6 @@
       "fuente": "GSC-5c"
     },
     {
-      "id_a": "creatina-creapure-400g-amazin-foods",
-      "id_b": "evocreatine-500g-desconocida",
-      "fuente": "GSC-5c"
-    },
-    {
       "id_a": "evobasic-whey-2kg-desconocida",
       "id_b": "golden-protein-2kg-desconocida",
       "fuente": "GSC-4c"
@@ -83,11 +68,6 @@
     {
       "id_a": "100-whey-protein-concentrate-2kg-desconocida",
       "id_b": "evowhey-protein-2kg-desconocida",
-      "fuente": "GSC-4c"
-    },
-    {
-      "id_a": "iso-whey-zero-450g-biotechusa",
-      "id_b": "iso-whey-zero-black-908g-biotechusa",
       "fuente": "GSC-4c"
     },
     {
@@ -126,11 +106,6 @@
       "fuente": "GSC-2c"
     },
     {
-      "id_a": "creatina-celular-800g-creatina-monohidrato-creapure",
-      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
-      "fuente": "GSC-2c"
-    },
-    {
       "id_a": "evolate-2-0-whey-isolate-cfm-2kg-desconocida",
       "id_b": "evowhey-protein-sin-edulcorantes-2kg-desconocida",
       "fuente": "GSC-1c-562i"
@@ -146,11 +121,6 @@
       "fuente": "GSC-1c-360i"
     },
     {
-      "id_a": "creatina-creapure-400g-amazin-foods",
-      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
-      "fuente": "GSC-1c-327i"
-    },
-    {
       "id_a": "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-2kg-desconocida",
       "id_b": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-desconocida",
       "fuente": "GSC-1c-299i"
@@ -159,11 +129,6 @@
       "id_a": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-desconocida",
       "id_b": "evolate-2-0-whey-isolate-cfm-2kg-desconocida",
       "fuente": "GSC-1c-258i"
-    },
-    {
-      "id_a": "100-creatina-monohidrato-500g-quamtrax",
-      "id_b": "creatina-creapure-400g-amazin-foods",
-      "fuente": "GSC-1c-236i"
     },
     {
       "id_a": "100-whey-protein-concentrate-2kg-desconocida",
@@ -221,24 +186,9 @@
       "fuente": "GSC-1c-pre"
     },
     {
-      "id_a": "100-whey-gold-standard-2000g-optimum-nutrition",
-      "id_b": "predator-protein-2kg-amix",
-      "fuente": "GSC-1c"
-    },
-    {
       "id_a": "bcaa-2-1-1-300-g-desconocida",
       "id_b": "bcaa-8-1-1-300-g-desconocida",
       "fuente": "GSC-1c"
-    },
-    {
-      "id_a": "creatina-celular-800g-creatina-monohidrato-creapure",
-      "id_b": "creatine-monohydrate-creapure-200g-vitobest",
-      "fuente": "GSC-1c-15i"
-    },
-    {
-      "id_a": "creatina-celular-500g-nutrisport",
-      "id_b": "evocreatine-500g-desconocida",
-      "fuente": "GSC-1c-13i"
     },
     {
       "id_a": "zero-creatine-150-g-desconocida",
@@ -266,11 +216,6 @@
       "fuente": "GrupoB"
     },
     {
-      "id_a": "100-whey-gold-standard-2000g-optimum-nutrition",
-      "id_b": "evowhey-protein-2kg-desconocida",
-      "fuente": "GrupoB"
-    },
-    {
       "id_a": "creatina-monohidrato-elite-1kg-desconocida",
       "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
       "fuente": "GrupoB"
@@ -294,7 +239,52 @@
       "id_a": "creatina-excell-1000mg-100-creapure-desconocida",
       "id_b": "evocreatine-500g-desconocida",
       "fuente": "ProdMissing-2c"
+    },
+    {
+      "id_a": "100-creatina-monohidrato-500g-quamtrax",
+      "id_b": "creatina-creapure-400g-amazin-foods",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-celular-500g-nutrisport",
+      "id_b": "evocreatine-500g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-celular-800g-keepgoing",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-celular-800g-keepgoing",
+      "id_b": "creatine-monohydrate-creapure-200g-vitobest",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-creapure-400g-amazin-foods",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-creapure-400g-amazin-foods",
+      "id_b": "evocreatine-500g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "id_b": "creatine-monohydrate-creapure-200g-vitobest",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatine-monohydrate-creapure-200g-vitobest",
+      "id_b": "evocreatine-500g-desconocida",
+      "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "iso-whey-zero-450-g-biotechusa",
+      "id_b": "iso-whey-zero-black-908g-biotechusa",
+      "fuente": "GSC-restaurado"
     }
   ],
-  "total": 59
+  "total": 48
 }

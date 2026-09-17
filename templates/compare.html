@@ -419,7 +419,7 @@
       {% endif %}
       <div class="pc-stores">
         {% for pr in prod.precios | sort(attribute='precio_eur') %}
-        <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored">
+        <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
           <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
           <span class="pc-store-name">{{ pr.tienda }}</span>
           <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
@@ -428,7 +428,7 @@
         {% endfor %}
       </div>
       {% set best = prod.precios | sort(attribute='precio_eur') | first %}
-      <a href="{{ best.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored">Ver mejor precio →</a>
+      <a href="{{ best.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver mejor precio →</a>
     </div>
     {% endfor %}
   </div>
