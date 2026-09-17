@@ -1207,7 +1207,8 @@
 
     /* Ticker */
     .ticker-strip { background: rgba(200,255,77,0.04); border-bottom: 1px solid rgba(200,255,77,0.1); padding: 7px 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 30s linear infinite; }
+    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 90s linear infinite; }
+    .ticker-strip:hover .ticker-inner { animation-play-state: paused; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .ticker-item { font-size: 0.7rem; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
     .ticker-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
@@ -1312,8 +1313,8 @@
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/" class="active">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
-        <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);">🎯 Test</a>
-        <a href="https://stackfit.es/comparar/" style="border-color:var(--accent-border);color:var(--accent);">⚖️ Comparar</a>
+        <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>Test</a>
+        <a href="https://stackfit.es/comparar/" style="border-color:var(--accent-border);color:var(--accent);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><path d="M7 20V4M17 4v16"/><path d="M3 8l4-4 4 4"/><path d="M17 16l4 4-4 4"/></svg>Comparar</a>
       </div>
     </nav>
     <div class="mobile-subnav">
@@ -1321,8 +1322,8 @@
       <a href="https://stackfit.es/creatina/">Creatina</a>
       <a href="https://stackfit.es/bcaa/" class="active">BCAA</a>
       <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
-      <a href="https://stackfit.es/test/" style="color:var(--accent);">🎯 Test</a>
-      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">⚖️ Comparar</a>
+      <a href="https://stackfit.es/test/" style="color:var(--accent);">Test</a>
+      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">Comparar</a>
     </div>
   </header>
 
@@ -1474,12 +1475,12 @@
       Comparativa de BCAA (aminoácidos ramificados) disponibles en tiendas españolas. Ordenado por precio/kg, comparando tanto polvo como cápsulas.
     </p>
     <div class="cat-stats">
-      <span>📦 <strong>51</strong> productos</span>
+      <span><strong>51</strong> productos</span>
       <span>Actualizado el <strong>7 sep</strong></span>
       
       
       
-      <span>🏆 Mejor €/kg: <strong class="green">21.10 €/kg</strong></span>
+      <span>Mejor €/kg: <strong class="green">21.10 €/kg</strong></span>
       
       
     </div>
@@ -1609,7 +1610,7 @@
 
     <!-- Reset -->
     <div class="filter-row filter-row--reset">
-      <button class="filter-reset-btn" id="btnResetFilters" onclick="resetFilters()">✕ Limpiar filtros</button>
+      <button class="filter-reset-btn" id="btnResetFilters" onclick="resetFilters()"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Limpiar filtros</button>
       <span class="filter-count" id="filterCount"></span>
     </div>
   </div>
@@ -4235,7 +4236,7 @@
 
   <!-- ── Info bar ──────────────────────────────────── -->
   <div class="info-bar" style="margin-top:32px;">
-    <strong>ℹ️ Sobre los precios:</strong>
+    <strong><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><polyline points="11 11 12 11 12 16 13 16"/></svg>Sobre los precios:</strong>
     Los precios se actualizan varias veces por semana y pueden variar entre el momento del scraping y la compra.
     El precio/kg permite comparar productos de distintos tamaños de forma justa. Algunos enlaces son de afiliado.
   </div>
@@ -5328,7 +5329,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (selected.length >= 2) return;
       selected.push({id: id, label: label, btn: btn});
       btn.classList.add('is-selected');
-      btn.textContent = 'Añadido ✓';
+      btn.textContent = 'Añadido';
     }
     updateBar();
   });

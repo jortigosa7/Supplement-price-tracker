@@ -884,7 +884,8 @@
 
     /* Ticker */
     .ticker-strip { background: rgba(200,255,77,0.04); border-bottom: 1px solid rgba(200,255,77,0.1); padding: 7px 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 30s linear infinite; }
+    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 90s linear infinite; }
+    .ticker-strip:hover .ticker-inner { animation-play-state: paused; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .ticker-item { font-size: 0.7rem; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
     .ticker-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
@@ -989,8 +990,8 @@
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
-        <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);">🎯 Test</a>
-        <a href="https://stackfit.es/comparar/" style="border-color:var(--accent-border);color:var(--accent);">⚖️ Comparar</a>
+        <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>Test</a>
+        <a href="https://stackfit.es/comparar/" style="border-color:var(--accent-border);color:var(--accent);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><path d="M7 20V4M17 4v16"/><path d="M3 8l4-4 4 4"/><path d="M17 16l4 4-4 4"/></svg>Comparar</a>
       </div>
     </nav>
     <div class="mobile-subnav">
@@ -998,8 +999,8 @@
       <a href="https://stackfit.es/creatina/">Creatina</a>
       <a href="https://stackfit.es/bcaa/">BCAA</a>
       <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
-      <a href="https://stackfit.es/test/" style="color:var(--accent);">🎯 Test</a>
-      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">⚖️ Comparar</a>
+      <a href="https://stackfit.es/test/" style="color:var(--accent);">Test</a>
+      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">Comparar</a>
     </div>
   </header>
 

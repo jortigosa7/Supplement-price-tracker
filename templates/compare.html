@@ -197,7 +197,7 @@
   <div class="verdict-grid">
 
     <div class="verdict-card">
-      <div class="verdict-icon">💰</div>
+      <div class="verdict-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
       <div class="verdict-label">Mejor precio</div>
       {% if veredicto.mejor_precio.side %}
         {% set g = producto_a if veredicto.mejor_precio.side == 'a' else producto_b %}
@@ -212,7 +212,7 @@
     </div>
 
     <div class="verdict-card">
-      <div class="verdict-icon">🥩</div>
+      <div class="verdict-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
       <div class="verdict-label">Más proteína/dosis</div>
       {% if veredicto.mas_proteina.side %}
         {% set g = producto_a if veredicto.mas_proteina.side == 'a' else producto_b %}
@@ -224,7 +224,7 @@
     </div>
 
     <div class="verdict-card">
-      <div class="verdict-icon">⭐</div>
+      <div class="verdict-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
       <div class="verdict-label">Mejor valorado</div>
       {% if veredicto.mejor_valorado.side %}
         {% set g = producto_a if veredicto.mejor_valorado.side == 'a' else producto_b %}
@@ -236,7 +236,7 @@
     </div>
 
     <div class="verdict-card">
-      <div class="verdict-icon">🏆</div>
+      <div class="verdict-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M17 3H7l1.5 9h7L17 3z"/><path d="M6.5 7H3s.5 5 3.5 6"/><path d="M17.5 7H21s-.5 5-3.5 6"/></svg></div>
       <div class="verdict-label">Mejor relación calidad-precio</div>
       {% if veredicto.mejor_ratio.side %}
         {% set g = producto_a if veredicto.mejor_ratio.side == 'a' else producto_b %}

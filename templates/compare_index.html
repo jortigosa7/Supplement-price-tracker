@@ -334,8 +334,8 @@
     }
 
     const winA = winnerSide === 'a', winB = winnerSide === 'b';
-    const thA = `<th${winA ? ' class="winner-col"' : ''}>${esc(pa.nombre)}${winA ? ' <span class="kg-badge">✓</span>' : ''}</th>`;
-    const thB = `<th${winB ? ' class="winner-col"' : ''}>${esc(pb.nombre)}${winB ? ' <span class="kg-badge">✓</span>' : ''}</th>`;
+    const thA = `<th${winA ? ' class="winner-col"' : ''}>${esc(pa.nombre)}${winA ? ' <span class="kg-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>' : ''}</th>`;
+    const thB = `<th${winB ? ' class="winner-col"' : ''}>${esc(pb.nombre)}${winB ? ' <span class="kg-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>' : ''}</th>`;
 
     let rows = `<thead><tr><th class="label-col"></th>${thA}${thB}</tr></thead><tbody>`;
     rows += `<tr><td class="label-col">Marca</td>${cell(esc(pa.marca||'—'),false)}${cell(esc(pb.marca||'—'),false)}</tr>`;

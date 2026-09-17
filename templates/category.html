@@ -110,12 +110,12 @@
       {{ cat.intro }}
     </p>
     <div class="cat-stats">
-      <span>📦 <strong>{{ products | length }}</strong> productos</span>
+      <span><strong>{{ products | length }}</strong> productos</span>
       <span>Actualizado el <strong>{{ fecha_datos }}</strong></span>
       {% if products %}
       {% set best = products | selectattr("precio_por_kg_min") | first | default(none) %}
       {% if best and best.precio_por_kg_min %}
-      <span>🏆 Mejor €/kg: <strong class="green">{{ "%.2f"|format(best.precio_por_kg_min) }} €/kg</strong></span>
+      <span>Mejor €/kg: <strong class="green">{{ "%.2f"|format(best.precio_por_kg_min) }} €/kg</strong></span>
       {% endif %}
       {% endif %}
     </div>
@@ -188,7 +188,7 @@
 
     <!-- Reset -->
     <div class="filter-row filter-row--reset">
-      <button class="filter-reset-btn" id="btnResetFilters" onclick="resetFilters()">✕ Limpiar filtros</button>
+      <button class="filter-reset-btn" id="btnResetFilters" onclick="resetFilters()"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Limpiar filtros</button>
       <span class="filter-count" id="filterCount"></span>
     </div>
   </div>
@@ -283,7 +283,7 @@
 
   <!-- ── Info bar ──────────────────────────────────── -->
   <div class="info-bar" style="margin-top:32px;">
-    <strong>ℹ️ Sobre los precios:</strong>
+    <strong><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><polyline points="11 11 12 11 12 16 13 16"/></svg>Sobre los precios:</strong>
     Los precios se actualizan varias veces por semana y pueden variar entre el momento del scraping y la compra.
     El precio/kg permite comparar productos de distintos tamaños de forma justa. Algunos enlaces son de afiliado.
   </div>
@@ -557,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (selected.length >= 2) return;
       selected.push({id: id, label: label, btn: btn});
       btn.classList.add('is-selected');
-      btn.textContent = 'Añadido ✓';
+      btn.textContent = 'Añadido';
     }
     updateBar();
   });

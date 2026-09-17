@@ -1014,7 +1014,8 @@
 
     /* Ticker */
     .ticker-strip { background: rgba(200,255,77,0.04); border-bottom: 1px solid rgba(200,255,77,0.1); padding: 7px 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 30s linear infinite; }
+    .ticker-inner { display: inline-flex; gap: 48px; animation: ticker 90s linear infinite; }
+    .ticker-strip:hover .ticker-inner { animation-play-state: paused; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .ticker-item { font-size: 0.7rem; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
     .ticker-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
@@ -1119,8 +1120,8 @@
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
-        <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);">🎯 Test</a>
-        <a href="https://stackfit.es/comparar/" class="active" style="border-color:var(--accent-border);color:var(--accent);">⚖️ Comparar</a>
+        <a href="https://stackfit.es/test/" style="border-color:var(--accent-border);color:var(--accent);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>Test</a>
+        <a href="https://stackfit.es/comparar/" class="active" style="border-color:var(--accent-border);color:var(--accent);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><path d="M7 20V4M17 4v16"/><path d="M3 8l4-4 4 4"/><path d="M17 16l4 4-4 4"/></svg>Comparar</a>
       </div>
     </nav>
     <div class="mobile-subnav">
@@ -1128,8 +1129,8 @@
       <a href="https://stackfit.es/creatina/">Creatina</a>
       <a href="https://stackfit.es/bcaa/">BCAA</a>
       <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
-      <a href="https://stackfit.es/test/" style="color:var(--accent);">🎯 Test</a>
-      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">⚖️ Comparar</a>
+      <a href="https://stackfit.es/test/" style="color:var(--accent);">Test</a>
+      <a href="https://stackfit.es/comparar/" style="color:var(--accent);">Comparar</a>
     </div>
   </header>
 
@@ -1161,7 +1162,7 @@
   <div class="verdict-grid">
 
     <div class="verdict-card">
-      <div class="verdict-icon">💰</div>
+      <div class="verdict-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
       <div class="verdict-label">Mejor precio</div>
       
         <div class="verdict-na">No disponible</div>
@@ -1169,7 +1170,7 @@
     </div>
 
     <div class="verdict-card">
-      <div class="verdict-icon">🥩</div>
+      <div class="verdict-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
       <div class="verdict-label">Más proteína/dosis</div>
       
         
@@ -1179,7 +1180,7 @@
     </div>
 
     <div class="verdict-card">
-      <div class="verdict-icon">⭐</div>
+      <div class="verdict-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
       <div class="verdict-label">Mejor valorado</div>
       
         
@@ -1189,7 +1190,7 @@
     </div>
 
     <div class="verdict-card">
-      <div class="verdict-icon">🏆</div>
+      <div class="verdict-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M17 3H7l1.5 9h7L17 3z"/><path d="M6.5 7H3s.5 5 3.5 6"/><path d="M17.5 7H21s-.5 5-3.5 6"/></svg></div>
       <div class="verdict-label">Mejor relación calidad-precio</div>
       
         <div class="verdict-na">No disponible</div>
