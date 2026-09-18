@@ -11,7 +11,8 @@ para comparar con la siguiente.
 Checks implementados:
   1. Redirecciones: destino existe en docs/ y no forma cadena.
   2. Links internos: hrefs absolutos en HTML apuntan a rutas existentes.
-  3. Tiendas: ninguna tienda a 0 productos; ninguna cae >30% respecto al build anterior.
+  3. Tiendas: ninguna tienda a 0 productos; ninguna cae >30% respecto al build anterior;
+     ninguna tienda con 100% de productos sin precio_por_kg_min (fallo masivo de scraper).
   4. Métricas: comparaciones, grupos multi-tienda y páginas de sitemap no bajan.
   6. Desconocida: 'desconocida' no aparece en texto visible; campos críticos no vacíos.
   7. €/kg alto: ningún producto supera 10× la mediana de su categoría.
@@ -164,10 +165,12 @@ def _check_enlaces_internos(docs_dir: str) -> list[str]:
 
 # ── Check 3: Productos por tienda ────────────────────────────────────────────
 
-def _check_por_tienda(por_tienda: dict, por_tienda_ant: dict) -> list[str]:
+def _check_por_tienda(por_tienda: dict, por_tienda_ant: dict, productos_web: list[dict] | None = None) -> list[str]:
     """
     - Ninguna tienda puede tener 0 productos.
     - Ninguna tienda puede bajar >30% respecto al build anterior.
+    - Ninguna tienda puede tener 100% de sus productos sin precio_por_kg_min
+      (indica que _obtener_precio_peso_fresco falló en masa — web caída, rate-limit, etc.)
     """
     errores = []
 
@@ -177,6 +180,36 @@ def _check_por_tienda(por_tienda: dict, por_tienda_ant: dict) -> list[str]:
                 f"[CHECK 3] {tienda}: 0 productos en este build.\n"
                 f"  Acción: corre el scraper manualmente y comprueba que responde."
             )
+
+    # Check €/kg por tienda: si el 100% de los productos de una tienda no tienen
+    # precio_por_kg_min, el scraper probablemente falló en silencio al obtener precios.
+    if productos_web:
+        from collections import defaultdict
+        sin_kg: dict[str, int] = defaultdict(int)
+        con_kg: dict[str, int] = defaultdict(int)
+        for p in productos_web:
+            peso = p.get("peso_kg") or 0
+            if peso < 0.15:
+                continue  # monodosis: legítimamente sin €/kg
+            tiene_kg = bool(p.get("precio_por_kg_min"))
+            for pr in p.get("precios", []):
+                tienda = pr.get("tienda", "?")
+                if tiene_kg:
+                    con_kg[tienda] += 1
+                else:
+                    sin_kg[tienda] += 1
+        for tienda in set(list(sin_kg.keys()) + list(con_kg.keys())):
+            total = sin_kg[tienda] + con_kg[tienda]
+            if total < 5:
+                continue  # poca muestra, no alarmar
+            if con_kg[tienda] == 0:
+                errores.append(
+                    f"[CHECK 3] {tienda}: 0/{total} productos tienen precio_por_kg_min "
+                    f"(todos los productos con peso ≥150 g sin €/kg).\n"
+                    f"  Indica que _obtener_precio_peso_fresco falló en masa durante el último scraping.\n"
+                    f"  Posibles causas: HSN con HTML distinto (mantenimiento, A/B test, rate-limit).\n"
+                    f"  Acción: vuelve a correr el scraper con: python scrapers/hsn.py"
+                )
 
     if not por_tienda_ant:
         return errores
@@ -537,7 +570,7 @@ def run_all_checks(
     errores: list[str] = []
     errores += _check_redirects(docs_dir)
     errores += _check_enlaces_internos(docs_dir)
-    errores += _check_por_tienda(por_tienda, stats_ant.get("por_tienda", {}))
+    errores += _check_por_tienda(por_tienda, stats_ant.get("por_tienda", {}), productos_web=productos_web)
     errores += _check_metricas(stats_act, stats_ant)
     errores += _check_desconocido(docs_dir, productos_web)
     errores += _check_precio_rango(productos_web)
