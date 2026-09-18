@@ -75,40 +75,55 @@
   .cmp-hero-sub { font-size:0.84rem; color:#aaa; }
 
   /* ── Sections ─────────── */
-  .cmp-wrap { background:#fff; }
+  .cmp-wrap { background:transparent; }
   .cmp-section { padding:28px 0 0; }
-  .cmp-section-title { font-size:0.95rem; font-weight:700; color:#111; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+  .cmp-section-title { font-size:0.95rem; font-weight:700; color:#c0c0c0; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.08); }
+
+  /* ── Mini-header de productos ── */
+  .cmp-header-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:8px; }
+  .cmp-hcard { display:flex; align-items:center; gap:12px; background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px 16px; }
+  .cmp-hcard-img { width:52px; height:52px; flex-shrink:0; border-radius:8px; background:rgba(255,255,255,0.04); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .cmp-hcard-img img { width:52px; height:52px; object-fit:contain; }
+  .cmp-hcard-info { min-width:0; }
+  .cmp-hcard-name { font-size:0.82rem; font-weight:700; color:#e8e8e8; line-height:1.3; }
+  .cmp-hcard-meta { font-size:0.72rem; color:#666; margin-top:2px; }
+  .cmp-hcard-price { font-size:1rem; font-weight:800; color:var(--accent); margin-top:4px; }
+  @media (max-width:480px) {
+    .cmp-hcard { padding:10px 12px; gap:8px; }
+    .cmp-hcard-img { width:40px; height:40px; }
+    .cmp-hcard-img img { width:40px; height:40px; }
+    .cmp-hcard-name { font-size:0.75rem; }
+  }
 
   /* ── Veredicto ────────── */
   .verdict-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:28px; }
   @media (min-width:640px) { .verdict-grid { grid-template-columns:repeat(4,1fr); } }
-  .verdict-card { background:#f9f9f9; border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
-  .verdict-icon { font-size:1.1rem; margin-bottom:5px; }
-  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#111; margin-bottom:4px; }
-  .verdict-winner { font-size:0.82rem; font-weight:700; color:#111; line-height:1.3; margin-bottom:2px; }
-  .verdict-value { font-size:0.75rem; color:#1a1a1a; }
+  .verdict-card { background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px 16px; }
+  .verdict-icon { margin-bottom:5px; color:#888; }
+  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#666; margin-bottom:4px; }
+  .verdict-winner { font-size:0.82rem; font-weight:700; color:#e8e8e8; line-height:1.3; margin-bottom:2px; }
+  .verdict-value { font-size:0.75rem; color:#aaa; }
   .verdict-na { font-size:0.78rem; color:#555; font-style:italic; }
 
   /* ── Tabla ────────────── */
   .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; -webkit-overflow-scrolling:touch; }
-  .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
-  .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; color:#111; }
+  .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid rgba(255,255,255,0.08); border-radius:12px; overflow:hidden; }
+  .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.06); font-size:0.85rem; color:#d0d0d0; }
   .cmp-table tr:last-child td { border-bottom:none; }
-  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#111; white-space:nowrap; }
-  .cmp-table td.label-col { color:#555; font-size:0.78rem; width:130px; white-space:nowrap; font-weight:500; }
-  .cmp-table td.na-cell { color:#aaa; font-style:italic; font-size:0.8rem; }
-  .cmp-table td.winner-cell { font-weight:700; color:#111; }
-  .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
-  .cmp-val-badge.win { background:rgba(200,255,77,0.15); color:#4a6b00; border-color:rgba(200,255,77,0.6); }
+  .cmp-table th { background:#111214; font-weight:700; font-size:0.78rem; color:#aaa; white-space:nowrap; }
+  .cmp-table td.label-col { color:#666; font-size:0.78rem; width:130px; white-space:nowrap; font-weight:500; }
+  .cmp-table td.na-cell { color:#444; font-style:italic; font-size:0.8rem; }
+  .cmp-table td.winner-cell { font-weight:700; color:#e8e8e8; }
+  .cmp-val-badge { display:inline-block; background:#1a1c1e; color:#d0d0d0; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); }
+  .cmp-val-badge.win { background:rgba(200,255,77,0.12); color:var(--accent); border-color:rgba(200,255,77,0.4); }
 
-  /* ── Tabla móvil: columna label sticky, columnas producto anchas ── */
+  /* ── Tabla móvil: columna label sticky ── */
   @media (max-width: 767px) {
     .cmp-table-wrap {
       scroll-snap-type: x mandatory;
     }
     .cmp-table {
       table-layout: fixed;
-      /* label 96px + dos columnas producto que juntas no caben en pantalla */
       width: calc(96px + 2 * (100vw - 56px));
       border-radius: 0;
       border-left: none;
@@ -124,7 +139,7 @@
       max-width: 96px;
       white-space: normal;
       word-break: break-word;
-      background: #f7f7f7;
+      background: #111214;
     }
     .cmp-table th:not(:first-child),
     .cmp-table td:not(.label-col) {
@@ -132,14 +147,13 @@
       min-width: calc(100vw - 116px);
       scroll-snap-align: start;
     }
-    /* Indicador visual de scroll */
     .cmp-scroll-hint {
       display: flex;
       align-items: center;
       gap: 6px;
       justify-content: center;
       font-size: 0.72rem;
-      color: #888;
+      color: #555;
       margin: -16px 0 20px;
     }
   }
@@ -150,25 +164,25 @@
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
   @media (max-width:480px) { .cmp-cards { grid-template-columns:1fr; } }
-  .cmp-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
-  .cmp-card-img { width:72px; height:72px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .cmp-card { background:#111214; border:1.5px solid rgba(255,255,255,0.08); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
+  .cmp-card-img { width:72px; height:72px; border-radius:8px; background:rgba(255,255,255,0.04); overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
-  .cmp-card-name { font-weight:700; font-size:0.9rem; color:#111; line-height:1.3; }
-  .cmp-card-meta { font-size:0.76rem; color:#111; }
-  .cmp-card-price { font-size:1.35rem; font-weight:800; color:#111; line-height:1; }
-  .cmp-card-kg { display:inline-flex; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; border:1px solid #ddd; }
+  .cmp-card-name { font-weight:700; font-size:0.9rem; color:#e8e8e8; line-height:1.3; }
+  .cmp-card-meta { font-size:0.76rem; color:#666; }
+  .cmp-card-price { font-size:1.35rem; font-weight:800; color:#e8e8e8; line-height:1; }
+  .cmp-card-kg { display:inline-flex; background:rgba(200,255,77,0.1); color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; border:1px solid rgba(200,255,77,0.3); }
 
   /* ── Editorial ────────── */
-  .editorial-text { font-size:0.88rem; color:#111; line-height:1.8; max-width:760px; }
+  .editorial-text { font-size:0.88rem; color:#aaa; line-height:1.8; max-width:760px; }
   .editorial-text p { margin-bottom:12px; }
 
   /* ── Relacionadas ─────── */
   .related-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:14px; }
   @media (min-width:640px) { .related-grid { grid-template-columns:repeat(3,1fr); } }
-  .related-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
-  .related-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
-  .related-tag { font-size:0.65rem; color:#111; text-transform:uppercase; letter-spacing:0.06em; }
-  .related-title { font-size:0.8rem; font-weight:600; color:#111; line-height:1.3; margin-top:2px; }
+  .related-card { background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
+  .related-card:hover { border-color:var(--accent-border); background:rgba(200,255,77,0.06); }
+  .related-tag { font-size:0.65rem; color:#555; text-transform:uppercase; letter-spacing:0.06em; }
+  .related-title { font-size:0.8rem; font-weight:600; color:#c0c0c0; line-height:1.3; margin-top:2px; }
 </style>
 {% endblock %}
 
@@ -190,6 +204,24 @@
 
 <div class="cmp-wrap">
 <div class="container" style="padding-bottom:60px;">
+
+<!-- ── Mini-header: dos productos ─── -->
+<div class="cmp-section">
+  <div class="cmp-header-grid">
+    {% for prod in [producto_a, producto_b] %}
+    <div class="cmp-hcard">
+      <div class="cmp-hcard-img">
+        <img src="{{ prod.img_src }}" alt="{{ prod.nombre_normalizado }}" width="52" height="52" loading="eager">
+      </div>
+      <div class="cmp-hcard-info">
+        <div class="cmp-hcard-name">{{ prod.nombre_normalizado }}</div>
+        <div class="cmp-hcard-meta">{{ prod.marca }}{% if prod.peso_kg %} · {{ "%.2f"|format(prod.peso_kg) }} kg{% endif %}</div>
+        {% if prod.precio_min %}<div class="cmp-hcard-price">desde {{ "%.2f"|format(prod.precio_min) }} €</div>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 <!-- ── Veredicto rápido ─── -->
 <div class="cmp-section">
@@ -266,8 +298,8 @@
       <tbody>
         <tr>
           <td class="label-col">Imagen</td>
-          <td><img src="{{ producto_a.img_src }}" alt="{{ producto_a.nombre_normalizado }}" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
-          <td><img src="{{ producto_b.img_src }}" alt="{{ producto_b.nombre_normalizado }}" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
+          <td><img src="{{ producto_a.img_src }}" alt="{{ producto_a.nombre_normalizado }}" width="56" height="56" style="object-fit:contain;border-radius:6px;background:rgba(255,255,255,0.04);display:block;"></td>
+          <td><img src="{{ producto_b.img_src }}" alt="{{ producto_b.nombre_normalizado }}" width="56" height="56" style="object-fit:contain;border-radius:6px;background:rgba(255,255,255,0.04);display:block;"></td>
         </tr>
         <tr>
           <td class="label-col">Marca</td>
@@ -275,27 +307,43 @@
           <td>{{ producto_b.marca }}</td>
         </tr>
         <tr>
-          <td class="label-col">Categoría</td>
-          <td>{{ producto_a.categoria_display }}</td>
-          <td>{{ producto_b.categoria_display }}</td>
-        </tr>
-        <tr>
           <td class="label-col">Peso</td>
           <td>{% if producto_a.peso_kg %}{{ "%.2f"|format(producto_a.peso_kg) }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
           <td>{% if producto_b.peso_kg %}{{ "%.2f"|format(producto_b.peso_kg) }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
+        {% if producto_a.precio_por_kg_min is not none or producto_b.precio_por_kg_min is not none %}
+        <tr>
+          <td class="label-col">Precio €/kg</td>
+          <td>{% if producto_a.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'a' %} win{% endif %}">{{ "%.2f"|format(producto_a.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'b' %} win{% endif %}">{{ "%.2f"|format(producto_b.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+        </tr>
+        {% endif %}
         {% if producto_a.precio_min is not none or producto_b.precio_min is not none %}
         {% set _win_precio_total = 'a' if (producto_a.precio_min and producto_b.precio_min and producto_a.precio_min < producto_b.precio_min) else ('b' if (producto_a.precio_min and producto_b.precio_min and producto_b.precio_min < producto_a.precio_min) else none) %}
         <tr>
-          <td class="label-col">Mejor precio total</td>
+          <td class="label-col">Precio total</td>
           <td{% if _win_precio_total == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.precio_min is not none %}{{ "%.2f"|format(producto_a.precio_min) }} € ({{ producto_a.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
           <td{% if _win_precio_total == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.precio_min is not none %}{{ "%.2f"|format(producto_b.precio_min) }} € ({{ producto_b.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         {% endif %}
         <tr>
-          <td class="label-col">Precio €/kg</td>
-          <td>{% if producto_a.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'a' %} win{% endif %}">{{ "%.2f"|format(producto_a.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
-          <td>{% if producto_b.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'b' %} win{% endif %}">{{ "%.2f"|format(producto_b.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td class="label-col">Tiendas</td>
+          <td>
+            {% for pr in producto_a.precios | sort(attribute='precio_eur') %}
+              {% set sclass = pr.tienda | lower | replace(' ','') %}
+              <span class="store-pill store-{{ sclass }}" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
+                <span class="store-pill-dot"></span>{{ pr.tienda }}
+              </span>
+            {% endfor %}
+          </td>
+          <td>
+            {% for pr in producto_b.precios | sort(attribute='precio_eur') %}
+              {% set sclass = pr.tienda | lower | replace(' ','') %}
+              <span class="store-pill store-{{ sclass }}" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
+                <span class="store-pill-dot"></span>{{ pr.tienda }}
+              </span>
+            {% endfor %}
+          </td>
         </tr>
         {% if producto_a.protein_type or producto_b.protein_type %}
         <tr>
@@ -318,25 +366,6 @@
           <td>{% if producto_b.servings_per_container is not none %}{{ producto_b.servings_per_container | int }}{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         {% endif %}
-        <tr>
-          <td class="label-col">Tiendas</td>
-          <td>
-            {% for pr in producto_a.precios | sort(attribute='precio_eur') %}
-              {% set sclass = pr.tienda | lower | replace(' ','') %}
-              <span class="store-pill store-{{ sclass }}" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
-                <span class="store-pill-dot"></span>{{ pr.tienda }}
-              </span>
-            {% endfor %}
-          </td>
-          <td>
-            {% for pr in producto_b.precios | sort(attribute='precio_eur') %}
-              {% set sclass = pr.tienda | lower | replace(' ','') %}
-              <span class="store-pill store-{{ sclass }}" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
-                <span class="store-pill-dot"></span>{{ pr.tienda }}
-              </span>
-            {% endfor %}
-          </td>
-        </tr>
         {% if producto_a.store_rating is not none or producto_b.store_rating is not none %}
         <tr>
           <td class="label-col">Valoración</td>

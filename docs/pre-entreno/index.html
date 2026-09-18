@@ -501,20 +501,23 @@
     .products-list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 16px;
     }
     @media (min-width: 640px) {
       .products-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .products-list { grid-template-columns: repeat(3, 1fr); }
     }
 
     .product-card {
       background: #ffffff;
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 18px 20px;
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
       transition: border-color 0.15s, box-shadow 0.15s;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
@@ -530,46 +533,49 @@
     .product-card:nth-child(5) { animation: fadeUp 0.45s 0.24s ease both; }
     .product-card:nth-child(n+6) { animation: fadeUp 0.45s 0.30s ease both; }
 
+    /* ── Zona 1: imagen + nombre + meta ── */
     .pc-top {
       display: flex;
-      justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
     }
     .pc-img {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       flex-shrink: 0;
       border-radius: 8px;
       overflow: hidden;
-      background: #f5f5f5;
+      background: rgba(255,255,255,0.05);
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .pc-img img {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       object-fit: contain;
     }
-    @media (max-width: 480px) {
-      .pc-img { width: 60px; height: 60px; }
-      .pc-img img { width: 60px; height: 60px; }
+    .pc-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
-    .pc-name { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .pc-name { display: flex; flex-direction: column; gap: 4px; }
     .pc-name-text {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #111111;
-      line-height: 1.4;
+      line-height: 1.35;
     }
     .pc-badge {
       display: inline-block;
       font-family: var(--font-display);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 800;
-      padding: 3px 9px;
-      border-radius: 10px;
+      padding: 2px 8px;
+      border-radius: 8px;
       width: fit-content;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -580,45 +586,44 @@
       color: var(--coral);
       border: 1px solid var(--coral-border);
     }
-    .pc-price-block {
-      text-align: right;
-      flex-shrink: 0;
+    .pc-meta { font-size: 0.75rem; color: #888888; }
+
+    /* ── Zona 2: fila de precio ── */
+    .pc-price-row {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .pc-price-kg {
+    .pc-price-main {
       font-family: var(--font-syne);
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 900;
       color: var(--accent);
       line-height: 1;
       font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
-    .pc-price-kg::before {
-      content: '€/kg';
-      display: block;
+    .pc-price-main.no-kg { color: #e8e8e8; font-size: 1.45rem; }
+    .pc-price-unit {
       font-family: var(--font-body);
-      font-size: 9px;
+      font-size: 0.68rem;
       font-weight: 600;
       color: #888888;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      line-height: 1;
-      margin-bottom: 3px;
+      letter-spacing: 0.09em;
+      margin-left: 3px;
     }
-    .pc-price {
-      font-family: var(--font-body);
+    .pc-price-sec {
       font-size: 0.78rem;
-      font-weight: 500;
       color: #888888;
-      line-height: 1.4;
-      margin-top: 4px;
+      text-align: right;
+      line-height: 1.5;
     }
-    .pc-price::before { content: 'total: '; font-weight: 400; }
     .pc-price-old { font-size: 0.72rem; color: #666666; text-decoration: line-through; }
-    .pc-meta { font-size: 0.78rem; color: #aaaaaa; }
 
     .pc-stores { display: flex; flex-direction: column; gap: 5px; }
     a.pc-store {
@@ -1198,7 +1203,8 @@
       .cat-grid { grid-template-columns: 1fr; }
       .search-bar { flex-direction: column; }
       .search-select { width: 100%; }
-      .pc-price { font-size: 1.2rem; }
+      .pc-price-main { font-size: 1.4rem; }
+      .pc-price-main.no-kg { font-size: 1.2rem; }
       .metrics-grid { flex-wrap: wrap; }
       .metric-card { flex: 1 1 30%; }
       .steps-grid { grid-template-columns: 1fr; }
@@ -1239,8 +1245,10 @@
     .product-card { background: #111214; border-color: rgba(255,255,255,0.07); }
     .product-card.is-best { border-color: var(--accent); }
     .product-card:hover { border-color: rgba(255,255,255,0.14); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .pc-img { background: rgba(255,255,255,0.04); }
     .pc-name-text { color: #e8e8e8; }
     .pc-meta { color: #666; }
+    .pc-price-row { border-color: rgba(255,255,255,0.07); }
     a.pc-store { background: #16181a; border-color: rgba(255,255,255,0.07); }
     a.pc-store:first-child { background: rgba(200,255,77,0.06); border-color: rgba(200,255,77,0.2); }
     a.pc-store:hover { background: #1e2022; }
@@ -1621,24 +1629,27 @@
          data-tipo=""
          data-id="origin-shred-pre-workout-660g-desconocida"
          data-label="Origin Shred Pre-Workout 660g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16547403-4175287072301670.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Shred Pre-Workout 660g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16547403-4175287072301670.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Shred Pre-Workout 660g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Origin Shred Pre-Workout 660g</span>
-          
-            <span class="pc-badge best">Mejor precio</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">22.73</div>
-          <div class="pc-price">15.00 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Origin Shred Pre-Workout 660g</span>
+            
+              <span class="pc-badge best">Mejor precio</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.66 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.66 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">22.73<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 15.00 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -1675,22 +1686,25 @@
          data-tipo=""
          data-id="pre-entreno-concept-500g-mega-plus"
          data-label="Pre Entreno Concept 500g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/78a958b6-70d1-4e97-bf5d-790152a8ea00/public" alt="Pre Entreno Concept 500g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/78a958b6-70d1-4e97-bf5d-790152a8ea00/public" alt="Pre Entreno Concept 500g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Pre Entreno Concept 500g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">24.40</div>
-          <div class="pc-price">12.20 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Pre Entreno Concept 500g</span>
+            
+          </div>
+          <div class="pc-meta">Mega Plus · 0.50 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.50 kg · Mega Plus
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">24.40<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 12.20 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -1727,22 +1741,25 @@
          data-tipo=""
          data-id="origin-pre-entreno-600g-desconocida"
          data-label="Origin Pre-Entreno 600g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16486872-1975268599695614.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Pre-Entreno 600g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16486872-1975268599695614.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Pre-Entreno 600g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Origin Pre-Entreno 600g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">25.00</div>
-          <div class="pc-price">15.00 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Origin Pre-Entreno 600g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.60 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.60 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">25.00<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 15.00 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -1779,22 +1796,25 @@
          data-tipo=""
          data-id="energy-charge-preentrenamiento-800-g-desconocida"
          data-label="Energy Charge - Preentrenamiento 800 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1559895_prozis_energy-charge-pre-workout-800-g_1.png" alt="Energy Charge - Preentrenamiento 800 g" width="80" height="80" loading="lazy">
+          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1559895_prozis_energy-charge-pre-workout-800-g_1.png" alt="Energy Charge - Preentrenamiento 800 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Energy Charge - Preentrenamiento 800 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">28.74</div>
-          <div class="pc-price">22.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Energy Charge - Preentrenamiento 800 g</span>
+            
+          </div>
+          <div class="pc-meta">Prozis · 0.80 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.80 kg · Prozis
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">28.74<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 22.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -1831,22 +1851,25 @@
          data-tipo=""
          data-id="beta-alanina-en-polvo-250g-desconocida"
          data-label="Beta Alanina en polvo 250g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529811-1125199715311195.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Beta Alanina en polvo 250g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529811-1125199715311195.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Beta Alanina en polvo 250g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Beta Alanina en polvo 250g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">29.96</div>
-          <div class="pc-price">7.49 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Beta Alanina en polvo 250g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">29.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 7.49 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -1883,22 +1906,25 @@
          data-tipo=""
          data-id="n-o-shox-1320g-desconocida"
          data-label="N.O. Shox 1320g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1350727_prozis_no-shox-1320g_1.png" alt="N.O. Shox 1320g" width="80" height="80" loading="lazy">
+          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1350727_prozis_no-shox-1320g_1.png" alt="N.O. Shox 1320g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">N.O. Shox 1320g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">30.30</div>
-          <div class="pc-price">39.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">N.O. Shox 1320g</span>
+            
+          </div>
+          <div class="pc-meta">Prozis · 1.32 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 1.32 kg · Prozis
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">30.30<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 39.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -1935,22 +1961,25 @@
          data-tipo=""
          data-id="ciclo-amino-dextrin-1500g-big"
          data-label="CICLO AMINO DEXTRIN 1500g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/ciclo-amino-dextrin-1500g-big.webp" alt="CICLO AMINO DEXTRIN 1500g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/ciclo-amino-dextrin-1500g-big.webp" alt="CICLO AMINO DEXTRIN 1500g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">CICLO AMINO DEXTRIN 1500g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">31.94</div>
-          <div class="pc-price">47.91 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">CICLO AMINO DEXTRIN 1500g</span>
+            
+          </div>
+          <div class="pc-meta">Big · 1.50 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 1.50 kg · Big
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">31.94<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 47.91 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -1987,22 +2016,25 @@
          data-tipo=""
          data-id="origin-pre-entreno-sin-estimulantes-600g-desconocida"
          data-label="Origin Pre-Entreno Sin Estimulantes 600g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16509167-2035272543979298.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Pre-Entreno Sin Estimulantes 600g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16509167-2035272543979298.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Pre-Entreno Sin Estimulantes 600g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Origin Pre-Entreno Sin Estimulantes 600g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">32.48</div>
-          <div class="pc-price">19.49 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Origin Pre-Entreno Sin Estimulantes 600g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.60 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.60 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">32.48<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 19.49 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2039,22 +2071,25 @@
          data-tipo=""
          data-id="beta-alanina-900-g-desconocida"
          data-label="Beta-alanina 900 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1712112_prozis_beta-alanine-900-g_1.png" alt="Beta-alanina 900 g" width="80" height="80" loading="lazy">
+          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1712112_prozis_beta-alanine-900-g_1.png" alt="Beta-alanina 900 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Beta-alanina 900 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">33.32</div>
-          <div class="pc-price">29.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Beta-alanina 900 g</span>
+            
+          </div>
+          <div class="pc-meta">Prozis · 0.90 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.90 kg · Prozis
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">33.32<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 29.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2091,22 +2126,25 @@
          data-tipo=""
          data-id="taurina-en-polvo-250g-desconocida"
          data-label="Taurina en polvo 250g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530303-1935199719023431.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Taurina en polvo 250g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530303-1935199719023431.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Taurina en polvo 250g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Taurina en polvo 250g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">33.96</div>
-          <div class="pc-price">8.49 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Taurina en polvo 250g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">33.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 8.49 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2143,22 +2181,25 @@
          data-tipo=""
          data-id="l-arginina-300-g-desconocida"
          data-label="L-arginina 300 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/l-arginina-300-g-desconocida.webp" alt="L-arginina 300 g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/l-arginina-300-g-desconocida.webp" alt="L-arginina 300 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">L-arginina 300 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">33.97</div>
-          <div class="pc-price">10.19 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">L-arginina 300 g</span>
+            
+          </div>
+          <div class="pc-meta">Prozis · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · Prozis
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">33.97<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 10.19 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2195,22 +2236,25 @@
          data-tipo=""
          data-id="origin-jacked-pre-workout-650g-desconocida"
          data-label="Origin Jacked Pre-Workout 650g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17879939-5675332623681741.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Jacked Pre-Workout 650g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17879939-5675332623681741.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Jacked Pre-Workout 650g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Origin Jacked Pre-Workout 650g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">34.60</div>
-          <div class="pc-price">22.49 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Origin Jacked Pre-Workout 650g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.65 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.65 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">34.60<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 22.49 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2247,22 +2291,25 @@
          data-tipo=""
          data-id="l-tirosina-en-polvo-250g-desconocida"
          data-label="L-Tirosina en polvo 250g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530188-1105199982349601.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="L-Tirosina en polvo 250g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530188-1105199982349601.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="L-Tirosina en polvo 250g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">L-Tirosina en polvo 250g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">35.96</div>
-          <div class="pc-price">8.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">L-Tirosina en polvo 250g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">35.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 8.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2299,22 +2346,25 @@
          data-tipo=""
          data-id="origin-jacked-pump-620g-desconocida"
          data-label="Origin Jacked Pump 620g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17627022-1475332607850663.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Jacked Pump 620g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17627022-1475332607850663.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Jacked Pump 620g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Origin Jacked Pump 620g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">36.27</div>
-          <div class="pc-price">22.49 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Origin Jacked Pump 620g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.62 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.62 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">36.27<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 22.49 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2351,22 +2401,25 @@
          data-tipo=""
          data-id="goldnutrition-pre-entrenamiento-explosivo-maximo-rendimiento-1000g-gold-nutritio"
          data-label="GoldNutrition Pre-Entrenamiento Ex…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/764ae8fc-649d-4738-e44d-b5d68b3f4200/public" alt="GoldNutrition Pre-Entrenamiento Explosivo | Máximo Rendimiento 1000g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/764ae8fc-649d-4738-e44d-b5d68b3f4200/public" alt="GoldNutrition Pre-Entrenamiento Explosivo | Máximo Rendimiento 1000g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">GoldNutrition Pre-Entrenamiento Explosivo | Máximo Rendimiento 1000g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">39.59</div>
-          <div class="pc-price">39.59 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">GoldNutrition Pre-Entrenamiento Explosivo | Máximo Rendimiento 1000g</span>
+            
+          </div>
+          <div class="pc-meta">Gold Nutrition · 1.00 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 1.00 kg · Gold Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">39.59<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 39.59 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -2398,22 +2451,25 @@
          data-tipo=""
          data-id="l-glutamina-en-polvo-250g-desconocida"
          data-label="L-Glutamina en polvo 250g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530124-2195186715678768.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="L-Glutamina en polvo 250g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530124-2195186715678768.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="L-Glutamina en polvo 250g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">L-Glutamina en polvo 250g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">40.00</div>
-          <div class="pc-price">10.00 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">L-Glutamina en polvo 250g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">40.00<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 10.00 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2450,22 +2506,25 @@
          data-tipo=""
          data-id="c2m-creatine-500g-soul-project"
          data-label="C2M Creatine 500g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/5e8453cc-4b8b-43e4-43a9-28e4b15f1500/public" alt="C2M Creatine 500g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/5e8453cc-4b8b-43e4-43a9-28e4b15f1500/public" alt="C2M Creatine 500g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">C2M Creatine 500g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">41.00</div>
-          <div class="pc-price">20.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">C2M Creatine 500g</span>
+            
+          </div>
+          <div class="pc-meta">Soul Project · 0.50 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.50 kg · Soul Project
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">41.00<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 20.50 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2502,22 +2561,25 @@
          data-tipo=""
          data-id="proteina-smooth-8-hybrid-2-3kg-musclecore-premium-amix"
          data-label="Proteína Smooth-8 Hybrid 2,3Kg - M…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/3272f54b-88ea-4669-7937-7684ef398000/public" alt="Proteína Smooth-8 Hybrid 2,3Kg - MUSCLECORE | Premium" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/3272f54b-88ea-4669-7937-7684ef398000/public" alt="Proteína Smooth-8 Hybrid 2,3Kg - MUSCLECORE | Premium" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Proteína Smooth-8 Hybrid 2,3Kg - MUSCLECORE | Premium</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">42.57</div>
-          <div class="pc-price">97.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Proteína Smooth-8 Hybrid 2,3Kg - MUSCLECORE | Premium</span>
+            
+          </div>
+          <div class="pc-meta">Amix · 2.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 2.30 kg · Amix
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">42.57<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 97.90 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2554,22 +2616,25 @@
          data-tipo=""
          data-id="beta-alanina-300-g-desconocida"
          data-label="Beta-alanina 300 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/beta-alanina-300-g-desconocida.webp" alt="Beta-alanina 300 g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/beta-alanina-300-g-desconocida.webp" alt="Beta-alanina 300 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Beta-alanina 300 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">43.30</div>
-          <div class="pc-price">12.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Beta-alanina 300 g</span>
+            
+          </div>
+          <div class="pc-meta">Prozis · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · Prozis
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">43.30<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 12.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2606,22 +2671,25 @@
          data-tipo=""
          data-id="mezcla-pre-entreno-250g-desconocida"
          data-label="Mezcla Pre-Entreno 250g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/11542706-9675306512799376.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Mezcla Pre-Entreno 250g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/11542706-9675306512799376.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Mezcla Pre-Entreno 250g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Mezcla Pre-Entreno 250g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">47.96</div>
-          <div class="pc-price">11.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Mezcla Pre-Entreno 250g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">47.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 11.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2658,22 +2726,25 @@
          data-tipo=""
          data-id="citrulina-malato-250g-desconocida"
          data-label="Citrulina Malato 250g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529328-1295199715147221.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Citrulina Malato 250g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529328-1295199715147221.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Citrulina Malato 250g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Citrulina Malato 250g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">49.96</div>
-          <div class="pc-price">12.49 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Citrulina Malato 250g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">49.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 12.49 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2710,22 +2781,25 @@
          data-tipo=""
          data-id="b10-pump-effect-pre-workout-400g-nutrisport"
          data-label="B10 PUMP EFFECT PRE WORKOUT 400g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/b10-pump-effect-pre-workout-400g-nutrisport.webp" alt="B10 PUMP EFFECT PRE WORKOUT 400g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/b10-pump-effect-pre-workout-400g-nutrisport.webp" alt="B10 PUMP EFFECT PRE WORKOUT 400g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">B10 PUMP EFFECT PRE WORKOUT 400g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">51.97</div>
-          <div class="pc-price">20.79 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">B10 PUMP EFFECT PRE WORKOUT 400g</span>
+            
+          </div>
+          <div class="pc-meta">Nutrisport · 0.40 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.40 kg · Nutrisport
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">51.97<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 20.79 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2762,22 +2836,25 @@
          data-tipo=""
          data-id="intense-pre-workout-375g-weider"
          data-label="Intense Pre-Workout 375g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/intense-pre-workout-375g-weider.webp" alt="Intense Pre-Workout 375g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/intense-pre-workout-375g-weider.webp" alt="Intense Pre-Workout 375g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Intense Pre-Workout 375g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">58.03</div>
-          <div class="pc-price">21.76 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Intense Pre-Workout 375g</span>
+            
+          </div>
+          <div class="pc-meta">Weider · 0.38 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.38 kg · Weider
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">58.03<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 21.76 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2814,22 +2891,25 @@
          data-tipo=""
          data-id="powered-cafe-preentrenamiento-250-g-desconocida"
          data-label="Powered - Café Preentrenamiento 250 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1814691_prozis_powered-pre-workout-coffee-250g_1.png" alt="Powered - Café Preentrenamiento 250 g" width="80" height="80" loading="lazy">
+          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1814691_prozis_powered-pre-workout-coffee-250g_1.png" alt="Powered - Café Preentrenamiento 250 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Powered - Café Preentrenamiento 250 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">59.96</div>
-          <div class="pc-price">14.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Powered - Café Preentrenamiento 250 g</span>
+            
+          </div>
+          <div class="pc-meta">Prozis · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · Prozis
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">59.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 14.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -2866,22 +2946,25 @@
          data-tipo=""
          data-id="ghost-legend-pre-entreno-frambuesa-azul-maxima-energia-660g-ghost"
          data-label="GHOST LEGEND® Pre-Entreno Frambues…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/96145d96-9b0c-4d18-2c38-2dbc41134d00/public" alt="GHOST LEGEND® Pre-Entreno Frambuesa Azul | Máxima Energía 660g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/96145d96-9b0c-4d18-2c38-2dbc41134d00/public" alt="GHOST LEGEND® Pre-Entreno Frambuesa Azul | Máxima Energía 660g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">GHOST LEGEND® Pre-Entreno Frambuesa Azul | Máxima Energía 660g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">62.05</div>
-          <div class="pc-price">40.95 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">GHOST LEGEND® Pre-Entreno Frambuesa Azul | Máxima Energía 660g</span>
+            
+          </div>
+          <div class="pc-meta">Ghost · 0.66 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.66 kg · Ghost
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">62.05<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 40.95 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -2913,22 +2996,25 @@
          data-tipo=""
          data-id="pump-express-2-0-concentrate-660g-olimp"
          data-label="Pump Express 2.0 Concentrate 660g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/74402a08-4c5e-4c30-5d81-f6223ee33700/public" alt="Pump Express 2.0 Concentrate 660g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/74402a08-4c5e-4c30-5d81-f6223ee33700/public" alt="Pump Express 2.0 Concentrate 660g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Pump Express 2.0 Concentrate 660g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">62.12</div>
-          <div class="pc-price">41.00 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Pump Express 2.0 Concentrate 660g</span>
+            
+          </div>
+          <div class="pc-meta">Olimp · 0.66 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.66 kg · Olimp
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">62.12<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 41.00 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -2960,22 +3046,25 @@
          data-tipo=""
          data-id="aakg-250g-desconocida"
          data-label="AAKG 250g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529772-1795199709694367.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="AAKG 250g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529772-1795199709694367.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="AAKG 250g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">AAKG 250g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">63.96</div>
-          <div class="pc-price">15.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">AAKG 250g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">63.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 15.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3012,22 +3101,25 @@
          data-tipo=""
          data-id="malato-de-l-citrulina-300-g-desconocida"
          data-label="Malato de L-Citrulina 300 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1304266_prozis_l-citrulline-malate-300g_1.png" alt="Malato de L-Citrulina 300 g" width="80" height="80" loading="lazy">
+          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1304266_prozis_l-citrulline-malate-300g_1.png" alt="Malato de L-Citrulina 300 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Malato de L-Citrulina 300 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">66.63</div>
-          <div class="pc-price">19.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Malato de L-Citrulina 300 g</span>
+            
+          </div>
+          <div class="pc-meta">BioTechUSA · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · BioTechUSA
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">66.63<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 19.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3071,22 +3163,25 @@
          data-tipo=""
          data-id="c4-sport-288g-cellucor"
          data-label="C4 Sport 288g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4b2cc61b-e2dc-4c68-200f-3b4eb2b80900/public" alt="C4 Sport 288g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4b2cc61b-e2dc-4c68-200f-3b4eb2b80900/public" alt="C4 Sport 288g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">C4 Sport 288g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">69.27</div>
-          <div class="pc-price">19.95 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">C4 Sport 288g</span>
+            
+          </div>
+          <div class="pc-meta">Cellucor · 0.29 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.29 kg · Cellucor
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">69.27<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 19.95 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -3118,22 +3213,25 @@
          data-tipo=""
          data-id="amino-charge-570g-scitec-nutrition"
          data-label="Amino Charge 570g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/ca6b00bf-aa69-4139-b392-8a993d154300/public" alt="Amino Charge 570g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/ca6b00bf-aa69-4139-b392-8a993d154300/public" alt="Amino Charge 570g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Amino Charge 570g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">69.30</div>
-          <div class="pc-price">39.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Amino Charge 570g</span>
+            
+          </div>
+          <div class="pc-meta">Scitec Nutrition · 0.57 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.57 kg · Scitec Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">69.30<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 39.50 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3170,22 +3268,25 @@
          data-tipo=""
          data-id="attack-416g-scitec-nutrition"
          data-label="Attack 416g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f4ce2689-e1a9-4922-7cc1-079a7aad9f00/public" alt="Attack 416g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f4ce2689-e1a9-4922-7cc1-079a7aad9f00/public" alt="Attack 416g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Attack 416g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">69.47</div>
-          <div class="pc-price">28.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Attack 416g</span>
+            
+          </div>
+          <div class="pc-meta">Scitec Nutrition · 0.42 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.42 kg · Scitec Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">69.47<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 28.90 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3222,22 +3323,25 @@
          data-tipo=""
          data-id="bavarian-elite-octanox-pre-entreno-350g-energia-extrema-bavarian-elite"
          data-label="Bavarian Elite OCTANOX Pre-Entreno…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/79eaa461-a12e-4d2c-764c-5dde8697bf00/public" alt="Bavarian Elite OCTANOX Pre-Entreno 350g | Energía Extrema" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/79eaa461-a12e-4d2c-764c-5dde8697bf00/public" alt="Bavarian Elite OCTANOX Pre-Entreno 350g | Energía Extrema" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Bavarian Elite OCTANOX Pre-Entreno 350g | Energía Extrema</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">71.43</div>
-          <div class="pc-price">25.00 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Bavarian Elite OCTANOX Pre-Entreno 350g | Energía Extrema</span>
+            
+          </div>
+          <div class="pc-meta">Bavarian Elite · 0.35 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.35 kg · Bavarian Elite
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">71.43<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 25.00 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -3269,22 +3373,25 @@
          data-tipo=""
          data-id="abe-pre-workout-375g-applied-nutrition"
          data-label="ABE Pre-Workout 375g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/a09a1c55-4a0a-4c2d-a92d-496a3b3a5500/public" alt="ABE Pre-Workout 375g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/a09a1c55-4a0a-4c2d-a92d-496a3b3a5500/public" alt="ABE Pre-Workout 375g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">ABE Pre-Workout 375g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">71.97</div>
-          <div class="pc-price">26.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">ABE Pre-Workout 375g</span>
+            
+          </div>
+          <div class="pc-meta">Applied Nutrition · 0.38 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.38 kg · Applied Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">71.97<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 26.99 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -3316,22 +3423,25 @@
          data-tipo=""
          data-id="applied-nutrition-abe-pre-entreno-375g-el-mejor-de-europa-applied-nutrition"
          data-label="Applied Nutrition ABE Pre-Entreno …">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/24b48ac4-34d9-4eff-e5fd-dc2dd2733000/public" alt="Applied Nutrition ABE Pre-Entreno 375g - El Mejor de Europa" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/24b48ac4-34d9-4eff-e5fd-dc2dd2733000/public" alt="Applied Nutrition ABE Pre-Entreno 375g - El Mejor de Europa" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Applied Nutrition ABE Pre-Entreno 375g - El Mejor de Europa</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">71.97</div>
-          <div class="pc-price">26.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Applied Nutrition ABE Pre-Entreno 375g - El Mejor de Europa</span>
+            
+          </div>
+          <div class="pc-meta">Applied Nutrition · 0.38 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.38 kg · Applied Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">71.97<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 26.99 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -3363,22 +3473,25 @@
          data-tipo=""
          data-id="knockout-2-0-305g-olimp"
          data-label="KNOCKOUT 2.0 305g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/53640d55-d076-44ca-4a57-2a6e12e33c00/public" alt="KNOCKOUT 2.0 305g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/53640d55-d076-44ca-4a57-2a6e12e33c00/public" alt="KNOCKOUT 2.0 305g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">KNOCKOUT 2.0 305g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">72.46</div>
-          <div class="pc-price">22.10 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">KNOCKOUT 2.0 305g</span>
+            
+          </div>
+          <div class="pc-meta">Olimp · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · Olimp
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">72.46<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 22.10 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -3410,22 +3523,25 @@
          data-tipo=""
          data-id="jack3d-45-servicios-usp-labs-nutritienda-315g-usp-labs"
          data-label="JACK3D 45 Servicios ▸ USP Labs | N…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/1ea7eca2-1f8a-4dbb-b151-29af228c3500/public" alt="JACK3D 45 Servicios ▸ USP Labs | Nutritienda 315g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/1ea7eca2-1f8a-4dbb-b151-29af228c3500/public" alt="JACK3D 45 Servicios ▸ USP Labs | Nutritienda 315g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">JACK3D 45 Servicios ▸ USP Labs | Nutritienda 315g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">72.67</div>
-          <div class="pc-price">22.89 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">JACK3D 45 Servicios ▸ USP Labs | Nutritienda 315g</span>
+            
+          </div>
+          <div class="pc-meta">Usp Labs · 0.32 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.32 kg · Usp Labs
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">72.67<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 22.89 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -3457,22 +3573,25 @@
          data-tipo=""
          data-id="barrita-pre-workout-impact-goldnutrition-energia-cafeina-400g-gold-nutrition"
          data-label="Barrita Pre-Workout Impact GoldNut…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d32778fd-7675-431d-c661-67ea86d32b00/public" alt="Barrita Pre-Workout Impact GoldNutrition - Energía + Cafeína 400g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d32778fd-7675-431d-c661-67ea86d32b00/public" alt="Barrita Pre-Workout Impact GoldNutrition - Energía + Cafeína 400g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Barrita Pre-Workout Impact GoldNutrition - Energía + Cafeína 400g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">74.75</div>
-          <div class="pc-price">29.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Barrita Pre-Workout Impact GoldNutrition - Energía + Cafeína 400g</span>
+            
+          </div>
+          <div class="pc-meta">Gold Nutrition · 0.40 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.40 kg · Gold Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">74.75<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 29.90 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -3504,22 +3623,25 @@
          data-tipo=""
          data-id="platinum-pre-workout-420g-optimum-nutrition"
          data-label="Platinum Pre Workout 420g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/3b07f783-b86c-4493-f885-50e3da1dbb00/public" alt="Platinum Pre Workout 420g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/3b07f783-b86c-4493-f885-50e3da1dbb00/public" alt="Platinum Pre Workout 420g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Platinum Pre Workout 420g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">74.98</div>
-          <div class="pc-price">31.49 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Platinum Pre Workout 420g</span>
+            
+          </div>
+          <div class="pc-meta">Optimum Nutrition · 0.42 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.42 kg · Optimum Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">74.98<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 31.49 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -3551,22 +3673,25 @@
          data-tipo=""
          data-id="atp-extreme-440g-vitobest"
          data-label="ATP Extreme 440g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/aaaca508-7061-4195-e7bd-31624a594b00/public" alt="ATP Extreme 440g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/aaaca508-7061-4195-e7bd-31624a594b00/public" alt="ATP Extreme 440g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">ATP Extreme 440g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">75.11</div>
-          <div class="pc-price">33.05 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">ATP Extreme 440g</span>
+            
+          </div>
+          <div class="pc-meta">Vitobest · 0.44 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.44 kg · Vitobest
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">75.11<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 33.05 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3603,22 +3728,25 @@
          data-tipo=""
          data-id="total-rush-2-0-375g-weider"
          data-label="Total Rush 2.0 375g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/be8702e2-cc6b-48e9-4670-a1c1d526bc00/public" alt="Total Rush 2.0 375g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/be8702e2-cc6b-48e9-4670-a1c1d526bc00/public" alt="Total Rush 2.0 375g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Total Rush 2.0 375g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">75.76</div>
-          <div class="pc-price">28.41 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Total Rush 2.0 375g</span>
+            
+          </div>
+          <div class="pc-meta">Weider · 0.38 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.38 kg · Weider
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">75.76<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 28.41 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -3650,22 +3778,25 @@
          data-tipo=""
          data-id="l-carnitina-en-polvo-250g-desconocida"
          data-label="L-Carnitina en polvo 250g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529733-5365199715247889.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="L-Carnitina en polvo 250g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529733-5365199715247889.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="L-Carnitina en polvo 250g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">L-Carnitina en polvo 250g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">75.96</div>
-          <div class="pc-price">18.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">L-Carnitina en polvo 250g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">75.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 18.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3702,22 +3833,25 @@
          data-tipo=""
          data-id="glycopump-300g-vitobest"
          data-label="Glycopump 300g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/glycopump-300g-vitobest.webp" alt="Glycopump 300g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/glycopump-300g-vitobest.webp" alt="Glycopump 300g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Glycopump 300g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">76.80</div>
-          <div class="pc-price">23.04 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Glycopump 300g</span>
+            
+          </div>
+          <div class="pc-meta">Vitobest · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · Vitobest
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">76.80<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 23.04 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3754,22 +3888,25 @@
          data-tipo=""
          data-id="pre-workout-300g-best-protein"
          data-label="Pre Workout 300g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/pre-workout-300g-best-protein.webp" alt="Pre Workout 300g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/pre-workout-300g-best-protein.webp" alt="Pre Workout 300g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Pre Workout 300g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">77.17</div>
-          <div class="pc-price">23.15 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Pre Workout 300g</span>
+            
+          </div>
+          <div class="pc-meta">Best Protein · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · Best Protein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">77.17<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 23.15 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3806,22 +3943,25 @@
          data-tipo=""
          data-id="nitrox-therapy-340g-biotechusa"
          data-label="NITROX THERAPY 340g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/nitrox-therapy-340g-biotechusa.webp" alt="NITROX THERAPY 340g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/nitrox-therapy-340g-biotechusa.webp" alt="NITROX THERAPY 340g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">NITROX THERAPY 340g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">79.12</div>
-          <div class="pc-price">26.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">NITROX THERAPY 340g</span>
+            
+          </div>
+          <div class="pc-meta">BioTechUSA · 0.34 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.34 kg · BioTechUSA
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">79.12<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 26.90 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3858,22 +3998,25 @@
          data-tipo=""
          data-id="r-weiler-focus-300g-olimp"
          data-label="R-Weiler Focus 300g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/r-weiler-focus-300g-olimp.webp" alt="R-Weiler Focus 300g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/r-weiler-focus-300g-olimp.webp" alt="R-Weiler Focus 300g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">R-Weiler Focus 300g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">86.00</div>
-          <div class="pc-price">25.80 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">R-Weiler Focus 300g</span>
+            
+          </div>
+          <div class="pc-meta">Olimp · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · Olimp
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">86.00<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 25.80 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3910,22 +4053,25 @@
          data-tipo=""
          data-id="impact-pre-entreno-venom-440g-desconocida"
          data-label="Impact Pre-Entreno – Venom 440g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17463022-1305288565142815.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Impact Pre-Entreno – Venom 440g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17463022-1305288565142815.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Impact Pre-Entreno – Venom 440g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Impact Pre-Entreno – Venom 440g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">88.61</div>
-          <div class="pc-price">38.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Impact Pre-Entreno – Venom 440g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.44 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.44 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">88.61<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 38.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -3962,22 +4108,25 @@
          data-tipo=""
          data-id="l-ornitina-hcl-en-polvo-250g-desconocida"
          data-label="L-Ornitina HCL en polvo 250g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/1600/1600/10529383-1224689570490761.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="L-Ornitina HCL en polvo 250g" width="80" height="80" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/1600/1600/10529383-1224689570490761.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="L-Ornitina HCL en polvo 250g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">L-Ornitina HCL en polvo 250g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">89.96</div>
-          <div class="pc-price">22.49 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">L-Ornitina HCL en polvo 250g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MyProtein
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">89.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 22.49 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4014,22 +4163,25 @@
          data-tipo=""
          data-id="gold-standard-pre-workout-330g-optimum-nutrition"
          data-label="GOLD STANDARD PRE-WORKOUT 330g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/761ae3f9-174f-4e1c-58ac-05580cf6c600/public" alt="GOLD STANDARD PRE-WORKOUT 330g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/761ae3f9-174f-4e1c-58ac-05580cf6c600/public" alt="GOLD STANDARD PRE-WORKOUT 330g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">GOLD STANDARD PRE-WORKOUT 330g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">90.88</div>
-          <div class="pc-price">29.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">GOLD STANDARD PRE-WORKOUT 330g</span>
+            
+          </div>
+          <div class="pc-meta">Optimum Nutrition · 0.33 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.33 kg · Optimum Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">90.88<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 29.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4066,22 +4218,25 @@
          data-tipo=""
          data-id="pow3rd-2-0-350-g-scitec-nutrition"
          data-label="POW3RD! 2.0 - 350 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/bb06bf14-dc5a-4a24-d606-3a5a1187ce00/public" alt="POW3RD! 2.0 - 350 g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/bb06bf14-dc5a-4a24-d606-3a5a1187ce00/public" alt="POW3RD! 2.0 - 350 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">POW3RD! 2.0 - 350 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">91.14</div>
-          <div class="pc-price">31.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">POW3RD! 2.0 - 350 g</span>
+            
+          </div>
+          <div class="pc-meta">Scitec Nutrition · 0.35 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.35 kg · Scitec Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">91.14<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 31.90 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4118,22 +4273,25 @@
          data-tipo=""
          data-id="amino-energy-zero-360g-biotechusa"
          data-label="Amino Energy Zero 360g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/amino-energy-zero-360g-biotechusa.webp" alt="Amino Energy Zero 360g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/amino-energy-zero-360g-biotechusa.webp" alt="Amino Energy Zero 360g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Amino Energy Zero 360g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">91.39</div>
-          <div class="pc-price">32.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Amino Energy Zero 360g</span>
+            
+          </div>
+          <div class="pc-meta">BioTechUSA · 0.36 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.36 kg · BioTechUSA
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">91.39<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 32.90 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4170,22 +4328,25 @@
          data-tipo=""
          data-id="malato-de-l-citrulina-150-g-desconocida"
          data-label="Malato de L-Citrulina 150 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1458306_prozis_l-citrulline-malate-150g_1.png" alt="Malato de L-Citrulina 150 g" width="80" height="80" loading="lazy">
+          <img src="//static.sscontent.com/thumb/750/750/t/products/124/v1458306_prozis_l-citrulline-malate-150g_1.png" alt="Malato de L-Citrulina 150 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Malato de L-Citrulina 150 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">93.27</div>
-          <div class="pc-price">13.99 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Malato de L-Citrulina 150 g</span>
+            
+          </div>
+          <div class="pc-meta">Prozis · 0.15 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.15 kg · Prozis
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">93.27<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 13.99 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4222,22 +4383,25 @@
          data-tipo=""
          data-id="amix-yeep-pump-pre-entreno-con-cafeina-345gr-345g-amix"
          data-label="Amix Yeep Pump Pre-entreno con Caf…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/865d8806-5ba3-4db5-56ea-ed1b6e9af500/public" alt="Amix Yeep Pump Pre-entreno con Cafeína 345gr 345g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/865d8806-5ba3-4db5-56ea-ed1b6e9af500/public" alt="Amix Yeep Pump Pre-entreno con Cafeína 345gr 345g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Amix Yeep Pump Pre-entreno con Cafeína 345gr 345g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">94.20</div>
-          <div class="pc-price">32.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Amix Yeep Pump Pre-entreno con Cafeína 345gr 345g</span>
+            
+          </div>
+          <div class="pc-meta">Amix · 0.34 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.34 kg · Amix
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">94.20<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 32.50 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4274,22 +4438,25 @@
          data-tipo=""
          data-id="venmo-pre-workout-non-stimulant-300g-life-pro-nutrition"
          data-label="Venmo Pre-Workout Non Stimulant 300g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/1e97f430-77b9-4853-d372-3d8b9d34fb00/public" alt="Venmo Pre-Workout Non Stimulant 300g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/1e97f430-77b9-4853-d372-3d8b9d34fb00/public" alt="Venmo Pre-Workout Non Stimulant 300g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Venmo Pre-Workout Non Stimulant 300g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">99.67</div>
-          <div class="pc-price">29.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Venmo Pre-Workout Non Stimulant 300g</span>
+            
+          </div>
+          <div class="pc-meta">Life Pro Nutrition · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · Life Pro Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">99.67<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 29.90 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -4321,22 +4488,25 @@
          data-tipo=""
          data-id="animal-fury-pre-entreno-universal-nutrition-suplementos-320g-universal-nutrition"
          data-label="Animal Fury Pre-Entreno Universal …">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4ada7a19-8a09-4576-a3a7-573f4ffa7600/public" alt="Animal Fury Pre-Entreno Universal Nutrition | Suplementos 320g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4ada7a19-8a09-4576-a3a7-573f4ffa7600/public" alt="Animal Fury Pre-Entreno Universal Nutrition | Suplementos 320g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Animal Fury Pre-Entreno Universal Nutrition | Suplementos 320g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">99.84</div>
-          <div class="pc-price">31.95 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Animal Fury Pre-Entreno Universal Nutrition | Suplementos 320g</span>
+            
+          </div>
+          <div class="pc-meta">Universal Nutrition · 0.32 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.32 kg · Universal Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">99.84<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 31.95 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4373,22 +4543,25 @@
          data-tipo=""
          data-id="energy-storm-300g-beverly-nutrition"
          data-label="Energy Storm 300g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7748940c-b206-4c5a-17df-141cc2fc8800/public" alt="Energy Storm 300g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7748940c-b206-4c5a-17df-141cc2fc8800/public" alt="Energy Storm 300g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Energy Storm 300g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">101.87</div>
-          <div class="pc-price">30.56 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Energy Storm 300g</span>
+            
+          </div>
+          <div class="pc-meta">Beverly Nutrition · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · Beverly Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">101.87<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 30.56 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -4420,22 +4593,25 @@
          data-tipo=""
          data-id="226ers-pre-workout-300g-suplemento-pre-entreno-vegano-226ers"
          data-label="226ERS Pre Workout 300g - Suplemen…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/dbf9a2fb-19ce-4528-cff6-965812e07100/public" alt="226ERS Pre Workout 300g - Suplemento Pre-Entreno Vegano" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/dbf9a2fb-19ce-4528-cff6-965812e07100/public" alt="226ERS Pre Workout 300g - Suplemento Pre-Entreno Vegano" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">226ERS Pre Workout 300g - Suplemento Pre-Entreno Vegano</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">105.00</div>
-          <div class="pc-price">31.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">226ERS Pre Workout 300g - Suplemento Pre-Entreno Vegano</span>
+            
+          </div>
+          <div class="pc-meta">226ers · 0.30 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.30 kg · 226ers
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">105.00<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 31.50 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -4467,22 +4643,25 @@
          data-tipo=""
          data-id="supernova-282g-biotechusa"
          data-label="SUPERNOVA 282g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="/img/productos/supernova-282g-biotechusa.webp" alt="SUPERNOVA 282g" width="80" height="80" loading="lazy">
+          <img src="/img/productos/supernova-282g-biotechusa.webp" alt="SUPERNOVA 282g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">SUPERNOVA 282g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">106.03</div>
-          <div class="pc-price">29.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">SUPERNOVA 282g</span>
+            
+          </div>
+          <div class="pc-meta">BioTechUSA · 0.28 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.28 kg · BioTechUSA
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">106.03<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 29.90 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4519,22 +4698,25 @@
          data-tipo=""
          data-id="pre-entreno-myocell-5-phase-500g-musclecore-amix"
          data-label="Pre-entreno MyoCell 5 Phase 500g -…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7ab6f21d-79f3-4e83-6aa8-84b8bfcb7400/public" alt="Pre-entreno MyoCell 5 Phase 500g - Musclecore" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7ab6f21d-79f3-4e83-6aa8-84b8bfcb7400/public" alt="Pre-entreno MyoCell 5 Phase 500g - Musclecore" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Pre-entreno MyoCell 5 Phase 500g - Musclecore</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">107.00</div>
-          <div class="pc-price">53.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Pre-entreno MyoCell 5 Phase 500g - Musclecore</span>
+            
+          </div>
+          <div class="pc-meta">Amix · 0.50 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.50 kg · Amix
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">107.00<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 53.50 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4571,22 +4753,25 @@
          data-tipo=""
          data-id="wild-pump-400g-life-pro-nutrition"
          data-label="Wild Pump 400g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/b56415f4-56ee-4a75-c5bd-47dd96c8ff00/public" alt="Wild Pump 400g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/b56415f4-56ee-4a75-c5bd-47dd96c8ff00/public" alt="Wild Pump 400g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Wild Pump 400g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">107.25</div>
-          <div class="pc-price">42.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Wild Pump 400g</span>
+            
+          </div>
+          <div class="pc-meta">Life Pro Nutrition · 0.40 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.40 kg · Life Pro Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">107.25<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 42.90 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -4618,22 +4803,25 @@
          data-tipo=""
          data-id="vapor-x5-pre-workout-247g-muscletech"
          data-label="Vapor X5 Pre-Workout 247g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/eca28bed-0630-4491-4cbf-778617109100/public" alt="Vapor X5 Pre-Workout 247g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/eca28bed-0630-4491-4cbf-778617109100/public" alt="Vapor X5 Pre-Workout 247g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Vapor X5 Pre-Workout 247g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">108.91</div>
-          <div class="pc-price">26.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Vapor X5 Pre-Workout 247g</span>
+            
+          </div>
+          <div class="pc-meta">MuscleTech · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · MuscleTech
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">108.91<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 26.90 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4670,22 +4858,25 @@
          data-tipo=""
          data-id="the-curse-250-g-cobra-labs"
          data-label="The Curse 250 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/168b8afc-8bd3-428c-2cbc-848402044e00/public" alt="The Curse 250 g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/168b8afc-8bd3-428c-2cbc-848402044e00/public" alt="The Curse 250 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">The Curse 250 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">113.96</div>
-          <div class="pc-price">28.49 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">The Curse 250 g</span>
+            
+          </div>
+          <div class="pc-meta">Cobra Labs · 0.25 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.25 kg · Cobra Labs
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">113.96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 28.49 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4722,22 +4913,25 @@
          data-tipo=""
          data-id="scitec-hot-blood-infinity-no-stim-350g-pre-entreno-scitec-nutrition"
          data-label="Scitec Hot Blood Infinity No-Stim …">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/fbfd2d41-e414-476f-7cd4-bb1ff8b80600/public" alt="Scitec Hot Blood Infinity No-Stim 350g - Pre-Entreno" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/fbfd2d41-e414-476f-7cd4-bb1ff8b80600/public" alt="Scitec Hot Blood Infinity No-Stim 350g - Pre-Entreno" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Scitec Hot Blood Infinity No-Stim 350g - Pre-Entreno</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">115.71</div>
-          <div class="pc-price">40.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Scitec Hot Blood Infinity No-Stim 350g - Pre-Entreno</span>
+            
+          </div>
+          <div class="pc-meta">Scitec Nutrition · 0.35 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.35 kg · Scitec Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">115.71<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 40.50 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4774,22 +4968,25 @@
          data-tipo=""
          data-id="nitro-speed-350g-para-fuerza-y-energia-big-nutritienda-big"
          data-label="NITRO SPEED 350g para fuerza y ene…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d13d091f-566f-45aa-31b1-1ef91cbfed00/public" alt="NITRO SPEED 350g para fuerza y energía ▸ BIG | Nutritienda" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d13d091f-566f-45aa-31b1-1ef91cbfed00/public" alt="NITRO SPEED 350g para fuerza y energía ▸ BIG | Nutritienda" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">NITRO SPEED 350g para fuerza y energía ▸ BIG | Nutritienda</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">117.00</div>
-          <div class="pc-price">40.95 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">NITRO SPEED 350g para fuerza y energía ▸ BIG | Nutritienda</span>
+            
+          </div>
+          <div class="pc-meta">Big · 0.35 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.35 kg · Big
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">117.00<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 40.95 €</div>
+        
       </div>
       
       <div class="pc-stores">
@@ -4821,22 +5018,25 @@
          data-tipo=""
          data-id="hot-blood-infinity-350-g-scitec-nutrition"
          data-label="Hot Blood Infinity 350 g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/91b7e69e-4180-446d-95bf-a6ac07d80400/public" alt="Hot Blood Infinity 350 g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/91b7e69e-4180-446d-95bf-a6ac07d80400/public" alt="Hot Blood Infinity 350 g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Hot Blood Infinity 350 g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">118.57</div>
-          <div class="pc-price">41.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Hot Blood Infinity 350 g</span>
+            
+          </div>
+          <div class="pc-meta">Scitec Nutrition · 0.35 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.35 kg · Scitec Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">118.57<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 41.50 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4873,22 +5073,25 @@
          data-tipo=""
          data-id="biotechusa-black-blood-nox-340g-pre-entreno-extremo-biotechusa"
          data-label="BioTechUSA Black Blood NOX+ 340g -…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/0bcfc374-630d-418d-baa1-747ffef14e00/public" alt="BioTechUSA Black Blood NOX+ 340g - Pre-Entreno Extremo" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/0bcfc374-630d-418d-baa1-747ffef14e00/public" alt="BioTechUSA Black Blood NOX+ 340g - Pre-Entreno Extremo" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">BioTechUSA Black Blood NOX+ 340g - Pre-Entreno Extremo</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">120.29</div>
-          <div class="pc-price">40.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">BioTechUSA Black Blood NOX+ 340g - Pre-Entreno Extremo</span>
+            
+          </div>
+          <div class="pc-meta">BioTechUSA · 0.34 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.34 kg · BioTechUSA
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">120.29<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 40.90 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4925,22 +5128,25 @@
          data-tipo=""
          data-id="m-a-p-glyceromax-340g-amix"
          data-label="M.A.P. GLYCEROMAX 340g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/634671f4-3d28-4465-66f0-73033fa89c00/public" alt="M.A.P. GLYCEROMAX 340g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/634671f4-3d28-4465-66f0-73033fa89c00/public" alt="M.A.P. GLYCEROMAX 340g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">M.A.P. GLYCEROMAX 340g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">126.47</div>
-          <div class="pc-price">43.00 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">M.A.P. GLYCEROMAX 340g</span>
+            
+          </div>
+          <div class="pc-meta">Amix · 0.34 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.34 kg · Amix
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">126.47<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 43.00 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -4977,22 +5183,25 @@
          data-tipo=""
          data-id="amix-cellup-con-oxystorm-348g-pre-entreno-premium-amix"
          data-label="Amix CellUp con Oxystorm 348g - Pr…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/6b6bf76f-15c2-4a95-f122-8c698bb78700/public" alt="Amix CellUp con Oxystorm 348g - Pre-entreno Premium" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/6b6bf76f-15c2-4a95-f122-8c698bb78700/public" alt="Amix CellUp con Oxystorm 348g - Pre-entreno Premium" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Amix CellUp con Oxystorm 348g - Pre-entreno Premium</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">133.62</div>
-          <div class="pc-price">46.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Amix CellUp con Oxystorm 348g - Pre-entreno Premium</span>
+            
+          </div>
+          <div class="pc-meta">Amix · 0.35 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.35 kg · Amix
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">133.62<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 46.50 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -5029,22 +5238,25 @@
          data-tipo=""
          data-id="superhero-285g-scitec-nutrition"
          data-label="Superhero 285g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d0a41c06-69c7-46c9-f82e-e311183dfb00/public" alt="Superhero 285g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d0a41c06-69c7-46c9-f82e-e311183dfb00/public" alt="Superhero 285g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Superhero 285g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">142.11</div>
-          <div class="pc-price">40.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Superhero 285g</span>
+            
+          </div>
+          <div class="pc-meta">Scitec Nutrition · 0.28 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.28 kg · Scitec Nutrition
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">142.11<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 40.50 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -5081,22 +5293,25 @@
          data-tipo=""
          data-id="c4-ripped-30-pre-entreno-cellucor-nutritienda-165g-cellucor"
          data-label="C4 RIPPED 30 pre-entreno ▸ Celluco…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/519d3e85-305e-4ba1-4884-4fe526be6f00/public" alt="C4 RIPPED 30 pre-entreno ▸ Cellucor | Nutritienda 165g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/519d3e85-305e-4ba1-4884-4fe526be6f00/public" alt="C4 RIPPED 30 pre-entreno ▸ Cellucor | Nutritienda 165g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">C4 RIPPED 30 pre-entreno ▸ Cellucor | Nutritienda 165g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">150.91</div>
-          <div class="pc-price">24.90 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">C4 RIPPED 30 pre-entreno ▸ Cellucor | Nutritienda 165g</span>
+            
+          </div>
+          <div class="pc-meta">Cellucor · 0.17 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.17 kg · Cellucor
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">150.91<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 24.90 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -5133,22 +5348,25 @@
          data-tipo=""
          data-id="pre-entreno-cellzoom-amix-formula-concentrada-sin-azucares-315g-amix"
          data-label="Pre-entreno CellZoom Amix - Fórmul…">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/3a7e5247-b317-467f-5eb7-b45de10fb600/public" alt="Pre-entreno CellZoom Amix - Fórmula Concentrada Sin Azúcares 315g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/3a7e5247-b317-467f-5eb7-b45de10fb600/public" alt="Pre-entreno CellZoom Amix - Fórmula Concentrada Sin Azúcares 315g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">Pre-entreno CellZoom Amix - Fórmula Concentrada Sin Azúcares 315g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">169.84</div>
-          <div class="pc-price">53.50 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Pre-entreno CellZoom Amix - Fórmula Concentrada Sin Azúcares 315g</span>
+            
+          </div>
+          <div class="pc-meta">Amix · 0.32 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.32 kg · Amix
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">169.84<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 53.50 €</div>
+        
       </div>
       
       <div class="spark-row">
@@ -5185,22 +5403,25 @@
          data-tipo=""
          data-id="c4-original-195g-cellucor"
          data-label="C4 ORIGINAL 195g">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/da868391-bff0-4404-8124-08eb52098b00/public" alt="C4 ORIGINAL 195g" width="80" height="80" loading="lazy">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/da868391-bff0-4404-8124-08eb52098b00/public" alt="C4 ORIGINAL 195g" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">C4 ORIGINAL 195g</span>
-          
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price-kg">179.23</div>
-          <div class="pc-price">34.95 €</div>
-          
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">C4 ORIGINAL 195g</span>
+            
+          </div>
+          <div class="pc-meta">Cellucor · 0.20 kg</div>
         </div>
       </div>
-      <div class="pc-meta">
-        Pre-Entreno · 0.20 kg · Cellucor
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">179.23<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 34.95 €</div>
+        
       </div>
       
       <div class="spark-row">

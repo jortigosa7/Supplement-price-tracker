@@ -193,20 +193,23 @@
     .products-list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 16px;
     }
     @media (min-width: 640px) {
       .products-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .products-list { grid-template-columns: repeat(3, 1fr); }
     }
 
     .product-card {
       background: #ffffff;
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 18px 20px;
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
       transition: border-color 0.15s, box-shadow 0.15s;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
@@ -222,46 +225,49 @@
     .product-card:nth-child(5) { animation: fadeUp 0.45s 0.24s ease both; }
     .product-card:nth-child(n+6) { animation: fadeUp 0.45s 0.30s ease both; }
 
+    /* ── Zona 1: imagen + nombre + meta ── */
     .pc-top {
       display: flex;
-      justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
     }
     .pc-img {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       flex-shrink: 0;
       border-radius: 8px;
       overflow: hidden;
-      background: #f5f5f5;
+      background: rgba(255,255,255,0.05);
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .pc-img img {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       object-fit: contain;
     }
-    @media (max-width: 480px) {
-      .pc-img { width: 60px; height: 60px; }
-      .pc-img img { width: 60px; height: 60px; }
+    .pc-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
-    .pc-name { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .pc-name { display: flex; flex-direction: column; gap: 4px; }
     .pc-name-text {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #111111;
-      line-height: 1.4;
+      line-height: 1.35;
     }
     .pc-badge {
       display: inline-block;
       font-family: var(--font-display);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 800;
-      padding: 3px 9px;
-      border-radius: 10px;
+      padding: 2px 8px;
+      border-radius: 8px;
       width: fit-content;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -272,45 +278,44 @@
       color: var(--coral);
       border: 1px solid var(--coral-border);
     }
-    .pc-price-block {
-      text-align: right;
-      flex-shrink: 0;
+    .pc-meta { font-size: 0.75rem; color: #888888; }
+
+    /* ── Zona 2: fila de precio ── */
+    .pc-price-row {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .pc-price-kg {
+    .pc-price-main {
       font-family: var(--font-syne);
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 900;
       color: var(--accent);
       line-height: 1;
       font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
-    .pc-price-kg::before {
-      content: '€/kg';
-      display: block;
+    .pc-price-main.no-kg { color: #e8e8e8; font-size: 1.45rem; }
+    .pc-price-unit {
       font-family: var(--font-body);
-      font-size: 9px;
+      font-size: 0.68rem;
       font-weight: 600;
       color: #888888;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      line-height: 1;
-      margin-bottom: 3px;
+      letter-spacing: 0.09em;
+      margin-left: 3px;
     }
-    .pc-price {
-      font-family: var(--font-body);
+    .pc-price-sec {
       font-size: 0.78rem;
-      font-weight: 500;
       color: #888888;
-      line-height: 1.4;
-      margin-top: 4px;
+      text-align: right;
+      line-height: 1.5;
     }
-    .pc-price::before { content: 'total: '; font-weight: 400; }
     .pc-price-old { font-size: 0.72rem; color: #666666; text-decoration: line-through; }
-    .pc-meta { font-size: 0.78rem; color: #aaaaaa; }
 
     .pc-stores { display: flex; flex-direction: column; gap: 5px; }
     a.pc-store {
@@ -890,7 +895,8 @@
       .cat-grid { grid-template-columns: 1fr; }
       .search-bar { flex-direction: column; }
       .search-select { width: 100%; }
-      .pc-price { font-size: 1.2rem; }
+      .pc-price-main { font-size: 1.4rem; }
+      .pc-price-main.no-kg { font-size: 1.2rem; }
       .metrics-grid { flex-wrap: wrap; }
       .metric-card { flex: 1 1 30%; }
       .steps-grid { grid-template-columns: 1fr; }
@@ -931,8 +937,10 @@
     .product-card { background: #111214; border-color: rgba(255,255,255,0.07); }
     .product-card.is-best { border-color: var(--accent); }
     .product-card:hover { border-color: rgba(255,255,255,0.14); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .pc-img { background: rgba(255,255,255,0.04); }
     .pc-name-text { color: #e8e8e8; }
     .pc-meta { color: #666; }
+    .pc-price-row { border-color: rgba(255,255,255,0.07); }
     a.pc-store { background: #16181a; border-color: rgba(255,255,255,0.07); }
     a.pc-store:first-child { background: rgba(200,255,77,0.06); border-color: rgba(200,255,77,0.2); }
     a.pc-store:hover { background: #1e2022; }
@@ -1150,6 +1158,10 @@
   <main>
     
 
+
+<div style="background:#1e1e10;color:#999;font-size:0.74rem;text-align:center;padding:7px 16px;letter-spacing:0.02em;">
+  Precios actualizados por última vez el 7 de septiembre
+</div>
 
 
 <div class="container">

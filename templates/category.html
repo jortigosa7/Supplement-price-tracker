@@ -216,26 +216,35 @@
          data-tipo="{{ p.tipo_proteina if p.tipo_proteina is defined else '' }}"
          data-id="{{ p.id }}"
          data-label="{{ p.nombre_normalizado | truncate(35, True, '…') }}">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="80" height="80" loading="lazy">
+          <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
-          {% if loop.index == 1 %}
-            <span class="pc-badge best">Mejor precio</span>
-          {% elif is_deal %}
-            <span class="pc-badge deal">Descuento</span>
-          {% endif %}
-        </div>
-        <div class="pc-price-block">
-          {% if p.precio_por_kg_min %}<div class="pc-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }}</div>{% endif %}
-          <div class="pc-price">{{ "%.2f"|format(offer.precio_eur) }} €</div>
-          {% if is_deal %}<div class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</div>{% endif %}
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
+            {% if loop.index == 1 %}
+              <span class="pc-badge best">Mejor precio</span>
+            {% elif is_deal %}
+              <span class="pc-badge deal">Descuento</span>
+            {% endif %}
+          </div>
+          <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %}</div>
         </div>
       </div>
-      <div class="pc-meta">
-        {{ cat.display }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %} · {{ p.marca }}
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        {% if p.precio_por_kg_min %}
+          <div class="pc-price-main">{{ "%.2f"|format(p.precio_por_kg_min) }}<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde {{ "%.2f"|format(offer.precio_eur) }} €{% if is_deal %}<br><span class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</span>{% endif %}</div>
+        {% elif p.servings_per_container and offer.precio_eur %}
+          {% set precio_dosis = offer.precio_eur / p.servings_per_container %}
+          <div class="pc-price-main no-kg">{{ "%.2f"|format(precio_dosis) }}<span class="pc-price-unit">€/dosis</span></div>
+          <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ "%.2f"|format(offer.precio_eur) }} €</div>
+        {% else %}
+          <div class="pc-price-main no-kg">{{ "%.2f"|format(offer.precio_eur) }}<span class="pc-price-unit">€</span></div>
+        {% endif %}
       </div>
       {% if p.spark_svg %}
       <div class="spark-row">

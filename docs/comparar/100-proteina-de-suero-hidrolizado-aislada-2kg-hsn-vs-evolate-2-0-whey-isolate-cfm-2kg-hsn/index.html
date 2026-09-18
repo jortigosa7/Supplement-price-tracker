@@ -72,40 +72,55 @@
   .cmp-hero-sub { font-size:0.84rem; color:#aaa; }
 
   /* ── Sections ─────────── */
-  .cmp-wrap { background:#fff; }
+  .cmp-wrap { background:transparent; }
   .cmp-section { padding:28px 0 0; }
-  .cmp-section-title { font-size:0.95rem; font-weight:700; color:#111; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+  .cmp-section-title { font-size:0.95rem; font-weight:700; color:#c0c0c0; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.08); }
+
+  /* ── Mini-header de productos ── */
+  .cmp-header-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:8px; }
+  .cmp-hcard { display:flex; align-items:center; gap:12px; background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px 16px; }
+  .cmp-hcard-img { width:52px; height:52px; flex-shrink:0; border-radius:8px; background:rgba(255,255,255,0.04); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .cmp-hcard-img img { width:52px; height:52px; object-fit:contain; }
+  .cmp-hcard-info { min-width:0; }
+  .cmp-hcard-name { font-size:0.82rem; font-weight:700; color:#e8e8e8; line-height:1.3; }
+  .cmp-hcard-meta { font-size:0.72rem; color:#666; margin-top:2px; }
+  .cmp-hcard-price { font-size:1rem; font-weight:800; color:var(--accent); margin-top:4px; }
+  @media (max-width:480px) {
+    .cmp-hcard { padding:10px 12px; gap:8px; }
+    .cmp-hcard-img { width:40px; height:40px; }
+    .cmp-hcard-img img { width:40px; height:40px; }
+    .cmp-hcard-name { font-size:0.75rem; }
+  }
 
   /* ── Veredicto ────────── */
   .verdict-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:28px; }
   @media (min-width:640px) { .verdict-grid { grid-template-columns:repeat(4,1fr); } }
-  .verdict-card { background:#f9f9f9; border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
-  .verdict-icon { font-size:1.1rem; margin-bottom:5px; }
-  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#111; margin-bottom:4px; }
-  .verdict-winner { font-size:0.82rem; font-weight:700; color:#111; line-height:1.3; margin-bottom:2px; }
-  .verdict-value { font-size:0.75rem; color:#1a1a1a; }
+  .verdict-card { background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px 16px; }
+  .verdict-icon { margin-bottom:5px; color:#888; }
+  .verdict-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#666; margin-bottom:4px; }
+  .verdict-winner { font-size:0.82rem; font-weight:700; color:#e8e8e8; line-height:1.3; margin-bottom:2px; }
+  .verdict-value { font-size:0.75rem; color:#aaa; }
   .verdict-na { font-size:0.78rem; color:#555; font-style:italic; }
 
   /* ── Tabla ────────────── */
   .cmp-table-wrap { overflow-x:auto; margin-bottom:28px; -webkit-overflow-scrolling:touch; }
-  .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
-  .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:0.85rem; color:#111; }
+  .cmp-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid rgba(255,255,255,0.08); border-radius:12px; overflow:hidden; }
+  .cmp-table th, .cmp-table td { padding:11px 14px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.06); font-size:0.85rem; color:#d0d0d0; }
   .cmp-table tr:last-child td { border-bottom:none; }
-  .cmp-table th { background:#f7f7f7; font-weight:700; font-size:0.78rem; color:#111; white-space:nowrap; }
-  .cmp-table td.label-col { color:#555; font-size:0.78rem; width:130px; white-space:nowrap; font-weight:500; }
-  .cmp-table td.na-cell { color:#aaa; font-style:italic; font-size:0.8rem; }
-  .cmp-table td.winner-cell { font-weight:700; color:#111; }
-  .cmp-val-badge { display:inline-block; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #ddd; }
-  .cmp-val-badge.win { background:rgba(200,255,77,0.15); color:#4a6b00; border-color:rgba(200,255,77,0.6); }
+  .cmp-table th { background:#111214; font-weight:700; font-size:0.78rem; color:#aaa; white-space:nowrap; }
+  .cmp-table td.label-col { color:#666; font-size:0.78rem; width:130px; white-space:nowrap; font-weight:500; }
+  .cmp-table td.na-cell { color:#444; font-style:italic; font-size:0.8rem; }
+  .cmp-table td.winner-cell { font-weight:700; color:#e8e8e8; }
+  .cmp-val-badge { display:inline-block; background:#1a1c1e; color:#d0d0d0; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); }
+  .cmp-val-badge.win { background:rgba(200,255,77,0.12); color:var(--accent); border-color:rgba(200,255,77,0.4); }
 
-  /* ── Tabla móvil: columna label sticky, columnas producto anchas ── */
+  /* ── Tabla móvil: columna label sticky ── */
   @media (max-width: 767px) {
     .cmp-table-wrap {
       scroll-snap-type: x mandatory;
     }
     .cmp-table {
       table-layout: fixed;
-      /* label 96px + dos columnas producto que juntas no caben en pantalla */
       width: calc(96px + 2 * (100vw - 56px));
       border-radius: 0;
       border-left: none;
@@ -121,7 +136,7 @@
       max-width: 96px;
       white-space: normal;
       word-break: break-word;
-      background: #f7f7f7;
+      background: #111214;
     }
     .cmp-table th:not(:first-child),
     .cmp-table td:not(.label-col) {
@@ -129,14 +144,13 @@
       min-width: calc(100vw - 116px);
       scroll-snap-align: start;
     }
-    /* Indicador visual de scroll */
     .cmp-scroll-hint {
       display: flex;
       align-items: center;
       gap: 6px;
       justify-content: center;
       font-size: 0.72rem;
-      color: #888;
+      color: #555;
       margin: -16px 0 20px;
     }
   }
@@ -147,25 +161,25 @@
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
   @media (max-width:480px) { .cmp-cards { grid-template-columns:1fr; } }
-  .cmp-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
-  .cmp-card-img { width:72px; height:72px; border-radius:8px; background:#f5f5f5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .cmp-card { background:#111214; border:1.5px solid rgba(255,255,255,0.08); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
+  .cmp-card-img { width:72px; height:72px; border-radius:8px; background:rgba(255,255,255,0.04); overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
-  .cmp-card-name { font-weight:700; font-size:0.9rem; color:#111; line-height:1.3; }
-  .cmp-card-meta { font-size:0.76rem; color:#111; }
-  .cmp-card-price { font-size:1.35rem; font-weight:800; color:#111; line-height:1; }
-  .cmp-card-kg { display:inline-flex; background:#f0f0f0; color:#111; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; border:1px solid #ddd; }
+  .cmp-card-name { font-weight:700; font-size:0.9rem; color:#e8e8e8; line-height:1.3; }
+  .cmp-card-meta { font-size:0.76rem; color:#666; }
+  .cmp-card-price { font-size:1.35rem; font-weight:800; color:#e8e8e8; line-height:1; }
+  .cmp-card-kg { display:inline-flex; background:rgba(200,255,77,0.1); color:var(--accent); font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:8px; margin-top:3px; border:1px solid rgba(200,255,77,0.3); }
 
   /* ── Editorial ────────── */
-  .editorial-text { font-size:0.88rem; color:#111; line-height:1.8; max-width:760px; }
+  .editorial-text { font-size:0.88rem; color:#aaa; line-height:1.8; max-width:760px; }
   .editorial-text p { margin-bottom:12px; }
 
   /* ── Relacionadas ─────── */
   .related-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:14px; }
   @media (min-width:640px) { .related-grid { grid-template-columns:repeat(3,1fr); } }
-  .related-card { background:#f7f7f7; border:1px solid var(--border); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
-  .related-card:hover { border-color:var(--accent-border); background:var(--accent-bg); }
-  .related-tag { font-size:0.65rem; color:#111; text-transform:uppercase; letter-spacing:0.06em; }
-  .related-title { font-size:0.8rem; font-weight:600; color:#111; line-height:1.3; margin-top:2px; }
+  .related-card { background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:11px 13px; text-decoration:none; transition:border-color 0.15s; display:block; }
+  .related-card:hover { border-color:var(--accent-border); background:rgba(200,255,77,0.06); }
+  .related-tag { font-size:0.65rem; color:#555; text-transform:uppercase; letter-spacing:0.06em; }
+  .related-title { font-size:0.8rem; font-weight:600; color:#c0c0c0; line-height:1.3; margin-top:2px; }
 </style>
 
 
@@ -308,20 +322,23 @@
     .products-list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 16px;
     }
     @media (min-width: 640px) {
       .products-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .products-list { grid-template-columns: repeat(3, 1fr); }
     }
 
     .product-card {
       background: #ffffff;
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 18px 20px;
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
       transition: border-color 0.15s, box-shadow 0.15s;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
@@ -337,46 +354,49 @@
     .product-card:nth-child(5) { animation: fadeUp 0.45s 0.24s ease both; }
     .product-card:nth-child(n+6) { animation: fadeUp 0.45s 0.30s ease both; }
 
+    /* ── Zona 1: imagen + nombre + meta ── */
     .pc-top {
       display: flex;
-      justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
     }
     .pc-img {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       flex-shrink: 0;
       border-radius: 8px;
       overflow: hidden;
-      background: #f5f5f5;
+      background: rgba(255,255,255,0.05);
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .pc-img img {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       object-fit: contain;
     }
-    @media (max-width: 480px) {
-      .pc-img { width: 60px; height: 60px; }
-      .pc-img img { width: 60px; height: 60px; }
+    .pc-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
-    .pc-name { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .pc-name { display: flex; flex-direction: column; gap: 4px; }
     .pc-name-text {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #111111;
-      line-height: 1.4;
+      line-height: 1.35;
     }
     .pc-badge {
       display: inline-block;
       font-family: var(--font-display);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 800;
-      padding: 3px 9px;
-      border-radius: 10px;
+      padding: 2px 8px;
+      border-radius: 8px;
       width: fit-content;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -387,45 +407,44 @@
       color: var(--coral);
       border: 1px solid var(--coral-border);
     }
-    .pc-price-block {
-      text-align: right;
-      flex-shrink: 0;
+    .pc-meta { font-size: 0.75rem; color: #888888; }
+
+    /* ── Zona 2: fila de precio ── */
+    .pc-price-row {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .pc-price-kg {
+    .pc-price-main {
       font-family: var(--font-syne);
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 900;
       color: var(--accent);
       line-height: 1;
       font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
-    .pc-price-kg::before {
-      content: '€/kg';
-      display: block;
+    .pc-price-main.no-kg { color: #e8e8e8; font-size: 1.45rem; }
+    .pc-price-unit {
       font-family: var(--font-body);
-      font-size: 9px;
+      font-size: 0.68rem;
       font-weight: 600;
       color: #888888;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      line-height: 1;
-      margin-bottom: 3px;
+      letter-spacing: 0.09em;
+      margin-left: 3px;
     }
-    .pc-price {
-      font-family: var(--font-body);
+    .pc-price-sec {
       font-size: 0.78rem;
-      font-weight: 500;
       color: #888888;
-      line-height: 1.4;
-      margin-top: 4px;
+      text-align: right;
+      line-height: 1.5;
     }
-    .pc-price::before { content: 'total: '; font-weight: 400; }
     .pc-price-old { font-size: 0.72rem; color: #666666; text-decoration: line-through; }
-    .pc-meta { font-size: 0.78rem; color: #aaaaaa; }
 
     .pc-stores { display: flex; flex-direction: column; gap: 5px; }
     a.pc-store {
@@ -1005,7 +1024,8 @@
       .cat-grid { grid-template-columns: 1fr; }
       .search-bar { flex-direction: column; }
       .search-select { width: 100%; }
-      .pc-price { font-size: 1.2rem; }
+      .pc-price-main { font-size: 1.4rem; }
+      .pc-price-main.no-kg { font-size: 1.2rem; }
       .metrics-grid { flex-wrap: wrap; }
       .metric-card { flex: 1 1 30%; }
       .steps-grid { grid-template-columns: 1fr; }
@@ -1046,8 +1066,10 @@
     .product-card { background: #111214; border-color: rgba(255,255,255,0.07); }
     .product-card.is-best { border-color: var(--accent); }
     .product-card:hover { border-color: rgba(255,255,255,0.14); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .pc-img { background: rgba(255,255,255,0.04); }
     .pc-name-text { color: #e8e8e8; }
     .pc-meta { color: #666; }
+    .pc-price-row { border-color: rgba(255,255,255,0.07); }
     a.pc-store { background: #16181a; border-color: rgba(255,255,255,0.07); }
     a.pc-store:first-child { background: rgba(200,255,77,0.06); border-color: rgba(200,255,77,0.2); }
     a.pc-store:hover { background: #1e2022; }
@@ -1156,6 +1178,35 @@
 <div class="cmp-wrap">
 <div class="container" style="padding-bottom:60px;">
 
+<!-- ── Mini-header: dos productos ─── -->
+<div class="cmp-section">
+  <div class="cmp-header-grid">
+    
+    <div class="cmp-hcard">
+      <div class="cmp-hcard-img">
+        <img src="/img/productos/100-proteina-de-suero-hidrolizado-aislada-2kg-desconocida.webp" alt="100% Proteína de suero hidrolizado aislada 2kg" width="52" height="52" loading="eager">
+      </div>
+      <div class="cmp-hcard-info">
+        <div class="cmp-hcard-name">100% Proteína de suero hidrolizado aislada 2kg</div>
+        <div class="cmp-hcard-meta">HSN · 2.00 kg</div>
+        <div class="cmp-hcard-price">desde 68.83 €</div>
+      </div>
+    </div>
+    
+    <div class="cmp-hcard">
+      <div class="cmp-hcard-img">
+        <img src="/img/productos/evolate-2-0-whey-isolate-cfm-2kg-desconocida.webp" alt="Evolate 2.0 (whey isolate CFM) 2kg" width="52" height="52" loading="eager">
+      </div>
+      <div class="cmp-hcard-info">
+        <div class="cmp-hcard-name">Evolate 2.0 (whey isolate CFM) 2kg</div>
+        <div class="cmp-hcard-meta">HSN · 2.00 kg</div>
+        <div class="cmp-hcard-price">desde 93.91 €</div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
 <!-- ── Veredicto rápido ─── -->
 <div class="cmp-section">
   <h2 class="cmp-section-title">Veredicto rápido</h2>
@@ -1216,18 +1267,13 @@
       <tbody>
         <tr>
           <td class="label-col">Imagen</td>
-          <td><img src="/img/productos/100-proteina-de-suero-hidrolizado-aislada-2kg-desconocida.webp" alt="100% Proteína de suero hidrolizado aislada 2kg" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
-          <td><img src="/img/productos/evolate-2-0-whey-isolate-cfm-2kg-desconocida.webp" alt="Evolate 2.0 (whey isolate CFM) 2kg" width="56" height="56" style="object-fit:contain;border-radius:6px;background:#f5f5f5;display:block;"></td>
+          <td><img src="/img/productos/100-proteina-de-suero-hidrolizado-aislada-2kg-desconocida.webp" alt="100% Proteína de suero hidrolizado aislada 2kg" width="56" height="56" style="object-fit:contain;border-radius:6px;background:rgba(255,255,255,0.04);display:block;"></td>
+          <td><img src="/img/productos/evolate-2-0-whey-isolate-cfm-2kg-desconocida.webp" alt="Evolate 2.0 (whey isolate CFM) 2kg" width="56" height="56" style="object-fit:contain;border-radius:6px;background:rgba(255,255,255,0.04);display:block;"></td>
         </tr>
         <tr>
           <td class="label-col">Marca</td>
           <td>HSN</td>
           <td>HSN</td>
-        </tr>
-        <tr>
-          <td class="label-col">Categoría</td>
-          <td>Proteínas</td>
-          <td>Proteínas</td>
         </tr>
         <tr>
           <td class="label-col">Peso</td>
@@ -1236,16 +1282,31 @@
         </tr>
         
         
+        
         <tr>
-          <td class="label-col">Mejor precio total</td>
+          <td class="label-col">Precio total</td>
           <td class="winner-cell">68.83 € (HSN)</td>
           <td>93.91 € (HSN)</td>
         </tr>
         
         <tr>
-          <td class="label-col">Precio €/kg</td>
-          <td><span class="na-cell">—</span></td>
-          <td><span class="na-cell">—</span></td>
+          <td class="label-col">Tiendas</td>
+          <td>
+            
+              
+              <span class="store-pill store-hsn" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
+                <span class="store-pill-dot"></span>HSN
+              </span>
+            
+          </td>
+          <td>
+            
+              
+              <span class="store-pill store-hsn" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
+                <span class="store-pill-dot"></span>HSN
+              </span>
+            
+          </td>
         </tr>
         
         <tr>
@@ -1268,25 +1329,6 @@
           <td>67</td>
         </tr>
         
-        <tr>
-          <td class="label-col">Tiendas</td>
-          <td>
-            
-              
-              <span class="store-pill store-hsn" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
-                <span class="store-pill-dot"></span>HSN
-              </span>
-            
-          </td>
-          <td>
-            
-              
-              <span class="store-pill store-hsn" style="margin-right:3px;margin-bottom:3px;display:inline-flex;">
-                <span class="store-pill-dot"></span>HSN
-              </span>
-            
-          </td>
-        </tr>
         
         <tr>
           <td class="label-col">Valoración</td>
