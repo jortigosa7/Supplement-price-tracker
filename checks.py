@@ -11,7 +11,8 @@ para comparar con la siguiente.
 Checks implementados:
   1. Redirecciones: destino existe en docs/ y no forma cadena.
   2. Links internos: hrefs absolutos en HTML apuntan a rutas existentes.
-  3. Tiendas: ninguna tienda a 0 productos; ninguna cae >30% respecto al build anterior.
+  3. Tiendas: ninguna tienda a 0 productos; ninguna cae >30% respecto al build anterior;
+     ninguna tienda con 100% de productos sin precio_por_kg_min (fallo masivo de scraper).
   4. Métricas: comparaciones, grupos multi-tienda y páginas de sitemap no bajan.
   6. Desconocida: 'desconocida' no aparece en texto visible; campos críticos no vacíos.
   7. €/kg alto: ningún producto supera 10× la mediana de su categoría.
@@ -164,10 +165,12 @@ def _check_enlaces_internos(docs_dir: str) -> list[str]:
 
 # ── Check 3: Productos por tienda ────────────────────────────────────────────
 
-def _check_por_tienda(por_tienda: dict, por_tienda_ant: dict) -> list[str]:
+def _check_por_tienda(por_tienda: dict, por_tienda_ant: dict, productos_web: list[dict] | None = None) -> list[str]:
     """
     - Ninguna tienda puede tener 0 productos.
     - Ninguna tienda puede bajar >30% respecto al build anterior.
+    - Ninguna tienda puede tener 100% de sus productos sin precio_por_kg_min
+      (indica que _obtener_precio_peso_fresco falló en masa — web caída, rate-limit, etc.)
     """
     errores = []
 
@@ -177,6 +180,36 @@ def _check_por_tienda(por_tienda: dict, por_tienda_ant: dict) -> list[str]:
                 f"[CHECK 3] {tienda}: 0 productos en este build.\n"
                 f"  Acción: corre el scraper manualmente y comprueba que responde."
             )
+
+    # Check €/kg por tienda: si el 100% de los productos de una tienda no tienen
+    # precio_por_kg_min, el scraper probablemente falló en silencio al obtener precios.
+    if productos_web:
+        from collections import defaultdict
+        sin_kg: dict[str, int] = defaultdict(int)
+        con_kg: dict[str, int] = defaultdict(int)
+        for p in productos_web:
+            peso = p.get("peso_kg") or 0
+            if peso < 0.15:
+                continue  # monodosis: legítimamente sin €/kg
+            tiene_kg = bool(p.get("precio_por_kg_min"))
+            for pr in p.get("precios", []):
+                tienda = pr.get("tienda", "?")
+                if tiene_kg:
+                    con_kg[tienda] += 1
+                else:
+                    sin_kg[tienda] += 1
+        for tienda in set(list(sin_kg.keys()) + list(con_kg.keys())):
+            total = sin_kg[tienda] + con_kg[tienda]
+            if total < 5:
+                continue  # poca muestra, no alarmar
+            if con_kg[tienda] == 0:
+                errores.append(
+                    f"[CHECK 3] {tienda}: 0/{total} productos tienen precio_por_kg_min "
+                    f"(todos los productos con peso ≥150 g sin €/kg).\n"
+                    f"  Indica que _obtener_precio_peso_fresco falló en masa durante el último scraping.\n"
+                    f"  Posibles causas: HSN con HTML distinto (mantenimiento, A/B test, rate-limit).\n"
+                    f"  Acción: vuelve a correr el scraper con: python scrapers/hsn.py"
+                )
 
     if not por_tienda_ant:
         return errores
@@ -305,14 +338,22 @@ def _check_desconocido(docs_dir: str, productos_web: list[dict]) -> list[str]:
 
 UMBRAL_KG_BAJO = 0.20   # €/kg < 20% de la mediana → anómalo por abajo
 
-# Gainers y cremas de arroz se excluyen del check por abajo: su precio bajo
-# por kg es estructural (mucha fécula/carbohidrato, poca proteína), no un bug.
-# El check por arriba (>10× mediana) sí les aplica igual.
+# Gainers, cremas de arroz y otros productos con €/kg estructuralmente bajo
+# se excluyen del check por abajo. No es un bug de scraper — es que el producto
+# es barato por naturaleza (carbohidratos, saborizantes, ingredientes básicos).
 _RE_GAINER = re.compile(r"\b(gainer|ganador|arroz)\b", re.IGNORECASE)
+# Productos no-suplemento que vende HSN con €/kg muy bajo por definición
+_RE_BAJO_ESTRUCTURAL = re.compile(
+    r"\b(bicarbonato|isomaltulosa|palatinose|claras de huevo)\b", re.IGNORECASE
+)
 
 
 def _es_gainer(nombre: str) -> bool:
     return bool(_RE_GAINER.search(nombre))
+
+
+def _es_bajo_estructural(nombre: str) -> bool:
+    return bool(_RE_BAJO_ESTRUCTURAL.search(nombre))
 
 
 def _check_precio_rango(productos_web: list[dict]) -> list[str]:
@@ -323,8 +364,8 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
       en céntimos. Se aplica a todos los productos.
 
     Por abajo: €/kg < UMBRAL_KG_BAJO × mediana → precio "desde" incorrecto o
-      formato equivocado. Se EXCLUYE a gainers y cremas de arroz porque su
-      precio bajo es estructural (carbohidratos diluyen el €/kg), no un error.
+      formato equivocado. Se EXCLUYE a gainers, cremas de arroz y productos con
+      €/kg bajo estructural (bicarbonato, isomaltulosa, claras de huevo).
       Umbral 20%: Evobasic a 5,54 €/kg (11%) salta; whey real a 30+ €/kg no.
 
     Excluye monodosis (<100 g) donde €/kg es legítimamente muy alto.
@@ -364,7 +405,7 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
                 f"ratio={kg_f / mediana:.1f}x (umbral {UMBRAL_KG_ALTO:.0f}x)\n"
                 f"  Acción: verifica el precio y el peso en el scraper de origen."
             )
-        elif kg_f < mediana * UMBRAL_KG_BAJO and not _es_gainer(nombre):
+        elif kg_f < mediana * UMBRAL_KG_BAJO and not _es_gainer(nombre) and not _es_bajo_estructural(nombre):
             errores.append(
                 f"[CHECK 7] €/kg anormalmente BAJO: [{cat}] {nombre}\n"
                 f"  precio_por_kg={kg_f:.2f} €/kg  mediana_cat={mediana:.2f} €/kg  "
@@ -537,7 +578,7 @@ def run_all_checks(
     errores: list[str] = []
     errores += _check_redirects(docs_dir)
     errores += _check_enlaces_internos(docs_dir)
-    errores += _check_por_tienda(por_tienda, stats_ant.get("por_tienda", {}))
+    errores += _check_por_tienda(por_tienda, stats_ant.get("por_tienda", {}), productos_web=productos_web)
     errores += _check_metricas(stats_act, stats_ant)
     errores += _check_desconocido(docs_dir, productos_web)
     errores += _check_precio_rango(productos_web)

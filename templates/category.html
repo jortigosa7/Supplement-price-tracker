@@ -110,12 +110,12 @@
       {{ cat.intro }}
     </p>
     <div class="cat-stats">
-      <span>📦 <strong>{{ products | length }}</strong> productos</span>
+      <span><strong>{{ products | length }}</strong> productos</span>
       <span>Actualizado el <strong>{{ fecha_datos }}</strong></span>
       {% if products %}
       {% set best = products | selectattr("precio_por_kg_min") | first | default(none) %}
       {% if best and best.precio_por_kg_min %}
-      <span>🏆 Mejor €/kg: <strong class="green">{{ "%.2f"|format(best.precio_por_kg_min) }} €/kg</strong></span>
+      <span>Mejor €/kg: <strong class="green">{{ "%.2f"|format(best.precio_por_kg_min) }} €/kg</strong></span>
       {% endif %}
       {% endif %}
     </div>
@@ -188,7 +188,7 @@
 
     <!-- Reset -->
     <div class="filter-row filter-row--reset">
-      <button class="filter-reset-btn" id="btnResetFilters" onclick="resetFilters()">✕ Limpiar filtros</button>
+      <button class="filter-reset-btn" id="btnResetFilters" onclick="resetFilters()"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Limpiar filtros</button>
       <span class="filter-count" id="filterCount"></span>
     </div>
   </div>
@@ -216,26 +216,35 @@
          data-tipo="{{ p.tipo_proteina if p.tipo_proteina is defined else '' }}"
          data-id="{{ p.id }}"
          data-label="{{ p.nombre_normalizado | truncate(35, True, '…') }}">
+      <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="80" height="80" loading="lazy">
+          <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="72" height="72" loading="lazy">
         </div>
-        <div class="pc-name">
-          <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
-          {% if loop.index == 1 %}
-            <span class="pc-badge best">Mejor precio</span>
-          {% elif is_deal %}
-            <span class="pc-badge deal">Descuento</span>
-          {% endif %}
-        </div>
-        <div class="pc-price-block">
-          {% if p.precio_por_kg_min %}<div class="pc-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }}</div>{% endif %}
-          <div class="pc-price">{{ "%.2f"|format(offer.precio_eur) }} €</div>
-          {% if is_deal %}<div class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</div>{% endif %}
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
+            {% if loop.index == 1 %}
+              <span class="pc-badge best">Mejor precio</span>
+            {% elif is_deal %}
+              <span class="pc-badge deal">Descuento</span>
+            {% endif %}
+          </div>
+          <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %}</div>
         </div>
       </div>
-      <div class="pc-meta">
-        {{ cat.display }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %} · {{ p.marca }}
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        {% if p.precio_por_kg_min %}
+          <div class="pc-price-main">{{ "%.2f"|format(p.precio_por_kg_min) }}<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde {{ "%.2f"|format(offer.precio_eur) }} €{% if is_deal %}<br><span class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</span>{% endif %}</div>
+        {% elif p.servings_per_container and offer.precio_eur %}
+          {% set precio_dosis = offer.precio_eur / p.servings_per_container %}
+          <div class="pc-price-main no-kg">{{ "%.2f"|format(precio_dosis) }}<span class="pc-price-unit">€/dosis</span></div>
+          <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ "%.2f"|format(offer.precio_eur) }} €</div>
+        {% else %}
+          <div class="pc-price-main no-kg">{{ "%.2f"|format(offer.precio_eur) }}<span class="pc-price-unit">€</span></div>
+        {% endif %}
       </div>
       {% if p.spark_svg %}
       <div class="spark-row">
@@ -283,7 +292,7 @@
 
   <!-- ── Info bar ──────────────────────────────────── -->
   <div class="info-bar" style="margin-top:32px;">
-    <strong>ℹ️ Sobre los precios:</strong>
+    <strong><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><polyline points="11 11 12 11 12 16 13 16"/></svg>Sobre los precios:</strong>
     Los precios se actualizan varias veces por semana y pueden variar entre el momento del scraping y la compra.
     El precio/kg permite comparar productos de distintos tamaños de forma justa. Algunos enlaces son de afiliado.
   </div>
@@ -557,7 +566,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (selected.length >= 2) return;
       selected.push({id: id, label: label, btn: btn});
       btn.classList.add('is-selected');
-      btn.textContent = 'Añadido ✓';
+      btn.textContent = 'Añadido';
     }
     updateBar();
   });

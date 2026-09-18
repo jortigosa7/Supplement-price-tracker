@@ -1,15 +1,15 @@
 {
-  "fecha": "2026-09-17",
-  "total_productos": 601,
+  "fecha": "2026-09-18",
+  "total_productos": 600,
   "por_tienda": {
     "Nutritienda": 314,
     "MyProtein": 100,
-    "Prozis": 112,
-    "HSN": 81
+    "HSN": 80,
+    "Prozis": 112
   },
   "n_comparaciones": 57,
   "grupos_multitienda": 6,
-  "n_sitemap": 67,
+  "n_sitemap": 70,
   "ids": [
     "100-black-bol-bcaa-powder-450g-best-body-nutrition",
     "100-creatina-monohidrato-500g-quamtrax",
@@ -195,7 +195,6 @@
     "c4-ripped-30-pre-entreno-cellucor-nutritienda-165g-cellucor",
     "c4-sport-288g-cellucor",
     "c4-whey-protein-449g-cellucor",
-    "cafe-proteico-cafefitconq-500g-desconocida",
     "cafe-proteico-sin-edulcorantes-cafefitconq-500g-desconocida",
     "cafeina-natural-200mg-desconocida",
     "cafeina-pura-comprimidos-desconocida",

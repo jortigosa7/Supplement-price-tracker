@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "hsn",
+    "nombre": "HSN",
+    "nombre_largo": "HSN Store",
+    "descripcion_corta": "Marca propia y gran catálogo de proteínas, creatina y aminoácidos.",
+    "color_var": "--hsn",
+    "url_homepage": "https://www.hsn.es",
+    "afiliacion_id": "JORTIGOSA",
+    "introduccion": [
+      "",
+      "",
+      ""
+    ],
+    "productos_destacados": []
+  }
+]
