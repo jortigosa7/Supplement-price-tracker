@@ -905,6 +905,7 @@ KEYWORDS_EXCLUIR_POR_CATEGORIA = {
         "colágeno marino", "colageno", "collagen",
         "meal replacement",
         "arroz en polvo",
+        "claras de huevo",   # producto líquido con alta proporción de agua; €/kg bajo estructural
     ],
     "pre-entreno": [
         "mug cake",          # mezcla de repostería, no es pre-workout
@@ -1991,11 +1992,14 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> None:
         # Umbral: 20% de la mediana de categoría. Gainers/cremas de arroz se excluyen
         # porque su precio bajo es estructural, no un bug. La mediana también se calcula
         # sin ellos para que no arrastren el suelo hacia abajo.
+        # También se excluyen productos que _excluir_producto ya filtra (bicarbonato,
+        # isomaltulosa, cremas de arroz, claras de huevo líquidas, etc.): su €/kg bajo
+        # es estructural y no van en la página de categoría igualmente.
         # Lógica espejo de checks.py::_check_precio_rango.
         kg_confirmado = p.get("precio_por_kg_min")
         _nombre_lower = nombre.lower()
         _es_gainer = any(k in _nombre_lower for k in ("gainer", "ganador", "arroz"))
-        if kg_confirmado and peso_f and peso_f >= 0.1 and mediana and not _es_gainer:
+        if kg_confirmado and peso_f and peso_f >= 0.1 and mediana and not _es_gainer and not _excluir_producto(p):
             kg_f = float(kg_confirmado)
             if kg_f < mediana * 0.20:
                 anomalias.append(

@@ -338,14 +338,22 @@ def _check_desconocido(docs_dir: str, productos_web: list[dict]) -> list[str]:
 
 UMBRAL_KG_BAJO = 0.20   # €/kg < 20% de la mediana → anómalo por abajo
 
-# Gainers y cremas de arroz se excluyen del check por abajo: su precio bajo
-# por kg es estructural (mucha fécula/carbohidrato, poca proteína), no un bug.
-# El check por arriba (>10× mediana) sí les aplica igual.
+# Gainers, cremas de arroz y otros productos con €/kg estructuralmente bajo
+# se excluyen del check por abajo. No es un bug de scraper — es que el producto
+# es barato por naturaleza (carbohidratos, saborizantes, ingredientes básicos).
 _RE_GAINER = re.compile(r"\b(gainer|ganador|arroz)\b", re.IGNORECASE)
+# Productos no-suplemento que vende HSN con €/kg muy bajo por definición
+_RE_BAJO_ESTRUCTURAL = re.compile(
+    r"\b(bicarbonato|isomaltulosa|palatinose|claras de huevo)\b", re.IGNORECASE
+)
 
 
 def _es_gainer(nombre: str) -> bool:
     return bool(_RE_GAINER.search(nombre))
+
+
+def _es_bajo_estructural(nombre: str) -> bool:
+    return bool(_RE_BAJO_ESTRUCTURAL.search(nombre))
 
 
 def _check_precio_rango(productos_web: list[dict]) -> list[str]:
@@ -356,8 +364,8 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
       en céntimos. Se aplica a todos los productos.
 
     Por abajo: €/kg < UMBRAL_KG_BAJO × mediana → precio "desde" incorrecto o
-      formato equivocado. Se EXCLUYE a gainers y cremas de arroz porque su
-      precio bajo es estructural (carbohidratos diluyen el €/kg), no un error.
+      formato equivocado. Se EXCLUYE a gainers, cremas de arroz y productos con
+      €/kg bajo estructural (bicarbonato, isomaltulosa, claras de huevo).
       Umbral 20%: Evobasic a 5,54 €/kg (11%) salta; whey real a 30+ €/kg no.
 
     Excluye monodosis (<100 g) donde €/kg es legítimamente muy alto.
@@ -397,7 +405,7 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
                 f"ratio={kg_f / mediana:.1f}x (umbral {UMBRAL_KG_ALTO:.0f}x)\n"
                 f"  Acción: verifica el precio y el peso en el scraper de origen."
             )
-        elif kg_f < mediana * UMBRAL_KG_BAJO and not _es_gainer(nombre):
+        elif kg_f < mediana * UMBRAL_KG_BAJO and not _es_gainer(nombre) and not _es_bajo_estructural(nombre):
             errores.append(
                 f"[CHECK 7] €/kg anormalmente BAJO: [{cat}] {nombre}\n"
                 f"  precio_por_kg={kg_f:.2f} €/kg  mediana_cat={mediana:.2f} €/kg  "
