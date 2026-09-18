@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Tiendas recomendadas de suplementos en España | StackFit{% endblock %}
+{% block meta_desc %}Tiendas de suplementos deportivos con las que colaboramos: HSN y próximamente otras. Programas de afiliación y mejores ofertas.{% endblock %}
+{% block canonical_path %}/tiendas/{% endblock %}
+{% block og_title %}Tiendas recomendadas | StackFit{% endblock %}
+{% block og_path %}/tiendas/{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top:32px; padding-bottom:80px;">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ site_url }}/">Inicio</a>
+    <span>›</span>
+    <span>Tiendas</span>
+  </nav>
+
+  <header style="margin-bottom:40px;">
+    <h1 style="font-family:var(--font-display); font-size:clamp(1.6rem,4vw,2.2rem); font-weight:900; text-transform:uppercase; color:#f0f0f0; margin-bottom:12px;">
+      Nuestras tiendas <em style="color:var(--accent); font-style:normal;">recomendadas</em>
+    </h1>
+    <p style="color:#888; font-size:0.9rem; max-width:600px; line-height:1.7; margin-bottom:10px;">
+      Trabajamos con estas tiendas en programas de afiliación. Si compras a través de nuestros
+      enlaces ganamos una pequeña comisión sin coste adicional para ti.
+    </p>
+    <a href="{{ site_url }}/como-financiamos/" style="font-size:0.8rem; color:#666; text-decoration:none;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><polyline points="11 11 12 11 12 16 13 16"/></svg>
+      Cómo financiamos StackFit →
+    </a>
+  </header>
+
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    {% for tienda in tiendas %}
+    <a href="{{ site_url }}/tiendas/{{ tienda.slug }}/" style="display:block; text-decoration:none;">
+      <div style="background:#111214; border:1px solid rgba(255,255,255,0.08); border-left:3px solid var({{ tienda.color_var }}); border-radius:12px; padding:20px 24px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; transition:border-color 0.15s;"
+           onmouseover="this.style.borderColor='rgba(255,255,255,0.18)'"
+           onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="display:flex; align-items:center; gap:10px; flex:1; min-width:180px;">
+          <span style="width:10px; height:10px; border-radius:50%; background:var({{ tienda.color_var }}); flex-shrink:0;"></span>
+          <div>
+            <div style="font-weight:800; font-size:1rem; color:#e8e8e8;">{{ tienda.nombre_largo }}</div>
+            <div style="font-size:0.78rem; color:#555; margin-top:2px;">{{ tienda.descripcion_corta }}</div>
+          </div>
+        </div>
+        <div style="font-size:0.8rem; font-weight:600; color:var(--accent); white-space:nowrap;">
+          Ver productos →
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

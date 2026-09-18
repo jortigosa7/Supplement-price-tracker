@@ -43,6 +43,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://stackfit.es/como-financiamos/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://stackfit.es/sobre-nosotros/</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -398,6 +404,18 @@
   </url>
   <url>
     <loc>https://stackfit.es/comparar/iso-whey-zero-450-g-biotechusa-vs-iso-whey-zero-black-908g-biotechusa/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://stackfit.es/tiendas/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://stackfit.es/tiendas/hsn/</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tienda.nombre }} suplementos: precios y catálogo completo | StackFit{% endblock %}
+{% block meta_desc %}Catálogo completo de {{ tienda.nombre }} en StackFit: proteínas, creatina, BCAA y pre-entreno con precios actualizados.{% endblock %}
+{% block canonical_path %}/tiendas/{{ tienda.slug }}/{% endblock %}
+{% block og_title %}{{ tienda.nombre }} — Suplementos | StackFit{% endblock %}
+{% block og_path %}/tiendas/{{ tienda.slug }}/{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top:32px; padding-bottom:80px;">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ site_url }}/">Inicio</a>
+    <span>›</span>
+    <a href="{{ site_url }}/tiendas/">Tiendas</a>
+    <span>›</span>
+    <span>{{ tienda.nombre }}</span>
+  </nav>
+
+  <!-- Cabecera de tienda -->
+  <header style="margin-bottom:36px; padding-bottom:24px; border-bottom:1px solid rgba(255,255,255,0.07);">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+      <span style="width:12px; height:12px; border-radius:50%; background:var({{ tienda.color_var }}); flex-shrink:0;"></span>
+      <h1 style="font-family:var(--font-display); font-size:clamp(1.5rem,4vw,2rem); font-weight:900; color:#fff; text-transform:uppercase;">{{ tienda.nombre_largo }}</h1>
+    </div>
+    <p style="color:#555; font-size:0.85rem; margin-bottom:12px;">
+      {{ total_productos }} productos disponibles ·
+      <a href="{{ tienda.url_homepage }}" target="_blank" rel="nofollow noopener" style="color:#555;">{{ tienda.url_homepage }}</a>
+    </p>
+  </header>
+
+  <!-- Introducción -->
+  {% set intro_textos = tienda.introduccion | select | list %}
+  {% if intro_textos %}
+    <div style="margin-bottom:40px; max-width:720px;">
+      {% for parrafo in intro_textos %}
+        <p style="font-size:0.9rem; color:#aaa; line-height:1.8; margin-bottom:14px;">{{ parrafo }}</p>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div style="margin-bottom:40px; border:1px dashed rgba(200,255,77,0.2); border-radius:8px; padding:18px 22px; color:#555; font-size:0.82rem; line-height:1.6;">
+      <strong style="color:#666;">Introducción pendiente</strong> — Rellena el campo <code>"introduccion"</code> en <code>data/tiendas_afiliadas.json</code> con 2-3 párrafos sobre {{ tienda.nombre }}: qué vende, en qué destaca, por qué la recomiendas.
+    </div>
+  {% endif %}
+
+  {% set store_colors = {
+    "HSN": "var(--hsn)",
+    "Nutritienda": "var(--nutritienda)",
+    "Prozis": "var(--prozis)",
+    "MyProtein": "var(--myprotein)"
+  } %}
+
+  <!-- Productos por categoría -->
+  {% for seccion in secciones %}
+  <section style="margin-bottom:52px;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.07); flex-wrap:wrap;">
+      <h2 style="font-size:0.95rem; font-weight:700; color:#c0c0c0;">
+        {{ seccion.nombre }}
+        <span style="color:#444; font-weight:400; font-size:0.85rem;">({{ seccion.total }} productos)</span>
+      </h2>
+      <a href="{{ site_url }}/{{ seccion.slug }}/" style="font-size:0.78rem; font-weight:600; color:var(--accent); white-space:nowrap; text-decoration:none;">Ver categoría completa →</a>
+    </div>
+    <div class="products-list">
+      {% for p in seccion.productos %}
+      {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
+      {% set offer = precios_ord | first %}
+      {% set is_deal = offer.en_oferta and offer.precio_original %}
+      <div class="product-card">
+        <!-- Zona 1: imagen + nombre + meta -->
+        <div class="pc-top">
+          <div class="pc-img">
+            <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="72" height="72" loading="lazy">
+          </div>
+          <div class="pc-info">
+            <div class="pc-name">
+              <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
+              {% if is_deal %}<span class="pc-badge deal">Descuento</span>{% endif %}
+            </div>
+            <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %}</div>
+          </div>
+        </div>
+        <!-- Zona 2: fila de precio -->
+        <div class="pc-price-row">
+          {% if p.precio_por_kg_min %}
+            <div class="pc-price-main">{{ "%.2f"|format(p.precio_por_kg_min) }}<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde {{ "%.2f"|format(offer.precio_eur) }} €{% if is_deal %}<br><span class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</span>{% endif %}</div>
+          {% elif p.servings_per_container and offer.precio_eur %}
+            {% set precio_dosis = offer.precio_eur / p.servings_per_container %}
+            <div class="pc-price-main no-kg">{{ "%.2f"|format(precio_dosis) }}<span class="pc-price-unit">€/dosis</span></div>
+            <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ "%.2f"|format(offer.precio_eur) }} €</div>
+          {% else %}
+            <div class="pc-price-main no-kg">{{ "%.2f"|format(offer.precio_eur) }}<span class="pc-price-unit">€</span></div>
+          {% endif %}
+        </div>
+        <!-- Zona 3: tiendas + acciones -->
+        <div class="pc-stores">
+          {% for pr in precios_ord %}
+          <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
+            <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
+            <span class="pc-store-name">{{ pr.tienda }}</span>
+            <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
+            {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
+          </a>
+          {% endfor %}
+        </div>
+        <div class="pc-actions">
+          <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% if seccion.total > 8 %}
+    <div style="text-align:center; margin-top:16px;">
+      <a href="{{ site_url }}/{{ seccion.slug }}/" style="font-size:0.8rem; color:var(--accent); font-weight:600; text-decoration:none;">
+        Ver los {{ seccion.total }} productos de {{ seccion.nombre }} →
+      </a>
+    </div>
+    {% endif %}
+  </section>
+  {% endfor %}
+
+  <!-- Nota de afiliación -->
+  <div class="info-bar" style="margin-top:16px;">
+    <strong><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><polyline points="11 11 12 11 12 16 13 16"/></svg>Nota de afiliación:</strong>
+    StackFit colabora con {{ tienda.nombre }} a través de un programa de afiliación (ID: {{ tienda.afiliacion_id }}).
+    Los enlaces de esta página incluyen nuestro identificador de afiliado. Si compras a través de ellos, recibimos una pequeña comisión sin coste extra para ti.
+    <a href="{{ site_url }}/como-financiamos/" style="color:#888; margin-left:4px;">Más información →</a>
+  </div>
+
+</div>
+{% endblock %}

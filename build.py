@@ -786,7 +786,7 @@ def contexto_base(last_updated: str) -> dict:
     }
 
 
-def generar_home(env, productos_web: list[dict], last_updated: str, comparaciones_populares: list | None = None, ticker_items: list | None = None):
+def generar_home(env, productos_web: list[dict], last_updated: str, comparaciones_populares: list | None = None, ticker_items: list | None = None, tiendas_cfg: list | None = None):
     """Genera docs/index.html."""
     template = env.get_template("home.html")
 
@@ -855,6 +855,20 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
             ],
         })
 
+    # Productos destacados por tienda para la sección de portada
+    tiendas_destacadas = []
+    for tienda in (tiendas_cfg or []):
+        destacados_raw = seleccionar_destacados(tienda, productos_web, n=6)
+        destacados = []
+        for p in destacados_raw:
+            p = dict(p)
+            p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
+            destacados.append(p)
+        tiendas_destacadas.append({
+            "cfg":       tienda,
+            "productos": destacados,
+        })
+
     ctx = {
         **contexto_base(last_updated),
         "total_productos":      len(productos_web),
@@ -865,7 +879,8 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
         "ahorro_medio":         ahorro_medio,
         "all_products_json":    json.dumps(all_search, ensure_ascii=False),
         "comparaciones_populares": comparaciones_populares or [],
-        "ticker_items": ticker_items or [],
+        "ticker_items":         ticker_items or [],
+        "tiendas_destacadas":   tiendas_destacadas,
     }
 
     html = template.render(**ctx)
@@ -1571,6 +1586,31 @@ PAGINAS_LEGALES = [
 """,
     },
     {
+        "slug":          "como-financiamos",
+        "title":         "Cómo financiamos StackFit",
+        "meta_desc":     "StackFit es un comparador gratuito financiado por comisiones de afiliación. Así funciona y por qué no afecta a los resultados.",
+        "sitemap_priority": "0.4",
+        "updated":       None,
+        "content": """
+<h2>Qué es un programa de afiliación</h2>
+<p>Algunas tiendas de suplementos tienen programas de afiliados: cuando alguien llega a su web a través de un enlace con nuestro identificador y realiza una compra, nos pagan una pequeña comisión. Para ti el precio es exactamente el mismo, sin coste adicional.</p>
+
+<h2>Con qué tiendas colaboramos</h2>
+<p>Actualmente StackFit tiene acuerdo de afiliación activo con:</p>
+<ul>
+  <li><strong>HSN Store</strong> — ID de afiliado: JORTIGOSA</li>
+</ul>
+<p>En el futuro próximo esperamos incorporar MyProtein, Nutritienda y Prozis cuando se confirmen las aprobaciones de Awin.</p>
+
+<h2>¿Influye en los resultados?</h2>
+<p><strong>No.</strong> La ordenación de los productos es siempre por precio por kilogramo, de menor a mayor, independientemente de con qué tienda tengamos acuerdo. Un producto de HSN puede aparecer más caro que uno de MyProtein en el ranking si efectivamente lo es.</p>
+<p>El único sitio donde la afiliación influye visualmente es en la sección "Nuestras tiendas recomendadas" de la portada y en las páginas de tienda, donde mostramos un subconjunto de los productos de cada tienda afiliada. Pero incluso ahí, el precio mostrado es el real y los enlaces son honestos.</p>
+
+<h2>Por qué existe StackFit</h2>
+<p>StackFit empezó como un proyecto personal para no tener que abrir cuatro pestañas distintas al comprar proteína. No hay publicidad de display, no hay banners, no hay datos de usuario vendidos a terceros. Los ingresos vienen exclusivamente de las comisiones de afiliación, y solo cuando alguien compra algo que realmente quería comprar.</p>
+""",
+    },
+    {
         "slug":          "sobre-nosotros",
         "title":         "Sobre Nosotros",
         "meta_desc":     "Qué es StackFit, cómo funciona y quién hay detrás. Un comparador honesto de suplementos fitness en España.",
@@ -1662,7 +1702,127 @@ def generar_test(env, productos_web: list[dict], last_updated: str):
     print(f"✅ Generado: {path}  ({len(products_for_js)} productos)")
 
 
-def generar_sitemap(last_updated: str, compare_slugs: list | None = None):
+def cargar_tiendas_afiliadas() -> list[dict]:
+    """Carga data/tiendas_afiliadas.json."""
+    path = os.path.join(DATA_DIR, "tiendas_afiliadas.json")
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def seleccionar_destacados(tienda_cfg: dict, productos_web: list[dict], n: int = 6) -> list[dict]:
+    """
+    Devuelve hasta n productos destacados de una tienda.
+    Orden por defecto: 1 producto por categoría (el más barato por precio total en esa tienda),
+    luego rellena con los más baratos globales de la tienda.
+    Si 'productos_destacados' está relleno en el config, usa ese orden manual.
+    """
+    nombre_tienda = tienda_cfg["nombre"]
+    ids_manual = tienda_cfg.get("productos_destacados", [])
+
+    # No usa _excluir_producto porque productos de tienda pueden no tener precio_por_kg_min
+    prods_tienda = [
+        p for p in productos_web
+        if any(pr["tienda"] == nombre_tienda for pr in p["precios"])
+    ]
+
+    def precio_tienda(p):
+        for pr in p["precios"]:
+            if pr["tienda"] == nombre_tienda:
+                return pr["precio_eur"]
+        return 9999
+
+    if ids_manual:
+        id_map = {p["id"]: p for p in prods_tienda}
+        return [id_map[id_] for id_ in ids_manual if id_ in id_map][:n]
+
+    # Default: uno por categoría (más barato total), luego rellena con los más baratos
+    categorias = list(dict.fromkeys(p["categoria"] for p in prods_tienda))
+    seleccionados = []
+    ids_selec = set()
+    for cat in categorias:
+        prods_cat = sorted([p for p in prods_tienda if p["categoria"] == cat], key=precio_tienda)
+        if prods_cat:
+            seleccionados.append(prods_cat[0])
+            ids_selec.add(prods_cat[0]["id"])
+    restantes = sorted([p for p in prods_tienda if p["id"] not in ids_selec], key=precio_tienda)
+    for p in restantes:
+        if len(seleccionados) >= n:
+            break
+        seleccionados.append(p)
+    return seleccionados[:n]
+
+
+def generar_tiendas_index(env, tiendas_cfg: list[dict], last_updated: str):
+    """Genera docs/tiendas/index.html — índice de tiendas afiliadas."""
+    template = env.get_template("stores_index.html")
+    ctx = {
+        **contexto_base(last_updated),
+        "tiendas": tiendas_cfg,
+    }
+    html = template.render(**ctx)
+    outdir = os.path.join(DOCS_DIR, "tiendas")
+    os.makedirs(outdir, exist_ok=True)
+    path = os.path.join(outdir, "index.html")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"✅ Generado: {path}")
+
+
+def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_updated: str):
+    """Genera docs/tiendas/{slug}/index.html para una tienda afiliada."""
+    nombre_tienda = tienda_cfg["nombre"]
+
+    # Todos los productos de esta tienda (sin filtrar por precio_por_kg_min)
+    prods_tienda = [
+        p for p in productos_web
+        if any(pr["tienda"] == nombre_tienda for pr in p["precios"])
+    ]
+
+    def precio_tienda(p):
+        for pr in p["precios"]:
+            if pr["tienda"] == nombre_tienda:
+                return pr["precio_eur"]
+        return 9999
+
+    secciones = []
+    for cat_raw, cfg in CATEGORIA_CONFIG.items():
+        prods_cat = [p for p in prods_tienda if p["categoria"] == cfg["slug"]]
+        if not prods_cat:
+            continue
+        prods_sorted = sorted(prods_cat, key=precio_tienda)
+        prods_con_img = []
+        for p in prods_sorted[:8]:
+            p = dict(p)
+            p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
+            prods_con_img.append(p)
+        secciones.append({
+            "nombre":    cfg["display"],
+            "slug":      cfg["slug"],
+            "total":     len(prods_cat),
+            "productos": prods_con_img,
+        })
+
+    total_productos = sum(s["total"] for s in secciones)
+
+    template = env.get_template("store.html")
+    ctx = {
+        **contexto_base(last_updated),
+        "tienda":           tienda_cfg,
+        "secciones":        secciones,
+        "total_productos":  total_productos,
+    }
+    html = template.render(**ctx)
+    outdir = os.path.join(DOCS_DIR, "tiendas", tienda_cfg["slug"])
+    os.makedirs(outdir, exist_ok=True)
+    path = os.path.join(outdir, "index.html")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"✅ Generado: {path}  ({total_productos} productos en {len(secciones)} categorías)")
+
+
+def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tiendas_cfg: list | None = None):
     """Genera docs/sitemap.xml."""
     urls = [
         {"loc": f"{SITE_URL}/",             "priority": "1.0", "changefreq": "weekly"},
@@ -1694,6 +1854,20 @@ def generar_sitemap(last_updated: str, compare_slugs: list | None = None):
         for slug in compare_slugs:
             urls.append({
                 "loc":        f"{SITE_URL}/comparar/{slug}/",
+                "priority":   "0.6",
+                "changefreq": "weekly",
+            })
+
+    # Tiendas afiliadas
+    if tiendas_cfg:
+        urls.append({
+            "loc":        f"{SITE_URL}/tiendas/",
+            "priority":   "0.6",
+            "changefreq": "monthly",
+        })
+        for tienda in tiendas_cfg:
+            urls.append({
+                "loc":        f"{SITE_URL}/tiendas/{tienda['slug']}/",
                 "priority":   "0.6",
                 "changefreq": "weekly",
             })
@@ -2015,6 +2189,10 @@ if __name__ == "__main__":
     print()
     guardar_products_json(productos_web, grupos_multitienda=grupos_mt)
 
+    # 3b. Cargar tiendas afiliadas
+    tiendas_cfg = cargar_tiendas_afiliadas()
+    print(f"\n🏪 Tiendas afiliadas cargadas: {len(tiendas_cfg)}")
+
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")
 
@@ -2049,7 +2227,7 @@ if __name__ == "__main__":
         for s in _top6_slugs
     ]
 
-    generar_home(env, productos_web, last_updated, comparaciones_populares=comparaciones_populares_home, ticker_items=ticker_items)
+    generar_home(env, productos_web, last_updated, comparaciones_populares=comparaciones_populares_home, ticker_items=ticker_items, tiendas_cfg=tiendas_cfg)
 
     slugs_set = set(compare_slugs)
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
@@ -2061,9 +2239,16 @@ if __name__ == "__main__":
 
     generar_test(env, productos_web, last_updated)
 
+    # 5b. Páginas de tiendas afiliadas
+    if tiendas_cfg:
+        print("\n🏪 Generando páginas de tiendas...")
+        generar_tiendas_index(env, tiendas_cfg, last_updated)
+        for tienda in tiendas_cfg:
+            generar_tienda(env, tienda, productos_web, last_updated)
+
     # 6. Sitemap, robots, .nojekyll
     print("\n📋 Generando ficheros auxiliares...")
-    generar_sitemap(last_updated, compare_slugs=compare_slugs)
+    generar_sitemap(last_updated, compare_slugs=compare_slugs, tiendas_cfg=tiendas_cfg)
     generar_robots()
     generar_nojekyll()
 
@@ -2077,7 +2262,8 @@ if __name__ == "__main__":
     )
 
     duracion = (datetime.now() - inicio).total_seconds()
-    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1 + len(compare_slugs)  # +1 for /test/
+    # +1 /test/ + 1 /tiendas/ + len(tiendas_cfg) páginas de tienda individuales
+    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1 + len(compare_slugs) + (1 + len(tiendas_cfg) if tiendas_cfg else 0)
 
     print("\n" + "=" * 54)
     print(f"  BUILD COMPLETADO en {duracion:.1f}s")

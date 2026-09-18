@@ -131,9 +131,13 @@
     </form>
   </section>
 
-  <!-- ── Top ofertas ─────────────────────────────────────── -->
-  <section id="ofertas" style="margin-bottom:48px;">
-    <p class="section-label">Top Ofertas</p>
+  <!-- ── Nuestras tiendas recomendadas ───────────────────── -->
+  {% if tiendas_destacadas %}
+  <section id="secTiendas" style="margin-bottom:48px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+      <p class="section-label" style="margin-bottom:0;">Nuestras tiendas</p>
+      <a href="{{ site_url }}/tiendas/" style="font-size:0.8rem; color:var(--accent); font-weight:600; text-decoration:none; letter-spacing:0.03em;">Ver todas →</a>
+    </div>
 
     {% set store_colors = {
       "HSN": "var(--hsn)",
@@ -142,68 +146,71 @@
       "MyProtein": "var(--myprotein)"
     } %}
 
-    <div class="products-list" id="productsList">
-      {% for p in top_deals %}
-      {% set offer = p.precios | sort(attribute='precio_eur') | first %}
-      {% set is_deal = offer.en_oferta and offer.precio_original %}
-      <div class="product-card{% if loop.index == 1 %} is-best{% endif %}"
-           data-nombre="{{ p.nombre_normalizado | lower }}"
-           data-cat="{{ p.categoria }}"
-           data-precio-kg="{{ p.precio_por_kg_min or 9999 }}"
-           data-precio-total="{{ offer.precio_eur }}">
-        <div class="pc-top">
-          <div class="pc-img">
-            <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="80" height="80" loading="lazy">
+    {% for entrada in tiendas_destacadas %}
+    <div style="margin-bottom:32px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.07);">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="width:10px; height:10px; border-radius:50%; background:var({{ entrada.cfg.color_var }}); flex-shrink:0;"></span>
+          <span style="font-weight:700; color:#e0e0e0; font-size:0.9rem;">{{ entrada.cfg.nombre_largo }}</span>
+        </div>
+        <a href="{{ site_url }}/tiendas/{{ entrada.cfg.slug }}/" style="font-size:0.78rem; color:var(--accent); font-weight:600; text-decoration:none; white-space:nowrap;">Ver catálogo →</a>
+      </div>
+      <div class="products-list">
+        {% for p in entrada.productos %}
+        {% set precios_ord = p.precios | sort(attribute='precio_eur') %}
+        {% set offer = precios_ord | first %}
+        {% set is_deal = offer.en_oferta and offer.precio_original %}
+        <div class="product-card">
+          <div class="pc-top">
+            <div class="pc-img">
+              <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="72" height="72" loading="lazy">
+            </div>
+            <div class="pc-info">
+              <div class="pc-name">
+                <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
+                {% if is_deal %}<span class="pc-badge deal">Descuento</span>{% endif %}
+              </div>
+              <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %}</div>
+            </div>
           </div>
-          <div class="pc-name">
-            <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
-            {% if loop.index == 1 %}
-              <span class="pc-badge best">Mejor precio</span>
-            {% elif is_deal %}
-              <span class="pc-badge deal">Descuento</span>
+          <div class="pc-price-row">
+            {% if p.precio_por_kg_min %}
+              <div class="pc-price-main">{{ "%.2f"|format(p.precio_por_kg_min) }}<span class="pc-price-unit">€/kg</span></div>
+              <div class="pc-price-sec">desde {{ "%.2f"|format(offer.precio_eur) }} €{% if is_deal %}<br><span class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</span>{% endif %}</div>
+            {% elif p.servings_per_container and offer.precio_eur %}
+              {% set precio_dosis = offer.precio_eur / p.servings_per_container %}
+              <div class="pc-price-main no-kg">{{ "%.2f"|format(precio_dosis) }}<span class="pc-price-unit">€/dosis</span></div>
+              <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ "%.2f"|format(offer.precio_eur) }} €</div>
+            {% else %}
+              <div class="pc-price-main no-kg">{{ "%.2f"|format(offer.precio_eur) }}<span class="pc-price-unit">€</span></div>
             {% endif %}
           </div>
-          <div class="pc-price-block">
-            {% if p.precio_por_kg_min %}<div class="pc-price-kg">{{ "%.2f"|format(p.precio_por_kg_min) }}</div>{% endif %}
-            <div class="pc-price">{{ "%.2f"|format(offer.precio_eur) }} €</div>
-            {% if is_deal %}<div class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</div>{% endif %}
+          <div class="pc-stores">
+            {% for pr in precios_ord %}
+            <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
+              <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
+              <span class="pc-store-name">{{ pr.tienda }}</span>
+              <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
+              {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
+            </a>
+            {% endfor %}
+          </div>
+          <div class="pc-actions">
+            <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
+            <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn">Ver categoría</a>
           </div>
         </div>
-        <div class="pc-meta">
-          {{ p.categoria_display }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %} · {{ p.marca }}
-        </div>
-        {% if p.spark_svg %}
-        <div class="spark-row">
-          <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div>{{ p.spark_svg | safe }}</div>
-          <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">{{ "%.2f"|format(p.spark_min) }} €/kg</div></div>
-        </div>
-        {% endif %}
-        <div class="pc-stores">
-          {% for pr in p.precios | sort(attribute='precio_eur') %}
-          <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
-            <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
-            <span class="pc-store-name">{{ pr.tienda }}</span>
-            <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
-            {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
-          </a>
-          {% endfor %}
-        </div>
-        <div class="pc-actions">
-          <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
-          <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn">Ver categoría</a>
-        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
 
-    <div class="pagination" id="pagination">
-      <span class="pagination-info" id="paginationInfo"></span>
-      <div class="pagination-btns">
-        <button class="pagination-btn" id="btnPrev" onclick="changePage(-1)">← Anterior</button>
-        <button class="pagination-btn" id="btnNext" onclick="changePage(1)">Siguiente →</button>
-      </div>
-    </div>
+    <p style="font-size:0.76rem; color:#555; text-align:center; margin-top:-8px;">
+      Colaboramos con estas tiendas mediante programas de afiliación.
+      <a href="{{ site_url }}/como-financiamos/" style="color:#666;">Más información →</a>
+    </p>
   </section>
+  {% endif %}
 
   <!-- ── Comparaciones populares ────────────────────────── -->
   {% if comparaciones_populares %}
@@ -248,18 +255,10 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
 <script>
 (function() {
   const PER_PAGE = 6;
-  let dealsPage  = 0;
   let searchPage = 0;
   let searchResults = [];
 
   const siteUrl = '{{ site_url }}';
-
-  // ── Top deals elements ───────────────────────────────
-  const dealsList  = document.getElementById('productsList');
-  const dealsInfo  = document.getElementById('paginationInfo');
-  const dealsPrev  = document.getElementById('btnPrev');
-  const dealsNext  = document.getElementById('btnNext');
-  const allDealCards = Array.from(dealsList.querySelectorAll('.product-card'));
 
   // ── Search results elements ──────────────────────────
   const srSection  = document.getElementById('searchResultsSection');
@@ -273,7 +272,7 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
 
   // ── Sections to toggle ───────────────────────────────
   const secCat     = document.getElementById('secCategories');
-  const secOfertas = document.getElementById('ofertas');
+  const secTiendas = document.getElementById('secTiendas');
   const secComo    = document.getElementById('secComoFunciona');
 
   // ── Store colors ─────────────────────────────────────
@@ -295,11 +294,15 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
     const isDeal = offer.oferta && offer.precio_original;
     const badge  = isBest ? '<span class="pc-badge best">Mejor precio</span>'
                  : isDeal ? '<span class="pc-badge deal">Descuento</span>' : '';
-    const priceKg  = p.precio_kg != null
-      ? `<div class="pc-price-kg">${p.precio_kg.toFixed(2)} €/kg</div>` : '';
-    const priceOld = isDeal
-      ? `<div class="pc-price-old">${offer.precio_original.toFixed(2)} €</div>` : '';
     const peso = p.peso_kg != null ? ` · ${p.peso_kg.toFixed(2)} kg` : '';
+    let priceRow;
+    if (p.precio_kg != null) {
+      const oldPrice = isDeal ? `<br><span class="pc-price-old">${offer.precio_original.toFixed(2)} €</span>` : '';
+      priceRow = `<div class="pc-price-main">${p.precio_kg.toFixed(2)}<span class="pc-price-unit">€/kg</span></div>
+        <div class="pc-price-sec">desde ${offer.precio.toFixed(2)} €${oldPrice}</div>`;
+    } else {
+      priceRow = `<div class="pc-price-main no-kg">${offer.precio.toFixed(2)}<span class="pc-price-unit">€</span></div>`;
+    }
     const stores = p.tiendas.map(pr => {
       const color  = STORE_COLORS[pr.tienda] || 'var(--amazon)';
       const oferta = pr.oferta ? '<span class="pc-store-sale">OFERTA</span>' : '';
@@ -311,42 +314,20 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
     }).join('');
     return `<div class="product-card${isBest ? ' is-best' : ''}">
       <div class="pc-top">
-        <div class="pc-name">
-          <span class="pc-name-text">${esc(p.nombre)}</span>${badge}
-        </div>
-        <div class="pc-price-block">
-          <div class="pc-price">${offer.precio.toFixed(2)} €</div>${priceKg}${priceOld}
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">${esc(p.nombre)}</span>${badge}
+          </div>
+          <div class="pc-meta">${esc(p.marca)}${peso}</div>
         </div>
       </div>
-      <div class="pc-meta">${esc(p.cat_display)}${peso} · ${esc(p.marca)}</div>
+      <div class="pc-price-row">${priceRow}</div>
       <div class="pc-stores">${stores}</div>
       <div class="pc-actions">
-        <a href="${esc(siteUrl)}/${esc(p.cat)}/" class="pc-btn pc-btn-primary">Ver en categoría ↗</a>
-        <a href="${esc(offer.url)}" class="pc-btn" target="_blank" rel="nofollow sponsored noopener">Ir a la tienda →</a>
+        <a href="${esc(offer.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
+        <a href="${esc(siteUrl)}/${esc(p.cat)}/" class="pc-btn">Ver categoría</a>
       </div>
     </div>`;
-  }
-
-  // ── Top deals ────────────────────────────────────────
-  function renderDeals() {
-    const cat   = document.getElementById('filterCat').value;
-    const order = document.getElementById('sortOrder').value;
-    let visible = allDealCards.filter(c => !cat || c.dataset.cat === cat);
-    visible = visible.slice().sort((a, b) =>
-      order === 'precio_total'
-        ? parseFloat(a.dataset.precioTotal) - parseFloat(b.dataset.precioTotal)
-        : parseFloat(a.dataset.precioKg)    - parseFloat(b.dataset.precioKg)
-    );
-    const total = visible.length;
-    const start = dealsPage * PER_PAGE;
-    const end   = Math.min(start + PER_PAGE, total);
-    allDealCards.forEach(c => c.style.display = 'none');
-    visible.slice(start, end).forEach(c => c.style.display = '');
-    dealsInfo.textContent = total > 0
-      ? `Mostrando ${start + 1}–${end} de ${total} productos`
-      : 'Sin resultados';
-    dealsPrev.disabled = dealsPage === 0;
-    dealsNext.disabled = end >= total;
   }
 
   // ── Search results ───────────────────────────────────
@@ -398,19 +379,13 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
   function update() {
     const searching = document.getElementById('searchInput').value.trim() !== '';
     secCat.style.display     = searching ? 'none' : '';
-    secOfertas.style.display = searching ? 'none' : '';
+    if (secTiendas) secTiendas.style.display = searching ? 'none' : '';
     secComo.style.display    = searching ? 'none' : '';
     srSection.style.display  = searching ? ''     : 'none';
-    if (searching) renderSearch(); else renderDeals();
+    if (searching) renderSearch();
   }
 
-  function reset() { dealsPage = 0; searchPage = 0; update(); }
-
-  window.changePage = function(dir) {
-    dealsPage = Math.max(0, dealsPage + dir);
-    renderDeals();
-    secOfertas.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  function reset() { searchPage = 0; update(); }
 
   window.changeSearchPage = function(dir) {
     searchPage = Math.max(0, searchPage + dir);
