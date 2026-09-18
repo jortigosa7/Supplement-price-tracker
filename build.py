@@ -1771,6 +1771,34 @@ def generar_tiendas_index(env, tiendas_cfg: list[dict], last_updated: str):
     print(f"✅ Generado: {path}")
 
 
+def _precio_medio_proteina(nombre_tienda: str, productos_web: list[dict]) -> tuple[float | None, float | None]:
+    """Precio medio €/kg de proteína en polvo para la tienda dada y para el resto.
+
+    Filtra a categoría proteina-whey, peso >= 0.5 kg (excluye sachets/muestras pequeñas).
+    Devuelve (precio_tienda, precio_resto) redondeados a 1 decimal, o None si no hay datos.
+    """
+    precios_tienda = []
+    precios_resto = []
+    for p in productos_web:
+        if p.get("categoria") != "proteina-whey":
+            continue
+        peso = p.get("peso_kg")
+        if not peso or peso < 0.5:
+            continue
+        for pr in p.get("precios", []):
+            precio_eur = pr.get("precio_eur")
+            if not precio_eur:
+                continue
+            precio_kg = precio_eur / peso
+            if pr["tienda"] == nombre_tienda:
+                precios_tienda.append(precio_kg)
+            else:
+                precios_resto.append(precio_kg)
+    media_tienda = round(sum(precios_tienda) / len(precios_tienda), 1) if precios_tienda else None
+    media_resto  = round(sum(precios_resto)  / len(precios_resto),  1) if precios_resto  else None
+    return media_tienda, media_resto
+
+
 def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_updated: str):
     """Genera docs/tiendas/{slug}/index.html para una tienda afiliada."""
     nombre_tienda = tienda_cfg["nombre"]
@@ -1806,6 +1834,19 @@ def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_update
         })
 
     total_productos = sum(s["total"] for s in secciones)
+
+    # Sustituye placeholders en los párrafos de introducción
+    precio_medio, precio_medio_resto = _precio_medio_proteina(nombre_tienda, productos_web)
+    intro = []
+    for parrafo in tienda_cfg.get("introduccion", []):
+        if parrafo:
+            parrafo = parrafo.replace("{n_productos}", str(total_productos))
+            if precio_medio is not None:
+                parrafo = parrafo.replace("{precio_medio}", f"{precio_medio:.1f}")
+            if precio_medio_resto is not None:
+                parrafo = parrafo.replace("{precio_medio_resto}", f"{precio_medio_resto:.1f}")
+        intro.append(parrafo)
+    tienda_cfg = {**tienda_cfg, "introduccion": intro}
 
     template = env.get_template("store.html")
     ctx = {
