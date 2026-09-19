@@ -65,7 +65,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 
 - Build estático completo y desplegado.
 - Scrapers de HSN y MyProtein: extraen peso correctamente (fix mayo 2026 — HSN select con id, MyProtein ProductGroup.hasVariant[]); precio €/kg correcto (fix sep 2026 — HSN usaba precio "desde" de lista en vez del precio del formato concreto).
-- Scraper de Nutritienda: migrado a JSON-LD (sep 2026). `MAX_POR_CATEGORIA=80`; `URLS_FIJAS` para productos más allá del cap con clics en GSC; guarda RuntimeError si 0 productos y aviso si llega al techo. 314 productos en catálogo actual.
+- Scraper de Nutritienda: migrado a JSON-LD (sep 2026). `MAX_POR_CATEGORIA=80`; catálogo persistente en `data/nutritienda_catalog.json` (316 URLs iniciales sep 2026) — un producto del catálogo que cae del top-80 se recupera siempre con precio fresco (no caché); los que dan 404 se eliminan automáticamente. Cap no se sube: Nutritienda ya es >50% del catálogo (316/608) y no hay afiliación.
 - Sistema de filtros y comparador.
 - Quiz recomendador.
 - Afiliación HSN activa (ID `JORTIGOSA`) — los enlaces ya van con afiliado.
@@ -77,7 +77,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 ### Roto o pendiente
 
 - **Scraper Prozis**: no se tocó en el round de mayo 2026, puede seguir con selectores desactualizados.
-- **GitHub Actions**: el job de scrape enriquecido se queda sin tiempo, hay que subir el timeout.
+- **GitHub Actions**: el job de scrape enriquecido se queda sin tiempo, hay que subir el timeout. El paso de build tiene `continue-on-error: true` — si build.py sale con error (ej. pares degradados), el workflow commitea y pushea igualmente, y después falla el job para generar notificación.
 - **`añadir_afiliados.py`**: staged y listo, usa variables de entorno de Awin. Bloqueado por aprobación de Awin para MyProtein, Prozis y Nutritienda. Cuando lleguen aprobaciones: rellenar `.env` con los IDs y correr el script.
 - **MyProtein**: la solicitud Awin fue rechazada una vez. Reintentar más adelante u outreach directo.
 
@@ -94,6 +94,9 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - **`data/comparaciones.json`**: lista fija de 57 pares aprobados (Grupo A de GSC + Grupo B natural + PROD-MISSING recuperados). El build genera comparaciones exclusivamente a partir de este fichero, no por combinatoria. Para añadir/quitar un par hay que editar este fichero. **2 pares irrecuperables**: ambos implican Gold Standard 2000g ON (ya no existe como SKU independiente en Nutritienda). El build falla con sys.exit(1) si algún ID no resuelve a un producto del catálogo.
 - **`data/redirecciones.json`**: 116 redirecciones desde URLs viejas (ID-based) hacia nuevas URLs (slug_publico). El build genera páginas meta-refresh para estas rutas; no van en el sitemap.
 - **`protein_subtype` incompleto**: el campo solo está bien relleno en HSN. En MyProtein, Prozis y Nutritienda la mayoría de productos cae en `sin_subtipo`. Además, los isolados e hidrolizados de HSN (Evolate, Evohydro) están clasificados dentro de `whey` en vez de en su subtipo correspondiente. Antes de crear subcategorías por tipo de proteína hay que clasificar bien el subtipo en las cuatro tiendas.
+- **€/kg en MyProtein**: scraper ahora elige el formato con mejor €/kg (sep 2026). Antes cogía el de menor peso (a menudo una muestra), lo que daba €/kg desorbitados. Con el fix se muestra el formato más económico por kg.
+- **check 7 monodosis**: productos <100g con €/kg alto generan aviso (print), no error. Productos ≥100g siguen siendo error. Razón: monodosis legítimas (10g sachets) tienen €/kg alto por definición.
+- **check 8b slugs**: avisa siempre que un `slug_publico` desaparezca respecto al build anterior — significa URL pública cambiada. Sin umbral de porcentaje. Los slugs se guardan en `data/build_stats.json`.
 
 ## Pending / ideas en la nevera
 
