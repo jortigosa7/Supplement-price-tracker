@@ -288,7 +288,7 @@ def scrape(debug: bool = False, prev_cat_counts: dict | None = None) -> list[dic
             )
             if necesita_reintento:
                 print(
-                    f"  ↻ Reintentando {cat['nombre']} "
+                    f"  [reintento] {cat['nombre']} "
                     f"(obtenidos: {len(items_cat)}, esperado: ~{prev_count})..."
                 )
                 time.sleep(DELAY * 2)

@@ -128,7 +128,7 @@ def _scrape_listado(url_cat: str) -> list[dict]:
     esperado = min(total, MAX_POR_CATEGORIA)
     if len(items_all) < esperado * 0.7:
         print(
-            f"  ⚠️  Respuesta incompleta ({len(items_all)}/{esperado} productos). "
+            f"  [aviso] Respuesta incompleta ({len(items_all)}/{esperado} productos). "
             f"Reintentando en 5s..."
         )
         time.sleep(5)
