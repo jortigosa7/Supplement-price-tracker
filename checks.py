@@ -37,6 +37,9 @@ STATS_FILE       = "data/build_stats.json"
 REDIR_FILE       = "data/redirecciones.json"
 GSC_CSV          = "gsc_paginas.csv"
 GSC_404_FILE     = "data/gsc_404_conocidas.json"
+AUSENTES_FILE    = "data/productos_ausentes.json"
+SCRAPE_STATS_FILE = "data/scrape_stats.json"
+COMP_FILE        = "data/comparaciones.json"
 DOCS_DIR         = "docs"
 
 # Umbrales
@@ -536,6 +539,99 @@ def _check_ids(ids_act: set[str], ids_ant: set[str]) -> list[str]:
     return []
 
 
+# ── Check scrape stats: fallback Prozis consecutivo ──────────────────────────
+
+def _check_scrape_stats() -> list[str]:
+    """Error si alguna categoría Prozis lleva >=3 builds consecutivos usando datos viejos."""
+    if not os.path.exists(SCRAPE_STATS_FILE):
+        return []
+    try:
+        with open(SCRAPE_STATS_FILE, encoding="utf-8") as f:
+            stats = json.load(f)
+    except Exception:
+        return []
+
+    fallback = stats.get("prozis_fallback_consecutivo", {})
+    criticos = {cat: n for cat, n in fallback.items() if n >= 3}
+    if not criticos:
+        return []
+
+    detalle = ", ".join(f"{cat}: {n} builds" for cat, n in sorted(criticos.items()))
+    return [
+        f"[CHECK SCRAPE] Prozis lleva >=3 builds consecutivos con fallback en: {detalle}\n"
+        f"  Los datos de esas categorías son de builds anteriores. Revisar el scraper de Prozis."
+    ]
+
+
+# ── Check desaparición de productos ──────────────────────────────────────────
+
+def _check_productos_ausentes(ids_act: set[str], stats_ant: dict) -> list[str]:
+    """
+    Alerta fuerte (error) si un producto de comparaciones.json desaparece del catálogo.
+    Aviso suave (print) si cualquier producto lleva >=2 builds consecutivos ausente.
+    Actualiza data/productos_ausentes.json siempre, independientemente del resultado.
+    """
+    ids_ant = set(stats_ant.get("ids", []))
+    if not ids_ant:
+        return []
+
+    desaparecidos = ids_ant - ids_act
+
+    # Cargar historial de ausencias
+    try:
+        with open(AUSENTES_FILE, encoding="utf-8") as f:
+            ausentes_hist: dict = json.load(f)
+    except Exception:
+        ausentes_hist = {}
+
+    # Actualizar contadores: incrementar ausentes, resetear presentes
+    nuevos_ausentes: dict[str, int] = {}
+    for id_ in ids_ant:
+        if id_ in desaparecidos:
+            nuevos_ausentes[id_] = ausentes_hist.get(id_, 0) + 1
+        # presentes no se guardan (contador implícito = 0)
+
+    with open(AUSENTES_FILE, "w", encoding="utf-8") as f:
+        json.dump(nuevos_ausentes, f, ensure_ascii=False, indent=2)
+
+    # IDs que aparecen en comparaciones.json
+    ids_en_comp: set[str] = set()
+    try:
+        with open(COMP_FILE, encoding="utf-8") as f:
+            comp = json.load(f)
+        for par in comp.get("pares", []):
+            ids_en_comp.add(par["id_a"])
+            ids_en_comp.add(par["id_b"])
+    except Exception:
+        pass
+
+    errores: list[str] = []
+
+    # Alerta fuerte: producto de comparaciones.json desaparecido
+    criticos = desaparecidos & ids_en_comp
+    if criticos:
+        muestra = sorted(criticos)[:5]
+        errores.append(
+            f"[CHECK AUSENTES] {len(criticos)} producto(s) de comparaciones.json desaparecidos:\n"
+            + "\n".join(f"  - {id_}" for id_ in muestra)
+            + (f"\n  ... (+{len(criticos) - 5} más)" if len(criticos) > 5 else "")
+            + "\n  Revisar el scraper o actualizar comparaciones.json."
+        )
+
+    # Aviso suave: productos no críticos ausentes >=2 builds consecutivos
+    ausentes_cronicos = {k: v for k, v in nuevos_ausentes.items()
+                         if v >= 2 and k not in ids_en_comp}
+    if ausentes_cronicos:
+        muestra_s = sorted(ausentes_cronicos.items(), key=lambda x: -x[1])[:5]
+        print(
+            f"  ⚠️  AVISO [CHECK AUSENTES]: {len(ausentes_cronicos)} producto(s) "
+            f"ausentes >=2 builds: "
+            + ", ".join(f"{k}({v}b)" for k, v in muestra_s)
+        )
+
+    return errores
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def run_all_checks(
@@ -584,6 +680,8 @@ def run_all_checks(
     errores += _check_precio_rango(productos_web)
     errores += _check_ids(ids_act, set(stats_ant.get("ids", [])))
     errores += _check_gsc_cobertura(docs_dir)
+    errores += _check_scrape_stats()
+    errores += _check_productos_ausentes(ids_act, stats_ant)
 
     # ── Reportar ──────────────────────────────────────────────────────────
     if errores:

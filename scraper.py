@@ -138,14 +138,69 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"  ERROR HSN: {e}")
 
-    # ── Prozis (requests + BS4 — extrae wsData JSON del HTML) ──────────────
+    # ── Prozis (Playwright — extrae wsData JSON del HTML) ───────────────────
+    prev_prozis_cat_counts: dict[str, int] = {}
+    productos_prozis: list[dict] = []
     try:
-        productos = prozis.scrape(debug=debug_prozis)
-        todos.extend(productos)
-        if productos:
-            print(f"  Prozis: {len(productos)} productos")
+        if prev_data:
+            for _p in prev_data:
+                if _p.get("tienda") == "Prozis":
+                    _cat = _p.get("categoria", "")
+                    prev_prozis_cat_counts[_cat] = prev_prozis_cat_counts.get(_cat, 0) + 1
+
+        productos_prozis = prozis.scrape(debug=debug_prozis, prev_cat_counts=prev_prozis_cat_counts)
+        todos.extend(productos_prozis)
+        if productos_prozis:
+            print(f"  Prozis: {len(productos_prozis)} productos")
     except Exception as e:
         print(f"  ERROR Prozis: {e}")
+
+    # Fallback por categoría Prozis: si alguna sigue por debajo del 60%, reponer del dataset previo
+    if prev_data and prev_prozis_cat_counts and not debug_prozis:
+        cat_counts_nuevo: dict[str, int] = {}
+        for _p in productos_prozis:
+            _cat = _p.get("categoria", "")
+            cat_counts_nuevo[_cat] = cat_counts_nuevo.get(_cat, 0) + 1
+
+        scrape_stats_path = os.path.join("data", "scrape_stats.json")
+        try:
+            with open(scrape_stats_path, encoding="utf-8") as _sf:
+                scrape_stats = json.load(_sf)
+        except Exception:
+            scrape_stats = {}
+        fallback_consec: dict[str, int] = scrape_stats.get("prozis_fallback_consecutivo", {})
+
+        for cat_nombre, prev_count in prev_prozis_cat_counts.items():
+            if prev_count == 0:
+                continue
+            nuevo_count = cat_counts_nuevo.get(cat_nombre, 0)
+            if nuevo_count < prev_count * 0.60:
+                # Reponer categoría del dataset anterior
+                todos = [_p for _p in todos if not (
+                    _p.get("tienda") == "Prozis" and _p.get("categoria") == cat_nombre
+                )]
+                prev_cat = [_p for _p in prev_data
+                            if _p.get("tienda") == "Prozis" and _p.get("categoria") == cat_nombre]
+                if prev_cat:
+                    _hoy = datetime.now().strftime("%Y-%m-%d")
+                    for _p in prev_cat:
+                        if "precio" not in _p and "precio_eur" in _p and _p["precio_eur"] is not None:
+                            _p["precio"] = str(_p["precio_eur"])
+                        _p["fecha_scraping"] = _hoy
+                    todos.extend(prev_cat)
+                    fallback_consec[cat_nombre] = fallback_consec.get(cat_nombre, 0) + 1
+                    print(
+                        f"\n  ⚠️  Prozis/{cat_nombre}: {nuevo_count} productos "
+                        f"(esperado ~{prev_count}) — fallback a {len(prev_cat)} productos anteriores "
+                        f"(consecutivo: {fallback_consec[cat_nombre]})"
+                    )
+            else:
+                fallback_consec[cat_nombre] = 0  # reset si la categoría volvió
+
+        scrape_stats["prozis_fallback_consecutivo"] = fallback_consec
+        os.makedirs("data", exist_ok=True)
+        with open(scrape_stats_path, "w", encoding="utf-8") as _sf:
+            json.dump(scrape_stats, _sf, ensure_ascii=False, indent=2)
 
     # ── MyProtein (requests + BS4 — extrae JSON-LD del HTML) ────────────────
     try:

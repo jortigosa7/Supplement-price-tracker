@@ -155,7 +155,95 @@ def _navegar_detalle(page, url: str) -> str | None:
     return None
 
 
-def scrape(debug: bool = False) -> list[dict]:
+def _scrape_cat_paginas(page, cat: dict, debug: bool = False) -> tuple[list[dict], bool]:
+    """
+    Scrape todas las páginas de una categoría Prozis.
+    Devuelve (items, debug_break) donde debug_break=True si se paró en modo debug.
+    """
+    items_cat: list[dict] = []
+    pagina = 1
+
+    while pagina <= MAX_PAGES:
+        url = cat["url"] if pagina == 1 else f"{cat['url']}?page={pagina}"
+        print(f"  Página {pagina}: {url}")
+
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=45000)
+            page.wait_for_timeout(2500)
+        except Exception as e:
+            print(f"  Error cargando página: {e}")
+            break
+
+        html = page.content()
+
+        if debug:
+            slug = cat["nombre"].lower().replace(" ", "_")
+            fname = f"debug_prozis_{slug}_p{pagina}.html"
+            with open(fname, "w", encoding="utf-8") as f:
+                f.write(html)
+            print(f"  [DEBUG] HTML guardado → {fname}")
+            return items_cat, True
+
+        items, pagination = _extraer_wsdata(html)
+
+        if not items:
+            print(f"  No se encontró wsData.")
+            print(f"  Tip: python scraper.py --debug-prozis  para inspeccionar el HTML")
+            break
+
+        for item in items:
+            try:
+                prod = item.get("product", item)
+                nombre = prod.get("name", "").strip()
+                if not nombre:
+                    continue
+                precio_raw = prod.get("price", "N/A")
+                href = prod.get("url", "")
+                url_prod = href if href.startswith("http") else BASE_URL + href
+
+                imagen_url = None
+                for campo in ("imageUrl", "image", "thumbnail", "mainImage", "photo"):
+                    v = prod.get(campo, "")
+                    if v and isinstance(v, str) and v.startswith("http"):
+                        imagen_url = v
+                        break
+                if not imagen_url:
+                    imgs = prod.get("images", [])
+                    if imgs and isinstance(imgs, list):
+                        first = imgs[0]
+                        if isinstance(first, dict):
+                            imagen_url = first.get("url") or first.get("src")
+                        elif isinstance(first, str) and first.startswith("http"):
+                            imagen_url = first
+
+                items_cat.append({
+                    "nombre":     nombre,
+                    "precio":     precio_raw,
+                    "categoria":  cat["nombre"],
+                    "url":        url_prod,
+                    "imagen_url": imagen_url,
+                })
+            except Exception as e:
+                print(f"  Error en producto: {e}")
+
+        print(f"  +{len(items)} productos (acumulado categoría: {len(items_cat)})")
+
+        total_pages = pagination.get("totalPages", 1)
+        if pagina < total_pages:
+            pagina += 1
+            time.sleep(DELAY)
+        else:
+            break
+
+    return items_cat, False
+
+
+def scrape(debug: bool = False, prev_cat_counts: dict | None = None) -> list[dict]:
+    """
+    prev_cat_counts: conteo de productos por categoría del último scrape exitoso.
+    Si se pasa, se usa para detectar caídas y reintentar la categoría antes de
+    que scraper.py aplique el fallback completo.
+    """
     print(f"\n{'='*50}")
     print(f"  Scraping: {TIENDA}")
     print(f"{'='*50}")
@@ -185,80 +273,31 @@ def scrape(debug: bool = False) -> list[dict]:
         # ── Paso 1: listados de categoría ─────────────────────────────────
         for cat in CATEGORIAS:
             print(f"\n  Categoria: {cat['nombre']}")
-            pagina = 1
+            prev_count = (prev_cat_counts or {}).get(cat["nombre"], 0)
 
-            while pagina <= MAX_PAGES:
-                url = cat["url"] if pagina == 1 else f"{cat['url']}?page={pagina}"
-                print(f"  Página {pagina}: {url}")
+            items_cat, debug_break = _scrape_cat_paginas(page, cat, debug=debug)
 
-                try:
-                    page.goto(url, wait_until="domcontentloaded", timeout=45000)
-                    page.wait_for_timeout(2500)
-                except Exception as e:
-                    print(f"  Error cargando página: {e}")
-                    break
+            if debug_break:
+                time.sleep(DELAY)
+                continue
 
-                html = page.content()
+            # Reintento si 0 items o caída >40% respecto al scrape anterior
+            necesita_reintento = (
+                len(items_cat) == 0
+                or (prev_count > 0 and len(items_cat) < prev_count * 0.60)
+            )
+            if necesita_reintento:
+                print(
+                    f"  ↻ Reintentando {cat['nombre']} "
+                    f"(obtenidos: {len(items_cat)}, esperado: ~{prev_count})..."
+                )
+                time.sleep(DELAY * 2)
+                items_reintento, _ = _scrape_cat_paginas(page, cat, debug=False)
+                print(f"  Reintento: {len(items_reintento)} productos")
+                items_cat = items_reintento
 
-                if debug:
-                    slug = cat["nombre"].lower().replace(" ", "_")
-                    fname = f"debug_prozis_{slug}_p{pagina}.html"
-                    with open(fname, "w", encoding="utf-8") as f:
-                        f.write(html)
-                    print(f"  [DEBUG] HTML guardado → {fname}")
-                    break
-
-                items, pagination = _extraer_wsdata(html)
-
-                if not items:
-                    print(f"  No se encontró wsData.")
-                    print(f"  Tip: python scraper.py --debug-prozis  para inspeccionar el HTML")
-                    break
-
-                for item in items:
-                    try:
-                        prod = item.get("product", item)
-                        nombre = prod.get("name", "").strip()
-                        if not nombre:
-                            continue
-                        precio_raw = prod.get("price", "N/A")
-                        href = prod.get("url", "")
-                        url_prod = href if href.startswith("http") else BASE_URL + href
-
-                        imagen_url = None
-                        for campo in ("imageUrl", "image", "thumbnail", "mainImage", "photo"):
-                            v = prod.get(campo, "")
-                            if v and isinstance(v, str) and v.startswith("http"):
-                                imagen_url = v
-                                break
-                        if not imagen_url:
-                            imgs = prod.get("images", [])
-                            if imgs and isinstance(imgs, list):
-                                first = imgs[0]
-                                if isinstance(first, dict):
-                                    imagen_url = first.get("url") or first.get("src")
-                                elif isinstance(first, str) and first.startswith("http"):
-                                    imagen_url = first
-
-                        productos_raw.append({
-                            "nombre":     nombre,
-                            "precio":     precio_raw,
-                            "categoria":  cat["nombre"],
-                            "url":        url_prod,
-                            "imagen_url": imagen_url,
-                        })
-                    except Exception as e:
-                        print(f"  Error en producto: {e}")
-
-                print(f"  +{len(items)} productos (acumulado: {len(productos_raw)})")
-
-                total_pages = pagination.get("totalPages", 1)
-                if pagina < total_pages:
-                    pagina += 1
-                    time.sleep(DELAY)
-                else:
-                    break
-
+            productos_raw.extend(items_cat)
+            print(f"  Acumulado: {len(productos_raw)}")
             time.sleep(DELAY)
 
         if debug:

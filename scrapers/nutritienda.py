@@ -123,6 +123,20 @@ def _scrape_listado(url_cat: str) -> list[dict]:
         return items_p1[:MAX_POR_CATEGORIA]
 
     _, items_all = _parse_itemlist(r2.text)
+
+    # Validar que la respuesta es completa; reintentar si viene truncada
+    esperado = min(total, MAX_POR_CATEGORIA)
+    if len(items_all) < esperado * 0.7:
+        print(
+            f"  ⚠️  Respuesta incompleta ({len(items_all)}/{esperado} productos). "
+            f"Reintentando en 5s..."
+        )
+        time.sleep(5)
+        r3 = hacer_peticion(f"{url_cat}?page={paginas_necesarias}")
+        if r3:
+            _, items_all = _parse_itemlist(r3.text)
+            print(f"  Reintento: {len(items_all)} productos")
+
     resultado = items_all[:MAX_POR_CATEGORIA]
     # Aviso si seguimos tocando el techo — puede haber más productos sin scraper
     if len(resultado) >= MAX_POR_CATEGORIA and total > MAX_POR_CATEGORIA:
