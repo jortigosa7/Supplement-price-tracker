@@ -113662,5 +113662,29 @@
     "fecha": "2026-09-18",
     "precio": 41.6,
     "tienda": "HSN"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-250g-myprotein",
+    "fecha": "2026-09-14",
+    "precio": 12.6,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-250g-myprotein",
+    "fecha": "2026-09-07",
+    "precio": 13.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "malato-de-l-citrulina-300-g-biotechusa",
+    "fecha": "2026-09-07",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "malato-de-l-citrulina-300-g-biotechusa",
+    "fecha": "2026-09-14",
+    "precio": 28.9,
+    "tienda": "Nutritienda"
   }
 ]

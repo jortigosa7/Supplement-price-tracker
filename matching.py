@@ -376,6 +376,11 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
 
         if match_grupo is not None:
             match_grupo["precios"].append(entrada_precio)
+            # Si el grupo no tiene marca resuelta, actualizar con la del producto actual
+            if not match_grupo["marca"] or match_grupo["marca"] == "Desconocida":
+                marca_nueva = extraer_marca_normalizada(nombre, marca_raw)
+                if marca_nueva:
+                    match_grupo["marca"] = marca_nueva
         else:
             # Nuevo grupo
             marca_canon = extraer_marca_normalizada(nombre, marca_raw)
