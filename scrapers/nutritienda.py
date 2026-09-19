@@ -233,15 +233,17 @@ def _scrape_detalle(url: str) -> tuple[str, dict]:
     return final_url, enrichment
 
 
-def _scrape_producto_fijo(url: str, categoria: str) -> dict | None:
+def _scrape_producto_fijo(url: str, categoria: str, force_fresh: bool = False) -> dict | None:
     """
     Extrae un producto completo (nombre, precio, marca, imagen) desde la página
-    de detalle vía JSON-LD Product. Se usa para URLS_FIJAS que pueden estar fuera
-    del cap de listado.
+    de detalle vía JSON-LD Product. Se usa para URLS_FIJAS y catálogo persistente.
+
+    force_fresh=True: ignora la caché y hace petición fresca (necesario para
+    recuperación de catálogo, ya que el precio puede haber cambiado).
 
     Devuelve un dict compatible con el formato de _scrape_listado() o None si falla.
     """
-    html = get_cached("nutritienda", url)
+    html = None if force_fresh else get_cached("nutritienda", url)
     final_url = url
     if html is None:
         r = hacer_peticion(url)
@@ -333,8 +335,9 @@ def scrape() -> list[dict]:
     for url_cat, meta in catalogo.items():
         if url_cat in urls_en_listado:
             continue  # ya está en el listado, no hace falta nada
-        # Intentar obtener el producto desde la caché o desde la tienda
-        item_fijo = _scrape_producto_fijo(url_cat, meta["categoria"])
+        # Siempre fetch fresco: precio puede haber cambiado aunque el producto esté en caché
+        time.sleep(DELAY)
+        item_fijo = _scrape_producto_fijo(url_cat, meta["categoria"], force_fresh=True)
         if item_fijo:
             productos_raw.append(item_fijo)
             catalog_recuperados += 1
