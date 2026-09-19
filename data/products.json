@@ -2181,6 +2181,43 @@
       "spark_min": 96.3
     },
     {
+      "id": "bcaas-zero-variedad-pack-20-ud-de-9g-biotechusa",
+      "nombre_normalizado": "BCAAS Zero Variedad  Pack  20 Ud de 9g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "BioTechUSA",
+      "peso_kg": 0.18,
+      "precio_por_kg_min": 99.44,
+      "precio_min": 17.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7d094c50-2304-437a-6f04-8f6af26f3500/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 17.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/bcaas-zero-variedad-sabores-pack-20-uds-de-9g",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7d094c50-2304-437a-6f04-8f6af26f3500/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-09-19"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 5.0,
+      "store_rating_count": 1.0,
+      "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/bcaas-zero-variedad-sabores-pack-20-uds-de-9g",
+      "protein_subtype": null,
+      "slug_publico": "bcaas-zero-variedad-pack-20-ud-de-9g-biotechusa",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 40.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 99.44
+    },
+    {
       "id": "bcaa-instant-drink-300g-amix",
       "nombre_normalizado": "BCAA Instant Drink 300g",
       "categoria": "bcaa",
@@ -2253,43 +2290,6 @@
       "slug_publico": "bcaa-s-2-1-1-instant-210g-crown-sport-nutrition",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 116.67
-    },
-    {
-      "id": "bcaas-zero-variedad-pack-20-ud-de-9g-biotechusa",
-      "nombre_normalizado": "BCAAS Zero Variedad  Pack  20 Ud de 9g",
-      "categoria": "bcaa",
-      "categoria_display": "BCAA",
-      "marca": "BioTechUSA",
-      "peso_kg": 0.009,
-      "precio_por_kg_min": 1988.89,
-      "precio_min": 17.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7d094c50-2304-437a-6f04-8f6af26f3500/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 17.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/bcaas-zero-variedad-sabores-pack-20-uds-de-9g",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7d094c50-2304-437a-6f04-8f6af26f3500/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-09-19"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 5.0,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/bcaas-zero-variedad-sabores-pack-20-uds-de-9g",
-      "protein_subtype": null,
-      "slug_publico": "bcaas-zero-variedad-pack-20-ud-de-9g-biotechusa",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 40.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 1988.89
     },
     {
       "id": "bcaa-4-1-1-competition-150-caps-150caps-mega-plus",
@@ -6636,6 +6636,46 @@
       "spark_min": 419.9
     },
     {
+      "id": "myprotein-impact-creatine-stick-packs-6g-boxes-10g-myprotein",
+      "nombre_normalizado": "Myprotein, Impact Creatine Stick Packs, 6g (Boxes) 10g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "MyProtein",
+      "peso_kg": 0.01,
+      "precio_por_kg_min": 1699.0,
+      "precio_min": 16.99,
+      "tienda_mas_barata": "MyProtein",
+      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16445080-7935286542009388.png&format=webp&width=1500&height=1500&fit=cover",
+      "precios": [
+        {
+          "tienda": "MyProtein",
+          "precio_eur": 16.99,
+          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myprotein-impact-creatine-stick-packs-6g-boxes/16445074/",
+          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16445080-7935286542009388.png&format=webp&width=1500&height=1500&fit=cover",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-09-19"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Baya",
+        "Sin Sabor"
+      ],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
+      "protein_subtype": null,
+      "slug_publico": "myprotein-impact-creatine-stick-packs-6g-boxes-10g",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,16.8 1.78,16.8 3.56,16.8 5.33,0.0 7.11,0.0 8.89,0.0 10.67,0.0 12.44,0.0 14.22,0.0 16.0,0.0 17.78,0.0 19.56,0.0 21.33,0.0 23.11,0.0 24.89,0.0 26.67,0.0 28.44,0.0 30.22,0.0 32.0,0.0 33.78,28.0 35.56,28.0 37.33,28.0 39.11,0.0 40.89,0.0 42.67,0.0 44.44,0.0 46.22,0.0 48.0,0.0 49.78,0.0 51.56,0.0 53.33,0.0 55.11,0.0 56.89,0.0 58.67,0.0 60.44,0.0 62.22,0.0 64.0,0.0 65.78,0.0 67.56,0.0 69.33,0.0 71.11,0.0 72.89,28.0 74.67,28.0 76.44,28.0 78.22,28.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_min": 1199.0
+    },
+    {
       "id": "the-creatine-creapure-sobres-monodosis-10g-desconocida",
       "nombre_normalizado": "THE Creatine (Creapure) |Sobres monodosis 10g",
       "categoria": "creatina",
@@ -6671,46 +6711,6 @@
       "slug_publico": "the-creatine-creapure-sobres-monodosis-10g-myprotein",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 40.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 1999.0
-    },
-    {
-      "id": "myprotein-impact-creatine-stick-packs-6g-boxes-10g-myprotein",
-      "nombre_normalizado": "Myprotein, Impact Creatine Stick Packs, 6g (Boxes) 10g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "MyProtein",
-      "peso_kg": 0.006,
-      "precio_por_kg_min": 2831.67,
-      "precio_min": 16.99,
-      "tienda_mas_barata": "MyProtein",
-      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16445080-7935286542009388.png&format=webp&width=1500&height=1500&fit=cover",
-      "precios": [
-        {
-          "tienda": "MyProtein",
-          "precio_eur": 16.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myprotein-impact-creatine-stick-packs-6g-boxes/16445074/",
-          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16445080-7935286542009388.png&format=webp&width=1500&height=1500&fit=cover",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-09-19"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Baya",
-        "Sin Sabor"
-      ],
-      "store_rating": null,
-      "store_rating_count": null,
-      "store_rating_url": null,
-      "protein_subtype": null,
-      "slug_publico": "myprotein-impact-creatine-stick-packs-6g-boxes-10g",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,16.8 1.78,16.8 3.56,16.8 5.33,0.0 7.11,0.0 8.89,0.0 10.67,0.0 12.44,0.0 14.22,0.0 16.0,0.0 17.78,0.0 19.56,0.0 21.33,0.0 23.11,0.0 24.89,0.0 26.67,0.0 28.44,0.0 30.22,0.0 32.0,0.0 33.78,28.0 35.56,28.0 37.33,28.0 39.11,0.0 40.89,0.0 42.67,0.0 44.44,0.0 46.22,0.0 48.0,0.0 49.78,0.0 51.56,0.0 53.33,0.0 55.11,0.0 56.89,0.0 58.67,0.0 60.44,0.0 62.22,0.0 64.0,0.0 65.78,0.0 67.56,0.0 69.33,0.0 71.11,0.0 72.89,28.0 74.67,28.0 76.44,28.0 78.22,28.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 1998.33
     },
     {
       "id": "creatine-chewables-2500-mg-60-ch-tabs-60ch-tabs-amix",
@@ -9923,6 +9923,43 @@
       "spark_min": 58.03
     },
     {
+      "id": "pump-3g-stimulant-pre-workout-375g-applied-nutrition",
+      "nombre_normalizado": "Pump 3G Stimulant Pre-Workout 375g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Applied Nutrition",
+      "peso_kg": 0.375,
+      "precio_por_kg_min": 59.47,
+      "precio_min": 22.3,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/a5514e2a-3674-4802-eb96-12a9d50e1a00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 22.3,
+          "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/pump-3g-stimulant-pre-workout-375g",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/a5514e2a-3674-4802-eb96-12a9d50e1a00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-09-19"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
+      "protein_subtype": null,
+      "slug_publico": "pump-3g-stimulant-pre-workout-375g-applied-nutrition",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 59.47
+    },
+    {
       "id": "powered-cafe-preentrenamiento-250-g-desconocida",
       "nombre_normalizado": "Powered - Café Preentrenamiento 250 g",
       "categoria": "pre-entreno",
@@ -10756,6 +10793,43 @@
       "slug_publico": "nitrox-therapy-340g-biotechusa",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.54,28.0 3.08,28.0 4.62,28.0 6.15,28.0 7.69,28.0 9.23,28.0 10.77,28.0 12.31,28.0 13.85,28.0 15.38,28.0 16.92,28.0 18.46,28.0 20.0,28.0 21.54,28.0 23.08,28.0 24.62,28.0 26.15,28.0 27.69,28.0 29.23,28.0 30.77,28.0 32.31,28.0 33.85,28.0 35.38,28.0 36.92,28.0 38.46,28.0 40.0,28.0 41.54,28.0 43.08,28.0 44.62,28.0 46.15,28.0 47.69,28.0 49.23,28.0 50.77,28.0 52.31,28.0 53.85,28.0 55.38,28.0 56.92,28.0 58.46,28.0 60.0,28.0 61.54,28.0 63.08,28.0 64.62,28.0 66.15,28.0 67.69,28.0 69.23,28.0 70.77,28.0 72.31,28.0 73.85,28.0 75.38,28.0 76.92,28.0 78.46,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 79.12
+    },
+    {
+      "id": "pump-3g-zero-stimulant-pre-workout-375g-applied-nutrition",
+      "nombre_normalizado": "Pump 3G Zero Stimulant Pre-Workout 375g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Applied Nutrition",
+      "peso_kg": 0.375,
+      "precio_por_kg_min": 82.4,
+      "precio_min": 30.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7df7c047-4d0b-4a5f-6085-e0a0b6f3bb00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 30.9,
+          "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/pump-3g-zero-stimulant-pre-workout-375g",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7df7c047-4d0b-4a5f-6085-e0a0b6f3bb00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-09-19"
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
+      "protein_subtype": null,
+      "slug_publico": "pump-3g-zero-stimulant-pre-workout-375g-applied-nutrition",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 82.4
     },
     {
       "id": "atp-extreme-440g-vitobest",
@@ -12066,43 +12140,6 @@
       "slug_publico": "3-x-sachet-ripped-pre-workout-ultra-concentrated-12-3-g",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 40.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 397.5
-    },
-    {
-      "id": "pump-3g-stimulant-pre-workout-375g-applied-nutrition",
-      "nombre_normalizado": "Pump 3G Stimulant Pre-Workout 375g",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Applied Nutrition",
-      "peso_kg": 0.003,
-      "precio_por_kg_min": 7433.33,
-      "precio_min": 22.3,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/a5514e2a-3674-4802-eb96-12a9d50e1a00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 22.3,
-          "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/pump-3g-stimulant-pre-workout-375g",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/a5514e2a-3674-4802-eb96-12a9d50e1a00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-09-19"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": null,
-      "store_rating_count": null,
-      "store_rating_url": null,
-      "protein_subtype": null,
-      "slug_publico": "pump-3g-stimulant-pre-workout-375g-applied-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 7433.33
     },
     {
       "id": "amix-cellup-energy-drink-pre-entreno-500ml-tienda-12ud-amix",
@@ -14853,43 +14890,6 @@
       "slug_publico": "impact-pre-entreno-lobezno-myprotein",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,4.67 1.48,4.67 2.96,4.67 4.44,4.67 5.93,4.67 7.41,12.84 8.89,4.67 10.37,4.67 11.85,4.67 13.33,0.0 14.81,0.0 16.3,0.0 17.78,0.0 19.26,0.0 20.74,0.0 22.22,0.0 23.7,0.0 25.19,0.0 26.67,0.0 28.15,0.0 29.63,0.0 31.11,0.0 32.59,0.0 34.07,0.0 35.56,0.0 37.04,0.0 38.52,0.0 40.0,0.0 41.48,0.0 42.96,0.0 44.44,0.0 45.93,0.0 47.41,0.0 48.89,0.0 50.37,0.0 51.85,0.0 53.33,0.0 54.81,0.0 56.3,0.0 57.78,0.0 59.26,0.0 60.74,0.0 62.22,0.0 63.7,0.0 65.19,0.0 66.67,0.0 68.15,0.0 69.63,0.0 71.11,0.0 72.59,0.0 74.07,0.0 75.56,0.0 77.04,28.0 78.52,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 15.0
-    },
-    {
-      "id": "pump-3g-zero-stimulant-pre-workout-375g-applied-nutrition",
-      "nombre_normalizado": "Pump 3G Zero Stimulant Pre-Workout 375g",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Applied Nutrition",
-      "peso_kg": 0.003,
-      "precio_por_kg_min": 10300.0,
-      "precio_min": 30.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7df7c047-4d0b-4a5f-6085-e0a0b6f3bb00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 30.9,
-          "url_afiliado": "https://www.nutritienda.com/es/applied-nutrition/pump-3g-zero-stimulant-pre-workout-375g",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/7df7c047-4d0b-4a5f-6085-e0a0b6f3bb00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-09-19"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": null,
-      "store_rating_count": null,
-      "store_rating_url": null,
-      "protein_subtype": null,
-      "slug_publico": "pump-3g-zero-stimulant-pre-workout-375g-applied-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 10300.0
     },
     {
       "id": "claras-de-huevo-liquidas-1kg-desconocida",

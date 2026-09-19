@@ -331,9 +331,11 @@ def scrape(debug: bool = False) -> list[dict]:
             if html_prod:
                 variantes, imagen_url = _extraer_variantes(html_prod)
                 if variantes:
-                    peso_min, precio_min = variantes[0]
-                    nombre_final = f"{d['nombre']} {_talla_str(peso_min)}"
-                    precio_final = str(precio_min)
+                    # Formato con mejor €/kg (precio ÷ peso mínimo)
+                    best = min(variantes, key=lambda v: v[1] / v[0])
+                    peso_best, precio_best = best
+                    nombre_final = f"{d['nombre']} {_talla_str(peso_best)}"
+                    precio_final = str(precio_best)
                 enrichment = _extraer_enriquecimiento(html_prod)
                 if enrichment.get("store_rating_count"):
                     enrichment["store_rating_url"] = d["url"]

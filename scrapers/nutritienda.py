@@ -14,8 +14,10 @@ El nutritional-snippet del HTML anterior desapareció en la migración Nuxt;
 los campos de enrichment nutricional (serving_size_g, etc.) ya no se extraen.
 """
 
+import datetime
 import json
 import math
+import os
 import re
 import time
 
@@ -49,6 +51,24 @@ URLS_FIJAS = [
     ("https://www.nutritienda.com/es/amix-nutrition/predator-protein",              "Proteinas Whey"),
     ("https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black",              "Proteinas Whey"),
 ]
+
+CATALOG_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "nutritienda_catalog.json")
+
+
+def _cargar_catalogo() -> dict:
+    """Carga el catálogo persistente de Nutritienda. Devuelve {} si no existe."""
+    try:
+        with open(CATALOG_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _guardar_catalogo(catalogo: dict) -> None:
+    """Guarda el catálogo persistente."""
+    os.makedirs(os.path.dirname(CATALOG_FILE), exist_ok=True)
+    with open(CATALOG_FILE, "w", encoding="utf-8") as f:
+        json.dump(catalogo, f, ensure_ascii=False, indent=2)
 
 
 def _parse_itemlist(html: str) -> tuple[int, list[dict]]:
@@ -296,6 +316,39 @@ def scrape() -> list[dict]:
                 print(f"  ✅ Fijo añadido: {item_fijo['nombre'][:60]}")
             else:
                 print(f"  ⚠️  No se pudo obtener URL fija: {url_fija}")
+
+    # ── Catálogo persistente: incluir productos conocidos aunque caigan del top-80 ──
+    catalogo = _cargar_catalogo()
+    hoy = datetime.date.today().isoformat()
+
+    # Registrar todas las URLs del listado de hoy en el catálogo
+    urls_en_listado = {p["url"] for p in productos_raw}
+    for p in productos_raw:
+        if p["url"] not in catalogo:
+            catalogo[p["url"]] = {"categoria": p["categoria"], "first_seen": hoy}
+
+    # Para URLs del catálogo que no aparecen en el listado de hoy: verificar que siguen vivas
+    urls_a_retirar = []
+    catalog_recuperados = 0
+    for url_cat, meta in catalogo.items():
+        if url_cat in urls_en_listado:
+            continue  # ya está en el listado, no hace falta nada
+        # Intentar obtener el producto desde la caché o desde la tienda
+        item_fijo = _scrape_producto_fijo(url_cat, meta["categoria"])
+        if item_fijo:
+            productos_raw.append(item_fijo)
+            catalog_recuperados += 1
+        else:
+            urls_a_retirar.append(url_cat)
+
+    if catalog_recuperados:
+        print(f"  Catálogo: {catalog_recuperados} productos recuperados (no en top-{MAX_POR_CATEGORIA} hoy)")
+    if urls_a_retirar:
+        for url in urls_a_retirar:
+            del catalogo[url]
+        print(f"  Catálogo: {len(urls_a_retirar)} URL(s) retiradas (404 o error persistente)")
+
+    _guardar_catalogo(catalogo)
 
     # ── Detalle: nombre completo con peso + rating ─────────────────────────
     print(f"\n  Enriqueciendo {len(productos_raw)} productos (detalle + caché 7 días)...")

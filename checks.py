@@ -371,7 +371,7 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
       €/kg bajo estructural (bicarbonato, isomaltulosa, claras de huevo).
       Umbral 20%: Evobasic a 5,54 €/kg (11%) salta; whey real a 30+ €/kg no.
 
-    Excluye monodosis (<100 g) donde €/kg es legítimamente muy alto.
+    Incluye monodosis (<100 g): el extractor de peso o la selección de formato puede estar mal.
     """
     errores = []
 
@@ -397,17 +397,22 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
         mediana = medianas.get(cat)
         if not (kg and peso and mediana):
             continue
-        if float(peso) < 0.1:
-            continue
         kg_f = float(kg)
 
         if kg_f > mediana * UMBRAL_KG_ALTO:
-            errores.append(
-                f"[CHECK 7] €/kg anormalmente ALTO: [{cat}] {nombre}\n"
-                f"  precio_por_kg={kg_f:.2f} €/kg  mediana_cat={mediana:.2f} €/kg  "
-                f"ratio={kg_f / mediana:.1f}x (umbral {UMBRAL_KG_ALTO:.0f}x)\n"
-                f"  Acción: verifica el precio y el peso en el scraper de origen."
-            )
+            if float(peso) < 0.1:
+                # Monodosis (<100g): aviso, no error — el €/kg alto puede ser legítimo
+                print(
+                    f"  ⚠️  AVISO [CHECK 7] €/kg alto en monodosis (<100g): [{cat}] {nombre} "
+                    f"({kg_f:.0f} €/kg, {float(peso)*1000:.0f}g)"
+                )
+            else:
+                errores.append(
+                    f"[CHECK 7] €/kg anormalmente ALTO: [{cat}] {nombre}\n"
+                    f"  precio_por_kg={kg_f:.2f} €/kg  mediana_cat={mediana:.2f} €/kg  "
+                    f"ratio={kg_f / mediana:.1f}x (umbral {UMBRAL_KG_ALTO:.0f}x)\n"
+                    f"  Acción: verifica el precio y el peso en el scraper de origen."
+                )
         elif kg_f < mediana * UMBRAL_KG_BAJO and not _es_gainer(nombre) and not _es_bajo_estructural(nombre):
             errores.append(
                 f"[CHECK 7] €/kg anormalmente BAJO: [{cat}] {nombre}\n"
@@ -537,6 +542,31 @@ def _check_ids(ids_act: set[str], ids_ant: set[str]) -> list[str]:
         )
 
     return []
+
+
+def _check_slugs(slugs_act: set[str], slugs_ant: set[str]) -> list[str]:
+    """
+    Avisa siempre que un slug_publico desaparezca respecto al build anterior.
+    Cada slug desaparecido = URL pública que ha cambiado o producto retirado.
+    No tiene umbral de porcentaje — cualquier cambio es relevante.
+    """
+    if not slugs_ant:
+        return []
+
+    desaparecidos = slugs_ant - slugs_act
+    if not desaparecidos:
+        return []
+
+    muestra = sorted(desaparecidos)[:10]
+    # Solo aviso (print), no error — el build no debe fallar por esto.
+    # El operador debe revisar si hace falta redirección.
+    print(
+        f"\n  AVISO [CHECK 8b] {len(desaparecidos)} slug(s) desaparecidos "
+        f"respecto al build anterior. Cada uno = URL pública que ha cambiado o producto retirado.\n"
+        f"  Revisa si necesitan redirección en data/redirecciones.json.\n"
+        f"  Slugs afectados (primeros {len(muestra)}): {muestra}"
+    )
+    return []  # aviso solo, no error
 
 
 UMBRAL_DIAS_SCRAPE = 7   # días sin datos frescos que disparan error de build
@@ -675,9 +705,12 @@ def run_all_checks(
     # ── Recopilar métricas del build actual ───────────────────────────────
     por_tienda: dict[str, int] = {}
     ids_act:    set[str]       = set()
+    slugs_act:  set[str]       = set()
 
     for p in productos_web:
         ids_act.add(p["id"])
+        if p.get("slug_publico"):
+            slugs_act.add(p["slug_publico"])
         for pr in p.get("precios", []):
             tienda = pr.get("tienda", "?")
             por_tienda[tienda] = por_tienda.get(tienda, 0) + 1
@@ -693,6 +726,7 @@ def run_all_checks(
         "grupos_multitienda": grupos_multitienda,
         "n_sitemap":          n_sitemap,
         "ids":                sorted(ids_act),
+        "slugs":              sorted(slugs_act),
     }
 
     # ── Ejecutar todos los checks ─────────────────────────────────────────
@@ -704,6 +738,7 @@ def run_all_checks(
     errores += _check_desconocido(docs_dir, productos_web)
     errores += _check_precio_rango(productos_web)
     errores += _check_ids(ids_act, set(stats_ant.get("ids", [])))
+    errores += _check_slugs(slugs_act, set(stats_ant.get("slugs", [])))
     errores += _check_gsc_cobertura(docs_dir)
     errores += _check_scrape_stats()
     errores += _check_productos_ausentes(ids_act, stats_ant)

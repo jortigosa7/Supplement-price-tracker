@@ -77,9 +77,9 @@ def extraer_peso_kg(nombre: str) -> float | None:
         return round(float(valor), 3)
 
     # Multi-pack: "N x Xg" o "N sticks Xg" → multiplicar
-    # Patrones: "20 x 10g", "3 x 17.8g", "20 sticks 3g", "3 sachets 17.5g"
+    # Patrones: "20 x 10g", "3 x 17.8g", "20 sticks 3g", "20 Ud de 9g", "3 sachets 17.5g"
     multipack = re.search(
-        r'(\d+)\s*(?:x|×|sticks?|sachets?|sobres?|capsules?|caps?|tab(?:lets?)?)\s*(\d+[.,]?\d*)\s*g(?:r)?(?:\b|$)',
+        r'(\d+)\s*(?:x|×|sticks?|sachets?|sobres?|capsules?|caps?|tab(?:lets?)?|unidades?|ud\.?)\s*(?:de\s+)?(\d+[.,]?\d*)\s*g(?:r)?(?:\b|$)',
         texto,
         re.IGNORECASE,
     )
@@ -89,9 +89,10 @@ def extraer_peso_kg(nombre: str) -> float | None:
         return round(cantidad * peso_g / 1000, 3)
 
     # Buscar gramos — admite decimales: "17.8g", "500g", "2,5g"
-    g_match = re.search(r'(\d+[.,]?\d*)\s*g(?:r)?(?:\b|$)', texto)
-    if g_match:
-        return round(float(g_match.group(1).replace(',', '.')) / 1000, 3)
+    # Se toma la ÚLTIMA aparición: "Pump 3G Zero ... 375g" → 375g, no 3g
+    g_matches = list(re.finditer(r'(\d+[.,]?\d*)\s*g(?:r)?(?:\b|$)', texto))
+    if g_matches:
+        return round(float(g_matches[-1].group(1).replace(',', '.')) / 1000, 3)
 
     return None
 
