@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-18",
+  "last_updated": "2026-09-19",
   "site": "StackFit",
   "total": 600,
   "grupos_multitienda": 6,
@@ -634,7 +634,7 @@
       "spark_min": 47.47
     },
     {
-      "id": "bcaa-2-1-1-250g-desconocida",
+      "id": "bcaa-2-1-1-250g-myprotein",
       "nombre_normalizado": "BCAA 2:1:1 250g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
@@ -688,8 +688,8 @@
       "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/bcaa-2-1-1/10529280/",
       "protein_subtype": null,
       "slug_publico": "bcaa-2-1-1-250g-myprotein",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,12.73 1.78,27.36 3.56,12.73 5.33,0.0 7.11,0.0 8.89,0.0 10.67,0.0 12.44,0.0 14.22,0.0 16.0,0.0 17.78,0.0 19.56,0.0 21.33,0.0 23.11,0.0 24.89,0.0 26.67,0.0 28.44,0.0 30.22,19.09 32.0,19.09 33.78,0.0 35.56,0.0 37.33,0.0 39.11,0.0 40.89,0.0 42.67,0.0 44.44,0.0 46.22,0.0 48.0,19.09 49.78,0.0 51.56,0.0 53.33,0.0 55.11,0.0 56.89,0.0 58.67,0.0 60.44,0.0 62.22,0.0 64.0,0.0 65.78,0.0 67.56,0.0 69.33,0.0 71.11,0.0 72.89,28.0 74.67,19.09 76.44,19.09 78.22,27.94 80.0,19.09\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"19.09\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 50.36
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 40.0,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 50.4
     },
     {
       "id": "bcaa-jelly-bar-30g-weider",
@@ -10163,7 +10163,7 @@
       "spark_min": 66.0
     },
     {
-      "id": "malato-de-l-citrulina-300-g-desconocida",
+      "id": "malato-de-l-citrulina-300-g-biotechusa",
       "nombre_normalizado": "Malato de L-Citrulina 300 g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
@@ -10209,8 +10209,8 @@
       "store_rating_url": "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-300-g",
       "protein_subtype": null,
       "slug_publico": "malato-de-l-citrulina-300-g-biotechusa",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,16.73 6.67,16.73 13.33,16.73 20.0,16.73 26.67,16.73 33.33,16.73 40.0,16.73 46.67,28.0 53.33,28.0 60.0,28.0 66.67,16.73 73.33,0.0 80.0,16.73\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"16.73\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 46.63
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 80.0,-0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"-0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_min": 66.63
     },
     {
       "id": "c4-sport-288g-cellucor",

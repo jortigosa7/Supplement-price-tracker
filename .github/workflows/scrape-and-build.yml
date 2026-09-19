@@ -37,6 +37,8 @@ jobs:
         run: python añadir_afiliados.py
 
       - name: Run build
+        id: build
+        continue-on-error: true
         run: python build.py
 
       - name: Commit & push changes
@@ -46,3 +48,10 @@ jobs:
           git add docs/ data/ datasets/
           git diff --cached --quiet || git commit -m "build: update prices $(date +'%Y-%m-%d')"
           git push
+
+      - name: Fail si el build tuvo errores
+        if: steps.build.outcome == 'failure'
+        run: |
+          echo "❌ Build finalizó con errores (pares degradados u otro fallo)."
+          echo "   Los precios y el HTML están comprometidos. Revisa el log del step 'Run build'."
+          exit 1

@@ -1312,15 +1312,23 @@ def generar_faq_comparacion(pa: dict, pb: dict) -> list:
     return faqs[:4]
 
 
-def generar_pares_comparacion(productos_web: list) -> dict:
+def generar_pares_comparacion(
+    productos_web: list,
+    productos_previos_by_id: dict | None = None,
+) -> tuple[dict, list, set]:
     """
     Carga los pares aprobados desde data/comparaciones.json.
-    Devuelve {slug_par: (pa, pb)} con los productos en orden canónico de slug_publico.
+    Devuelve (pares, ids_faltantes, slugs_degradados):
+      - pares: {slug_par: (pa, pb)} para los pares que pueden generarse.
+      - ids_faltantes: lista de IDs no encontrados en el catálogo actual.
+      - slugs_degradados: slugs de pares que NO se pueden generar;
+        calculados con productos_previos_by_id cuando están disponibles
+        para que limpiar_comparar_dir() preserve esas páginas.
     """
     comparaciones_path = os.path.join(DATA_DIR, "comparaciones.json")
     if not os.path.exists(comparaciones_path):
         print("  ⚠️  data/comparaciones.json no encontrado — sin comparaciones")
-        return {}
+        return {}, [], set()
 
     with open(comparaciones_path, encoding="utf-8") as f:
         comp_data = json.load(f)
@@ -1329,6 +1337,7 @@ def generar_pares_comparacion(productos_web: list) -> dict:
     by_id = {p["id"]: p for p in productos_web}
     pares: dict = {}
     ids_faltantes: list[str] = []
+    slugs_degradados: set = set()
 
     for par in comp_data.get("pares", []):
         id_a = par["id_a"]
@@ -1340,21 +1349,26 @@ def generar_pares_comparacion(productos_web: list) -> dict:
         if pb is None:
             ids_faltantes.append(id_b)
         if pa is None or pb is None:
+            # Intentar calcular el slug del par degradado para preservar la página anterior
+            if productos_previos_by_id is not None:
+                pa_ref = pa or productos_previos_by_id.get(id_a)
+                pb_ref = pb or productos_previos_by_id.get(id_b)
+                if pa_ref and pb_ref:
+                    slugs_degradados.add(_compare_slug(pa_ref, pb_ref))
             continue
         slug = _compare_slug(pa, pb)
         if slug not in pares:
             pares[slug] = (pa, pb)
 
     if ids_faltantes:
-        print("\n❌ ERROR FATAL: IDs de comparaciones.json no encontrados en el catálogo:")
-        for fid in ids_faltantes:
+        ids_unicos = sorted(set(ids_faltantes))
+        print(f"\n⚠️  AVISO: {len(ids_unicos)} ID(s) de comparaciones.json no encontrados en el catálogo:")
+        for fid in ids_unicos:
             print(f"   • {fid}")
-        print("\n  Causa probable: el scraper no encontró ese producto o cambió su nombre.")
-        print("  Revisa el scraper o actualiza comparaciones.json antes de publicar.\n")
-        sys.exit(1)
+        print(f"  Los {len(slugs_degradados)} pares afectados se mantienen del build anterior.")
 
     print(f"   → {len(pares)} pares cargados desde comparaciones.json")
-    return pares
+    return pares, ids_faltantes, slugs_degradados
 
 
 def _nombre_seo(nombre: str) -> str:
@@ -1364,12 +1378,12 @@ def _nombre_seo(nombre: str) -> str:
     return re.sub(r"'([A-Z])", lambda m: "'" + m.group(1).lower(), titled)
 
 
-def generar_comparaciones(env, productos_web: list, last_updated: str) -> list:
+def generar_comparaciones(env, productos_web: list, last_updated: str) -> tuple[list, list]:
     """
     Genera docs/comparar/<slug>/index.html para cada par y docs/comparar/index.html.
-    Devuelve la lista de slugs generados (para el sitemap).
+    Devuelve (slugs_generados, ids_faltantes).
     """
-    pares = generar_pares_comparacion(productos_web)
+    pares, ids_faltantes, _ = generar_pares_comparacion(productos_web)
     n_total = len(pares)
     print(f"   → {n_total} pares en total")
 
@@ -1507,7 +1521,7 @@ def generar_comparaciones(env, productos_web: list, last_updated: str) -> list:
 
     print(f"✅ Generadas: {len(slugs_generados)} páginas de comparación")
     print(f"✅ Generado: {path_idx}")
-    return slugs_generados
+    return slugs_generados, ids_faltantes
 
 
 # ============================================================
@@ -2116,25 +2130,33 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> None:
     print("Precios verificados: sin anomalias detectadas.")
 
 
-def limpiar_comparar_dir():
+def limpiar_comparar_dir(slugs_a_preservar: set | None = None):
     """
-    Borra todo el contenido de docs/comparar/ antes de regenerar.
-    Esto elimina páginas huérfanas de builds anteriores.
-    No toca CNAME, imágenes ni archivos estáticos fuera de comparar/.
+    Borra el contenido de docs/comparar/ antes de regenerar.
+    slugs_a_preservar: slugs de pares degradados cuyas páginas se conservan
+    para evitar 404 en URLs ya indexadas.
     """
     import shutil
+    if slugs_a_preservar is None:
+        slugs_a_preservar = set()
     comparar_dir = os.path.join(DOCS_DIR, "comparar")
     if os.path.isdir(comparar_dir):
-        # Borrar cada subdirectorio de comparación (son slugs de pares)
         eliminados = 0
+        preservados = 0
         for entry in os.listdir(comparar_dir):
+            if entry in slugs_a_preservar:
+                preservados += 1
+                continue
             entry_path = os.path.join(comparar_dir, entry)
             if os.path.isdir(entry_path):
                 shutil.rmtree(entry_path)
                 eliminados += 1
             elif os.path.isfile(entry_path) and entry == "index.html":
                 os.remove(entry_path)
-        print(f"🗑️  Limpiados {eliminados} subdirectorios de docs/comparar/")
+        msg = f"🗑️  Limpiados {eliminados} subdirectorios de docs/comparar/"
+        if preservados:
+            msg += f" ({preservados} preservados — par degradado)"
+        print(msg)
     else:
         print("   docs/comparar/ no existe aún, se creará en el build")
 
@@ -2193,6 +2215,16 @@ if __name__ == "__main__":
     print("=" * 54)
     inicio = datetime.now()
 
+    # Cargar productos del build anterior ANTES de sobreescribir products.json.
+    # Se usan para: (a) detectar cambios de ID, (b) preservar pares degradados.
+    _products_path = os.path.join(DATA_DIR, "products.json")
+    _old_productos_web: list = []
+    if os.path.exists(_products_path):
+        with open(_products_path, encoding="utf-8") as _f:
+            _old_data = json.load(_f)
+        _old_productos_web = _old_data.get("products", [])
+    _old_by_id: dict = {p["id"]: p for p in _old_productos_web}
+
     # 1. Cargar dataset
     productos_flat, fichero_origen = cargar_dataset_mas_reciente()
 
@@ -2205,6 +2237,25 @@ if __name__ == "__main__":
     print("\n🔄 Convirtiendo al schema web...")
     productos_web = convertir_a_schema_web(productos_flat)
     print(f"   → {len(productos_web)} productos en nuevo schema")
+
+    # Detectar cambios de ID respecto al build anterior (informativo, no bloquea)
+    if _old_productos_web:
+        _old_by_nombre = {
+            (p.get("nombre_normalizado", ""), p.get("categoria", "")): p.get("id", "")
+            for p in _old_productos_web
+        }
+        _cambios_id = [
+            (p["nombre_normalizado"], _old_by_nombre[(p["nombre_normalizado"], p["categoria"])], p["id"])
+            for p in productos_web
+            if (p["nombre_normalizado"], p["categoria"]) in _old_by_nombre
+            and _old_by_nombre[(p["nombre_normalizado"], p["categoria"])] != p["id"]
+        ]
+        if _cambios_id:
+            print(f"\n⚠️  AVISO: {len(_cambios_id)} producto(s) cambiaron de ID entre builds:")
+            for _nom, _id_ant, _id_nuevo in _cambios_id:
+                print(f"   • {_nom}")
+                print(f"     antes : {_id_ant}")
+                print(f"     ahora : {_id_nuevo}")
 
     # 2b. Aplicar links de afiliado HSN
     print("\n🔗 Aplicando links de afiliado...")
@@ -2241,15 +2292,18 @@ if __name__ == "__main__":
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")
 
-    # B1: Limpiar docs/comparar/ antes de regenerar (elimina páginas huérfanas)
+    # B1: Calcular pares degradados para saber qué páginas preservar al limpiar
+    _, _ids_degradados_pre, _slugs_degradados = generar_pares_comparacion(productos_web, _old_by_id)
+
+    # B2: Limpiar docs/comparar/ (preservando páginas de pares degradados)
     print("\n🗑️  Limpiando comparaciones anteriores...")
-    limpiar_comparar_dir()
+    limpiar_comparar_dir(slugs_a_preservar=_slugs_degradados)
 
     env = setup_jinja()
 
     # Generar comparaciones primero para pasar populares a la home
     print("\n⚖️  Generando comparaciones...")
-    compare_slugs = generar_comparaciones(env, productos_web, last_updated)
+    compare_slugs, _ids_faltantes_gen = generar_comparaciones(env, productos_web, last_updated)
 
     # Generar páginas de redirección (old URLs → new slug_publico URLs)
     slugs_generados_set = set(compare_slugs)
@@ -2257,7 +2311,7 @@ if __name__ == "__main__":
 
     # Recuperar las 6 populares (misma lógica que en generar_comparaciones)
     from itertools import combinations as _combinations
-    _pares_home = generar_pares_comparacion(productos_web)
+    _pares_home, _, _ = generar_pares_comparacion(productos_web)
     def _avg_kg_home(s):
         pa2, pb2 = _pares_home[s]
         return ((pa2.get("precio_por_kg_min") or 9999) + (pb2.get("precio_por_kg_min") or 9999)) / 2
@@ -2321,3 +2375,12 @@ if __name__ == "__main__":
     print("  git push origin master")
     print("  -> Activa GitHub Pages: Settings > Pages > docs/")
     print("=" * 54)
+
+    # Salir con error si hubo pares degradados. El HTML y products.json ya están
+    # generados y listos para commit — el workflow los commitea antes de fallar.
+    if _ids_faltantes_gen:
+        ids_unicos = sorted(set(_ids_faltantes_gen))
+        print("\n❌ BUILD CON ERRORES: pares de comparación degradados.")
+        print(f"   IDs faltantes: {', '.join(ids_unicos)}")
+        print("   Actualiza data/comparaciones.json o el scraper correspondiente.")
+        sys.exit(1)
