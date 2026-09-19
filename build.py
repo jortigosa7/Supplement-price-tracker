@@ -2228,10 +2228,21 @@ if __name__ == "__main__":
     # 1. Cargar dataset
     productos_flat, fichero_origen = cargar_dataset_mas_reciente()
 
-    # Extraer fecha del nombre del fichero o usar la del primer producto
+    # Fecha a mostrar en la web: la más antigua entre todos los productos.
+    # Si alguna tienda usa fallback (datos viejos), el usuario ve la fecha real.
     last_updated = datetime.now().strftime("%Y-%m-%d")
-    if productos_flat:
-        last_updated = productos_flat[0].get("fecha_scraping", last_updated)
+    _fechas_planas = [p["fecha_scraping"] for p in productos_flat if p.get("fecha_scraping")]
+    if _fechas_planas:
+        last_updated = min(_fechas_planas)
+
+    # Fecha por tienda para informe y check
+    fechas_por_tienda: dict[str, str] = {}
+    for _p in productos_flat:
+        _t = _p.get("tienda", "")
+        _f = _p.get("fecha_scraping", "")
+        if _t and _f and (_t not in fechas_por_tienda or _f < fechas_por_tienda[_t]):
+            fechas_por_tienda[_t] = _f
+    print(f"   → Fechas de scrape por tienda: {dict(sorted(fechas_por_tienda.items()))}")
 
     # 2. Convertir schema
     print("\n🔄 Convirtiendo al schema web...")
@@ -2358,6 +2369,7 @@ if __name__ == "__main__":
         n_comparaciones=len(compare_slugs),
         grupos_multitienda=grupos_mt,
         docs_dir=DOCS_DIR,
+        fechas_por_tienda=fechas_por_tienda,
     )
 
     duracion = (datetime.now() - inicio).total_seconds()

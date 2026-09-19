@@ -539,6 +539,30 @@ def _check_ids(ids_act: set[str], ids_ant: set[str]) -> list[str]:
     return []
 
 
+UMBRAL_DIAS_SCRAPE = 7   # días sin datos frescos que disparan error de build
+
+
+# ── Check fechas de scrape por tienda ─────────────────────────────────────────
+
+def _check_fechas_scrape(fechas_por_tienda: dict) -> list[str]:
+    """Error si alguna tienda lleva más de UMBRAL_DIAS_SCRAPE días sin datos frescos."""
+    hoy = date.today()
+    errores = []
+    for tienda, fecha_str in sorted(fechas_por_tienda.items()):
+        try:
+            dias = (hoy - date.fromisoformat(fecha_str)).days
+            if dias > UMBRAL_DIAS_SCRAPE:
+                errores.append(
+                    f"[CHECK FECHAS] {tienda}: datos de hace {dias} días ({fecha_str}). "
+                    f"Umbral: {UMBRAL_DIAS_SCRAPE} días. "
+                    "Los precios publicados de esta tienda pueden estar desactualizados. "
+                    "Revisar el scraper o el fallback."
+                )
+        except Exception:
+            pass
+    return errores
+
+
 # ── Check scrape stats: fallback Prozis consecutivo ──────────────────────────
 
 def _check_scrape_stats() -> list[str]:
@@ -639,6 +663,7 @@ def run_all_checks(
     n_comparaciones: int,
     grupos_multitienda: int,
     docs_dir: str = DOCS_DIR,
+    fechas_por_tienda: dict | None = None,
 ) -> None:
     """
     Corre todos los checks post-build.
@@ -682,6 +707,8 @@ def run_all_checks(
     errores += _check_gsc_cobertura(docs_dir)
     errores += _check_scrape_stats()
     errores += _check_productos_ausentes(ids_act, stats_ant)
+    if fechas_por_tienda:
+        errores += _check_fechas_scrape(fechas_por_tienda)
 
     # ── Reportar ──────────────────────────────────────────────────────────
     if errores:
@@ -712,3 +739,5 @@ def run_all_checks(
         f"tiendas: {dict(sorted(por_tienda.items()))} | "
         f"ids: {len(ids_act)}"
     )
+    if fechas_por_tienda:
+        print(f"  Fechas de scrape: {dict(sorted(fechas_por_tienda.items()))}")

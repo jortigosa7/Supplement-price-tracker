@@ -182,11 +182,10 @@ if __name__ == "__main__":
                 prev_cat = [_p for _p in prev_data
                             if _p.get("tienda") == "Prozis" and _p.get("categoria") == cat_nombre]
                 if prev_cat:
-                    _hoy = datetime.now().strftime("%Y-%m-%d")
                     for _p in prev_cat:
                         if "precio" not in _p and "precio_eur" in _p and _p["precio_eur"] is not None:
                             _p["precio"] = str(_p["precio_eur"])
-                        _p["fecha_scraping"] = _hoy
+                        # NO se sobreescribe fecha_scraping: preservar la fecha real del dato
                     todos.extend(prev_cat)
                     fallback_consec[cat_nombre] = fallback_consec.get(cat_nombre, 0) + 1
                     print(
@@ -235,11 +234,10 @@ if __name__ == "__main__":
             fallback = [p for p in prev_data if p.get("tienda") == tienda]
             if not fallback:
                 continue
-            hoy = datetime.now().strftime("%Y-%m-%d")
             for p in fallback:
                 if "precio" not in p and "precio_eur" in p and p["precio_eur"] is not None:
                     p["precio"] = str(p["precio_eur"])
-                p["fecha_scraping"] = hoy
+                # NO se sobreescribe fecha_scraping: el dato es viejo, que se vea viejo en la web
             todos.extend(fallback)
             print(
                 f"\n  ⚠️  {tienda}: 0 productos nuevos — "
@@ -264,6 +262,27 @@ if __name__ == "__main__":
     df = limpiar_dataset(todos)
     if df.empty:
         print("  Sin datos tras limpieza.")
+        sys.exit(1)
+
+    # Guardia: no guardar si ninguna tienda tiene datos frescos de hoy.
+    # Si los cuatro scrapers fallan a la vez, es un fallo crítico — no enmascararlo
+    # guardando un fichero con nombre de hoy y datos de hace días.
+    _hoy_str = datetime.now().strftime("%Y-%m-%d")
+    if "fecha_scraping" in df.columns and "tienda" in df.columns:
+        _tiendas_frescas = set(
+            df.loc[df["fecha_scraping"] == _hoy_str, "tienda"].dropna().unique()
+        )
+    else:
+        _tiendas_frescas = set()
+
+    if not _tiendas_frescas:
+        _tiendas_todas = set(df["tienda"].dropna().unique()) if "tienda" in df.columns else set()
+        print(
+            f"\nERROR: ninguna tienda tiene datos frescos de hoy ({_hoy_str}).\n"
+            f"  Tiendas en dataset (todas con datos viejos): {sorted(_tiendas_todas)}\n"
+            "  No se guarda un dataset nuevo con nombre de hoy.\n"
+            "  Revisa los scrapers: que los cuatro fallen a la vez es inusual."
+        )
         sys.exit(1)
 
     # Guardar
