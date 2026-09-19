@@ -64,7 +64,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 ### Funciona
 
 - Build estático completo y desplegado.
-- Scrapers de HSN y MyProtein: extraen peso correctamente (fix mayo 2026 — HSN select con id, MyProtein ProductGroup.hasVariant[]); precio €/kg correcto (fix sep 2026 — HSN usaba precio "desde" de lista en vez del precio del formato concreto).
+- Scrapers de HSN y MyProtein: extraen peso correctamente (fix mayo 2026); precio €/kg correcto usando `seleccionar_mejor_formato()` de `scrapers/base.py` (sep 2026). La función es común a HSN y MyProtein: de todos los formatos disponibles elige el de menor €/kg, garantizando que precio y peso vienen del mismo formato. HSN extrae todos los option_id del select y sus precios desde optionPrices JSON de Magento antes de elegir.
 - Scraper de Nutritienda: migrado a JSON-LD (sep 2026). `MAX_POR_CATEGORIA=80`; catálogo persistente en `data/nutritienda_catalog.json` (316 URLs iniciales sep 2026) — un producto del catálogo que cae del top-80 se recupera siempre con precio fresco (no caché); los que dan 404 se eliminan automáticamente. Cap no se sube: Nutritienda ya es >50% del catálogo (316/608) y no hay afiliación.
 - Sistema de filtros y comparador.
 - Quiz recomendador.

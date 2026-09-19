@@ -25,7 +25,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-from .base import HEADERS, hacer_peticion, producto_base
+from .base import HEADERS, hacer_peticion, producto_base, seleccionar_mejor_formato
 from .detail_cache import get_cached, save_cache
 
 TIENDA   = "HSN"
@@ -62,14 +62,13 @@ def _excluido(nombre: str) -> bool:
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
-def _extraer_peso_y_opcion_desde_select(soup: BeautifulSoup) -> tuple[float | None, str | None]:
+def _extraer_todas_opciones_select(soup: BeautifulSoup) -> list[tuple[float, str]]:
     """
-    Busca el select de variantes de HSN (opciones del tipo "EVOLATE 2.0 2Kg CHOCOLATE").
-    Devuelve (peso_kg, option_value) de la PRIMERA opción con unidad de peso.
-    option_value es el atributo value de la etiqueta <option> (ID de producto en Magento).
-    Fallback: cualquier select cuya primera opción contenga unidad de peso.
+    Extrae TODAS las opciones con peso del primer select de variantes HSN.
+    Devuelve lista de (peso_kg, option_id) en el orden en que aparecen.
     """
     for sel in soup.find_all("select"):
+        opciones = []
         for opt in sel.find_all("option"):
             texto = opt.get_text(strip=True)
             if not texto:
@@ -82,8 +81,16 @@ def _extraer_peso_y_opcion_desde_select(soup: BeautifulSoup) -> tuple[float | No
                     val /= 1000
                 peso_kg = round(val, 3)
                 option_id = opt.get("value", "")
-                return peso_kg, option_id
-    return None, None
+                opciones.append((peso_kg, option_id))
+        if opciones:
+            return opciones
+    return []
+
+
+def _extraer_peso_y_opcion_desde_select(soup: BeautifulSoup) -> tuple[float | None, str | None]:
+    """Primera opción con peso del select (alias de compatibilidad)."""
+    opciones = _extraer_todas_opciones_select(soup)
+    return opciones[0] if opciones else (None, None)
 
 
 def _extraer_precio_opcion_detalle(html: str, option_id: str) -> float | None:
@@ -223,32 +230,38 @@ def _scrape_detalle(url: str, nombre: str) -> dict:
 
 def _obtener_precio_peso_fresco(url: str) -> tuple[float | None, float | None]:
     """
-    Hace SIEMPRE una petición fresca (sin caché) a la ficha de detalle de HSN
-    para obtener el precio actual del primer formato y su peso.
+    Hace SIEMPRE una petición fresca a la ficha de detalle de HSN.
+    Devuelve (peso_kg, precio_eur) del formato con mejor €/kg disponible.
 
-    Actualiza la caché de detalle con el HTML descargado, de modo que la llamada
-    posterior a _scrape_detalle() (enriquecimiento) use el HTML recién descargado
-    sin hacer una petición adicional.
+    Actualiza la caché con el HTML descargado para que _scrape_detalle() lo
+    reutilice sin petición adicional.
 
-    Devuelve (peso_kg, precio_eur):
-      - peso_kg  : float si se encuentra en el select, None si no
-      - precio_eur: float si está en optionPrices JSON, None si no
-    Si precio_eur es None el precio de lista se usará como fallback y el €/kg
-    quedará como None (precio no confirmado para ese formato).
+    Si ningún formato tiene precio confirmado en optionPrices, devuelve
+    (peso del primer formato, None) y el €/kg quedará como None.
     """
     r = hacer_peticion(url)
     if not r or r.status_code != 200:
         return None, None
     html = r.text
-    save_cache("hsn", url, html)  # actualiza caché para que _scrape_detalle() use este HTML
+    save_cache("hsn", url, html)
 
     soup = BeautifulSoup(html, "html.parser")
-    peso_kg, option_id = _extraer_peso_y_opcion_desde_select(soup)
-    if not peso_kg:
+    opciones = _extraer_todas_opciones_select(soup)
+    if not opciones:
         return None, None
 
-    precio = _extraer_precio_opcion_detalle(html, option_id)
-    return peso_kg, precio  # precio puede ser None si no está en optionPrices
+    # Buscar precio para cada opción y quedarse con la de mejor €/kg
+    formatos_con_precio = []
+    for peso_kg, option_id in opciones:
+        precio = _extraer_precio_opcion_detalle(html, option_id)
+        if precio:
+            formatos_con_precio.append((peso_kg, precio))
+
+    if not formatos_con_precio:
+        # Sin precio confirmado para ningún formato: fallback al primer formato
+        return opciones[0][0], None
+
+    return seleccionar_mejor_formato(formatos_con_precio)
 
 
 def _talla_str(peso_kg: float) -> str:

@@ -46,7 +46,7 @@ DOCS_DIR         = "docs"
 UMBRAL_TIENDA_DROP = 0.30   # bajada de productos por tienda que dispara error
 UMBRAL_IDS_WARN    = 0.05   # % de IDs desaparecidos → aviso en resumen
 UMBRAL_IDS_ERROR   = 0.10   # % de IDs desaparecidos → error (posible cambio de IDs)
-UMBRAL_KG_ALTO     = 10.0   # ratio €/kg vs mediana de categoría → anómalo si supera esto
+UMBRAL_KG_ALTO     = 3.0    # ratio €/kg vs mediana de categoría → anómalo si supera esto
 
 
 # ── Persistencia ─────────────────────────────────────────────────────────────

@@ -43,6 +43,17 @@ def hacer_peticion(url: str, max_reintentos: int = 3, delay: int = 2) -> request
     return None
 
 
+def seleccionar_mejor_formato(formatos: list[tuple[float, float]]) -> tuple[float, float] | None:
+    """
+    De una lista de (peso_kg, precio_eur), devuelve el formato con menor €/kg.
+    Ignora formatos con peso o precio <= 0.
+    """
+    validos = [(p, pr) for p, pr in formatos if p > 0 and pr > 0]
+    if not validos:
+        return None
+    return min(validos, key=lambda v: v[1] / v[0])
+
+
 def producto_base(nombre, precio_str, marca, categoria, tienda, url, imagen_url=None) -> dict:
     """Schema plano compartido por todos los scrapers."""
     return {

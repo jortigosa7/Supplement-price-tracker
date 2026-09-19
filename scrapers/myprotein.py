@@ -17,7 +17,7 @@ import json
 import re
 import time
 from bs4 import BeautifulSoup
-from .base import hacer_peticion, producto_base
+from .base import hacer_peticion, producto_base, seleccionar_mejor_formato
 from .detail_cache import get_cached, save_cache
 
 TIENDA   = "MyProtein"
@@ -331,11 +331,11 @@ def scrape(debug: bool = False) -> list[dict]:
             if html_prod:
                 variantes, imagen_url = _extraer_variantes(html_prod)
                 if variantes:
-                    # Formato con mejor €/kg (precio ÷ peso mínimo)
-                    best = min(variantes, key=lambda v: v[1] / v[0])
-                    peso_best, precio_best = best
-                    nombre_final = f"{d['nombre']} {_talla_str(peso_best)}"
-                    precio_final = str(precio_best)
+                    best = seleccionar_mejor_formato(variantes)
+                    if best:
+                        peso_best, precio_best = best
+                        nombre_final = f"{d['nombre']} {_talla_str(peso_best)}"
+                        precio_final = str(precio_best)
                 enrichment = _extraer_enriquecimiento(html_prod)
                 if enrichment.get("store_rating_count"):
                     enrichment["store_rating_url"] = d["url"]
