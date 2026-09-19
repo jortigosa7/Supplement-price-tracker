@@ -118,6 +118,12 @@ Si trabajas aquí: **nunca añadas envío automático real sin pedir.** El dise�
 - Le interesa Data Science / ML como salida profesional. Si un cambio se cruza con eso (análisis de datos del propio catálogo, modelos, etc.), márcalo.
 - Está en exámenes de Cálculo II ahora mismo (mayo 2026). No es contexto del repo pero puede afectar disponibilidad / ritmo de revisión.
 
+## Scrapers: nunca uses scripts de merge parciales
+
+Para scrapear una sola tienda (cuando un scraper está roto o hay que forzar un refresh) usa siempre `python scraper.py`, no scripts de merge sueltos. Los scripts de merge copian los productos de las otras tiendas desde el dataset anterior con su `fecha_scraping` original. El resultado es un fichero con nombre de hoy pero precios de hace días en las tiendas no scrapeadas, y ninguna guardia lo detecta porque al menos una tienda sí tiene datos frescos. En el incidente de sep 2026 esto propagó fechas del 7 de sep durante once días sin que la web lo mostrara.
+
+`scraper.py` ya gestiona el caso de un scraper roto: si una tienda devuelve 0 productos activa el tienda-level fallback internamente, preserva la `fecha_scraping` real, y el check de `checks.py` alertará si la tienda lleva más de 7 días sin datos frescos.
+
 ## Antes de hacer cambios grandes
 
 1. Lee la sección **Decisiones tomadas que no se revisan**.

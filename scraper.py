@@ -91,6 +91,16 @@ if __name__ == "__main__":
     print("=" * 50)
     inicio = time.time()
 
+    # ── Cargar dataset anterior para fallbacks ────────────────────────────────
+    prev_files = sorted(glob.glob(os.path.join(OUTPUT_DIR, "suplementos_*.json")), reverse=True)
+    prev_data: list[dict] = []
+    if prev_files:
+        try:
+            with open(prev_files[0], encoding="utf-8") as _f:
+                prev_data = json.load(_f)
+        except Exception as _e:
+            print(f"  Aviso: no se pudo leer dataset anterior para fallback: {_e}")
+
     todos = []
 
     # ── Nutritienda (requests + BS4, siempre activo) ──
@@ -216,16 +226,7 @@ if __name__ == "__main__":
         print("\n  Sin productos. Revisa la conexion o los selectores.")
         sys.exit(1)
 
-        # ── Fallback por tienda: si un scraper devolvió 0, reutilizar datos anteriores ──
-    prev_files = sorted(glob.glob(os.path.join(OUTPUT_DIR, "suplementos_*.json")), reverse=True)
-    prev_data: list[dict] = []
-    if prev_files:
-        try:
-            with open(prev_files[0], encoding="utf-8") as _f:
-                prev_data = json.load(_f)
-        except Exception as _e:
-            print(f"  Aviso: no se pudo leer dataset anterior para fallback: {_e}")
-
+    # ── Fallback por tienda: si un scraper devolvió 0, reutilizar datos anteriores ──
     if prev_data:
         tiendas_nuevas = {p.get("tienda", "") for p in todos if p.get("tienda")}
         tiendas_prev   = {p.get("tienda", "") for p in prev_data if p.get("tienda")}
