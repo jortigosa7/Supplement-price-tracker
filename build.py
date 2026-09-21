@@ -584,7 +584,11 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "categoria_display":   cat_display,
             "marca":               g["marca"],
             "peso_kg":             g["peso_kg"],
-            "precio_por_kg_min":   g.get("precio_por_kg_min"),
+            "precio_por_kg_min":   (
+                None
+                if any(kw in g.get("nombre_normalizado", "").lower() for kw in KEYWORDS_PACK)
+                else g.get("precio_por_kg_min")
+            ),
             "precio_min":          g.get("precio_min"),
             "tienda_mas_barata":   g.get("tienda_mas_barata"),
             "imagen_url":          g.get("imagen_url"),
@@ -894,6 +898,11 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
 KEYWORDS_EXCLUIR = [
     "bicarbonato", "maltodextrina", "dextrosa",
     "muestra", "sample", "sachet", "monodosis",
+]
+
+# Productos que son packs/bundles: tienen precio pero no €/kg comparable
+KEYWORDS_PACK = [
+    "pack", "bundle", "combo", "regalo", "batidora", "shaker", "kit",
 ]
 
 # Keywords que deben ir a "Otros productos" según la categoría

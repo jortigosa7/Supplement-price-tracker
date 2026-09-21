@@ -359,6 +359,12 @@ def _es_bajo_estructural(nombre: str) -> bool:
     return bool(_RE_BAJO_ESTRUCTURAL.search(nombre))
 
 
+# Productos con €/kg alto verificado como correcto (precio premium legítimo, no bug)
+_EXCLUIR_CHECK7_ALTO = frozenset({
+    "Creatina Creapure® Professional 150 g",  # Prozis: producto individual premium confirmado
+})
+
+
 def _check_precio_rango(productos_web: list[dict]) -> list[str]:
     """
     Detecta €/kg fuera del rango razonable de la categoría.
@@ -400,10 +406,10 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
         kg_f = float(kg)
 
         if kg_f > mediana * UMBRAL_KG_ALTO:
-            if float(peso) < 0.1:
-                # Monodosis (<100g): aviso, no error — el €/kg alto puede ser legítimo
+            if float(peso) < 0.1 or nombre in _EXCLUIR_CHECK7_ALTO:
+                # Monodosis (<100g) o precio premium verificado: aviso, no error
                 print(
-                    f"  ⚠️  AVISO [CHECK 7] €/kg alto en monodosis (<100g): [{cat}] {nombre} "
+                    f"  ⚠️  AVISO [CHECK 7] €/kg alto (monodosis o excluido): [{cat}] {nombre} "
                     f"({kg_f:.0f} €/kg, {float(peso)*1000:.0f}g)"
                 )
             else:
@@ -686,6 +692,26 @@ def _check_productos_ausentes(ids_act: set[str], stats_ant: dict) -> list[str]:
     return errores
 
 
+# ── Check nombre/peso desajuste ───────────────────────────────────────────────
+
+def _check_nombre_peso_desajuste(productos_web: list[dict]) -> None:
+    """Avisa si el peso en nombre_normalizado no coincide con peso_kg del producto."""
+    from limpieza import extraer_peso_kg
+    for p in productos_web:
+        nombre = p.get("nombre_normalizado", "")
+        peso_kg = p.get("peso_kg")
+        if peso_kg is None:
+            continue
+        peso_nombre = extraer_peso_kg(nombre)
+        if peso_nombre is None:
+            continue
+        if abs(float(peso_nombre) - float(peso_kg)) > 0.001:
+            print(
+                f"  ⚠️  AVISO nombre/peso desajuste: {nombre!r} "
+                f"— nombre dice {peso_nombre}kg, peso_kg={peso_kg}kg"
+            )
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def run_all_checks(
@@ -736,6 +762,7 @@ def run_all_checks(
     errores += _check_por_tienda(por_tienda, stats_ant.get("por_tienda", {}), productos_web=productos_web)
     errores += _check_metricas(stats_act, stats_ant)
     errores += _check_desconocido(docs_dir, productos_web)
+    _check_nombre_peso_desajuste(productos_web)
     errores += _check_precio_rango(productos_web)
     errores += _check_ids(ids_act, set(stats_ant.get("ids", [])))
     errores += _check_slugs(slugs_act, set(stats_ant.get("slugs", [])))
