@@ -1262,5 +1262,45 @@
   "https://www.nutritienda.com/es/barebells/barebells-milkshake": {
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
+  },
+  "https://www.nutritienda.com/es/beverly-nutrition/hydro-protein-professional-2000g": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/beverly-nutrition/hydrolyzed-zero-professional-2000g": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/beverly-nutrition/hydro-delicatesse-whey-protein-1-kg": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/dymatize/creatina-monohidrato-creapure": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/optimum-nutrition/creatine-monohydrate-tablets-180-tabs": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/226ers/creatina-creapure-300g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/best-protein/creatine-monohydrate": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/prolab/bcaa-2-1-1-500g": {
+    "categoria": "BCAA",
+    "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/226ers/pre-workout-300g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/soul-project/c2m-creatine-500g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-09-21"
   }
 }
