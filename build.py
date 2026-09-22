@@ -655,11 +655,12 @@ def guardar_products_json(productos_web: list[dict], grupos_multitienda: int | N
     return path
 
 
-def verificar_grupos_multitienda(productos_web: list[dict]) -> int:
+def verificar_grupos_multitienda(productos_web: list[dict]) -> tuple[int, bool]:
     """
     Comprueba que el número de grupos con precios en más de una tienda no haya
-    caído más de un 40% respecto al build anterior. Si cae, el build falla.
-    Devuelve el count actual para guardarlo en products.json.
+    caído más de un 40% respecto al build anterior. Si cae, marca el build para
+    fallar al final (pero no interrumpe la generación de HTML).
+    Devuelve (count_actual, ok) donde ok=False indica que el check falló.
     """
     actual = sum(1 for p in productos_web if len(p.get("precios", [])) > 1)
 
@@ -676,17 +677,17 @@ def verificar_grupos_multitienda(productos_web: list[dict]) -> int:
         if actual < umbral:
             caida = round((1 - actual / anterior) * 100) if anterior > 0 else 0
             print(f"\n{'='*60}")
-            print(f"CAIDA DE GRUPOS MULTI-TIENDA — build abortado")
+            print(f"CAIDA DE GRUPOS MULTI-TIENDA — el build saldrá con error al final")
             print(f"{'='*60}")
             print(f"  Anterior: {anterior}  Actual: {actual}  Caída: {caida}%")
             print("  El matching cross-tienda puede estar roto.")
             print(f"{'='*60}")
-            sys.exit(1)
+            return actual, False
         print(f"Grupos multi-tienda: {actual} (anterior: {anterior})")
     else:
         print(f"Grupos multi-tienda: {actual} (primera ejecución — sin referencia anterior)")
 
-    return actual
+    return actual, True
 
 
 def guardar_price_history(productos_web: list[dict]):
@@ -1975,7 +1976,7 @@ def generar_nojekyll():
     print(f"✅ Generado: {path}")
 
 
-def verificar_anomalias_precio(productos_web: list[dict]) -> None:
+def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
     """
     Detecta precios que no tienen sentido antes de publicar el build.
 
@@ -2001,7 +2002,7 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> None:
       spark_min < 25% de la mediana (umbral conservador para productos sin
       precio confirmado — captura el bug HSN-"desde" si llega al historial).
 
-    Si se detecta alguna anomalía el build falla con sys.exit(1).
+    Devuelve True si se detectan anomalías (el build saldrá con error al final).
     """
     import statistics
 
@@ -2126,7 +2127,7 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> None:
 
     if anomalias:
         print("\n" + "=" * 60)
-        print("ANOMALIAS DE PRECIO DETECTADAS — build abortado")
+        print("ANOMALIAS DE PRECIO DETECTADAS — el build saldrá con error al final")
         print("=" * 60)
         for msg in anomalias:
             print(msg)
@@ -2134,9 +2135,10 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> None:
         print("Si los precios son correctos, actualiza el umbral o corrige")
         print("el scraper que genera el precio erroneo.")
         print("=" * 60)
-        sys.exit(1)
+        return True
 
     print("Precios verificados: sin anomalias detectadas.")
+    return False
 
 
 def limpiar_comparar_dir(slugs_a_preservar: set | None = None):
@@ -2293,8 +2295,8 @@ if __name__ == "__main__":
     productos_web = compute_spark_data(productos_web)
     ticker_items  = build_ticker_items(productos_web)
 
-    verificar_anomalias_precio(productos_web)
-    grupos_mt = verificar_grupos_multitienda(productos_web)
+    _tiene_anomalias_precio = verificar_anomalias_precio(productos_web)
+    grupos_mt, _grupos_mt_ok = verificar_grupos_multitienda(productos_web)
 
     # Stats por categoría
     for cfg in CATEGORIA_CONFIG.values():
@@ -2373,7 +2375,7 @@ if __name__ == "__main__":
 
     # 7. Checks post-build (redirecciones, links, tiendas, métricas, etc.)
     print("\n🔍 Ejecutando checks post-build...")
-    run_all_checks(
+    _checks_ok = run_all_checks(
         productos_web,
         n_comparaciones=len(compare_slugs),
         grupos_multitienda=grupos_mt,
@@ -2397,11 +2399,29 @@ if __name__ == "__main__":
     print("  -> Activa GitHub Pages: Settings > Pages > docs/")
     print("=" * 54)
 
-    # Salir con error si hubo pares degradados. El HTML y products.json ya están
-    # generados y listos para commit — el workflow los commitea antes de fallar.
+    # Salir con error si cualquier comprobación crítica falló. El HTML y
+    # products.json ya están generados y listos para commit — el workflow los
+    # commitea antes de fallar, y el job falla para generar la notificación.
+    _hay_error_final = False
+
     if _ids_faltantes_gen:
         ids_unicos = sorted(set(_ids_faltantes_gen))
-        print("\n❌ BUILD CON ERRORES: pares de comparación degradados.")
+        print("\n❌ PARES DE COMPARACIÓN DEGRADADOS:")
         print(f"   IDs faltantes: {', '.join(ids_unicos)}")
         print("   Actualiza data/comparaciones.json o el scraper correspondiente.")
+        _hay_error_final = True
+
+    if _tiene_anomalias_precio:
+        print("\n❌ ANOMALÍAS DE PRECIO detectadas (ver detalle arriba).")
+        _hay_error_final = True
+
+    if not _grupos_mt_ok:
+        print("\n❌ CAÍDA DE GRUPOS MULTI-TIENDA detectada (ver detalle arriba).")
+        _hay_error_final = True
+
+    if not _checks_ok:
+        print("\n❌ CHECKS POST-BUILD fallidos (ver detalle arriba).")
+        _hay_error_final = True
+
+    if _hay_error_final:
         sys.exit(1)

@@ -1,7 +1,11 @@
 # CHECKS.md — Guía de verificaciones post-build de StackFit
 
 `build.py` corre automáticamente una batería de checks al final de cada build.
-Si falla alguno, el build para con `sys.exit(1)` y GitHub Actions manda email con el mensaje completo.
+Si falla alguno, el build **sale con código 1 al final**, después de haber generado el HTML completo y guardado `products.json`. GitHub Actions recibe el error y manda el email de notificación, pero la web **ya está actualizada**.
+
+**Regla de diseño — nunca matar el build a mitad:**
+Ninguna función de verificación (ni en `checks.py` ni en `build.py`) puede llamar a `sys.exit()` directamente. Todas deben devolver un `bool` (o acumular errores en una lista) y dejar que `main()` decida si salir. El único `sys.exit(1)` del flujo está al final de `main()`, después de HTML y `data/`. Si añades un check nuevo, sigue este patrón: la función devuelve `True/False` o lista de errores; `main()` recoge el resultado y lo incluye en `_hay_error_final`.
+
 Las métricas de cada build exitoso se guardan en `data/build_stats.json`.
 
 ---

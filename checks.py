@@ -720,11 +720,11 @@ def run_all_checks(
     grupos_multitienda: int,
     docs_dir: str = DOCS_DIR,
     fechas_por_tienda: dict | None = None,
-) -> None:
+) -> bool:
     """
     Corre todos los checks post-build.
     Guarda métricas en data/build_stats.json si todos pasan.
-    Sale con sys.exit(1) en cuanto detecta errores.
+    Devuelve True si todos los checks pasan, False si hay errores.
     """
     stats_ant = _cargar_stats_anteriores()
 
@@ -788,7 +788,7 @@ def run_all_checks(
         print("Ver CHECKS.md para instrucciones de resolución.")
         print("Las métricas de este build NO se han guardado (baseline = último build OK).")
         print("=" * 66)
-        sys.exit(1)
+        return False
 
     # Solo se guarda si todos los checks pasan
     _guardar_stats(stats_act)
@@ -803,3 +803,4 @@ def run_all_checks(
     )
     if fechas_por_tienda:
         print(f"  Fechas de scrape: {dict(sorted(fechas_por_tienda.items()))}")
+    return True
