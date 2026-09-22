@@ -61,17 +61,17 @@
       "fuente": "GSC-4c"
     },
     {
-      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
       "id_b": "evocreatine-500g-desconocida",
       "fuente": "GSC-4c"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
+      "id_a": "100-whey-protein-concentrate-500g-desconocida",
       "id_b": "evowhey-protein-2kg-desconocida",
       "fuente": "GSC-4c"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
+      "id_a": "100-whey-protein-concentrate-500g-desconocida",
       "id_b": "evobasic-whey-2kg-desconocida",
       "fuente": "GSC-3c"
     },
@@ -116,7 +116,7 @@
       "fuente": "GSC-1c-508i"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
+      "id_a": "100-whey-protein-concentrate-500g-desconocida",
       "id_b": "evolate-2-0-whey-isolate-cfm-2kg-desconocida",
       "fuente": "GSC-1c-360i"
     },
@@ -131,7 +131,7 @@
       "fuente": "GSC-1c-258i"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
+      "id_a": "100-whey-protein-concentrate-500g-desconocida",
       "id_b": "evowhey-protein-sin-edulcorantes-2kg-desconocida",
       "fuente": "GSC-1c-226i"
     },
@@ -151,7 +151,7 @@
       "fuente": "GSC-1c-90i"
     },
     {
-      "id_a": "100-whey-protein-concentrate-2kg-desconocida",
+      "id_a": "100-whey-protein-concentrate-500g-desconocida",
       "id_b": "evowhey-oats-2kg-desconocida",
       "fuente": "GSC-1c-64i"
     },
@@ -171,8 +171,8 @@
       "fuente": "GSC-1c-28i"
     },
     {
-      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
-      "id_b": "the-creatine-creapure-250g-desconocida",
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
+      "id_b": "the-creatine-creapure-1kg-desconocida",
       "fuente": "GSC-1c-25i"
     },
     {
@@ -217,7 +217,7 @@
     },
     {
       "id_a": "creatina-monohidrato-elite-1kg-desconocida",
-      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
       "fuente": "GrupoB"
     },
     {
@@ -226,13 +226,13 @@
       "fuente": "GrupoB"
     },
     {
-      "id_a": "bcaa-s-instantaneo-2-1-1-2-0-150g-desconocida",
-      "id_b": "bcaa-s-instantaneo-4-1-1-2-0-150g-desconocida",
+      "id_a": "bcaa-s-instantaneo-2-1-1-2-0-1kg-desconocida",
+      "id_b": "bcaa-s-instantaneo-4-1-1-2-0-1kg-desconocida",
       "fuente": "GrupoB"
     },
     {
-      "id_a": "bcaa-4-1-1-en-polvo-250g-desconocida",
-      "id_b": "bcaa-s-instantaneo-2-1-1-2-0-150g-desconocida",
+      "id_a": "bcaa-4-1-1-en-polvo-500g-desconocida",
+      "id_b": "bcaa-s-instantaneo-2-1-1-2-0-1kg-desconocida",
       "fuente": "GrupoB"
     },
     {
@@ -252,7 +252,7 @@
     },
     {
       "id_a": "creatina-celular-800g-keepgoing",
-      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
       "fuente": "GSC-restaurado"
     },
     {
@@ -262,7 +262,7 @@
     },
     {
       "id_a": "creatina-creapure-400g-amazin-foods",
-      "id_b": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "id_b": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
       "fuente": "GSC-restaurado"
     },
     {
@@ -271,7 +271,7 @@
       "fuente": "GSC-restaurado"
     },
     {
-      "id_a": "creatina-monohidrato-en-polvo-200-mesh-150g-desconocida",
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
       "id_b": "creatine-monohydrate-creapure-200g-vitobest",
       "fuente": "GSC-restaurado"
     },
@@ -286,5 +286,5 @@
       "fuente": "GSC-restaurado"
     }
   ],
-  "total": 48
+  "total": 57
 }

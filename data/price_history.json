@@ -79412,7 +79412,7 @@
   {
     "producto_id": "myprotein-clear-whey-isolate-retail-260g-myprotein",
     "fecha": "2026-08-05",
-    "precio": 24.99,
+    "precio": 14.99,
     "tienda": "MyProtein"
   },
   {
@@ -81398,7 +81398,7 @@
   {
     "producto_id": "myprotein-clear-whey-isolate-retail-260g-myprotein",
     "fecha": "2026-08-07",
-    "precio": 24.99,
+    "precio": 14.99,
     "tienda": "MyProtein"
   },
   {
@@ -83390,7 +83390,7 @@
   {
     "producto_id": "myprotein-clear-whey-isolate-retail-260g-myprotein",
     "fecha": "2026-08-10",
-    "precio": 24.99,
+    "precio": 14.99,
     "tienda": "MyProtein"
   },
   {
@@ -85382,7 +85382,7 @@
   {
     "producto_id": "myprotein-clear-whey-isolate-retail-260g-myprotein",
     "fecha": "2026-08-12",
-    "precio": 24.99,
+    "precio": 14.99,
     "tienda": "MyProtein"
   },
   {
@@ -87380,7 +87380,7 @@
   {
     "producto_id": "myprotein-clear-whey-isolate-retail-260g-myprotein",
     "fecha": "2026-08-14",
-    "precio": 24.99,
+    "precio": 14.99,
     "tienda": "MyProtein"
   },
   {
@@ -107966,7 +107966,7 @@
   {
     "producto_id": "creatina-micronpure-300-g-desconocida",
     "fecha": "2026-09-07",
-    "precio": 38.99,
+    "precio": 23.39,
     "tienda": "Prozis"
   },
   {
@@ -111662,7 +111662,7 @@
   {
     "producto_id": "creatina-micronpure-300-g-desconocida",
     "fecha": "2026-09-16",
-    "precio": 38.99,
+    "precio": 23.39,
     "tienda": "Prozis"
   },
   {
@@ -114728,7 +114728,7 @@
   {
     "producto_id": "creatina-micronpure-300-g-desconocida",
     "fecha": "2026-09-19",
-    "precio": 38.99,
+    "precio": 23.39,
     "tienda": "Prozis"
   },
   {
@@ -117600,12 +117600,6 @@
     "tienda": "Nutritienda"
   },
   {
-    "producto_id": "pack-regalo-glutamina-bcaa-530g-tribulyn-30-caps-amix",
-    "fecha": "2026-09-21",
-    "precio": 35.55,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "r1-bcaa-222g-rule1",
     "fecha": "2026-09-21",
     "precio": 15.01,
@@ -117666,18 +117660,6 @@
     "tienda": "Nutritienda"
   },
   {
-    "producto_id": "pack-regalo-glutamina-bcaa-530g-multimega-30-caps-amix",
-    "fecha": "2026-09-21",
-    "precio": 39.5,
-    "tienda": "Nutritienda"
-  },
-  {
-    "producto_id": "pack-regalo-glutamina-bcaa-530g-magnechel-30-caps-amix",
-    "fecha": "2026-09-21",
-    "precio": 39.5,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "bcaa-8-1-1-500g-self-omninutrition",
     "fecha": "2026-09-21",
     "precio": 39.99,
@@ -117726,12 +117708,6 @@
     "tienda": "Nutritienda"
   },
   {
-    "producto_id": "bcaas-zero-variedad-pack-20-ud-de-9g-biotechusa",
-    "fecha": "2026-09-21",
-    "precio": 17.9,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "bcaa-instant-drink-300g-amix",
     "fecha": "2026-09-21",
     "precio": 31.0,
@@ -117741,6 +117717,30 @@
     "producto_id": "bcaa-s-2-1-1-instant-210g-crown-sport-nutrition",
     "fecha": "2026-09-21",
     "precio": 24.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-glutamina-bcaa-530g-tribulyn-30-caps-amix",
+    "fecha": "2026-09-21",
+    "precio": 35.55,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-glutamina-bcaa-530g-multimega-30-caps-amix",
+    "fecha": "2026-09-21",
+    "precio": 39.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-glutamina-bcaa-530g-magnechel-30-caps-amix",
+    "fecha": "2026-09-21",
+    "precio": 39.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaas-zero-variedad-pack-20-ud-de-9g-biotechusa",
+    "fecha": "2026-09-21",
+    "precio": 17.9,
     "tienda": "Nutritienda"
   },
   {
@@ -118092,12 +118092,6 @@
     "tienda": "Nutritienda"
   },
   {
-    "producto_id": "creatina-monohidrato-creapure-creatina-sin-gluten-500g-dymatize",
-    "fecha": "2026-09-21",
-    "precio": 24.96,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "bavarian-elite-creatina-monohidrato-200-mesh-500g-bavarian-elite",
     "fecha": "2026-09-21",
     "precio": 25.45,
@@ -118440,6 +118434,12 @@
     "tienda": "Prozis"
   },
   {
+    "producto_id": "the-creatine-creapure-sobres-monodosis-10g-desconocida",
+    "fecha": "2026-09-21",
+    "precio": 19.99,
+    "tienda": "MyProtein"
+  },
+  {
     "producto_id": "pack-clear-performance-100g-desconocida",
     "fecha": "2026-09-21",
     "precio": 44.99,
@@ -118452,21 +118452,9 @@
     "tienda": "MyProtein"
   },
   {
-    "producto_id": "the-creatine-creapure-sobres-monodosis-10g-desconocida",
-    "fecha": "2026-09-21",
-    "precio": 19.99,
-    "tienda": "MyProtein"
-  },
-  {
     "producto_id": "creatine-chewables-2500-mg-60-ch-tabs-60ch-tabs-amix",
     "fecha": "2026-09-21",
     "precio": 27.9,
-    "tienda": "Nutritienda"
-  },
-  {
-    "producto_id": "vitobest-creatine-gummies-50-unidades-creatina-en-gominolas-50ud-vitobest",
-    "fecha": "2026-09-21",
-    "precio": 16.2,
     "tienda": "Nutritienda"
   },
   {
@@ -118479,6 +118467,12 @@
     "producto_id": "creatine-zero-effervescent-16-tabs-16tabs-biotechusa",
     "fecha": "2026-09-21",
     "precio": 7.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "vitobest-creatine-gummies-50-unidades-creatina-en-gominolas-50ud-vitobest",
+    "fecha": "2026-09-21",
+    "precio": 16.2,
     "tienda": "Nutritienda"
   },
   {
@@ -118596,12 +118590,6 @@
     "tienda": "Nutritienda"
   },
   {
-    "producto_id": "creatine-monohydrate-tablets-180-tabs-180tabs-optimum-nutrition",
-    "fecha": "2026-09-21",
-    "precio": 20.99,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "kre-alkalyn-2500-olymp-sport-nutrition-120caps-olimp",
     "fecha": "2026-09-21",
     "precio": 38.9,
@@ -118611,6 +118599,12 @@
     "producto_id": "muscletech-platinum-creatina-monohidrato-capsulas-100vcaps-muscletech",
     "fecha": "2026-09-21",
     "precio": 25.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "applied-nutrition-gominolas-creatina-pura-suplemento-deportivo-80ud-applied-nutr",
+    "fecha": "2026-09-21",
+    "precio": 22.9,
     "tienda": "Nutritienda"
   },
   {
@@ -118707,12 +118701,6 @@
     "producto_id": "kre-alkalyn-120-caps-120caps-best-protein",
     "fecha": "2026-09-21",
     "precio": 23.15,
-    "tienda": "Nutritienda"
-  },
-  {
-    "producto_id": "applied-nutrition-gominolas-creatina-pura-suplemento-deportivo-80ud-applied-nutr",
-    "fecha": "2026-09-21",
-    "precio": 22.9,
     "tienda": "Nutritienda"
   },
   {
@@ -119388,7 +119376,7 @@
     "tienda": "Nutritienda"
   },
   {
-    "producto_id": "purecaf-150-mg-infisport",
+    "producto_id": "infisport-pure-caf-cafeina-150mg-120-capsulas-120caps-infisport",
     "fecha": "2026-09-21",
     "precio": 10.85,
     "tienda": "Nutritienda"
@@ -119457,6 +119445,12 @@
     "producto_id": "monster-juice-mango-loco-500ml-1ud-monster-energy",
     "fecha": "2026-09-21",
     "precio": 1.75,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "no-cramp-12-viales-60-ml-12viales-scientiffic-nutrition",
+    "fecha": "2026-09-21",
+    "precio": 33.6,
     "tienda": "Nutritienda"
   },
   {
@@ -119670,15 +119664,15 @@
     "tienda": "MyProtein"
   },
   {
-    "producto_id": "the-electro-hyrox-desconocida",
-    "fecha": "2026-09-21",
-    "precio": 22.99,
-    "tienda": "MyProtein"
-  },
-  {
     "producto_id": "the-electrofuel-hyrox-desconocida",
     "fecha": "2026-09-21",
     "precio": 18.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "the-electro-hyrox-desconocida",
+    "fecha": "2026-09-21",
+    "precio": 22.99,
     "tienda": "MyProtein"
   },
   {
@@ -120306,12 +120300,6 @@
     "tienda": "HSN"
   },
   {
-    "producto_id": "pack-regalo-predator-protein-2-kg-osteo-anagenesis-30-caps-amix",
-    "fecha": "2026-09-21",
-    "precio": 87.0,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "ultimate-whey-protein-2000g-bigman",
     "fecha": "2026-09-21",
     "precio": 87.5,
@@ -120348,12 +120336,6 @@
     "tienda": "HSN"
   },
   {
-    "producto_id": "isolate-cfm-zero-1-kg-vitobest",
-    "fecha": "2026-09-21",
-    "precio": 44.81,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "mezcla-sustitutiva-de-comidas-proteica-770g-desconocida",
     "fecha": "2026-09-21",
     "precio": 34.55,
@@ -120376,6 +120358,12 @@
     "fecha": "2026-09-21",
     "precio": 22.77,
     "tienda": "HSN"
+  },
+  {
+    "producto_id": "beverly-whey-pro-concentrate-choco-cookies-1kg-proteina-beverly-nutrition",
+    "fecha": "2026-09-21",
+    "precio": 45.9,
+    "tienda": "Nutritienda"
   },
   {
     "producto_id": "real-whey-hydro-collagen-400g-desconocida",
@@ -120450,12 +120438,6 @@
     "tienda": "Nutritienda"
   },
   {
-    "producto_id": "pack-amix-whey-pure-fusion-2-3kg-multimega-proteina-amix",
-    "fecha": "2026-09-21",
-    "precio": 112.9,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "santiveri-protein-90-cacao-300g-proteina-deportiva-santiveri",
     "fecha": "2026-09-21",
     "precio": 14.95,
@@ -120492,6 +120474,12 @@
     "tienda": "Nutritienda"
   },
   {
+    "producto_id": "isolate-cfm-zero-1-kg-vitobest",
+    "fecha": "2026-09-21",
+    "precio": 50.58,
+    "tienda": "Nutritienda"
+  },
+  {
     "producto_id": "panacea-750g-paleobull",
     "fecha": "2026-09-21",
     "precio": 37.95,
@@ -120507,6 +120495,12 @@
     "producto_id": "100-whey-protein-professional-500g-scitec-nutrition",
     "fecha": "2026-09-21",
     "precio": 25.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-isolate-1000g-best-protein",
+    "fecha": "2026-09-21",
+    "precio": 51.1,
     "tienda": "Nutritienda"
   },
   {
@@ -120636,12 +120630,6 @@
     "tienda": "Nutritienda"
   },
   {
-    "producto_id": "gold-nutrition-creatina-total-iso-whey-pack-oferta-450g-gold-nutrition",
-    "fecha": "2026-09-21",
-    "precio": 26.99,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "clear-whey-protein-y-colageno-1kg-desconocida",
     "fecha": "2026-09-21",
     "precio": 59.99,
@@ -120678,12 +120666,6 @@
     "tienda": "Prozis"
   },
   {
-    "producto_id": "whey-isolate-1000g-best-protein",
-    "fecha": "2026-09-21",
-    "precio": 63.3,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "isopro-cfm-provon-500g-quamtrax",
     "fecha": "2026-09-21",
     "precio": 31.9,
@@ -120708,18 +120690,6 @@
     "tienda": "Nutritienda"
   },
   {
-    "producto_id": "pack-regalo-isoprime-cfm-2-kg-creatina-monohidrato-30-caps-proteina-premium-amix",
-    "fecha": "2026-09-21",
-    "precio": 132.9,
-    "tienda": "Nutritienda"
-  },
-  {
-    "producto_id": "pack-regalo-isoprime-cfm-2-kg-daily-one-30-caps-oferta-especial-amix",
-    "fecha": "2026-09-21",
-    "precio": 132.9,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "clear-iso-zero-750g-big",
     "fecha": "2026-09-21",
     "precio": 49.99,
@@ -120735,24 +120705,6 @@
     "producto_id": "amix-ultra-pure-whey-protein-75-proteina-sin-gluten-500g-amix",
     "fecha": "2026-09-21",
     "precio": 33.5,
-    "tienda": "Nutritienda"
-  },
-  {
-    "producto_id": "pack-regalo-cfm-nitro-isolate-2-kg-detonatrol-30-caps-amix",
-    "fecha": "2026-09-21",
-    "precio": 134.91,
-    "tienda": "Nutritienda"
-  },
-  {
-    "producto_id": "pack-regalo-black-cfm-isolate-2-kg-multimega-30-caps-proteina-amix",
-    "fecha": "2026-09-21",
-    "precio": 134.9,
-    "tienda": "Nutritienda"
-  },
-  {
-    "producto_id": "amix-pack-black-cfm-isolate-2kg-creatina-proteina-amix",
-    "fecha": "2026-09-21",
-    "precio": 134.9,
     "tienda": "Nutritienda"
   },
   {
@@ -120841,12 +120793,6 @@
   },
   {
     "producto_id": "musclecore-proteina-cfm-nitro-whey-90-proteina-pura-2000g-amix",
-    "fecha": "2026-09-21",
-    "precio": 149.9,
-    "tienda": "Nutritienda"
-  },
-  {
-    "producto_id": "pack-regalo-cfm-nitro-isolate-2-kg-triptofano-30-caps-amix",
     "fecha": "2026-09-21",
     "precio": 149.9,
     "tienda": "Nutritienda"
@@ -120966,7 +120912,61 @@
     "tienda": "Prozis"
   },
   {
-    "producto_id": "optimum-nutrition-pack-batidora-opti-lock-whey-oferta-300g-optimum-nutrition",
+    "producto_id": "pack-regalo-predator-protein-2-kg-osteo-anagenesis-30-caps-amix",
+    "fecha": "2026-09-21",
+    "precio": 87.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-amix-whey-pure-fusion-2-3kg-multimega-proteina-amix",
+    "fecha": "2026-09-21",
+    "precio": 112.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "gold-nutrition-creatina-total-iso-whey-pack-oferta-450g-gold-nutrition",
+    "fecha": "2026-09-21",
+    "precio": 26.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-isoprime-cfm-2-kg-creatina-monohidrato-30-caps-proteina-premium-amix",
+    "fecha": "2026-09-21",
+    "precio": 132.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-isoprime-cfm-2-kg-daily-one-30-caps-oferta-especial-amix",
+    "fecha": "2026-09-21",
+    "precio": 132.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-cfm-nitro-isolate-2-kg-detonatrol-30-caps-amix",
+    "fecha": "2026-09-21",
+    "precio": 134.91,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-black-cfm-isolate-2-kg-multimega-30-caps-proteina-amix",
+    "fecha": "2026-09-21",
+    "precio": 134.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "amix-pack-black-cfm-isolate-2kg-creatina-proteina-amix",
+    "fecha": "2026-09-21",
+    "precio": 134.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-cfm-nitro-isolate-2-kg-triptofano-30-caps-amix",
+    "fecha": "2026-09-21",
+    "precio": 149.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "optimum-nutrition-pack-batidora-opti-lock-whey-oferta-450g-optimum-nutrition",
     "fecha": "2026-09-21",
     "precio": 79.9,
     "tienda": "Nutritienda"
@@ -121078,5 +121078,29 @@
     "fecha": "2026-09-21",
     "precio": 60.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "creatina-monohidrato-creapure-creatina-sin-gluten-500g-dymatize",
+    "fecha": "2026-09-21",
+    "precio": 24.96,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-tablets-180-tabs-180tabs-optimum-nutrition",
+    "fecha": "2026-09-21",
+    "precio": 20.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "purecaf-150-mg-infisport",
+    "fecha": "2026-09-21",
+    "precio": 10.85,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "optimum-nutrition-pack-batidora-opti-lock-whey-oferta-300g-optimum-nutrition",
+    "fecha": "2026-09-21",
+    "precio": 79.9,
+    "tienda": "Nutritienda"
   }
 ]

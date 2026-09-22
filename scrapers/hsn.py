@@ -377,10 +377,25 @@ def scrape(debug: bool = False) -> list[dict]:
         # Enriquecimiento desde la caché recién actualizada (sin petición extra)
         enrichment = _scrape_detalle(d["url"], d["nombre"])
 
-        # Nombre: añadir peso si el select lo indica y el nombre no lo tiene ya
+        # Nombre: reflejar siempre el formato del que sale el precio
         nombre_final = d["nombre"]
-        if peso_kg and not re.search(r"\d+[\.,]?\d*\s*(kg|g)\b", nombre_final, re.I):
-            nombre_final = f"{nombre_final} {_talla_str(peso_kg)}"
+        if peso_kg:
+            m_peso = re.search(r"(\d+[\.,]?\d*)\s*(kg|g)\b", nombre_final, re.I)
+            if not m_peso:
+                nombre_final = f"{nombre_final} {_talla_str(peso_kg)}"
+            else:
+                val = float(m_peso.group(1).replace(",", "."))
+                unit = m_peso.group(2).lower()
+                peso_en_nombre = val / 1000 if unit == "g" else val
+                if abs(peso_en_nombre - peso_kg) > 0.001:
+                    # El nombre lleva el peso de otro formato: reemplazar con el seleccionado
+                    nombre_final = re.sub(
+                        r"\s*\d+[\.,]?\d*\s*(?:kg|g)\b",
+                        f" {_talla_str(peso_kg)}",
+                        nombre_final,
+                        count=1,
+                        flags=re.IGNORECASE,
+                    ).strip()
 
         # Precio: usar el de la opción concreta (confirmado) o el de lista como fallback
         precio_final = str(precio_confirmado) if precio_confirmado else d["precio"]
