@@ -1302,5 +1302,45 @@
   "https://www.nutritienda.com/es/soul-project/c2m-creatine-500g": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-09-21"
+  },
+  "https://www.nutritienda.com/es/bigman/iso-hydro-1000g": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-23"
+  },
+  "https://www.nutritienda.com/es/quamtrax/pure-creatine-flavor-300g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-23"
+  },
+  "https://www.nutritienda.com/es/nutrex-creatine-drive-black-300-g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-23"
+  },
+  "https://www.nutritienda.com/es/quamtrax/creatine-220-capsulas-vegetales": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-23"
+  },
+  "https://www.nutritienda.com/es/gold-nutrition/creatina-bcaa-200g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-23"
+  },
+  "https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-100-pura-90-tabs": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-23"
+  },
+  "https://www.nutritienda.com/es/olimp/creatine-1250-mega-caps": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-23"
+  },
+  "https://www.nutritienda.com/es/quamtrax/super-shock-600g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-09-23"
+  },
+  "https://www.nutritienda.com/es/scitec-nutrition-pow3rd-2-350g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-09-23"
+  },
+  "https://www.nutritienda.com/es/gold-nutrition-pre-workout-explosive-1000g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-09-23"
   }
 }
