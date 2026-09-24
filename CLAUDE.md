@@ -64,8 +64,8 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 ### Funciona
 
 - Build estático completo y desplegado.
-- Scrapers de HSN y MyProtein: extraen peso correctamente (fix mayo 2026); precio €/kg correcto usando `seleccionar_mejor_formato()` de `scrapers/base.py` (sep 2026). La función es común a HSN y MyProtein: de todos los formatos disponibles elige el de menor €/kg, garantizando que precio y peso vienen del mismo formato. HSN extrae todos los option_id del select y sus precios desde optionPrices JSON de Magento antes de elegir.
-- Scraper de Nutritienda: migrado a JSON-LD (sep 2026). `MAX_POR_CATEGORIA=80`; catálogo persistente en `data/nutritienda_catalog.json` (316 URLs iniciales sep 2026) — un producto del catálogo que cae del top-80 se recupera siempre con precio fresco (no caché); los que dan 404 se eliminan automáticamente. Cap no se sube: Nutritienda ya es >50% del catálogo (316/608) y no hay afiliación.
+- Scrapers de HSN y MyProtein: extraen peso correctamente (fix mayo 2026); precio €/kg correcto usando `seleccionar_mejor_formato()` de `scrapers/base.py` (sep 2026). La función es común a HSN y MyProtein: de todos los formatos disponibles elige el de menor €/kg, garantizando que precio y peso vienen del mismo formato. HSN extrae todos los option_id del select y sus precios desde optionPrices JSON de Magento antes de elegir. MyProtein precio siempre fresco (sep 2026): ya no usa caché para precio/variantes — cada producto fetchea su página de detalle en cada scrape, igual que HSN.
+- Scraper de Nutritienda: migrado a JSON-LD (sep 2026). `MAX_POR_CATEGORIA=80`; catálogo persistente en `data/nutritienda_catalog.json` — un producto del catálogo que cae del top-80 se recupera siempre con precio fresco (no caché); los que dan 404 se eliminan automáticamente; los que tienen todos los variants OutOfStock se excluyen (fix sep 2026, evita mezcla de precio-tamaño en AggregateOffer). Cap no se sube: Nutritienda ya es >50% del catálogo y no hay afiliación.
 - Sistema de filtros y comparador.
 - Quiz recomendador.
 - Afiliación HSN activa (ID `JORTIGOSA`) — los enlaces ya van con afiliado.
@@ -97,6 +97,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - **€/kg en MyProtein**: scraper ahora elige el formato con mejor €/kg (sep 2026). Antes cogía el de menor peso (a menudo una muestra), lo que daba €/kg desorbitados. Con el fix se muestra el formato más económico por kg.
 - **check 7 monodosis**: productos <100g con €/kg alto generan aviso (print), no error. Productos ≥100g siguen siendo error. Razón: monodosis legítimas (10g sachets) tienen €/kg alto por definición.
 - **check 8b slugs**: avisa siempre que un `slug_publico` desaparezca respecto al build anterior — significa URL pública cambiada. Sin umbral de porcentaje. Los slugs se guardan en `data/build_stats.json`.
+- **check precio_fresco**: error si algún producto MyProtein tiene `_precio_fresco != True` en `precios[]` de `productos_web`. El flag lo setea el scraper, persiste en el dataset (columna `_precio_fresco` de `guardar_dataset`), pasa por `matching.py` y lo limpia `build.py` después de los checks. Si el scraper falla al fetchear un detalle, el producto usa el precio del listing como fallback y el check lo detecta.
 
 ## Pending / ideas en la nevera
 
