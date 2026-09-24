@@ -543,6 +543,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "peso_kg":       p.get("peso_kg"),
             "imagen_url":    p.get("imagen_url"),
             "_precio_sin_confirmar": p.get("_precio_sin_confirmar", False),
+            "_precio_fresco": p.get("_precio_fresco", None),
         })
 
     grupos = agrupar_productos(productos_para_matching)
@@ -2287,7 +2288,8 @@ if __name__ == "__main__":
     # del sparkline refleje los precios de hoy y no los del scraping anterior
     guardar_price_history(productos_web)
 
-    # Limpiar flag interno (_precio_sin_confirmar) ahora que el historial ya lo usó
+    # Limpiar _precio_sin_confirmar ahora que el historial ya lo usó.
+    # _precio_fresco se limpia más adelante, después de los checks post-build.
     for _p in productos_web:
         for _pr in _p.get("precios", []):
             _pr.pop("_precio_sin_confirmar", None)
@@ -2382,6 +2384,11 @@ if __name__ == "__main__":
         docs_dir=DOCS_DIR,
         fechas_por_tienda=fechas_por_tienda,
     )
+
+    # Limpiar _precio_fresco después de los checks (el check lo necesita hasta aquí)
+    for _p in productos_web:
+        for _pr in _p.get("precios", []):
+            _pr.pop("_precio_fresco", None)
 
     duracion = (datetime.now() - inicio).total_seconds()
     # +1 /test/ + 1 /tiendas/ + len(tiendas_cfg) páginas de tienda individuales

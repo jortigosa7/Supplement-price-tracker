@@ -281,11 +281,11 @@
   },
   {
     "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1-vs-the-creatine-creapure-250g-desconocida/",
-    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-the-creatine-creapure-1kg-myprotein/"
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn/"
   },
   {
     "desde": "comparar/the-creatine-creapure-250g-desconocida-vs-creatina-monohidrato-en-polvo-200-mesh-1/",
-    "hasta": "/comparar/creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-the-creatine-creapure-1kg-myprotein/"
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn/"
   },
   {
     "desde": "comparar/evobasic-whey-2kg-desconocida-vs-evolate-2-0-sin-edulcorantes-whey-isolat/",
@@ -417,11 +417,11 @@
   },
   {
     "desde": "comparar/creatina-excell-1000mg-100-creapure-desc-vs-evocreatine-500g-desconocida/",
-    "hasta": "/comparar/creatina-excell-1000mg-100-creapure-hsn-vs-evocreatine-500g-hsn/"
+    "hasta": "/comparar/creatina-excell-100-creapure-en-polvo-1kg-hsn-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/evocreatine-500g-desconocida-vs-creatina-excell-1000mg-100-creapure-desc/",
-    "hasta": "/comparar/creatina-excell-1000mg-100-creapure-hsn-vs-evocreatine-500g-hsn/"
+    "hasta": "/comparar/creatina-excell-100-creapure-en-polvo-1kg-hsn-vs-evocreatine-500g-hsn/"
   },
   {
     "desde": "comparar/100-whey-protein-concentrate-2kg-descono-vs-evowhey-protein-2kg-desconocida/",
@@ -518,5 +518,21 @@
   {
     "desde": "comparar/100-whey-protein-concentrate-2kg-optimum-vs-evowhey-oats-2kg-desconocida/",
     "hasta": "/comparar/100-whey-protein-concentrate-500g-hsn-vs-evowhey-oats-2kg-hsn/"
+  },
+  {
+    "desde": "comparar/creatina-excell-1000mg-100-creapure-hsn-vs-evocreatine-500g-hsn/",
+    "hasta": "/comparar/creatina-excell-100-creapure-en-polvo-1kg-hsn-vs-evocreatine-500g-hsn/"
+  },
+  {
+    "desde": "comparar/evocreatine-500g-hsn-vs-creatina-excell-1000mg-100-creapure-hsn/",
+    "hasta": "/comparar/creatina-excell-100-creapure-en-polvo-1kg-hsn-vs-evocreatine-500g-hsn/"
+  },
+  {
+    "desde": "comparar/creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-the-creatine-creapure-1kg-myprotein/",
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn/"
+  },
+  {
+    "desde": "comparar/the-creatine-creapure-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn/",
+    "hasta": "/comparar/creatina-monohidrato-en-polvo-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn/"
   }
 ]

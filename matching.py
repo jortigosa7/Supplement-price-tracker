@@ -299,6 +299,9 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
             # True cuando el precio es de lista (no de la opción concreta de HSN):
             # en ese caso precio y peso pueden ser de formatos distintos → €/kg = None
             "_precio_sin_confirmar": p.get("_precio_sin_confirmar", False),
+            # True cuando el scraper hizo petición fresca para este producto (MyProtein).
+            # False/ausente = petición fallida, precio viene del listing.
+            "_precio_fresco": p.get("_precio_fresco", None),
         }
 
         # 1. Intentar match por clave exacta en grupos existentes

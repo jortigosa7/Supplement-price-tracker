@@ -18,7 +18,7 @@ import re
 import time
 from bs4 import BeautifulSoup
 from .base import hacer_peticion, producto_base, seleccionar_mejor_formato
-from .detail_cache import get_cached, save_cache
+from .detail_cache import save_cache
 
 TIENDA   = "MyProtein"
 BASE_URL = "https://www.myprotein.es"
@@ -305,30 +305,27 @@ def scrape(debug: bool = False) -> list[dict]:
         return []
 
     # ── Fase 2: visitar cada producto (peso, precio, rating, flavors) ────────
+    # Precio siempre fresco: misma estrategia que HSN.
+    # El HTML se guarda en caché para que _extraer_enriquecimiento lo reutilice
+    # sin petición adicional. La caché solo cubre enrichment (rating, sabores).
     print(f"\n  Obteniendo tallas y enriquecimiento ({len(productos_raw)} productos)...")
     productos = []
-    stats = {"cached": 0, "fetched": 0, "errors": 0}
+    stats = {"fetched": 0, "errors": 0}
 
     for i, d in enumerate(productos_raw):
         nombre_final = d["nombre"]
         precio_final = d["precio_listing"]
         imagen_url = None
         enrichment: dict = {}
+        precio_fresco_flag = False
 
         try:
-            html_prod = get_cached("myprotein", d["url"])
-            if html_prod is not None:
-                stats["cached"] += 1
-            else:
-                resp = hacer_peticion(d["url"])
-                if resp:
-                    html_prod = resp.content.decode("utf-8", errors="replace")
-                    save_cache("myprotein", d["url"], html_prod)
-                    stats["fetched"] += 1
-                else:
-                    stats["errors"] += 1
-
-            if html_prod:
+            resp = hacer_peticion(d["url"])
+            if resp:
+                html_prod = resp.content.decode("utf-8", errors="replace")
+                save_cache("myprotein", d["url"], html_prod)
+                stats["fetched"] += 1
+                precio_fresco_flag = True
                 variantes, imagen_url = _extraer_variantes(html_prod)
                 if variantes:
                     best = seleccionar_mejor_formato(variantes)
@@ -339,6 +336,9 @@ def scrape(debug: bool = False) -> list[dict]:
                 enrichment = _extraer_enriquecimiento(html_prod)
                 if enrichment.get("store_rating_count"):
                     enrichment["store_rating_url"] = d["url"]
+            else:
+                stats["errors"] += 1
+                # Fallback: precio del listing (fresco), sin peso ni variantes
         except Exception:
             stats["errors"] += 1
 
@@ -346,18 +346,18 @@ def scrape(debug: bool = False) -> list[dict]:
             nombre_final, precio_final, "", d["categoria"], TIENDA, d["url"], imagen_url
         )
         prod.update(enrichment)
+        prod["_precio_fresco"] = precio_fresco_flag
         productos.append(prod)
 
         if (i + 1) % 10 == 0:
             print(
                 f"  ... {i+1}/{len(productos_raw)} "
-                f"(caché:{stats['cached']} / fetch:{stats['fetched']} / err:{stats['errors']})"
+                f"(fetch:{stats['fetched']} / err:{stats['errors']})"
             )
         time.sleep(1)
 
     print(f"\n  Total {TIENDA}: {len(productos)} productos")
     print(
-        f"  Detalle: {stats['fetched']} fetcheados, "
-        f"{stats['cached']} desde caché, {stats['errors']} errores"
+        f"  Detalle: {stats['fetched']} fetcheados, {stats['errors']} errores"
     )
     return productos

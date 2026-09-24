@@ -268,6 +268,12 @@ def _scrape_producto_fijo(url: str, categoria: str, force_fresh: bool = False) -
                     patron = re.compile(r"\s*-\s*" + re.escape(marca_raw) + r".*$", re.IGNORECASE)
                     nombre_completo = patron.sub("", nombre_raw).strip()
                 offers = node.get("offers", {})
+                # Si es AggregateOffer con variants individuales, verificar que haya stock
+                individual_offers = offers.get("offers", [])
+                if individual_offers and not any(
+                    "InStock" in o.get("availability", "") for o in individual_offers
+                ):
+                    return None  # producto totalmente agotado
                 precio = str(offers.get("price") or offers.get("lowPrice") or "")
                 imagen_raw = node.get("image", "")
                 imagen_url = imagen_raw if isinstance(imagen_raw, str) else (imagen_raw[0] if imagen_raw else None)
@@ -311,7 +317,7 @@ def scrape() -> list[dict]:
                 print(f"  ↩️  Ya en listado: {url_fija.split('/es/')[-1]}")
                 continue
             time.sleep(DELAY)
-            item_fijo = _scrape_producto_fijo(url_fija, cat_fija)
+            item_fijo = _scrape_producto_fijo(url_fija, cat_fija, force_fresh=True)
             if item_fijo:
                 productos_raw.append(item_fijo)
                 urls_ya_presentes.add(item_fijo["url"])  # usar URL final (tras 301)

@@ -712,6 +712,34 @@ def _check_nombre_peso_desajuste(productos_web: list[dict]) -> None:
             )
 
 
+# ── Check precio fresco MyProtein ────────────────────────────────────────────
+
+def _check_precio_fresco_myprotein(productos_web: list[dict]) -> list[str]:
+    """
+    Error si algún producto de MyProtein tiene _precio_fresco != True.
+    Indica que el request al detalle falló y el precio viene del listing,
+    posiblemente cacheado o sin peso/variante.
+    """
+    sin_fresco = []
+    for p in productos_web:
+        for pr in p.get("precios", []):
+            if pr.get("tienda") != "MyProtein":
+                continue
+            if pr.get("_precio_fresco") is not True:
+                sin_fresco.append(p.get("id", "?"))
+
+    if not sin_fresco:
+        return []
+
+    return [
+        f"[CHECK precio_fresco] {len(sin_fresco)} producto(s) de MyProtein con precio NO fresco "
+        f"(request al detalle falló, precio del listing):\n"
+        + "\n".join(f"  - {id_}" for id_ in sin_fresco[:10])
+        + (f"\n  ... (+{len(sin_fresco) - 10} más)" if len(sin_fresco) > 10 else "")
+        + "\n  Acción: revisar conectividad con MyProtein o reintentar el scraper."
+    ]
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def run_all_checks(
@@ -769,6 +797,7 @@ def run_all_checks(
     errores += _check_gsc_cobertura(docs_dir)
     errores += _check_scrape_stats()
     errores += _check_productos_ausentes(ids_act, stats_ant)
+    errores += _check_precio_fresco_myprotein(productos_web)
     if fechas_por_tienda:
         errores += _check_fechas_scrape(fechas_por_tienda)
 
