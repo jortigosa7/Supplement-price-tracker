@@ -171,11 +171,6 @@
       "fuente": "GSC-1c-28i"
     },
     {
-      "id_a": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
-      "id_b": "creatina-monohidrato-en-polvo-1kg-desconocida",
-      "fuente": "GSC-1c-25i"
-    },
-    {
       "id_a": "evobasic-whey-2kg-desconocida",
       "id_b": "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-desconocida",
       "fuente": "GSC-1c-24i"
@@ -286,5 +281,5 @@
       "fuente": "GSC-restaurado"
     }
   ],
-  "total": 57
+  "total": 56
 }
