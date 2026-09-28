@@ -1151,10 +1151,6 @@
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
   },
-  "https://www.nutritienda.com/es/dymatize/iso-100-hydrolyzed": {
-    "categoria": "proteina-whey",
-    "first_seen": "2026-09-19"
-  },
   "https://www.nutritienda.com/es/bigman/zero-isolated-whey": {
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
@@ -1346,5 +1342,37 @@
   "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-cellup-oxystorm-348g-tribu-zma-30-caps": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-09-25"
+  },
+  "https://www.nutritienda.com/es/beverly-nutrition/hydro-protein-professional-2000g": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-28"
+  },
+  "https://www.nutritienda.com/es/hsn/evowhey-protein-20": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-28"
+  },
+  "https://www.nutritienda.com/es/weider/gold-whey-500g": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-28"
+  },
+  "https://www.nutritienda.com/es/hsn/creatine-monohydrate": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-28"
+  },
+  "https://www.nutritienda.com/es/weider/premium-creatine-100-creapure-375g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-28"
+  },
+  "https://www.nutritienda.com/es/weider/micronized-creatine-monohydrate-300g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-28"
+  },
+  "https://www.nutritienda.com/es/weider/creatine-200-mesh-astragin-neutra-310g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-09-28"
+  },
+  "https://www.nutritienda.com/es/hsn/cafena-200-mg-120-tabletas": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-09-28"
   }
 }
