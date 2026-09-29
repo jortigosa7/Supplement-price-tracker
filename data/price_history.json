@@ -132454,5 +132454,527 @@
     "fecha": "2026-09-28",
     "precio": 60.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "r1-gain-4-5kg-rule1",
+    "fecha": "2026-09-28",
+    "precio": 94.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "r1-gain-2-2kg-rule1",
+    "fecha": "2026-09-28",
+    "precio": 59.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "zero-bcaa-300g-anderson-research",
+    "fecha": "2026-09-28",
+    "precio": 12.72,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "zero-bcaa-300g-anderson-research",
+    "fecha": "2026-09-28",
+    "precio": 22.41,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-300g-vplab-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 16.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-300g-vplab-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 19.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-8-1-1-300g-vplab-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 17.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-8-1-1-300g-vplab-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 18.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "zero-bcaa-150g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 9.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-aminobolin-25ml-20-viales-20viales-best-body-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 27.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-amino-shot-25ml-20-viales-20viales-best-body-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 27.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-3000-mg-1kg-hivital-foods",
+    "fecha": "2026-09-28",
+    "precio": 24.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "6th-gear-creatine-complex-1135g-stacker-2",
+    "fecha": "2026-09-28",
+    "precio": 27.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "cellbest-extreme-1-3kg-vitobest",
+    "fecha": "2026-09-28",
+    "precio": 33.12,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-monohydrate-powder-500g-vitobest",
+    "fecha": "2026-09-28",
+    "precio": 26.19,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "monohidrato-de-creatina-600g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 33.83,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "crea-bomb-660g-scitec-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 37.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-glycofusion-300g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 18.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "monohidrato-de-creatina-300g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 20.29,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-micronpure-300g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 23.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "zero-creatine-300g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 24.11,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-creapure-300g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 24.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "zero-creatine-150g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 15.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "black-creatine-creapure-300g-amix",
+    "fecha": "2026-09-28",
+    "precio": 36.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatina-creapure-professional-150g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 43.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-speculoos-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-cafe-y-caramelo-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-chocolate-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400g-descono",
+    "fecha": "2026-09-28",
+    "precio": 8.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-300g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 8.5,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "energy-charge-preentrenamiento-800g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 22.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanina-300g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 10.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "powered-cafe-preentrenamiento-250g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 14.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "malato-de-l-citrulina-300g-biotechusa",
+    "fecha": "2026-09-28",
+    "precio": 17.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "malato-de-l-citrulina-300g-biotechusa",
+    "fecha": "2026-09-28",
+    "precio": 28.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "malato-de-l-citrulina-150g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 12.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "the-shadow-270g-cobra-labs",
+    "fecha": "2026-09-28",
+    "precio": 24.2,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pow3rd-2-0-350g-scitec-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 31.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "the-curse-250g-cobra-labs",
+    "fecha": "2026-09-28",
+    "precio": 28.49,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "hot-blood-infinity-350g-scitec-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 41.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "sachet-ripped-pre-workout-ultra-concentrated-12-3g-x-3-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 4.77,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "x-fat-2-en-1-shot-60ml-20viales-amix",
+    "fecha": "2026-09-28",
+    "precio": 2.09,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "black-blood-shot-60ml-20-uds-20ud-biotechusa",
+    "fecha": "2026-09-28",
+    "precio": 54.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "r-weiler-focus-shot-60ml-9-viales-9viales-olimp",
+    "fecha": "2026-09-28",
+    "precio": 41.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "gold-standard-pre-workout-energy-shot-12-uds-60ml-12ud-optimum-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 30.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "monster-ultra-paradise-500ml-500ml-monster-energy",
+    "fecha": "2026-09-28",
+    "precio": 1.75,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "12-x-big-shot-pre-workout-60ml-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "porridge-de-arroz-proteico-720g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 17.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "batido-sustitutivo-de-comida-army-800g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sustituto-de-comida-800g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 22.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-fibre-700g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 20.69,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-whey-prime-1000g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 30.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-protein-fusion-900g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 29.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "scitec-whey-infusion-2kg-premium-scitec-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 66.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "hydro-protein-professional-2kg-proteina-premium-beverly-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 69.7,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "only-whey-zero-2kg-big",
+    "fecha": "2026-09-28",
+    "precio": 85.5,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isolate-cfm-zero-1kg-vitobest",
+    "fecha": "2026-09-28",
+    "precio": 44.12,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-protein-100-1kg-vitobest",
+    "fecha": "2026-09-28",
+    "precio": 48.6,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-protein-100-sabor-neutro-1kg-vitobest",
+    "fecha": "2026-09-28",
+    "precio": 48.6,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "isolat-competition-1kg-mega-plus",
+    "fecha": "2026-09-28",
+    "precio": 50.32,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "zero-diet-whey-1500g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 76.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-protein-freakin-good-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 20.69,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "isolate-cfm-lacprodan-1kg-beverly-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 55.2,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "whey-protein-bolsa-1kg-life-pro-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 55.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "capuchino-proteico-con-cafeina-extra-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-caramelo-proteico-con-cafeina-extra-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-proteico-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "mocachino-proteico-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-real-whey-protein-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 22.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "isolate-whey-100-cfm-908g-de-weider-weider",
+    "fecha": "2026-09-28",
+    "precio": 51.29,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "latte-de-avellana-proteico-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 23.79,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "zero-diet-whey-750g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 44.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-whey-prime-creatine-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 24.29,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "capuchino-proteico-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 25.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-caramelo-proteico-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 25.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-avellana-proteico-con-cafeina-extra-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 25.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "mocachino-proteico-con-cafeina-extra-400g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 25.19,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "platinum-hydro-whey-1-5kg-optimum-nutrition-nutritienda-optimum-nutrition",
+    "fecha": "2026-09-28",
+    "precio": 98.99,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "natural-real-whey-isolate-1814g-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 127.78,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "iso-whey-zero-450g-biotechusa",
+    "fecha": "2026-09-28",
+    "precio": 31.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "sachet-100-real-whey-protein-silkwhey-30g-x-3-desconocida",
+    "fecha": "2026-09-28",
+    "precio": 6.29,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "pack-regalo-predator-protein-2kg-osteo-anagenesis-30-caps-amix",
+    "fecha": "2026-09-28",
+    "precio": 87.0,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-isoprime-cfm-2kg-creatina-monohidrato-30-caps-proteina-premium-amix",
+    "fecha": "2026-09-28",
+    "precio": 132.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-isoprime-cfm-2kg-daily-one-30-caps-oferta-especial-amix",
+    "fecha": "2026-09-28",
+    "precio": 132.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-cfm-nitro-isolate-2kg-detonatrol-30-caps-amix",
+    "fecha": "2026-09-28",
+    "precio": 134.91,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-black-cfm-isolate-2kg-multimega-30-caps-proteina-amix",
+    "fecha": "2026-09-28",
+    "precio": 134.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "pack-regalo-cfm-nitro-isolate-2kg-triptofano-30-caps-amix",
+    "fecha": "2026-09-28",
+    "precio": 149.9,
+    "tienda": "Nutritienda"
   }
 ]

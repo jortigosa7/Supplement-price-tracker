@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-28",
+  "last_updated": "2026-09-29",
   "site": "StackFit",
   "total": 630,
   "grupos_multitienda": 6,
@@ -94,8 +94,8 @@
       "spark_min": 20.66
     },
     {
-      "id": "r1-gain-4-5-kg-rule1",
-      "nombre_normalizado": "R1 Gain 4.5 Kg",
+      "id": "r1-gain-4-5kg-rule1",
+      "nombre_normalizado": "R1 Gain 4.5Kg",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
       "marca": "Rule1",
@@ -127,9 +127,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "r1-gain-4-5-kg-rule1",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 21.1
+      "slug_publico": "r1-gain-4-5kg-rule1",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "bcaa-s-instantaneo-2-1-1-2-0-1kg-desconocida",
@@ -304,8 +304,8 @@
       "spark_min": 22.95
     },
     {
-      "id": "r1-gain-2-2-kg-rule1",
-      "nombre_normalizado": "R1 Gain 2.2 Kg",
+      "id": "r1-gain-2-2kg-rule1",
+      "nombre_normalizado": "R1 Gain 2.2Kg",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
       "marca": "Rule1",
@@ -337,9 +337,9 @@
       "store_rating_count": 1.0,
       "store_rating_url": "https://www.nutritienda.com/es/rule1/r1-gain-2200g",
       "protein_subtype": null,
-      "slug_publico": "r1-gain-2-2-kg-rule1",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 27.23
+      "slug_publico": "r1-gain-2-2kg-rule1",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "100-platinum-whey-750g-vplab-nutrition",
@@ -516,8 +516,8 @@
       "spark_min": 41.45
     },
     {
-      "id": "zero-bcaa-300-g-desconocida",
-      "nombre_normalizado": "Zero BCAA 300 g",
+      "id": "zero-bcaa-300g-anderson-research",
+      "nombre_normalizado": "Zero BCAA 300g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
       "marca": "Anderson Research",
@@ -563,9 +563,9 @@
       "store_rating_count": 3313.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-bcaa-300-g",
       "protein_subtype": null,
-      "slug_publico": "zero-bcaa-300-g-anderson-research",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,21.64 1.31,21.64 2.62,17.39 3.93,17.39 5.25,17.39 6.56,17.39 7.87,17.39 9.18,17.39 10.49,17.39 11.8,17.39 13.11,28.0 14.43,28.0 15.74,28.0 17.05,28.0 18.36,28.0 19.67,28.0 20.98,28.0 22.3,17.39 23.61,17.39 24.92,17.39 26.23,17.39 27.54,17.39 28.85,17.39 30.16,17.39 31.48,17.39 32.79,17.39 34.1,17.39 35.41,17.39 36.72,17.39 38.03,17.39 39.34,17.39 40.66,17.39 41.97,25.89 43.28,25.89 44.59,25.89 45.9,25.89 47.21,25.89 48.52,25.89 49.84,17.39 51.15,17.39 52.46,17.39 53.77,17.39 55.08,17.39 56.39,17.39 57.7,17.39 59.02,17.39 60.33,17.39 61.64,17.39 62.95,17.39 64.26,17.39 65.57,17.39 66.89,25.89 68.2,25.89 69.51,25.89 70.82,17.39 72.13,0.0 73.44,17.39 74.75,17.39 76.07,17.39 77.38,17.39 78.69,17.39 80.0,25.89\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"25.89\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 39.77
+      "slug_publico": "zero-bcaa-300g-anderson-research",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "battery-whey-gold-isolate-large-1600g-battery-nutrition",
@@ -910,8 +910,8 @@
       "spark_min": 56.14
     },
     {
-      "id": "bcaa-2-1-1-300-g-desconocida",
-      "nombre_normalizado": "BCAA 2:1:1 300 g",
+      "id": "bcaa-2-1-1-300g-vplab-nutrition",
+      "nombre_normalizado": "BCAA 2:1:1 300g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
       "marca": "Vplab Nutrition",
@@ -957,9 +957,9 @@
       "store_rating_count": 8975.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/bcaa-211-300-g",
       "protein_subtype": null,
-      "slug_publico": "bcaa-2-1-1-300-g-vplab-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.31,28.0 2.62,10.37 3.93,10.37 5.25,10.37 6.56,10.37 7.87,10.37 9.18,10.37 10.49,10.37 11.8,10.37 13.11,10.37 14.43,10.37 15.74,10.37 17.05,10.37 18.36,10.37 19.67,10.37 20.98,10.37 22.3,10.37 23.61,10.37 24.92,10.37 26.23,10.37 27.54,10.37 28.85,10.37 30.16,10.37 31.48,10.37 32.79,10.37 34.1,10.37 35.41,10.37 36.72,10.37 38.03,10.37 39.34,10.37 40.66,10.37 41.97,28.0 43.28,28.0 44.59,28.0 45.9,28.0 47.21,28.0 48.52,28.0 49.84,10.37 51.15,10.37 52.46,10.37 53.77,10.37 55.08,10.37 56.39,10.37 57.7,10.37 59.02,10.37 60.33,10.37 61.64,10.37 62.95,10.37 64.26,10.37 65.57,10.37 66.89,28.0 68.2,28.0 69.51,28.0 70.82,10.37 72.13,0.0 73.44,10.37 74.75,10.37 76.07,10.37 77.38,10.37 78.69,10.37 80.0,10.37\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"10.37\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 39.63
+      "slug_publico": "bcaa-2-1-1-300g-vplab-nutrition",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 56.63
     },
     {
       "id": "premium-bcaa-zero-8-1-1-l-glutamina-500mg-500g-weider",
@@ -1038,8 +1038,8 @@
       "spark_min": 57.8
     },
     {
-      "id": "bcaa-8-1-1-300-g-desconocida",
-      "nombre_normalizado": "BCAA 8:1:1 300 g",
+      "id": "bcaa-8-1-1-300g-vplab-nutrition",
+      "nombre_normalizado": "BCAA 8:1:1 300g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
       "marca": "Vplab Nutrition",
@@ -1088,9 +1088,9 @@
       "store_rating_count": 7898.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/bcaa-811-300-g",
       "protein_subtype": null,
-      "slug_publico": "bcaa-8-1-1-300-g-vplab-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,19.99 1.4,19.99 2.81,0.0 4.21,0.0 5.61,0.0 7.02,0.0 8.42,0.0 9.82,0.0 11.23,0.0 12.63,0.0 14.04,0.0 15.44,0.0 16.84,0.0 18.25,0.0 19.65,0.0 21.05,0.0 22.46,0.0 23.86,0.0 25.26,0.0 26.67,0.0 28.07,0.0 29.47,0.0 30.88,0.0 32.28,0.0 33.68,0.0 35.09,0.0 36.49,0.0 37.89,0.0 39.3,0.0 40.7,0.0 42.11,0.0 43.51,0.0 44.91,28.0 46.32,28.0 47.72,28.0 49.12,28.0 50.53,28.0 51.93,28.0 53.33,0.0 54.74,0.0 56.14,0.0 57.54,0.0 58.95,0.0 60.35,0.0 61.75,0.0 63.16,0.0 64.56,0.0 65.96,0.0 67.37,0.0 68.77,0.0 70.18,0.0 71.58,24.0 72.98,24.0 74.39,24.0 75.79,0.0 77.19,19.2 78.6,0.0 80.0,24.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"24.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 54.13
+      "slug_publico": "bcaa-8-1-1-300g-vplab-nutrition",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 16.0,0.0 32.0,0.0 48.0,0.0 64.0,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 58.3
     },
     {
       "id": "essential-bcaa-4-1-1-neutro-250g-myprotein",
@@ -1363,8 +1363,8 @@
       "spark_min": 64.77
     },
     {
-      "id": "zero-bcaa-150-g-desconocida",
-      "nombre_normalizado": "Zero BCAA 150 g",
+      "id": "zero-bcaa-150g-desconocida",
+      "nombre_normalizado": "Zero BCAA 150g",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
       "marca": "Prozis",
@@ -1400,9 +1400,9 @@
       "store_rating_count": 3313.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-bcaa-150-g",
       "protein_subtype": null,
-      "slug_publico": "zero-bcaa-150-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 1.33,14.0 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,28.0 14.67,28.0 16.0,28.0 17.33,28.0 18.67,28.0 20.0,28.0 21.33,28.0 22.67,0.0 24.0,0.0 25.33,0.0 26.67,0.0 28.0,0.0 29.33,0.0 30.67,0.0 32.0,0.0 33.33,0.0 34.67,0.0 36.0,0.0 37.33,0.0 38.67,0.0 40.0,0.0 41.33,0.0 42.67,28.0 44.0,28.0 45.33,28.0 46.67,28.0 48.0,28.0 49.33,28.0 50.67,0.0 52.0,0.0 53.33,0.0 54.67,0.0 56.0,0.0 57.33,0.0 58.67,0.0 60.0,0.0 61.33,0.0 62.67,0.0 64.0,0.0 65.33,0.0 66.67,0.0 68.0,23.34 69.33,23.34 70.67,23.34 72.0,0.0 73.33,0.0 74.67,0.0 76.0,0.0 77.33,0.0 78.67,0.0 80.0,23.34\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"23.34\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 60.6
+      "slug_publico": "zero-bcaa-150g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "226ers-bcaa-8-1-1-aminoacidos-300g-recuperacion-muscular-226ers",
@@ -3153,8 +3153,8 @@
       "spark_min": 17.48
     },
     {
-      "id": "bcaa-aminobolin-25-ml-20-viales-20viales-best-body-nutrition",
-      "nombre_normalizado": "Bcaa Aminobolin 25 ml 20 Viales 20viales",
+      "id": "bcaa-aminobolin-25ml-20-viales-20viales-best-body-nutrition",
+      "nombre_normalizado": "Bcaa Aminobolin 25ml 20 Viales 20viales",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
       "marca": "Best Body Nutrition",
@@ -3186,9 +3186,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "bcaa-aminobolin-25-ml-20-viales-20viales-best-body-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 27.99
+      "slug_publico": "bcaa-aminobolin-25ml-20-viales-20viales-best-body-nutrition",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "amino-5000-325-tabs-325tabs-best-body-nutrition",
@@ -3229,8 +3229,8 @@
       "spark_min": 19.99
     },
     {
-      "id": "whey-amino-shot-25-ml-20-viales-20viales-best-body-nutrition",
-      "nombre_normalizado": "Whey Amino Shot 25 ml 20 Viales 20viales",
+      "id": "whey-amino-shot-25ml-20-viales-20viales-best-body-nutrition",
+      "nombre_normalizado": "Whey Amino Shot 25ml 20 Viales 20viales",
       "categoria": "bcaa",
       "categoria_display": "BCAA",
       "marca": "Best Body Nutrition",
@@ -3262,9 +3262,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "whey-amino-shot-25-ml-20-viales-20viales-best-body-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 27.99
+      "slug_publico": "whey-amino-shot-25ml-20-viales-20viales-best-body-nutrition",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "ram-bcaa-1000-mg-300-tabs-300tabs-prolab",
@@ -4002,8 +4002,8 @@
       "spark_min": 23.88
     },
     {
-      "id": "creatine-3000-mg-1-kg-hivital-foods",
-      "nombre_normalizado": "Creatine 3000 mg 1 Kg",
+      "id": "creatine-3000-mg-1kg-hivital-foods",
+      "nombre_normalizado": "Creatine 3000 mg 1Kg",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Hivital Foods",
@@ -4035,13 +4035,13 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "creatine-3000-mg-1-kg-hivital-foods",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 24.0
+      "slug_publico": "creatine-3000-mg-1kg-hivital-foods",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "6th-gear-creatine-complex-1135-g-stacker-2",
-      "nombre_normalizado": "6th GEAR CREATINE COMPLEX 1135 g",
+      "id": "6th-gear-creatine-complex-1135g-stacker-2",
+      "nombre_normalizado": "6th GEAR CREATINE COMPLEX 1135g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Stacker 2",
@@ -4073,9 +4073,9 @@
       "store_rating_count": 28.0,
       "store_rating_url": "https://www.nutritienda.com/es/6th-gear-creatine-complex-1135g",
       "protein_subtype": null,
-      "slug_publico": "6th-gear-creatine-complex-1135-g-stacker-2",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 24.58
+      "slug_publico": "6th-gear-creatine-complex-1135g-stacker-2",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold-nutrition",
@@ -4116,8 +4116,8 @@
       "spark_min": 25.25
     },
     {
-      "id": "cellbest-extreme-1-3-kg-vitobest",
-      "nombre_normalizado": "Cellbest Extreme 1.3 Kg",
+      "id": "cellbest-extreme-1-3kg-vitobest",
+      "nombre_normalizado": "Cellbest Extreme 1.3Kg",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Vitobest",
@@ -4149,9 +4149,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "cellbest-extreme-1-3-kg-vitobest",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 11.43,28.0 22.86,28.0 34.29,28.0 45.71,28.0 57.14,28.0 68.57,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 25.48
+      "slug_publico": "cellbest-extreme-1-3kg-vitobest",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "gold-nutrition-creatine-carbs-600g-gold-nutrition",
@@ -4778,8 +4778,8 @@
       "spark_min": 52.0
     },
     {
-      "id": "creatine-monohydrate-powder-500-g-vitobest",
-      "nombre_normalizado": "Creatine Monohydrate Powder 500 g",
+      "id": "creatine-monohydrate-powder-500g-vitobest",
+      "nombre_normalizado": "Creatine Monohydrate Powder 500g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Vitobest",
@@ -4811,9 +4811,9 @@
       "store_rating_count": 7.0,
       "store_rating_url": "https://www.nutritienda.com/es/vitobest/creatine-monohydrate-powder-500g",
       "protein_subtype": null,
-      "slug_publico": "creatine-monohydrate-powder-500-g-vitobest",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 52.38
+      "slug_publico": "creatine-monohydrate-powder-500g-vitobest",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "creatina-excell-100-creapure-en-polvo-1kg-desconocida",
@@ -4930,8 +4930,8 @@
       "spark_min": 54.6
     },
     {
-      "id": "monohidrato-de-creatina-600-g-desconocida",
-      "nombre_normalizado": "Monohidrato de Creatina 600 g",
+      "id": "monohidrato-de-creatina-600g-desconocida",
+      "nombre_normalizado": "Monohidrato de Creatina 600g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Prozis",
@@ -4970,13 +4970,13 @@
       "store_rating_count": 33187.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g",
       "protein_subtype": null,
-      "slug_publico": "monohidrato-de-creatina-600-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 13.33,0.0 26.67,0.0 40.0,18.67 53.33,18.67 66.67,18.67 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 56.38
+      "slug_publico": "monohidrato-de-creatina-600g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "crea-bomb-660-g-scitec-nutrition",
-      "nombre_normalizado": "CREA-BOMB 660 g",
+      "id": "crea-bomb-660g-scitec-nutrition",
+      "nombre_normalizado": "CREA-BOMB 660g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Scitec Nutrition",
@@ -5008,9 +5008,9 @@
       "store_rating_count": 39.0,
       "store_rating_url": "https://www.nutritienda.com/es/scitec-nutrition-crea-bomb-660-g",
       "protein_subtype": null,
-      "slug_publico": "crea-bomb-660-g-scitec-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 57.42
+      "slug_publico": "crea-bomb-660g-scitec-nutrition",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "creatine-cor-performance-203g-cellucor",
@@ -5127,8 +5127,8 @@
       "spark_min": 60.0
     },
     {
-      "id": "creatina-glycofusion-300-g-desconocida",
-      "nombre_normalizado": "Creatina GlycoFusion 300 g",
+      "id": "creatina-glycofusion-300g-desconocida",
+      "nombre_normalizado": "Creatina GlycoFusion 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Prozis",
@@ -5162,9 +5162,9 @@
       "store_rating_count": 873.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-glycofusion-300-g",
       "protein_subtype": null,
-      "slug_publico": "creatina-glycofusion-300-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 13.33,-0.0 26.67,-0.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,24.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"24.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 56.3
+      "slug_publico": "creatina-glycofusion-300g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "creatina-306g-cellucor",
@@ -5549,8 +5549,8 @@
       "spark_min": 67.45
     },
     {
-      "id": "monohidrato-de-creatina-300-g-desconocida",
-      "nombre_normalizado": "Monohidrato de Creatina 300 g",
+      "id": "monohidrato-de-creatina-300g-desconocida",
+      "nombre_normalizado": "Monohidrato de Creatina 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Prozis",
@@ -5589,9 +5589,9 @@
       "store_rating_count": 33187.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g",
       "protein_subtype": null,
-      "slug_publico": "monohidrato-de-creatina-300-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 13.33,0.0 26.67,0.0 40.0,18.66 53.33,18.66 66.67,18.66 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 67.63
+      "slug_publico": "monohidrato-de-creatina-300g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "creatina-competition-600g-mega-plus",
@@ -5898,8 +5898,8 @@
       "spark_min": 76.45
     },
     {
-      "id": "creatina-micronpure-300-g-desconocida",
-      "nombre_normalizado": "Creatina MicronPure 300 g",
+      "id": "creatina-micronpure-300g-desconocida",
+      "nombre_normalizado": "Creatina MicronPure 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Prozis",
@@ -5938,9 +5938,9 @@
       "store_rating_count": 5791.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g",
       "protein_subtype": null,
-      "slug_publico": "creatina-micronpure-300-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 77.97
+      "slug_publico": "creatina-micronpure-300g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "gold-nutrition-creatina-creapure-maximo-rendimiento-280g-gold-nutrition",
@@ -6140,8 +6140,8 @@
       "spark_min": 79.8
     },
     {
-      "id": "zero-creatine-300-g-desconocida",
-      "nombre_normalizado": "Zero Creatine 300 g",
+      "id": "zero-creatine-300g-desconocida",
+      "nombre_normalizado": "Zero Creatine 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Prozis",
@@ -6177,13 +6177,13 @@
       "store_rating_count": 2946.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-creatine-300-g",
       "protein_subtype": null,
-      "slug_publico": "zero-creatine-300-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,8.0 1.36,8.0 2.71,0.0 4.07,0.0 5.42,0.0 6.78,0.0 8.14,0.0 9.49,0.0 10.85,0.0 12.2,0.0 13.56,8.0 14.92,8.0 16.27,8.0 17.63,8.0 18.98,8.0 20.34,8.0 21.69,8.0 23.05,0.0 24.41,0.0 25.76,0.0 27.12,0.0 28.47,0.0 29.83,0.0 31.19,0.0 32.54,0.0 33.9,0.0 35.25,0.0 36.61,0.0 37.97,0.0 39.32,0.0 40.68,0.0 42.03,20.0 43.39,20.0 44.75,20.0 46.1,0.0 47.46,0.0 48.81,0.0 50.17,28.0 51.53,28.0 52.88,28.0 54.24,0.0 55.59,0.0 56.95,0.0 58.31,0.0 59.66,0.0 61.02,0.0 62.37,0.0 63.73,0.0 65.08,0.0 66.44,0.0 67.8,24.01 69.15,24.01 70.51,24.01 71.86,0.0 73.22,0.0 74.58,0.0 75.93,28.0 77.29,28.0 78.64,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 80.37
+      "slug_publico": "zero-creatine-300g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "creatina-creapure-300-g-desconocida",
-      "nombre_normalizado": "Creatina Creapure® 300 g",
+      "id": "creatina-creapure-300g-desconocida",
+      "nombre_normalizado": "Creatina Creapure® 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Prozis",
@@ -6224,9 +6224,9 @@
       "store_rating_count": 20544.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-creapure-300-g",
       "protein_subtype": null,
-      "slug_publico": "creatina-creapure-300-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.33,28.0 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,0.0 14.67,0.0 16.0,0.0 17.33,0.0 18.67,0.0 20.0,0.0 21.33,0.0 22.67,0.0 24.0,0.0 25.33,0.0 26.67,0.0 28.0,0.0 29.33,0.0 30.67,0.0 32.0,0.0 33.33,0.0 34.67,0.0 36.0,0.0 37.33,0.0 38.67,0.0 40.0,0.0 41.33,20.0 42.67,20.0 44.0,20.0 45.33,0.0 46.67,0.0 48.0,0.0 49.33,8.0 50.67,8.0 52.0,8.0 53.33,0.0 54.67,0.0 56.0,0.0 57.33,0.0 58.67,0.0 60.0,0.0 61.33,0.0 62.67,0.0 64.0,0.0 65.33,0.0 66.67,24.0 68.0,24.0 69.33,24.0 70.67,0.0 72.0,9.67 73.33,0.0 74.67,0.0 76.0,8.0 77.33,8.0 78.67,8.0 80.0,24.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"24.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 75.8
+      "slug_publico": "creatina-creapure-300g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "creatine-monohydrate-creapure-200g-vitobest",
@@ -6726,8 +6726,8 @@
       "spark_min": 103.5
     },
     {
-      "id": "zero-creatine-150-g-desconocida",
-      "nombre_normalizado": "Zero Creatine 150 g",
+      "id": "zero-creatine-150g-desconocida",
+      "nombre_normalizado": "Zero Creatine 150g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Prozis",
@@ -6763,9 +6763,9 @@
       "store_rating_count": 2946.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-creatine-150-g",
       "protein_subtype": null,
-      "slug_publico": "zero-creatine-150-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,8.0 1.36,8.0 2.71,0.0 4.07,0.0 5.42,0.0 6.78,0.0 8.14,0.0 9.49,0.0 10.85,0.0 12.2,0.0 13.56,8.0 14.92,8.0 16.27,8.0 17.63,8.0 18.98,8.0 20.34,8.0 21.69,8.0 23.05,0.0 24.41,0.0 25.76,0.0 27.12,0.0 28.47,0.0 29.83,0.0 31.19,0.0 32.54,0.0 33.9,0.0 35.25,0.0 36.61,0.0 37.97,0.0 39.32,0.0 40.68,0.0 42.03,20.0 43.39,20.0 44.75,20.0 46.1,0.0 47.46,0.0 48.81,0.0 50.17,28.0 51.53,28.0 52.88,28.0 54.24,0.0 55.59,0.0 56.95,0.0 58.31,0.0 59.66,0.0 61.02,0.0 62.37,0.0 63.73,0.0 65.08,0.0 66.44,0.0 67.8,24.0 69.15,24.0 70.51,24.0 71.86,0.0 73.22,0.0 74.58,0.0 75.93,28.0 77.29,28.0 78.64,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 103.93
+      "slug_publico": "zero-creatine-150g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "226ers-creatina-creapure-300g-100-monohidrato-pura-226ers",
@@ -6958,8 +6958,8 @@
       "spark_min": 123.0
     },
     {
-      "id": "black-creatine-creapure-300-g-amix",
-      "nombre_normalizado": "Black Creatine Creapure 300 g",
+      "id": "black-creatine-creapure-300g-amix",
+      "nombre_normalizado": "Black Creatine Creapure 300g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Amix",
@@ -6991,9 +6991,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "black-creatine-creapure-300-g-amix",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 123.0
+      "slug_publico": "black-creatine-creapure-300g-amix",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "creatine-monohydrate-creapure-20-sticks-3g-nutrisport",
@@ -7034,8 +7034,8 @@
       "spark_min": 193.5
     },
     {
-      "id": "creatina-creapure-professional-150-g-desconocida",
-      "nombre_normalizado": "Creatina Creapure® Professional 150 g",
+      "id": "creatina-creapure-professional-150g-desconocida",
+      "nombre_normalizado": "Creatina Creapure® Professional 150g",
       "categoria": "creatina",
       "categoria_display": "Creatina",
       "marca": "Prozis",
@@ -7069,9 +7069,9 @@
       "store_rating_count": 926.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-creapure-professional-150-g",
       "protein_subtype": null,
-      "slug_publico": "creatina-creapure-professional-150-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 13.33,0.0 26.67,0.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,0.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 263.93
+      "slug_publico": "creatina-creapure-professional-150g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "the-creatine-creapure-sobres-monodosis-10g-desconocida",
@@ -9196,8 +9196,8 @@
       "spark_min": 14.9
     },
     {
-      "id": "pre-workout-protein-mug-cake-speculoos-400-g-desconocida",
-      "nombre_normalizado": "Pre-workout Protein Mug Cake - Speculoos 400 g",
+      "id": "pre-workout-protein-mug-cake-speculoos-400g-desconocida",
+      "nombre_normalizado": "Pre-workout Protein Mug Cake - Speculoos 400g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -9234,13 +9234,13 @@
       "store_rating_count": 87.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-speculoos-400-g",
       "protein_subtype": null,
-      "slug_publico": "pre-workout-protein-mug-cake-speculoos-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.33,28.0 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,0.0 14.67,0.0 16.0,0.0 17.33,0.0 18.67,0.0 20.0,0.0 21.33,0.0 22.67,0.0 24.0,0.0 25.33,0.0 26.67,0.0 28.0,0.0 29.33,0.0 30.67,0.0 32.0,0.0 33.33,0.0 34.67,0.0 36.0,0.0 37.33,0.0 38.67,0.0 40.0,0.0 41.33,0.0 42.67,28.0 44.0,28.0 45.33,28.0 46.67,0.0 48.0,0.0 49.33,0.0 50.67,0.0 52.0,0.0 53.33,0.0 54.67,28.0 56.0,28.0 57.33,28.0 58.67,0.0 60.0,0.0 61.33,0.0 62.67,0.0 64.0,0.0 65.33,0.0 66.67,0.0 68.0,28.0 69.33,28.0 70.67,28.0 72.0,0.0 73.33,0.0 74.67,0.0 76.0,0.0 77.33,0.0 78.67,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 22.47
+      "slug_publico": "pre-workout-protein-mug-cake-speculoos-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "pre-workout-protein-mug-cake-cafe-y-caramelo-400-g-desconocida",
-      "nombre_normalizado": "Pre-workout Protein Mug Cake - Café y Caramelo 400 g",
+      "id": "pre-workout-protein-mug-cake-cafe-y-caramelo-400g-desconocida",
+      "nombre_normalizado": "Pre-workout Protein Mug Cake - Café y Caramelo 400g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -9277,13 +9277,13 @@
       "store_rating_count": 82.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-cafe-y-caramelo-400-g",
       "protein_subtype": null,
-      "slug_publico": "pre-workout-protein-mug-cake-cafe-y-caramelo-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.33,28.0 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,0.0 14.67,0.0 16.0,0.0 17.33,0.0 18.67,0.0 20.0,0.0 21.33,0.0 22.67,0.0 24.0,0.0 25.33,0.0 26.67,0.0 28.0,0.0 29.33,0.0 30.67,0.0 32.0,0.0 33.33,0.0 34.67,0.0 36.0,0.0 37.33,0.0 38.67,0.0 40.0,0.0 41.33,0.0 42.67,28.0 44.0,28.0 45.33,28.0 46.67,0.0 48.0,0.0 49.33,0.0 50.67,0.0 52.0,0.0 53.33,0.0 54.67,28.0 56.0,28.0 57.33,28.0 58.67,0.0 60.0,0.0 61.33,0.0 62.67,0.0 64.0,0.0 65.33,0.0 66.67,0.0 68.0,28.0 69.33,28.0 70.67,28.0 72.0,0.0 73.33,0.0 74.67,0.0 76.0,0.0 77.33,0.0 78.67,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 22.47
+      "slug_publico": "pre-workout-protein-mug-cake-cafe-y-caramelo-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "pre-workout-protein-mug-cake-chocolate-400-g-desconocida",
-      "nombre_normalizado": "Pre-workout Protein Mug Cake - Chocolate 400 g",
+      "id": "pre-workout-protein-mug-cake-chocolate-400g-desconocida",
+      "nombre_normalizado": "Pre-workout Protein Mug Cake - Chocolate 400g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -9320,13 +9320,13 @@
       "store_rating_count": 83.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-chocolate-400-g",
       "protein_subtype": null,
-      "slug_publico": "pre-workout-protein-mug-cake-chocolate-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.33,28.0 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,0.0 14.67,0.0 16.0,0.0 17.33,0.0 18.67,0.0 20.0,0.0 21.33,0.0 22.67,0.0 24.0,0.0 25.33,0.0 26.67,0.0 28.0,0.0 29.33,0.0 30.67,0.0 32.0,0.0 33.33,0.0 34.67,0.0 36.0,0.0 37.33,0.0 38.67,0.0 40.0,0.0 41.33,0.0 42.67,28.0 44.0,28.0 45.33,28.0 46.67,0.0 48.0,0.0 49.33,0.0 50.67,0.0 52.0,0.0 53.33,0.0 54.67,28.0 56.0,28.0 57.33,28.0 58.67,0.0 60.0,0.0 61.33,0.0 62.67,0.0 64.0,0.0 65.33,0.0 66.67,0.0 68.0,28.0 69.33,28.0 70.67,28.0 72.0,0.0 73.33,0.0 74.67,0.0 76.0,0.0 77.33,0.0 78.67,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 22.47
+      "slug_publico": "pre-workout-protein-mug-cake-chocolate-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400-g-descon",
-      "nombre_normalizado": "Pre-workout Protein Mug Cake Premix - Vainilla y Pepitas de Chocolate 400 g",
+      "id": "pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400g-descono",
+      "nombre_normalizado": "Pre-workout Protein Mug Cake Premix - Vainilla y Pepitas de Chocolate 400g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -9364,8 +9364,8 @@
       "store_rating_url": "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400-g",
       "protein_subtype": null,
       "slug_publico": "pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.33,28.0 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,0.0 14.67,0.0 16.0,0.0 17.33,0.0 18.67,0.0 20.0,0.0 21.33,0.0 22.67,0.0 24.0,0.0 25.33,0.0 26.67,0.0 28.0,0.0 29.33,0.0 30.67,0.0 32.0,0.0 33.33,0.0 34.67,0.0 36.0,0.0 37.33,0.0 38.67,0.0 40.0,0.0 41.33,0.0 42.67,28.0 44.0,28.0 45.33,28.0 46.67,0.0 48.0,0.0 49.33,0.0 50.67,0.0 52.0,0.0 53.33,0.0 54.67,28.0 56.0,28.0 57.33,28.0 58.67,0.0 60.0,0.0 61.33,0.0 62.67,0.0 64.0,0.0 65.33,0.0 66.67,0.0 68.0,28.0 69.33,28.0 70.67,28.0 72.0,0.0 73.33,0.0 74.67,0.0 76.0,0.0 77.33,0.0 78.67,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 22.47
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "beta-alanina-en-polvo-1kg-desconocida",
@@ -9496,8 +9496,8 @@
       "spark_min": 25.98
     },
     {
-      "id": "l-arginina-300-g-desconocida",
-      "nombre_normalizado": "L-arginina 300 g",
+      "id": "l-arginina-300g-desconocida",
+      "nombre_normalizado": "L-arginina 300g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -9531,9 +9531,9 @@
       "store_rating_count": 2259.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/l-arginina-300-g",
       "protein_subtype": null,
-      "slug_publico": "l-arginina-300-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.01 1.33,14.01 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,11.21 14.67,14.01 16.0,14.01 17.33,14.01 18.67,14.01 20.0,16.82 21.33,16.82 22.67,16.82 24.0,16.82 25.33,16.82 26.67,22.42 28.0,22.42 29.33,22.42 30.67,22.42 32.0,22.42 33.33,22.42 34.67,22.42 36.0,22.42 37.33,22.42 38.67,16.82 40.0,16.82 41.33,16.82 42.67,16.82 44.0,16.82 45.33,16.82 46.67,22.42 48.0,22.42 49.33,22.42 50.67,22.42 52.0,22.42 53.33,22.42 54.67,22.42 56.0,22.42 57.33,22.42 58.67,22.42 60.0,22.42 61.33,22.42 62.67,22.42 64.0,0.0 65.33,0.0 66.67,22.42 68.0,22.42 69.33,22.42 70.67,22.42 72.0,22.42 73.33,28.0 74.67,28.0 76.0,28.0 77.33,28.0 78.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 28.33
+      "slug_publico": "l-arginina-300g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "evobeast-1kg-desconocida",
@@ -9581,8 +9581,8 @@
       "spark_min": 24.95
     },
     {
-      "id": "energy-charge-preentrenamiento-800-g-desconocida",
-      "nombre_normalizado": "Energy Charge - Preentrenamiento 800 g",
+      "id": "energy-charge-preentrenamiento-800g-desconocida",
+      "nombre_normalizado": "Energy Charge - Preentrenamiento 800g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -9617,9 +9617,9 @@
       "store_rating_count": 1519.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/energy-charge-preentrenamiento-800-g",
       "protein_subtype": null,
-      "slug_publico": "energy-charge-preentrenamiento-800-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.33,28.0 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,0.0 14.67,0.0 16.0,0.0 17.33,0.0 18.67,0.0 20.0,0.0 21.33,0.0 22.67,0.0 24.0,0.0 25.33,0.0 26.67,0.0 28.0,0.0 29.33,0.0 30.67,0.0 32.0,0.0 33.33,0.0 34.67,0.0 36.0,0.0 37.33,0.0 38.67,0.0 40.0,0.0 41.33,0.0 42.67,0.0 44.0,0.0 45.33,0.0 46.67,0.0 48.0,0.0 49.33,0.0 50.67,0.0 52.0,0.0 53.33,0.0 54.67,0.0 56.0,0.0 57.33,0.0 58.67,0.0 60.0,0.0 61.33,0.0 62.67,0.0 64.0,0.0 65.33,0.0 66.67,0.0 68.0,18.67 69.33,18.67 70.67,18.67 72.0,0.0 73.33,0.0 74.67,0.0 76.0,0.0 77.33,0.0 78.67,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 24.42
+      "slug_publico": "energy-charge-preentrenamiento-800g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "origin-shred-pre-workout-660g-desconocida",
@@ -10000,8 +10000,8 @@
       "spark_min": 29.9
     },
     {
-      "id": "beta-alanina-300-g-desconocida",
-      "nombre_normalizado": "Beta-alanina 300 g",
+      "id": "beta-alanina-300g-desconocida",
+      "nombre_normalizado": "Beta-alanina 300g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -10035,9 +10035,9 @@
       "store_rating_count": 3585.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/beta-alanina-300-g",
       "protein_subtype": null,
-      "slug_publico": "beta-alanina-300-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,19.99 1.33,19.99 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,0.0 14.67,0.0 16.0,0.0 17.33,0.0 18.67,0.0 20.0,0.0 21.33,0.0 22.67,0.0 24.0,0.0 25.33,0.0 26.67,0.0 28.0,0.0 29.33,0.0 30.67,0.0 32.0,0.0 33.33,0.0 34.67,0.0 36.0,0.0 37.33,0.0 38.67,0.0 40.0,0.0 41.33,0.0 42.67,28.0 44.0,28.0 45.33,28.0 46.67,28.0 48.0,28.0 49.33,28.0 50.67,0.0 52.0,0.0 53.33,0.0 54.67,0.0 56.0,0.0 57.33,0.0 58.67,0.0 60.0,0.0 61.33,0.0 62.67,0.0 64.0,0.0 65.33,0.0 66.67,0.0 68.0,23.99 69.33,23.99 70.67,23.99 72.0,0.0 73.33,0.0 74.67,0.0 76.0,0.0 77.33,0.0 78.67,0.0 80.0,16.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"16.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 28.13
+      "slug_publico": "beta-alanina-300g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "l-glutamina-en-polvo-1kg-desconocida",
@@ -10793,8 +10793,8 @@
       "spark_min": 58.03
     },
     {
-      "id": "powered-cafe-preentrenamiento-250-g-desconocida",
-      "nombre_normalizado": "Powered - Café Preentrenamiento 250 g",
+      "id": "powered-cafe-preentrenamiento-250g-desconocida",
+      "nombre_normalizado": "Powered - Café Preentrenamiento 250g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -10831,13 +10831,13 @@
       "store_rating_count": 63.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/powered-cafe-preentrenamiento-250-g",
       "protein_subtype": null,
-      "slug_publico": "powered-cafe-preentrenamiento-250-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.6,28.0 3.2,28.0 4.8,28.0 6.4,28.0 8.0,28.0 9.6,28.0 11.2,0.0 12.8,0.0 14.4,0.0 16.0,0.0 17.6,0.0 19.2,0.0 20.8,0.0 22.4,0.0 24.0,0.0 25.6,0.0 27.2,0.0 28.8,0.0 30.4,0.0 32.0,0.0 33.6,0.0 35.2,14.0 36.8,14.0 38.4,14.0 40.0,0.0 41.6,0.0 43.2,0.0 44.8,0.0 46.4,0.0 48.0,0.0 49.6,0.0 51.2,0.0 52.8,0.0 54.4,0.0 56.0,0.0 57.6,0.0 59.2,0.0 60.8,0.0 62.4,0.0 64.0,0.0 65.6,9.33 67.2,9.33 68.8,9.33 70.4,0.0 72.0,0.0 73.6,0.0 75.2,0.0 76.8,0.0 78.4,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 41.96
+      "slug_publico": "powered-cafe-preentrenamiento-250g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "malato-de-l-citrulina-300-g-biotechusa",
-      "nombre_normalizado": "Malato de L-Citrulina 300 g",
+      "id": "malato-de-l-citrulina-300g-biotechusa",
+      "nombre_normalizado": "Malato de L-Citrulina 300g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "BioTechUSA",
@@ -10883,9 +10883,9 @@
       "store_rating_count": 2865.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-300-g",
       "protein_subtype": null,
-      "slug_publico": "malato-de-l-citrulina-300-g-biotechusa",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,22.87 13.33,0.0 26.67,22.87 40.0,22.87 53.33,22.87 66.67,22.87 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 59.97
+      "slug_publico": "malato-de-l-citrulina-300g-biotechusa",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "pump-express-2-0-concentrate-660g-olimp",
@@ -11648,8 +11648,8 @@
       "spark_min": 75.11
     },
     {
-      "id": "malato-de-l-citrulina-150-g-desconocida",
-      "nombre_normalizado": "Malato de L-Citrulina 150 g",
+      "id": "malato-de-l-citrulina-150g-desconocida",
+      "nombre_normalizado": "Malato de L-Citrulina 150g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -11685,9 +11685,9 @@
       "store_rating_count": 3620.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-150-g",
       "protein_subtype": null,
-      "slug_publico": "malato-de-l-citrulina-150-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 5.0,0.0 10.0,0.0 15.0,0.0 20.0,0.0 25.0,0.0 30.0,0.0 35.0,28.0 40.0,28.0 45.0,28.0 50.0,0.0 55.0,0.0 60.0,0.0 65.0,0.0 70.0,0.0 75.0,0.0 80.0,8.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"8.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 60.6
+      "slug_publico": "malato-de-l-citrulina-150g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "hot-blood-no-stim-375g-scitec-nutrition",
@@ -11804,8 +11804,8 @@
       "spark_min": 63.61
     },
     {
-      "id": "the-shadow-270-g-cobra-labs",
-      "nombre_normalizado": "The Shadow 270 g",
+      "id": "the-shadow-270g-cobra-labs",
+      "nombre_normalizado": "The Shadow 270g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Cobra Labs",
@@ -11837,9 +11837,9 @@
       "store_rating_count": 1.0,
       "store_rating_url": "https://www.nutritienda.com/es/cobra-labs/the-shadow-270g",
       "protein_subtype": null,
-      "slug_publico": "the-shadow-270-g-cobra-labs",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 13.33,-0.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 89.63
+      "slug_publico": "the-shadow-270g-cobra-labs",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "pump-caffeine-free-330g-biotechusa",
@@ -11918,8 +11918,8 @@
       "spark_min": 90.88
     },
     {
-      "id": "pow3rd-2-0-350-g-scitec-nutrition",
-      "nombre_normalizado": "POW3RD! 2.0 - 350 g",
+      "id": "pow3rd-2-0-350g-scitec-nutrition",
+      "nombre_normalizado": "POW3RD! 2.0 - 350g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Scitec Nutrition",
@@ -11951,9 +11951,9 @@
       "store_rating_count": 64.0,
       "store_rating_url": "https://www.nutritienda.com/es/scitec-nutrition-pow3rd-2-350g",
       "protein_subtype": null,
-      "slug_publico": "pow3rd-2-0-350-g-scitec-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 91.14
+      "slug_publico": "pow3rd-2-0-350g-scitec-nutrition",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "amino-energy-zero-360g-biotechusa",
@@ -12374,8 +12374,8 @@
       "spark_min": 107.25
     },
     {
-      "id": "the-curse-250-g-cobra-labs",
-      "nombre_normalizado": "The Curse 250 g",
+      "id": "the-curse-250g-cobra-labs",
+      "nombre_normalizado": "The Curse 250g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Cobra Labs",
@@ -12407,9 +12407,9 @@
       "store_rating_count": 16.0,
       "store_rating_url": "https://www.nutritienda.com/es/cobra-labs/the-curse-250g",
       "protein_subtype": null,
-      "slug_publico": "the-curse-250-g-cobra-labs",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 113.96
+      "slug_publico": "the-curse-250g-cobra-labs",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "scitec-hot-blood-infinity-no-stim-350g-pre-entreno-scitec-nutrition",
@@ -12488,8 +12488,8 @@
       "spark_min": 117.0
     },
     {
-      "id": "hot-blood-infinity-350-g-scitec-nutrition",
-      "nombre_normalizado": "Hot Blood Infinity 350 g",
+      "id": "hot-blood-infinity-350g-scitec-nutrition",
+      "nombre_normalizado": "Hot Blood Infinity 350g",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Scitec Nutrition",
@@ -12521,9 +12521,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "hot-blood-infinity-350-g-scitec-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 118.57
+      "slug_publico": "hot-blood-infinity-350g-scitec-nutrition",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "mutant-madness-potencia-tus-entrenamientos-225g-mutant",
@@ -12950,8 +12950,8 @@
       "spark_min": null
     },
     {
-      "id": "sachet-ripped-pre-workout-ultra-concentrated-12-3-g-x-3-desconocida",
-      "nombre_normalizado": "Sachet RIPPED Pre-Workout Ultra Concentrated 12.3 g x 3",
+      "id": "sachet-ripped-pre-workout-ultra-concentrated-12-3g-x-3-desconocida",
+      "nombre_normalizado": "Sachet RIPPED Pre-Workout Ultra Concentrated 12.3g x 3",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -12988,7 +12988,7 @@
       "store_rating_count": 11.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/3-x-sachet-ripped-pre-workout-ultra-concentrated-12.3-g",
       "protein_subtype": null,
-      "slug_publico": "sachet-ripped-pre-workout-ultra-concentrated-12-3-g-x-3",
+      "slug_publico": "sachet-ripped-pre-workout-ultra-concentrated-12-3g-x-3",
       "spark_svg": "",
       "spark_min": null
     },
@@ -13183,8 +13183,8 @@
       "spark_min": 34.9
     },
     {
-      "id": "x-fat-2-en-1-shot-60-ml-20viales-amix",
-      "nombre_normalizado": "X-Fat 2 En 1 Shot 60 ml 20viales",
+      "id": "x-fat-2-en-1-shot-60ml-20viales-amix",
+      "nombre_normalizado": "X-Fat 2 En 1 Shot 60ml 20viales",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Amix",
@@ -13216,9 +13216,9 @@
       "store_rating_count": 11.0,
       "store_rating_url": "https://www.nutritienda.com/es/amix-nutrition/x-fat-2-in-1-shot",
       "protein_subtype": null,
-      "slug_publico": "x-fat-2-en-1-shot-60-ml-20viales-amix",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 2.09
+      "slug_publico": "x-fat-2-en-1-shot-60ml-20viales-amix",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "musclecore-hell-s-no2-pre-entreno-100-capsulas-100caps-amix",
@@ -13259,8 +13259,8 @@
       "spark_min": 37.0
     },
     {
-      "id": "black-blood-shot-60-ml-20-uds-20ud-biotechusa",
-      "nombre_normalizado": "Black Blood Shot 60 ml 20 Uds 20ud",
+      "id": "black-blood-shot-60ml-20-uds-20ud-biotechusa",
+      "nombre_normalizado": "Black Blood Shot 60ml 20 Uds 20ud",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "BioTechUSA",
@@ -13292,9 +13292,9 @@
       "store_rating_count": 1.0,
       "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/black-blood-shot",
       "protein_subtype": null,
-      "slug_publico": "black-blood-shot-60-ml-20-uds-20ud-biotechusa",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 54.0
+      "slug_publico": "black-blood-shot-60ml-20-uds-20ud-biotechusa",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "amix-guarex-energy-shot-60ml-energia-y-concentracion-20viales-amix",
@@ -13411,8 +13411,8 @@
       "spark_min": null
     },
     {
-      "id": "r-weiler-focus-shot-60-ml-9-viales-9viales-olimp",
-      "nombre_normalizado": "R-Weiler Focus Shot 60 ml 9 Viales 9viales",
+      "id": "r-weiler-focus-shot-60ml-9-viales-9viales-olimp",
+      "nombre_normalizado": "R-Weiler Focus Shot 60ml 9 Viales 9viales",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Olimp",
@@ -13444,13 +13444,13 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "r-weiler-focus-shot-60-ml-9-viales-9viales-olimp",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 41.0
+      "slug_publico": "r-weiler-focus-shot-60ml-9-viales-9viales-olimp",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "gold-standard-pre-workout-energy-shot-12-uds-60-ml-12ud-optimum-nutrition",
-      "nombre_normalizado": "Gold Standard Pre-Workout Energy Shot 12 Uds 60 ml 12ud",
+      "id": "gold-standard-pre-workout-energy-shot-12-uds-60ml-12ud-optimum-nutrition",
+      "nombre_normalizado": "Gold Standard Pre-Workout Energy Shot 12 Uds 60ml 12ud",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Optimum Nutrition",
@@ -13482,9 +13482,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "gold-standard-pre-workout-energy-shot-12-uds-60-ml-12ud",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 30.0
+      "slug_publico": "gold-standard-pre-workout-energy-shot-12-uds-60ml-12ud",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "monster-ultra-red-500ml-1ud-monster-energy",
@@ -13791,8 +13791,8 @@
       "spark_min": 1.75
     },
     {
-      "id": "monster-ultra-paradise-500-ml-500ml-monster-energy",
-      "nombre_normalizado": "Monster Ultra Paradise 500 ml 500ml",
+      "id": "monster-ultra-paradise-500ml-500ml-monster-energy",
+      "nombre_normalizado": "Monster Ultra Paradise 500ml 500ml",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Monster Energy",
@@ -13824,9 +13824,9 @@
       "store_rating_count": 11.0,
       "store_rating_url": "https://www.nutritienda.com/es/monster-energy/monster-energy-ultra-paradise",
       "protein_subtype": null,
-      "slug_publico": "monster-ultra-paradise-500-ml-500ml-monster-energy",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 1.75
+      "slug_publico": "monster-ultra-paradise-500ml-500ml-monster-energy",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "l-carnitina-taurina-liquidas-desconocida",
@@ -14216,8 +14216,8 @@
       "spark_min": 14.99
     },
     {
-      "id": "12-x-big-shot-pre-workout-60-ml-desconocida",
-      "nombre_normalizado": "12 x Big Shot - Pre-Workout 60 mL",
+      "id": "12-x-big-shot-pre-workout-60ml-desconocida",
+      "nombre_normalizado": "12 x Big Shot - Pre-Workout 60mL",
       "categoria": "pre-entreno",
       "categoria_display": "Pre-Entreno",
       "marca": "Prozis",
@@ -14252,9 +14252,9 @@
       "store_rating_count": 6514.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/12-x-big-shot-pre-workout-60-ml",
       "protein_subtype": null,
-      "slug_publico": "12-x-big-shot-pre-workout-60-ml-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.33,28.0 2.67,0.0 4.0,0.0 5.33,0.0 6.67,0.0 8.0,0.0 9.33,0.0 10.67,0.0 12.0,0.0 13.33,0.0 14.67,0.0 16.0,0.0 17.33,0.0 18.67,0.0 20.0,0.0 21.33,0.0 22.67,0.0 24.0,0.0 25.33,0.0 26.67,0.0 28.0,0.0 29.33,0.0 30.67,0.0 32.0,0.0 33.33,0.0 34.67,0.0 36.0,0.0 37.33,0.0 38.67,0.0 40.0,0.0 41.33,0.0 42.67,14.0 44.0,14.0 45.33,14.0 46.67,0.0 48.0,0.0 49.33,0.0 50.67,0.0 52.0,0.0 53.33,0.0 54.67,0.0 56.0,0.0 57.33,0.0 58.67,0.0 60.0,0.0 61.33,0.0 62.67,0.0 64.0,0.0 65.33,0.0 66.67,0.0 68.0,14.0 69.33,14.0 70.67,14.0 72.0,0.0 73.33,0.0 74.67,0.0 76.0,0.0 77.33,0.0 78.67,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 15.99
+      "slug_publico": "12-x-big-shot-pre-workout-60ml-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "powa-3-0-pre-workout-20-servings-desconocida",
@@ -17047,8 +17047,8 @@
       "spark_min": 21.23
     },
     {
-      "id": "porridge-de-arroz-proteico-720-g-desconocida",
-      "nombre_normalizado": "Porridge de Arroz Proteico 720 g",
+      "id": "porridge-de-arroz-proteico-720g-desconocida",
+      "nombre_normalizado": "Porridge de Arroz Proteico 720g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -17087,13 +17087,13 @@
       "store_rating_count": 4.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/porridge-de-arroz-proteico-720-g",
       "protein_subtype": null,
-      "slug_publico": "porridge-de-arroz-proteico-720-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 16.0,0.0 32.0,0.0 48.0,0.0 64.0,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 24.43
+      "slug_publico": "porridge-de-arroz-proteico-720g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "batido-sustitutivo-de-comida-army-800-g-desconocida",
-      "nombre_normalizado": "Batido Sustitutivo de Comida Army 800 g",
+      "id": "batido-sustitutivo-de-comida-army-800g-desconocida",
+      "nombre_normalizado": "Batido Sustitutivo de Comida Army 800g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -17130,9 +17130,9 @@
       "store_rating_count": 961.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/batido-sustitutivo-de-comida-army-800-g",
       "protein_subtype": null,
-      "slug_publico": "batido-sustitutivo-de-comida-army-800-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,0.0 5.22,0.0 6.96,0.0 8.7,0.0 10.43,0.0 12.17,0.0 13.91,0.0 15.65,0.0 17.39,10.02 19.13,10.02 20.87,10.02 22.61,10.02 24.35,10.02 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,0.0 48.7,0.0 50.43,0.0 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,20.0 66.09,20.0 67.83,20.0 69.57,0.0 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,20.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"20.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 22.49
+      "slug_publico": "batido-sustitutivo-de-comida-army-800g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "evopro-mezcla-proteinas-premium-digezyme-2kg-desconocida",
@@ -17340,8 +17340,8 @@
       "spark_min": 25.91
     },
     {
-      "id": "sustituto-de-comida-800-g-desconocida",
-      "nombre_normalizado": "Sustituto de Comida 800 g",
+      "id": "sustituto-de-comida-800g-desconocida",
+      "nombre_normalizado": "Sustituto de Comida 800g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -17378,9 +17378,9 @@
       "store_rating_count": 304.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sustituto-de-comida-800-g",
       "protein_subtype": null,
-      "slug_publico": "sustituto-de-comida-800-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,0.0 5.22,0.0 6.96,0.0 8.7,0.0 10.43,0.0 12.17,0.0 13.91,0.0 15.65,0.0 17.39,10.02 19.13,10.02 20.87,10.02 22.61,10.02 24.35,10.02 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,0.0 48.7,0.0 50.43,0.0 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,10.02 66.09,10.02 67.83,10.02 69.57,0.0 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,10.02\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"10.02\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 22.49
+      "slug_publico": "sustituto-de-comida-800g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "golden-protein-2kg-desconocida",
@@ -17573,8 +17573,8 @@
       "spark_min": 29.0
     },
     {
-      "id": "whey-fibre-700-g-desconocida",
-      "nombre_normalizado": "Whey + Fibre 700 g",
+      "id": "whey-fibre-700g-desconocida",
+      "nombre_normalizado": "Whey + Fibre 700g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -17608,9 +17608,9 @@
       "store_rating_count": 1088.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/whey-fibre-700-g",
       "protein_subtype": null,
-      "slug_publico": "whey-fibre-700-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 2.42,28.0 4.85,0.0 7.27,0.0 9.7,0.0 12.12,0.0 14.55,0.0 16.97,0.0 19.39,0.0 21.82,0.0 24.24,0.0 26.67,0.0 29.09,0.0 31.52,0.0 33.94,0.0 36.36,0.0 38.79,0.0 41.21,0.0 43.64,0.0 46.06,0.0 48.48,0.0 50.91,0.0 53.33,0.0 55.76,0.0 58.18,21.01 60.61,21.01 63.03,21.01 65.45,0.0 67.88,0.0 70.3,0.0 72.73,0.0 75.15,0.0 77.58,0.0 80.0,13.98\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"13.98\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 26.27
+      "slug_publico": "whey-fibre-700g-prozis",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 6.15,28.0 12.31,16.81 18.46,16.81 24.62,16.81 30.77,16.81 36.92,16.81 43.08,16.81 49.23,16.81 55.38,16.81 61.54,14.33 67.69,14.33 73.85,14.33 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_min": 23.13
     },
     {
       "id": "huevo-entero-en-polvo-500g-desconocida",
@@ -17734,8 +17734,8 @@
       "spark_min": 30.94
     },
     {
-      "id": "100-whey-prime-1000-g-desconocida",
-      "nombre_normalizado": "100% Whey Prime 1000 g",
+      "id": "100-whey-prime-1000g-desconocida",
+      "nombre_normalizado": "100% Whey Prime 1000g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -17781,9 +17781,9 @@
       "store_rating_count": 47934.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-prime-1000-g",
       "protein_subtype": null,
-      "slug_publico": "100-whey-prime-1000-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,20.16 1.74,20.16 3.48,-0.0 5.22,-0.0 6.96,-0.0 8.7,-0.0 10.43,-0.0 12.17,-0.0 13.91,-0.0 15.65,-0.0 17.39,28.0 19.13,28.0 20.87,28.0 22.61,28.0 24.35,28.0 26.09,28.0 27.83,28.0 29.57,28.0 31.3,28.0 33.04,28.0 34.78,28.0 36.52,28.0 38.26,28.0 40.0,28.0 41.74,28.0 43.48,28.0 45.22,28.0 46.96,28.0 48.7,28.0 50.43,28.0 52.17,28.0 53.91,28.0 55.65,28.0 57.39,28.0 59.13,28.0 60.87,28.0 62.61,28.0 64.35,28.0 66.09,28.0 67.83,28.0 69.57,28.0 71.3,28.0 73.04,28.0 74.78,28.0 76.52,28.0 78.26,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 30.99
+      "slug_publico": "100-whey-prime-1000g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "hidrolyzed-whey-protein-990g-hivital-foods",
@@ -18026,8 +18026,8 @@
       "spark_min": 33.0
     },
     {
-      "id": "whey-protein-fusion-900-g-desconocida",
-      "nombre_normalizado": "Whey Protein Fusion 900 g",
+      "id": "whey-protein-fusion-900g-desconocida",
+      "nombre_normalizado": "Whey Protein Fusion 900g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -18063,9 +18063,9 @@
       "store_rating_count": 8061.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/whey-protein-fusion-900-g",
       "protein_subtype": null,
-      "slug_publico": "whey-protein-fusion-900-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 13.33,0.0 26.67,0.0 40.0,0.0 53.33,0.0 66.67,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 33.04
+      "slug_publico": "whey-protein-fusion-900g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "proteina-de-colageno-en-polvo-3-15kg-desconocida",
@@ -18148,8 +18148,8 @@
       "spark_min": 33.33
     },
     {
-      "id": "scitec-whey-infusion-2-kg-premium-scitec-nutrition",
-      "nombre_normalizado": "Scitec Whey Infusion 2 kg | Premium",
+      "id": "scitec-whey-infusion-2kg-premium-scitec-nutrition",
+      "nombre_normalizado": "Scitec Whey Infusion 2kg | Premium",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Scitec Nutrition",
@@ -18181,9 +18181,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "scitec-whey-infusion-2-kg-premium-scitec-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 20.0,28.0 40.0,28.0 60.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 33.45
+      "slug_publico": "scitec-whey-infusion-2kg-premium-scitec-nutrition",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "bigman-iso-hydro-1000g-aislado-y-colageno-bigman",
@@ -18384,8 +18384,8 @@
       "spark_min": 29.65
     },
     {
-      "id": "hydro-protein-professional-2-kg-proteina-premium-beverly-nutrition",
-      "nombre_normalizado": "Hydro Protein Professional 2 kg - Proteína Premium",
+      "id": "hydro-protein-professional-2kg-proteina-premium-beverly-nutrition",
+      "nombre_normalizado": "Hydro Protein Professional 2kg - Proteína Premium",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Beverly Nutrition",
@@ -18417,9 +18417,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "hydro-protein-professional-2-kg-proteina-premium-beverly",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 40.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 34.85
+      "slug_publico": "hydro-protein-professional-2kg-proteina-premium-beverly",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "mega-protein-whey-5-vainilla-900g-nutrisport",
@@ -19783,8 +19783,8 @@
       "spark_min": 42.49
     },
     {
-      "id": "only-whey-zero-2-kg-big",
-      "nombre_normalizado": "Only Whey Zero 2 Kg",
+      "id": "only-whey-zero-2kg-big",
+      "nombre_normalizado": "Only Whey Zero 2Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Big",
@@ -19816,9 +19816,9 @@
       "store_rating_count": 38.0,
       "store_rating_url": "https://www.nutritienda.com/es/big/only-whey-zero",
       "protein_subtype": null,
-      "slug_publico": "only-whey-zero-2-kg-big",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 42.75
+      "slug_publico": "only-whey-zero-2kg-big",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "the-whey-2-1kg-desconocida",
@@ -20030,8 +20030,8 @@
       "spark_min": 27.99
     },
     {
-      "id": "isolate-cfm-zero-1-kg-vitobest",
-      "nombre_normalizado": "Isolate CFM Zero 1 Kg",
+      "id": "isolate-cfm-zero-1kg-vitobest",
+      "nombre_normalizado": "Isolate CFM Zero 1Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Vitobest",
@@ -20063,9 +20063,9 @@
       "store_rating_count": 7.0,
       "store_rating_url": "https://www.nutritienda.com/es/vitobest/isolate-cfm-zero",
       "protein_subtype": null,
-      "slug_publico": "isolate-cfm-zero-1-kg-vitobest",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 10.0,0.0 20.0,25.01 30.0,25.01 40.0,25.01 50.0,0.0 60.0,25.01 70.0,25.01 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 44.12
+      "slug_publico": "isolate-cfm-zero-1kg-vitobest",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "hydrolyzed-zero-professional-2000g-beverly-nutrition",
@@ -20815,8 +20815,8 @@
       "spark_min": 48.47
     },
     {
-      "id": "whey-protein-100-1-kg-vitobest",
-      "nombre_normalizado": "Whey Protein 100% 1 Kg",
+      "id": "whey-protein-100-1kg-vitobest",
+      "nombre_normalizado": "Whey Protein 100% 1Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Vitobest",
@@ -20848,13 +20848,13 @@
       "store_rating_count": 2.0,
       "store_rating_url": "https://www.nutritienda.com/es/vitobest/whey-protein-100",
       "protein_subtype": null,
-      "slug_publico": "whey-protein-100-1-kg-vitobest",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 10.0,28.0 20.0,28.0 30.0,28.0 40.0,28.0 50.0,28.0 60.0,28.0 70.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 48.6
+      "slug_publico": "whey-protein-100-1kg-vitobest",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "whey-protein-100-sabor-neutro-1-kg-vitobest",
-      "nombre_normalizado": "Whey Protein 100% Sabor Neutro 1 Kg",
+      "id": "whey-protein-100-sabor-neutro-1kg-vitobest",
+      "nombre_normalizado": "Whey Protein 100% Sabor Neutro 1Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Vitobest",
@@ -20886,9 +20886,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "whey-protein-100-sabor-neutro-1-kg-vitobest",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 48.6
+      "slug_publico": "whey-protein-100-sabor-neutro-1kg-vitobest",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "real-whey-hydro-collagen-400g-desconocida",
@@ -21331,8 +21331,8 @@
       "spark_min": 50.0
     },
     {
-      "id": "isolat-competition-1-kg-mega-plus",
-      "nombre_normalizado": "Isolat Competition 1 Kg",
+      "id": "isolat-competition-1kg-mega-plus",
+      "nombre_normalizado": "Isolat Competition 1Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Mega Plus",
@@ -21364,9 +21364,9 @@
       "store_rating_count": 5.0,
       "store_rating_url": "https://www.nutritienda.com/es/mega-plus/isolat-competition",
       "protein_subtype": null,
-      "slug_publico": "isolat-competition-1-kg-mega-plus",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 50.32
+      "slug_publico": "isolat-competition-1kg-mega-plus",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "panacea-750g-paleobull",
@@ -21493,8 +21493,8 @@
       "spark_min": 31.75
     },
     {
-      "id": "zero-diet-whey-1500-g-desconocida",
-      "nombre_normalizado": "Zero Diet Whey 1500 g",
+      "id": "zero-diet-whey-1500g-desconocida",
+      "nombre_normalizado": "Zero Diet Whey 1500g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -21532,9 +21532,9 @@
       "store_rating_count": 2250.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-diet-whey-1500-g",
       "protein_subtype": null,
-      "slug_publico": "zero-diet-whey-1500-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,21.12 5.22,14.78 6.96,14.78 8.7,14.78 10.43,14.78 12.17,14.78 13.91,14.78 15.65,14.78 17.39,8.98 19.13,8.98 20.87,8.98 22.61,8.98 24.35,8.98 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,0.0 48.7,0.0 50.43,0.0 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,8.98 66.09,8.98 67.83,8.98 69.57,0.0 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,8.98\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"8.98\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 38.99
+      "slug_publico": "zero-diet-whey-1500g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "100-whey-protein-professional-500g-scitec-nutrition",
@@ -21656,8 +21656,8 @@
       "spark_min": 51.65
     },
     {
-      "id": "whey-protein-freakin-good-400-g-desconocida",
-      "nombre_normalizado": "Whey Protein - Freakin Good 400 g",
+      "id": "whey-protein-freakin-good-400g-desconocida",
+      "nombre_normalizado": "Whey Protein - Freakin Good 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -21692,9 +21692,9 @@
       "store_rating_count": 2953.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/whey-protein-freakin-good-400-g",
       "protein_subtype": null,
-      "slug_publico": "whey-protein-freakin-good-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,21.82 5.22,14.55 6.96,14.55 8.7,14.55 10.43,14.55 12.17,14.55 13.91,14.55 15.65,14.55 17.39,0.0 19.13,0.0 20.87,0.0 22.61,0.0 24.35,0.0 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,0.0 48.7,0.0 50.43,0.0 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,8.35 66.09,8.35 67.83,8.35 69.57,0.0 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,8.35\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"8.35\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 38.22
+      "slug_publico": "whey-protein-freakin-good-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "supreme-whey-protein-400g-desconocida",
@@ -21984,8 +21984,8 @@
       "spark_min": 54.87
     },
     {
-      "id": "isolate-cfm-lacprodan-1-kg-beverly-nutrition",
-      "nombre_normalizado": "Isolate CFM Lacprodan 1 Kg",
+      "id": "isolate-cfm-lacprodan-1kg-beverly-nutrition",
+      "nombre_normalizado": "Isolate CFM Lacprodan 1Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Beverly Nutrition",
@@ -22017,13 +22017,13 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "isolate-cfm-lacprodan-1-kg-beverly-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 55.2
+      "slug_publico": "isolate-cfm-lacprodan-1kg-beverly-nutrition",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "whey-protein-bolsa-1-kg-life-pro-nutrition",
-      "nombre_normalizado": "Whey Protein (Bolsa) 1 Kg",
+      "id": "whey-protein-bolsa-1kg-life-pro-nutrition",
+      "nombre_normalizado": "Whey Protein (Bolsa) 1Kg",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Life Pro Nutrition",
@@ -22055,13 +22055,13 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "whey-protein-bolsa-1-kg-life-pro-nutrition",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 55.9
+      "slug_publico": "whey-protein-bolsa-1kg-life-pro-nutrition",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "capuchino-proteico-con-cafeina-extra-400-g-desconocida",
-      "nombre_normalizado": "Capuchino Proteico - Con Cafeína Extra 400 g",
+      "id": "capuchino-proteico-con-cafeina-extra-400g-desconocida",
+      "nombre_normalizado": "Capuchino Proteico - Con Cafeína Extra 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22093,13 +22093,13 @@
       "store_rating_count": 1078.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/capuchino-proteico-con-cafeina-extra-400-g",
       "protein_subtype": null,
-      "slug_publico": "capuchino-proteico-con-cafeina-extra-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,0.0 26.67,0.0 40.0,0.0 53.33,0.0 66.67,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 55.98
+      "slug_publico": "capuchino-proteico-con-cafeina-extra-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "latte-de-caramelo-proteico-con-cafeina-extra-400-g-desconocida",
-      "nombre_normalizado": "Latte de Caramelo Proteico - Con Cafeína Extra 400 g",
+      "id": "latte-de-caramelo-proteico-con-cafeina-extra-400g-desconocida",
+      "nombre_normalizado": "Latte de Caramelo Proteico - Con Cafeína Extra 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22131,13 +22131,13 @@
       "store_rating_count": 1176.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-con-cafeina-extra-400-g",
       "protein_subtype": null,
-      "slug_publico": "latte-de-caramelo-proteico-con-cafeina-extra-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,0.0 26.67,0.0 40.0,0.0 53.33,0.0 66.67,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 55.98
+      "slug_publico": "latte-de-caramelo-proteico-con-cafeina-extra-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "latte-proteico-400-g-desconocida",
-      "nombre_normalizado": "Latte Proteico 400 g",
+      "id": "latte-proteico-400g-desconocida",
+      "nombre_normalizado": "Latte Proteico 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22169,13 +22169,13 @@
       "store_rating_count": 230.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-proteico-400-g",
       "protein_subtype": null,
-      "slug_publico": "latte-proteico-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,18.99 5.22,11.87 6.96,11.87 8.7,11.87 10.43,11.87 12.17,11.87 13.91,11.87 15.65,11.87 17.39,0.0 19.13,0.0 20.87,0.0 22.61,0.0 24.35,0.0 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,13.28 48.7,13.28 50.43,13.28 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,13.28 66.09,13.28 67.83,13.28 69.57,13.28 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,13.28\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"13.28\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 40.48
+      "slug_publico": "latte-proteico-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "mocachino-proteico-400-g-desconocida",
-      "nombre_normalizado": "Mocachino Proteico 400 g",
+      "id": "mocachino-proteico-400g-desconocida",
+      "nombre_normalizado": "Mocachino Proteico 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22207,9 +22207,9 @@
       "store_rating_count": 420.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/mocachino-proteico-400-g",
       "protein_subtype": null,
-      "slug_publico": "mocachino-proteico-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,18.99 5.22,11.87 6.96,11.87 8.7,11.87 10.43,11.87 12.17,11.87 13.91,11.87 15.65,11.87 17.39,0.0 19.13,0.0 20.87,0.0 22.61,0.0 24.35,0.0 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,13.28 48.7,13.28 50.43,13.28 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,13.28 66.09,13.28 67.83,13.28 69.57,13.28 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,13.28\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"13.28\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 40.48
+      "slug_publico": "mocachino-proteico-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "muscletech-iso-whey-proteina-aislada-premium-907g-muscletech",
@@ -22250,8 +22250,8 @@
       "spark_min": 56.22
     },
     {
-      "id": "100-real-whey-protein-400-g-desconocida",
-      "nombre_normalizado": "100% Real Whey Protein 400 g",
+      "id": "100-real-whey-protein-400g-desconocida",
+      "nombre_normalizado": "100% Real Whey Protein 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22303,13 +22303,13 @@
       "store_rating_count": 36210.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-400-g",
       "protein_subtype": null,
-      "slug_publico": "100-real-whey-protein-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,28.0 5.22,20.0 6.96,20.0 8.7,20.0 10.43,20.0 12.17,20.0 13.91,20.0 15.65,20.0 17.39,0.0 19.13,0.0 20.87,0.0 22.61,0.0 24.35,0.0 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,0.0 48.7,0.0 50.43,0.0 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,10.0 66.09,10.0 67.83,10.0 69.57,0.0 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,10.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"10.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 44.97
+      "slug_publico": "100-real-whey-protein-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "isolate-whey-100-cfm-908-g-de-weider-weider",
-      "nombre_normalizado": "Isolate Whey 100 Cfm 908 g de Weider",
+      "id": "isolate-whey-100-cfm-908g-de-weider-weider",
+      "nombre_normalizado": "Isolate Whey 100 Cfm 908g de Weider",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Weider",
@@ -22341,9 +22341,9 @@
       "store_rating_count": 30.0,
       "store_rating_url": "https://www.nutritienda.com/es/weider/isolate-whey-100-cfm",
       "protein_subtype": null,
-      "slug_publico": "isolate-whey-100-cfm-908-g-de-weider",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,28.0 32.0,28.0 48.0,28.0 64.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 56.49
+      "slug_publico": "isolate-whey-100-cfm-908g-de-weider",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "gold-nutrition-creatina-whey-fuerza-y-recuperacion-900g-gold-nutrition",
@@ -22501,8 +22501,8 @@
       "spark_min": 59.0
     },
     {
-      "id": "latte-de-avellana-proteico-400-g-desconocida",
-      "nombre_normalizado": "Latte de Avellana Proteico 400 g",
+      "id": "latte-de-avellana-proteico-400g-desconocida",
+      "nombre_normalizado": "Latte de Avellana Proteico 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22534,13 +22534,13 @@
       "store_rating_count": 563.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-de-avellana-proteico-400-g",
       "protein_subtype": null,
-      "slug_publico": "latte-de-avellana-proteico-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,18.99 5.22,11.87 6.96,11.87 8.7,11.87 10.43,11.87 12.17,11.87 13.91,11.87 15.65,11.87 17.39,0.0 19.13,0.0 20.87,0.0 22.61,0.0 24.35,0.0 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,13.28 48.7,13.28 50.43,13.28 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,13.28 66.09,13.28 67.83,13.28 69.57,13.28 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,9.97\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"9.97\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 40.48
+      "slug_publico": "latte-de-avellana-proteico-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "zero-diet-whey-750-g-desconocida",
-      "nombre_normalizado": "Zero Diet Whey 750 g",
+      "id": "zero-diet-whey-750g-desconocida",
+      "nombre_normalizado": "Zero Diet Whey 750g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22578,13 +22578,13 @@
       "store_rating_count": 6171.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-diet-whey-750-g",
       "protein_subtype": null,
-      "slug_publico": "zero-diet-whey-750-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,21.27 5.22,14.17 6.96,14.17 8.7,14.17 10.43,14.17 12.17,14.17 13.91,14.17 15.65,14.17 17.39,8.85 19.13,8.85 20.87,8.85 22.61,8.85 24.35,8.85 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,0.0 48.7,0.0 50.43,0.0 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,13.3 66.09,13.3 67.83,13.3 69.57,0.0 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,8.85\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"8.85\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 45.59
+      "slug_publico": "zero-diet-whey-750g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "100-whey-prime-creatine-400-g-desconocida",
-      "nombre_normalizado": "100% Whey Prime + Creatine 400 g",
+      "id": "100-whey-prime-creatine-400g-desconocida",
+      "nombre_normalizado": "100% Whey Prime + Creatine 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22630,8 +22630,8 @@
       "store_rating_count": 47934.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-400-g",
       "protein_subtype": null,
-      "slug_publico": "100-whey-prime-creatine-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 11.43,0.0 22.86,0.0 34.29,0.0 45.71,0.0 57.14,0.0 68.57,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "slug_publico": "100-whey-prime-creatine-400g-prozis",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 26.67,28.0 53.33,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 60.72
     },
     {
@@ -22749,8 +22749,8 @@
       "spark_min": 62.27
     },
     {
-      "id": "capuchino-proteico-400-g-desconocida",
-      "nombre_normalizado": "Capuchino Proteico 400 g",
+      "id": "capuchino-proteico-400g-desconocida",
+      "nombre_normalizado": "Capuchino Proteico 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22782,13 +22782,13 @@
       "store_rating_count": 1099.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/capuchino-proteico-400-g",
       "protein_subtype": null,
-      "slug_publico": "capuchino-proteico-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,18.99 5.22,11.87 6.96,11.87 8.7,11.87 10.43,11.87 12.17,11.87 13.91,11.87 15.65,11.87 17.39,0.0 19.13,0.0 20.87,0.0 22.61,0.0 24.35,0.0 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,9.97 48.7,9.97 50.43,9.97 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,19.94 66.09,19.94 67.83,19.94 69.57,19.94 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,6.64\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"6.64\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 40.48
+      "slug_publico": "capuchino-proteico-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "latte-de-caramelo-proteico-400-g-desconocida",
-      "nombre_normalizado": "Latte de Caramelo Proteico 400 g",
+      "id": "latte-de-caramelo-proteico-400g-desconocida",
+      "nombre_normalizado": "Latte de Caramelo Proteico 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22820,13 +22820,13 @@
       "store_rating_count": 1258.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-400-g",
       "protein_subtype": null,
-      "slug_publico": "latte-de-caramelo-proteico-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,18.99 5.22,11.87 6.96,11.87 8.7,11.87 10.43,11.87 12.17,11.87 13.91,11.87 15.65,11.87 17.39,0.0 19.13,0.0 20.87,0.0 22.61,0.0 24.35,0.0 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,9.97 48.7,9.97 50.43,9.97 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,19.94 66.09,19.94 67.83,19.94 69.57,19.94 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,6.64\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"6.64\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 40.48
+      "slug_publico": "latte-de-caramelo-proteico-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "latte-de-avellana-proteico-con-cafeina-extra-400-g-desconocida",
-      "nombre_normalizado": "Latte de Avellana Proteico - Con Cafeína Extra 400 g",
+      "id": "latte-de-avellana-proteico-con-cafeina-extra-400g-desconocida",
+      "nombre_normalizado": "Latte de Avellana Proteico - Con Cafeína Extra 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22858,13 +22858,13 @@
       "store_rating_count": 625.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-de-avellana-proteico-con-cafeina-extra-400-g",
       "protein_subtype": null,
-      "slug_publico": "latte-de-avellana-proteico-con-cafeina-extra-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,0.0 26.67,0.0 40.0,0.0 53.33,0.0 66.67,0.0 80.0,13.99\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"13.99\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 55.98
+      "slug_publico": "latte-de-avellana-proteico-con-cafeina-extra-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "mocachino-proteico-con-cafeina-extra-400-g-desconocida",
-      "nombre_normalizado": "Mocachino Proteico - Con Cafeína Extra 400 g",
+      "id": "mocachino-proteico-con-cafeina-extra-400g-desconocida",
+      "nombre_normalizado": "Mocachino Proteico - Con Cafeína Extra 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -22896,9 +22896,9 @@
       "store_rating_count": 596.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/mocachino-proteico-con-cafeina-extra-400-g",
       "protein_subtype": null,
-      "slug_publico": "mocachino-proteico-con-cafeina-extra-400-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,0.0 26.67,0.0 40.0,0.0 53.33,0.0 66.67,0.0 80.0,13.99\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"13.99\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 55.98
+      "slug_publico": "mocachino-proteico-con-cafeina-extra-400g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "whey-isolate-1000g-best-protein",
@@ -23015,8 +23015,8 @@
       "spark_min": 65.71
     },
     {
-      "id": "platinum-hydro-whey-1-5-kg-optimum-nutrition-nutritienda-optimum-nutrition",
-      "nombre_normalizado": "Platinum Hydro Whey 1,5 Kg ▸ Optimum Nutrition | Nutritienda",
+      "id": "platinum-hydro-whey-1-5kg-optimum-nutrition-nutritienda-optimum-nutrition",
+      "nombre_normalizado": "Platinum Hydro Whey 1,5Kg ▸ Optimum Nutrition | Nutritienda",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Optimum Nutrition",
@@ -23048,9 +23048,9 @@
       "store_rating_count": 163.0,
       "store_rating_url": "https://www.nutritienda.com/es/platinum-hydro-whey-1500g",
       "protein_subtype": null,
-      "slug_publico": "platinum-hydro-whey-1-5-kg-optimum-nutrition-nutritienda",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 16.0,0.0 32.0,0.0 48.0,0.0 64.0,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 63.33
+      "slug_publico": "platinum-hydro-whey-1-5kg-optimum-nutrition-nutritienda",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "clear-iso-zero-750g-big",
@@ -23285,8 +23285,8 @@
       "spark_min": 49.6
     },
     {
-      "id": "natural-real-whey-isolate-1814-g-desconocida",
-      "nombre_normalizado": "Natural Real Whey Isolate 1814 g",
+      "id": "natural-real-whey-isolate-1814g-desconocida",
+      "nombre_normalizado": "Natural Real Whey Isolate 1814g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -23322,9 +23322,9 @@
       "store_rating_count": 2460.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-1814-g",
       "protein_subtype": null,
-      "slug_publico": "natural-real-whey-isolate-1814-g-prozis",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.74,28.0 3.48,23.76 5.22,17.7 6.96,17.7 8.7,17.7 10.43,17.7 12.17,17.7 13.91,17.7 15.65,17.7 17.39,0.0 19.13,0.0 20.87,0.0 22.61,0.0 24.35,0.0 26.09,0.0 27.83,0.0 29.57,0.0 31.3,0.0 33.04,0.0 34.78,0.0 36.52,0.0 38.26,0.0 40.0,0.0 41.74,0.0 43.48,0.0 45.22,0.0 46.96,0.0 48.7,0.0 50.43,0.0 52.17,0.0 53.91,0.0 55.65,0.0 57.39,0.0 59.13,0.0 60.87,0.0 62.61,0.0 64.35,6.62 66.09,6.62 67.83,6.62 69.57,0.0 71.3,0.0 73.04,0.0 74.78,0.0 76.52,0.0 78.26,0.0 80.0,6.62\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"6.62\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 45.14
+      "slug_publico": "natural-real-whey-isolate-1814g-prozis",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "100-whey-hydro-isolate-clear-700g-desconocida",
@@ -23371,8 +23371,8 @@
       "spark_min": 53.99
     },
     {
-      "id": "iso-whey-zero-450-g-biotechusa",
-      "nombre_normalizado": "Iso Whey Zero 450 g",
+      "id": "iso-whey-zero-450g-biotechusa",
+      "nombre_normalizado": "Iso Whey Zero 450g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "BioTechUSA",
@@ -23404,8 +23404,8 @@
       "store_rating_count": 336.0,
       "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero",
       "protein_subtype": null,
-      "slug_publico": "iso-whey-zero-450-g-biotechusa",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "slug_publico": "iso-whey-zero-450g-biotechusa",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.67,28.0 3.33,28.0 5.0,28.0 6.67,28.0 8.33,28.0 10.0,28.0 11.67,28.0 13.33,28.0 15.0,28.0 16.67,28.0 18.33,28.0 20.0,28.0 21.67,28.0 23.33,28.0 25.0,28.0 26.67,28.0 28.33,28.0 30.0,28.0 31.67,28.0 33.33,28.0 35.0,28.0 36.67,28.0 38.33,28.0 40.0,28.0 41.67,28.0 43.33,28.0 45.0,28.0 46.67,28.0 48.33,28.0 50.0,28.0 51.67,28.0 53.33,28.0 55.0,28.0 56.67,28.0 58.33,28.0 60.0,28.0 61.67,28.0 63.33,28.0 65.0,28.0 66.67,28.0 68.33,28.0 70.0,28.0 71.67,28.0 73.33,28.0 75.0,28.0 76.67,28.0 78.33,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 70.89
     },
     {
@@ -24039,8 +24039,8 @@
       "spark_min": null
     },
     {
-      "id": "sachet-100-real-whey-protein-silkwhey-30-g-x-3-desconocida",
-      "nombre_normalizado": "Sachet 100 % Real Whey Protein - SilkWhey 30 g x 3",
+      "id": "sachet-100-real-whey-protein-silkwhey-30g-x-3-desconocida",
+      "nombre_normalizado": "Sachet 100 % Real Whey Protein - SilkWhey 30g x 3",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Prozis",
@@ -24092,7 +24092,7 @@
       "store_rating_count": 52.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/3-x-sachet-100-real-whey-protein-silkwhey-30-g",
       "protein_subtype": null,
-      "slug_publico": "sachet-100-real-whey-protein-silkwhey-30-g-x-3-prozis",
+      "slug_publico": "sachet-100-real-whey-protein-silkwhey-30g-x-3-prozis",
       "spark_svg": "",
       "spark_min": null
     },
@@ -24138,8 +24138,8 @@
       "spark_min": null
     },
     {
-      "id": "pack-regalo-predator-protein-2-kg-osteo-anagenesis-30-caps-amix",
-      "nombre_normalizado": "Pack Regalo Predator Protein 2 Kg + Osteo Anagenesis 30 Caps",
+      "id": "pack-regalo-predator-protein-2kg-osteo-anagenesis-30-caps-amix",
+      "nombre_normalizado": "Pack Regalo Predator Protein 2Kg + Osteo Anagenesis 30 Caps",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Amix",
@@ -24171,9 +24171,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "pack-regalo-predator-protein-2-kg-osteo-anagenesis-30-caps",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 10.0,0.0 20.0,0.0 30.0,28.0 40.0,0.0 50.0,0.0 60.0,0.0 70.0,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 37.45
+      "slug_publico": "pack-regalo-predator-protein-2kg-osteo-anagenesis-30-caps",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "pack-amix-whey-pure-fusion-2-3kg-multimega-proteina-amix",
@@ -24252,8 +24252,8 @@
       "spark_min": 59.98
     },
     {
-      "id": "pack-regalo-isoprime-cfm-2-kg-creatina-monohidrato-30-caps-proteina-premium-amix",
-      "nombre_normalizado": "Pack Regalo IsoPrime CFM 2 Kg + Creatina Monohidrato 30 Caps - Proteína Premium",
+      "id": "pack-regalo-isoprime-cfm-2kg-creatina-monohidrato-30-caps-proteina-premium-amix",
+      "nombre_normalizado": "Pack Regalo IsoPrime CFM 2Kg + Creatina Monohidrato 30 Caps - Proteína Premium",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Amix",
@@ -24285,13 +24285,13 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "pack-regalo-isoprime-cfm-2-kg-creatina-monohidrato-30-caps",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 66.45
+      "slug_publico": "pack-regalo-isoprime-cfm-2kg-creatina-monohidrato-30-caps",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "pack-regalo-isoprime-cfm-2-kg-daily-one-30-caps-oferta-especial-amix",
-      "nombre_normalizado": "Pack Regalo IsoPrime CFM 2 Kg + Daily One  30 caps | Oferta Especial",
+      "id": "pack-regalo-isoprime-cfm-2kg-daily-one-30-caps-oferta-especial-amix",
+      "nombre_normalizado": "Pack Regalo IsoPrime CFM 2Kg + Daily One  30 caps | Oferta Especial",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Amix",
@@ -24323,13 +24323,13 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "pack-regalo-isoprime-cfm-2-kg-daily-one-30-caps-oferta",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 66.45
+      "slug_publico": "pack-regalo-isoprime-cfm-2kg-daily-one-30-caps-oferta",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "pack-regalo-cfm-nitro-isolate-2-kg-detonatrol-30-caps-amix",
-      "nombre_normalizado": "Pack Regalo CFM Nitro Isolate 2 Kg + Detonatrol 30 Caps",
+      "id": "pack-regalo-cfm-nitro-isolate-2kg-detonatrol-30-caps-amix",
+      "nombre_normalizado": "Pack Regalo CFM Nitro Isolate 2Kg + Detonatrol 30 Caps",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Amix",
@@ -24361,13 +24361,13 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "pack-regalo-cfm-nitro-isolate-2-kg-detonatrol-30-caps-amix",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 67.45
+      "slug_publico": "pack-regalo-cfm-nitro-isolate-2kg-detonatrol-30-caps-amix",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
-      "id": "pack-regalo-black-cfm-isolate-2-kg-multimega-30-caps-proteina-amix",
-      "nombre_normalizado": "Pack Regalo Black CFM Isolate 2 Kg + Multimega 30 Caps | Proteína",
+      "id": "pack-regalo-black-cfm-isolate-2kg-multimega-30-caps-proteina-amix",
+      "nombre_normalizado": "Pack Regalo Black CFM Isolate 2Kg + Multimega 30 Caps | Proteína",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Amix",
@@ -24399,9 +24399,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "pack-regalo-black-cfm-isolate-2-kg-multimega-30-caps",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 67.45
+      "slug_publico": "pack-regalo-black-cfm-isolate-2kg-multimega-30-caps-proteina",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "amix-pack-black-cfm-isolate-2kg-creatina-proteina-amix",
@@ -24442,8 +24442,8 @@
       "spark_min": 67.45
     },
     {
-      "id": "pack-regalo-cfm-nitro-isolate-2-kg-triptofano-30-caps-amix",
-      "nombre_normalizado": "Pack Regalo Cfm Nitro Isolate 2 Kg + Triptofano 30 Caps",
+      "id": "pack-regalo-cfm-nitro-isolate-2kg-triptofano-30-caps-amix",
+      "nombre_normalizado": "Pack Regalo Cfm Nitro Isolate 2Kg + Triptofano 30 Caps",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
       "marca": "Amix",
@@ -24475,9 +24475,9 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "pack-regalo-cfm-nitro-isolate-2-kg-triptofano-30-caps-amix",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 74.95
+      "slug_publico": "pack-regalo-cfm-nitro-isolate-2kg-triptofano-30-caps-amix",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "optimum-nutrition-pack-batidora-opti-lock-whey-oferta-300g-optimum-nutrition",
