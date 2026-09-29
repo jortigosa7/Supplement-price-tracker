@@ -379,16 +379,22 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
 
         if match_grupo is not None:
             match_grupo["precios"].append(entrada_precio)
-            # Si el grupo no tiene marca resuelta, actualizar con la del producto actual
+            # Si el grupo no tiene marca resuelta, actualizar con la del producto actual.
+            # Fallback a marca_raw: si extraer_marca_normalizada no reconoce la marca
+            # (p.ej. "Vplab Nutrition" no está en MARCAS_NORM), usar la cadena original
+            # para que el grupo no quede con "Desconocida" por orden de procesado.
             if not match_grupo["marca"] or match_grupo["marca"] == "Desconocida":
-                marca_nueva = extraer_marca_normalizada(nombre, marca_raw)
+                marca_nueva = extraer_marca_normalizada(nombre, marca_raw) or marca_raw
                 if marca_nueva:
                     match_grupo["marca"] = marca_nueva
         else:
-            # Nuevo grupo
-            marca_canon = extraer_marca_normalizada(nombre, marca_raw)
+            # Nuevo grupo.
+            # Normalizar el nombre: colapsar "300 g" → "300g" para que el id/slug
+            # sea idéntico independientemente de qué scraper crea el grupo primero.
+            nombre_norm = re.sub(r'(\d+)\s+(g|kg|ml)\b', r'\1\2', nombre, flags=re.IGNORECASE)
+            marca_canon = extraer_marca_normalizada(nombre_norm, marca_raw)
             grupos.append({
-                "nombre_normalizado": nombre,
+                "nombre_normalizado": nombre_norm,
                 "categoria":         categoria,
                 "marca":             marca_canon or marca_raw or "Desconocida",
                 "peso_kg":           peso_kg,

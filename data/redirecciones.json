@@ -313,11 +313,15 @@
   },
   {
     "desde": "comparar/bcaa-2-1-1-300-g-desconocida-vs-bcaa-8-1-1-300-g-desconocida/",
-    "hasta": "/comparar/bcaa-2-1-1-300-g-vplab-nutrition-vs-bcaa-8-1-1-300g-vplab-nutrition/"
+    "hasta": "/comparar/bcaa-2-1-1-300g-vplab-nutrition-vs-bcaa-8-1-1-300g-vplab-nutrition/"
   },
   {
     "desde": "comparar/bcaa-8-1-1-300-g-desconocida-vs-bcaa-2-1-1-300-g-desconocida/",
-    "hasta": "/comparar/bcaa-2-1-1-300-g-vplab-nutrition-vs-bcaa-8-1-1-300g-vplab-nutrition/"
+    "hasta": "/comparar/bcaa-2-1-1-300g-vplab-nutrition-vs-bcaa-8-1-1-300g-vplab-nutrition/"
+  },
+  {
+    "desde": "comparar/bcaa-2-1-1-300-g-vplab-nutrition-vs-bcaa-8-1-1-300g-vplab-nutrition/",
+    "hasta": "/comparar/bcaa-2-1-1-300g-vplab-nutrition-vs-bcaa-8-1-1-300g-vplab-nutrition/"
   },
   {
     "desde": "comparar/creatina-celular-800g-creatina-monohidra-vs-creatine-monohydrate-creapure-200g-vitob/",
@@ -337,19 +341,19 @@
   },
   {
     "desde": "comparar/zero-creatine-150-g-desconocida-vs-zero-creatine-300-g-desconocida/",
-    "hasta": "/comparar/zero-creatine-150-g-prozis-vs-zero-creatine-300-g-prozis/"
+    "hasta": "/comparar/zero-creatine-150g-prozis-vs-zero-creatine-300g-prozis/"
   },
   {
     "desde": "comparar/zero-creatine-300-g-desconocida-vs-zero-creatine-150-g-desconocida/",
-    "hasta": "/comparar/zero-creatine-150-g-prozis-vs-zero-creatine-300-g-prozis/"
+    "hasta": "/comparar/zero-creatine-150g-prozis-vs-zero-creatine-300g-prozis/"
   },
   {
     "desde": "comparar/l-arginina-300-g-desconocida-vs-n-o-shox-1320g-desconocida/",
-    "hasta": "/comparar/l-arginina-300-g-prozis-vs-n-o-shox-1320g-prozis/"
+    "hasta": "/comparar/l-arginina-300g-prozis-vs-n-o-shox-1320g-prozis/"
   },
   {
     "desde": "comparar/n-o-shox-1320g-desconocida-vs-l-arginina-300-g-desconocida/",
-    "hasta": "/comparar/l-arginina-300-g-prozis-vs-n-o-shox-1320g-prozis/"
+    "hasta": "/comparar/l-arginina-300g-prozis-vs-n-o-shox-1320g-prozis/"
   },
   {
     "desde": "comparar/evobasic-whey-2kg-desconocida-vs-evoexcel-whey-protein-isolate-concentrat/",

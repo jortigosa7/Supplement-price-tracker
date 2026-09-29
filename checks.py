@@ -361,7 +361,7 @@ def _es_bajo_estructural(nombre: str) -> bool:
 
 # Productos con €/kg alto verificado como correcto (precio premium legítimo, no bug)
 _EXCLUIR_CHECK7_ALTO = frozenset({
-    "Creatina Creapure® Professional 150 g",  # Prozis: producto individual premium confirmado
+    "Creatina Creapure® Professional 150g",  # Prozis: producto individual premium confirmado
 })
 
 
@@ -801,7 +801,15 @@ def run_all_checks(
     if fechas_por_tienda:
         errores += _check_fechas_scrape(fechas_por_tienda)
 
+    # ── Guardar baseline siempre ──────────────────────────────────────────
+    # Se guarda antes de reportar errores para que el siguiente build compare
+    # contra este, no contra el último build sin errores. Un cambio real de
+    # catálogo (producto OOS, tienda que baja) genera una notificación y no
+    # un bucle infinito de checks fallidos con baseline congelado.
+    _guardar_stats(stats_act)
+
     # ── Reportar ──────────────────────────────────────────────────────────
+    n_redir = len(json.load(open(REDIR_FILE, encoding="utf-8"))) if os.path.exists(REDIR_FILE) else 0
     if errores:
         header = f"BUILD CHECKS FALLIDOS — {len(errores)} problema(s)"
         print("\n" + "=" * 66)
@@ -815,14 +823,10 @@ def run_all_checks(
             print(err)
         print("\n" + "=" * 66)
         print("Ver CHECKS.md para instrucciones de resolución.")
-        print("Las métricas de este build NO se han guardado (baseline = último build OK).")
+        print("Baseline actualizado a los números de este build.")
         print("=" * 66)
         return False
 
-    # Solo se guarda si todos los checks pasan
-    _guardar_stats(stats_act)
-
-    n_redir = len(json.load(open(REDIR_FILE, encoding="utf-8"))) if os.path.exists(REDIR_FILE) else 0
     print(
         f"Checks OK — "
         f"redirects: {n_redir} | "
