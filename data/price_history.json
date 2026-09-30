@@ -136762,5 +136762,29 @@
     "fecha": "2026-09-30",
     "precio": 99.5,
     "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-500g-life-pro-nutrition",
+    "fecha": "2026-09-30",
+    "precio": 23.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-300g-desconocida",
+    "fecha": "2026-09-30",
+    "precio": 16.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "bcaa-8-1-1-300g-desconocida",
+    "fecha": "2026-09-30",
+    "precio": 17.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sachet-real-whey-hydro-collagen-25g-x-3-desconocida",
+    "fecha": "2026-09-30",
+    "precio": 3.99,
+    "tienda": "Prozis"
   }
 ]
