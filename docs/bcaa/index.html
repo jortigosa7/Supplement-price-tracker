@@ -658,7 +658,15 @@
     .pc-actions { display: flex; gap: 8px; }
 
     /* ── Compare button ────────────────────────────── */
-    .pc-btn-compare { flex: 0 0 auto; }
+    .pc-btn-compare {
+      flex: 0 0 44px;
+      width: 44px;
+      min-width: 44px;
+      padding: 9px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .pc-btn-compare.is-selected {
       background: var(--accent);
       border-color: var(--accent);
@@ -668,22 +676,27 @@
     /* ── Compare bar ───────────────────────────────── */
     .compare-bar {
       position: fixed;
-      bottom: -100px;
+      bottom: 0;
       left: 0; right: 0;
       z-index: 999;
-      transition: bottom 0.3s ease;
+      transition: transform 0.3s ease, visibility 0s linear 0.3s;
       padding: 0 16px 12px;
       pointer-events: none;
+      transform: translateY(200%);
+      visibility: hidden;
     }
     .compare-bar.visible {
-      bottom: 0;
+      transform: translateY(0);
       pointer-events: all;
+      visibility: visible;
+      transition: transform 0.3s ease, visibility 0s linear 0s;
     }
+    .has-compare-bar { padding-bottom: 80px; }
     .compare-bar-inner {
       max-width: 760px;
       margin: 0 auto;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 16px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.18);
       padding: 12px 16px;
@@ -766,6 +779,7 @@
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.03em;
+      white-space: nowrap;
     }
     .pc-btn:hover { border-color: var(--accent); color: var(--accent); }
     .pc-btn.pc-btn-primary { background: var(--accent); border-color: var(--accent); color: #000000; }
@@ -1474,7 +1488,7 @@
       
 
       <div class="filter-group filter-group--kg">
-        <span class="filter-label">€/kg: <span id="kgRangeLabel">19.1 – 116.7</span></span>
+        <span class="filter-label">€/kg: <span id="kgRangeLabel">19,1 – 116,7</span></span>
         <div class="range-wrap">
           <input type="range" class="range-input" id="rangeMin"
             min="19.1" max="116.7" step="0.5"
@@ -1543,7 +1557,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/origin-intra-workout/16872733/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 22,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1591,7 +1605,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtaW5zdGFudGFuZW9zLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 20,66 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1639,7 +1653,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/rule1/r1-gain-4500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 94,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1687,7 +1701,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2Fhcy1pbnN0YW50YW5lby0yLTEtMS0yLTA=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 21,55 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1735,7 +1749,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWFzLWNvbXBsZXgtZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 22,09 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1783,7 +1797,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWEtcy0yLTAtYmNhYXMtMTItMS0xLWdsdXRhbWluYQ==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 24,24 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1831,7 +1845,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2FhLXMtaW5zdGFudGFuZW8tNC0xLTEtMi0w" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 24,78 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1879,7 +1893,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/rule1/r1-gain-2200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 59,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1927,7 +1941,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vplab-nutrition/100-platinum-whey-750g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 22,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1975,7 +1989,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/power-labs/intra-2000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 75,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2040,7 +2054,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/battery-nutrition/bcaa-2-1-1-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2105,7 +2119,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2153,7 +2167,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/battery-nutrition/battery-whey-gold-isolate-large-1600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 67,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2201,7 +2215,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/watt/r-m-1-bcaa-8-1-1-recovery-mix-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 22,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2249,7 +2263,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amazin-foods/bcaa-glutamina-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 18,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2297,7 +2311,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/myprotein/bcaa-2-1-1-250g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 12,60 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2345,7 +2359,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/best-protein/bcaa-glutamine-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 27,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2393,7 +2407,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/best-body-nutrition/100-black-bol-bcaa-powder-450g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2441,7 +2455,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-concept-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 28,05 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2489,7 +2503,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/anderson-research/quantum-10-4-revolt-800g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 44,91 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2554,7 +2568,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/bcaa-211-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2602,7 +2616,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/weider/premium-bcaa-zero-811-l-glutamina-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 28,48 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2650,7 +2664,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/life-pro-nutrition/bcaa-2-1-1-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 28,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2715,7 +2729,7 @@
       </div>
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/bcaa-811-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2763,7 +2777,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/myprotein/essential-bcaa-4-1-1-neutro-250g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 14,62 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2811,7 +2825,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/weider/premium-l-glutamina-astragin-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 23,74 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2859,7 +2873,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/bcaa-4-1-1-en-polvo/10830546/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 29,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2907,7 +2921,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/olimp/bcaa-xplode-powder-energy-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 30,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2955,7 +2969,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/procell/bcaa-glutamine-core-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 18,14 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3003,7 +3017,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/mutant/hardcore-bcaa-390g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 23,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3051,7 +3065,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/procell/intracell-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 25,91 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3099,7 +3113,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/zero-bcaa-150-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 9,74 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3147,7 +3161,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/226ers-bcaa-8-1-1-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 19,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3195,7 +3209,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/eurosup/bcaas-8-1-1-powder-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 20,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3243,7 +3257,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/rule1/r1-bcaa-222g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 15,01 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3291,7 +3305,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/quamtrax/hydra-bcaas-420g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 28,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3339,7 +3353,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/be-essential/glutamina-bcaas-211-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 20,65 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3387,7 +3401,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/after-post-entrenamiento-420g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 29,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3435,7 +3449,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/mega-plus/bcaa-glutamine-600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 43,01 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3483,7 +3497,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/rule1/r1-bcaa-444g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 31,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3531,7 +3545,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/muscletech/amino-build-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 28,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3579,7 +3593,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/dedicated-nutrition/bcaa-sensation-345g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3627,7 +3641,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/evlution-nutrition/bcaa-energy-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 22,20 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3675,7 +3689,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/evlution-nutrition/bcaa-5000-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 22,20 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3723,7 +3737,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/self-omninutrition/bcaa-8-1-1-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 39,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3771,7 +3785,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/bcaa-glutamina-zero-480g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 38,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3819,7 +3833,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/self-omninutrition/bcaa-pre-workout-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3867,7 +3881,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/bpi-sport/best-bcaa" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 27,40 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3915,7 +3929,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/bcaa-8-1-1-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 27,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3963,7 +3977,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/big/bcaa-12-1-1-glutamina-kojak-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 37,75 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4011,7 +4025,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/yamamoto-nutrition/mega-sauzer-new-formula-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 28,89 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4059,7 +4073,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-performance/bcaa-instant-drink-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 31,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4107,7 +4121,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/crown-sport-nutrition/bcaa-s-2-1-1-instant-210g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5153,7 +5167,7 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
     if (vMin > vMax) return;
     fKgMin = vMin;
     fKgMax = vMax;
-    kgLabel.textContent = vMin.toFixed(1) + ' – ' + vMax.toFixed(1);
+    kgLabel.textContent = vMin.toFixed(1).replace('.', ',') + ' – ' + vMax.toFixed(1).replace('.', ',');
     resetPage();
   }
   rangeMin.addEventListener('input', updateRange);
@@ -5166,7 +5180,7 @@ Sabores y formatos: los BCAA en polvo con sabor son cómodos para tomar durante 
     fKgMax = parseFloat(rangeMax.max);
     rangeMin.value = rangeMin.min;
     rangeMax.value = rangeMax.max;
-    kgLabel.textContent = rangeMin.min + ' – ' + rangeMax.max;
+    kgLabel.textContent = rangeMin.min.replace('.', ',') + ' – ' + rangeMax.max.replace('.', ',');
     document.querySelectorAll('.store-filter-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.tienda === '' || b.dataset.peso === '' || b.dataset.tipo === '');
     });
@@ -5212,7 +5226,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     btnGo.disabled = (selected.length < 2);
-    bar.classList.toggle('visible', selected.length > 0);
+    var show = selected.length > 0;
+    bar.classList.toggle('visible', show);
+    document.body.classList.toggle('has-compare-bar', show);
   }
 
   list.addEventListener('click', function(e) {
@@ -5224,15 +5240,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var id    = card.dataset.id;
     var label = card.dataset.label;
     var idx   = selected.findIndex(function(s) { return s.id === id; });
+    var SVG_ADD  = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+    var SVG_DONE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
     if (idx !== -1) {
       selected.splice(idx, 1);
       btn.classList.remove('is-selected');
-      btn.textContent = 'Comparar';
+      btn.innerHTML = SVG_ADD;
+      btn.setAttribute('aria-label', 'Añadir a comparación');
     } else {
       if (selected.length >= 2) return;
       selected.push({id: id, label: label, btn: btn});
       btn.classList.add('is-selected');
-      btn.textContent = 'Añadido';
+      btn.innerHTML = SVG_DONE;
+      btn.setAttribute('aria-label', 'Quitar de comparación');
     }
     updateBar();
   });

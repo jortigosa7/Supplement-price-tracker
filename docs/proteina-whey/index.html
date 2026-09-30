@@ -658,7 +658,15 @@
     .pc-actions { display: flex; gap: 8px; }
 
     /* ── Compare button ────────────────────────────── */
-    .pc-btn-compare { flex: 0 0 auto; }
+    .pc-btn-compare {
+      flex: 0 0 44px;
+      width: 44px;
+      min-width: 44px;
+      padding: 9px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .pc-btn-compare.is-selected {
       background: var(--accent);
       border-color: var(--accent);
@@ -668,22 +676,27 @@
     /* ── Compare bar ───────────────────────────────── */
     .compare-bar {
       position: fixed;
-      bottom: -100px;
+      bottom: 0;
       left: 0; right: 0;
       z-index: 999;
-      transition: bottom 0.3s ease;
+      transition: transform 0.3s ease, visibility 0s linear 0.3s;
       padding: 0 16px 12px;
       pointer-events: none;
+      transform: translateY(200%);
+      visibility: hidden;
     }
     .compare-bar.visible {
-      bottom: 0;
+      transform: translateY(0);
       pointer-events: all;
+      visibility: visible;
+      transition: transform 0.3s ease, visibility 0s linear 0s;
     }
+    .has-compare-bar { padding-bottom: 80px; }
     .compare-bar-inner {
       max-width: 760px;
       margin: 0 auto;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 16px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.18);
       padding: 12px 16px;
@@ -766,6 +779,7 @@
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.03em;
+      white-space: nowrap;
     }
     .pc-btn:hover { border-color: var(--accent); color: var(--accent); }
     .pc-btn.pc-btn-primary { background: var(--accent); border-color: var(--accent); color: #000000; }
@@ -1479,7 +1493,7 @@
       
 
       <div class="filter-group filter-group--kg">
-        <span class="filter-label">€/kg: <span id="kgRangeLabel">9.4 – 92.3</span></span>
+        <span class="filter-label">€/kg: <span id="kgRangeLabel">9,4 – 92,3</span></span>
         <div class="range-wrap">
           <input type="range" class="range-input" id="rangeMin"
             min="9.4" max="92.3" step="0.5"
@@ -1548,7 +1562,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1zb2phLWFpc2xhZGEtMi0w" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 18,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1596,7 +1610,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1hcnJvei1pbnRlZ3JhbC1jb25jZW50cmFkYQ==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 21,55 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1644,7 +1658,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1ndWlzYW50ZS1haXNsYWRhLTItMA==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 22,09 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1692,7 +1706,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JlZWYtaGlkcm9saXphZG8tZGUtY2FybmUtMi0wLWxldWNpbmEtZXh0cmE=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 22,63 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1740,7 +1754,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/olimp/whey-protein-complex-100-" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 26,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1788,7 +1802,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1jYW5hbW8tb3JnYW5pY28=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 26,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1836,7 +1850,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/aislado-de-proteina-de-guisante/10530136/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 39,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1884,7 +1898,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/advanced-weight-gainer/10615587/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 37,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1932,7 +1946,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9haXNsYWRvLWRlLXByb3RlaW5hLWRlLWxlY2hl" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 30,78 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1980,7 +1994,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-plant-protein/11776868/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 78,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2028,7 +2042,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2Nhc2Vpbi0yLTAtY2FzZWluYS1taWNlbGFyLWRpZ2V6eW1l" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 31,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2076,7 +2090,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2RpZXQtdmVnYW4=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 32,40 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2119,7 +2133,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3Byby12ZWdhbi1tZXpjbGEtcHJvdGVpbmFzLXByZW1pdW0tZGlnZXp5bWU=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 32,40 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2167,7 +2181,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/origin-mass-gainer/15607337/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 47,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2215,7 +2229,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvYWxidW1pbmEtZGUtaHVldm8tZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 37,74 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2263,7 +2277,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2VnZy0yLTAtYWxidW1pbmEtZGUtaHVldm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 37,80 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2311,7 +2325,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jYXNlaW5hLW1pY2VsYXI=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 38,38 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2359,7 +2373,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvcHJvdGVpbmEtZGUtZ3Vpc2FudGUtdGV4dHVyaXphZGE=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 9,67 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2407,7 +2421,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3doZXktb2F0cw==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 38,98 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2455,7 +2469,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2Jhc2ljLXdoZXk=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 39,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2503,7 +2517,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9nb2xkZW4tcHJvdGVpbi12ZWdhbg==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 40,45 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2551,7 +2565,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/starlabs-nutrition/hd8-hydropro" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 38,61 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2599,7 +2613,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b25hdGl2ZS1jYXNlaW4tbGFjcHJvZGFuLW1pY2VscHVyZQ==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 42,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2647,7 +2661,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jYXNlaW5hLW5hdGl2YS1sYWNwcm9kYW4tbWljZWxwdXJl" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 42,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2695,7 +2709,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/predator-protein" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 87,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2743,7 +2757,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9zbW9vdGhpZS1wcm90ZWljby1jb24tY29sYWdlbm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 45,89 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2791,7 +2805,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/essential-whey-protein/11052699/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 13,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2839,7 +2853,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/porridge-de-arroz-proteico-720-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 17,59 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2887,7 +2901,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1nYXJiYW56bw==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 12,42 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2935,7 +2949,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3Byby1tZXpjbGEtcHJvdGVpbmFzLXByZW1pdW0tZGlnZXp5bWU=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 50,86 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2983,7 +2997,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jYXNlaW5hdG8tZGUtY2FsY2lv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 12,94 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3031,7 +3045,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1zZW1pbGxhLWRlLWNhbGFiYXph" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 51,83 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3079,7 +3093,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9nb2xkZW4tcHJvdGVpbg==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 54,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3127,7 +3141,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/caseina-de-liberacion-lenta/10798909/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 72,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3175,7 +3189,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvaHVldm8tZW50ZXJvLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 14,04 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3223,7 +3237,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-diet-whey/10530657/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 144,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3266,7 +3280,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/mega-plus/isolate-concept" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 58,48 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3314,7 +3328,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/whey-fibre-700-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 20,69 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3362,7 +3376,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/scitec/whey-infusion-2-kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 59,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3410,7 +3424,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport/stress-nutril-800g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,03 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3453,7 +3467,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/mega-plus/whey-concept-2-kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 61,80 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3475,7 +3489,7 @@
       <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14269806-3455129203332345.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Pre-Entreno Sin Estimulantes 630 g" width="72" height="72" loading="lazy">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14269806-6955372342256558.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Origin Pre-Entreno Sin Estimulantes 630 g" width="72" height="72" loading="lazy">
         </div>
         <div class="pc-info">
           <div class="pc-name">
@@ -3501,7 +3515,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/origin-pre-entreno-sin-estimulantes/14269805/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 19,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3549,7 +3563,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-whey-prime-1000-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 30,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3597,7 +3611,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/hivital-foods/hidrolyzed-whey-protein-990g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 31,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3645,7 +3659,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/starlabs-nutrition/w74-wheycore-2000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 62,91 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3693,7 +3707,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/whey-shake-1000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 31,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3741,7 +3755,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvY2FsZG8tcHJvdGVpY28tZGUtcG9sbG8tZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 16,15 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3789,7 +3803,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/proteina-de-colageno-en-polvo/11067704/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 32,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3837,7 +3851,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMva2V0by1zZXJpZXMva2V0by13aGV5LXByb3RlaW4=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 65,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3885,7 +3899,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/peanut-whey-protein-907g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 29,74 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3933,7 +3947,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/100-pure-whey" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 74,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3981,7 +3995,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/whey-protein-fusion-900-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 29,74 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4029,7 +4043,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3doZXktcHJvdGVpbg==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 66,66 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4077,7 +4091,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/bigman/iso-hydro-1000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 33,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4125,7 +4139,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/peanut-whey-protein-450g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 15,29 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4173,7 +4187,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/recovery-total-700g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 23,94 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4221,7 +4235,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy8xMDAtcHJvdGVpbmEtZGUtc3Vlcm8taGlkcm9saXphZG8tYWlzbGFkYQ==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 68,83 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4269,7 +4283,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2xhdGUtMi0wLXdoZXktaXNvbGF0ZS1jZm0=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 68,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4317,7 +4331,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/hydro-protein-professional-2000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 69,70 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4365,7 +4379,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport/mega-protein-whey-5-vainilla-900g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 31,41 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4413,7 +4427,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-milkshake/17755445/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 94,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4461,7 +4475,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein/10530943/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 94,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4509,7 +4523,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/proteina-de-suero-organica/11272855/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 94,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4557,7 +4571,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3doZXktcHJvdGVpbi1zaW4tZWR1bGNvcmFudGVz" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 70,82 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4605,7 +4619,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-colageno/17725536/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 132,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4653,7 +4667,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport/mega-protein-whey-choco-900g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 32,37 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4701,7 +4715,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/mezcla-de-rendimiento-todo-en-uno/10530268/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 89,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4749,7 +4763,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/mega-plus/100-whey-proteina-sabor-chocolate-con-leche-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 18,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4797,7 +4811,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport/whey-gold-protein" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 18,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4845,7 +4859,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2V4Y2VsLXdoZXktcHJvdGVpbi1pc29sYXRlLWNvbmNlbnRyYXRl" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 76,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4893,7 +4907,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/life-pro-nutrition/whey-protein-golden-edition" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 34,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4941,7 +4955,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9haXNsYWRvLWRlLXByb3RlaW5hLWhpZHJvbGl6YWRhLWNsZWFyLXdoZXk=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 38,81 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4989,7 +5003,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2V4Y2VsLXNpbi1lZHVsY29yYW50ZXMtd2hleS1wcm90ZWluLWlzb2xhdGUtY29uY2VudHJhdGU=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 78,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5037,7 +5051,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/whey-amino-complex-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 19,80 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5085,7 +5099,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/hsn/evowhey-protein-20" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 20,05 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5133,7 +5147,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/quamtrax/isowhey" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 36,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5181,7 +5195,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2xhdGUtMi0wLXNpbi1lZHVsY29yYW50ZXMtd2hleS1pc29sYXRlLWNmbQ==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 81,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5229,7 +5243,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/226ers/whey-protein-grass-fed-1-kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 41,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5277,7 +5291,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/quamtrax-direct/whey-protein-sabor-neutro-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 20,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5325,7 +5339,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvY2FmZS1wcm90ZWljby1zaW4tZWR1bGNvcmFudGVzLWNhZmVmaXRjb25x" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 20,52 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5373,7 +5387,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-whey-isolate-milkshake/17816822/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 119,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5421,7 +5435,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/quamtrax-direct/whey-protein" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 20,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5469,7 +5483,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NsZWFyLWh5ZHJv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 42,04 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5517,7 +5531,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2h5ZHJvLTItMC1oeWRyby13aGV5" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 84,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5565,7 +5579,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/hivital-foods/hydrolyzed-whey-protein-isolate-990g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 42,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5613,7 +5627,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport/iso-whey-cero-cero-fresa-1-kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 38,22 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5661,7 +5675,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/whey-protein-fusion-700g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 29,74 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5709,7 +5723,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/big/only-whey-zero" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 85,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5757,7 +5771,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/the-whey/11353515/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 89,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5805,7 +5819,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/supreme-whey-protein-907g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 39,09 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5853,7 +5867,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NsZWFyLWh5ZHJvLXZlZ2Fu" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 21,59 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5901,7 +5915,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/bigman/ultimate-whey-protein-2000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 87,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5949,7 +5963,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-elite/11243021/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 43,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5997,7 +6011,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/hydrolyzed-zero-professional-2000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 89,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6045,7 +6059,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/isolate-cfm-zero" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 44,81 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6093,7 +6107,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/total-protein/10529951/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 224,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6141,7 +6155,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/isolate-cfm-professional" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 45,20 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6189,7 +6203,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/whey-pro-concentrate" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 45,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6237,7 +6251,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/clear-whey-isolate/12081395/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 22,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6285,7 +6299,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/quamtrax-direct/whey-protein-isolate-2000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 92,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6333,7 +6347,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/dymatize/elite-100-whey" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 42,30 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6381,7 +6395,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/cellucor/c4-whey-protein" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 20,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6429,7 +6443,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/clara-de-huevo-en-polvo/10529687/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 116,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6477,7 +6491,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy8xMDAtd2hleS1wcm90ZWluLWlzb2xhdGU=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 93,91 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6525,7 +6539,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/weider/gold-whey-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 23,74 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6573,7 +6587,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/impact-whey-isolate/10530911/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 136,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6621,7 +6635,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 43,19 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6669,7 +6683,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/hydro-whey-zero" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 86,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6717,7 +6731,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2h5ZHJvLTMwaGQ=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 23,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6765,7 +6779,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy8xMDAtd2hleS1wcm90ZWluLWNvbmNlbnRyYXRl" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 23,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6813,7 +6827,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/starlabs-nutrition/i-90-isolac-cfm" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 44,01 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6861,7 +6875,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/whey-protein-100-sabor-neutro-1-kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 48,60 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6909,7 +6923,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/whey-protein-100" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 48,60 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -6957,7 +6971,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-real-whey-protein-907g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 44,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7005,7 +7019,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-real-whey-protein-1814g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 89,98 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7053,7 +7067,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/santiveri/protein-90-cacao-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 14,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7101,7 +7115,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/santiveri/proteina-90-vainilla-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 14,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7149,7 +7163,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/protein-hydrolyzed-zero-delicatesse-1000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 49,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7197,7 +7211,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/clear-whey-protein-y-colageno/17263290/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 49,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7245,7 +7259,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/proteina-de-suero-hidrolizada/10529805/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 124,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7293,7 +7307,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/mega-plus/isolat-competition" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 50,32 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7341,7 +7355,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/paleobull/panacea" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 37,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7389,7 +7403,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/natural-real-whey-protein-907g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 45,89 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7437,7 +7451,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/natural-real-whey-protein-1814g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 91,78 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7485,7 +7499,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/zero-diet-whey-1500-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 76,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7533,7 +7547,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/scitec/100-whey-protein-professional" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 25,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7576,7 +7590,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-black-series-700g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 35,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7624,7 +7638,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/iso-whey-platinum" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 46,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7672,7 +7686,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/whey-protein-freakin-good-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 20,69 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7720,7 +7734,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/supreme-whey-protein-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 21,24 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7768,7 +7782,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/infisport/isopro-t1-aislado-proteina-de-suero-1000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 53,33 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7816,7 +7830,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/finisher/finisher-whey-protein-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 26,91 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7864,7 +7878,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/smoothie-para-el-desayuno/13251950/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 26,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7912,7 +7926,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/protein-iced-coffee/17631051/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 34,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -7960,7 +7974,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/drasanvi/sport-live-iso-whey-protein" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 43,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8008,7 +8022,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/isolate-cfm-lacprodan-1-kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 55,20 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8051,7 +8065,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-pro-black-series-700g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 38,69 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8099,7 +8113,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/life-pro-nutrition/whey-protein-bolsa" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 55,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8147,7 +8161,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/capuchino-proteico-con-cafeina-extra-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 22,39 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8195,7 +8209,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-con-cafeina-extra-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 22,39 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8243,7 +8257,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/mocachino-proteico-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 22,39 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8291,7 +8305,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/latte-proteico-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 22,39 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8339,7 +8353,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/muscletech/isowhey-907g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 50,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8387,7 +8401,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-real-whey-protein-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 22,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8435,7 +8449,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/weider/isolate-whey-100-cfm" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 51,29 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8483,7 +8497,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition/total-hydro-whey-900g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 51,29 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8531,7 +8545,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/scitec/iso-whey-clear-1025g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 58,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8579,7 +8593,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/myprotein-clear-whey-isolate-retail/12608168/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 14,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8622,7 +8636,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-clear-black-series-700g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 40,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8670,7 +8684,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix/gourmet-protein-concentrado-de-suero-1000g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 59,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8718,7 +8732,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/latte-de-avellana-proteico-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 23,79 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8766,7 +8780,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/zero-diet-whey-750-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 44,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8814,7 +8828,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 24,29 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8862,7 +8876,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/quamtrax-direct/100-whey-isolate-700g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 42,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8910,7 +8924,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 55,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -8958,7 +8972,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition/total-whey" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 16,19 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9006,7 +9020,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/capuchino-proteico-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 25,19 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9054,7 +9068,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 25,19 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9102,7 +9116,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/mocachino-proteico-con-cafeina-extra-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 25,19 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9150,7 +9164,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/latte-de-avellana-proteico-con-cafeina-extra-400-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 25,19 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9198,7 +9212,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/best-protein/whey-isolate" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 63,30 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9246,7 +9260,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/quamtrax/isopro-cfm" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 31,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9294,7 +9308,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/bigman/zero-isolated-whey" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 59,80 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9342,7 +9356,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/platinum-hydro-whey-1500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 98,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9390,7 +9404,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/big/clear-iso-zero-750g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 49,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9438,7 +9452,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/ultra-pure-whey" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 33,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9486,7 +9500,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/olimp/pure-whey-isolate-95" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 40,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9534,7 +9548,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/clear-iso-whey" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 69,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9582,7 +9596,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/life-pro-nutrition/iso-zero-cfm-bolsa" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 55,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9630,7 +9644,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-907g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 63,89 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9678,7 +9692,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-1814-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 127,78 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9726,7 +9740,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-clear-700g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 49,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9774,7 +9788,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/iso-whey-zero" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 31,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9822,7 +9836,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/cfm-nitro-protein-isolate" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 149,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9870,7 +9884,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition-hydropure-whey-cfm-1600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 121,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9918,7 +9932,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/isoprime-cfm" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 76,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -9966,7 +9980,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3BlcHQtcGVwdG9wcm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 39,41 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -10014,7 +10028,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9wZXB0b3Byby1oaWRyb2xpemFkby1kZS1jYXNlaW5hLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 39,41 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -10062,7 +10076,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/black-cfm-isolate" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 79,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -10110,7 +10124,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/clear-whey-splash/16111658/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 32,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -10158,7 +10172,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-pro/iso-hd-90-cfm-protein" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 67,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -10206,7 +10220,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotechusa/iso-whey-clear-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 36,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -11188,7 +11202,7 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
           
           <a href="https://www.myprotein.es/p/nutricion-deportiva/clear-whey-x-chupa-chups-sabor-fresa/14866280/" class="store-pill store-myprotein" target="_blank" rel="nofollow sponsored noopener">
             <span class="store-pill-dot" style="background:var(--myprotein);"></span>
-            MyProtein · 46,99 €
+            MyProtein · 41,99 €
           </a>
           
         </div>
@@ -11367,7 +11381,7 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
     if (vMin > vMax) return;
     fKgMin = vMin;
     fKgMax = vMax;
-    kgLabel.textContent = vMin.toFixed(1) + ' – ' + vMax.toFixed(1);
+    kgLabel.textContent = vMin.toFixed(1).replace('.', ',') + ' – ' + vMax.toFixed(1).replace('.', ',');
     resetPage();
   }
   rangeMin.addEventListener('input', updateRange);
@@ -11380,7 +11394,7 @@ Qué evitar: productos con mucho azúcar añadido, aminoácidos spike (glicina o
     fKgMax = parseFloat(rangeMax.max);
     rangeMin.value = rangeMin.min;
     rangeMax.value = rangeMax.max;
-    kgLabel.textContent = rangeMin.min + ' – ' + rangeMax.max;
+    kgLabel.textContent = rangeMin.min.replace('.', ',') + ' – ' + rangeMax.max.replace('.', ',');
     document.querySelectorAll('.store-filter-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.tienda === '' || b.dataset.peso === '' || b.dataset.tipo === '');
     });
@@ -11405,7 +11419,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
   if (!list || !bar || !btnGo) return; // guard por si falla algún ID
-  var SLUGS  = new Set(["evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn", "evohydro-2-0-hydro-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn", "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evowhey-oats-2kg-hsn", "evoexcel-whey-protein-isolate-concentrate-2kg-hsn-vs-evowhey-protein-2kg-hsn", "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn", "evobasic-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn", "iso-whey-zero-450g-biotechusa-vs-iso-whey-zero-black-908g-biotechusa", "100-proteina-de-suero-hidrolizado-aislada-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn", "100-whey-protein-isolate-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn", "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn", "evobasic-whey-2kg-hsn-vs-evoexcel-whey-protein-isolate-concentrate-2kg-hsn", "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-keto-whey-protein-2kg-hsn", "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn"]);
+  var SLUGS  = new Set(["evobasic-whey-2kg-hsn-vs-evoexcel-whey-protein-isolate-concentrate-2kg-hsn", "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn", "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evowhey-oats-2kg-hsn", "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-evowhey-protein-sin-edulcorantes-2kg-hsn", "evobasic-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn", "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn", "evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn", "iso-whey-zero-450g-biotechusa-vs-iso-whey-zero-black-908g-biotechusa", "100-whey-protein-isolate-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn", "evohydro-2-0-hydro-whey-2kg-hsn-vs-evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn", "evoexcel-whey-protein-isolate-concentrate-2kg-hsn-vs-evowhey-protein-2kg-hsn", "100-proteina-de-suero-hidrolizado-aislada-2kg-hsn-vs-evolate-2-0-whey-isolate-cfm-2kg-hsn", "evolate-2-0-sin-edulcorantes-whey-isolate-cfm-2kg-hsn-vs-keto-whey-protein-2kg-hsn"]);
   var BASE   = 'https://stackfit.es/comparar/';
   var selected = [];
 
@@ -11426,7 +11440,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     btnGo.disabled = (selected.length < 2);
-    bar.classList.toggle('visible', selected.length > 0);
+    var show = selected.length > 0;
+    bar.classList.toggle('visible', show);
+    document.body.classList.toggle('has-compare-bar', show);
   }
 
   list.addEventListener('click', function(e) {
@@ -11438,15 +11454,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var id    = card.dataset.id;
     var label = card.dataset.label;
     var idx   = selected.findIndex(function(s) { return s.id === id; });
+    var SVG_ADD  = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+    var SVG_DONE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
     if (idx !== -1) {
       selected.splice(idx, 1);
       btn.classList.remove('is-selected');
-      btn.textContent = 'Comparar';
+      btn.innerHTML = SVG_ADD;
+      btn.setAttribute('aria-label', 'Añadir a comparación');
     } else {
       if (selected.length >= 2) return;
       selected.push({id: id, label: label, btn: btn});
       btn.classList.add('is-selected');
-      btn.textContent = 'Añadido';
+      btn.innerHTML = SVG_DONE;
+      btn.setAttribute('aria-label', 'Quitar de comparación');
     }
     updateBar();
   });

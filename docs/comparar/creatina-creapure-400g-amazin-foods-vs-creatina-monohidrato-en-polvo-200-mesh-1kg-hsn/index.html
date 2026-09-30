@@ -53,9 +53,9 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, Creatina Creapure 400g o Creatina monohidrato en polvo (200 mesh) 1kg?","acceptedAnswer":{"@type":"Answer","text":"Creatina monohidrato en polvo (200 mesh) 1kg es m\u00e1s barato con 14.00 \u20ac/kg frente a 62.25 \u20ac/kg de Creatina Creapure 400g \u2014 una diferencia de 48.25 \u20ac/kg."}},
-        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Creatina Creapure 400g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Creatina Creapure 400g est\u00e1 en Nutritienda, a 24.90 \u20ac."}},
-        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Creatina monohidrato en polvo (200 mesh) 1kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Creatina monohidrato en polvo (200 mesh) 1kg est\u00e1 en HSN, a 14.00 \u20ac."}}
+        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, Creatina Creapure 400 g o Creatina monohidrato en polvo (200 mesh) 1 kg?","acceptedAnswer":{"@type":"Answer","text":"Creatina monohidrato en polvo (200 mesh) 1 kg es m\u00e1s barato con 14,00 \u20ac/kg frente a 62,25 \u20ac/kg de Creatina Creapure 400 g \u2014 una diferencia de 48,25 \u20ac/kg."}},
+        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Creatina Creapure 400 g al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Creatina Creapure 400 g est\u00e1 en Nutritienda, a 24,90 \u20ac."}},
+        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Creatina monohidrato en polvo (200 mesh) 1 kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Creatina monohidrato en polvo (200 mesh) 1 kg est\u00e1 en HSN, a 14,00 \u20ac."}}
       ]
     }
   ]
@@ -479,7 +479,15 @@
     .pc-actions { display: flex; gap: 8px; }
 
     /* ── Compare button ────────────────────────────── */
-    .pc-btn-compare { flex: 0 0 auto; }
+    .pc-btn-compare {
+      flex: 0 0 44px;
+      width: 44px;
+      min-width: 44px;
+      padding: 9px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .pc-btn-compare.is-selected {
       background: var(--accent);
       border-color: var(--accent);
@@ -489,22 +497,27 @@
     /* ── Compare bar ───────────────────────────────── */
     .compare-bar {
       position: fixed;
-      bottom: -100px;
+      bottom: 0;
       left: 0; right: 0;
       z-index: 999;
-      transition: bottom 0.3s ease;
+      transition: transform 0.3s ease, visibility 0s linear 0.3s;
       padding: 0 16px 12px;
       pointer-events: none;
+      transform: translateY(200%);
+      visibility: hidden;
     }
     .compare-bar.visible {
-      bottom: 0;
+      transform: translateY(0);
       pointer-events: all;
+      visibility: visible;
+      transition: transform 0.3s ease, visibility 0s linear 0s;
     }
+    .has-compare-bar { padding-bottom: 80px; }
     .compare-bar-inner {
       max-width: 760px;
       margin: 0 auto;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 16px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.18);
       padding: 12px 16px;
@@ -587,6 +600,7 @@
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.03em;
+      white-space: nowrap;
     }
     .pc-btn:hover { border-color: var(--accent); color: var(--accent); }
     .pc-btn.pc-btn-primary { background: var(--accent); border-color: var(--accent); color: #000000; }
@@ -1211,8 +1225,8 @@
       <div class="verdict-label">Mejor precio</div>
       
         
-        <div class="verdict-winner">Creatina monohidrato en polvo (200 mesh) 1kg</div>
-        <div class="verdict-value">14.00 €/kg</div>
+        <div class="verdict-winner">Creatina monohidrato en polvo (200 mesh) 1 kg</div>
+        <div class="verdict-value">14,00 €/kg</div>
       
     </div>
 
@@ -1229,8 +1243,8 @@
       <div class="verdict-label">Mejor valorado</div>
       
         
-        <div class="verdict-winner">Creatina monohidrato en polvo (200 mesh) 1kg</div>
-        <div class="verdict-value">4.75 / 5</div>
+        <div class="verdict-winner">Creatina monohidrato en polvo (200 mesh) 1 kg</div>
+        <div class="verdict-value">4,75 / 5</div>
       
     </div>
 
@@ -1239,7 +1253,7 @@
       <div class="verdict-label">Mejor relación calidad-precio</div>
       
         
-        <div class="verdict-winner">Creatina monohidrato en polvo (200 mesh) 1kg</div>
+        <div class="verdict-winner">Creatina monohidrato en polvo (200 mesh) 1 kg</div>
         <div class="verdict-value">Menor €/kg</div>
       
     </div>
@@ -1328,7 +1342,7 @@
             
               4,75 / 5
               
-                <span style="color:#888;font-size:0.78rem;">(9733 reseñas)</span>
+                <span style="color:#888;font-size:0.78rem;">(9734 reseñas)</span>
               
             
           </td>
@@ -1386,7 +1400,7 @@
         
       </div>
       
-      <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver mejor precio →</a>
+      <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,90 €</a>
     </div>
     
     
@@ -1420,7 +1434,7 @@
         
       </div>
       
-      <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver mejor precio →</a>
+      <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 14,00 €</a>
     </div>
     
   </div>
@@ -1431,11 +1445,11 @@
   <h2 class="cmp-section-title">Análisis comparativo</h2>
   <div class="editorial-text">
     
-    <p>Si buscas el mejor precio por kilogramo, <strong>Creatina monohidrato en polvo (200 mesh) 1kg</strong> es la opción más económica con <strong>14.00 €/kg</strong>, 48.25 €/kg menos que Creatina Creapure 400g (62.25 €/kg).</p>
+    <p>Si buscas el mejor precio por kilogramo, <strong>Creatina monohidrato en polvo (200 mesh) 1 kg</strong> es la opción más económica con <strong>14,00 €/kg</strong>, 48,25 €/kg menos que Creatina Creapure 400 g (62,25 €/kg).</p>
     
-    <p>Creatina monohidrato en polvo (200 mesh) 1kg viene en un formato de 1.00 kg frente a los 0.40 kg de Creatina Creapure 400g. El precio por kilogramo ya normaliza esta diferencia de tamaño.</p>
+    <p>Creatina monohidrato en polvo (200 mesh) 1 kg viene en un formato de 1,00 kg frente a los 0,40 kg de Creatina Creapure 400 g. El precio por kilogramo ya normaliza esta diferencia de tamaño.</p>
     
-    <p>Creatina Creapure 400g está disponible en Nutritienda pero no Creatina monohidrato en polvo (200 mesh) 1kg. Creatina monohidrato en polvo (200 mesh) 1kg está disponible en HSN pero no Creatina Creapure 400g.</p>
+    <p>Creatina Creapure 400 g está disponible en Nutritienda pero no Creatina monohidrato en polvo (200 mesh) 1 kg. Creatina monohidrato en polvo (200 mesh) 1 kg está disponible en HSN pero no Creatina Creapure 400 g.</p>
     
   </div>
 </div>
@@ -1447,18 +1461,18 @@
   <div class="faq-list">
     
     <details class="faq-item">
-      <summary>¿Cuál es más barato, Creatina Creapure 400g o Creatina monohidrato en polvo (200 mesh) 1kg?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">Creatina monohidrato en polvo (200 mesh) 1kg es más barato con 14.00 €/kg frente a 62.25 €/kg de Creatina Creapure 400g — una diferencia de 48.25 €/kg.</p>
+      <summary>¿Cuál es más barato, Creatina Creapure 400 g o Creatina monohidrato en polvo (200 mesh) 1 kg?<span class="faq-plus">+</span></summary>
+      <p class="faq-answer">Creatina monohidrato en polvo (200 mesh) 1 kg es más barato con 14,00 €/kg frente a 62,25 €/kg de Creatina Creapure 400 g — una diferencia de 48,25 €/kg.</p>
     </details>
     
     <details class="faq-item">
-      <summary>¿Dónde comprar Creatina Creapure 400g al mejor precio?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">El mejor precio de Creatina Creapure 400g está en Nutritienda, a 24.90 €.</p>
+      <summary>¿Dónde comprar Creatina Creapure 400 g al mejor precio?<span class="faq-plus">+</span></summary>
+      <p class="faq-answer">El mejor precio de Creatina Creapure 400 g está en Nutritienda, a 24,90 €.</p>
     </details>
     
     <details class="faq-item">
-      <summary>¿Dónde comprar Creatina monohidrato en polvo (200 mesh) 1kg al mejor precio?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">El mejor precio de Creatina monohidrato en polvo (200 mesh) 1kg está en HSN, a 14.00 €.</p>
+      <summary>¿Dónde comprar Creatina monohidrato en polvo (200 mesh) 1 kg al mejor precio?<span class="faq-plus">+</span></summary>
+      <p class="faq-answer">El mejor precio de Creatina monohidrato en polvo (200 mesh) 1 kg está en HSN, a 14,00 €.</p>
     </details>
     
   </div>
@@ -1473,32 +1487,32 @@
     
     <a href="https://stackfit.es/comparar/100-creatina-monohidrato-500g-quamtrax-vs-creatina-creapure-400g-amazin-foods/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">100% creatina Monohidrato 500g vs Creatina Creapure 400g</div>
+      <div class="related-title">100% creatina Monohidrato 500 g vs Creatina Creapure 400 g</div>
     </a>
     
     <a href="https://stackfit.es/comparar/creatina-creapure-400g-amazin-foods-vs-evocreatine-500g-hsn/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">Creatina Creapure 400g vs Evocreatine 500g</div>
+      <div class="related-title">Creatina Creapure 400 g vs Evocreatine 500 g</div>
     </a>
     
     <a href="https://stackfit.es/comparar/creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-evocreatine-500g-hsn/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">Creatina monohidrato en polvo (200 mesh) 1kg vs Evocreatine 500g</div>
+      <div class="related-title">Creatina monohidrato en polvo (200 mesh) 1 kg vs Evocreatine 500 g</div>
     </a>
     
     <a href="https://stackfit.es/comparar/creatina-monohidrato-elite-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">Creatina Monohidrato Elite 1kg vs Creatina monohidrato en polvo (200 mesh) 1kg</div>
+      <div class="related-title">Creatina Monohidrato Elite 1 kg vs Creatina monohidrato en polvo (200 mesh) 1 kg</div>
     </a>
     
     <a href="https://stackfit.es/comparar/creatina-celular-800g-keepgoing-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">Creatina Celular 800g vs Creatina monohidrato en polvo (200 mesh) 1kg</div>
+      <div class="related-title">Creatina Celular 800 g vs Creatina monohidrato en polvo (200 mesh) 1 kg</div>
     </a>
     
     <a href="https://stackfit.es/comparar/creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-creatine-monohydrate-creapure-200g-vitobest/" class="related-card">
       <div class="related-tag">comparativa</div>
-      <div class="related-title">Creatina monohidrato en polvo (200 mesh) 1kg vs Creatine Monohydrate Creapure 200g</div>
+      <div class="related-title">Creatina monohidrato en polvo (200 mesh) 1 kg vs Creatine Monohydrate Creapure 200 g</div>
     </a>
     
   </div>

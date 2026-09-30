@@ -658,7 +658,15 @@
     .pc-actions { display: flex; gap: 8px; }
 
     /* ── Compare button ────────────────────────────── */
-    .pc-btn-compare { flex: 0 0 auto; }
+    .pc-btn-compare {
+      flex: 0 0 44px;
+      width: 44px;
+      min-width: 44px;
+      padding: 9px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .pc-btn-compare.is-selected {
       background: var(--accent);
       border-color: var(--accent);
@@ -668,22 +676,27 @@
     /* ── Compare bar ───────────────────────────────── */
     .compare-bar {
       position: fixed;
-      bottom: -100px;
+      bottom: 0;
       left: 0; right: 0;
       z-index: 999;
-      transition: bottom 0.3s ease;
+      transition: transform 0.3s ease, visibility 0s linear 0.3s;
       padding: 0 16px 12px;
       pointer-events: none;
+      transform: translateY(200%);
+      visibility: hidden;
     }
     .compare-bar.visible {
-      bottom: 0;
+      transform: translateY(0);
       pointer-events: all;
+      visibility: visible;
+      transition: transform 0.3s ease, visibility 0s linear 0s;
     }
+    .has-compare-bar { padding-bottom: 80px; }
     .compare-bar-inner {
       max-width: 760px;
       margin: 0 auto;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 16px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.18);
       padding: 12px 16px;
@@ -766,6 +779,7 @@
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.03em;
+      white-space: nowrap;
     }
     .pc-btn:hover { border-color: var(--accent); color: var(--accent); }
     .pc-btn.pc-btn-primary { background: var(--accent); border-color: var(--accent); color: #000000; }
@@ -1472,7 +1486,7 @@
       
 
       <div class="filter-group filter-group--kg">
-        <span class="filter-label">€/kg: <span id="kgRangeLabel">14.0 – 293.3</span></span>
+        <span class="filter-label">€/kg: <span id="kgRangeLabel">14,0 – 293,3</span></span>
         <div class="range-wrap">
           <input type="range" class="range-input" id="rangeMin"
             min="14.0" max="293.3" step="0.5"
@@ -1541,7 +1555,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 14,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1589,7 +1603,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/hsn/creatine-monohydrate" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 16,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1637,7 +1651,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/muscletech/cell-tech-performance-series" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 54,20 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1685,7 +1699,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/hivital-foods/creatine-3000-mg-1-kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1733,7 +1747,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/6th-gear-creatine-complex-1135g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 27,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1781,7 +1795,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 25,25 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1829,7 +1843,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/cellbest-extreme-1300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 33,12 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1877,7 +1891,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-polvo/10530050/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 27,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1925,7 +1939,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition/creatine-carbs-600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 17,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -1973,7 +1987,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NyZWF0aW5l" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 15,61 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2021,7 +2035,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/keepgoing/creatina-celular-800g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 26,96 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2069,7 +2083,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-elite/10872819/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 35,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2117,7 +2131,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport/creatina-monohidrato-200mesh-ultrafina-200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 8,10 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2165,7 +2179,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport-creatina-celular-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 20,61 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2213,7 +2227,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/sol-natural/creatina-monohidratada-en-polvo-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 20,75 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2261,7 +2275,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutriversum/basic-creatine-monohydrate-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 20,98 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2309,7 +2323,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport/creatine-creapure-protein-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 21,78 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2357,7 +2371,55 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-en-polvo-micronizada/17902344/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 21,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="MyProtein"
+         data-nombre="monohidrato de creatina en polvo - chupa chups de sandía 250 g"
+         data-marca="myprotein"
+         data-peso="250"
+         data-precio-kg="47.96"
+         data-tipo=""
+         data-id="monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia-250g-desconocida"
+         data-label="Monohidrato de creatina en polvo -…"
+>
+      <!-- Zona 1: imagen + nombre + meta -->
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17526823-1475290420730151.png&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Monohidrato de creatina en polvo - Chupa Chups de sandía 250 g" width="72" height="72" loading="lazy">
+        </div>
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">Monohidrato de creatina en polvo - Chupa Chups de sandía 250 g</span>
+            
+          </div>
+          <div class="pc-meta">MyProtein · 0,25 kg</div>
+        </div>
+      </div>
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">47,96<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 11,99 €</div>
+        
+      </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 13.33,0.0 26.67,0.0 40.0,0.0 53.33,0.0 66.67,0.0 80.0,0.0" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="80.0" cy="0.0" r="2.5" fill="#ef4444"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">49,96 €/kg</div></div>
+      </div>
+      
+      
+      <div class="pc-actions">
+        <a href="https://www.myprotein.es/p/nutricion-deportiva/monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia/17526822/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 11,99 €</a>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2405,7 +2467,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrex-creatine-drive-black-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 14,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2453,7 +2515,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/quamtrax-direct/creatina-monohidrato-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2501,7 +2563,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/dymatize/creatina-monohidrato-creapure" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,96 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2549,7 +2611,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/bavarian-elite/creatine-pure-100-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 25,45 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2597,7 +2659,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition/creatine-collagen-200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 10,40 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2645,7 +2707,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/creatine-monohydrate-powder-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 26,19 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2693,7 +2755,7 @@
       
       <div class="pc-actions">
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwLWNyZWFwdXJlLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 53,31 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2741,7 +2803,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/drasanvi/creatina-monohidrato-100-80-mesh-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 16,25 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2789,7 +2851,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/creatine-monohydrate-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 16,38 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2837,7 +2899,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 33,83 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2885,7 +2947,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/scitec-nutrition-crea-bomb-660-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 37,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -2933,55 +2995,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/cellucor/creatine-cor-performance-203g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 11,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
-      </div>
-      
-    </div>
-    
-    
-    
-    
-    
-    <div class="product-card"
-         data-tiendas="MyProtein"
-         data-nombre="monohidrato de creatina en polvo - chupa chups de sandía 250 g"
-         data-marca="myprotein"
-         data-peso="250"
-         data-precio-kg="59.96"
-         data-tipo=""
-         data-id="monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia-250g-desconocida"
-         data-label="Monohidrato de creatina en polvo -…"
->
-      <!-- Zona 1: imagen + nombre + meta -->
-      <div class="pc-top">
-        <div class="pc-img">
-          <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17526823-1475290420730151.png&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Monohidrato de creatina en polvo - Chupa Chups de sandía 250 g" width="72" height="72" loading="lazy">
-        </div>
-        <div class="pc-info">
-          <div class="pc-name">
-            <span class="pc-name-text">Monohidrato de creatina en polvo - Chupa Chups de sandía 250 g</span>
-            
-          </div>
-          <div class="pc-meta">MyProtein · 0,25 kg</div>
-        </div>
-      </div>
-      <!-- Zona 2: fila de precio -->
-      <div class="pc-price-row">
-        
-          <div class="pc-price-main">59,96<span class="pc-price-unit">€/kg</span></div>
-          <div class="pc-price-sec">desde 14,99 €</div>
-        
-      </div>
-      
-      <div class="spark-row">
-        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 13.33,0.0 26.67,0.0 40.0,0.0 53.33,0.0 66.67,0.0 80.0,0.0" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="80.0" cy="0.0" r="2.5" fill="#ef4444"/></svg></div>
-        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">49,96 €/kg</div></div>
-      </div>
-      
-      
-      <div class="pc-actions">
-        <a href="https://www.myprotein.es/p/nutricion-deportiva/monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia/17526822/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 14,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3029,7 +3043,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/creatina-glycofusion-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 18,19 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3077,7 +3091,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/cellucor/creatina-monohidrato-cor-performance" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 18,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3125,7 +3139,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amazin-foods/creatina-creapure-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3173,7 +3187,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/quamtrax/pure-creatine-flavor-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 18,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3221,7 +3235,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/weider/micronized-creatine-monohydrate-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 18,98 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3269,7 +3283,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-hcl/17169974/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 31,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3317,7 +3331,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/weider/creatine-200-mesh-astragin-neutra-310g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 19,94 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3365,7 +3379,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/bigman/pure-creatine-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 19,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3413,7 +3427,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/creatina-premium-crystal-pure-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 33,30 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3461,7 +3475,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition/creatine-monohydrate-200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 13,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3509,7 +3523,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition/creatine-electrolytes-200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 13,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3557,7 +3571,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 20,29 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3605,7 +3619,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/mega-plus/creatina-competition-600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 42,80 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3653,7 +3667,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/creatine-100-monohydrate-3000-mg-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 21,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3701,7 +3715,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/optimum-nutrition/micronized-creatine-powder" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 22,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3749,7 +3763,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/crea-trix-824g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 60,30 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3797,7 +3811,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/bavarian-elite/creatina-creapure-neutra-500g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 37,20 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3845,7 +3859,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/100-creatine-monohydrate-sabores-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 22,41 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3893,7 +3907,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/weider/premium-creatine-100-creapure-375g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 28,41 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3941,7 +3955,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition/creatina-bcaa-200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 15,29 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -3989,7 +4003,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 23,39 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4037,7 +4051,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/gold-nutrition/creatina-monohidrato-creapure-280g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 21,86 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4085,7 +4099,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatine" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 15,75 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4133,7 +4147,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport-creatina-100-20x5g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 15,84 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4181,7 +4195,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/creatina-micronpure-600g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 47,77 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4229,7 +4243,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/100-creatina-monohidrato-micronizada" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 39,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4277,7 +4291,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/zero-creatine-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 24,11 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4325,7 +4339,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-300-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 24,49 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4373,7 +4387,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/creatine-monohydrate-creapure-200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 16,56 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4421,7 +4435,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/scitec/tri-creatina-malato-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 24,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4469,7 +4483,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/crea-extreme-tank" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 25,00 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4517,7 +4531,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/biotech-usa/100-creatine-monohydrate-yuzu-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 26,01 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4565,7 +4579,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/226ers-creatina-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 26,10 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4613,7 +4627,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/creatine-clonapure" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 17,64 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4661,7 +4675,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/creatine-monohydrate-drink-360g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 32,20 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4709,7 +4723,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/finisher/finisher-creatine-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 26,91 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4757,7 +4771,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/infisport/creatina-monohidrato-creapure-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 26,91 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4805,7 +4819,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/vitobest/creamap-gfs-sabor-naranja-200g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 18,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4853,7 +4867,7 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 94,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4901,7 +4915,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/optimum-nutrition/platinum-creatine-plus-350g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 35,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4949,7 +4963,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/nutrisport/creatina-monohidrato-cn-creapure-400g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 41,40 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -4997,7 +5011,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/zero-creatine-150-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 15,59 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5045,7 +5059,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/226ers/creatina-creapure-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 31,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5093,7 +5107,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/life-pro-nutrition/creatina-creapure" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 26,50 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5141,7 +5155,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/creatine-monohydrate" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 32,20 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5189,7 +5203,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/beverly-nutrition/creatine-100-creapure-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 32,95 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5237,7 +5251,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-performance/creatine-monohidrato-creapure-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 36,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5285,7 +5299,7 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/amix-nutrition/black-creatine-creapure-300g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 36,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5333,7 +5347,7 @@
       
       <div class="pc-actions">
         <a href="https://www.prozis.com/es/es/prozis/creatina-creapure-professional-150-g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Prozis · 43,99 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
     </div>
@@ -5750,23 +5764,6 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
       
       <div class="other-item">
         <div class="other-name">
-          Creatine HCL 120 Caps
-          <span class="other-marca">Amix</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.nutritienda.com/es/amix-pro/creatine-hcl-120-caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored noopener">
-            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 28,90 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
           Amix Creatina Creapure® Cápsulas 120vcaps
           <span class="other-marca">Amix</span>
         </div>
@@ -5776,6 +5773,23 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
           <a href="https://www.nutritienda.com/es/amix-nutrition/black-line-creatine-creapure-capsules" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored noopener">
             <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
             Nutritienda · 31,50 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          Creatine HCL 120 Caps
+          <span class="other-marca">Amix</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.nutritienda.com/es/amix-pro/creatine-hcl-120-caps" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored noopener">
+            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
+            Nutritienda · 28,90 €
           </a>
           
         </div>
@@ -6566,7 +6580,7 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
     if (vMin > vMax) return;
     fKgMin = vMin;
     fKgMax = vMax;
-    kgLabel.textContent = vMin.toFixed(1) + ' – ' + vMax.toFixed(1);
+    kgLabel.textContent = vMin.toFixed(1).replace('.', ',') + ' – ' + vMax.toFixed(1).replace('.', ',');
     resetPage();
   }
   rangeMin.addEventListener('input', updateRange);
@@ -6579,7 +6593,7 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
     fKgMax = parseFloat(rangeMax.max);
     rangeMin.value = rangeMin.min;
     rangeMax.value = rangeMax.max;
-    kgLabel.textContent = rangeMin.min + ' – ' + rangeMax.max;
+    kgLabel.textContent = rangeMin.min.replace('.', ',') + ' – ' + rangeMax.max.replace('.', ',');
     document.querySelectorAll('.store-filter-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.tienda === '' || b.dataset.peso === '' || b.dataset.tipo === '');
     });
@@ -6604,7 +6618,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
   if (!list || !bar || !btnGo) return; // guard por si falla algún ID
-  var SLUGS  = new Set(["100-creatina-monohidrato-500g-quamtrax-vs-creatina-creapure-400g-amazin-foods", "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-creatine-monohydrate-creapure-200g-vitobest", "creatina-celular-800g-keepgoing-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-creapure-400g-amazin-foods-vs-evocreatine-500g-hsn", "creatina-monohidrato-elite-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-celular-500g-nutrisport-vs-evocreatine-500g-hsn", "creatina-excell-100-creapure-en-polvo-1kg-hsn-vs-evocreatine-500g-hsn", "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-evocreatine-500g-hsn", "creatine-monohydrate-creapure-200g-vitobest-vs-evocreatine-500g-hsn", "creatina-celular-800g-keepgoing-vs-creatine-monohydrate-creapure-200g-vitobest", "creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn"]);
+  var SLUGS  = new Set(["creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-creatine-monohydrate-creapure-200g-vitobest", "creatine-monohydrate-creapure-200g-vitobest-vs-evocreatine-500g-hsn", "creatina-creapure-400g-amazin-foods-vs-evocreatine-500g-hsn", "creatina-excell-100-creapure-en-polvo-1kg-hsn-vs-evocreatine-500g-hsn", "creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-monohidrato-elite-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-celular-500g-nutrisport-vs-evocreatine-500g-hsn", "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-evocreatine-500g-hsn", "100-creatina-monohidrato-500g-quamtrax-vs-creatina-creapure-400g-amazin-foods", "creatina-celular-800g-keepgoing-vs-creatine-monohydrate-creapure-200g-vitobest", "creatina-celular-800g-keepgoing-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn"]);
   var BASE   = 'https://stackfit.es/comparar/';
   var selected = [];
 
@@ -6625,7 +6639,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     btnGo.disabled = (selected.length < 2);
-    bar.classList.toggle('visible', selected.length > 0);
+    var show = selected.length > 0;
+    bar.classList.toggle('visible', show);
+    document.body.classList.toggle('has-compare-bar', show);
   }
 
   list.addEventListener('click', function(e) {
@@ -6637,15 +6653,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var id    = card.dataset.id;
     var label = card.dataset.label;
     var idx   = selected.findIndex(function(s) { return s.id === id; });
+    var SVG_ADD  = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+    var SVG_DONE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
     if (idx !== -1) {
       selected.splice(idx, 1);
       btn.classList.remove('is-selected');
-      btn.textContent = 'Comparar';
+      btn.innerHTML = SVG_ADD;
+      btn.setAttribute('aria-label', 'Añadir a comparación');
     } else {
       if (selected.length >= 2) return;
       selected.push({id: id, label: label, btn: btn});
       btn.classList.add('is-selected');
-      btn.textContent = 'Añadido';
+      btn.innerHTML = SVG_DONE;
+      btn.setAttribute('aria-label', 'Quitar de comparación');
     }
     updateBar();
   });
