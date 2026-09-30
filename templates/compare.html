@@ -233,7 +233,7 @@
       <div class="verdict-label">Mejor precio</div>
       {% if veredicto.mejor_precio.side %}
         {% set g = producto_a if veredicto.mejor_precio.side == 'a' else producto_b %}
-        <div class="verdict-winner">{{ g.nombre_normalizado }}</div>
+        <div class="verdict-winner">{{ (g.nombre_display or g.nombre_normalizado) }}</div>
         <div class="verdict-value">{{ veredicto.mejor_precio.valor }}</div>
       {% elif veredicto.mejor_precio.valor == "Empate" %}
         <div class="verdict-winner">Empate</div>
@@ -248,7 +248,7 @@
       <div class="verdict-label">Más proteína/dosis</div>
       {% if veredicto.mas_proteina.side %}
         {% set g = producto_a if veredicto.mas_proteina.side == 'a' else producto_b %}
-        <div class="verdict-winner">{{ g.nombre_normalizado }}</div>
+        <div class="verdict-winner">{{ (g.nombre_display or g.nombre_normalizado) }}</div>
         <div class="verdict-value">{{ veredicto.mas_proteina.valor }}</div>
       {% else %}
         <div class="verdict-na">No disponible</div>
@@ -260,7 +260,7 @@
       <div class="verdict-label">Mejor valorado</div>
       {% if veredicto.mejor_valorado.side %}
         {% set g = producto_a if veredicto.mejor_valorado.side == 'a' else producto_b %}
-        <div class="verdict-winner">{{ g.nombre_normalizado }}</div>
+        <div class="verdict-winner">{{ (g.nombre_display or g.nombre_normalizado) }}</div>
         <div class="verdict-value">{{ veredicto.mejor_valorado.valor }}</div>
       {% else %}
         <div class="verdict-na">No disponible</div>
@@ -272,7 +272,7 @@
       <div class="verdict-label">Mejor relación calidad-precio</div>
       {% if veredicto.mejor_ratio.side %}
         {% set g = producto_a if veredicto.mejor_ratio.side == 'a' else producto_b %}
-        <div class="verdict-winner">{{ g.nombre_normalizado }}</div>
+        <div class="verdict-winner">{{ (g.nombre_display or g.nombre_normalizado) }}</div>
         <div class="verdict-value">{{ veredicto.mejor_ratio.valor }}</div>
       {% else %}
         <div class="verdict-na">No disponible</div>
@@ -355,8 +355,10 @@
         {% if producto_a.protein_per_serving_g is not none or producto_b.protein_per_serving_g is not none %}
         <tr>
           <td class="label-col">Proteína/dosis</td>
-          <td{% if veredicto.mas_proteina.side == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.protein_per_serving_g is not none %}{{ producto_a.protein_per_serving_g }} g{% else %}<span class="na-cell">—</span>{% endif %}</td>
-          <td{% if veredicto.mas_proteina.side == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.protein_per_serving_g is not none %}{{ producto_b.protein_per_serving_g }} g{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          {% set ga = producto_a.protein_per_serving_g | fmtg %}
+          {% set gb = producto_b.protein_per_serving_g | fmtg %}
+          <td{% if veredicto.mas_proteina.side == 'a' %} class="winner-cell"{% endif %}>{% if ga %}{{ ga }} g{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td{% if veredicto.mas_proteina.side == 'b' %} class="winner-cell"{% endif %}>{% if gb %}{{ gb }} g{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         {% endif %}
         {% if producto_a.servings_per_container is not none or producto_b.servings_per_container is not none %}
@@ -457,7 +459,7 @@
         {% endfor %}
       </div>
       {% set best = prod.precios | sort(attribute='precio_eur') | first %}
-      <a href="{{ best.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver mejor precio →</a>
+      <a href="{{ best.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ best.tienda }} · {{ best.precio_eur|fmtd }} €</a>
     </div>
     {% endfor %}
   </div>

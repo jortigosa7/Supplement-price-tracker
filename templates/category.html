@@ -162,7 +162,7 @@
       {% endif %}
 
       <div class="filter-group filter-group--kg">
-        <span class="filter-label">€/kg: <span id="kgRangeLabel">{{ precio_kg_min }} – {{ precio_kg_max }}</span></span>
+        <span class="filter-label">€/kg: <span id="kgRangeLabel">{{ "%.1f"|format(precio_kg_min)|replace('.', ',') }} – {{ "%.1f"|format(precio_kg_max)|replace('.', ',') }}</span></span>
         <div class="range-wrap">
           <input type="range" class="range-input" id="rangeMin"
             min="{{ precio_kg_min }}" max="{{ precio_kg_max }}" step="0.5"
@@ -254,12 +254,12 @@
       </div>
       <div class="pc-actions">
         <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       {% else %}
       <div class="pc-actions">
         <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }} · {{ offer.precio_eur|fmtd }} €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       {% endif %}
     </div>
@@ -502,7 +502,7 @@
     if (vMin > vMax) return;
     fKgMin = vMin;
     fKgMax = vMax;
-    kgLabel.textContent = vMin.toFixed(1) + ' – ' + vMax.toFixed(1);
+    kgLabel.textContent = vMin.toFixed(1).replace('.', ',') + ' – ' + vMax.toFixed(1).replace('.', ',');
     resetPage();
   }
   rangeMin.addEventListener('input', updateRange);
@@ -515,7 +515,7 @@
     fKgMax = parseFloat(rangeMax.max);
     rangeMin.value = rangeMin.min;
     rangeMax.value = rangeMax.max;
-    kgLabel.textContent = rangeMin.min + ' – ' + rangeMax.max;
+    kgLabel.textContent = rangeMin.min.replace('.', ',') + ' – ' + rangeMax.max.replace('.', ',');
     document.querySelectorAll('.store-filter-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.tienda === '' || b.dataset.peso === '' || b.dataset.tipo === '');
     });
@@ -561,7 +561,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     btnGo.disabled = (selected.length < 2);
-    bar.classList.toggle('visible', selected.length > 0);
+    var show = selected.length > 0;
+    bar.classList.toggle('visible', show);
+    document.body.classList.toggle('has-compare-bar', show);
   }
 
   list.addEventListener('click', function(e) {
@@ -573,15 +575,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var id    = card.dataset.id;
     var label = card.dataset.label;
     var idx   = selected.findIndex(function(s) { return s.id === id; });
+    var SVG_ADD  = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+    var SVG_DONE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
     if (idx !== -1) {
       selected.splice(idx, 1);
       btn.classList.remove('is-selected');
-      btn.textContent = 'Comparar';
+      btn.innerHTML = SVG_ADD;
+      btn.setAttribute('aria-label', 'Añadir a comparación');
     } else {
       if (selected.length >= 2) return;
       selected.push({id: id, label: label, btn: btn});
       btn.classList.add('is-selected');
-      btn.textContent = 'Añadido';
+      btn.innerHTML = SVG_DONE;
+      btn.setAttribute('aria-label', 'Quitar de comparación');
     }
     updateBar();
   });

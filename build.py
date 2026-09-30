@@ -810,7 +810,15 @@ def setup_jinja():
             return "—"
         return f"{val:.2f}".replace('.', ',')
 
+    def _fmtg(val):
+        """Formatea gramos: entero si sin decimales, 1 decimal con coma si los hay.
+        Devuelve vacío para None o 0 (dato ausente/inválido)."""
+        if not val:
+            return ""
+        return str(int(val)) if val == int(val) else f"{val:.1f}".replace('.', ',')
+
     env.filters['fmtd'] = _fmtd
+    env.filters['fmtg'] = _fmtg
     return env
 
 
@@ -1365,6 +1373,11 @@ def _compare_slug(pa: dict, pb: dict) -> str:
     return f"{sa}-vs-{sb}"
 
 
+def _fmtc(val, d=2):
+    """Número con coma decimal para texto visible en español: 19.49 → '19,49'."""
+    return f"{val:.{d}f}".replace('.', ',')
+
+
 def generar_veredicto(pa: dict, pb: dict) -> dict:
     """Calcula el ganador en cada métrica. side ∈ {'a','b', None}."""
     def _side(va, vb, menor_es_mejor=True):
@@ -1386,7 +1399,7 @@ def generar_veredicto(pa: dict, pb: dict) -> dict:
         mejor_precio = {"side": None, "valor": "Empate"}
     elif kg_a and kg_b:
         ganador_kg = kg_a if side_kg == "a" else kg_b
-        mejor_precio = {"side": side_kg, "valor": f"{ganador_kg:.2f} €/kg"}
+        mejor_precio = {"side": side_kg, "valor": f"{_fmtc(ganador_kg)} €/kg"}
     else:
         mejor_precio = {"side": None, "valor": None}
 
@@ -1413,7 +1426,7 @@ def generar_veredicto(pa: dict, pb: dict) -> dict:
     rat_b = pb.get("store_rating")
     side_rat = _side(rat_a, rat_b, menor_es_mejor=False)
     if rat_a and rat_b:
-        mejor_rat = {"side": side_rat, "valor": f"{max(rat_a, rat_b):.2f} / 5"}
+        mejor_rat = {"side": side_rat, "valor": f"{_fmtc(max(rat_a, rat_b))} / 5"}
     else:
         mejor_rat = {"side": None, "valor": None}
 
@@ -1431,24 +1444,24 @@ def generar_editorial(pa: dict, pb: dict) -> list:
     kg_a = pa.get("precio_por_kg_min")
     kg_b = pb.get("precio_por_kg_min")
 
-    na = html_mod.escape(pa["nombre_normalizado"])
-    nb = html_mod.escape(pb["nombre_normalizado"])
+    na = html_mod.escape(pa.get("nombre_display") or pa["nombre_normalizado"])
+    nb = html_mod.escape(pb.get("nombre_display") or pb["nombre_normalizado"])
 
     if kg_a and kg_b:
         diff = abs(kg_a - kg_b)
         if diff > 0.01:
-            barato = (na, f"{kg_a:.2f}") if kg_a < kg_b else (nb, f"{kg_b:.2f}")
-            caro   = (nb, f"{kg_b:.2f}") if kg_a < kg_b else (na, f"{kg_a:.2f}")
+            barato = (na, _fmtc(kg_a)) if kg_a < kg_b else (nb, _fmtc(kg_b))
+            caro   = (nb, _fmtc(kg_b)) if kg_a < kg_b else (na, _fmtc(kg_a))
             parrafos.append(
                 f"Si buscas el mejor precio por kilogramo, <strong>{barato[0]}</strong> "
                 f"es la opción más económica con <strong>{barato[1]} €/kg</strong>, "
-                f"{diff:.2f} €/kg menos que {caro[0]} ({caro[1]} €/kg)."
+                f"{_fmtc(diff)} €/kg menos que {caro[0]} ({caro[1]} €/kg)."
             )
         else:
             parrafos.append(
                 f"Ambos productos tienen un precio por kilogramo muy similar: "
-                f"<strong>{na}</strong> a {kg_a:.2f} €/kg y "
-                f"<strong>{nb}</strong> a {kg_b:.2f} €/kg."
+                f"<strong>{na}</strong> a {_fmtc(kg_a)} €/kg y "
+                f"<strong>{nb}</strong> a {_fmtc(kg_b)} €/kg."
             )
 
     prot_a = pa.get("protein_per_serving_g")
@@ -1485,8 +1498,8 @@ def generar_editorial(pa: dict, pb: dict) -> list:
         mayor = (na, peso_a) if peso_a > peso_b else (nb, peso_b)
         menor = (nb, peso_b) if peso_a > peso_b else (na, peso_a)
         parrafos.append(
-            f"{mayor[0]} viene en un formato de {mayor[1]:.2f} kg "
-            f"frente a los {menor[1]:.2f} kg de {menor[0]}. "
+            f"{mayor[0]} viene en un formato de {_fmtc(mayor[1])} kg "
+            f"frente a los {_fmtc(menor[1])} kg de {menor[0]}. "
             f"El precio por kilogramo ya normaliza esta diferencia de tamaño."
         )
 
@@ -1515,8 +1528,8 @@ def generar_editorial(pa: dict, pb: dict) -> list:
 def generar_faq_comparacion(pa: dict, pb: dict) -> list:
     """3-4 preguntas FAQ generadas a partir de datos objetivos."""
     faqs = []
-    na = pa["nombre_normalizado"]
-    nb = pb["nombre_normalizado"]
+    na = pa.get("nombre_display") or pa["nombre_normalizado"]
+    nb = pb.get("nombre_display") or pb["nombre_normalizado"]
     kg_a = pa.get("precio_por_kg_min")
     kg_b = pb.get("precio_por_kg_min")
 
@@ -1526,10 +1539,10 @@ def generar_faq_comparacion(pa: dict, pb: dict) -> list:
         faqs.append({
             "q": f"¿Cuál es más barato, {na} o {nb}?",
             "a": (
-                f"{barato['nombre_normalizado']} es más barato con "
-                f"{barato['precio_por_kg_min']:.2f} €/kg frente a "
-                f"{caro['precio_por_kg_min']:.2f} €/kg de {caro['nombre_normalizado']} "
-                f"— una diferencia de {diff:.2f} €/kg."
+                f"{barato.get('nombre_display') or barato['nombre_normalizado']} es más barato con "
+                f"{_fmtc(barato['precio_por_kg_min'])} €/kg frente a "
+                f"{_fmtc(caro['precio_por_kg_min'])} €/kg de {caro.get('nombre_display') or caro['nombre_normalizado']} "
+                f"— una diferencia de {_fmtc(diff)} €/kg."
             ),
         })
 
@@ -1538,7 +1551,7 @@ def generar_faq_comparacion(pa: dict, pb: dict) -> list:
             "q": f"¿Dónde comprar {na} al mejor precio?",
             "a": (
                 f"El mejor precio de {na} está en {pa['tienda_mas_barata']}, "
-                f"a {pa['precio_min']:.2f} €."
+                f"a {_fmtc(pa['precio_min'])} €."
             ),
         })
 
@@ -1547,7 +1560,7 @@ def generar_faq_comparacion(pa: dict, pb: dict) -> list:
             "q": f"¿Dónde comprar {nb} al mejor precio?",
             "a": (
                 f"El mejor precio de {nb} está en {pb['tienda_mas_barata']}, "
-                f"a {pb['precio_min']:.2f} €."
+                f"a {_fmtc(pb['precio_min'])} €."
             ),
         })
 
@@ -1654,8 +1667,8 @@ def generar_comparaciones(env, productos_web: list, last_updated: str) -> tuple[
     for slug, (pa, pb) in pares.items():
         entry = {
             "slug":    slug,
-            "nombre_a": pa["nombre_normalizado"],
-            "nombre_b": pb["nombre_normalizado"],
+            "nombre_a": pa.get("nombre_display") or pa["nombre_normalizado"],
+            "nombre_b": pb.get("nombre_display") or pb["nombre_normalizado"],
             "categoria": pa["categoria"],
         }
         comp_por_id.setdefault(pa["id"], []).append(entry)
@@ -2593,6 +2606,7 @@ if __name__ == "__main__":
     # Recuperar las 6 populares (misma lógica que en generar_comparaciones)
     from itertools import combinations as _combinations
     _pares_home, _, _ = generar_pares_comparacion(productos_web)
+    _SLUG_TO_LABEL = {cfg["slug"]: cat_name for cat_name, cfg in CATEGORIA_CONFIG.items()}
     def _avg_kg_home(s):
         pa2, pb2 = _pares_home[s]
         return ((pa2.get("precio_por_kg_min") or 9999) + (pb2.get("precio_por_kg_min") or 9999)) / 2
@@ -2600,9 +2614,11 @@ if __name__ == "__main__":
     comparaciones_populares_home = [
         {
             "slug":     s,
-            "nombre_a": _pares_home[s][0]["nombre_normalizado"],
-            "nombre_b": _pares_home[s][1]["nombre_normalizado"],
+            "nombre_a": _pares_home[s][0].get("nombre_display") or _pares_home[s][0]["nombre_normalizado"],
+            "nombre_b": _pares_home[s][1].get("nombre_display") or _pares_home[s][1]["nombre_normalizado"],
             "categoria": _pares_home[s][0]["categoria"],
+            "categoria_label": _SLUG_TO_LABEL.get(_pares_home[s][0]["categoria"],
+                                                   _pares_home[s][0]["categoria"].replace('-', ' ')),
         }
         for s in _top6_slugs
     ]
