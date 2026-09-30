@@ -748,8 +748,16 @@ def guardar_price_history(productos_web: list[dict]):
         for e in historial
     }
 
+    # Último precio registrado por (producto_id, tienda) para el guard de caída brusca
+    ultimo_precio: dict[tuple, float] = {}
+    for e in historial:
+        k = (e["producto_id"], e["tienda"])
+        # Nos quedamos con la entrada más reciente (historial está en orden de inserción)
+        ultimo_precio[k] = e["precio"]
+
     nuevas = 0
     purgadas = 0
+    anomalias_precio = 0
     for producto in productos_web:
         producto_id = producto["id"]
         for precio_info in producto.get("precios", []):
@@ -764,11 +772,25 @@ def guardar_price_history(productos_web: list[dict]):
                             and e["tienda"] == precio_info["tienda"])
                 ]
                 purgadas += antes - len(historial)
-                # Reconstruir índice tras la purga
+                # Reconstruir índice y último precio tras la purga
                 existentes = {
                     (e["producto_id"], e["fecha"], e["tienda"])
                     for e in historial
                 }
+                ultimo_precio = {(e["producto_id"], e["tienda"]): e["precio"] for e in historial}
+                continue
+
+            nuevo_precio = precio_info["precio_eur"]
+            k = (producto_id, precio_info["tienda"])
+            prev = ultimo_precio.get(k)
+            if prev is not None and prev > 0 and nuevo_precio < prev * 0.5:
+                # Caída >50% respecto al último registrado → probablemente variante equivocada
+                print(
+                    f"[history-guard] SKIP {producto_id} | {precio_info['tienda']} | "
+                    f"{prev:.2f} → {nuevo_precio:.2f} ({nuevo_precio/prev:.0%}) "
+                    f"el {precio_info['fecha']}"
+                )
+                anomalias_precio += 1
                 continue
 
             clave = (producto_id, precio_info["fecha"], precio_info["tienda"])
@@ -776,10 +798,11 @@ def guardar_price_history(productos_web: list[dict]):
                 historial.append({
                     "producto_id": producto_id,
                     "fecha":       precio_info["fecha"],
-                    "precio":      precio_info["precio_eur"],
+                    "precio":      nuevo_precio,
                     "tienda":      precio_info["tienda"],
                 })
                 existentes.add(clave)
+                ultimo_precio[k] = nuevo_precio
                 nuevas += 1
 
     with open(path, "w", encoding="utf-8") as f:
@@ -788,6 +811,8 @@ def guardar_price_history(productos_web: list[dict]):
     msg = f"Historial: {path} ({nuevas} entradas nuevas"
     if purgadas:
         msg += f", {purgadas} entradas purgadas por precio no confirmado"
+    if anomalias_precio:
+        msg += f", {anomalias_precio} entradas bloqueadas por caída >50%"
     msg += f", {len(historial)} total)"
     print(msg)
     return path
