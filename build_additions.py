@@ -1,9 +1,8 @@
 """
-build_additions.py — Sparklines y ticker de variación de precios para StackFit.
+build_additions.py — Sparklines para StackFit.
 
 Funciones exportadas:
     compute_spark_data(productos_web)  → modifica la lista in-place, añade spark_svg y spark_min
-    build_ticker_items(productos_web)  → devuelve lista de 12 items con mayor variación de precio
 """
 
 import json
@@ -124,63 +123,3 @@ def compute_spark_data(productos_web: list[dict]) -> list[dict]:
     return productos_web
 
 
-def build_ticker_items(productos_web: list[dict]) -> list[dict]:
-    """
-    Devuelve una lista de hasta 12 dicts con los productos que mayor variación
-    de precio (en porcentaje) han registrado en el historial.
-
-    Cada dict tiene:
-        nombre    (str)   — nombre_normalizado del producto
-        precio_kg (float) — precio €/kg actual (precio_por_kg_min)
-        delta     (float) — variación % entre precio histórico más alto y actual
-                            (positivo = subida, negativo = bajada)
-    """
-    history = _load_history()
-
-    candidates: list[dict] = []
-    for p in productos_web:
-        pid = p.get("id", "")
-        entries = history.get(pid, [])
-        if len(entries) < 2:
-            continue
-
-        precio_actual_kg = p.get("precio_por_kg_min")
-        if not precio_actual_kg:
-            continue
-
-        peso_kg = p.get("peso_kg") or 1.0
-        prices_by_date: dict[str, list[float]] = {}
-        for e in entries:
-            precio = e.get("precio")
-            fecha = e.get("fecha", "")
-            if precio is not None and fecha and peso_kg > 0:
-                try:
-                    pkg = float(precio) / float(peso_kg)
-                    if pkg > 0 and not math.isnan(pkg):
-                        prices_by_date.setdefault(fecha, []).append(pkg)
-                except (TypeError, ValueError, ZeroDivisionError):
-                    pass
-
-        prices_kg = [min(v) for _, v in sorted(prices_by_date.items())]
-
-        if len(prices_kg) < 2:
-            continue
-
-        precio_maximo = max(prices_kg)
-        if precio_maximo > 0:
-            delta = round((precio_actual_kg - precio_maximo) / precio_maximo * 100, 1)
-        else:
-            delta = 0.0
-
-        if abs(delta) < 0.5:
-            continue
-
-        candidates.append({
-            "nombre":    p["nombre_normalizado"],
-            "precio_kg": round(precio_actual_kg, 2),
-            "delta":     delta,
-        })
-
-    # Ordenar por variación absoluta descendente y devolver los 12 mayores
-    candidates.sort(key=lambda x: abs(x["delta"]), reverse=True)
-    return candidates[:12]

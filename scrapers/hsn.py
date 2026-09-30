@@ -52,6 +52,10 @@ CATEGORIAS = [
 # Criterio: no son proteínas en polvo para batidos (errores de categorización HSN).
 NOMBRES_EXCLUIR = {
     "crema de arroz proteica",  # aparece en caseína pero es un carbohidrato
+    "bicarbonato de sodio",
+    "ácido málico",
+    "claras de huevo",
+    "cafeína natural",
 }
 
 
@@ -167,7 +171,7 @@ def _scrape_detalle(url: str, nombre: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     enrichment: dict = {}
 
-    # ── Rating desde JSON-LD ────────────────────────────────────────────────
+    # ── Rating e imagen desde JSON-LD ──────────────────────────────────────
     for script in soup.find_all("script", type="application/ld+json"):
         try:
             data = json.loads(script.string or "")
@@ -180,9 +184,22 @@ def _scrape_detalle(url: str, nombre: str) -> dict:
                 if rc:
                     enrichment["store_rating_count"] = int(rc)
                     enrichment["store_rating_url"] = url
+                img = data.get("image")
+                if img:
+                    img_url = img if isinstance(img, str) else (img[0] if img else None)
+                    if img_url and "hsn_highlight" not in img_url:
+                        enrichment["imagen_url"] = img_url
                 break
         except Exception:
             pass
+
+    # ── Imagen desde og:image como fallback ────────────────────────────────
+    if "imagen_url" not in enrichment:
+        og_img = soup.find("meta", property="og:image")
+        if og_img:
+            img_url = og_img.get("content", "")
+            if img_url and "hsn_highlight" not in img_url:
+                enrichment["imagen_url"] = img_url
 
     # ── Servings per container ("Servicios: 40") ────────────────────────────
     m = re.search(r"Servicios:\s*(\d+)", html)
@@ -326,7 +343,7 @@ def scrape(debug: bool = False) -> list[dict]:
                 imagen_url = None
                 if img:
                     src = img.get("data-src") or img.get("src") or ""
-                    if src.startswith("http"):
+                    if src.startswith("http") and "hsn_highlight.svg" not in src:
                         imagen_url = src
 
                 productos_raw.append({
@@ -400,6 +417,7 @@ def scrape(debug: bool = False) -> list[dict]:
         # Precio: usar el de la opción concreta (confirmado) o el de lista como fallback
         precio_final = str(precio_confirmado) if precio_confirmado else d["precio"]
 
+        listing_img = d.get("imagen_url")   # None si era hsn_highlight (ya filtrado)
         prod = producto_base(
             nombre_final,
             precio_final,
@@ -407,9 +425,12 @@ def scrape(debug: bool = False) -> list[dict]:
             d["categoria"],
             TIENDA,
             d["url"],
-            d.get("imagen_url"),
+            listing_img,
         )
         prod.update(enrichment)
+        # La imagen del listado tiene prioridad sobre la del detalle cuando es válida
+        if listing_img:
+            prod["imagen_url"] = listing_img
 
         # Subtipo de proteína (solo para categorías de proteínas de HSN)
         if d.get("protein_subtype"):

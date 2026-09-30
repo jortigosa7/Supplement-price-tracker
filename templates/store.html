@@ -69,36 +69,37 @@
         <!-- Zona 1: imagen + nombre + meta -->
         <div class="pc-top">
           <div class="pc-img">
-            <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="72" height="72" loading="lazy">
+            <img src="{{ p.img_src }}" alt="{{ (p.nombre_display or p.nombre_normalizado) }}" width="72" height="72" loading="lazy">
           </div>
           <div class="pc-info">
             <div class="pc-name">
-              <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
+              <span class="pc-name-text">{{ (p.nombre_display or p.nombre_normalizado) }}</span>
               {% if is_deal %}<span class="pc-badge deal">Descuento</span>{% endif %}
             </div>
-            <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %}</div>
+            <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ p.peso_kg|fmtd }} kg{% endif %}</div>
           </div>
         </div>
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           {% if p.precio_por_kg_min %}
-            <div class="pc-price-main">{{ "%.2f"|format(p.precio_por_kg_min) }}<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde {{ "%.2f"|format(offer.precio_eur) }} €{% if is_deal %}<br><span class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</span>{% endif %}</div>
+            <div class="pc-price-main">{{ p.precio_por_kg_min|fmtd }}<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde {{ offer.precio_eur|fmtd }} €{% if is_deal %}<br><span class="pc-price-old">{{ offer.precio_original|fmtd }} €</span>{% endif %}</div>
           {% elif p.servings_per_container and offer.precio_eur %}
             {% set precio_dosis = offer.precio_eur / p.servings_per_container %}
-            <div class="pc-price-main no-kg">{{ "%.2f"|format(precio_dosis) }}<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ "%.2f"|format(offer.precio_eur) }} €</div>
+            <div class="pc-price-main no-kg">{{ precio_dosis|fmtd }}<span class="pc-price-unit">€/dosis</span></div>
+            <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ offer.precio_eur|fmtd }} €</div>
           {% else %}
-            <div class="pc-price-main no-kg">{{ "%.2f"|format(offer.precio_eur) }}<span class="pc-price-unit">€</span></div>
+            <div class="pc-price-main no-kg">{{ offer.precio_eur|fmtd }}<span class="pc-price-unit">€</span></div>
           {% endif %}
         </div>
         <!-- Zona 3: tiendas + acciones -->
+        {% if precios_ord | length > 1 %}
         <div class="pc-stores">
           {% for pr in precios_ord %}
           <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
             <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
             <span class="pc-store-name">{{ pr.tienda }}</span>
-            <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
+            <span class="pc-store-price">{{ pr.precio_eur|fmtd }} €</span>
             {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
           </a>
           {% endfor %}
@@ -106,6 +107,11 @@
         <div class="pc-actions">
           <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
         </div>
+        {% else %}
+        <div class="pc-actions">
+          <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }} · {{ offer.precio_eur|fmtd }} €</a>
+        </div>
+        {% endif %}
       </div>
       {% endfor %}
     </div>

@@ -194,7 +194,7 @@
     <div class="cmp-breadcrumb">
       <a href="{{ site_url }}/">Inicio</a><span>›</span>
       <a href="{{ site_url }}/comparar/">Comparar</a><span>›</span>
-      <span style="color:#ccc;">{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}</span>
+      <span style="color:#ccc;">{{ (producto_a.nombre_display or producto_a.nombre_normalizado) }} vs {{ (producto_b.nombre_display or producto_b.nombre_normalizado) }}</span>
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>{{ producto_a.nombre_seo }} vs {{ producto_b.nombre_seo }}: comparativa completa</h1>
@@ -211,12 +211,12 @@
     {% for prod in [producto_a, producto_b] %}
     <div class="cmp-hcard">
       <div class="cmp-hcard-img">
-        <img src="{{ prod.img_src }}" alt="{{ prod.nombre_normalizado }}" width="52" height="52" loading="eager">
+        <img src="{{ prod.img_src }}" alt="{{ (prod.nombre_display or prod.nombre_normalizado) }}" width="52" height="52" loading="eager">
       </div>
       <div class="cmp-hcard-info">
-        <div class="cmp-hcard-name">{{ prod.nombre_normalizado }}</div>
-        <div class="cmp-hcard-meta">{{ prod.marca }}{% if prod.peso_kg %} · {{ "%.2f"|format(prod.peso_kg) }} kg{% endif %}</div>
-        {% if prod.precio_min %}<div class="cmp-hcard-price">desde {{ "%.2f"|format(prod.precio_min) }} €</div>{% endif %}
+        <div class="cmp-hcard-name">{{ (prod.nombre_display or prod.nombre_normalizado) }}</div>
+        <div class="cmp-hcard-meta">{{ prod.marca }}{% if prod.peso_kg %} · {{ prod.peso_kg|fmtd }} kg{% endif %}</div>
+        {% if prod.precio_min %}<div class="cmp-hcard-price">desde {{ prod.precio_min|fmtd }} €</div>{% endif %}
       </div>
     </div>
     {% endfor %}
@@ -291,8 +291,8 @@
       <thead>
         <tr>
           <th class="label-col"></th>
-          <th>{{ producto_a.nombre_normalizado }}</th>
-          <th>{{ producto_b.nombre_normalizado }}</th>
+          <th>{{ (producto_a.nombre_display or producto_a.nombre_normalizado) }}</th>
+          <th>{{ (producto_b.nombre_display or producto_b.nombre_normalizado) }}</th>
         </tr>
       </thead>
       <tbody>
@@ -308,22 +308,22 @@
         </tr>
         <tr>
           <td class="label-col">Peso</td>
-          <td>{% if producto_a.peso_kg %}{{ "%.2f"|format(producto_a.peso_kg) }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
-          <td>{% if producto_b.peso_kg %}{{ "%.2f"|format(producto_b.peso_kg) }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_a.peso_kg %}{{ producto_a.peso_kg|fmtd }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.peso_kg %}{{ producto_b.peso_kg|fmtd }} kg{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         {% if producto_a.precio_por_kg_min is not none or producto_b.precio_por_kg_min is not none %}
         <tr>
           <td class="label-col">Precio €/kg</td>
-          <td>{% if producto_a.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'a' %} win{% endif %}">{{ "%.2f"|format(producto_a.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
-          <td>{% if producto_b.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'b' %} win{% endif %}">{{ "%.2f"|format(producto_b.precio_por_kg_min) }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_a.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'a' %} win{% endif %}">{{ producto_a.precio_por_kg_min|fmtd }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.precio_por_kg_min %}<span class="cmp-val-badge{% if veredicto.mejor_precio.side == 'b' %} win{% endif %}">{{ producto_b.precio_por_kg_min|fmtd }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         {% endif %}
         {% if producto_a.precio_min is not none or producto_b.precio_min is not none %}
         {% set _win_precio_total = 'a' if (producto_a.precio_min and producto_b.precio_min and producto_a.precio_min < producto_b.precio_min) else ('b' if (producto_a.precio_min and producto_b.precio_min and producto_b.precio_min < producto_a.precio_min) else none) %}
         <tr>
           <td class="label-col">Precio total</td>
-          <td{% if _win_precio_total == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.precio_min is not none %}{{ "%.2f"|format(producto_a.precio_min) }} € ({{ producto_a.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
-          <td{% if _win_precio_total == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.precio_min is not none %}{{ "%.2f"|format(producto_b.precio_min) }} € ({{ producto_b.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td{% if _win_precio_total == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.precio_min is not none %}{{ producto_a.precio_min|fmtd }} € ({{ producto_a.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td{% if _win_precio_total == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.precio_min is not none %}{{ producto_b.precio_min|fmtd }} € ({{ producto_b.tienda_mas_barata }}){% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         {% endif %}
         <tr>
@@ -371,7 +371,7 @@
           <td class="label-col">Valoración</td>
           <td{% if veredicto.mejor_valorado.side == 'a' %} class="winner-cell"{% endif %}>
             {% if producto_a.store_rating is not none %}
-              {{ "%.2f"|format(producto_a.store_rating) }} / 5
+              {{ producto_a.store_rating|fmtd }} / 5
               {% if producto_a.store_rating_count %}
                 <span style="color:#888;font-size:0.78rem;">({{ producto_a.store_rating_count | int }} reseñas)</span>
               {% endif %}
@@ -379,7 +379,7 @@
           </td>
           <td{% if veredicto.mejor_valorado.side == 'b' %} class="winner-cell"{% endif %}>
             {% if producto_b.store_rating is not none %}
-              {{ "%.2f"|format(producto_b.store_rating) }} / 5
+              {{ producto_b.store_rating|fmtd }} / 5
               {% if producto_b.store_rating_count %}
                 <span style="color:#888;font-size:0.78rem;">({{ producto_b.store_rating_count | int }} reseñas)</span>
               {% endif %}
@@ -431,18 +431,18 @@
     <div class="cmp-card">
       <div style="display:flex;align-items:center;gap:12px;">
         <div class="cmp-card-img">
-          <img src="{{ prod.img_src }}" alt="{{ prod.nombre_normalizado }}" width="72" height="72" loading="lazy">
+          <img src="{{ prod.img_src }}" alt="{{ (prod.nombre_display or prod.nombre_normalizado) }}" width="72" height="72" loading="lazy">
         </div>
         <div>
-          <div class="cmp-card-name">{{ prod.nombre_normalizado }}</div>
-          <div class="cmp-card-meta">{{ prod.marca }}{% if prod.peso_kg %} · {{ "%.2f"|format(prod.peso_kg) }} kg{% endif %}</div>
+          <div class="cmp-card-name">{{ (prod.nombre_display or prod.nombre_normalizado) }}</div>
+          <div class="cmp-card-meta">{{ prod.marca }}{% if prod.peso_kg %} · {{ prod.peso_kg|fmtd }} kg{% endif %}</div>
         </div>
       </div>
       {% if prod.precio_min %}
       <div>
-        <div class="cmp-card-price">{{ "%.2f"|format(prod.precio_min) }} €</div>
+        <div class="cmp-card-price">{{ prod.precio_min|fmtd }} €</div>
         {% if prod.precio_por_kg_min %}
-        <div class="cmp-card-kg">{{ "%.2f"|format(prod.precio_por_kg_min) }} €/kg</div>
+        <div class="cmp-card-kg">{{ prod.precio_por_kg_min|fmtd }} €/kg</div>
         {% endif %}
       </div>
       {% endif %}
@@ -451,7 +451,7 @@
         <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
           <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
           <span class="pc-store-name">{{ pr.tienda }}</span>
-          <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
+          <span class="pc-store-price">{{ pr.precio_eur|fmtd }} €</span>
           {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
         </a>
         {% endfor %}

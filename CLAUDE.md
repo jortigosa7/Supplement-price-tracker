@@ -73,6 +73,12 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - Google Search Console configurado, indexación en fase temprana.
 - Imágenes de producto: cascade webp local → imagen_url del CDN → placeholder SVG.
 - SEO titles y meta descriptions de categoría con mes/año dinámico.
+- `nombre_display` (sep 2026): campo de visualización limpio generado en `build.py::limpiar_nombre_display()`. Quita ruido del sufijo `|▸→` (stores, slogans), preserva variantes reales (Isolate, CFM, Vegan, Oats, + Creatina...), añade peso/formato si el nombre base no lo tiene, normaliza capitalización española y decimal con coma. `nombre_normalizado` no cambia — sigue siendo la base de IDs y slugs.
+- Imágenes HSN (sep 2026): el scraper extrae og:image / JSON-LD `image` de la caché de detalle sin peticiones extra. Listing image tiene prioridad sobre imagen de detalle. `hsn_highlight.svg` ignorado en toda la cascade.
+- Bloque destacados HSN en home (sep 2026): filtrado a `proteina-whey` + `creatina`, excluye productos non-suplemento (bicarbonato, ácido málico, claras...), ordenado por `store_rating_count` desc.
+- "Comparativas frecuentes" en páginas de categoría (sep 2026): bloque estático generado desde `data/comparaciones.json` filtrado por categoría del par.
+- Ticker de precios eliminado del diseño (sep 2026). Sparklines de evolución de precio en tarjetas se mantienen (`compute_spark_data()` en `build_additions.py`).
+- `ENABLE_ALERTAS = False` en `build.py`: flag para sección de alertas de precio. Desactivado.
 
 ### Roto o pendiente
 
@@ -127,6 +133,10 @@ Si trabajas aquí: **nunca añadas envío automático real sin pedir.** El dise�
 Para scrapear una sola tienda (cuando un scraper está roto o hay que forzar un refresh) usa siempre `python scraper.py`, no scripts de merge sueltos. Los scripts de merge copian los productos de las otras tiendas desde el dataset anterior con su `fecha_scraping` original. El resultado es un fichero con nombre de hoy pero precios de hace días en las tiendas no scrapeadas, y ninguna guardia lo detecta porque al menos una tienda sí tiene datos frescos. En el incidente de sep 2026 esto propagó fechas del 7 de sep durante once días sin que la web lo mostrara.
 
 `scraper.py` ya gestiona el caso de un scraper roto: si una tienda devuelve 0 productos activa el tienda-level fallback internamente, preserva la `fecha_scraping` real, y el check de `checks.py` alertará si la tienda lleva más de 7 días sin datos frescos.
+
+## Commits
+
+- Nunca commitear `docs/` ni `data/` en cambios manuales de código. La web solo la regenera el workflow de GitHub Actions con datos recién scrapeados. Si hace falta reconstruir en local, hacer antes `git pull` y comprobar que el dataset más reciente en `datasets/` es de hoy o de ayer.
 
 ## Antes de hacer cambios grandes
 

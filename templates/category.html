@@ -78,18 +78,6 @@
 {% endif %}
 {% endblock %}
 
-{% block ticker %}
-{% if ticker_items %}
-<div class="ticker-strip"><div class="ticker-inner">
-  {% for item in ticker_items %}{% for _ in [1,2] %}
-  <span class="ticker-item">
-    <span class="ticker-dot" style="background:{{ '#c8ff4d' if item.delta < 0 else ('#ff6b2b' if item.delta > 0 else '#444') }};"></span>
-    <span style="color:{{ '#c8ff4d' if item.delta < 0 else ('#ff6b2b' if item.delta > 0 else '#666') }};">{{ item.nombre }} → {{ "%.2f"|format(item.precio_kg) }}€/kg {% if item.delta < 0 %}▼{{ item.delta|abs }}%{% elif item.delta > 0 %}▲{{ item.delta }}%{% endif %}</span>
-  </span>
-  {% endfor %}{% endfor %}
-</div></div>
-{% endif %}
-{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -115,7 +103,7 @@
       {% if products %}
       {% set best = products | selectattr("precio_por_kg_min") | first | default(none) %}
       {% if best and best.precio_por_kg_min %}
-      <span>Mejor €/kg: <strong class="green">{{ "%.2f"|format(best.precio_por_kg_min) }} €/kg</strong></span>
+      <span>Mejor €/kg: <strong class="green">{{ best.precio_por_kg_min|fmtd }} €/kg</strong></span>
       {% endif %}
       {% endif %}
     </div>
@@ -209,55 +197,57 @@
     {% set tienda_slugs = p.precios | map(attribute='tienda') | join(',') %}
     <div class="product-card{% if loop.index == 1 %} is-best{% endif %}"
          data-tiendas="{{ tienda_slugs }}"
-         data-nombre="{{ p.nombre_normalizado | lower }}"
+         data-nombre="{{ (p.nombre_display or p.nombre_normalizado) | lower }}"
          data-marca="{{ p.marca | lower }}"
          data-peso="{{ (p.peso_kg * 1000) | int if p.peso_kg else 0 }}"
          data-precio-kg="{{ p.precio_por_kg_min if p.precio_por_kg_min else 9999 }}"
          data-tipo="{{ p.tipo_proteina if p.tipo_proteina is defined else '' }}"
          data-id="{{ p.id }}"
-         data-label="{{ p.nombre_normalizado | truncate(35, True, '…') }}">
+         data-label="{{ (p.nombre_display or p.nombre_normalizado) | truncate(35, True, '…') }}"
+>
       <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="72" height="72" loading="lazy">
+          <img src="{{ p.img_src }}" alt="{{ (p.nombre_display or p.nombre_normalizado) }}" width="72" height="72" loading="lazy">
         </div>
         <div class="pc-info">
           <div class="pc-name">
-            <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
+            <span class="pc-name-text">{{ (p.nombre_display or p.nombre_normalizado) }}</span>
             {% if loop.index == 1 %}
               <span class="pc-badge best">Mejor precio</span>
             {% elif is_deal %}
               <span class="pc-badge deal">Descuento</span>
             {% endif %}
           </div>
-          <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %}</div>
+          <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ p.peso_kg|fmtd }} kg{% endif %}</div>
         </div>
       </div>
       <!-- Zona 2: fila de precio -->
       <div class="pc-price-row">
         {% if p.precio_por_kg_min %}
-          <div class="pc-price-main">{{ "%.2f"|format(p.precio_por_kg_min) }}<span class="pc-price-unit">€/kg</span></div>
-          <div class="pc-price-sec">desde {{ "%.2f"|format(offer.precio_eur) }} €{% if is_deal %}<br><span class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</span>{% endif %}</div>
+          <div class="pc-price-main">{{ p.precio_por_kg_min|fmtd }}<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde {{ offer.precio_eur|fmtd }} €{% if is_deal %}<br><span class="pc-price-old">{{ offer.precio_original|fmtd }} €</span>{% endif %}</div>
         {% elif p.servings_per_container and offer.precio_eur %}
           {% set precio_dosis = offer.precio_eur / p.servings_per_container %}
-          <div class="pc-price-main no-kg">{{ "%.2f"|format(precio_dosis) }}<span class="pc-price-unit">€/dosis</span></div>
-          <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ "%.2f"|format(offer.precio_eur) }} €</div>
+          <div class="pc-price-main no-kg">{{ precio_dosis|fmtd }}<span class="pc-price-unit">€/dosis</span></div>
+          <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ offer.precio_eur|fmtd }} €</div>
         {% else %}
-          <div class="pc-price-main no-kg">{{ "%.2f"|format(offer.precio_eur) }}<span class="pc-price-unit">€</span></div>
+          <div class="pc-price-main no-kg">{{ offer.precio_eur|fmtd }}<span class="pc-price-unit">€</span></div>
         {% endif %}
       </div>
       {% if p.spark_svg %}
       <div class="spark-row">
         <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div>{{ p.spark_svg | safe }}</div>
-        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">{{ "%.2f"|format(p.spark_min) }} €/kg</div></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">{{ p.spark_min|fmtd }} €/kg</div></div>
       </div>
       {% endif %}
+      {% if precios_ord | length > 1 %}
       <div class="pc-stores">
         {% for pr in precios_ord %}
         <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
           <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
           <span class="pc-store-name">{{ pr.tienda }}</span>
-          <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
+          <span class="pc-store-price">{{ pr.precio_eur|fmtd }} €</span>
           {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
         </a>
         {% endfor %}
@@ -266,6 +256,12 @@
         <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
       </div>
+      {% else %}
+      <div class="pc-actions">
+        <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }} · {{ offer.precio_eur|fmtd }} €</a>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación">Comparar</button>
+      </div>
+      {% endif %}
     </div>
     {% endfor %}
   </div>
@@ -296,6 +292,25 @@
     Los precios se actualizan varias veces por semana y pueden variar entre el momento del scraping y la compra.
     El precio/kg permite comparar productos de distintos tamaños de forma justa. Algunos enlaces son de afiliado.
   </div>
+
+  <!-- ── Comparaciones de esta categoría ──────────────── -->
+  {% if comparaciones_cat %}
+  <div style="margin:40px 0 32px;">
+    <h2 style="font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;">Comparativas frecuentes</h2>
+    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:8px;">
+      {% for par in comparaciones_cat %}
+      <li>
+        <a href="{{ site_url }}/comparar/{{ par.slug }}/"
+           style="display:inline-block; font-size:0.78rem; color:#aaa; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:5px 12px; text-decoration:none; transition:border-color 0.15s, color 0.15s;"
+           onmouseover="this.style.borderColor='rgba(200,255,77,0.4)'; this.style.color='var(--accent)'"
+           onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.color='#aaa'">
+          {{ par.nombre_a }} vs {{ par.nombre_b }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 
   <!-- ── Guía de compra ────────────────────────────── -->
   {% if cat.guia_titulo %}
@@ -351,7 +366,7 @@
       {% set sc_map = {"HSN":"hsn","Nutritienda":"nutritienda","Prozis":"prozis","MyProtein":"myprotein"} %}
       <div class="other-item">
         <div class="other-name">
-          {{ p.nombre_normalizado }}
+          {{ (p.nombre_display or p.nombre_normalizado) }}
           <span class="other-marca">{{ p.marca }}</span>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
@@ -359,7 +374,7 @@
           {% set sc = sc_map.get(pr.tienda, 'default') %}
           <a href="{{ pr.url_afiliado }}" class="store-pill store-{{ sc }}" target="_blank" rel="nofollow sponsored noopener">
             <span class="store-pill-dot" style="background:{{ {"HSN":"var(--hsn)","Nutritienda":"var(--nutritienda)","Prozis":"var(--prozis)","MyProtein":"var(--myprotein)"}.get(pr.tienda, 'var(--amazon)') }};"></span>
-            {{ pr.tienda }} · {{ "%.2f"|format(pr.precio_eur) }} €
+            {{ pr.tienda }} · {{ pr.precio_eur|fmtd }} €
           </a>
           {% endfor %}
         </div>

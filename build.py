@@ -31,7 +31,7 @@ import html as html_mod
 from datetime import datetime
 from itertools import combinations
 from jinja2 import Environment, FileSystemLoader
-from build_additions import compute_spark_data, build_ticker_items
+from build_additions import compute_spark_data
 from checks import run_all_checks
 
 # Forzar UTF-8 en stdout (necesario en Windows con cp1252)
@@ -48,6 +48,7 @@ DATASETS_DIR = "datasets"
 DATA_DIR     = "data"
 DOCS_DIR     = "docs"
 TEMPLATES_DIR = "templates"
+ENABLE_ALERTAS = False
 
 # ============================================================
 # CONFIGURACIÓN DE CATEGORÍAS
@@ -470,6 +471,18 @@ def cargar_dataset_mas_reciente() -> list[dict]:
                   f"({n_productos} productos, tiendas: {tiendas})")
             continue
 
+        # Check de antigüedad del dataset
+        import re as _re
+        _m = _re.search(r'suplementos_(\d{8})\.json', fichero)
+        if _m:
+            from datetime import date as _date
+            _fecha_ds = _date(int(_m.group(1)[:4]), int(_m.group(1)[4:6]), int(_m.group(1)[6:8]))
+            _dias = (_date.today() - _fecha_ds).days
+            if _dias > 3 and "--allow-stale" not in sys.argv:
+                raise SystemExit(
+                    f"⛔ Dataset de hace {_dias} días ({_fecha_ds}). "
+                    "Pasa --allow-stale para forzar el build con datos antiguos."
+                )
         print(f"📂 Cargando dataset: {fichero}")
         print(f"   → {n_productos} productos cargados ({len(tiendas)} tiendas)")
         return data, fichero
@@ -632,6 +645,27 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             slug = f"{slug}-{i}"
         slugs_usados.add(slug)
         p["slug_publico"] = slug
+        p["nombre_display"] = limpiar_nombre_display(p["nombre_normalizado"])
+
+    # Desambiguar colisiones de nombre_display (mismo nombre → añade marca entre paréntesis)
+    _display_map: dict[str, list] = {}
+    for p in productos_web:
+        _display_map.setdefault(p["nombre_display"], []).append(p)
+    for _nd, _group in _display_map.items():
+        if len(_group) > 1:
+            for p in _group:
+                p["nombre_display"] = f"{_nd} ({p.get('marca', '')})"
+
+    # Check dosis: si servings × serving_size se aleja >30% del peso real, anular dosis
+    for p in productos_web:
+        sc = p.get("servings_per_container")
+        ss = p.get("serving_size_g")
+        peso = p.get("peso_kg")
+        if sc and ss and peso and peso > 0:
+            esperado_kg = sc * ss / 1000
+            if abs(esperado_kg - peso) / peso > 0.30:
+                p["servings_per_container"] = None
+                p["serving_size_g"] = None
 
     return productos_web
 
@@ -769,6 +803,14 @@ def setup_jinja():
         loader=FileSystemLoader(TEMPLATES_DIR),
         autoescape=True,
     )
+
+    def _fmtd(val):
+        """Formatea número con coma decimal para texto visible: 39.99 → '39,99'."""
+        if val is None:
+            return "—"
+        return f"{val:.2f}".replace('.', ',')
+
+    env.filters['fmtd'] = _fmtd
     return env
 
 
@@ -792,7 +834,7 @@ def contexto_base(last_updated: str) -> dict:
     }
 
 
-def generar_home(env, productos_web: list[dict], last_updated: str, comparaciones_populares: list | None = None, ticker_items: list | None = None, tiendas_cfg: list | None = None):
+def generar_home(env, productos_web: list[dict], last_updated: str, comparaciones_populares: list | None = None, tiendas_cfg: list | None = None):
     """Genera docs/index.html."""
     template = env.get_template("home.html")
 
@@ -843,7 +885,7 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
     all_search = []
     for p in sorted(con_precio_kg, key=lambda x: x["precio_por_kg_min"]):
         all_search.append({
-            "nombre":      p["nombre_normalizado"],
+            "nombre":      p.get("nombre_display") or p["nombre_normalizado"],
             "marca":       p.get("marca", ""),
             "cat":         p["categoria"],
             "cat_display": p["categoria_display"],
@@ -885,8 +927,8 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
         "ahorro_medio":         ahorro_medio,
         "all_products_json":    json.dumps(all_search, ensure_ascii=False),
         "comparaciones_populares": comparaciones_populares or [],
-        "ticker_items":         ticker_items or [],
         "tiendas_destacadas":   tiendas_destacadas,
+        "enable_alertas":       ENABLE_ALERTAS,
     }
 
     html = template.render(**ctx)
@@ -906,6 +948,181 @@ KEYWORDS_EXCLUIR = [
 KEYWORDS_PACK = [
     "pack", "bundle", "combo", "regalo", "batidora", "shaker", "kit",
 ]
+
+_PREPOSICIONES_ES = frozenset({
+    'de', 'del', 'la', 'el', 'y', 'e', 'o', 'para', 'sin', 'con',
+    'en', 'a', 'por', 'las', 'los', 'un', 'una', 'al', 'lo', 'que',
+    'pero', 'ni', 'u',
+})
+
+_SIGLAS_CAPS = frozenset({
+    'BCAA', 'BCAAS', 'CFM', 'HSN', 'ISO', 'MCT', 'ATP', 'EAA',
+    'HMB', 'ZMA', 'GDA', 'ALA', 'CLA', 'HCL', 'HPLC', 'NOS',
+    'DMAA', 'DMHA', 'THE', 'RPM', 'AAK', 'AAKG',
+})
+
+
+_UNIDADES = frozenset({'g', 'kg', 'ml', 'ud', 'G', 'Kg', 'KG', 'Ml', 'ML'})
+
+# Tokens del sufijo (tras |▸→) que indican variante real del producto, no ruido
+_VARIANTES_SUFIJO = frozenset({
+    'isolate', 'aislado', 'aislada', 'cfm',
+    'hydro', 'hidrolizado', 'hidrolizada',
+    'clear', 'vegan', 'vegano', 'vegana', 'vegetal',
+    'oats', 'avena',
+    'micronizada', 'micronized', 'micronizado',
+    'monodosis', 'sobres',
+    'electrolitos', 'glutamina',
+})
+
+
+def _extraer_variante_sufijo(sufijo_raw: str, base: str) -> str:
+    """Extrae del sufijo (tras |▸→) solo tokens que indican variante del producto.
+    Descarta ruido: tienda, eslóganes, marca repetida, conteo de servicios.
+    """
+    sufijo = re.sub(r'[|▸→]', ' ', sufijo_raw).strip()
+    base_lower = base.lower()
+    chunks = []
+    captured = ''
+
+    # "Sin edulcorantes", "Sin azúcar", etc.
+    for m in re.finditer(r'\bsin\s+\w+', sufijo, re.IGNORECASE):
+        phrase = m.group()
+        if phrase.lower() not in base_lower:
+            chunks.append(phrase)
+            captured += ' ' + phrase.lower()
+
+    # "Creatina + Electrolitos", "Creatina + Glutamina", etc.
+    for m in re.finditer(
+        r'\b(?:creatina|electrolitos|glutamina)\s*\+\s*(?:l-)?(?:creatina|electrolitos|glutamina|cafeína)\b',
+        sufijo, re.IGNORECASE
+    ):
+        phrase = m.group().strip()
+        if phrase.lower() not in base_lower:
+            chunks.append(phrase)
+            captured += ' ' + phrase.lower()
+
+    # "+ Creatina" / "+ Electrolitos" sueltos
+    for m in re.finditer(
+        r'\+\s*(?:l-)?(?:creatina|electrolitos|glutamina|cafeína)\b',
+        sufijo, re.IGNORECASE
+    ):
+        phrase = m.group().strip()
+        if phrase.lower() not in base_lower and phrase.lower() not in captured:
+            chunks.append(phrase)
+            captured += ' ' + phrase.lower()
+
+    # "Sobres monodosis [Xg]" — indica formato especial
+    m = re.search(
+        r'\bsobres?\s+monodosis(?:\s+\d+[\.,]?\d*\s*(?:g|kg|ml))?\b',
+        sufijo, re.IGNORECASE
+    )
+    if m:
+        phrase = m.group().strip()
+        chunks.append(phrase)
+        captured += ' ' + phrase.lower()
+
+    # Tokens variante sueltos (min 4 chars para evitar ruido de siglas cortas)
+    for word in re.findall(r'\b[A-Za-záéíóúüñÁÉÍÓÚÜÑ]{4,}\b', sufijo):
+        w_lower = word.lower()
+        if w_lower in _VARIANTES_SUFIJO and w_lower not in captured and w_lower not in base_lower:
+            chunks.append(word)
+            captured += ' ' + w_lower
+
+    # Peso/volumen (g, kg, ml) si el nombre base no lo tiene ya
+    if not re.search(r'\b\d+[\.,]?\d*\s*(?:g|kg|ml)\b', base, re.IGNORECASE):
+        peso_m = re.search(r'\b(\d+[\.,]?\d*\s*(?:g|kg|ml))\b', sufijo, re.IGNORECASE)
+        if peso_m:
+            chunks.append(peso_m.group(1).strip())
+
+    # Formato de conteo (caps, tabs, packs, ud) si el nombre base no lo tiene
+    if not re.search(r'\b\d+\s*(?:caps?|vcaps?|tabs?|packs?|ud)\b', base, re.IGNORECASE):
+        fmt_m = re.search(r'\b(\d+\s*(?:caps?|vcaps?|tabs?|packs?|ud))\b', sufijo, re.IGNORECASE)
+        if fmt_m:
+            chunks.append(fmt_m.group(1).strip())
+
+    return ' '.join(chunks).strip()
+
+
+def limpiar_nombre_display(nombre: str) -> str:
+    """
+    Devuelve un nombre limpio para mostrar al usuario.
+    No cambia nombre_normalizado (base de IDs y slugs).
+    """
+    # 1. Extraer variante del sufijo antes de cortarlo
+    _sep_m = re.search(r'[|▸→](.*)', nombre, re.DOTALL)
+    variante_extra = _extraer_variante_sufijo(_sep_m.group(1), nombre[:_sep_m.start()]) if _sep_m else ''
+
+    # 2. Cortar sufijo (todo lo que sigue a | ▸ →)
+    nombre = re.sub(r'\s*[|▸→].*$', '', nombre, flags=re.DOTALL).strip()
+
+    # 3. Quitar sufijo de conteo pegado en el nombre base (ej. "120caps" al final)
+    nombre = re.sub(r'\s+\d+(?:tabs|caps|vcaps|packs|ud)\s*$', '', nombre, flags=re.IGNORECASE)
+
+    # 4. Añadir variante extraída si no estaba ya en el nombre base
+    if variante_extra:
+        n_lower = re.sub(r'\s+', '', nombre.lower())
+        v_lower = re.sub(r'\s+', '', variante_extra.lower())
+        if v_lower not in n_lower:
+            nombre = nombre + ' ' + variante_extra
+
+    # 5. Quitar peso duplicado al final: "200g 200g" → "200g"
+    nombre = re.sub(
+        r'(\b\d+[\.,]?\d*\s*(?:kg|g|ml)\b)(\s+\1)+',
+        r'\1', nombre, flags=re.IGNORECASE
+    )
+
+    # 6. Espacio entre número y unidad: "1,5Kg" → "1,5 kg", "300g" → "300 g"
+    nombre = re.sub(r'(\d)(kg|g|ml)\b', r'\1 \2', nombre, flags=re.IGNORECASE)
+    # Normalizar mayúsculas de unidades
+    nombre = re.sub(r'\b[Kk][Gg]\b', 'kg', nombre)
+    nombre = re.sub(r'\b[Mm][Ll]\b', 'ml', nombre)
+    nombre = re.sub(r'\bG\b', 'g', nombre)
+    # Punto decimal → coma cuando el número va seguido de unidad: "1.2 kg" → "1,2 kg"
+    # No toca números de versión (Evolate 2.0) porque no van seguidos de unidad
+    nombre = re.sub(
+        r'(\b\d+)\.(\d+)(\s*(?:kg|g|ml)\b)',
+        lambda m: m.group(1) + ',' + m.group(2) + m.group(3),
+        nombre, flags=re.IGNORECASE
+    )
+
+    # 7. Capitalización española solo si hay palabras TODO-MAYÚSCULAS (excluyendo siglas y unidades)
+    words = nombre.split()
+    has_allcaps = any(
+        w.isupper() and len(w) > 3 and w not in _SIGLAS_CAPS and w.isalpha()
+        for w in words
+    )
+    if has_allcaps:
+        new_words = []
+        for i, w in enumerate(words):
+            w_lower = w.lower()
+            is_unit = w_lower in ('g', 'kg', 'ml')
+            # Palabras TODO-MAYÚSCULAS: preposiciones/conjunciones cortas (Y, E, O, A, ...)
+            if w.isupper() and w.isalpha() and i > 0 and w_lower in _PREPOSICIONES_ES:
+                new_words.append(w_lower)
+            # Palabras TODO-MAYÚSCULAS largas (no sigla, no unidad)
+            elif w.isupper() and len(w) > 3 and w not in _SIGLAS_CAPS and w.isalpha():
+                new_words.append(w.capitalize())
+            # Palabras con guión (ej. "pre-entreno", "PRE-WORKOUT"): capitalizar cada parte
+            elif '-' in w and (not w[0].isupper() or w.replace('-', '').isupper()):
+                partes = w.split('-')
+                partes_cap = [
+                    p.capitalize() if p and p.lower() not in _PREPOSICIONES_ES else p.lower()
+                    for p in partes
+                ]
+                new_words.append('-'.join(partes_cap))
+            # Palabras minúsculas que no son preposición ni unidad: capitalizar
+            elif (not w[0].isupper() and i > 0 and w.isalpha()
+                    and w_lower not in _PREPOSICIONES_ES and not is_unit):
+                new_words.append(w.capitalize())
+            else:
+                new_words.append(w)
+        nombre = ' '.join(new_words)
+
+    # 8. Normalizar espacios múltiples
+    nombre = re.sub(r'\s+', ' ', nombre).strip()
+
+    return nombre
 
 # Keywords que deben ir a "Otros productos" según la categoría
 # (productos mal clasificados que distorsionan el ranking)
@@ -993,7 +1210,7 @@ def _img_local(producto_id: str, categoria: str, imagen_url: str | None = None) 
     webp = os.path.join(IMG_PRODUCTOS_DIR, f"{producto_id}.webp")
     if os.path.exists(webp):
         return f"/img/productos/{producto_id}.webp"
-    if imagen_url:
+    if imagen_url and "hsn_highlight.svg" not in imagen_url:
         return imagen_url
     return f"/img/productos/placeholder-{categoria}.svg"
 
@@ -1010,7 +1227,7 @@ def _tipo_proteina(nombre: str) -> str:
     return "Otra"
 
 
-def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None, ticker_items: list | None = None):
+def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None, comparaciones_data: list | None = None):
     """Genera docs/{slug}/index.html para una categoría."""
     template = env.get_template("category.html")
 
@@ -1045,6 +1262,32 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     slugs_cat = {s for s in (slugs_comparacion or set())
                  if any(p["id"][:40] in s for p in prods_principales)}
 
+    # Comparaciones de esta categoría (para bloque de enlaces estáticos)
+    ids_cat = {p["id"] for p in prods_cat}
+    prod_map = {p["id"]: p for p in productos_web}
+    comparaciones_cat = []
+    for par in (comparaciones_data or []):
+        id_a, id_b = par.get("id_a", ""), par.get("id_b", "")
+        if not (id_a in ids_cat or id_b in ids_cat):
+            continue
+        pa = prod_map.get(id_a)
+        pb = prod_map.get(id_b)
+        if not pa or not pb:
+            continue
+        sa = pa.get("slug_publico") or ""
+        sb = pb.get("slug_publico") or ""
+        if not sa or not sb:
+            continue
+        if sa > sb:
+            sa, sb = sb, sa
+        slug_par = f"{sa}-vs-{sb}"
+        comparaciones_cat.append({
+            "slug": slug_par,
+            "nombre_a": pa.get("nombre_display") or pa["nombre_normalizado"],
+            "nombre_b": pb.get("nombre_display") or pb["nombre_normalizado"],
+        })
+    comparaciones_cat = comparaciones_cat[:12]
+
     mes_anio = _mes_anio_es(last_updated)
     cat_ctx = {
         **cfg,
@@ -1067,7 +1310,7 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
         "precio_kg_min":     precio_kg_min,
         "precio_kg_max":     precio_kg_max,
         "slugs_comparacion": json.dumps(list(slugs_cat)),
-        "ticker_items": ticker_items or [],
+        "comparaciones_cat": comparaciones_cat,
     }
 
     html = template.render(**ctx)
@@ -1429,8 +1672,8 @@ def generar_comparaciones(env, productos_web: list, last_updated: str) -> tuple[
                 rel_vistos.add(comp["slug"])
         relacionadas = relacionadas[:6]
 
-        pa["nombre_seo"] = _nombre_seo(pa["nombre_normalizado"])
-        pb["nombre_seo"] = _nombre_seo(pb["nombre_normalizado"])
+        pa["nombre_seo"] = _nombre_seo(pa.get("nombre_display") or pa["nombre_normalizado"])
+        pb["nombre_seo"] = _nombre_seo(pb.get("nombre_display") or pb["nombre_normalizado"])
 
         veredicto  = generar_veredicto(pa, pb)
         editorial  = generar_editorial(pa, pb)
@@ -1762,6 +2005,21 @@ def seleccionar_destacados(tienda_cfg: dict, productos_web: list[dict], n: int =
     if ids_manual:
         id_map = {p["id"]: p for p in prods_tienda}
         return [id_map[id_] for id_ in ids_manual if id_ in id_map][:n]
+
+    if nombre_tienda == "HSN":
+        _excluir_hsn = {
+            "bicarbonato de sodio", "ácido málico", "claras de huevo",
+            "cafeína natural", "crema de arroz proteica",
+        }
+        prods_tienda_hsn = [
+            p for p in prods_tienda
+            if p.get("categoria") in {"proteina-whey", "creatina"}
+            and not any(ex in p.get("nombre_normalizado", "").lower() for ex in _excluir_hsn)
+        ]
+        prods_tienda_hsn.sort(
+            key=lambda p: -(p.get("store_rating_count") or 0)
+        )
+        return prods_tienda_hsn[:n]
 
     # Default: uno por categoría (más barato total), luego rellena con los más baratos
     categorias = list(dict.fromkeys(p["categoria"] for p in prods_tienda))
@@ -2295,7 +2553,6 @@ if __name__ == "__main__":
             _pr.pop("_precio_sin_confirmar", None)
 
     productos_web = compute_spark_data(productos_web)
-    ticker_items  = build_ticker_items(productos_web)
 
     _tiene_anomalias_precio = verificar_anomalias_precio(productos_web)
     grupos_mt, _grupos_mt_ok = verificar_grupos_multitienda(productos_web)
@@ -2350,11 +2607,18 @@ if __name__ == "__main__":
         for s in _top6_slugs
     ]
 
-    generar_home(env, productos_web, last_updated, comparaciones_populares=comparaciones_populares_home, ticker_items=ticker_items, tiendas_cfg=tiendas_cfg)
+    generar_home(env, productos_web, last_updated, comparaciones_populares=comparaciones_populares_home, tiendas_cfg=tiendas_cfg)
+
+    # Cargar pares de comparaciones.json para enlaces internos en categorías
+    _comp_path = os.path.join(DATA_DIR, "comparaciones.json")
+    _pares_json = []
+    if os.path.exists(_comp_path):
+        with open(_comp_path, encoding="utf-8") as _f:
+            _pares_json = json.load(_f).get("pares", [])
 
     slugs_set = set(compare_slugs)
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
-        generar_categoria(env, cat_raw, cfg, productos_web, last_updated, slugs_comparacion=slugs_set, ticker_items=ticker_items)
+        generar_categoria(env, cat_raw, cfg, productos_web, last_updated, slugs_comparacion=slugs_set, comparaciones_data=_pares_json)
 
     # 5. Páginas legales, test y sobre nosotros
     for pagina in PAGINAS_LEGALES:

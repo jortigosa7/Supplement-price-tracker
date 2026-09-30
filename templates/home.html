@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}Comparador de Suplementos Fitness España 2026 — Mejor Precio | StackFit{% endblock %}
-{% block meta_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en HSN, MyProtein, Nutritienda y Prozis. 337 productos ordenados por €/kg. Actualizado semanalmente.{% endblock %}
+{% block meta_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en HSN, MyProtein, Nutritienda y Prozis. {{ total_productos }} productos ordenados por €/kg. Actualizado varias veces por semana.{% endblock %}
 {% block meta_keywords %}comparador suplementos España, mejor precio proteína whey España, suplementos fitness baratos, creatina precio España{% endblock %}
 {% block og_title %}Comparador de Suplementos Fitness España 2026{% endblock %}
-{% block og_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en HSN, MyProtein, Nutritienda y Prozis. 337 productos ordenados por €/kg. Actualizado semanalmente.{% endblock %}
+{% block og_desc %}Compara precios de proteína whey, creatina, BCAA y pre-entreno en HSN, MyProtein, Nutritienda y Prozis. {{ total_productos }} productos ordenados por €/kg. Actualizado varias veces por semana.{% endblock %}
 
 {% block extra_head %}
 <script type="application/ld+json">
@@ -23,18 +23,6 @@
 </script>
 {% endblock %}
 
-{% block ticker %}
-{% if ticker_items %}
-<div class="ticker-strip"><div class="ticker-inner">
-  {% for item in ticker_items %}{% for _ in [1,2] %}
-  <span class="ticker-item">
-    <span class="ticker-dot" style="background:{{ '#c8ff4d' if item.delta < 0 else ('#ff6b2b' if item.delta > 0 else '#444') }};"></span>
-    <span style="color:{{ '#c8ff4d' if item.delta < 0 else ('#ff6b2b' if item.delta > 0 else '#666') }};">{{ item.nombre }} → {{ "%.2f"|format(item.precio_kg) }}€/kg {% if item.delta < 0 %}▼{{ item.delta|abs }}%{% elif item.delta > 0 %}▲{{ item.delta }}%{% endif %}</span>
-  </span>
-  {% endfor %}{% endfor %}
-</div></div>
-{% endif %}
-{% endblock %}
 
 {% block content %}
 
@@ -84,9 +72,7 @@
   <!-- ── Resultados de búsqueda ───────────────────────────── -->
   <section id="searchResultsSection" style="display:none; margin-bottom:48px;">
     <p class="section-label">Resultados de búsqueda</p>
-    <div id="srNoResults" style="display:none; text-align:center; padding:48px 0; color:var(--text-muted);">
-      No se han encontrado productos para "<span id="srNoResultsQuery"></span>"
-    </div>
+    <div id="srNoResults" style="display:none; text-align:center; padding:48px 0; color:var(--text-muted);"></div>
     <div class="products-list" id="searchResultsList"></div>
     <div class="pagination" id="srPagination" style="display:none;">
       <span class="pagination-info" id="srPaginationInfo"></span>
@@ -110,7 +96,7 @@
         </div>
         <div class="cat-right">
           <div class="cat-desde">Desde</div>
-          <div class="cat-price">{{ "%.2f"|format(cat.precio_min) }}</div>
+          <div class="cat-price">{{ cat.precio_min|fmtd }}</div>
           <div class="cat-unit">€/kg</div>
         </div>
       </a>
@@ -119,6 +105,7 @@
   </section>
 
   <!-- ── Alertas de precio ────────────────────────────────── -->
+  {% if enable_alertas %}
   <section id="alertas" class="alert-banner">
     <div class="alert-pulse-wrap"><div class="alert-pulse-ring"></div><div class="alert-pulse-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div></div>
     <div style="flex:1;min-width:200px;">
@@ -130,6 +117,7 @@
       <button class="alert-btn" type="submit">Activar alertas</button>
     </form>
   </section>
+  {% endif %}
 
   <!-- ── Nuestras tiendas recomendadas ───────────────────── -->
   {% if tiendas_destacadas %}
@@ -163,42 +151,49 @@
         <div class="product-card">
           <div class="pc-top">
             <div class="pc-img">
-              <img src="{{ p.img_src }}" alt="{{ p.nombre_normalizado }}" width="72" height="72" loading="lazy">
+              <img src="{{ p.img_src }}" alt="{{ (p.nombre_display or p.nombre_normalizado) }}" width="72" height="72" loading="lazy">
             </div>
             <div class="pc-info">
               <div class="pc-name">
-                <span class="pc-name-text">{{ p.nombre_normalizado }}</span>
+                <span class="pc-name-text">{{ (p.nombre_display or p.nombre_normalizado) }}</span>
                 {% if is_deal %}<span class="pc-badge deal">Descuento</span>{% endif %}
               </div>
-              <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ "%.2f"|format(p.peso_kg) }} kg{% endif %}</div>
+              <div class="pc-meta">{{ p.marca }}{% if p.peso_kg %} · {{ p.peso_kg|fmtd }} kg{% endif %}</div>
             </div>
           </div>
           <div class="pc-price-row">
             {% if p.precio_por_kg_min %}
-              <div class="pc-price-main">{{ "%.2f"|format(p.precio_por_kg_min) }}<span class="pc-price-unit">€/kg</span></div>
-              <div class="pc-price-sec">desde {{ "%.2f"|format(offer.precio_eur) }} €{% if is_deal %}<br><span class="pc-price-old">{{ "%.2f"|format(offer.precio_original) }} €</span>{% endif %}</div>
+              <div class="pc-price-main">{{ p.precio_por_kg_min|fmtd }}<span class="pc-price-unit">€/kg</span></div>
+              <div class="pc-price-sec">desde {{ offer.precio_eur|fmtd }} €{% if is_deal %}<br><span class="pc-price-old">{{ offer.precio_original|fmtd }} €</span>{% endif %}</div>
             {% elif p.servings_per_container and offer.precio_eur %}
               {% set precio_dosis = offer.precio_eur / p.servings_per_container %}
-              <div class="pc-price-main no-kg">{{ "%.2f"|format(precio_dosis) }}<span class="pc-price-unit">€/dosis</span></div>
-              <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ "%.2f"|format(offer.precio_eur) }} €</div>
+              <div class="pc-price-main no-kg">{{ precio_dosis|fmtd }}<span class="pc-price-unit">€/dosis</span></div>
+              <div class="pc-price-sec">{{ p.servings_per_container | int }} dosis · {{ offer.precio_eur|fmtd }} €</div>
             {% else %}
-              <div class="pc-price-main no-kg">{{ "%.2f"|format(offer.precio_eur) }}<span class="pc-price-unit">€</span></div>
+              <div class="pc-price-main no-kg">{{ offer.precio_eur|fmtd }}<span class="pc-price-unit">€</span></div>
             {% endif %}
           </div>
+          {% if precios_ord | length > 1 %}
           <div class="pc-stores">
             {% for pr in precios_ord %}
             <a href="{{ pr.url_afiliado }}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
               <span class="pc-store-dot" style="background:{{ store_colors.get(pr.tienda, 'var(--amazon)') }};"></span>
               <span class="pc-store-name">{{ pr.tienda }}</span>
-              <span class="pc-store-price">{{ "%.2f"|format(pr.precio_eur) }} €</span>
+              <span class="pc-store-price">{{ pr.precio_eur|fmtd }} €</span>
               {% if pr.en_oferta %}<span class="pc-store-sale">OFERTA</span>{% endif %}
             </a>
             {% endfor %}
           </div>
           <div class="pc-actions">
-            <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
+            <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Mejor precio →</a>
             <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn">Ver categoría</a>
           </div>
+          {% else %}
+          <div class="pc-actions">
+            <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }} · {{ offer.precio_eur|fmtd }} €</a>
+            <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn">Ver categoría</a>
+          </div>
+          {% endif %}
         </div>
         {% endfor %}
       </div>
@@ -264,7 +259,6 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
   const srSection  = document.getElementById('searchResultsSection');
   const srList     = document.getElementById('searchResultsList');
   const srNoRes    = document.getElementById('srNoResults');
-  const srNoResQ   = document.getElementById('srNoResultsQuery');
   const srPag      = document.getElementById('srPagination');
   const srInfo     = document.getElementById('srPaginationInfo');
   const srPrev     = document.getElementById('srBtnPrev');
@@ -294,14 +288,14 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
     const isDeal = offer.oferta && offer.precio_original;
     const badge  = isBest ? '<span class="pc-badge best">Mejor precio</span>'
                  : isDeal ? '<span class="pc-badge deal">Descuento</span>' : '';
-    const peso = p.peso_kg != null ? ` · ${p.peso_kg.toFixed(2)} kg` : '';
+    const peso = p.peso_kg != null ? ` · ${p.peso_kg.toFixed(2).replace('.', ',')} kg` : '';
     let priceRow;
     if (p.precio_kg != null) {
-      const oldPrice = isDeal ? `<br><span class="pc-price-old">${offer.precio_original.toFixed(2)} €</span>` : '';
-      priceRow = `<div class="pc-price-main">${p.precio_kg.toFixed(2)}<span class="pc-price-unit">€/kg</span></div>
-        <div class="pc-price-sec">desde ${offer.precio.toFixed(2)} €${oldPrice}</div>`;
+      const oldPrice = isDeal ? `<br><span class="pc-price-old">${offer.precio_original.toFixed(2).replace('.', ',')} €</span>` : '';
+      priceRow = `<div class="pc-price-main">${p.precio_kg.toFixed(2).replace('.', ',')}<span class="pc-price-unit">€/kg</span></div>
+        <div class="pc-price-sec">desde ${offer.precio.toFixed(2).replace('.', ',')} €${oldPrice}</div>`;
     } else {
-      priceRow = `<div class="pc-price-main no-kg">${offer.precio.toFixed(2)}<span class="pc-price-unit">€</span></div>`;
+      priceRow = `<div class="pc-price-main no-kg">${offer.precio.toFixed(2).replace('.', ',')}<span class="pc-price-unit">€</span></div>`;
     }
     const stores = p.tiendas.map(pr => {
       const color  = STORE_COLORS[pr.tienda] || 'var(--amazon)';
@@ -309,9 +303,22 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
       return `<a href="${esc(pr.url)}" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
         <span class="pc-store-dot" style="background:${color};"></span>
         <span class="pc-store-name">${esc(pr.tienda)}</span>
-        <span class="pc-store-price">${pr.precio.toFixed(2)} €</span>${oferta}
+        <span class="pc-store-price">${pr.precio.toFixed(2).replace('.', ',')} €</span>${oferta}
       </a>`;
     }).join('');
+    let actionsHtml;
+    if (p.tiendas.length > 1) {
+      actionsHtml = `<div class="pc-stores">${stores}</div>
+        <div class="pc-actions">
+          <a href="${esc(offer.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Mejor precio →</a>
+          <a href="${esc(siteUrl)}/${esc(p.cat)}/" class="pc-btn">Ver categoría</a>
+        </div>`;
+    } else {
+      actionsHtml = `<div class="pc-actions">
+        <a href="${esc(offer.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en ${esc(offer.tienda)} · ${offer.precio.toFixed(2).replace('.', ',')} €</a>
+        <a href="${esc(siteUrl)}/${esc(p.cat)}/" class="pc-btn">Ver categoría</a>
+      </div>`;
+    }
     return `<div class="product-card${isBest ? ' is-best' : ''}">
       <div class="pc-top">
         <div class="pc-info">
@@ -322,11 +329,7 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
         </div>
       </div>
       <div class="pc-price-row">${priceRow}</div>
-      <div class="pc-stores">${stores}</div>
-      <div class="pc-actions">
-        <a href="${esc(offer.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
-        <a href="${esc(siteUrl)}/${esc(p.cat)}/" class="pc-btn">Ver categoría</a>
-      </div>
+      ${actionsHtml}
     </div>`;
   }
 
@@ -360,7 +363,7 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
 
     if (total === 0) {
       srList.innerHTML = '';
-      srNoResQ.textContent = q;
+      srNoRes.textContent = `No se han encontrado productos para "${q}"`;
       srNoRes.style.display = '';
       srPag.style.display   = 'none';
     } else {
@@ -403,15 +406,5 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
 
   update();
 })();
-</script>
-<script>
-function handleAlertSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.alert-btn');
-  btn.textContent = '¡Activado!';
-  btn.style.background = '#a8d900';
-  e.target.querySelector('.alert-input').disabled = true;
-  btn.disabled = true;
-}
 </script>
 {% endblock %}
