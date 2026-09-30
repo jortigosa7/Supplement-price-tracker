@@ -391,10 +391,6 @@
     "categoria": "creatina",
     "first_seen": "2026-09-19"
   },
-  "https://www.nutritienda.com/es/myprotein/creatina-monohidrato": {
-    "categoria": "creatina",
-    "first_seen": "2026-09-19"
-  },
   "https://www.nutritienda.com/es/cellucor/creatina-monohidrato-cor-performance": {
     "categoria": "creatina",
     "first_seen": "2026-09-19"
@@ -715,10 +711,6 @@
     "categoria": "pre-entreno",
     "first_seen": "2026-09-19"
   },
-  "https://www.nutritienda.com/es/weider/total-rush-2-pre-entrenamiento-375g": {
-    "categoria": "pre-entreno",
-    "first_seen": "2026-09-19"
-  },
   "https://www.nutritienda.com/es/best-protein/pre-workout": {
     "categoria": "pre-entreno",
     "first_seen": "2026-09-19"
@@ -736,10 +728,6 @@
     "first_seen": "2026-09-19"
   },
   "https://www.nutritienda.com/es/olimp/r-weiler-focus-300g": {
-    "categoria": "pre-entreno",
-    "first_seen": "2026-09-19"
-  },
-  "https://www.nutritienda.com/es/cobra-labs/the-shadow-270g": {
     "categoria": "pre-entreno",
     "first_seen": "2026-09-19"
   },
@@ -848,10 +836,6 @@
     "first_seen": "2026-09-19"
   },
   "https://www.nutritienda.com/es/animal-pump-30-packs": {
-    "categoria": "pre-entreno",
-    "first_seen": "2026-09-19"
-  },
-  "https://www.nutritienda.com/es/amix-pro/cellup-shot-pre-entrenamiento-20-unidades-de-60ml": {
     "categoria": "pre-entreno",
     "first_seen": "2026-09-19"
   },
@@ -1088,10 +1072,6 @@
     "first_seen": "2026-09-19"
   },
   "https://www.nutritienda.com/es/infisport/isopro-t1-aislado-proteina-de-suero-1000g": {
-    "categoria": "proteina-whey",
-    "first_seen": "2026-09-19"
-  },
-  "https://www.nutritienda.com/es/optimum-nutrition/100-gold-standard-isolate-930g": {
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
   },
@@ -1374,5 +1354,25 @@
   "https://www.nutritienda.com/es/hsn/cafena-200-mg-120-tabletas": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-09-28"
+  },
+  "https://www.nutritienda.com/es/mega-plus/isolate-concept": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-30"
+  },
+  "https://www.nutritienda.com/es/biotech-usa/hydro-whey-zero": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-30"
+  },
+  "https://www.nutritienda.com/es/mega-plus/whey-concept-2-kg": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-09-30"
+  },
+  "https://www.nutritienda.com/es/amix-nutrition/yeep-pump-no-caff-360g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-09-30"
+  },
+  "https://www.nutritienda.com/es/4pro-nutrition/caffeine-200-100-tabletas": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-09-30"
   }
 }
