@@ -131118,12 +131118,6 @@
     "tienda": "HSN"
   },
   {
-    "producto_id": "whey-protein-complex-100-2270g-olimp",
-    "fecha": "2026-09-28",
-    "precio": 26.0,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "proteina-de-guisante-aislada-2-0-2kg-desconocida",
     "fecha": "2026-09-28",
     "precio": 23.31,
@@ -135414,12 +135408,6 @@
     "tienda": "HSN"
   },
   {
-    "producto_id": "whey-protein-complex-100-2270g-olimp",
-    "fecha": "2026-09-30",
-    "precio": 26.0,
-    "tienda": "Nutritienda"
-  },
-  {
     "producto_id": "proteina-de-canamo-organico-2kg-desconocida",
     "fecha": "2026-09-30",
     "precio": 26.99,
@@ -136768,5 +136756,11 @@
     "fecha": "2026-09-30",
     "precio": 44.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "whey-protein-complex-100-2270g-olimp",
+    "fecha": "2026-09-30",
+    "precio": 99.5,
+    "tienda": "Nutritienda"
   }
 ]

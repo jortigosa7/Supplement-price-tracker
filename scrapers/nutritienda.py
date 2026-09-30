@@ -55,6 +55,92 @@ URLS_FIJAS = [
 CATALOG_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "nutritienda_catalog.json")
 
 
+def _extraer_peso_g(texto: str) -> float | None:
+    """Extrae el peso en gramos de una cadena de texto.
+    '2270 g' → 2270.0, '2 Kg' → 2000.0, '1816g' → 1816.0.
+    """
+    m = re.search(r"(\d+[\.,]?\d*)\s*(kg|g)\b", texto, re.IGNORECASE)
+    if not m:
+        return None
+    valor = float(m.group(1).replace(",", "."))
+    unit = m.group(2).lower()
+    return valor * 1000 if unit == "kg" else valor
+
+
+def _resolver_precio_variante(
+    offers: dict,
+    sku_root,
+    size_page_g: float | None,
+    peso_nombre_g: float | None,
+) -> tuple[float | None, bool]:
+    """Devuelve (precio, sin_confirmar) para la variante correcta del producto.
+
+    Estrategia (en orden):
+    1. Offer simple → usa offers["price"] directamente.
+    2. AggregateOffer sin desglose individual → usa offers["price"].
+    3. AggregateOffer con offers individuales:
+       a. Weight match: busca en offer.name un peso que coincida con peso_nombre_g.
+       b. All-same-price: si todos los offers InStock tienen el mismo precio
+          (variantes de sabor, mismo tamaño), usa ese precio.
+       c. SKU match + validación de tamaño: usa el offer cuyo sku == sku_root,
+          solo si size_page_g ≈ peso_nombre_g (la variante mostrada en la página
+          coincide con el peso que buscamos).
+    4. Si nada funciona → (None, True) → precio no publicable.
+    """
+    TOLERANCIA = 0.02  # 2 % de diferencia máxima entre pesos
+
+    otype = offers.get("@type", "")
+
+    if otype == "Offer":
+        p = offers.get("price")
+        return (float(p), False) if p else (None, True)
+
+    if otype == "AggregateOffer":
+        individual = offers.get("offers", [])
+        if not individual:
+            p = offers.get("price")
+            return (float(p), False) if p else (None, True)
+
+        # Estrategia a: peso en el nombre del offer
+        if peso_nombre_g:
+            for o in individual:
+                peso_oferta = _extraer_peso_g(str(o.get("name", "")))
+                if peso_oferta is not None:
+                    if abs(peso_oferta - peso_nombre_g) / max(peso_nombre_g, 1) <= TOLERANCIA:
+                        p = o.get("price")
+                        if p:
+                            return (float(p), False)
+
+        # Estrategia b: todos los offers InStock tienen el mismo precio
+        instock_precios = {
+            float(o["price"])
+            for o in individual
+            if "InStock" in o.get("availability", "") and o.get("price")
+        }
+        if len(instock_precios) == 1:
+            return (instock_precios.pop(), False)
+
+        # Estrategia c: SKU match + la variante mostrada coincide con el peso buscado
+        if (
+            sku_root
+            and size_page_g is not None
+            and peso_nombre_g is not None
+            and abs(size_page_g - peso_nombre_g) / max(peso_nombre_g, 1) <= TOLERANCIA
+        ):
+            sku_str = str(sku_root)
+            for o in individual:
+                if str(o.get("sku", "")) == sku_str:
+                    p = o.get("price")
+                    if p:
+                        return (float(p), False)
+                    break
+
+        # Sin resolución posible
+        return (None, True)
+
+    return (None, True)
+
+
 def _cargar_catalogo() -> dict:
     """Carga el catálogo persistente de Nutritienda. Devuelve {} si no existe."""
     try:
@@ -165,14 +251,16 @@ def _scrape_listado(url_cat: str) -> list[dict]:
     return resultado
 
 
-def _scrape_detalle(url: str) -> tuple[str, dict]:
+def _scrape_detalle(url: str, nombre_listing: str = "") -> tuple[str, dict]:
     """
     Visita la página de detalle (caché 7 días) y extrae desde JSON-LD Product:
     - _nombre_completo: nombre con peso incluido (ej "Evowhey protein 2 Kg")
+    - _precio_variante: precio correcto de la variante del producto
+    - _precio_sin_confirmar: True si no se puede identificar la variante
     - store_rating, store_rating_count, store_rating_url
 
-    Nota: el nutritional-snippet del HTML anterior no existe en el nuevo sitio.
-    El rating ya está en escala 0-5 (sin división).
+    nombre_listing: nombre tal como aparece en el listado (incluye peso del producto
+    que queremos rastrear), se usa para validar qué variante coincide.
 
     Devuelve (final_url, enrichment).
     """
@@ -226,6 +314,22 @@ def _scrape_detalle(url: str) -> tuple[str, dict]:
                 if rc:
                     enrichment["store_rating_count"] = int(rc)
                     enrichment["store_rating_url"] = url
+
+                # Precio: resolver la variante correcta en lugar de usar lowPrice
+                offers = node.get("offers", {})
+                if offers.get("@type"):
+                    # El nombre de referencia para validar el peso es el del listado;
+                    # si no se proporcionó, usamos el nombre completo del detalle.
+                    nombre_ref = nombre_listing or enrichment.get("_nombre_completo", "")
+                    size_page_g = _extraer_peso_g(node.get("size", ""))
+                    peso_nombre_g = _extraer_peso_g(nombre_ref)
+                    precio_v, sin_confirmar = _resolver_precio_variante(
+                        offers, node.get("sku", ""), size_page_g, peso_nombre_g
+                    )
+                    if precio_v is not None:
+                        enrichment["_precio_variante"] = precio_v
+                    elif sin_confirmar:
+                        enrichment["_precio_sin_confirmar"] = True
                 break
         except Exception:
             pass
@@ -274,7 +378,23 @@ def _scrape_producto_fijo(url: str, categoria: str, force_fresh: bool = False) -
                     "InStock" in o.get("availability", "") for o in individual_offers
                 ):
                     return None  # producto totalmente agotado
-                precio = str(offers.get("price") or offers.get("lowPrice") or "")
+
+                # Para _scrape_producto_fijo no hay nombre externo de referencia:
+                # la variante mostrada en la página (Product.size) es la canónica.
+                size_page_g = _extraer_peso_g(node.get("size", ""))
+                peso_nombre_g = _extraer_peso_g(nombre_completo) or size_page_g
+                precio_v, sin_confirmar = _resolver_precio_variante(
+                    offers, node.get("sku", ""), size_page_g, peso_nombre_g
+                )
+                if precio_v is None:
+                    if sin_confirmar and offers.get("@type"):
+                        print(
+                            f"  [precio-incierto] {nombre_completo[:50]}: "
+                            f"variante no identificable — {url.split('/es/')[-1]}"
+                        )
+                    return None
+                precio = str(precio_v)
+
                 imagen_raw = node.get("image", "")
                 imagen_url = imagen_raw if isinstance(imagen_raw, str) else (imagen_raw[0] if imagen_raw else None)
                 if nombre_completo and precio:
@@ -371,7 +491,7 @@ def scrape() -> list[dict]:
         else:
             stats["fetched"] += 1
 
-        final_url, enrichment = _scrape_detalle(d["url"])
+        final_url, enrichment = _scrape_detalle(d["url"], nombre_listing=d["nombre"])
         if not enrichment and cached_check is None:
             stats["errors"] += 1
 
@@ -383,9 +503,21 @@ def scrape() -> list[dict]:
             size_norm = re.sub(r"\s+", "", size_raw).lower()
             nombre = f"{nombre} {size_norm}"
 
+        # Precio resuelto por variante (reemplaza el precio de listado si está disponible)
+        precio_variante = enrichment.pop("_precio_variante", None)
+        sin_confirmar = enrichment.pop("_precio_sin_confirmar", False)
+
+        if precio_variante is None and sin_confirmar:
+            # No se pudo identificar la variante → no publicar precio
+            print(f"  [precio-incierto] SKIP {nombre[:55]}: variante no identificable")
+            stats["errors"] += 1
+            continue
+
+        precio_str = str(precio_variante) if precio_variante is not None else d["precio"]
+
         prod = producto_base(
             nombre,
-            d["precio"],
+            precio_str,
             d["marca"],
             d["categoria"],
             TIENDA,
