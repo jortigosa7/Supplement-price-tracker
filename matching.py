@@ -280,7 +280,10 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
         marca_raw = p.get("marca", "")
 
         precio_eur = limpiar_precio(precio_str)
-        if not nombre or precio_eur is None:
+        es_agotado = p.get("agotado", False)
+        # Productos agotados sin precio son válidos: se incluyen con precio_eur=None.
+        # Productos no agotados sin precio se descartan (datos incompletos).
+        if not nombre or (precio_eur is None and not es_agotado):
             continue
 
         peso_kg = extraer_peso_kg(nombre)
@@ -364,8 +367,9 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
                     continue
 
                 # Regla 2: si precios difieren >2.5x con peso conocido en ambos, no es el mismo producto
-                if peso_v is not None and peso_g_v is not None:
-                    precio_g_min = min(pr["precio_eur"] for pr in g["precios"])
+                precios_conocidos = [pr["precio_eur"] for pr in g["precios"] if pr["precio_eur"] is not None]
+                if peso_v is not None and peso_g_v is not None and precio_eur is not None and precios_conocidos:
+                    precio_g_min = min(precios_conocidos)
                     ratio = max(precio_eur, precio_g_min) / min(precio_eur, precio_g_min)
                     if ratio > 2.5:
                         avisos_ratio.append(
@@ -404,7 +408,8 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
 
     # Post-proceso: ordenar precios, calcular mínimos, elegir imagen
     for g in grupos:
-        g["precios"].sort(key=lambda x: x["precio_eur"])
+        # Agotados sin precio (precio_eur=None) van al final del sort.
+        g["precios"].sort(key=lambda x: (x["precio_eur"] is None, x["precio_eur"] or 0))
         mejor = g["precios"][0]
         g["precio_min"]        = mejor["precio_eur"]
         g["tienda_mas_barata"] = mejor["tienda"]
@@ -414,17 +419,18 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
         # del optionPrice de HSN), o si los pesos difieren >15%, €/kg = None.
         peso_mejor = mejor.get("_peso_kg")
         peso_grupo = g.get("peso_kg")
-        if mejor.get("_precio_sin_confirmar"):
-            # Precio de lista: no sabemos a qué formato corresponde → no dividir
+        precio_mejor = mejor["precio_eur"]
+        if mejor.get("_precio_sin_confirmar") or precio_mejor is None:
+            # Precio de lista o agotado sin precio: no dividir
             g["precio_por_kg_min"] = None
         elif peso_mejor and peso_mejor > 0:
             # Pesos distintos en más de un 15%: inconsistencia precio/formato
             if peso_grupo and abs(peso_mejor - peso_grupo) / max(peso_mejor, peso_grupo) > 0.15:
                 g["precio_por_kg_min"] = None
             else:
-                g["precio_por_kg_min"] = round(mejor["precio_eur"] / peso_mejor, 2)
+                g["precio_por_kg_min"] = round(precio_mejor / peso_mejor, 2)
         elif peso_grupo and peso_grupo > 0:
-            g["precio_por_kg_min"] = round(mejor["precio_eur"] / peso_grupo, 2)
+            g["precio_por_kg_min"] = round(precio_mejor / peso_grupo, 2)
         else:
             g["precio_por_kg_min"] = None
 

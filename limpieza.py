@@ -171,9 +171,11 @@ def limpiar_dataset(productos: list[dict]) -> pd.DataFrame:
     if "marca" not in df.columns or df["marca"].isna().all():
         df["marca"] = df["nombre"].apply(extraer_marca)
     
-    # 6. Eliminar filas sin precio
+    # 6. Eliminar filas sin precio (excepto agotados: pueden tener precio_eur=None)
     antes = len(df)
-    df = df.dropna(subset=["precio_eur"])
+    tiene_precio = df["precio_eur"].notna()
+    es_agotado = df["agotado"].fillna(False).astype(bool) if "agotado" in df.columns else False
+    df = df[tiene_precio | es_agotado]
     despues = len(df)
     if antes != despues:
         print(f"   Eliminados {antes - despues} productos sin precio válido")

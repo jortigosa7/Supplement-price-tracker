@@ -52,6 +52,8 @@ def guardar_dataset(df: pd.DataFrame) -> tuple[str, str]:
         "protein_subtype",
         # Flag interno: precio obtenido de petición fresca (True) o del listing/fallback (False/None)
         "_precio_fresco",
+        # Estado de stock (True si el producto está agotado)
+        "agotado",
     ]
     cols_ok = [c for c in columnas if c in df.columns]
     df_out  = df[cols_ok].copy()

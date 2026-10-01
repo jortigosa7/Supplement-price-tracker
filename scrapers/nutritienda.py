@@ -164,7 +164,12 @@ def _resolver_precio_variante(
                         if p_val:
                             candidatos_b_oos.append(float(p_val))
                     if candidatos_b_oos:
-                        return (min(candidatos_b_oos), False, True)
+                        # Mismo criterio que strategy b InStock: precios distintos →
+                        # variantes de tamaño sin etiqueta → no identificable.
+                        if len(set(candidatos_b_oos)) == 1:
+                            return (candidatos_b_oos[0], False, True)
+                        else:
+                            return (None, False, True)  # agotado sin precio identificable
 
             return (None, False, True)  # agotado sin precio identificable
 
@@ -206,7 +211,13 @@ def _resolver_precio_variante(
                     if p:
                         candidatos_b.append(float(p))
                 if candidatos_b:
-                    return (min(candidatos_b), False, False)
+                    # Solo válido si todos los candidatos tienen el mismo precio
+                    # (variantes de sabor). Si difieren hay variantes de tamaño sin
+                    # etiqueta → no identificable.
+                    if len(set(candidatos_b)) == 1:
+                        return (candidatos_b[0], False, False)
+                    else:
+                        return (None, True, False)  # precios distintos → no identificable
 
         return (None, True, False)
 
