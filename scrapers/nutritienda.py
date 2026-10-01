@@ -102,9 +102,12 @@ def _resolver_precio_variante(
     1. Offer simple.
     2. AggregateOffer sin desglose → uses offers["price"].
     3. AggregateOffer con offers individuales:
-       OOS: si ninguno InStock → devuelve min precio con agotado=True.
+       OOS: si ninguno InStock → c-oos / a-oos / b-oos.
+       c. SKU match: offer.sku == sku_root → precio del variant por defecto.
+          Si sku_root no está InStock pero hay InStock con mismo precio → devuelve ese precio.
        a. Coincidencia por peso o unidades en offer.name → min precio de matches InStock.
-       b. size_page ≈ peso_nombre → collect InStock offers que no contradigan el tamaño → min precio.
+       b. size_page ≈ peso_nombre → offers que no contradigan el tamaño → solo válido si todos
+          tienen el mismo precio (variantes de sabor); si difieren → no identificable.
     4. Si nada funciona → (None, True, False).
     """
     TOLERANCIA = 0.02
@@ -128,6 +131,24 @@ def _resolver_precio_variante(
 
         # Todos agotados — aplicar mismas estrategias para identificar el variant correcto
         if not instock:
+            # Estrategia c-oos: SKU del Product == SKU del offer → precio del variant por defecto
+            if sku_root:
+                sku_str = str(sku_root)
+                for o in individual:
+                    if str(o.get("sku", "")) == sku_str:
+                        p_val = o.get("price")
+                        if p_val:
+                            # Comprobar ambigüedad de tamaño (igual que c1 InStock)
+                            nombre_c = str(o.get("name", "")).strip().lower()
+                            if nombre_c:
+                                for otro in individual:
+                                    if str(otro.get("sku", "")) != sku_str:
+                                        if str(otro.get("name", "")).strip().lower() == nombre_c:
+                                            if float(str(otro.get("price", 0) or 0)) != float(str(p_val)):
+                                                return (None, False, True)  # agotado, ambigüedad
+                            return (float(p_val), False, True)
+                        break
+
             # Estrategia a-oos: coincidencia por peso o unidades en offer.name
             candidatos_a_oos: list[float] = []
             for o in individual:
@@ -172,6 +193,36 @@ def _resolver_precio_variante(
                             return (None, False, True)  # agotado sin precio identificable
 
             return (None, False, True)  # agotado sin precio identificable
+
+        # Estrategia c: SKU del Product == SKU del offer → precio del variant por defecto
+        if sku_root:
+            sku_str = str(sku_root)
+            # c1: sku_root está InStock → precio directo
+            for o in instock:
+                if str(o.get("sku", "")) == sku_str:
+                    p = o.get("price")
+                    if p:
+                        # Comprobar ambigüedad de tamaño: si otro offer InStock tiene el mismo
+                        # nombre (=mismo sabor) pero precio distinto, hay dos tallas sin etiqueta
+                        # y no podemos saber cuál corresponde al listing → excluir.
+                        nombre_c = str(o.get("name", "")).strip().lower()
+                        if nombre_c:
+                            for otro in instock:
+                                if str(otro.get("sku", "")) != sku_str:
+                                    if str(otro.get("name", "")).strip().lower() == nombre_c:
+                                        if float(str(otro.get("price", 0) or 0)) != float(str(p)):
+                                            return (None, True, False)  # ambigüedad de tamaño
+                        return (float(p), False, False)
+            # c2: sku_root no está InStock → buscar su precio entre todos los offers
+            #     y confirmar que ese precio tiene InStock (otro sabor del mismo formato)
+            for o in individual:
+                if str(o.get("sku", "")) == sku_str:
+                    p_ref = o.get("price")
+                    if p_ref:
+                        mismo_precio_instock = [oi for oi in instock if oi.get("price") == p_ref]
+                        if mismo_precio_instock:
+                            return (float(p_ref), False, False)
+                    break
 
         # Estrategia a: coincidencia por peso o unidades en el nombre del offer
         candidatos_a: list[float] = []
