@@ -557,6 +557,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "imagen_url":    p.get("imagen_url"),
             "_precio_sin_confirmar": p.get("_precio_sin_confirmar", False),
             "_precio_fresco": p.get("_precio_fresco", None),
+            "agotado":       p.get("agotado", False),
         })
 
     grupos = agrupar_productos(productos_para_matching)
@@ -622,6 +623,12 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             # Subtipo de proteína: viene del scraper HSN; null para otras categorías
             "protein_subtype":          _first_enrich(g["precios"], "protein_subtype"),
         })
+
+    # Marcar como agotado los productos donde todas las entradas son OOS
+    for p in productos_web:
+        if all(pr.get("agotado", False) for pr in p["precios"]):
+            p["agotado"] = True
+            p["precio_por_kg_min"] = None  # no mostrar en rankings activos
 
     # Ordenar por categoria slug + precio_por_kg
     productos_web.sort(key=lambda p: (
@@ -780,6 +787,9 @@ def guardar_price_history(productos_web: list[dict]):
                 ultimo_precio = {(e["producto_id"], e["tienda"]): e["precio"] for e in historial}
                 continue
 
+            if precio_info.get("agotado"):
+                continue  # precio de agotado = último conocido, no publicar en historial
+
             nuevo_precio = precio_info["precio_eur"]
             k = (producto_id, precio_info["tienda"])
             prev = ultimo_precio.get(k)
@@ -815,7 +825,35 @@ def guardar_price_history(productos_web: list[dict]):
         msg += f", {anomalias_precio} entradas bloqueadas por caída >50%"
     msg += f", {len(historial)} total)"
     print(msg)
-    return path
+    return path, historial
+
+
+def _check_agotados_30d(productos_web: list[dict], historial: list[dict]) -> None:
+    """Avisa en el log si un producto agotado lleva más de 30 días sin precio fresco."""
+    hoy = datetime.today().date()
+    # Índice: producto_id → max fecha en historial
+    ultima_fecha: dict[str, str] = {}
+    for e in historial:
+        pid = e.get("producto_id", "")
+        f = e.get("fecha", "")
+        if f > ultima_fecha.get(pid, ""):
+            ultima_fecha[pid] = f
+    for p in productos_web:
+        if not p.get("agotado"):
+            continue
+        pid = p["id"]
+        uf = ultima_fecha.get(pid)
+        if not uf:
+            continue
+        try:
+            dias = (hoy - datetime.fromisoformat(uf).date()).days
+        except Exception:
+            continue
+        if dias > 30:
+            print(
+                f"  [agotado-30d] {pid} lleva {dias} días agotado "
+                f"(último precio: {uf}) — considera redirigir o eliminar"
+            )
 
 
 # ============================================================
@@ -1179,6 +1217,8 @@ KEYWORDS_EXCLUIR_POR_CATEGORIA = {
 
 def _excluir_producto(p: dict) -> bool:
     """Devuelve True si el producto debe ir a 'Otros productos'."""
+    if p.get("agotado"):
+        return True
     precio_kg = p.get("precio_por_kg_min")
     if not precio_kg or precio_kg == 0:
         return True
@@ -1472,6 +1512,23 @@ def generar_editorial(pa: dict, pb: dict) -> list:
     na = html_mod.escape(pa.get("nombre_display") or pa["nombre_normalizado"])
     nb = html_mod.escape(pb.get("nombre_display") or pb["nombre_normalizado"])
 
+    # Disponibilidad: avisar si algún producto está agotado
+    oos_a = pa.get("agotado")
+    oos_b = pb.get("agotado")
+    if oos_a or oos_b:
+        if oos_a and not oos_b:
+            frase = f"{na} está agotado ahora mismo"
+            if kg_b:
+                frase += f"; {nb} está disponible a {_fmtc(kg_b)} €/kg"
+            parrafos.append(frase + ".")
+        elif oos_b and not oos_a:
+            frase = f"{nb} está agotado ahora mismo"
+            if kg_a:
+                frase += f"; {na} está disponible a {_fmtc(kg_a)} €/kg"
+            parrafos.append(frase + ".")
+        else:
+            parrafos.append("Ambos productos están agotados actualmente.")
+
     if kg_a and kg_b:
         diff = abs(kg_a - kg_b)
         if diff > 0.01:
@@ -1571,7 +1628,7 @@ def generar_faq_comparacion(pa: dict, pb: dict) -> list:
             ),
         })
 
-    if pa.get("tienda_mas_barata") and pa.get("precio_min"):
+    if not pa.get("agotado") and pa.get("tienda_mas_barata") and pa.get("precio_min"):
         faqs.append({
             "q": f"¿Dónde comprar {na} al mejor precio?",
             "a": (
@@ -1580,7 +1637,7 @@ def generar_faq_comparacion(pa: dict, pb: dict) -> list:
             ),
         })
 
-    if pb.get("tienda_mas_barata") and pb.get("precio_min"):
+    if not pb.get("agotado") and pb.get("tienda_mas_barata") and pb.get("precio_min"):
         faqs.append({
             "q": f"¿Dónde comprar {nb} al mejor precio?",
             "a": (
@@ -1636,12 +1693,23 @@ def generar_pares_comparacion(
         id_b = par["id_b"]
         pa = by_id.get(id_a)
         pb = by_id.get(id_b)
+
+        # Fallback: usar datos del build anterior marcados como agotados temporalmente
+        if pa is None and productos_previos_by_id:
+            prev = productos_previos_by_id.get(id_a)
+            if prev:
+                pa = {**prev, "agotado": True, "precio_por_kg_min": None}
+        if pb is None and productos_previos_by_id:
+            prev = productos_previos_by_id.get(id_b)
+            if prev:
+                pb = {**prev, "agotado": True, "precio_por_kg_min": None}
+
         if pa is None:
             ids_faltantes.append(id_a)
         if pb is None:
             ids_faltantes.append(id_b)
         if pa is None or pb is None:
-            # Intentar calcular el slug del par degradado para preservar la página anterior
+            # Calcular slug del par degradado para preservar la página anterior
             if productos_previos_by_id is not None:
                 pa_ref = pa or productos_previos_by_id.get(id_a)
                 pb_ref = pb or productos_previos_by_id.get(id_b)
@@ -1670,12 +1738,12 @@ def _nombre_seo(nombre: str) -> str:
     return re.sub(r"'([A-Z])", lambda m: "'" + m.group(1).lower(), titled)
 
 
-def generar_comparaciones(env, productos_web: list, last_updated: str) -> tuple[list, list]:
+def generar_comparaciones(env, productos_web: list, last_updated: str, productos_previos_by_id: dict | None = None) -> tuple[list, list]:
     """
     Genera docs/comparar/<slug>/index.html para cada par y docs/comparar/index.html.
     Devuelve (slugs_generados, ids_faltantes).
     """
-    pares, ids_faltantes, _ = generar_pares_comparacion(productos_web)
+    pares, ids_faltantes, _ = generar_pares_comparacion(productos_web, productos_previos_by_id)
     n_total = len(pares)
     print(f"   → {n_total} pares en total")
 
@@ -2028,10 +2096,11 @@ def seleccionar_destacados(tienda_cfg: dict, productos_web: list[dict], n: int =
     nombre_tienda = tienda_cfg["nombre"]
     ids_manual = tienda_cfg.get("productos_destacados", [])
 
-    # No usa _excluir_producto porque productos de tienda pueden no tener precio_por_kg_min
+    # No usa _excluir_producto (precio_por_kg_min puede ser None), pero sí excluye agotados
     prods_tienda = [
         p for p in productos_web
-        if any(pr["tienda"] == nombre_tienda for pr in p["precios"])
+        if not p.get("agotado")
+        and any(pr["tienda"] == nombre_tienda for pr in p["precios"])
     ]
 
     def precio_tienda(p):
@@ -2124,10 +2193,11 @@ def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_update
     """Genera docs/tiendas/{slug}/index.html para una tienda afiliada."""
     nombre_tienda = tienda_cfg["nombre"]
 
-    # Todos los productos de esta tienda (sin filtrar por precio_por_kg_min)
+    # Todos los productos de esta tienda (sin filtrar por precio_por_kg_min, pero excluye agotados)
     prods_tienda = [
         p for p in productos_web
-        if any(pr["tienda"] == nombre_tienda for pr in p["precios"])
+        if not p.get("agotado")
+        and any(pr["tienda"] == nombre_tienda for pr in p["precios"])
     ]
 
     def precio_tienda(p):
@@ -2582,7 +2652,8 @@ if __name__ == "__main__":
 
     # Guardar historial ANTES de los sparklines para que el último punto
     # del sparkline refleje los precios de hoy y no los del scraping anterior
-    guardar_price_history(productos_web)
+    _, historial_precio = guardar_price_history(productos_web)
+    _check_agotados_30d(productos_web, historial_precio)
 
     # Limpiar _precio_sin_confirmar ahora que el historial ya lo usó.
     # _precio_fresco se limpia más adelante, después de los checks post-build.
@@ -2622,7 +2693,7 @@ if __name__ == "__main__":
 
     # Generar comparaciones primero para pasar populares a la home
     print("\n⚖️  Generando comparaciones...")
-    compare_slugs, _ids_faltantes_gen = generar_comparaciones(env, productos_web, last_updated)
+    compare_slugs, _ids_faltantes_gen = generar_comparaciones(env, productos_web, last_updated, _old_by_id)
 
     # Generar páginas de redirección (old URLs → new slug_publico URLs)
     slugs_generados_set = set(compare_slugs)
@@ -2630,7 +2701,7 @@ if __name__ == "__main__":
 
     # Recuperar las 6 populares (misma lógica que en generar_comparaciones)
     from itertools import combinations as _combinations
-    _pares_home, _, _ = generar_pares_comparacion(productos_web)
+    _pares_home, _, _ = generar_pares_comparacion(productos_web, _old_by_id)
     _SLUG_TO_LABEL = {cfg["slug"]: cat_name for cat_name, cfg in CATEGORIA_CONFIG.items()}
     def _avg_kg_home(s):
         pa2, pb2 = _pares_home[s]
@@ -2718,10 +2789,11 @@ if __name__ == "__main__":
 
     if _ids_faltantes_gen:
         ids_unicos = sorted(set(_ids_faltantes_gen))
-        print("\n❌ PARES DE COMPARACIÓN DEGRADADOS:")
-        print(f"   IDs faltantes: {', '.join(ids_unicos)}")
-        print("   Actualiza data/comparaciones.json o el scraper correspondiente.")
-        _hay_error_final = True
+        print(f"\n⚠️  AVISO: {len(ids_unicos)} ID(s) de comparaciones.json no resolvibles:")
+        for fid in ids_unicos:
+            print(f"   • {fid}")
+        print("   Las comparaciones afectadas se mantienen del build anterior o se omiten.")
+        # No _hay_error_final: las comparaciones degradadas no bloquean el build
 
     if _tiene_anomalias_precio:
         print("\n❌ ANOMALÍAS DE PRECIO detectadas (ver detalle arriba).")

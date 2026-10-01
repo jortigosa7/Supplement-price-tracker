@@ -302,6 +302,7 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
             # True cuando el scraper hizo petición fresca para este producto (MyProtein).
             # False/ausente = petición fallida, precio viene del listing.
             "_precio_fresco": p.get("_precio_fresco", None),
+            "agotado":       p.get("agotado", False),
         }
 
         # 1. Intentar match por clave exacta en grupos existentes

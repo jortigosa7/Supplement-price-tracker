@@ -60,7 +60,19 @@
       "mainEntity": [{% for f in faqs %}
         {"@type":"Question","name":{{ f.q|tojson }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a|tojson }}}}{% if not loop.last %},{% endif %}{% endfor %}
       ]
-    }{% endif %}
+    }{% endif %},
+    {
+      "@type": "Product",
+      "name": {{ (producto_a.nombre_display or producto_a.nombre_normalizado)|tojson }},
+      "brand": {"@type": "Brand", "name": {{ producto_a.marca|tojson }}},
+      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/{% if producto_a.agotado %}OutOfStock{% else %}InStock{% endif %}"{% if producto_a.precio_min and not producto_a.agotado %}, "price": {{ producto_a.precio_min }}{% endif %}}
+    },
+    {
+      "@type": "Product",
+      "name": {{ (producto_b.nombre_display or producto_b.nombre_normalizado)|tojson }},
+      "brand": {"@type": "Brand", "name": {{ producto_b.marca|tojson }}},
+      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/{% if producto_b.agotado %}OutOfStock{% else %}InStock{% endif %}"{% if producto_b.precio_min and not producto_b.agotado %}, "price": {{ producto_b.precio_min }}{% endif %}}
+    }
   ]
 }
 </script>
@@ -216,7 +228,11 @@
       <div class="cmp-hcard-info">
         <div class="cmp-hcard-name">{{ (prod.nombre_display or prod.nombre_normalizado) }}</div>
         <div class="cmp-hcard-meta">{{ prod.marca }}{% if prod.peso_kg %} · {{ prod.peso_kg|fmtd }} kg{% endif %}</div>
-        {% if prod.precio_min %}<div class="cmp-hcard-price">desde {{ prod.precio_min|fmtd }} €</div>{% endif %}
+        {% if prod.agotado %}
+          <div class="cmp-hcard-price" style="color:#e07a5f;font-size:0.78rem;">Agotado</div>
+        {% elif prod.precio_min %}
+          <div class="cmp-hcard-price">desde {{ prod.precio_min|fmtd }} €</div>
+        {% endif %}
       </div>
     </div>
     {% endfor %}
@@ -440,6 +456,16 @@
           <div class="cmp-card-meta">{{ prod.marca }}{% if prod.peso_kg %} · {{ prod.peso_kg|fmtd }} kg{% endif %}</div>
         </div>
       </div>
+      {% if prod.agotado %}
+      <div>
+        <div class="cmp-card-price" style="color:#555;text-decoration:line-through;">{{ prod.precio_min|fmtd }} €</div>
+        {% if prod.precio_por_kg_min %}<div class="cmp-card-kg" style="opacity:0.4;">{{ prod.precio_por_kg_min|fmtd }} €/kg</div>{% endif %}
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 12px;">
+        <span style="font-size:0.72rem;font-weight:700;color:#e07a5f;text-transform:uppercase;letter-spacing:0.06em;">Agotado</span>
+        <span style="font-size:0.78rem;color:#666;">Último precio: {{ prod.precio_min|fmtd }} €{% if prod.precios %} · {{ prod.precios[0].fecha[:7] if prod.precios[0].fecha else '' }}{% endif %}</span>
+      </div>
+      {% else %}
       {% if prod.precio_min %}
       <div>
         <div class="cmp-card-price">{{ prod.precio_min|fmtd }} €</div>
@@ -460,6 +486,7 @@
       </div>
       {% set best = prod.precios | sort(attribute='precio_eur') | first %}
       <a href="{{ best.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ best.tienda }} · {{ best.precio_eur|fmtd }} €</a>
+      {% endif %}
     </div>
     {% endfor %}
   </div>

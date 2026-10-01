@@ -67,78 +67,150 @@ def _extraer_peso_g(texto: str) -> float | None:
     return valor * 1000 if unit == "kg" else valor
 
 
+def _extraer_unidades(texto: str):
+    """Extrae (count, unit_norm) de texto como '120 VCaps', '90 Caps', '12 Ud'.
+    Devuelve None si no hay coincidencia.
+    """
+    PATRONES = [
+        (r"vcaps?|v\.?caps?",               "vcap"),
+        (r"caps?|c[aá]psulas?|caplets?",    "cap"),
+        (r"softgels?",                       "softgel"),
+        (r"tabs?|tabletas?|comprimidos?",    "tab"),
+        (r"sobres?|sticks?|sachets?",        "sobre"),
+        (r"uds?|unidades?|unidad",           "ud"),
+    ]
+    for patron, norm in PATRONES:
+        m = re.search(rf"(\d+)\s*(?:{patron})\b", texto, re.IGNORECASE)
+        if m:
+            return (int(m.group(1)), norm)
+    return None
+
+
 def _resolver_precio_variante(
     offers: dict,
     sku_root,
     size_page_g: float | None,
     peso_nombre_g: float | None,
-) -> tuple[float | None, bool]:
-    """Devuelve (precio, sin_confirmar) para la variante correcta del producto.
+    unidades_nombre=None,
+) -> tuple[float | None, bool, bool]:
+    """Devuelve (precio, sin_confirmar, agotado).
 
-    Estrategia (en orden):
-    1. Offer simple → usa offers["price"] directamente.
-    2. AggregateOffer sin desglose individual → usa offers["price"].
+    agotado=True cuando todos los variants están OutOfStock (precio = último conocido).
+    sin_confirmar=True cuando no se puede identificar la variante con seguridad.
+
+    Estrategias (en orden):
+    1. Offer simple.
+    2. AggregateOffer sin desglose → uses offers["price"].
     3. AggregateOffer con offers individuales:
-       a. Weight match: busca en offer.name un peso que coincida con peso_nombre_g.
-       b. All-same-price: si todos los offers InStock tienen el mismo precio
-          (variantes de sabor, mismo tamaño), usa ese precio.
-       c. SKU match + validación de tamaño: usa el offer cuyo sku == sku_root,
-          solo si size_page_g ≈ peso_nombre_g (la variante mostrada en la página
-          coincide con el peso que buscamos).
-    4. Si nada funciona → (None, True) → precio no publicable.
+       OOS: si ninguno InStock → devuelve min precio con agotado=True.
+       a. Coincidencia por peso o unidades en offer.name → min precio de matches InStock.
+       b. size_page ≈ peso_nombre → collect InStock offers que no contradigan el tamaño → min precio.
+    4. Si nada funciona → (None, True, False).
     """
-    TOLERANCIA = 0.02  # 2 % de diferencia máxima entre pesos
+    TOLERANCIA = 0.02
 
     otype = offers.get("@type", "")
 
     if otype == "Offer":
         p = offers.get("price")
-        return (float(p), False) if p else (None, True)
+        if p:
+            agotado = "InStock" not in offers.get("availability", "")
+            return (float(p), False, agotado)
+        return (None, True, False)
 
     if otype == "AggregateOffer":
         individual = offers.get("offers", [])
         if not individual:
             p = offers.get("price")
-            return (float(p), False) if p else (None, True)
+            return (float(p), False, False) if p else (None, True, False)
 
-        # Estrategia a: peso en el nombre del offer
-        if peso_nombre_g:
+        instock = [o for o in individual if "InStock" in o.get("availability", "")]
+
+        # Todos agotados — aplicar mismas estrategias para identificar el variant correcto
+        if not instock:
+            # Estrategia a-oos: coincidencia por peso o unidades en offer.name
+            candidatos_a_oos: list[float] = []
             for o in individual:
-                peso_oferta = _extraer_peso_g(str(o.get("name", "")))
-                if peso_oferta is not None:
-                    if abs(peso_oferta - peso_nombre_g) / max(peso_nombre_g, 1) <= TOLERANCIA:
-                        p = o.get("price")
-                        if p:
-                            return (float(p), False)
+                on = str(o.get("name", ""))
+                coincide = False
+                if peso_nombre_g is not None:
+                    ow = _extraer_peso_g(on)
+                    if ow is not None and abs(ow - peso_nombre_g) / max(peso_nombre_g, 1) <= TOLERANCIA:
+                        coincide = True
+                if not coincide and unidades_nombre is not None:
+                    ou = _extraer_unidades(on)
+                    if ou == unidades_nombre:
+                        coincide = True
+                if coincide:
+                    p_val = o.get("price")
+                    if p_val:
+                        candidatos_a_oos.append(float(p_val))
+            if candidatos_a_oos:
+                return (min(candidatos_a_oos), False, True)
 
-        # Estrategia b: todos los offers InStock tienen el mismo precio
-        instock_precios = {
-            float(o["price"])
-            for o in individual
-            if "InStock" in o.get("availability", "") and o.get("price")
-        }
-        if len(instock_precios) == 1:
-            return (instock_precios.pop(), False)
+            # Estrategia b-oos: size_page ≈ peso_nombre → offers que no contradigan
+            if size_page_g is not None and peso_nombre_g is not None:
+                if abs(size_page_g - peso_nombre_g) / max(peso_nombre_g, 1) <= TOLERANCIA:
+                    candidatos_b_oos: list[float] = []
+                    for o in individual:
+                        on = str(o.get("name", ""))
+                        ow = _extraer_peso_g(on)
+                        ou = _extraer_unidades(on)
+                        if ow is not None and abs(ow - peso_nombre_g) / max(peso_nombre_g, 1) > TOLERANCIA:
+                            continue
+                        if ou is not None and unidades_nombre is not None and ou != unidades_nombre:
+                            continue
+                        p_val = o.get("price")
+                        if p_val:
+                            candidatos_b_oos.append(float(p_val))
+                    if candidatos_b_oos:
+                        return (min(candidatos_b_oos), False, True)
 
-        # Estrategia c: SKU match + la variante mostrada coincide con el peso buscado
-        if (
-            sku_root
-            and size_page_g is not None
-            and peso_nombre_g is not None
-            and abs(size_page_g - peso_nombre_g) / max(peso_nombre_g, 1) <= TOLERANCIA
-        ):
-            sku_str = str(sku_root)
-            for o in individual:
-                if str(o.get("sku", "")) == sku_str:
+            return (None, False, True)  # agotado sin precio identificable
+
+        # Estrategia a: coincidencia por peso o unidades en el nombre del offer
+        candidatos_a: list[float] = []
+        for o in instock:
+            on = str(o.get("name", ""))
+            coincide = False
+            if peso_nombre_g is not None:
+                ow = _extraer_peso_g(on)
+                if ow is not None and abs(ow - peso_nombre_g) / max(peso_nombre_g, 1) <= TOLERANCIA:
+                    coincide = True
+            if not coincide and unidades_nombre is not None:
+                ou = _extraer_unidades(on)
+                if ou == unidades_nombre:
+                    coincide = True
+            if coincide:
+                p = o.get("price")
+                if p:
+                    candidatos_a.append(float(p))
+        if candidatos_a:
+            return (min(candidatos_a), False, False)
+
+        # Estrategia b: el tamaño por defecto de la ficha coincide con el buscado
+        # → recoger offers InStock que no contradigan ese tamaño y usar el mínimo
+        if size_page_g is not None and peso_nombre_g is not None:
+            if abs(size_page_g - peso_nombre_g) / max(peso_nombre_g, 1) <= TOLERANCIA:
+                candidatos_b: list[float] = []
+                for o in instock:
+                    on = str(o.get("name", ""))
+                    ow = _extraer_peso_g(on)
+                    ou = _extraer_unidades(on)
+                    # Excluir offer si tiene un tamaño explícito distinto al buscado
+                    if ow is not None and abs(ow - peso_nombre_g) / max(peso_nombre_g, 1) > TOLERANCIA:
+                        continue
+                    if ou is not None and unidades_nombre is not None and ou != unidades_nombre:
+                        continue
                     p = o.get("price")
                     if p:
-                        return (float(p), False)
-                    break
+                        candidatos_b.append(float(p))
+                if candidatos_b:
+                    return (min(candidatos_b), False, False)
 
-        # Sin resolución posible
-        return (None, True)
+        return (None, True, False)
 
-    return (None, True)
+    return (None, True, False)
 
 
 def _cargar_catalogo() -> dict:
@@ -318,16 +390,26 @@ def _scrape_detalle(url: str, nombre_listing: str = "") -> tuple[str, dict]:
                 # Precio: resolver la variante correcta en lugar de usar lowPrice
                 offers = node.get("offers", {})
                 if offers.get("@type"):
-                    # El nombre de referencia para validar el peso es el del listado;
-                    # si no se proporcionó, usamos el nombre completo del detalle.
-                    nombre_ref = nombre_listing or enrichment.get("_nombre_completo", "")
+                    # Nombre de referencia: preferir el nombre del listado si tiene
+                    # peso/unidades extraíbles; si no, usar el nombre del detalle.
+                    nombre_completo_local = enrichment.get("_nombre_completo", "")
+                    nombre_ref_peso = nombre_listing or nombre_completo_local
+                    peso_listing = _extraer_peso_g(nombre_listing) if nombre_listing else None
+                    peso_nombre_g = peso_listing or _extraer_peso_g(nombre_completo_local)
+                    unidades_nombre = _extraer_unidades(nombre_ref_peso)
                     size_page_g = _extraer_peso_g(node.get("size", ""))
-                    peso_nombre_g = _extraer_peso_g(nombre_ref)
-                    precio_v, sin_confirmar = _resolver_precio_variante(
-                        offers, node.get("sku", ""), size_page_g, peso_nombre_g
+                    precio_v, sin_confirmar, agotado = _resolver_precio_variante(
+                        offers, node.get("sku", ""), size_page_g, peso_nombre_g,
+                        unidades_nombre,
                     )
                     if precio_v is not None:
                         enrichment["_precio_variante"] = precio_v
+                        if agotado:
+                            enrichment["_agotado"] = True
+                    elif agotado:
+                        # Agotado sin precio identificable: flag pero sin precio variante
+                        # (el precio del listado se usará como fallback)
+                        enrichment["_agotado"] = True
                     elif sin_confirmar:
                         enrichment["_precio_sin_confirmar"] = True
                 break
@@ -372,33 +454,36 @@ def _scrape_producto_fijo(url: str, categoria: str, force_fresh: bool = False) -
                     patron = re.compile(r"\s*-\s*" + re.escape(marca_raw) + r".*$", re.IGNORECASE)
                     nombre_completo = patron.sub("", nombre_raw).strip()
                 offers = node.get("offers", {})
-                # Si es AggregateOffer con variants individuales, verificar que haya stock
-                individual_offers = offers.get("offers", [])
-                if individual_offers and not any(
-                    "InStock" in o.get("availability", "") for o in individual_offers
-                ):
-                    return None  # producto totalmente agotado
-
                 # Para _scrape_producto_fijo no hay nombre externo de referencia:
                 # la variante mostrada en la página (Product.size) es la canónica.
                 size_page_g = _extraer_peso_g(node.get("size", ""))
                 peso_nombre_g = _extraer_peso_g(nombre_completo) or size_page_g
-                precio_v, sin_confirmar = _resolver_precio_variante(
-                    offers, node.get("sku", ""), size_page_g, peso_nombre_g
+                unidades_nombre = _extraer_unidades(nombre_completo)
+                precio_v, sin_confirmar, agotado = _resolver_precio_variante(
+                    offers, node.get("sku", ""), size_page_g, peso_nombre_g, unidades_nombre
                 )
                 if precio_v is None:
-                    if sin_confirmar and offers.get("@type"):
+                    if agotado and offers.get("@type"):
+                        # Agotado sin precio identificable: usar lowPrice del AggregateOffer
+                        fallback = offers.get("lowPrice") or offers.get("price")
+                        if fallback:
+                            precio_v = float(fallback)
+                        else:
+                            return None
+                    elif sin_confirmar and offers.get("@type"):
                         print(
                             f"  [precio-incierto] {nombre_completo[:50]}: "
                             f"variante no identificable — {url.split('/es/')[-1]}"
                         )
-                    return None
+                        return None
+                    else:
+                        return None
                 precio = str(precio_v)
 
                 imagen_raw = node.get("image", "")
                 imagen_url = imagen_raw if isinstance(imagen_raw, str) else (imagen_raw[0] if imagen_raw else None)
                 if nombre_completo and precio:
-                    return {
+                    result = {
                         "nombre":     nombre_completo,
                         "precio":     precio,
                         "marca":      marca_raw,
@@ -406,6 +491,9 @@ def _scrape_producto_fijo(url: str, categoria: str, force_fresh: bool = False) -
                         "url":        final_url,
                         "imagen_url": imagen_url,
                     }
+                    if agotado:
+                        result["agotado"] = True
+                    return result
         except Exception:
             pass
     return None
@@ -482,7 +570,7 @@ def scrape() -> list[dict]:
     # ── Detalle: nombre completo con peso + rating ─────────────────────────
     print(f"\n  Enriqueciendo {len(productos_raw)} productos (detalle + caché 7 días)...")
     productos: list[dict] = []
-    stats = {"cached": 0, "fetched": 0, "errors": 0}
+    stats = {"cached": 0, "fetched": 0, "errors": 0, "agotados": 0}
 
     for i, d in enumerate(productos_raw):
         cached_check = get_cached("nutritienda", d["url"])
@@ -506,6 +594,8 @@ def scrape() -> list[dict]:
         # Precio resuelto por variante (reemplaza el precio de listado si está disponible)
         precio_variante = enrichment.pop("_precio_variante", None)
         sin_confirmar = enrichment.pop("_precio_sin_confirmar", False)
+        # _agotado viene del detalle; agotado puede venir del raw dict (_scrape_producto_fijo)
+        agotado_flag = enrichment.pop("_agotado", False) or d.get("agotado", False)
 
         if precio_variante is None and sin_confirmar:
             # No se pudo identificar la variante → no publicar precio
@@ -525,6 +615,9 @@ def scrape() -> list[dict]:
             d.get("imagen_url"),
         )
         prod.update(enrichment)
+        if agotado_flag:
+            prod["agotado"] = True
+            stats["agotados"] += 1
         productos.append(prod)
 
         if (i + 1) % 10 == 0:
@@ -538,7 +631,8 @@ def scrape() -> list[dict]:
     print(f"\n  Total Nutritienda: {total} productos")
     print(
         f"  Detalle: {stats['fetched']} fetcheados, "
-        f"{stats['cached']} desde caché, {stats['errors']} errores"
+        f"{stats['cached']} desde caché, {stats['errors']} errores, "
+        f"{stats['agotados']} agotados"
     )
 
     # Guardia: falla duro si el scrape devuelve 0 productos (scraper roto)

@@ -667,15 +667,16 @@ def _check_productos_ausentes(ids_act: set[str], stats_ant: dict) -> list[str]:
 
     errores: list[str] = []
 
-    # Alerta fuerte: producto de comparaciones.json desaparecido
+    # Aviso (no error): producto de comparaciones.json ausente del catálogo de hoy.
+    # El build usa el último dato conocido de products.json marcándolo como agotado.
     criticos = desaparecidos & ids_en_comp
     if criticos:
         muestra = sorted(criticos)[:5]
-        errores.append(
-            f"[CHECK AUSENTES] {len(criticos)} producto(s) de comparaciones.json desaparecidos:\n"
-            + "\n".join(f"  - {id_}" for id_ in muestra)
-            + (f"\n  ... (+{len(criticos) - 5} más)" if len(criticos) > 5 else "")
-            + "\n  Revisar el scraper o actualizar comparaciones.json."
+        print(
+            f"  ⚠️  AVISO [CHECK AUSENTES]: {len(criticos)} producto(s) de comparaciones.json "
+            f"ausentes del catálogo de hoy (se muestran como agotados en sus comparaciones):\n"
+            + "\n".join(f"    - {id_}" for id_ in muestra)
+            + (f"\n    ... (+{len(criticos) - 5} más)" if len(criticos) > 5 else "")
         )
 
     # Aviso suave: productos no críticos ausentes >=2 builds consecutivos
