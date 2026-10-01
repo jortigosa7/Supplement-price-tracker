@@ -463,10 +463,6 @@
     "categoria": "creatina",
     "first_seen": "2026-09-19"
   },
-  "https://www.nutritienda.com/es/beverly-nutrition/crea-extreme-tank": {
-    "categoria": "creatina",
-    "first_seen": "2026-09-19"
-  },
   "https://www.nutritienda.com/es/biotech-usa/100-creatine-monohydrate-yuzu-300g": {
     "categoria": "creatina",
     "first_seen": "2026-09-19"
@@ -624,10 +620,6 @@
     "first_seen": "2026-09-19"
   },
   "https://www.nutritienda.com/es/best-protein/kre-alkalyn-120-caps": {
-    "categoria": "creatina",
-    "first_seen": "2026-09-19"
-  },
-  "https://www.nutritienda.com/es/applied-nutrition/creatine-gummies-80-unidades": {
     "categoria": "creatina",
     "first_seen": "2026-09-19"
   },
@@ -1358,5 +1350,9 @@
   "https://www.nutritienda.com/es/4pro-nutrition/caffeine-200-100-tabletas": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-09-30"
+  },
+  "https://www.nutritienda.com/es/scientiffic-nutrition/no-cramp-12-viales-60-ml": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-01"
   }
 }
