@@ -991,10 +991,6 @@
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
   },
-  "https://www.nutritienda.com/es/olimp/whey-protein-complex-100-": {
-    "categoria": "proteina-whey",
-    "first_seen": "2026-09-19"
-  },
   "https://www.nutritienda.com/es/vitobest/isolate-cfm-zero": {
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
@@ -1103,19 +1099,11 @@
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
   },
-  "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black": {
-    "categoria": "proteina-whey",
-    "first_seen": "2026-09-19"
-  },
   "https://www.nutritienda.com/es/gold-nutrition/total-whey": {
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
   },
   "https://www.nutritienda.com/es/quamtrax/isopro-cfm": {
-    "categoria": "proteina-whey",
-    "first_seen": "2026-09-19"
-  },
-  "https://www.nutritienda.com/es/bigman/zero-isolated-whey": {
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
   },
@@ -1354,5 +1342,17 @@
   "https://www.nutritienda.com/es/scientiffic-nutrition/no-cramp-12-viales-60-ml": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-10-01"
+  },
+  "https://www.nutritienda.com/es/hypertrophy-nutrition/neox-preworkout-400g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-02"
+  },
+  "https://www.nutritienda.com/es/fire-nutrition/l-citrulina-malato-300g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-02"
+  },
+  "https://www.nutritienda.com/es/crown-sport-nutrition/pre-workout-pro-st-300g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-02"
   }
 }
