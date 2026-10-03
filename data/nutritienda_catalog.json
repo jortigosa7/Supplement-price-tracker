@@ -1354,5 +1354,17 @@
   "https://www.nutritienda.com/es/crown-sport-nutrition/pre-workout-pro-st-300g": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-10-02"
+  },
+  "https://www.nutritienda.com/es/bigman/zero-isolated-whey": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-03"
+  },
+  "https://www.nutritienda.com/es/olimp/creatine-1250-mega-caps": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-03"
+  },
+  "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-03"
   }
 }
