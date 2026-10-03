@@ -269,6 +269,9 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
 
     grupos: list[dict] = []
     avisos_ratio: list[str] = []  # Regla 2: pares rechazados por ratio de precio
+    _brand_by_url: dict[str, str] = {}  # url → marca para el log multi-tienda
+    # Tiendas con marca propia exclusiva: sus productos nunca se agrupan con otras tiendas
+    _STORE_BRAND_TIENDAS = frozenset({"HSN", "MyProtein", "Prozis"})
 
     for p in productos_flat:
         nombre    = p.get("nombre", "").strip()
@@ -308,6 +311,8 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
             "agotado":       p.get("agotado", False),
         }
 
+        _brand_by_url[url] = extraer_marca_normalizada(nombre, marca_raw) or marca_raw
+
         # 1. Intentar match por clave exacta en grupos existentes
         producto_tmp = {"nombre": nombre, "marca": marca_raw, "peso_kg": peso_kg, "categoria": categoria}
         clave = clave_exacta(producto_tmp)
@@ -344,6 +349,25 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
             for g in grupos:
                 if g["categoria"] != categoria:
                     continue
+
+                # Regla de marca: no agrupar marcas distintas en match difuso.
+                # Las marcas propias de tienda (HSN, Prozis, MyProtein…) nunca se
+                # agrupan con productos de otra marca.
+                # Si marca_raw está vacía y la tienda es una store-brand, usar el
+                # nombre de la tienda como marca (p.ej. MyProtein BCAA → "MyProtein").
+                _mc = extraer_marca_normalizada(nombre, marca_raw) or marca_raw.strip()
+                if not _mc and tienda in _STORE_BRAND_TIENDAS:
+                    _mc = tienda
+                _mg = g.get("marca", "") or ""
+                if _mg == "Desconocida" or not _mg:
+                    # El grupo puede haberse creado por una store-brand con marca vacía;
+                    # recuperar el nombre de tienda desde la primera entrada de precios.
+                    _mg_t = g["precios"][0]["tienda"] if g["precios"] else ""
+                    if _mg_t in _STORE_BRAND_TIENDAS:
+                        _mg = _mg_t
+                if _mc and _mg:
+                    if normalizar_texto(_mc) != normalizar_texto(_mg):
+                        continue
 
                 # Regla 1: sin peso no agrupa con con peso (y viceversa)
                 peso_g_v = _peso_valido(g.get("peso_kg"))
@@ -408,9 +432,19 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
 
     # Post-proceso: ordenar precios, calcular mínimos, elegir imagen
     for g in grupos:
-        # Agotados sin precio (precio_eur=None) van al final del sort.
-        g["precios"].sort(key=lambda x: (x["precio_eur"] is None, x["precio_eur"] or 0))
-        mejor = g["precios"][0]
+        # Agotados van al final; luego por precio None; luego por precio asc.
+        g["precios"].sort(key=lambda x: (
+            bool(x.get("agotado")),
+            x["precio_eur"] is None,
+            x["precio_eur"] or 0,
+        ))
+        # Precio mínimo y tienda: solo entradas en stock.
+        _mejor_instock = next(
+            (p for p in g["precios"]
+             if not p.get("agotado") and p["precio_eur"] is not None),
+            None,
+        )
+        mejor = _mejor_instock if _mejor_instock is not None else g["precios"][0]
         g["precio_min"]        = mejor["precio_eur"]
         g["tienda_mas_barata"] = mejor["tienda"]
 
@@ -449,6 +483,18 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
         print(f"\n  AVISO matching — {len(avisos_ratio)} par(es) rechazados por ratio de precio >2.5x:")
         for aviso in avisos_ratio:
             print(aviso)
+
+    # Log de grupos multi-tienda con marca de cada oferta
+    _grupos_mt = [g for g in grupos if len(g["precios"]) > 1]
+    if _grupos_mt:
+        print(f"\n  Grupos multi-tienda ({len(_grupos_mt)} total):")
+        for _g in _grupos_mt:
+            _ofertas = " | ".join(
+                f"{_pr['tienda']}:{_brand_by_url.get(_pr['url_afiliado'], '?')} {_pr['precio_eur']}€"
+                for _pr in _g["precios"]
+            )
+            print(f"    [{_g['categoria'][:10]}] {_g['nombre_normalizado'][:45]}")
+            print(f"      {_ofertas}")
 
     # Ordenar grupos: categoria + precio_por_kg
     grupos.sort(key=lambda g: (

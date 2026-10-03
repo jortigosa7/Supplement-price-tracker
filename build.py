@@ -715,7 +715,7 @@ def verificar_grupos_multitienda(productos_web: list[dict]) -> tuple[int, bool]:
         anterior = data.get("grupos_multitienda")
 
     if anterior is not None:
-        umbral = max(1, int(anterior * 0.60))
+        umbral = int(anterior * 0.60)  # 0 es válido cuando no hay matches cross-tienda legítimos
         if actual < umbral:
             caida = round((1 - actual / anterior) * 100) if anterior > 0 else 0
             print(f"\n{'='*60}")
@@ -2467,6 +2467,8 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
 
         entries = hist_by_id.get(pid, [])
         for pr_info in p.get("precios", []):
+            if pr_info.get("agotado"):
+                continue  # precio de agotado = último conocido, no comparar con historial
             tienda = pr_info.get("tienda", "")
             precio_actual = pr_info.get("precio_eur")
             if not precio_actual:

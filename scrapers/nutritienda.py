@@ -131,6 +131,18 @@ def _resolver_precio_variante(
 
         # Todos agotados — aplicar mismas estrategias para identificar el variant correcto
         if not instock:
+            # Nueva regla — tamaño-ambiguo: si el tamaño por defecto de la ficha
+            # difiere del tamaño buscado y ningún offer indica su tamaño explícito,
+            # no podemos identificar la variante → excluir como agotado.
+            if size_page_g is not None and peso_nombre_g is not None:
+                if abs(size_page_g - peso_nombre_g) / max(peso_nombre_g, 1) > TOLERANCIA:
+                    tiene_size = any(
+                        _extraer_peso_g(str(o.get("name", ""))) is not None
+                        for o in individual
+                    )
+                    if not tiene_size:
+                        return (None, False, True)  # agotado, no identificable [tamaño-ambiguo]
+
             # Estrategia c-oos: SKU del Product == SKU del offer → precio del variant por defecto
             if sku_root:
                 sku_str = str(sku_root)
@@ -193,6 +205,16 @@ def _resolver_precio_variante(
                             return (None, False, True)  # agotado sin precio identificable
 
             return (None, False, True)  # agotado sin precio identificable
+
+        # Nueva regla — tamaño-ambiguo: mismo criterio que en OOS.
+        if size_page_g is not None and peso_nombre_g is not None:
+            if abs(size_page_g - peso_nombre_g) / max(peso_nombre_g, 1) > TOLERANCIA:
+                tiene_size = any(
+                    _extraer_peso_g(str(o.get("name", ""))) is not None
+                    for o in instock
+                )
+                if not tiene_size:
+                    return (None, True, False)  # sin_confirmar [tamaño-ambiguo]
 
         # Estrategia c: SKU del Product == SKU del offer → precio del variant por defecto
         if sku_root:
@@ -533,11 +555,17 @@ def _scrape_producto_fijo(url: str, categoria: str, force_fresh: bool = False) -
                         else:
                             return None
                     elif sin_confirmar and offers.get("@type"):
-                        print(
-                            f"  [precio-incierto] {nombre_completo[:50]}: "
-                            f"variante no identificable — {url.split('/es/')[-1]}"
-                        )
-                        return None
+                        # Variante no identificable: marcar como agotado con lowPrice de la ficha
+                        fallback = offers.get("lowPrice") or offers.get("price")
+                        if fallback:
+                            precio_v = float(fallback)
+                            agotado = True
+                            print(
+                                f"  [precio-incierto] {nombre_completo[:50]}: "
+                                f"agotado (variante no identificable)"
+                            )
+                        else:
+                            return None
                     else:
                         return None
                 precio = str(precio_v)
@@ -634,6 +662,21 @@ def scrape() -> list[dict]:
     productos: list[dict] = []
     stats = {"cached": 0, "fetched": 0, "errors": 0, "agotados": 0}
 
+    # Cargar último precio conocido para fallback de productos sin precio identificable
+    _prev_precios: dict = {}
+    try:
+        _pf = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "products.json")
+        with open(_pf, encoding="utf-8") as _f:
+            _prev = json.load(_f)
+        for _p in _prev.get("products", []):
+            for _pr in _p.get("precios", []):
+                if _pr.get("tienda") == TIENDA:
+                    _url = _pr.get("url_afiliado", "")
+                    if _url and _pr.get("precio_eur") is not None:
+                        _prev_precios[_url] = _pr["precio_eur"]
+    except Exception:
+        pass
+
     for i, d in enumerate(productos_raw):
         cached_check = get_cached("nutritienda", d["url"])
         if cached_check is not None:
@@ -660,12 +703,14 @@ def scrape() -> list[dict]:
         agotado_flag = enrichment.pop("_agotado", False) or d.get("agotado", False)
 
         if precio_variante is None and sin_confirmar:
-            # No se pudo identificar la variante → no publicar precio
-            print(f"  [precio-incierto] SKIP {nombre[:55]}: variante no identificable")
-            stats["errors"] += 1
-            continue
-
-        precio_str = str(precio_variante) if precio_variante is not None else d["precio"]
+            # No se pudo identificar la variante: marcar como agotado.
+            # Usar último precio conocido de products.json o precio de listado.
+            print(f"  [precio-incierto] agotado {nombre[:55]}: variante no identificable")
+            agotado_flag = True
+            _ultimo = _prev_precios.get(final_url)
+            precio_str = str(_ultimo) if _ultimo is not None else d["precio"]
+        else:
+            precio_str = str(precio_variante) if precio_variante is not None else d["precio"]
 
         prod = producto_base(
             nombre,

@@ -92,6 +92,22 @@ CASOS = [
         "estado_esperado": "Agotado",
         "acepta_excluido": True,  # 404 = producto eliminado del catálogo
     },
+    {
+        "slug":            "muscletech/cell-tech-performance-series",
+        "url":             "https://www.nutritienda.com/es/muscletech/cell-tech-performance-series",
+        "nombre_listing":  "CELL TECH PERFORMANCE SERIES 2270 g",
+        "precio_esperado": None,
+        "estado_esperado": "InStock",
+        "acepta_excluido": True,  # EXCLUIDO es aceptable (tamaño-ambiguo)
+    },
+    {
+        "slug":            "biotech-usa/nitrox-therapy",
+        "url":             "https://www.nutritienda.com/es/biotech-usa/nitrox-therapy",
+        "nombre_listing":  "NITROX THERAPY 340 g",
+        "precio_esperado": None,
+        "estado_esperado": "InStock",
+        "acepta_excluido": True,  # EXCLUIDO es aceptable (tamaño-ambiguo)
+    },
 ]
 
 
