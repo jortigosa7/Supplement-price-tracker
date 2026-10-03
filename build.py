@@ -558,6 +558,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "_precio_sin_confirmar": p.get("_precio_sin_confirmar", False),
             "_precio_fresco": p.get("_precio_fresco", None),
             "agotado":       p.get("agotado", False),
+            "sin_precio":    p.get("sin_precio", False),
         })
 
     grupos = agrupar_productos(productos_para_matching)
@@ -625,10 +626,13 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
         })
 
     # Marcar como agotado los productos donde todas las entradas son OOS
+    # Marcar como sin_precio los productos donde todas las entradas son sin_precio
     for p in productos_web:
         if all(pr.get("agotado", False) for pr in p["precios"]):
             p["agotado"] = True
             p["precio_por_kg_min"] = None  # no mostrar en rankings activos
+        if p["precios"] and all(pr.get("sin_precio", False) for pr in p["precios"]):
+            p["sin_precio"] = True
 
     # Ordenar por categoria slug + precio_por_kg
     productos_web.sort(key=lambda p: (
@@ -768,10 +772,9 @@ def guardar_price_history(productos_web: list[dict]):
     for producto in productos_web:
         producto_id = producto["id"]
         for precio_info in producto.get("precios", []):
-            if precio_info.get("_precio_sin_confirmar", False):
-                # Precio de lista (formato desconocido) → no añadir al historial.
-                # Además purgar entradas anteriores de esta tienda/producto para no
-                # contaminar el sparkline con precios de un formato incorrecto.
+            if precio_info.get("_precio_sin_confirmar", False) or precio_info.get("sin_precio", False):
+                # Precio sin confirmar o sin_precio (variante no identificable) → no añadir al historial.
+                # Además purgar entradas anteriores para no contaminar el sparkline.
                 antes = len(historial)
                 historial = [
                     e for e in historial
@@ -1217,7 +1220,7 @@ KEYWORDS_EXCLUIR_POR_CATEGORIA = {
 
 def _excluir_producto(p: dict) -> bool:
     """Devuelve True si el producto debe ir a 'Otros productos'."""
-    if p.get("agotado"):
+    if p.get("agotado") or p.get("sin_precio"):
         return True
     precio_kg = p.get("precio_por_kg_min")
     if not precio_kg or precio_kg == 0:
@@ -1512,9 +1515,9 @@ def generar_editorial(pa: dict, pb: dict) -> list:
     na = html_mod.escape(pa.get("nombre_display") or pa["nombre_normalizado"])
     nb = html_mod.escape(pb.get("nombre_display") or pb["nombre_normalizado"])
 
-    # Disponibilidad: avisar si algún producto está agotado
-    oos_a = pa.get("agotado")
-    oos_b = pb.get("agotado")
+    # Disponibilidad: avisar si algún producto está agotado o sin precio
+    oos_a = pa.get("agotado") or pa.get("sin_precio")
+    oos_b = pb.get("agotado") or pb.get("sin_precio")
     if oos_a or oos_b:
         if oos_a and not oos_b:
             frase = f"{na} está agotado ahora mismo"
@@ -1628,7 +1631,7 @@ def generar_faq_comparacion(pa: dict, pb: dict) -> list:
             ),
         })
 
-    if not pa.get("agotado") and pa.get("tienda_mas_barata") and pa.get("precio_min"):
+    if not pa.get("agotado") and not pa.get("sin_precio") and pa.get("tienda_mas_barata") and pa.get("precio_min"):
         faqs.append({
             "q": f"¿Dónde comprar {na} al mejor precio?",
             "a": (
@@ -1637,7 +1640,7 @@ def generar_faq_comparacion(pa: dict, pb: dict) -> list:
             ),
         })
 
-    if not pb.get("agotado") and pb.get("tienda_mas_barata") and pb.get("precio_min"):
+    if not pb.get("agotado") and not pb.get("sin_precio") and pb.get("tienda_mas_barata") and pb.get("precio_min"):
         faqs.append({
             "q": f"¿Dónde comprar {nb} al mejor precio?",
             "a": (
@@ -2096,10 +2099,10 @@ def seleccionar_destacados(tienda_cfg: dict, productos_web: list[dict], n: int =
     nombre_tienda = tienda_cfg["nombre"]
     ids_manual = tienda_cfg.get("productos_destacados", [])
 
-    # No usa _excluir_producto (precio_por_kg_min puede ser None), pero sí excluye agotados
+    # No usa _excluir_producto (precio_por_kg_min puede ser None), pero sí excluye agotados/sin_precio
     prods_tienda = [
         p for p in productos_web
-        if not p.get("agotado")
+        if not p.get("agotado") and not p.get("sin_precio")
         and any(pr["tienda"] == nombre_tienda for pr in p["precios"])
     ]
 
@@ -2193,10 +2196,10 @@ def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_update
     """Genera docs/tiendas/{slug}/index.html para una tienda afiliada."""
     nombre_tienda = tienda_cfg["nombre"]
 
-    # Todos los productos de esta tienda (sin filtrar por precio_por_kg_min, pero excluye agotados)
+    # Todos los productos de esta tienda (sin filtrar por precio_por_kg_min, pero excluye agotados/sin_precio)
     prods_tienda = [
         p for p in productos_web
-        if not p.get("agotado")
+        if not p.get("agotado") and not p.get("sin_precio")
         and any(pr["tienda"] == nombre_tienda for pr in p["precios"])
     ]
 
@@ -2440,6 +2443,10 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
                 )
 
         # Regla 3: mínimo histórico (spark_min) inconsistente con precio actual
+        # Agotados y sin_precio no tienen precio confirmado; su spark_min puede ser
+        # de datos históricos erróneos (ej. lowPrice incorrecto) → saltar.
+        if p.get("sin_precio") or p.get("agotado"):
+            continue
         spark_min = p.get("spark_min")
         if spark_min is not None:
             spark_f = float(spark_min)
@@ -2467,8 +2474,8 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
 
         entries = hist_by_id.get(pid, [])
         for pr_info in p.get("precios", []):
-            if pr_info.get("agotado"):
-                continue  # precio de agotado = último conocido, no comparar con historial
+            if pr_info.get("agotado") or pr_info.get("sin_precio"):
+                continue  # precio de agotado/sin_precio: no comparar con historial
             tienda = pr_info.get("tienda", "")
             precio_actual = pr_info.get("precio_eur")
             if not precio_actual:

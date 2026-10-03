@@ -284,9 +284,10 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
 
         precio_eur = limpiar_precio(precio_str)
         es_agotado = p.get("agotado", False)
-        # Productos agotados sin precio son válidos: se incluyen con precio_eur=None.
-        # Productos no agotados sin precio se descartan (datos incompletos).
-        if not nombre or (precio_eur is None and not es_agotado):
+        es_sin_precio = p.get("sin_precio", False)
+        # Agotados y sin_precio pueden llevar precio_eur=None.
+        # Productos normales sin precio se descartan (datos incompletos).
+        if not nombre or (precio_eur is None and not es_agotado and not es_sin_precio):
             continue
 
         peso_kg = extraer_peso_kg(nombre)
@@ -309,6 +310,7 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
             # False/ausente = petición fallida, precio viene del listing.
             "_precio_fresco": p.get("_precio_fresco", None),
             "agotado":       p.get("agotado", False),
+            "sin_precio":    p.get("sin_precio", False),
         }
 
         _brand_by_url[url] = extraer_marca_normalizada(nombre, marca_raw) or marca_raw
@@ -432,16 +434,17 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
 
     # Post-proceso: ordenar precios, calcular mínimos, elegir imagen
     for g in grupos:
-        # Agotados van al final; luego por precio None; luego por precio asc.
+        # InStock primero (precio asc) → agotados → sin_precio al final.
         g["precios"].sort(key=lambda x: (
+            bool(x.get("sin_precio")),
             bool(x.get("agotado")),
             x["precio_eur"] is None,
             x["precio_eur"] or 0,
         ))
-        # Precio mínimo y tienda: solo entradas en stock.
+        # Precio mínimo y tienda: solo entradas InStock con precio.
         _mejor_instock = next(
             (p for p in g["precios"]
-             if not p.get("agotado") and p["precio_eur"] is not None),
+             if not p.get("agotado") and not p.get("sin_precio") and p["precio_eur"] is not None),
             None,
         )
         mejor = _mejor_instock if _mejor_instock is not None else g["precios"][0]
