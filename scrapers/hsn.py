@@ -245,27 +245,31 @@ def _scrape_detalle(url: str, nombre: str) -> dict:
     return enrichment
 
 
-def _obtener_precio_peso_fresco(url: str) -> tuple[float | None, float | None]:
+def _obtener_precio_peso_fresco(url: str) -> tuple[float | None, float | None, bool]:
     """
     Hace SIEMPRE una petición fresca a la ficha de detalle de HSN.
-    Devuelve (peso_kg, precio_eur) del formato con mejor €/kg disponible.
+    Devuelve (peso_kg, precio_eur, agotado).
+
+    agotado=True cuando isSalable:false en la ficha (producto sin stock).
 
     Actualiza la caché con el HTML descargado para que _scrape_detalle() lo
     reutilice sin petición adicional.
 
     Si ningún formato tiene precio confirmado en optionPrices, devuelve
-    (peso del primer formato, None) y el €/kg quedará como None.
+    (peso del primer formato, None, agotado) y el €/kg quedará como None.
     """
     r = hacer_peticion(url)
     if not r or r.status_code != 200:
-        return None, None
+        return None, None, False
     html = r.text
     save_cache("hsn", url, html)
+
+    agotado = '"isSalable":false' in html
 
     soup = BeautifulSoup(html, "html.parser")
     opciones = _extraer_todas_opciones_select(soup)
     if not opciones:
-        return None, None
+        return None, None, agotado
 
     # Buscar precio para cada opción y quedarse con la de mejor €/kg
     formatos_con_precio = []
@@ -276,9 +280,10 @@ def _obtener_precio_peso_fresco(url: str) -> tuple[float | None, float | None]:
 
     if not formatos_con_precio:
         # Sin precio confirmado para ningún formato: fallback al primer formato
-        return opciones[0][0], None
+        return opciones[0][0], None, agotado
 
-    return seleccionar_mejor_formato(formatos_con_precio)
+    peso, precio = seleccionar_mejor_formato(formatos_con_precio)
+    return peso, precio, agotado
 
 
 def _talla_str(peso_kg: float) -> str:
@@ -380,16 +385,18 @@ def scrape(debug: bool = False) -> list[dict]:
     # → 1 petición de red por producto (nunca 0, nunca 2).
     print(f"\n  Obteniendo precios frescos y enriqueciendo {len(productos_raw)} productos...")
     productos: list[dict] = []
-    stats = {"ok": 0, "sin_precio_opcion": 0, "errors": 0}
+    stats = {"ok": 0, "sin_precio_opcion": 0, "errors": 0, "agotados": 0}
 
     for i, d in enumerate(productos_raw):
-        peso_kg, precio_confirmado = _obtener_precio_peso_fresco(d["url"])
-        if peso_kg is None and precio_confirmado is None:
+        peso_kg, precio_confirmado, agotado_hsn = _obtener_precio_peso_fresco(d["url"])
+        if peso_kg is None and precio_confirmado is None and not agotado_hsn:
             stats["errors"] += 1
         elif precio_confirmado is None:
             stats["sin_precio_opcion"] += 1
         else:
             stats["ok"] += 1
+        if agotado_hsn:
+            stats["agotados"] += 1
 
         # Enriquecimiento desde la caché recién actualizada (sin petición extra)
         enrichment = _scrape_detalle(d["url"], d["nombre"])
@@ -441,6 +448,9 @@ def scrape(debug: bool = False) -> list[dict]:
         if peso_kg and not precio_confirmado:
             prod["_precio_sin_confirmar"] = True
 
+        if agotado_hsn:
+            prod["agotado"] = True
+
         productos.append(prod)
 
         if (i + 1) % 10 == 0:
@@ -450,6 +460,7 @@ def scrape(debug: bool = False) -> list[dict]:
 
     print(f"\n  Total HSN: {len(productos)} productos")
     print(f"  Detalle: {stats['ok']} precio confirmado, "
+          f"{stats['agotados']} agotados, "
           f"{stats['sin_precio_opcion']} sin precio de opción (€/kg=None), "
           f"{stats['errors']} errores")
     return productos

@@ -108,6 +108,9 @@ def _extraer_enriquecimiento_html(html: str, url: str) -> dict:
                 if rc:
                     enrichment["store_rating_count"] = int(rc)
                     enrichment["store_rating_url"] = url
+                avail = str(d.get("offers", {}).get("availability", ""))
+                if "OutOfStock" in avail:
+                    enrichment["agotado"] = True
                 break
         except Exception:
             pass

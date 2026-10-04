@@ -336,6 +336,12 @@ def scrape(debug: bool = False) -> list[dict]:
                 enrichment = _extraer_enriquecimiento(html_prod)
                 if enrichment.get("store_rating_count"):
                     enrichment["store_rating_url"] = d["url"]
+                for schema in _parsear_schemas_jsonld(html_prod):
+                    if schema.get("@type") == "Product":
+                        avail = str(schema.get("offers", {}).get("availability", ""))
+                        if "OutOfStock" in avail:
+                            enrichment["agotado"] = True
+                        break
             else:
                 stats["errors"] += 1
                 # Fallback: precio del listing (fresco), sin peso ni variantes

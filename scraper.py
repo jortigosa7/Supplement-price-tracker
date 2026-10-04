@@ -54,6 +54,8 @@ def guardar_dataset(df: pd.DataFrame) -> tuple[str, str]:
         "_precio_fresco",
         # Estado de stock (True si el producto está agotado)
         "agotado",
+        # Variante no identificable → sin precio publicable
+        "sin_precio",
     ]
     cols_ok = [c for c in columnas if c in df.columns]
     df_out  = df[cols_ok].copy()
