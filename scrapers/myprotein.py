@@ -338,8 +338,13 @@ def scrape(debug: bool = False) -> list[dict]:
                     enrichment["store_rating_url"] = d["url"]
                 for schema in _parsear_schemas_jsonld(html_prod):
                     if schema.get("@type") == "Product":
-                        avail = str(schema.get("offers", {}).get("availability", ""))
-                        if "OutOfStock" in avail:
+                        offers = schema.get("offers", [])
+                        if isinstance(offers, dict):
+                            offers = [offers]
+                        if offers and all(
+                            "OutOfStock" in str(o.get("availability", ""))
+                            for o in offers
+                        ):
                             enrichment["agotado"] = True
                         break
             else:
