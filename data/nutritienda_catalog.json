@@ -1366,5 +1366,33 @@
   "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black": {
     "categoria": "Proteinas Whey",
     "first_seen": "2026-10-03"
+  },
+  "https://www.nutritienda.com/es/olimp/whey-protein-complex-100-": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-05"
+  },
+  "https://www.nutritienda.com/es/bavarian-elite/isolad-3cfm-protein": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-05"
+  },
+  "https://www.nutritienda.com/es/best-protein/100-creatina-creapure-250-g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-05"
+  },
+  "https://www.nutritienda.com/es/best-protein/creatine-monohydrate": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-05"
+  },
+  "https://www.nutritienda.com/es/olimp-creatine-monohydrate-powder-550g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-05"
+  },
+  "https://www.nutritienda.com/es/fire-nutrition/back-draft-preworkout-300g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-05"
+  },
+  "https://www.nutritienda.com/es/yamamoto-nutrition/bcaa-powder-811-300g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-05"
   }
 }
