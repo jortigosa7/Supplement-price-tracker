@@ -79,7 +79,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - "Comparativas frecuentes" en páginas de categoría (sep 2026): bloque estático generado desde `data/comparaciones.json` filtrado por categoría del par.
 - Ticker de precios eliminado del diseño (sep 2026). Sparklines de evolución de precio en tarjetas se mantienen (`compute_spark_data()` en `build_additions.py`).
 - `ENABLE_ALERTAS = False` en `build.py`: flag para sección de alertas de precio. Desactivado.
-- Scraper Hivital (oct 2026): WooCommerce Store API pública; 6 productos deportivos (whey, isolate, vegana, creatina, BCAA, glutamina); enlace de afiliado Awin cread.php (MID 20039). Hivital en MARCAS_NORM para agrupar con los 3 productos Hivital de Nutritienda.
+- Scraper Hivital (oct 2026): WooCommerce Store API pública; productos deportivos (whey, isolate, vegana, creatina, BCAA); enlace de afiliado Awin cread.php (MID 20039). Hivital en MARCAS_NORM para agrupar con los productos Hivital de Nutritienda. Soporta productos variable (una entrada por variación) y agotados.
 
 ### Roto o pendiente
 
