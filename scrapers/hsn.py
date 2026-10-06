@@ -18,7 +18,10 @@ Estrategia de caché:
   → Peticiones por ejecución: ~7 (listados) + 1 por producto (detalle fresco)
 """
 
+import datetime
+import glob
 import json
+import os
 import re
 import time
 
@@ -31,6 +34,8 @@ from .detail_cache import get_cached, save_cache
 TIENDA   = "HSN"
 BASE_URL = "https://www.hsnstore.com"
 DELAY    = 2  # segundos entre peticiones
+
+CATALOG_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "hsn_catalog.json")
 
 CATEGORIAS = [
     # Proteínas — todas van a la misma categoría "Proteinas Whey" para que el
@@ -57,6 +62,59 @@ NOMBRES_EXCLUIR = {
     "claras de huevo",
     "cafeína natural",
 }
+
+
+def _cargar_catalogo_hsn() -> dict:
+    """Carga el catálogo persistente de HSN. Devuelve {} si no existe."""
+    try:
+        with open(CATALOG_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _guardar_catalogo_hsn(catalogo: dict) -> None:
+    """Guarda el catálogo persistente."""
+    os.makedirs(os.path.dirname(CATALOG_FILE), exist_ok=True)
+    with open(CATALOG_FILE, "w", encoding="utf-8") as f:
+        json.dump(catalogo, f, ensure_ascii=False, indent=2)
+
+
+def _seed_catalogo_desde_datasets(catalogo: dict) -> None:
+    """
+    Puebla el catálogo desde el dataset más reciente en datasets/ cuando
+    el catálogo está vacío. Usa url, nombre y categoria de productos HSN.
+    protein_subtype queda a None (se irá rellenando en futuras ejecuciones).
+    """
+    datasets_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "datasets")
+    archivos = sorted(glob.glob(os.path.join(datasets_dir, "suplementos_*.json")))
+    if not archivos:
+        print("  [catálogo HSN] No hay datasets para seed inicial")
+        return
+    ultimo = archivos[-1]
+    print(f"  [catálogo HSN] Seed desde {os.path.basename(ultimo)}")
+    try:
+        with open(ultimo, encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"  [catálogo HSN] Error leyendo dataset: {e}")
+        return
+    hoy = datetime.date.today().isoformat()
+    n = 0
+    for p in data:
+        if p.get("tienda") != "HSN":
+            continue
+        url = p.get("url")
+        if not url or url in catalogo:
+            continue
+        catalogo[url] = {
+            "nombre":          p.get("nombre", ""),
+            "categoria":       p.get("categoria", ""),
+            "protein_subtype": None,
+            "first_seen":      hoy,
+        }
+        n += 1
+    print(f"  [catálogo HSN] {n} URLs añadidas al catálogo desde seed")
 
 
 def _excluido(nombre: str) -> bool:
@@ -378,6 +436,64 @@ def scrape(debug: bool = False) -> list[dict]:
     if debug:
         print(f"\n  [DEBUG] {len(productos_raw)} productos encontrados en listados")
         return []
+
+    # ── Catálogo persistente: incluir productos conocidos aunque desaparezcan del listado ──
+    catalogo = _cargar_catalogo_hsn()
+    hoy = datetime.date.today().isoformat()
+
+    if not catalogo:
+        _seed_catalogo_desde_datasets(catalogo)
+
+    # Registrar en el catálogo todas las URLs del listado actual
+    urls_en_listado = {p["url"] for p in productos_raw}
+    for p in productos_raw:
+        if p["url"] not in catalogo:
+            catalogo[p["url"]] = {
+                "nombre":          p["nombre"],
+                "categoria":       p["categoria"],
+                "protein_subtype": p.get("protein_subtype"),
+                "first_seen":      hoy,
+            }
+
+    # Para URLs del catálogo que no aparecen hoy en el listado: verificar si siguen vivas
+    urls_a_retirar = []
+    catalog_recuperados = 0
+    for url_cat, meta in catalogo.items():
+        if url_cat in urls_en_listado:
+            continue
+        time.sleep(DELAY)
+        try:
+            r = requests.get(url_cat, headers=HEADERS, timeout=15)
+        except Exception as e:
+            print(f"  [catálogo HSN] Error al verificar {url_cat}: {e}")
+            continue
+        if r.status_code == 404:
+            print(f"  [catálogo HSN] 404 — eliminando: {meta.get('nombre', url_cat)[:60]}")
+            urls_a_retirar.append(url_cat)
+            continue
+        if r.status_code != 200:
+            print(f"  [catálogo HSN] HTTP {r.status_code} — manteniendo en catálogo: {url_cat}")
+            continue
+        # 200: añadir a productos_raw para que el Paso 2 lo procese normalmente
+        print(f"  [catálogo HSN] Recuperado: {meta.get('nombre', url_cat)[:60]}")
+        productos_raw.append({
+            "nombre":          meta["nombre"],
+            "precio":          "N/A",
+            "categoria":       meta["categoria"],
+            "url":             url_cat,
+            "imagen_url":      None,
+            "protein_subtype": meta.get("protein_subtype"),
+        })
+        catalog_recuperados += 1
+
+    if catalog_recuperados:
+        print(f"  Catálogo HSN: {catalog_recuperados} producto(s) recuperado(s) (no en listado hoy)")
+    if urls_a_retirar:
+        for url in urls_a_retirar:
+            del catalogo[url]
+        print(f"  Catálogo HSN: {len(urls_a_retirar)} URL(s) retirada(s) (404)")
+
+    _guardar_catalogo_hsn(catalogo)
 
     # ── Paso 2: páginas de detalle (precio fresco + enriquecimiento cacheado) ──
     # _obtener_precio_peso_fresco() hace SIEMPRE una petición a HSN y guarda

@@ -1759,6 +1759,30 @@ def generar_pares_comparacion(
     return pares, ids_faltantes, slugs_degradados
 
 
+def _slugs_comparaciones_existentes_para_ids(ids_faltantes: list) -> set:
+    """
+    Para IDs completamente irrecuperables (no en catálogo actual ni en products.json
+    anterior), escanea docs/comparar/ buscando directorios cuyo nombre contenga la
+    raíz del ID (sin el último token separado por '-', que suele ser la marca).
+    Devuelve el conjunto de slugs a preservar.
+    """
+    comparar_dir = os.path.join(DOCS_DIR, "comparar")
+    if not ids_faltantes or not os.path.isdir(comparar_dir):
+        return set()
+    slugs = set()
+    for fid in ids_faltantes:
+        # Quitar el último token (marca) para obtener la raíz del slug
+        raiz = fid.rsplit("-", 1)[0]
+        for entry in os.listdir(comparar_dir):
+            if raiz in entry and os.path.isfile(os.path.join(comparar_dir, entry, "index.html")):
+                slugs.add(entry)
+    if slugs:
+        print(f"  [scan docs/comparar/] {len(slugs)} página(s) preservada(s) por raíz de ID irrecuperable:")
+        for s in sorted(slugs):
+            print(f"   • {s}")
+    return slugs
+
+
 def _nombre_seo(nombre: str) -> str:
     """Elimina gramaje (150g, 2kg, 500 ml…) y devuelve en sentence case."""
     limpio = re.sub(r'\s*\d+\s*(kg|g|ml)\b', '', nombre, flags=re.IGNORECASE).strip()
@@ -2719,6 +2743,10 @@ if __name__ == "__main__":
 
     # B1: Calcular pares degradados para saber qué páginas preservar al limpiar
     _, _ids_degradados_pre, _slugs_degradados = generar_pares_comparacion(productos_web, _old_by_id)
+    # Para IDs completamente irrecuperables (no en catálogo actual ni en products.json anterior):
+    # preservar páginas existentes escaneando docs/comparar/ por raíz del ID.
+    if _ids_degradados_pre:
+        _slugs_degradados |= _slugs_comparaciones_existentes_para_ids(_ids_degradados_pre)
 
     # B2: Limpiar docs/comparar/ (preservando páginas de pares degradados)
     print("\n🗑️  Limpiando comparaciones anteriores...")
@@ -2790,7 +2818,7 @@ if __name__ == "__main__":
     print("\n🔍 Ejecutando checks post-build...")
     _checks_ok = run_all_checks(
         productos_web,
-        n_comparaciones=len(compare_slugs),
+        n_comparaciones=len(compare_slugs) + len(_slugs_degradados - set(compare_slugs)),
         grupos_multitienda=grupos_mt,
         docs_dir=DOCS_DIR,
         fechas_por_tienda=fechas_por_tienda,
