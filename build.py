@@ -466,6 +466,200 @@ def corregir_marcas(productos_web: list[dict]) -> list[dict]:
 
 
 # ============================================================
+# PASO 1b: Pre-filtro del dataset plano
+# ============================================================
+
+# Regex compartidos — se compilan una vez al importar
+_RE_GAINER_FLAT     = re.compile(r'\b(gainer|gain)\b', re.I)
+_RE_PRE_FLAT        = re.compile(r'\bpre[-\s]?entr|\bpre[-\s]?work|\bpreworkout\b', re.I)
+_RE_UNIT_TYPE_FLAT  = re.compile(
+    r'\b(c[aá]ps?|vcaps?|tabs?|comprimidos?|tabletas?|ch\.tabs?|'
+    r'gummies?|gominolas?|sticks?|sobres?|viales?|shots?)\b',
+    re.I,
+)
+_RE_UNIT_COUNT_FLAT = re.compile(
+    r'\b(\d+)\s*(c[aá]ps?|vcaps?|tabs?|comprimidos?|tabletas?|ch\.tabs?|'
+    r'gummies?|gominolas?|sticks?|sobres?|viales?|shots?|servings?|dosis)\b',
+    re.I,
+)
+
+
+def _norm_cat_flat(cat: str) -> str:
+    c = cat.lower()
+    if 'prot' in c:    return 'proteina-whey'
+    if 'creat' in c:   return 'creatina'
+    if 'bcaa' in c:    return 'bcaa'
+    if 'pre' in c:     return 'pre-entreno'
+    return c
+
+
+def _regla_exclusion_flat(nombre: str, cat_norm: str, precio_eur) -> str | None:
+    """Devuelve la razón de exclusión o None si el producto pasa."""
+    n = nombre.lower()
+
+    if re.search(r'\bsample\b|\(muestra\)|\bmuestra\b', n):
+        return 'muestra'
+    if precio_eur and precio_eur < 3.0 and re.search(r'\bgel\b|\bshot\b|\bsachet\b', n):
+        return 'monodosis_barata'
+    if re.search(r'\bpack\b|\bbundle\b|\bcombo\b|\bregalo\b', n):
+        return 'pack'
+    if re.search(r'\blí?quid[ao]\b', n):
+        return 'liquido'
+    if _RE_GAINER_FLAT.search(n):
+        return 'gainer'
+    if re.search(r'\bisomaltulos|\bpalatnos', n):
+        return 'isomaltulosa'
+    # Alimentos: excluir aunque lleven pre-workout en el nombre
+    if re.search(r'\bmug cake\b|\bcake\b|\bpancake\b|\btortitas?\b|\bgalletas?\b|\bbarritas?\b', n):
+        return 'alimento'
+
+    # Electrolitos como producto principal (no como aditivo de proteína/creatina)
+    if re.search(r'\belectro', n):
+        m_main = re.search(r'\bcreatina\b|\bprote[íi]na?\b|\bwhey\b|\bbcaa\b', n)
+        m_electro = re.search(r'\belectro', n)
+        if not m_main or m_main.start() > m_electro.start():
+            return 'electrolito'
+
+    # Exclusiones específicas por categoría
+    if cat_norm == 'proteina-whey':
+        if re.search(r'\bcol[áa]geno\b|\bcollagen\b', n):       return 'colageno'
+        if re.search(r'\bcrema de arroz\b', n):                  return 'crema_arroz'
+        if re.search(r'\bsmoothe?i?\b', n):                      return 'smoothie'
+        if re.search(r'\biced coffee\b', n):                     return 'iced_coffee'
+        if re.search(r'\bsustituti[bv]', n):                     return 'sustitutivo'
+    if cat_norm == 'pre-entreno':
+        if re.search(r'\bl-?carnitina\b|\bcarnitina\b', n):      return 'carnitina'
+        if re.search(r'glutamina', n) and not re.search(r'\bbcaa\b|\baminoácid', n):
+            return 'glutamina'
+        if re.search(r'\bhmb\b', n):                             return 'hmb'
+        if re.search(r'\bthermopure\b', n):                      return 'thermopure'
+        if re.search(r'\bteanina\b', n):                         return 'teanina'
+        if re.search(r'\btirosina\b', n):                        return 'tirosina'
+        if re.search(r'\bornitina\b', n):                        return 'ornitina'
+
+    return None
+
+
+def _fmt_tipo_label(raw: str) -> str:
+    r = raw.lower()
+    if any(t in r for t in ('cap', 'cáp', 'vcap')):  return 'cápsulas'
+    if any(t in r for t in ('comprimido', 'tablet')):  return 'comprimidos'
+    if any(t in r for t in ('gumm', 'gominola')):      return 'gummies'
+    if 'stick' in r:                                   return 'sticks'
+    if 'vial' in r:                                    return 'viales'
+    if 'shot' in r:                                    return 'shots'
+    if 'sobre' in r:                                   return 'sobres'
+    return 'unidades'
+
+
+def filtrar_productos_flat(productos: list[dict]) -> tuple[list[dict], dict]:
+    """
+    Pre-filtra el dataset plano ANTES del matching.
+    Aplica exclusiones, recategorizaciones y detecta productos de formato-unidades.
+
+    Retorna:
+    - lista filtrada de productos (puede tener peso_kg recalculado o categoría cambiada)
+    - formato_unidades_by_url: dict url → {precio_por_unidad, n_unidades, fmt_tipo}
+      para usar en precios[] después de convertir_a_schema_web()
+    """
+    filtrados: list[dict] = []
+    formato_unidades_by_url: dict = {}
+    excl_por_tienda: dict = {}
+    recategorizados = 0
+
+    for prod in productos:
+        nombre   = prod.get('nombre', '')
+        precio   = prod.get('precio_eur')
+        peso_kg  = prod.get('peso_kg')
+        tienda   = prod.get('tienda', '?')
+        cat_orig = prod.get('categoria', '')
+        url      = prod.get('url', '')
+
+        cat_norm = _norm_cat_flat(cat_orig)
+
+        # 1. Recategorización: proteina-whey con pre-workout en nombre → Pre-Entreno
+        #    (Excepto alimentos, que se excluyen en el paso siguiente)
+        cat_efectiva = cat_norm
+        if cat_norm == 'proteina-whey' and _RE_PRE_FLAT.search(nombre):
+            if not re.search(
+                r'\bmug cake\b|\bcake\b|\bpancake\b|\btortitas?\b|\bgalletas?\b|\bbarritas?\b',
+                nombre, re.I
+            ):
+                cat_efectiva = 'pre-entreno'
+                recategorizados += 1
+
+        # 2. Exclusiones directas
+        regla = _regla_exclusion_flat(nombre, cat_efectiva, precio)
+        if regla:
+            excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
+            continue
+
+        # 3. Si sin peso_kg Y no hay keyword de unidades → polvo_sin_peso
+        #    Intentar calcular desde servings × serving_size_g
+        peso_efectivo = peso_kg
+        if (not peso_kg or peso_kg == 0) and not _RE_UNIT_TYPE_FLAT.search(nombre):
+            spc = prod.get('servings_per_container')
+            ssg = prod.get('serving_size_g')
+            if (spc and isinstance(spc, (int, float)) and int(spc) > 0
+                    and ssg and isinstance(ssg, (int, float)) and float(ssg) > 0):
+                peso_calc = int(spc) * float(ssg) / 1000
+                if peso_calc >= 0.1:
+                    prod = dict(prod)
+                    prod['peso_kg'] = peso_calc
+                    peso_efectivo = peso_calc
+                else:
+                    excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
+                    continue
+            else:
+                excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
+                continue
+
+        # 4. Formato-unidades: caps/tabs/gummies/sticks/viales/sobres
+        m_count = _RE_UNIT_COUNT_FLAT.search(nombre)
+        if m_count:
+            n_ud   = int(m_count.group(1))
+            ftype  = _fmt_tipo_label(m_count.group(2))
+            if precio:
+                formato_unidades_by_url[url] = {
+                    'precio_por_unidad': round(float(precio) / n_ud, 4),
+                    'n_unidades':        n_ud,
+                    'fmt_tipo':          ftype,
+                }
+        elif _RE_UNIT_TYPE_FLAT.search(nombre):
+            # Keyword de unidades pero sin count en nombre — intentar servings_per_container
+            spc = prod.get('servings_per_container')
+            if spc and isinstance(spc, (int, float)) and int(spc) > 0:
+                n_ud  = int(spc)
+                ftype = _fmt_tipo_label(_RE_UNIT_TYPE_FLAT.search(nombre).group(1))
+                if precio:
+                    formato_unidades_by_url[url] = {
+                        'precio_por_unidad': round(float(precio) / n_ud, 4),
+                        'n_unidades':        n_ud,
+                        'fmt_tipo':          ftype,
+                    }
+            else:
+                # Sin count → excluir
+                excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
+                continue
+
+        # Si la categoría cambió, actualizar el dict (copia para no mutar)
+        if cat_efectiva != cat_norm:
+            prod = dict(prod)
+            prod['categoria'] = 'Pre-Entreno'
+
+        filtrados.append(prod)
+
+    total_excl = sum(excl_por_tienda.values())
+    print(f"\n  [filtrar_productos_flat] Excluidos: {total_excl} "
+          f"({dict(sorted(excl_por_tienda.items()))})")
+    print(f"  [filtrar_productos_flat] Recategorizados → Pre-Entreno: {recategorizados}")
+    print(f"  [filtrar_productos_flat] Con €/ud: {len(formato_unidades_by_url)}")
+    print(f"  [filtrar_productos_flat] Pasan al matching: {len(filtrados)}")
+
+    return filtrados, formato_unidades_by_url
+
+
+# ============================================================
 # PASO 1: Cargar dataset existente
 # ============================================================
 
@@ -2664,6 +2858,10 @@ if __name__ == "__main__":
     # 1. Cargar dataset
     productos_flat, fichero_origen = cargar_dataset_mas_reciente()
 
+    # 1b. Pre-filtro del dataset plano
+    print("\n🔍 Pre-filtrando dataset plano...")
+    productos_flat, _formato_unidades_by_url = filtrar_productos_flat(productos_flat)
+
     # Fecha a mostrar en la web: la más antigua entre todos los productos.
     # Si alguna tienda usa fallback (datos viejos), el usuario ve la fecha real.
     last_updated = datetime.now().strftime("%Y-%m-%d")
@@ -2684,6 +2882,21 @@ if __name__ == "__main__":
     print("\n🔄 Convirtiendo al schema web...")
     productos_web = convertir_a_schema_web(productos_flat)
     print(f"   → {len(productos_web)} productos en nuevo schema")
+
+    # 2b. Propagar precio_por_unidad a precios[] (ANTES de aplicar links de afiliado,
+    # porque url_afiliado todavía es la URL original en este punto)
+    if _formato_unidades_by_url:
+        _n_ppu = 0
+        for _p in productos_web:
+            for _pr in _p.get("precios", []):
+                _fmt = _formato_unidades_by_url.get(_pr.get("url_afiliado", ""))
+                if _fmt:
+                    _pr["precio_por_unidad"] = _fmt["precio_por_unidad"]
+                    _pr["n_unidades"]        = _fmt["n_unidades"]
+                    _pr["fmt_tipo"]          = _fmt["fmt_tipo"]
+                    _n_ppu += 1
+        if _n_ppu:
+            print(f"   → {_n_ppu} entradas de precio con €/ud asignado")
 
     # Detectar cambios de ID respecto al build anterior (informativo, no bloquea)
     if _old_productos_web:

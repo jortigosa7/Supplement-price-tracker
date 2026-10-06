@@ -357,10 +357,10 @@
   {% if products_otros %}
   <div style="margin-top:48px;">
     <h2 style="font-size:1rem; font-weight:700; color:var(--text-muted); margin-bottom:8px; padding-bottom:10px; border-bottom:1px solid var(--border);">
-      Otros productos
+      Otros formatos
     </h2>
     <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:14px;">
-      Cápsulas, sachets, muestras y productos sin precio por kilogramo calculable.
+      Cápsulas, comprimidos, gummies y otros formatos. El precio por unidad no es comparable entre productos con distinta cantidad.
     </p>
     <div class="others-list">
       {% for p in products_otros %}
@@ -375,7 +375,11 @@
           {% set sc = sc_map.get(pr.tienda, 'default') %}
           <a href="{{ pr.url_afiliado }}" class="store-pill store-{{ sc }}" target="_blank" rel="nofollow sponsored noopener">
             <span class="store-pill-dot" style="background:{{ {"HSN":"var(--hsn)","Nutritienda":"var(--nutritienda)","Prozis":"var(--prozis)","MyProtein":"var(--myprotein)","Hivital":"var(--hivital)"}.get(pr.tienda, 'var(--amazon)') }};"></span>
-            {{ pr.tienda }} · {{ pr.precio_eur|fmtd }} €
+            {% if pr.precio_por_unidad %}
+              {{ pr.tienda }} · {{ pr.precio_por_unidad|fmtd }} €/ud.{% if pr.n_unidades %} · {{ pr.n_unidades }} {{ pr.fmt_tipo or 'unidades' }}{% endif %}
+            {% else %}
+              {{ pr.tienda }} · {{ pr.precio_eur|fmtd }} €
+            {% endif %}
           </a>
           {% endfor %}
         </div>
