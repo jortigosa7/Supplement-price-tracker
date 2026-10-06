@@ -1,8 +1,8 @@
 {
   "last_updated": "2026-10-06",
   "site": "StackFit",
-  "total": 607,
-  "grupos_multitienda": 0,
+  "total": 611,
+  "grupos_multitienda": 1,
   "products": [
     {
       "id": "evo-4-1-1-bcaa-s-instantaneos-en-polvo-1kg-desconocida",
@@ -229,6 +229,47 @@
       "nombre_display": "Origin Intra-Workout 1,2 kg",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,16.48 1.45,16.48 2.91,16.48 4.36,8.24 5.82,8.24 7.27,8.24 8.73,8.24 10.18,8.24 11.64,8.24 13.09,8.24 14.55,8.24 16.0,8.24 17.45,8.24 18.91,8.24 20.36,8.24 21.82,8.24 23.27,8.24 24.73,8.24 26.18,8.24 27.64,8.24 29.09,0.0 30.55,8.24 32.0,8.24 33.45,8.24 34.91,8.24 36.36,8.24 37.82,8.24 39.27,8.24 40.73,8.24 42.18,8.24 43.64,8.24 45.09,8.24 46.55,8.24 48.0,8.24 49.45,8.24 50.91,8.24 52.36,8.24 53.82,8.24 55.27,8.24 56.73,8.24 58.18,8.24 59.64,23.89 61.09,23.89 62.55,23.89 64.0,16.48 65.45,8.24 66.91,8.24 68.36,28.0 69.82,28.0 71.27,28.0 72.73,28.0 74.18,28.0 75.64,8.24 77.09,8.24 78.55,8.24 80.0,8.24\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"8.24\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 19.16
+    },
+    {
+      "id": "bcaa-2-1-1-6000-mg-720g-hivital",
+      "nombre_normalizado": "BCAA 2:1:1 6000 mg 720g",
+      "categoria": "bcaa",
+      "categoria_display": "BCAA",
+      "marca": "Hivital",
+      "peso_kg": 0.72,
+      "precio_por_kg_min": 34.4,
+      "precio_min": 24.77,
+      "tienda_mas_barata": "Hivital",
+      "imagen_url": "https://www.hivital.com/wp-content/uploads/2024/10/Frontal-BCAA-Atrezzo-800x800-JPG.jpg",
+      "precios": [
+        {
+          "tienda": "Hivital",
+          "precio_eur": 24.77,
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=20039&awinaffid=2845182&ued=https%3A%2F%2Fwww.hivital.com%2Fproducto%2Fbcaa%2F",
+          "imagen_url": "https://www.hivital.com/wp-content/uploads/2024/10/Frontal-BCAA-Atrezzo-800x800-JPG.jpg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
+      "protein_subtype": null,
+      "slug_publico": "bcaa-2-1-1-6000-mg-720g-hivital",
+      "nombre_display": "BCAA 2:1:1 6000 mg 720 g",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "226ers-high-energy-gel-76g-gel-energetico-ciclodextrina-226ers",
@@ -4360,7 +4401,7 @@
       "vegan": null,
       "flavors_available": [],
       "store_rating": 4.75,
-      "store_rating_count": 9766.0,
+      "store_rating_count": 9767.0,
       "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh",
       "protein_subtype": null,
       "slug_publico": "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn",
@@ -4418,17 +4459,29 @@
       "spark_min": 19.98
     },
     {
-      "id": "creatine-3000-mg-1kg-hivital-foods",
-      "nombre_normalizado": "Creatine 3000 mg 1Kg",
+      "id": "creatina-3000-mg-1kg-hivital",
+      "nombre_normalizado": "Creatina 3000 mg 1Kg",
       "categoria": "creatina",
       "categoria_display": "Creatina",
-      "marca": "Hivital Foods",
+      "marca": "Hivital",
       "peso_kg": 1.0,
-      "precio_por_kg_min": 22.8,
-      "precio_min": 22.8,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/3b1b2efc-8264-499c-7c6b-f229491d0d00/public",
+      "precio_por_kg_min": 22.77,
+      "precio_min": 22.77,
+      "tienda_mas_barata": "Hivital",
+      "imagen_url": "https://www.hivital.com/wp-content/uploads/2025/02/Frontal-Creatina-800x800-JPG.jpg",
       "precios": [
+        {
+          "tienda": "Hivital",
+          "precio_eur": 22.77,
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=20039&awinaffid=2845182&ued=https%3A%2F%2Fwww.hivital.com%2Fproducto%2Fcreatina%2F",
+          "imagen_url": "https://www.hivital.com/wp-content/uploads/2025/02/Frontal-Creatina-800x800-JPG.jpg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        },
         {
           "tienda": "Nutritienda",
           "precio_eur": 22.8,
@@ -4453,10 +4506,10 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "creatine-3000-mg-1kg-hivital-foods",
-      "nombre_display": "Creatine 3000 mg 1 kg",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 13.33,0.0 26.67,0.0 40.0,0.0 53.33,0.0 66.67,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 22.8
+      "slug_publico": "creatina-3000-mg-1kg-hivital",
+      "nombre_display": "Creatina 3000 mg 1 kg",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "6th-gear-creatine-complex-1135g-stacker-2",
@@ -4498,47 +4551,6 @@
       "nombre_display": "6th Gear Creatine Complex 1135 g",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 24.58
-    },
-    {
-      "id": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold-nutrition",
-      "nombre_normalizado": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Gold Nutrition",
-      "peso_kg": 1.0,
-      "precio_por_kg_min": 25.25,
-      "precio_min": 25.25,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 25.25,
-          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.7,
-      "store_rating_count": 93.0,
-      "store_rating_url": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
-      "protein_subtype": null,
-      "slug_publico": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold",
-      "nombre_display": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 25.25
     },
     {
       "id": "cellbest-extreme-1-3kg-vitobest",
@@ -4627,6 +4639,47 @@
       "nombre_display": "Creatina Monohidrato en polvo 1 kg",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 8.89,-0.0 17.78,-0.0 26.67,-0.0 35.56,28.0 44.44,28.0 53.33,28.0 62.22,28.0 71.11,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 27.99
+    },
+    {
+      "id": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold-nutrition",
+      "nombre_normalizado": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Gold Nutrition",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 28.13,
+      "precio_min": 28.13,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 28.13,
+          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.7,
+      "store_rating_count": 93.0,
+      "store_rating_url": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
+      "protein_subtype": null,
+      "slug_publico": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold",
+      "nombre_display": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 25.25
     },
     {
       "id": "gold-nutrition-creatine-carbs-600g-gold-nutrition",
@@ -5196,7 +5249,7 @@
       "vegan": null,
       "flavors_available": [],
       "store_rating": 4.75,
-      "store_rating_count": 6863.0,
+      "store_rating_count": 6864.0,
       "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo",
       "protein_subtype": null,
       "slug_publico": "creatina-excell-100-creapure-en-polvo-1kg-hsn",
@@ -5736,7 +5789,7 @@
         "Sandía"
       ],
       "store_rating": 4.7,
-      "store_rating_count": 33235.0,
+      "store_rating_count": 33237.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g",
       "protein_subtype": null,
       "slug_publico": "monohidrato-de-creatina-600g-prozis",
@@ -6278,7 +6331,7 @@
         "Sandía"
       ],
       "store_rating": 4.7,
-      "store_rating_count": 33235.0,
+      "store_rating_count": 33237.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g",
       "protein_subtype": null,
       "slug_publico": "monohidrato-de-creatina-300g-prozis",
@@ -6293,14 +6346,14 @@
       "categoria_display": "Creatina",
       "marca": "Gold Nutrition",
       "peso_kg": 0.28,
-      "precio_por_kg_min": 78.54,
-      "precio_min": 21.99,
+      "precio_por_kg_min": 78.07,
+      "precio_min": 21.86,
       "tienda_mas_barata": "Nutritienda",
       "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/fd6ab20c-bfb0-424c-43e2-d63a8a5a8c00/public",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 21.99,
+          "precio_eur": 21.86,
           "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition/creatina-monohidrato-creapure-280g",
           "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/fd6ab20c-bfb0-424c-43e2-d63a8a5a8c00/public",
           "en_oferta": false,
@@ -6449,7 +6502,7 @@
         "Sandía"
       ],
       "store_rating": 4.7,
-      "store_rating_count": 5836.0,
+      "store_rating_count": 5837.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600g",
       "protein_subtype": null,
       "slug_publico": "creatina-micronpure-600g-prozis",
@@ -6829,7 +6882,7 @@
         "Sandía"
       ],
       "store_rating": 4.7,
-      "store_rating_count": 5836.0,
+      "store_rating_count": 5837.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g",
       "protein_subtype": null,
       "slug_publico": "creatina-micronpure-300g-prozis",
@@ -6879,7 +6932,7 @@
         "Té helado de melocotón"
       ],
       "store_rating": 4.75,
-      "store_rating_count": 20582.0,
+      "store_rating_count": 20583.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-creapure-300-g",
       "protein_subtype": null,
       "slug_publico": "creatina-creapure-300g-prozis",
@@ -8224,47 +8277,6 @@
       "spark_min": 28.48
     },
     {
-      "id": "creatina-ph-x-90caps-biotechusa",
-      "nombre_normalizado": "Creatina PH-X 90caps",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "BioTechUSA",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 17.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/389273f4-073c-4a1c-6b6b-590567318a00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 17.9,
-          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creatine-ph-x",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/389273f4-073c-4a1c-6b6b-590567318a00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.7,
-      "store_rating_count": 23.0,
-      "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/creatine-ph-x",
-      "protein_subtype": null,
-      "slug_publico": "creatina-ph-x-90caps-biotechusa",
-      "nombre_display": "Creatina PH-X",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 7.27,28.0 14.55,28.0 21.82,28.0 29.09,28.0 36.36,28.0 43.64,28.0 50.91,28.0 58.18,28.0 65.45,28.0 72.73,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 17.9
-    },
-    {
       "id": "amix-creatina-cgt-3-200-capsulas-rendimiento-deportivo-200caps-amix",
       "nombre_normalizado": "Amix Creatina CGT-3 200 cápsulas | Rendimiento deportivo 200caps",
       "categoria": "creatina",
@@ -8386,6 +8398,47 @@
       "nombre_display": "Kre-Alkalyn 100 Caps",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 6.67,28.0 13.33,28.0 20.0,28.0 26.67,28.0 33.33,28.0 40.0,28.0 46.67,28.0 53.33,28.0 60.0,28.0 66.67,28.0 73.33,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 32.22
+    },
+    {
+      "id": "creatina-ph-x-90caps-biotechusa",
+      "nombre_normalizado": "Creatina PH-X 90caps",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "BioTechUSA",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 17.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/389273f4-073c-4a1c-6b6b-590567318a00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 17.9,
+          "url_afiliado": "https://www.nutritienda.com/es/biotech-usa/creatine-ph-x",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/389273f4-073c-4a1c-6b6b-590567318a00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.7,
+      "store_rating_count": 23.0,
+      "store_rating_url": "https://www.nutritienda.com/es/biotech-usa/creatine-ph-x",
+      "protein_subtype": null,
+      "slug_publico": "creatina-ph-x-90caps-biotechusa",
+      "nombre_display": "Creatina PH-X",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 7.27,28.0 14.55,28.0 21.82,28.0 29.09,28.0 36.36,28.0 43.64,28.0 50.91,28.0 58.18,28.0 65.45,28.0 72.73,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 17.9
     },
     {
       "id": "crea-caps-250-caps-250caps-scitec-nutrition",
@@ -9246,7 +9299,6 @@
         "Frambuesa",
         "Limón",
         "Melocotón",
-        "Cherry (Sugar-Free)",
         "Lemonade (Sugar-Free)",
         "Raspberry (Sugar-Free)"
       ],
@@ -9292,8 +9344,7 @@
       "vegan": null,
       "flavors_available": [
         "Lemonade",
-        "Frambuesa",
-        "Cereza"
+        "Frambuesa"
       ],
       "store_rating": 3.0,
       "store_rating_count": 1.0,
@@ -10384,13 +10435,13 @@
       "precio_por_kg_min": 35.98,
       "precio_min": 17.99,
       "tienda_mas_barata": "MyProtein",
-      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530188-1105199982349601.jpg&format=webp&width=1500&height=1500&fit=cover",
+      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530187-1175199982321305.jpg&format=webp&width=1500&height=1500&fit=cover",
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 17.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-tirosina-en-polvo/10530186/",
-          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530188-1105199982349601.jpg&format=webp&width=1500&height=1500&fit=cover",
+          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530187-1175199982321305.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-10-06",
@@ -10406,9 +10457,9 @@
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [],
-      "store_rating": 4.75,
-      "store_rating_count": 8.0,
-      "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/l-tirosina-en-polvo/10530186/",
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
       "protein_subtype": null,
       "slug_publico": "l-tirosina-en-polvo-500g-myprotein",
       "nombre_display": "L-Tirosina en polvo 500 g",
@@ -10963,7 +11014,7 @@
         "Sandía"
       ],
       "store_rating": 4.72,
-      "store_rating_count": 2874.0,
+      "store_rating_count": 2875.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-300-g",
       "protein_subtype": null,
       "slug_publico": "malato-de-l-citrulina-300g-prozis",
@@ -11344,7 +11395,7 @@
         "Sandía"
       ],
       "store_rating": 4.69,
-      "store_rating_count": 3629.0,
+      "store_rating_count": 3630.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-150-g",
       "protein_subtype": null,
       "slug_publico": "malato-de-l-citrulina-150g-prozis",
@@ -13847,47 +13898,6 @@
       "spark_min": 11.5
     },
     {
-      "id": "epo-core-vo2-max-120-caps-120caps-amix",
-      "nombre_normalizado": "EPO-CORE VO2 MAX 120 Caps 120caps",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Amix",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 29.67,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/75d79b1a-6e7b-4a7a-2c44-f081ff6a6200/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 29.67,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition-epo-core-vo2-max-120-caps",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/75d79b1a-6e7b-4a7a-2c44-f081ff6a6200/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.4,
-      "store_rating_count": 39.0,
-      "store_rating_url": "https://www.nutritienda.com/es/amix-nutrition-epo-core-vo2-max-120-caps",
-      "protein_subtype": null,
-      "slug_publico": "epo-core-vo2-max-120-caps-120caps-amix",
-      "nombre_display": "EPO-CORE VO2 MAX 120 Caps",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 6.67,0.0 13.33,0.0 20.0,0.0 26.67,0.0 33.33,0.0 40.0,0.0 46.67,0.0 53.33,0.0 60.0,0.0 66.67,0.0 73.33,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 29.67
-    },
-    {
       "id": "musclecore-hell-s-no2-pre-entreno-100-capsulas-100caps-amix",
       "nombre_normalizado": "Musclecore Hell's NO2 Pre-entreno 100 cápsulas 100caps",
       "categoria": "pre-entreno",
@@ -14298,47 +14308,6 @@
       "spark_min": 1.75
     },
     {
-      "id": "monster-rehab-lemonade-500ml-1ud-monster-energy",
-      "nombre_normalizado": "Monster Rehab Lemonade 500ml 1ud",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Monster Energy",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 1.75,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/313ac86b-875e-4aa7-e661-60fa898e4a00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 1.75,
-          "url_afiliado": "https://www.nutritienda.com/es/monster-energy/monster-rehab-lemonade",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/313ac86b-875e-4aa7-e661-60fa898e4a00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.8,
-      "store_rating_count": 21.0,
-      "store_rating_url": "https://www.nutritienda.com/es/monster-energy/monster-rehab-lemonade",
-      "protein_subtype": null,
-      "slug_publico": "monster-rehab-lemonade-500ml-1ud-monster-energy",
-      "nombre_display": "Monster Rehab Lemonade 500 ml",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 1.75
-    },
-    {
       "id": "monster-absolutely-zero-500ml-1ud-monster-energy",
       "nombre_normalizado": "Monster Absolutely Zero 500ml 1ud",
       "categoria": "pre-entreno",
@@ -14376,6 +14345,47 @@
       "protein_subtype": null,
       "slug_publico": "monster-absolutely-zero-500ml-1ud-monster-energy",
       "nombre_display": "Monster Absolutely Zero 500 ml",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 1.75
+    },
+    {
+      "id": "monster-rehab-lemonade-500ml-1ud-monster-energy",
+      "nombre_normalizado": "Monster Rehab Lemonade 500ml 1ud",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Monster Energy",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 1.75,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/313ac86b-875e-4aa7-e661-60fa898e4a00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 1.75,
+          "url_afiliado": "https://www.nutritienda.com/es/monster-energy/monster-rehab-lemonade",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/313ac86b-875e-4aa7-e661-60fa898e4a00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.8,
+      "store_rating_count": 21.0,
+      "store_rating_url": "https://www.nutritienda.com/es/monster-energy/monster-rehab-lemonade",
+      "protein_subtype": null,
+      "slug_publico": "monster-rehab-lemonade-500ml-1ud-monster-energy",
+      "nombre_display": "Monster Rehab Lemonade 500 ml",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 1.75
     },
@@ -15267,7 +15277,7 @@
         "Naranja"
       ],
       "store_rating": 4.63,
-      "store_rating_count": 16951.0,
+      "store_rating_count": 16952.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-23-servings",
       "protein_subtype": null,
       "slug_publico": "big-shot-pre-workout-23-servings-prozis",
@@ -16847,6 +16857,48 @@
       "spark_min": 55.95
     },
     {
+      "id": "epo-core-vo2-max-120-caps-120caps-amix",
+      "nombre_normalizado": "EPO-CORE VO2 MAX 120 Caps 120caps",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Amix",
+      "peso_kg": null,
+      "precio_por_kg_min": null,
+      "precio_min": 29.67,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/75d79b1a-6e7b-4a7a-2c44-f081ff6a6200/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 29.67,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition-epo-core-vo2-max-120-caps",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/75d79b1a-6e7b-4a7a-2c44-f081ff6a6200/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": true,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.4,
+      "store_rating_count": 39.0,
+      "store_rating_url": "https://www.nutritienda.com/es/amix-nutrition-epo-core-vo2-max-120-caps",
+      "protein_subtype": null,
+      "agotado": true,
+      "slug_publico": "epo-core-vo2-max-120-caps-120caps-amix",
+      "nombre_display": "EPO-CORE VO2 MAX 120 Caps",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 6.67,0.0 13.33,0.0 20.0,0.0 26.67,0.0 33.33,0.0 40.0,0.0 46.67,0.0 53.33,0.0 60.0,0.0 66.67,0.0 73.33,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 29.67
+    },
+    {
       "id": "r-weiler-focus-shot-60ml-9-viales-9viales-olimp",
       "nombre_normalizado": "R-Weiler Focus Shot 60ml 9 Viales 9viales",
       "categoria": "pre-entreno",
@@ -17304,8 +17356,8 @@
         "Fresa",
         "Chocolate"
       ],
-      "store_rating": 4.26,
-      "store_rating_count": 132.0,
+      "store_rating": 4.23,
+      "store_rating_count": 133.0,
       "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/aislado-de-proteina-de-guisante/10530136/",
       "protein_subtype": null,
       "slug_publico": "aislado-de-proteina-de-guisante-2-88kg-myprotein",
@@ -17835,6 +17887,47 @@
       "nombre_display": "Proteína de guisante texturizada 500 g",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,9.85 8.89,0.0 17.78,9.85 26.67,0.0 35.56,28.0 44.44,28.0 53.33,28.0 62.22,28.0 71.11,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 19.34
+    },
+    {
+      "id": "proteina-vegana-de-guisante-y-arroz-1kg-hivital",
+      "nombre_normalizado": "Proteína Vegana de Guisante y Arroz 1Kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteínas",
+      "marca": "Hivital",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 21.27,
+      "precio_min": 21.27,
+      "tienda_mas_barata": "Hivital",
+      "imagen_url": "https://www.hivital.com/wp-content/uploads/2025/03/Frontal-Proteina-Vegana-Attrezo-800x800-JPG.jpg",
+      "precios": [
+        {
+          "tienda": "Hivital",
+          "precio_eur": 21.27,
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=20039&awinaffid=2845182&ued=https%3A%2F%2Fwww.hivital.com%2Fproducto%2Fproteina-vegana%2F",
+          "imagen_url": "https://www.hivital.com/wp-content/uploads/2025/03/Frontal-Proteina-Vegana-Attrezo-800x800-JPG.jpg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
+      "protein_subtype": null,
+      "slug_publico": "proteina-vegana-de-guisante-y-arroz-1kg-hivital",
+      "nombre_display": "Proteína Vegana de Guisante y Arroz 1 kg",
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "golden-protein-vegan-2kg-desconocida",
@@ -18605,6 +18698,47 @@
       "spark_min": 25.91
     },
     {
+      "id": "proteina-concentrada-de-suero-de-leche-whey-1kg-hivital",
+      "nombre_normalizado": "Proteína Concentrada de Suero de Leche WHEY 1kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteínas",
+      "marca": "Hivital",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 27.77,
+      "precio_min": 27.77,
+      "tienda_mas_barata": "Hivital",
+      "imagen_url": "https://www.hivital.com/wp-content/uploads/2025/03/Frontal-Whey-Attrezo-800x800-JPG.jpg",
+      "precios": [
+        {
+          "tienda": "Hivital",
+          "precio_eur": 27.77,
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=20039&awinaffid=2845182&ued=https%3A%2F%2Fwww.hivital.com%2Fproducto%2Fproteina-whey%2F",
+          "imagen_url": "https://www.hivital.com/wp-content/uploads/2025/03/Frontal-Whey-Attrezo-800x800-JPG.jpg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "Concentrada",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
+      "protein_subtype": null,
+      "slug_publico": "proteina-concentrada-de-suero-de-leche-whey-1kg-hivital",
+      "nombre_display": "Proteína Concentrada de Suero de Leche Whey 1 kg",
+      "spark_svg": "",
+      "spark_min": null
+    },
+    {
       "id": "sustituto-de-comida-800g-desconocida",
       "nombre_normalizado": "Sustituto de Comida 800g",
       "categoria": "proteina-whey",
@@ -18733,11 +18867,11 @@
       "spark_min": 28.08
     },
     {
-      "id": "hidrolyzed-whey-protein-990g-hivital-foods",
+      "id": "hidrolyzed-whey-protein-990g-hivital",
       "nombre_normalizado": "Hidrolyzed Whey Protein 990g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
-      "marca": "Hivital Foods",
+      "marca": "Hivital",
       "peso_kg": 0.99,
       "precio_por_kg_min": 29.75,
       "precio_min": 29.45,
@@ -18768,10 +18902,10 @@
       "store_rating_count": null,
       "store_rating_url": null,
       "protein_subtype": null,
-      "slug_publico": "hidrolyzed-whey-protein-990g-hivital-foods",
+      "slug_publico": "hidrolyzed-whey-protein-990g-hivital",
       "nombre_display": "Hidrolyzed Whey Protein 990 g",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 6.67,0.0 13.33,0.0 20.0,0.0 26.67,0.0 33.33,0.0 40.0,0.0 46.67,0.0 53.33,0.0 60.0,0.0 66.67,0.0 73.33,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 29.75
+      "spark_svg": "",
+      "spark_min": null
     },
     {
       "id": "scitec-whey-infusion-2kg-premium-scitec-nutrition",
@@ -19041,7 +19175,7 @@
         "Vainilla"
       ],
       "store_rating": 4.92,
-      "store_rating_count": 85.0,
+      "store_rating_count": 86.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/peanut-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "peanut-whey-protein-907g-prozis",
@@ -19358,49 +19492,6 @@
       "spark_min": 27.99
     },
     {
-      "id": "clara-de-huevo-en-polvo-2-5kg-desconocida",
-      "nombre_normalizado": "Clara de huevo en polvo 2.5kg",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteínas",
-      "marca": "MyProtein",
-      "peso_kg": 2.5,
-      "precio_por_kg_min": 34.1,
-      "precio_min": 85.24,
-      "tienda_mas_barata": "MyProtein",
-      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529687-1065186701875960.jpg&format=webp&width=1500&height=1500&fit=cover",
-      "precios": [
-        {
-          "tienda": "MyProtein",
-          "precio_eur": 85.24,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clara-de-huevo-en-polvo/10529687/",
-          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529687-1065186701875960.jpg&format=webp&width=1500&height=1500&fit=cover",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": true,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Gama Sin Sabor"
-      ],
-      "store_rating": 4.08,
-      "store_rating_count": 38.0,
-      "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/clara-de-huevo-en-polvo/10529687/",
-      "protein_subtype": null,
-      "slug_publico": "clara-de-huevo-en-polvo-2-5kg-myprotein",
-      "nombre_display": "Clara de huevo en polvo 2,5 kg",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 8.89,-0.0 17.78,-0.0 26.67,-0.0 35.56,-0.0 44.44,-0.0 53.33,-0.0 62.22,-0.0 71.11,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 34.1
-    },
-    {
       "id": "origin-pre-entreno-sin-estimulantes-630g-desconocida",
       "nombre_normalizado": "Origin Pre-Entreno Sin Estimulantes 630g",
       "categoria": "proteina-whey",
@@ -19447,6 +19538,49 @@
       "nombre_display": "Origin Pre-Entreno Sin Estimulantes 630 g",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 8.89,-0.0 17.78,-0.0 26.67,28.0 35.56,28.0 44.44,28.0 53.33,-0.0 62.22,-0.0 71.11,12.41 80.0,12.01\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"12.01\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 30.94
+    },
+    {
+      "id": "clara-de-huevo-en-polvo-2-5kg-desconocida",
+      "nombre_normalizado": "Clara de huevo en polvo 2.5kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteínas",
+      "marca": "MyProtein",
+      "peso_kg": 2.5,
+      "precio_por_kg_min": 34.12,
+      "precio_min": 85.29,
+      "tienda_mas_barata": "MyProtein",
+      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529687-1065186701875960.jpg&format=webp&width=1500&height=1500&fit=cover",
+      "precios": [
+        {
+          "tienda": "MyProtein",
+          "precio_eur": 85.29,
+          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clara-de-huevo-en-polvo/10529687/",
+          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529687-1065186701875960.jpg&format=webp&width=1500&height=1500&fit=cover",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": true,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Gama Sin Sabor"
+      ],
+      "store_rating": 4.08,
+      "store_rating_count": 38.0,
+      "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/clara-de-huevo-en-polvo/10529687/",
+      "protein_subtype": null,
+      "slug_publico": "clara-de-huevo-en-polvo-2-5kg-myprotein",
+      "nombre_display": "Clara de huevo en polvo 2,5 kg",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 8.89,-0.0 17.78,-0.0 26.67,-0.0 35.56,-0.0 44.44,-0.0 53.33,-0.0 62.22,-0.0 71.11,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 34.1
     },
     {
       "id": "recovery-total-700g-vitobest",
@@ -19604,6 +19738,47 @@
       "spark_min": 34.9
     },
     {
+      "id": "proteina-aislada-de-suero-de-leche-isolate-1kg-hivital",
+      "nombre_normalizado": "Proteína Aislada de Suero de Leche ISOLATE 1kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteínas",
+      "marca": "Hivital",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 35.27,
+      "precio_min": 35.27,
+      "tienda_mas_barata": "Hivital",
+      "imagen_url": "https://www.hivital.com/wp-content/uploads/2025/03/Frontal-Proteina-Aislada-Attrezo-JPG-800x800-1.jpg",
+      "precios": [
+        {
+          "tienda": "Hivital",
+          "precio_eur": 35.27,
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=20039&awinaffid=2845182&ued=https%3A%2F%2Fwww.hivital.com%2Fproducto%2Fproteina-isolada%2F",
+          "imagen_url": "https://www.hivital.com/wp-content/uploads/2025/03/Frontal-Proteina-Aislada-Attrezo-JPG-800x800-1.jpg",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "Isolate",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
+      "protein_subtype": null,
+      "slug_publico": "proteina-aislada-de-suero-de-leche-isolate-1kg-hivital",
+      "nombre_display": "Proteína Aislada de Suero de Leche Isolate 1 kg",
+      "spark_svg": "",
+      "spark_min": null
+    },
+    {
       "id": "hydro-protein-professional-2kg-proteina-premium-beverly-nutrition",
       "nombre_normalizado": "Hydro Protein Professional 2kg - Proteína Premium",
       "categoria": "proteina-whey",
@@ -19679,7 +19854,6 @@
         "Caramelo Salado",
         "Helado de Vainilla",
         "Chocolate y Caramelo (Fudge)",
-        "Krispy Kreme Original Glazed Doughnut",
         "Banana Milkshake",
         "White Chocolate Swirl",
         "Cookie Crumble",
@@ -19728,6 +19902,7 @@
       "vegan": null,
       "flavors_available": [
         "Chocolate con Menta",
+        "Crema de Chocolate",
         "Chocolate con Naranja",
         "Vainilla y caramelo de miel con forma de panal y trozos de galleta crujientes",
         "Vainilla y miel con trocitos de galleta crujientes",
@@ -19742,7 +19917,6 @@
         "Plátano Natural",
         "Chocolate y Caramelo",
         "Matcha Latte",
-        "Crema de Chocolate",
         "Café con Leche y Cacao",
         "Arándano",
         "Crema de Fresas",
@@ -19767,8 +19941,7 @@
         "Unflavoured (Milkshake)",
         "Salted Caramel (+Collagen)",
         "Cafe Latte (+Collagen)",
-        "Cookies and Cream (+Collagen)",
-        "Original Glazed Doughnut"
+        "Cookies and Cream (+Collagen)"
       ],
       "store_rating": 4.59,
       "store_rating_count": 3588.0,
@@ -19812,6 +19985,7 @@
       "vegan": null,
       "flavors_available": [
         "Chocolate con Menta",
+        "Crema de Chocolate",
         "Chocolate con Naranja",
         "Vainilla y caramelo de miel con forma de panal y trozos de galleta crujientes",
         "Vainilla y miel con trocitos de galleta crujientes",
@@ -19826,7 +20000,6 @@
         "Plátano Natural",
         "Chocolate y Caramelo",
         "Matcha Latte",
-        "Crema de Chocolate",
         "Café con Leche y Cacao",
         "Arándano",
         "Crema de Fresas",
@@ -19851,8 +20024,7 @@
         "Unflavoured (Milkshake)",
         "Salted Caramel (+Collagen)",
         "Cafe Latte (+Collagen)",
-        "Cookies and Cream (+Collagen)",
-        "Original Glazed Doughnut"
+        "Cookies and Cream (+Collagen)"
       ],
       "store_rating": 4.59,
       "store_rating_count": 3588.0,
@@ -20001,14 +20173,14 @@
       "categoria_display": "Proteínas",
       "marca": "MyProtein",
       "peso_kg": 2.5,
-      "precio_por_kg_min": 36.3,
-      "precio_min": 90.74,
+      "precio_por_kg_min": 36.32,
+      "precio_min": 90.79,
       "tienda_mas_barata": "MyProtein",
       "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529807-7075204102668506.jpg&format=webp&width=1500&height=1500&fit=cover",
       "precios": [
         {
           "tienda": "MyProtein",
-          "precio_eur": 90.74,
+          "precio_eur": 90.79,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/proteina-de-suero-hidrolizada/10529805/",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529807-7075204102668506.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
@@ -20125,49 +20297,6 @@
       "nombre_display": "Megaplus Whey 100% Proteína 500 g - Chocolate con Leche",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 6.67,28.0 13.33,28.0 20.0,28.0 26.67,28.0 33.33,28.0 40.0,28.0 46.67,28.0 53.33,28.0 60.0,28.0 66.67,28.0 73.33,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 36.98
-    },
-    {
-      "id": "100-proteina-de-suero-hidrolizado-aislada-2kg-desconocida",
-      "nombre_normalizado": "100% Proteína de suero hidrolizado aislada 2kg",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteínas",
-      "marca": "HSN",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": 37.06,
-      "precio_min": 74.13,
-      "tienda_mas_barata": "HSN",
-      "imagen_url": "https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/1/0/100-hydrolysed-whey-prot-iso-gral-front-hsn_1.webp",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 74.13,
-          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy8xMDAtcHJvdGVpbmEtZGUtc3Vlcm8taGlkcm9saXphZG8tYWlzbGFkYQ==",
-          "imagen_url": "https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/1/0/100-hydrolysed-whey-prot-iso-gral-front-hsn_1.webp",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": "Hidrolizada",
-      "protein_per_serving_g": 28.0,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": false,
-      "vegan": null,
-      "flavors_available": [
-        "sin sabor"
-      ],
-      "store_rating": 4.75,
-      "store_rating_count": 641.0,
-      "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/100-proteina-de-suero-hidrolizado-aislada",
-      "protein_subtype": "whey",
-      "slug_publico": "100-proteina-de-suero-hidrolizado-aislada-2kg-hsn",
-      "nombre_display": "100% Proteína de suero hidrolizado aislada 2 kg",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,5.71 4.0,0.0 8.0,5.71 12.0,7.14 16.0,0.0 20.0,0.0 24.0,0.0 28.0,5.71 32.0,5.71 36.0,27.58 40.0,27.58 44.0,24.22 48.0,24.22 52.0,28.0 56.0,24.22 60.0,24.22 64.0,24.22 68.0,24.22 72.0,24.22 76.0,22.12 80.0,22.12\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"22.12\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 29.65
     },
     {
       "id": "whey-protein-isolate-quamtrax-perfecta-solubilidad-2000g-quamtrax",
@@ -20760,7 +20889,7 @@
         "Vainilla francesa"
       ],
       "store_rating": 4.79,
-      "store_rating_count": 258.0,
+      "store_rating_count": 261.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/supreme-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "supreme-whey-protein-907g-prozis",
@@ -21095,14 +21224,14 @@
       "categoria_display": "Proteínas",
       "marca": "Vitobest",
       "peso_kg": 1.0,
-      "precio_por_kg_min": 44.81,
-      "precio_min": 44.81,
+      "precio_por_kg_min": 43.9,
+      "precio_min": 43.9,
       "tienda_mas_barata": "Nutritienda",
       "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f8fc9533-c222-48b9-fc5b-5643a0e18d00/public",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 44.81,
+          "precio_eur": 43.9,
           "url_afiliado": "https://www.nutritienda.com/es/vitobest/isolate-cfm-zero",
           "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f8fc9533-c222-48b9-fc5b-5643a0e18d00/public",
           "en_oferta": false,
@@ -21275,8 +21404,7 @@
         "Vanilla Ice Cream (Milkshake)",
         "Chocolate Milk (Milkshake)",
         "Unflavoured (Milkshake)",
-        "Salted Caramel (Milkshake)",
-        "Original Glazed Doughnut"
+        "Salted Caramel (Milkshake)"
       ],
       "store_rating": 4.49,
       "store_rating_count": 954.0,
@@ -21319,7 +21447,6 @@
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [
-        "Krispy Kreme Original Glazed Doughnut",
         "Helado de Vainilla",
         "Chocolate y Caramelo (Fudge)",
         "Chocolate Milk",
@@ -22036,7 +22163,7 @@
         "Vainilla"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 76579.0,
+      "store_rating_count": 76581.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "100-real-whey-protein-907g-prozis",
@@ -22097,7 +22224,7 @@
         "Vainilla"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 76579.0,
+      "store_rating_count": 76581.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-1814g",
       "protein_subtype": null,
       "slug_publico": "100-real-whey-protein-1814g-prozis",
@@ -22272,7 +22399,7 @@
         "Vainilla francesa"
       ],
       "store_rating": 4.79,
-      "store_rating_count": 255.0,
+      "store_rating_count": 261.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/supreme-whey-protein-400g",
       "protein_subtype": null,
       "slug_publico": "supreme-whey-protein-400g-prozis",
@@ -22485,7 +22612,7 @@
         "Vainilla"
       ],
       "store_rating": 4.58,
-      "store_rating_count": 5010.0,
+      "store_rating_count": 5011.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/natural-real-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "natural-real-whey-protein-907g-prozis",
@@ -22578,7 +22705,7 @@
         "Vainilla"
       ],
       "store_rating": 4.71,
-      "store_rating_count": 2250.0,
+      "store_rating_count": 2251.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-diet-whey-1500-g",
       "protein_subtype": null,
       "slug_publico": "zero-diet-whey-1500g-prozis",
@@ -23856,6 +23983,47 @@
       "spark_min": 62.98
     },
     {
+      "id": "whey-isolate-1000g-best-protein",
+      "nombre_normalizado": "Whey Isolate 1000g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteínas",
+      "marca": "Best Protein",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 63.3,
+      "precio_min": 63.3,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/58430e64-f6ca-46b4-c852-548a6fa25300/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 63.3,
+          "url_afiliado": "https://www.nutritienda.com/es/best-protein/whey-isolate",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/58430e64-f6ca-46b4-c852-548a6fa25300/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "Isolate",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 5.0,
+      "store_rating_count": 7.0,
+      "store_rating_url": "https://www.nutritienda.com/es/best-protein/whey-isolate",
+      "protein_subtype": null,
+      "slug_publico": "whey-isolate-1000g-best-protein",
+      "nombre_display": "Whey Isolate 1000 g",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 11.43,28.0 22.86,28.0 34.29,-0.0 45.71,-0.0 57.14,-0.0 68.57,-0.0 80.0,-0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"-0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_min": 51.1
+    },
+    {
       "id": "musclecore-proteina-cfm-nitro-whey-90-proteina-pura-2000g-amix",
       "nombre_normalizado": "Musclecore Proteína CFM Nitro Whey - 90% Proteína Pura 2000g",
       "categoria": "proteina-whey",
@@ -24669,7 +24837,7 @@
         "Vainilla francesa"
       ],
       "store_rating": 4.79,
-      "store_rating_count": 258.0,
+      "store_rating_count": 261.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sachet-supreme-whey-protein-30g-x-3",
       "protein_subtype": null,
       "slug_publico": "sachet-supreme-whey-protein-30g-x-3-prozis",
@@ -24857,7 +25025,7 @@
         "Galletas y crema"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 76579.0,
+      "store_rating_count": 76581.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sachet-100-real-whey-protein-30g-x-3",
       "protein_subtype": null,
       "slug_publico": "sachet-100-real-whey-protein-30g-x-3-prozis",
@@ -25193,47 +25361,6 @@
       "nombre_display": "Café proteico sin edulcorantes #CaféFitConQ 500 g",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.89,28.0 17.78,2.39 26.67,0.0 35.56,2.39 44.44,0.0 53.33,6.98 62.22,6.98 71.11,6.98 80.0,6.98\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"6.98\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 34.18
-    },
-    {
-      "id": "pack-regalo-isoprime-cfm-2kg-creatina-monohidrato-30-caps-proteina-premium-amix",
-      "nombre_normalizado": "Pack Regalo IsoPrime CFM 2Kg + Creatina Monohidrato 30 Caps - Proteína Premium",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteínas",
-      "marca": "Amix",
-      "peso_kg": 2.0,
-      "precio_por_kg_min": null,
-      "precio_min": 112.97,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d11ac9b4-c36a-4c39-d23a-9d50866ddc00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 112.97,
-          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-isoprime-cfm-2-kg-creatina-monohidrato-30-caps",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d11ac9b4-c36a-4c39-d23a-9d50866ddc00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": null,
-      "store_rating_count": null,
-      "store_rating_url": null,
-      "protein_subtype": null,
-      "slug_publico": "pack-regalo-isoprime-cfm-2kg-creatina-monohidrato-30-caps",
-      "nombre_display": "Pack Regalo IsoPrime CFM 2 kg + Creatina Monohidrato 30 Caps - Proteína Premium",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 16.0,-0.0 32.0,-0.0 48.0,-0.0 64.0,-0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 56.48
     },
     {
       "id": "pack-regalo-isoprime-cfm-2kg-daily-one-30-caps-oferta-especial-amix",
@@ -25819,13 +25946,13 @@
       "precio_por_kg_min": null,
       "precio_min": 21.99,
       "tienda_mas_barata": "MyProtein",
-      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12360403-9995334444035778.png&format=webp&width=1500&height=1500&fit=cover",
+      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12872207-7985334444311724.png&format=webp&width=1500&height=1500&fit=cover",
       "precios": [
         {
           "tienda": "MyProtein",
           "precio_eur": 21.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-vegan-protein/12360400/",
-          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12360403-9995334444035778.png&format=webp&width=1500&height=1500&fit=cover",
+          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12872207-7985334444311724.png&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-10-06",
@@ -26085,13 +26212,13 @@
       "marca": "MyProtein",
       "peso_kg": null,
       "precio_por_kg_min": null,
-      "precio_min": 48.94,
+      "precio_min": 48.99,
       "tienda_mas_barata": "MyProtein",
       "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/13096868-1805183633459787.jpg&format=webp&width=1500&height=1500&fit=cover",
       "precios": [
         {
           "tienda": "MyProtein",
-          "precio_eur": 48.94,
+          "precio_eur": 48.99,
           "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-gainer/13096868/",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/13096868-1805183633459787.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
@@ -26381,11 +26508,11 @@
       "spark_min": 41.0
     },
     {
-      "id": "hydrolyzed-whey-protein-isolate-990g-hivital-foods",
+      "id": "hydrolyzed-whey-protein-isolate-990g-hivital",
       "nombre_normalizado": "Hydrolyzed Whey Protein Isolate 990g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteínas",
-      "marca": "Hivital Foods",
+      "marca": "Hivital",
       "peso_kg": 0.99,
       "precio_por_kg_min": null,
       "precio_min": 39.9,
@@ -26417,10 +26544,52 @@
       "store_rating_url": null,
       "protein_subtype": null,
       "agotado": true,
-      "slug_publico": "hydrolyzed-whey-protein-isolate-990g-hivital-foods",
+      "slug_publico": "hydrolyzed-whey-protein-isolate-990g-hivital",
       "nombre_display": "Hydrolyzed Whey Protein Isolate 990 g",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 10.0,28.0 20.0,28.0 30.0,28.0 40.0,28.0 50.0,28.0 60.0,28.0 70.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 42.42
+      "spark_svg": "",
+      "spark_min": null
+    },
+    {
+      "id": "pack-regalo-isoprime-cfm-2kg-creatina-monohidrato-30-caps-proteina-premium-amix",
+      "nombre_normalizado": "Pack Regalo IsoPrime CFM 2Kg + Creatina Monohidrato 30 Caps - Proteína Premium",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteínas",
+      "marca": "Amix",
+      "peso_kg": 2.0,
+      "precio_por_kg_min": null,
+      "precio_min": 112.97,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d11ac9b4-c36a-4c39-d23a-9d50866ddc00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 112.97,
+          "url_afiliado": "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-isoprime-cfm-2-kg-creatina-monohidrato-30-caps",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/d11ac9b4-c36a-4c39-d23a-9d50866ddc00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": true,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
+      "protein_subtype": null,
+      "agotado": true,
+      "slug_publico": "pack-regalo-isoprime-cfm-2kg-creatina-monohidrato-30-caps",
+      "nombre_display": "Pack Regalo IsoPrime CFM 2 kg + Creatina Monohidrato 30 Caps - Proteína Premium",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 16.0,-0.0 32.0,-0.0 48.0,-0.0 64.0,-0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 56.48
     }
   ]
 }

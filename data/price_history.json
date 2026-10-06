@@ -152410,5 +152410,53 @@
     "fecha": "2026-10-06",
     "precio": 50.59,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "bcaa-2-1-1-6000-mg-720g-hivital",
+    "fecha": "2026-10-06",
+    "precio": 24.77,
+    "tienda": "Hivital"
+  },
+  {
+    "producto_id": "creatina-3000-mg-1kg-hivital",
+    "fecha": "2026-10-06",
+    "precio": 22.77,
+    "tienda": "Hivital"
+  },
+  {
+    "producto_id": "creatina-3000-mg-1kg-hivital",
+    "fecha": "2026-10-06",
+    "precio": 22.8,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "proteina-vegana-de-guisante-y-arroz-1kg-hivital",
+    "fecha": "2026-10-06",
+    "precio": 21.27,
+    "tienda": "Hivital"
+  },
+  {
+    "producto_id": "proteina-concentrada-de-suero-de-leche-whey-1kg-hivital",
+    "fecha": "2026-10-06",
+    "precio": 27.77,
+    "tienda": "Hivital"
+  },
+  {
+    "producto_id": "hidrolyzed-whey-protein-990g-hivital",
+    "fecha": "2026-10-06",
+    "precio": 29.45,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "proteina-aislada-de-suero-de-leche-isolate-1kg-hivital",
+    "fecha": "2026-10-06",
+    "precio": 35.27,
+    "tienda": "Hivital"
+  },
+  {
+    "producto_id": "whey-isolate-1000g-best-protein",
+    "fecha": "2026-10-06",
+    "precio": 63.3,
+    "tienda": "Nutritienda"
   }
 ]

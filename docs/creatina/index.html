@@ -114,15 +114,15 @@
       "position": 3,
       "item": {
         "@type": "Product",
-        "name": "Creatine 3000 mg 1Kg",
-        "url": "https://www.nutritienda.com/es/hivital-foods/creatine-3000-mg-1-kg",
-        "brand": { "@type": "Brand", "name": "Hivital Foods" },
+        "name": "Creatina 3000 mg 1Kg",
+        "url": "https://www.awin1.com/cread.php?awinmid=20039\u0026awinaffid=2845182\u0026ued=https%3A%2F%2Fwww.hivital.com%2Fproducto%2Fcreatina%2F",
+        "brand": { "@type": "Brand", "name": "Hivital" },
         "offers": {
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",
-          "lowPrice": 22.80,
+          "lowPrice": 22.77,
           "highPrice": 22.80,
-          "offerCount": 1,
+          "offerCount": 2,
           "availability": "https://schema.org/InStock"
         }
       }
@@ -168,33 +168,6 @@
       "position": 5,
       "item": {
         "@type": "Product",
-        "name": "GoldNutrition Creatine Power Mix - Creapure\u00ae Premium 1000g",
-        "url": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
-        "brand": { "@type": "Brand", "name": "Gold Nutrition" },
-        "offers": {
-          "@type": "AggregateOffer",
-          "priceCurrency": "EUR",
-          "lowPrice": 25.25,
-          "highPrice": 25.25,
-          "offerCount": 1,
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    }
-    
-    
-    
-    
-    
-    
-    
-    ,
-    
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "Product",
         "name": "Cellbest Extreme 1.3Kg",
         "url": "https://www.nutritienda.com/es/vitobest/cellbest-extreme-1300g",
         "brand": { "@type": "Brand", "name": "Vitobest" },
@@ -219,7 +192,7 @@
     
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 6,
       "item": {
         "@type": "Product",
         "name": "Creatina Monohidrato en polvo 1kg",
@@ -230,6 +203,33 @@
           "priceCurrency": "EUR",
           "lowPrice": 27.99,
           "highPrice": 27.99,
+          "offerCount": 1,
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    }
+    
+    
+    
+    
+    
+    
+    
+    ,
+    
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Product",
+        "name": "GoldNutrition Creatine Power Mix - Creapure\u00ae Premium 1000g",
+        "url": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
+        "brand": { "@type": "Brand", "name": "Gold Nutrition" },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "EUR",
+          "lowPrice": 28.13,
+          "highPrice": 28.13,
           "offerCount": 1,
           "availability": "https://schema.org/InStock"
         }
@@ -393,6 +393,7 @@
       --nutritienda:       #4DA3E0;
       --prozis:            #00C9A7;
       --myprotein:         #F2C94C;
+      --hivital:           #8B5CF6;
       --amazon:            #888;
     }
 
@@ -1210,6 +1211,7 @@
     .store-nutritienda { background:rgba(77,163,224,0.12); color:#4DA3E0; border:1px solid rgba(77,163,224,0.25); }
     .store-prozis      { background:rgba(0,201,167,0.12);  color:#00C9A7; border:1px solid rgba(0,201,167,0.25);  }
     .store-myprotein   { background:rgba(242,201,76,0.12); color:#F2C94C; border:1px solid rgba(242,201,76,0.25); }
+    .store-hivital     { background:rgba(139,92,246,0.12); color:#8B5CF6; border:1px solid rgba(139,92,246,0.25); }
     .store-default     { background:rgba(136,136,136,0.12);color:#888;    border:1px solid rgba(136,136,136,0.25);}
 
     /* ── Mobile fixes ──────────────────────────────── */
@@ -1388,6 +1390,8 @@
           
           <button class="store-filter-btn" data-tienda="HSN">HSN</button>
           
+          <button class="store-filter-btn" data-tienda="Hivital">Hivital</button>
+          
           <button class="store-filter-btn" data-tienda="MyProtein">MyProtein</button>
           
           <button class="store-filter-btn" data-tienda="Nutritienda">Nutritienda</button>
@@ -1428,7 +1432,7 @@
           
           <option value="HSN">HSN</option>
           
-          <option value="Hivital Foods">Hivital Foods</option>
+          <option value="Hivital">Hivital</option>
           
           <option value="Infisport">Infisport</option>
           
@@ -1609,44 +1613,56 @@
     
     
     <div class="product-card"
-         data-tiendas="Nutritienda"
-         data-nombre="creatine 3000 mg 1 kg"
-         data-marca="hivital foods"
+         data-tiendas="Hivital,Nutritienda"
+         data-nombre="creatina 3000 mg 1 kg"
+         data-marca="hivital"
          data-peso="1000"
-         data-precio-kg="22.8"
+         data-precio-kg="22.77"
          data-tipo=""
-         data-id="creatine-3000-mg-1kg-hivital-foods"
-         data-label="Creatine 3000 mg 1 kg"
+         data-id="creatina-3000-mg-1kg-hivital"
+         data-label="Creatina 3000 mg 1 kg"
 >
       <!-- Zona 1: imagen + nombre + meta -->
       <div class="pc-top">
         <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/3b1b2efc-8264-499c-7c6b-f229491d0d00/public" alt="Creatine 3000 mg 1 kg" width="72" height="72" loading="lazy">
+          <img src="https://www.hivital.com/wp-content/uploads/2025/02/Frontal-Creatina-800x800-JPG.jpg" alt="Creatina 3000 mg 1 kg" width="72" height="72" loading="lazy">
         </div>
         <div class="pc-info">
           <div class="pc-name">
-            <span class="pc-name-text">Creatine 3000 mg 1 kg</span>
+            <span class="pc-name-text">Creatina 3000 mg 1 kg</span>
             
           </div>
-          <div class="pc-meta">Hivital Foods · 1,00 kg</div>
+          <div class="pc-meta">Hivital · 1,00 kg</div>
         </div>
       </div>
       <!-- Zona 2: fila de precio -->
       <div class="pc-price-row">
         
-          <div class="pc-price-main">22,80<span class="pc-price-unit">€/kg</span></div>
-          <div class="pc-price-sec">desde 22,80 €</div>
+          <div class="pc-price-main">22,77<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 22,77 €</div>
         
       </div>
       
-      <div class="spark-row">
-        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,0.0 13.33,0.0 26.67,0.0 40.0,0.0 53.33,0.0 66.67,0.0 80.0,28.0" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="80.0" cy="28.0" r="2.5" fill="#22c55e"/></svg></div>
-        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">22,80 €/kg</div></div>
+      
+      <div class="pc-stores">
+        
+        <a href="https://www.awin1.com/cread.php?awinmid=20039&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.hivital.com%2Fproducto%2Fcreatina%2F" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
+          <span class="pc-store-dot" style="background:var(--hivital);"></span>
+          <span class="pc-store-name">Hivital</span>
+          <span class="pc-store-price">22,77 €</span>
+          
+        </a>
+        
+        <a href="https://www.nutritienda.com/es/hivital-foods/creatine-3000-mg-1-kg" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
+          <span class="pc-store-dot" style="background:var(--nutritienda);"></span>
+          <span class="pc-store-name">Nutritienda</span>
+          <span class="pc-store-price">22,80 €</span>
+          
+        </a>
+        
       </div>
-      
-      
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/hivital-foods/creatine-3000-mg-1-kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 22,80 €</a>
+        <a href="https://www.awin1.com/cread.php?awinmid=20039&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.hivital.com%2Fproducto%2Fcreatina%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Comprar al mejor precio →</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
@@ -1695,54 +1711,6 @@
       
       <div class="pc-actions">
         <a href="https://www.nutritienda.com/es/6th-gear-creatine-complex-1135g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 27,90 €</a>
-        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-      </div>
-      
-    </div>
-    
-    
-    
-    
-    
-    <div class="product-card"
-         data-tiendas="Nutritienda"
-         data-nombre="goldnutrition creatine power mix - creapure® premium 1000 g"
-         data-marca="gold nutrition"
-         data-peso="1000"
-         data-precio-kg="25.25"
-         data-tipo=""
-         data-id="goldnutrition-creatine-power-mix-creapure-premium-1000g-gold-nutrition"
-         data-label="GoldNutrition Creatine Power Mix -…"
->
-      <!-- Zona 1: imagen + nombre + meta -->
-      <div class="pc-top">
-        <div class="pc-img">
-          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public" alt="GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g" width="72" height="72" loading="lazy">
-        </div>
-        <div class="pc-info">
-          <div class="pc-name">
-            <span class="pc-name-text">GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g</span>
-            
-          </div>
-          <div class="pc-meta">Gold Nutrition · 1,00 kg</div>
-        </div>
-      </div>
-      <!-- Zona 2: fila de precio -->
-      <div class="pc-price-row">
-        
-          <div class="pc-price-main">25,25<span class="pc-price-unit">€/kg</span></div>
-          <div class="pc-price-sec">desde 25,25 €</div>
-        
-      </div>
-      
-      <div class="spark-row">
-        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="80.0" cy="28.0" r="2.5" fill="#22c55e"/></svg></div>
-        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">25,25 €/kg</div></div>
-      </div>
-      
-      
-      <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 25,25 €</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
@@ -1839,6 +1807,54 @@
       
       <div class="pc-actions">
         <a href="https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-polvo/10530050/" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 27,99 €</a>
+        <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="product-card"
+         data-tiendas="Nutritienda"
+         data-nombre="goldnutrition creatine power mix - creapure® premium 1000 g"
+         data-marca="gold nutrition"
+         data-peso="1000"
+         data-precio-kg="28.13"
+         data-tipo=""
+         data-id="goldnutrition-creatine-power-mix-creapure-premium-1000g-gold-nutrition"
+         data-label="GoldNutrition Creatine Power Mix -…"
+>
+      <!-- Zona 1: imagen + nombre + meta -->
+      <div class="pc-top">
+        <div class="pc-img">
+          <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public" alt="GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g" width="72" height="72" loading="lazy">
+        </div>
+        <div class="pc-info">
+          <div class="pc-name">
+            <span class="pc-name-text">GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g</span>
+            
+          </div>
+          <div class="pc-meta">Gold Nutrition · 1,00 kg</div>
+        </div>
+      </div>
+      <!-- Zona 2: fila de precio -->
+      <div class="pc-price-row">
+        
+          <div class="pc-price-main">28,13<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 28,13 €</div>
+        
+      </div>
+      
+      <div class="spark-row">
+        <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div><svg viewBox="0 0 80 28" width="80" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="80.0" cy="28.0" r="2.5" fill="#22c55e"/></svg></div>
+        <div class="spark-stats"><div class="spark-label">Mín. histórico</div><div class="spark-min">25,25 €/kg</div></div>
+      </div>
+      
+      
+      <div class="pc-actions">
+        <a href="https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 28,13 €</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
@@ -3773,7 +3789,7 @@
          data-nombre="gold nutrition creatina creapure - máximo rendimiento 280 g"
          data-marca="gold nutrition"
          data-peso="280"
-         data-precio-kg="78.54"
+         data-precio-kg="78.07"
          data-tipo=""
          data-id="gold-nutrition-creatina-creapure-maximo-rendimiento-280g-gold-nutrition"
          data-label="Gold Nutrition Creatina Creapure -…"
@@ -3794,8 +3810,8 @@
       <!-- Zona 2: fila de precio -->
       <div class="pc-price-row">
         
-          <div class="pc-price-main">78,54<span class="pc-price-unit">€/kg</span></div>
-          <div class="pc-price-sec">desde 21,99 €</div>
+          <div class="pc-price-main">78,07<span class="pc-price-unit">€/kg</span></div>
+          <div class="pc-price-sec">desde 21,86 €</div>
         
       </div>
       
@@ -3806,7 +3822,7 @@
       
       
       <div class="pc-actions">
-        <a href="https://www.nutritienda.com/es/gold-nutrition/creatina-monohidrato-creapure-280g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 21,99 €</a>
+        <a href="https://www.nutritienda.com/es/gold-nutrition/creatina-monohidrato-creapure-280g" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en Nutritienda · 21,86 €</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       
@@ -5484,23 +5500,6 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
       
       <div class="other-item">
         <div class="other-name">
-          Creatina PH-X
-          <span class="other-marca">BioTechUSA</span>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          
-          
-          <a href="https://www.nutritienda.com/es/biotech-usa/creatine-ph-x" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored noopener">
-            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
-            Nutritienda · 17,90 €
-          </a>
-          
-        </div>
-      </div>
-      
-      
-      <div class="other-item">
-        <div class="other-name">
           Amix Creatina CGT-3 200 cápsulas 200caps
           <span class="other-marca">Amix</span>
         </div>
@@ -5544,6 +5543,23 @@ Mitos frecuentes: la creatina no daña los riñones en personas sanas, no causa 
           <a href="https://www.nutritienda.com/es/vitobest/kre-alkalyn-100-capsulas" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored noopener">
             <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
             Nutritienda · 32,22 €
+          </a>
+          
+        </div>
+      </div>
+      
+      
+      <div class="other-item">
+        <div class="other-name">
+          Creatina PH-X
+          <span class="other-marca">BioTechUSA</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          
+          
+          <a href="https://www.nutritienda.com/es/biotech-usa/creatine-ph-x" class="store-pill store-nutritienda" target="_blank" rel="nofollow sponsored noopener">
+            <span class="store-pill-dot" style="background:var(--nutritienda);"></span>
+            Nutritienda · 17,90 €
           </a>
           
         </div>
@@ -6304,7 +6320,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var slot1  = document.getElementById('compareSlot1');
   var btnGo  = document.getElementById('compareBtnGo');
   if (!list || !bar || !btnGo) return; // guard por si falla algún ID
-  var SLUGS  = new Set(["creatina-celular-500g-nutrisport-vs-evocreatine-500g-hsn", "creatina-monohidrato-elite-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-celular-800g-keepgoing-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-creatine-monohydrate-creapure-200g-vitobest", "creatina-excell-100-creapure-en-polvo-1kg-hsn-vs-evocreatine-500g-hsn", "creatina-celular-800g-keepgoing-vs-creatine-monohydrate-creapure-200g-vitobest", "creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-evocreatine-500g-hsn"]);
+  var SLUGS  = new Set(["creatina-celular-800g-keepgoing-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-celular-800g-keepgoing-vs-creatine-monohydrate-creapure-200g-vitobest", "creatina-excell-100-creapure-en-polvo-1kg-hsn-vs-evocreatine-500g-hsn", "creatina-monohidrato-elite-1kg-myprotein-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-evocreatine-500g-hsn", "creatina-celular-500g-nutrisport-vs-evocreatine-500g-hsn", "creatina-creapure-400g-amazin-foods-vs-creatina-monohidrato-en-polvo-200-mesh-1kg-hsn", "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-creatine-monohydrate-creapure-200g-vitobest"]);
   var BASE   = 'https://stackfit.es/comparar/';
   var selected = [];
 
