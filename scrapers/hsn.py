@@ -82,39 +82,64 @@ def _guardar_catalogo_hsn(catalogo: dict) -> None:
 
 def _seed_catalogo_desde_datasets(catalogo: dict) -> None:
     """
-    Puebla el catálogo desde el dataset más reciente en datasets/ cuando
-    el catálogo está vacío. Usa url, nombre y categoria de productos HSN.
-    protein_subtype queda a None (se irá rellenando en futuras ejecuciones).
+    Puebla el catálogo desde la unión de datasets de los últimos 30 días.
+    Para cada URL se guarda el nombre y la categoría más recientes (el dataset
+    más reciente gana cuando la misma URL aparece en varios).
+    protein_subtype queda a None (se rellena en ejecuciones siguientes).
     """
     datasets_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "datasets")
     archivos = sorted(glob.glob(os.path.join(datasets_dir, "suplementos_*.json")))
     if not archivos:
         print("  [catálogo HSN] No hay datasets para seed inicial")
         return
-    ultimo = archivos[-1]
-    print(f"  [catálogo HSN] Seed desde {os.path.basename(ultimo)}")
-    try:
-        with open(ultimo, encoding="utf-8") as f:
-            data = json.load(f)
-    except Exception as e:
-        print(f"  [catálogo HSN] Error leyendo dataset: {e}")
-        return
-    hoy = datetime.date.today().isoformat()
-    n = 0
-    for p in data:
-        if p.get("tienda") != "HSN":
+
+    hoy = datetime.date.today()
+    hace_30 = hoy - datetime.timedelta(days=30)
+
+    # Filtrar los datasets de los últimos 30 días (orden ascendente = más reciente último)
+    archivos_periodo = []
+    for arch in archivos:
+        m = re.search(r"suplementos_(\d{4})(\d{2})(\d{2})\.json", os.path.basename(arch))
+        if m:
+            fecha = datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+            if fecha >= hace_30:
+                archivos_periodo.append(arch)
+    if not archivos_periodo:
+        archivos_periodo = archivos[-1:]  # fallback: solo el más reciente
+
+    # Unión de URLs HSN; el dataset más reciente sobreescribe nombre/categoria
+    vistos: dict = {}
+    for arch in archivos_periodo:
+        try:
+            with open(arch, encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            print(f"  [catálogo HSN] Error leyendo {os.path.basename(arch)}: {e}")
             continue
-        url = p.get("url")
-        if not url or url in catalogo:
+        for p in data:
+            if p.get("tienda") != "HSN":
+                continue
+            url = p.get("url")
+            if not url:
+                continue
+            vistos[url] = {
+                "nombre":    p.get("nombre", ""),
+                "categoria": p.get("categoria", ""),
+            }
+
+    hoy_str = hoy.isoformat()
+    n = 0
+    for url, meta in vistos.items():
+        if url in catalogo:
             continue
         catalogo[url] = {
-            "nombre":          p.get("nombre", ""),
-            "categoria":       p.get("categoria", ""),
+            "nombre":          meta["nombre"],
+            "categoria":       meta["categoria"],
             "protein_subtype": None,
-            "first_seen":      hoy,
+            "first_seen":      hoy_str,
         }
         n += 1
-    print(f"  [catálogo HSN] {n} URLs añadidas al catálogo desde seed")
+    print(f"  [catálogo HSN] {n} URLs añadidas desde {len(archivos_periodo)} datasets (30 días)")
 
 
 def _excluido(nombre: str) -> bool:
@@ -471,10 +496,16 @@ def scrape(debug: bool = False) -> list[dict]:
             print(f"  [catálogo HSN] 404 — eliminando: {meta.get('nombre', url_cat)[:60]}")
             urls_a_retirar.append(url_cat)
             continue
+        # Redirección a URL distinta = producto descatalogado (redirige a categoría u otro)
+        url_final = r.url.rstrip("/")
+        if r.history and url_final != url_cat.rstrip("/"):
+            print(f"  [catálogo HSN] Redirección → eliminando: {meta.get('nombre', url_cat)[:60]}")
+            urls_a_retirar.append(url_cat)
+            continue
         if r.status_code != 200:
             print(f"  [catálogo HSN] HTTP {r.status_code} — manteniendo en catálogo: {url_cat}")
             continue
-        # 200: añadir a productos_raw para que el Paso 2 lo procese normalmente
+        # 200 sin redirección: añadir a productos_raw para que el Paso 2 lo procese
         print(f"  [catálogo HSN] Recuperado: {meta.get('nombre', url_cat)[:60]}")
         productos_raw.append({
             "nombre":          meta["nombre"],
@@ -483,6 +514,7 @@ def scrape(debug: bool = False) -> list[dict]:
             "url":             url_cat,
             "imagen_url":      None,
             "protein_subtype": meta.get("protein_subtype"),
+            "_from_catalog":   True,
         })
         catalog_recuperados += 1
 
@@ -517,9 +549,11 @@ def scrape(debug: bool = False) -> list[dict]:
         # Enriquecimiento desde la caché recién actualizada (sin petición extra)
         enrichment = _scrape_detalle(d["url"], d["nombre"])
 
-        # Nombre: reflejar siempre el formato del que sale el precio
+        # Nombre: reflejar siempre el formato del que sale el precio.
+        # Excepción: producto del catálogo + agotado → el nombre (con peso) viene
+        # del catálogo y es correcto; no sobreescribir con el formato de la ficha.
         nombre_final = d["nombre"]
-        if peso_kg:
+        if peso_kg and not (d.get("_from_catalog") and agotado_hsn):
             m_peso = re.search(r"(\d+[\.,]?\d*)\s*(kg|g)\b", nombre_final, re.I)
             if not m_peso:
                 nombre_final = f"{nombre_final} {_talla_str(peso_kg)}"
