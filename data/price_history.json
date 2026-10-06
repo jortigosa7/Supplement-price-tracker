@@ -152458,5 +152458,35 @@
     "fecha": "2026-10-06",
     "precio": 63.3,
     "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "creatine-creapure-300g-scientiffic-nutrition",
+    "fecha": "2026-10-06",
+    "precio": 29.9,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "bicarbonato-de-sodio-en-polvo-1kg-desconocida",
+    "fecha": "2026-10-06",
+    "precio": 3.98,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "acido-malico-en-polvo-500g-desconocida",
+    "fecha": "2026-10-06",
+    "precio": 8.49,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "claras-de-huevo-liquidas-1kg-desconocida",
+    "fecha": "2026-10-06",
+    "precio": 4.46,
+    "tienda": "HSN"
+  },
+  {
+    "producto_id": "crema-de-arroz-proteica-2kg-desconocida",
+    "fecha": "2026-10-06",
+    "precio": 29.99,
+    "tienda": "HSN"
   }
 ]

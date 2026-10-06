@@ -1,0 +1,500 @@
+{
+  "https://www.hsnstore.com/marcas/raw-series/bcaas-instantaneo-2-1-1-2-0": {
+    "nombre": "BCAA's instantáneo 2:1:1 2.0 1kg",
+    "categoria": "BCAA",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/bcaa-s-instantaneo-4-1-1-2-0": {
+    "nombre": "BCAA's instantáneo 4:1:1 2.0 1kg",
+    "categoria": "BCAA",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-instantaneos-en-polvo": {
+    "nombre": "Evo 4:1:1 (BCAA's instantáneos) en polvo 1kg",
+    "categoria": "BCAA",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evobcaas-complex-en-polvo": {
+    "nombre": "EvoBCAA's complex en polvo 1kg",
+    "categoria": "BCAA",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evobcaa-s-2-0-bcaas-12-1-1-glutamina": {
+    "nombre": "EvoBCAA's 2.0 (BCAA's 12:1:1 + glutamina) 1kg",
+    "categoria": "BCAA",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evo-2-1-1-bcaa-s-2-1-1-vitaminas-b6-y-b12": {
+    "nombre": "Evo 2:1:1 (BCAA's 2:1:1 + vitaminas B6 y B12)",
+    "categoria": "BCAA",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evo-4-1-1-bcaa-s-4-1-1-vitaminas-b6-y-b12": {
+    "nombre": "Evo 4:1:1 (BCAA's 4:1:1 + vitaminas B6 y B12)",
+    "categoria": "BCAA",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh": {
+    "nombre": "Creatina monohidrato en polvo (200 mesh) 1kg",
+    "categoria": "Creatina",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evocreatine": {
+    "nombre": "Evocreatine 500g",
+    "categoria": "Creatina",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina": {
+    "nombre": "Evokalyn creatina alcalina",
+    "categoria": "Creatina",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/creatina-excell-1000mg-100-creapure": {
+    "nombre": "Creatina Excell 1000mg (100% Creapure®)",
+    "categoria": "Creatina",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina": {
+    "nombre": "Creatina monohidrato (1000mg creatina)",
+    "categoria": "Creatina",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/bicarbonato-de-sodio-en-polvo": {
+    "nombre": "Bicarbonato de sodio en polvo 1kg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/isomaltulosa-palatinose-en-polvo": {
+    "nombre": "Isomaltulosa (Palatinose™) en polvo 3kg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evobeast": {
+    "nombre": "Evobeast 1kg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/acido-malico-en-polvo": {
+    "nombre": "Ácido málico en polvo 500g",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/beta-alanina-en-polvo": {
+    "nombre": "Beta-alanina en polvo 1kg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/l-citrulina-base-en-polvo": {
+    "nombre": "L-citrulina base en polvo 1kg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo": {
+    "nombre": "Glycopump (glicerol) en polvo 500g",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/arginina-alfa-cetoglutarato-aakg-en-polvo": {
+    "nombre": "L-arginina alfa-cetoglutarato (AAKG) en polvo 500g",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/d-ribosa-en-polvo": {
+    "nombre": "D-ribosa en polvo 500g",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evostamina": {
+    "nombre": "Evostamina 500g",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evordx-2-0": {
+    "nombre": "EvoRDX 2.0 1kg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evobomb": {
+    "nombre": "Evobomb 1kg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evopump-en-polvo": {
+    "nombre": "Evopump en polvo 500g",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/l-carnitina-taurina-liquidas": {
+    "nombre": "L-carnitina + taurina líquidas",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evopump": {
+    "nombre": "Evopump",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evoripped": {
+    "nombre": "Evoripped",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/cafeina-natural-200mg": {
+    "nombre": "Cafeína natural 200mg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/arginina-alfa-cetoglutarato-1000mg-aakg": {
+    "nombre": "Arginina alfa-cetoglutarato 1000mg (AAKG)",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/l-alanil-l-glutamina-300mg": {
+    "nombre": "L-ALANIL-L-glutamina 300mg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/extracto-de-amaranto-oxystorm-50-1-650mg": {
+    "nombre": "Extracto de amaranto Oxystorm® (50:1) 650mg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/vitaminalia/cutting-complex": {
+    "nombre": "Cutting complex",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/food-series/crema-de-arroz-proteica": {
+    "nombre": "Crema de arroz proteica 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evobasic-whey": {
+    "nombre": "Evobasic whey 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evowhey-oats": {
+    "nombre": "Evowhey & oats 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/smoothie-proteico-con-colageno": {
+    "nombre": "Smoothie proteico con colágeno 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evowhey-protein": {
+    "nombre": "Evowhey protein 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/golden-protein": {
+    "nombre": "Golden protein 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evowhey-protein-sin-edulcorantes": {
+    "nombre": "Evowhey protein sin edulcorantes 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/keto-series/keto-whey-protein": {
+    "nombre": "Keto whey protein 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/100-proteina-de-suero-hidrolizado-aislada": {
+    "nombre": "100% Proteína de suero hidrolizado aislada 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-sin-edulcorantes-whey-isolate-cfm": {
+    "nombre": "Evolate 2.0 sin edulcorantes (whey isolate CFM) 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evoexcel-whey-protein-isolate-concentrate": {
+    "nombre": "Evoexcel (whey protein isolate + concentrate) 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate": {
+    "nombre": "100% Whey protein concentrate 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evolate-2-0-whey-isolate-cfm": {
+    "nombre": "Evolate 2.0 (whey isolate CFM) 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evoexcel-sin-edulcorantes-whey-protein-isolate-concentrate": {
+    "nombre": "Evoexcel sin edulcorantes (whey protein isolate + concentrate) 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evohydro-2-0-hydro-whey": {
+    "nombre": "Evohydro 2.0 (hydro whey) 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-isolate": {
+    "nombre": "100% Whey protein isolate 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/aislado-de-proteina-hidrolizada-clear-whey": {
+    "nombre": "Aislado de proteína hidrolizada clear whey 1kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evoclear-hydro": {
+    "nombre": "Evoclear hydro 1kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/food-series/cafe-proteico-cafefitconq": {
+    "nombre": "Café proteico #CaféFitConQ 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/food-series/cafe-proteico-sin-edulcorantes-cafefitconq": {
+    "nombre": "Café proteico sin edulcorantes #CaféFitConQ 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evohydro-30hd": {
+    "nombre": "Evohydro 30HD 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evopept-peptopro": {
+    "nombre": "Evopept 2.0 (PeptoPro®) 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/peptopro-hidrolizado-de-caseina-en-polvo": {
+    "nombre": "PeptoPro® hidrolizado de caseína en polvo 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo": {
+    "nombre": "Creatina Excell (100% Creapure®) en polvo 1kg",
+    "categoria": "Creatina",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evocasein-2-0-caseina-micelar-digezyme": {
+    "nombre": "Evocasein 2.0 (caseína micelar + DigeZyme®) 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/caseina-micelar": {
+    "nombre": "Caseína micelar 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evonative-casein-lacprodan-micelpure": {
+    "nombre": "Evonative casein (Lacprodan® MicelPure™) 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/caseina-nativa-lacprodan-micelpure": {
+    "nombre": "Caseína nativa (Lacprodan® MicelPure™) 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/caseinato-de-calcio": {
+    "nombre": "Caseinato de calcio 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/proteina-de-canamo-organico": {
+    "nombre": "Proteína de cáñamo orgánico 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/proteina-de-soja-aislada-2-0": {
+    "nombre": "Proteína de soja aislada 2.0 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/proteina-de-guisante-aislada-2-0": {
+    "nombre": "Proteína de guisante aislada 2.0 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/proteina-de-semilla-de-calabaza": {
+    "nombre": "Proteína de semilla de calabaza 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evodiet-vegan": {
+    "nombre": "Evodiet vegan 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evoclear-hydro-vegan": {
+    "nombre": "Evoclear hydro vegan 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/proteina-de-garbanzo": {
+    "nombre": "Proteína de garbanzo 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/food-series/proteina-de-guisante-texturizada": {
+    "nombre": "Proteína de guisante texturizada 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/proteina-de-arroz-integral-concentrada": {
+    "nombre": "Proteína de arroz integral concentrada 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/golden-protein-vegan": {
+    "nombre": "Golden protein vegan 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evoegg-2-0-albumina-de-huevo": {
+    "nombre": "Evoegg 2.0 (albúmina de huevo) 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/food-series/albumina-de-huevo-en-polvo": {
+    "nombre": "Albúmina de huevo en polvo 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/food-series/claras-de-huevo-liquidas": {
+    "nombre": "Claras de huevo liquidas 1kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/food-series/huevo-entero-en-polvo": {
+    "nombre": "Huevo entero en polvo 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evopro-mezcla-proteinas-premium-digezyme": {
+    "nombre": "Evopro (mezcla proteínas premium) + DigeZyme® 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/aislado-de-proteina-de-leche": {
+    "nombre": "Aislado de proteína de leche 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/food-series/caldo-proteico-de-pollo-en-polvo": {
+    "nombre": "Caldo proteico de pollo en polvo 500g",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evobeef-hidrolizado-de-carne-2-0-leucina-extra": {
+    "nombre": "Evobeef 2.0 (hidrolizado de carne) + leucina extra 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/beta-alanina-carnosyn-en-polvo": {
+    "nombre": "Beta-alanina (CarnoSyn®) en polvo 500g",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/beta-alanina-1000mg-carnosyn": {
+    "nombre": "Beta-alanina 1000mg (CarnoSyn®)",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evopro-vegan-mezcla-proteinas-premium-digezyme": {
+    "nombre": "Evopro vegan (mezcla proteínas premium) + DigeZyme® 2kg",
+    "categoria": "Proteinas Whey",
+    "protein_subtype": null,
+    "first_seen": "2026-10-06"
+  }
+}
