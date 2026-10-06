@@ -16,6 +16,21 @@
     "productos_destacados": []
   },
   {
+    "slug": "myprotein",
+    "nombre": "MyProtein",
+    "nombre_largo": "MyProtein ES",
+    "descripcion_corta": "La mayor tienda de suplementos online de Europa, con marca propia y amplio catálogo.",
+    "color_var": "--myprotein",
+    "url_homepage": "https://www.myprotein.com/es-es/",
+    "afiliacion_id": "10603",
+    "introduccion": [
+      "MyProtein es la mayor tienda de nutrición deportiva online de Europa. Nació en el Reino Unido en 2004 y desde entonces ha expandido su catálogo a más de 2.500 productos bajo marca propia, incluyendo proteínas whey, creatina, aminoácidos y barritas.",
+      "En StackFit seguimos {n_productos} productos de MyProtein España: proteínas, creatina y BCAA. Su punto fuerte es el precio por kilogramo cuando hay promociones activas, que son frecuentes.",
+      "Actualizamos sus precios tres veces por semana. Los enlaces de esta página son de afiliado: si compras a través de ellos, ganamos una pequeña comisión sin coste adicional para ti."
+    ],
+    "productos_destacados": []
+  },
+  {
     "slug": "hivital",
     "nombre": "Hivital",
     "nombre_largo": "Hivital",

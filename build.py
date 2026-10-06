@@ -334,7 +334,9 @@ NUTRITIENDA_SLUG_MARCA = {
 }
 
 
-_HSN_AFFID = "JORTIGOSA"
+_HSN_AFFID             = "JORTIGOSA"
+AWIN_AFFID             = "2845182"
+AWIN_MID_MYPROTEIN     = "10603"
 
 def _hsn_affiliate_link(url: str) -> str:
     raw = f"product||||{_HSN_AFFID}||{url}"
@@ -353,6 +355,35 @@ def aplicar_afiliados_hsn(productos_web: list[dict]) -> list[dict]:
                     pr["url_afiliado"] = _hsn_affiliate_link(url)
                     convertidos += 1
     print(f"   → {convertidos} links HSN convertidos a afiliado (ID: {_HSN_AFFID})")
+    return productos_web
+
+
+def aplicar_afiliados_awin(productos_web: list[dict]) -> list[dict]:
+    """
+    Convierte los url_afiliado de tiendas Awin (MyProtein por ahora) al formato
+    cread.php. No toca HSN ni Hivital (ya tienen su propio formato de afiliado).
+    """
+    import urllib.parse as _up
+    TIENDAS_AWIN = {
+        "myprotein": AWIN_MID_MYPROTEIN,
+    }
+    convertidos = 0
+    for p in productos_web:
+        for pr in p.get("precios", []):
+            tienda_key = pr.get("tienda", "").lower()
+            mid = TIENDAS_AWIN.get(tienda_key)
+            if not mid:
+                continue
+            url = pr.get("url_afiliado", "")
+            if not url or "awin1.com" in url:
+                continue
+            pr["url_afiliado"] = (
+                f"https://www.awin1.com/cread.php"
+                f"?awinmid={mid}&awinaffid={AWIN_AFFID}"
+                f"&ued={_up.quote(url, safe='')}"
+            )
+            convertidos += 1
+    print(f"   → {convertidos} links MyProtein convertidos a afiliado Awin (MID: {AWIN_MID_MYPROTEIN})")
     return productos_web
 
 
@@ -2652,6 +2683,7 @@ if __name__ == "__main__":
     # 2b. Aplicar links de afiliado HSN
     print("\n🔗 Aplicando links de afiliado...")
     productos_web = aplicar_afiliados_hsn(productos_web)
+    productos_web = aplicar_afiliados_awin(productos_web)
 
     # Guardar historial ANTES de los sparklines para que el último punto
     # del sparkline refleje los precios de hoy y no los del scraping anterior

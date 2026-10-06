@@ -62,8 +62,8 @@ def decode_hsn_url(aff_url: str) -> str:
     return aff_url
 
 
-def decode_hivital_url(aff_url: str) -> str:
-    """Extrae la URL real del enlace de afiliado de Hivital (parámetro ued en cread.php)."""
+def decode_awin_cread_url(aff_url: str) -> str:
+    """Extrae la URL real de cualquier enlace de afiliado Awin cread.php (parámetro ued=)."""
     try:
         m = re.search(r'[?&]ued=([^&]+)', aff_url)
         if m:
@@ -89,8 +89,8 @@ def cargar_urls(solo_tienda: str | None = None) -> list[dict]:
             # Para HSN, decodificar el enlace de afiliado para obtener la URL real
             if tienda == "HSN":
                 real_url = decode_hsn_url(url_afiliado)
-            elif tienda == "Hivital":
-                real_url = decode_hivital_url(url_afiliado)
+            elif "awin1.com" in url_afiliado:
+                real_url = decode_awin_cread_url(url_afiliado)
             else:
                 real_url = url_afiliado
             urls.append({

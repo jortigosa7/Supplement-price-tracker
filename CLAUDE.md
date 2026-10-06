@@ -69,6 +69,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - Sistema de filtros y comparador.
 - Quiz recomendador.
 - Afiliación HSN activa (ID `JORTIGOSA`) — los enlaces ya van con afiliado.
+- Afiliación MyProtein Awin activa (oct 2026, MID `10603`) — enlaces convertidos en `build.py::aplicar_afiliados_awin()`, igual que HSN. `añadir_afiliados.py` no tiene efecto sobre MyProtein porque `build.py` regenera `products.json` sobreescribiendo los enlaces.
 - Tag de Amazon `suplemento0f1-21` activo (requiere ventas para mantenerse).
 - Google Search Console configurado, indexación en fase temprana.
 - Imágenes de producto: cascade webp local → imagen_url del CDN → placeholder SVG.
@@ -85,8 +86,8 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 
 - **Scraper Prozis**: no se tocó en el round de mayo 2026, puede seguir con selectores desactualizados.
 - **GitHub Actions**: el job de scrape enriquecido se queda sin tiempo, hay que subir el timeout. El paso de build tiene `continue-on-error: true` — si build.py sale con error (ej. pares degradados), el workflow commitea y pushea igualmente, y después falla el job para generar notificación.
-- **`añadir_afiliados.py`**: staged y listo, usa variables de entorno de Awin. Bloqueado por aprobación de Awin para MyProtein, Prozis y Nutritienda. Cuando lleguen aprobaciones: rellenar `.env` con los IDs y correr el script.
-- **MyProtein**: la solicitud Awin fue rechazada una vez. Reintentar más adelante u outreach directo.
+- **`añadir_afiliados.py`**: staged y listo, pero con MyProtein ya integrado en build.py tiene menos relevancia. Aún podría usarse para Prozis y Nutritienda si se aprueban.
+- **Prozis**: sin afiliación activa. Scraper puede tener selectores desactualizados.
 
 ### Decisiones tomadas que no se revisan sin pedir
 
