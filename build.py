@@ -946,14 +946,8 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
         p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
         top_deals.append(p)
 
-    # Ahorro medio: diferencia % entre precio más caro y más barato entre tiendas
-    savings = []
-    for p in con_precio_kg:
-        if len(p["precios"]) >= 2:
-            precios_vals = sorted(pr["precio_eur"] for pr in p["precios"])
-            if precios_vals[-1] > 0:
-                savings.append((precios_vals[-1] - precios_vals[0]) / precios_vals[-1] * 100)
-    ahorro_medio = round(sum(savings) / len(savings)) if savings else 0
+    # Número de marcas distintas en el catálogo
+    num_marcas = len({p.get("marca", "") for p in con_precio_kg if p.get("marca")})
 
     # Índice de búsqueda: todos los productos con €/kg para el buscador client-side
     all_search = []
@@ -998,7 +992,7 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
         "tiendas_lista":        sorted(tiendas),
         "categories":           categories,
         "top_deals":            top_deals,
-        "ahorro_medio":         ahorro_medio,
+        "num_marcas":            num_marcas,
         "all_products_json":    json.dumps(all_search, ensure_ascii=False),
         "comparaciones_populares": comparaciones_populares or [],
         "tiendas_destacadas":   tiendas_destacadas,
