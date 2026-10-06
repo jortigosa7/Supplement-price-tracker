@@ -1,14 +1,14 @@
 {
   "fecha": "2026-10-06",
-  "total_productos": 611,
+  "total_productos": 610,
   "por_tienda": {
     "HSN": 76,
     "MyProtein": 98,
     "Hivital": 5,
-    "Nutritienda": 316,
+    "Nutritienda": 315,
     "Prozis": 117
   },
-  "n_comparaciones": 55,
+  "n_comparaciones": 54,
   "grupos_multitienda": 1,
   "n_sitemap": 69,
   "ids": [
@@ -210,7 +210,6 @@
     "clear-whey-x-chupa-chups-sabor-fresa-desconocida",
     "cogniview-ultimate-gaming-cognitive-vision-complex-60-caps-desconocida",
     "colageno-marino-300g-desconocida",
-    "cr5-creatine-200g-starlabs-nutrition",
     "crea-bomb-660g-scitec-nutrition",
     "crea-caps-250-caps-250caps-scitec-nutrition",
     "crea-extreme-tank-300g-beverly-nutrition",
@@ -823,7 +822,6 @@
     "clear-whey-x-chupa-chups-sabor-fresa-myprotein",
     "cogniview-ultimate-gaming-cognitive-vision-complex-60-caps",
     "colageno-marino-300g-myprotein",
-    "cr5-creatine-200g-starlabs-nutrition",
     "crea-bomb-660g-scitec-nutrition",
     "crea-caps-250-caps-250caps-scitec-nutrition",
     "crea-extreme-tank-300g-beverly-nutrition",

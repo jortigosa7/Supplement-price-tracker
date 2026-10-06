@@ -1,7 +1,7 @@
 {
   "last_updated": "2026-10-06",
   "site": "StackFit",
-  "total": 611,
+  "total": 610,
   "grupos_multitienda": 1,
   "products": [
     {
@@ -200,7 +200,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 34.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-intra-workout/16872733/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-intra-workout%2F16872733%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16872735-1555272544698212.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -372,7 +372,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 23.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/bcaa-2-1-1/10529280/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbcaa-2-1-1%2F10529280%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529280-1585276144825973.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -723,7 +723,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 29.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/bcaa-4-1-1-en-polvo/10830546/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbcaa-4-1-1-en-polvo%2F10830546%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10830553-1635199715531221.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -4342,7 +4342,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 10.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/bcaa-comprimidos/10529813/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbcaa-comprimidos%2F10529813%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529813-6934860398789934.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -4553,6 +4553,47 @@
       "spark_min": 24.58
     },
     {
+      "id": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold-nutrition",
+      "nombre_normalizado": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Gold Nutrition",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 25.25,
+      "precio_min": 25.25,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 25.25,
+          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.7,
+      "store_rating_count": 93.0,
+      "store_rating_url": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
+      "protein_subtype": null,
+      "slug_publico": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold",
+      "nombre_display": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 25.25
+    },
+    {
       "id": "cellbest-extreme-1-3kg-vitobest",
       "nombre_normalizado": "Cellbest Extreme 1.3Kg",
       "categoria": "creatina",
@@ -4608,7 +4649,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 27.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-polvo/10530050/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-monohidrato-en-polvo%2F10530050%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530050-7665350770386190.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -4639,47 +4680,6 @@
       "nombre_display": "Creatina Monohidrato en polvo 1 kg",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 8.89,-0.0 17.78,-0.0 26.67,-0.0 35.56,28.0 44.44,28.0 53.33,28.0 62.22,28.0 71.11,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 27.99
-    },
-    {
-      "id": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold-nutrition",
-      "nombre_normalizado": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Gold Nutrition",
-      "peso_kg": 1.0,
-      "precio_por_kg_min": 28.13,
-      "precio_min": 28.13,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 28.13,
-          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.7,
-      "store_rating_count": 93.0,
-      "store_rating_url": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
-      "protein_subtype": null,
-      "slug_publico": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold",
-      "nombre_display": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 25.25
     },
     {
       "id": "gold-nutrition-creatine-carbs-600g-gold-nutrition",
@@ -4778,7 +4778,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 35.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-elite/10872819/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-monohidrato-elite%2F10872819%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10872820-1245350489565166.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -4983,7 +4983,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 21.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/creatina-en-polvo-micronizada/17902344/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-en-polvo-micronizada%2F17902344%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17902345-1515361191127102.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -5010,6 +5010,61 @@
       "nombre_display": "Creatina en polvo micronizada 500 g",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.89,28.0 17.78,28.0 26.67,28.0 35.56,28.0 44.44,28.0 53.33,28.0 62.22,28.0 71.11,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 43.98
+    },
+    {
+      "id": "100-whey-prime-creatine-907g-desconocida",
+      "nombre_normalizado": "100% Whey Prime + Creatine 907g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Prozis",
+      "peso_kg": 0.907,
+      "precio_por_kg_min": 47.62,
+      "precio_min": 43.19,
+      "tienda_mas_barata": "Prozis",
+      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1747633_prozis_100-whey-prime--creatine-907g_1.png",
+      "precios": [
+        {
+          "tienda": "Prozis",
+          "precio_eur": 43.19,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g",
+          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1747633_prozis_100-whey-prime--creatine-907g_1.png",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Barquillo de fresa",
+        "Brownie de chocolate",
+        "Caramelo salado",
+        "Chocolate",
+        "Chocolate belga",
+        "Chocolate blanco",
+        "Chocolate y avellanas",
+        "Fresa",
+        "Fresa y Plátano",
+        "Galletas y crema",
+        "Mango",
+        "Neutro",
+        "Vainilla"
+      ],
+      "store_rating": 4.92,
+      "store_rating_count": 64.0,
+      "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g",
+      "protein_subtype": null,
+      "slug_publico": "100-whey-prime-creatine-907g-prozis",
+      "nombre_display": "100% Whey Prime + Creatine 907 g",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 1.36,-0.0 2.71,-0.0 4.07,4.84 5.42,4.84 6.78,4.84 8.14,4.84 9.49,4.84 10.85,4.84 12.2,4.84 13.56,4.84 14.92,4.84 16.27,4.84 17.63,4.84 18.98,4.84 20.34,4.84 21.69,4.84 23.05,4.84 24.41,4.84 25.76,4.84 27.12,4.84 28.47,4.84 29.83,4.84 31.19,4.84 32.54,4.84 33.9,16.42 35.25,16.42 36.61,16.42 37.97,4.84 39.32,4.84 40.68,4.84 42.03,16.42 43.39,16.42 44.75,16.42 46.1,4.84 47.46,4.84 48.81,4.84 50.17,4.84 51.53,4.84 52.88,4.84 54.24,4.84 55.59,4.84 56.95,4.84 58.31,4.84 59.66,16.42 61.02,16.42 62.37,16.42 63.73,4.84 65.08,4.84 66.44,4.84 67.8,28.0 69.15,28.0 70.51,28.0 71.86,16.42 73.22,16.42 74.58,16.42 75.93,16.42 77.29,16.42 78.64,16.42 80.0,16.42\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"16.42\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 42.33
     },
     {
       "id": "nutrex-creatina-monohidrato-300g-aumenta-fuerza-y-masa-nutrex",
@@ -5518,7 +5573,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 14.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/monohidrato-de-creatina-en-polvo-chupa-chups-de-sandia/17526822/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmonohidrato-de-creatina-en-polvo-chupa-chups-de-sandia%2F17526822%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17526823-1475290420730151.png&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -5682,7 +5737,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 31.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/creatina-hcl/17169974/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-hcl%2F17169974%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17169976-2715270692380456.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -6331,7 +6386,7 @@
         "Sandía"
       ],
       "store_rating": 4.7,
-      "store_rating_count": 33237.0,
+      "store_rating_count": 33238.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g",
       "protein_subtype": null,
       "slug_publico": "monohidrato-de-creatina-300g-prozis",
@@ -6379,47 +6434,6 @@
       "nombre_display": "Gold Nutrition Creatina Creapure - Máximo Rendimiento 280 g",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 7.27,28.0 14.55,28.0 21.82,28.0 29.09,28.0 36.36,28.0 43.64,28.0 50.91,28.0 58.18,28.0 65.45,28.0 72.73,28.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 78.07
-    },
-    {
-      "id": "cr5-creatine-200g-starlabs-nutrition",
-      "nombre_normalizado": "CR5 Creatine 200g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Starlabs Nutrition",
-      "peso_kg": 0.2,
-      "precio_por_kg_min": 78.75,
-      "precio_min": 15.75,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/783d74b2-bbf7-498a-6146-a2564e221100/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 15.75,
-          "url_afiliado": "https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatine",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/783d74b2-bbf7-498a-6146-a2564e221100/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.6,
-      "store_rating_count": 67.0,
-      "store_rating_url": "https://www.nutritienda.com/es/starlabs-nutrition/cr5-creatine",
-      "protein_subtype": null,
-      "slug_publico": "cr5-creatine-200g-starlabs-nutrition",
-      "nombre_display": "CR5 Creatine 200 g",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 7.27,28.0 14.55,28.0 21.82,28.0 29.09,28.0 36.36,28.0 43.64,28.0 50.91,28.0 58.18,28.0 65.45,28.0 72.73,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 78.75
     },
     {
       "id": "creatina-20-x-10g-nutrisport",
@@ -6932,7 +6946,7 @@
         "Té helado de melocotón"
       ],
       "store_rating": 4.75,
-      "store_rating_count": 20583.0,
+      "store_rating_count": 20584.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-creapure-300-g",
       "protein_subtype": null,
       "slug_publico": "creatina-creapure-300g-prozis",
@@ -6996,7 +7010,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 94.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-creatine-creapure%2F10529740%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529742-3985240052191811.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -7374,7 +7388,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 19.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure-sobres-monodosis/16630358/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-creatine-creapure-sobres-monodosis%2F16630358%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16630365-6065271206670603.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -7750,7 +7764,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 44.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/pack-clear-performance/15288056/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fpack-clear-performance%2F15288056%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/15288057-6865137745179242.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -7796,7 +7810,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 16.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myprotein-impact-creatine-stick-packs-6g-boxes/16445074/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmyprotein-impact-creatine-stick-packs-6g-boxes%2F16445074%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16445080-7935286542009388.png&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -9238,7 +9252,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 8.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-tabletas/10575029/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-monohidrato-en-tabletas%2F10575029%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10575029-1675340175270872.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -9279,7 +9293,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 24.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/gummies-de-creatina/13528283/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fgummies-de-creatina%2F13528283%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16194623-1425340906619668.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -9326,7 +9340,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 24.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/gummies-de-creatina-sin-azucar/17954302/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fgummies-de-creatina-sin-azucar%2F17954302%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17954303-1275353875629997.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -9370,7 +9384,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 46.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/pack-get-stronger/14970298/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fpack-get-stronger%2F14970298%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14970298-2075276681399712.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -9411,7 +9425,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 18.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electrofuel/16570434/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-electrofuel%2F16570434%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/15152033-1905253818352786.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -9457,7 +9471,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 27.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electropower-creatina-electrolitos/16663175/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-electropower-creatina-electrolitos%2F16663175%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16663176-1085278240252911.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -9501,7 +9515,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 1.0,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myprotein-pro-creapure-stick-pack-sample/16630360/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmyprotein-pro-creapure-stick-pack-sample%2F16630360%2F",
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
@@ -10139,7 +10153,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 14.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/beta-alanina-en-polvo/10529809/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbeta-alanina-en-polvo%2F10529809%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529811-1125199715311195.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -10225,7 +10239,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 19.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-shred-pre-workout/16547402/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-shred-pre-workout%2F16547402%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16547403-4175287072301670.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -10266,7 +10280,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 16.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/taurina-en-polvo/10530303/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Ftaurina-en-polvo%2F10530303%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530303-1935199719023431.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -10307,7 +10321,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 15.0,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/mezcla-pre-entreno/11542703/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmezcla-pre-entreno%2F11542703%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/11542706-9675306512799376.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -10397,7 +10411,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 34.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-glutamina-en-polvo/10636931/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fl-glutamina-en-polvo%2F10636931%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530124-2195186715678768.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -10440,7 +10454,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 17.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-tirosina-en-polvo/10530186/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fl-tirosina-en-polvo%2F10530186%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530187-1175199982321305.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -10522,7 +10536,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 22.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-pre-entreno/12941037/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno%2F12941037%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12941040-1985372342241609.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -10732,7 +10746,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 26.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-jacked-pre-workout/17627020/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-jacked-pre-workout%2F17627020%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17879939-5675332623681741.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -10778,7 +10792,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 26.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-jacked-pump/17627019/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-jacked-pump%2F17627019%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17627022-1475332607850663.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -10846,7 +10860,7 @@
         "Speculoos"
       ],
       "store_rating": 4.88,
-      "store_rating_count": 66.0,
+      "store_rating_count": 67.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/powered-cafe-preentrenamiento-250-g",
       "protein_subtype": null,
       "slug_publico": "powered-cafe-preentrenamiento-250g-prozis",
@@ -10951,7 +10965,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 22.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/citrulina-malato/10529326/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcitrulina-malato%2F10529326%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529328-1295199715147221.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -11037,7 +11051,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 2.55,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/gel-pre-entreno/10798884/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fgel-pre-entreno%2F10798884%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10798886-1685282128133892.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -11291,7 +11305,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 27.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/aakg/10529763/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Faakg%2F10529763%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529772-1795199709694367.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -11992,7 +12006,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 39.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-carnitina-en-polvo/10529729/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fl-carnitina-en-polvo%2F10529729%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529733-5365199715247889.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -12197,7 +12211,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 38.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-pre-entreno-venom/17585477/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-pre-entreno-venom%2F17585477%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17463022-1305288565142815.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -12484,7 +12498,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 22.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-ornitina-hcl-en-polvo/10529383/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fl-ornitina-hcl-en-polvo%2F10529383%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/1600/1600/10529383-1224689570490761.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -13222,7 +13236,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 15.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-teanina-en-polvo/10530035/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fl-teanina-en-polvo%2F10530035%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530035-2005199723256404.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16019,7 +16033,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 10.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/cafeina-pura-comprimidos/10529801/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcafeina-pura-comprimidos%2F10529801%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529801-1514860398736027.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16060,7 +16074,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 18.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electrofuel-hyrox/15152024/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-electrofuel-hyrox%2F15152024%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16528072-8055279535148785.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16106,7 +16120,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 22.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-electro-hyrox/14205282/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-electro-hyrox%2F14205282%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16526599-1865286538541916.png&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16157,7 +16171,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 6.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-carnitina-comprimidos/10530146/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fl-carnitina-comprimidos%2F10530146%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530147-1985263157466660.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16198,7 +16212,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 19.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-pre-workout/11351672/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-pre-workout%2F11351672%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/15150230-1155253818736249.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16242,7 +16256,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 9.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/thermopure/10530152/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthermopure%2F10530152%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530152-1554860398902428.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16283,7 +16297,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 14.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-glutamina-comprimidos/10575971/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fl-glutamina-comprimidos%2F10575971%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10575971-8454860398486322.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16324,7 +16338,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 19.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/shot-pre-entreno/12717736/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fshot-pre-entreno%2F12717736%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12717737-9285230766936724.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16367,7 +16381,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 20.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/l-carnitina-liquida/11162594/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fl-carnitina-liquida%2F11162594%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/11162594-1144860398850930.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16408,7 +16422,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 21.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/gominolas-pre-entreno/12899623/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fgominolas-pre-entreno%2F12899623%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14921024-5125170364490654.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16451,7 +16465,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 42.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-eaa-tablets/12493001/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-eaa-tablets%2F12493001%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12493001-9305262138420108.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16492,7 +16506,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 38.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-pre-entreno-deadpool/15771600/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-pre-entreno-deadpool%2F15771600%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/15271373-1605192172980580.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -16536,7 +16550,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 12.49,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/hmb-comprimidos/10636952/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fhmb-comprimidos%2F10636952%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14234046-1145294264710698.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -17011,7 +17025,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 27.49,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/crema-de-arroz/13337581/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcrema-de-arroz%2F13337581%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/15049898-1475260293336852.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -17199,7 +17213,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 32.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-mass-gainer/15607337/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-mass-gainer%2F15607337%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/15607338-1665255611461330.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -17244,7 +17258,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 34.09,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/advanced-weight-gainer/10615587/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fadvanced-weight-gainer%2F10615587%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10615587-1225180242397985.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -17333,7 +17347,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 43.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/aislado-de-proteina-de-guisante/10530136/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Faislado-de-proteina-de-guisante%2F10530136%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530136-1285183631839163.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -17522,7 +17536,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 86.89,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-plant-protein/11776868/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-plant-protein%2F11776868%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/11776868-3235180485987971.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -18076,7 +18090,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 60.49,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/aislado-de-proteina-de-soja/10529701/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Faislado-de-proteina-de-soja%2F10529701%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17800843-7245372284605177.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -18125,7 +18139,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 62.69,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/caseina-de-liberacion-lenta/10798909/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcaseina-de-liberacion-lenta%2F10798909%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10798909-1695183632470828.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -18166,7 +18180,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 69.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-weight-gainer/10529988/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-weight-gainer%2F10529988%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17921177-9765372544550764.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -18349,7 +18363,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 126.49,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-diet-whey/10530657/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-diet-whey%2F10530657%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530657-1295372280022416.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -18403,7 +18417,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 63.29,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/mezcla-de-rendimiento-todo-en-uno/10530268/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmezcla-de-rendimiento-todo-en-uno%2F10530268%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530268-9535185426837065.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -18623,7 +18637,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 7.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/essential-whey-protein/11052699/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fessential-whey-protein%2F11052699%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/15689961-9375353913392293.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -19465,7 +19479,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 34.09,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-elite/11243021/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein-elite%2F11243021%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16546736-7015283626643318.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -19506,7 +19520,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 21.49,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-pre-entreno-sin-estimulantes/14269805/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno-sin-estimulantes%2F14269805%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14269806-6955372342256558.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -19554,7 +19568,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 85.29,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clara-de-huevo-en-polvo/10529687/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclara-de-huevo-en-polvo%2F10529687%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529687-1065186701875960.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -19834,7 +19848,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 96.29,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-milkshake/17755445/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein-milkshake%2F17755445%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17755459-1255352842601240.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -19884,7 +19898,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 96.29,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein/10530943/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein%2F10530943%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17712277-1255337341573766.png&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -19902,7 +19916,6 @@
       "vegan": null,
       "flavors_available": [
         "Chocolate con Menta",
-        "Crema de Chocolate",
         "Chocolate con Naranja",
         "Vainilla y caramelo de miel con forma de panal y trozos de galleta crujientes",
         "Vainilla y miel con trocitos de galleta crujientes",
@@ -19917,6 +19930,7 @@
         "Plátano Natural",
         "Chocolate y Caramelo",
         "Matcha Latte",
+        "Crema de Chocolate",
         "Café con Leche y Cacao",
         "Arándano",
         "Crema de Fresas",
@@ -19967,7 +19981,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 96.29,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/proteina-de-suero-organica/11272855/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fproteina-de-suero-organica%2F11272855%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17712277-1255337341573766.png&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -19985,7 +19999,6 @@
       "vegan": null,
       "flavors_available": [
         "Chocolate con Menta",
-        "Crema de Chocolate",
         "Chocolate con Naranja",
         "Vainilla y caramelo de miel con forma de panal y trozos de galleta crujientes",
         "Vainilla y miel con trocitos de galleta crujientes",
@@ -20000,6 +20013,7 @@
         "Plátano Natural",
         "Chocolate y Caramelo",
         "Matcha Latte",
+        "Crema de Chocolate",
         "Café con Leche y Cacao",
         "Arándano",
         "Crema de Fresas",
@@ -20050,7 +20064,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 178.79,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/total-protein/10529951/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Ftotal-protein%2F10529951%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/11373032-3585182337433147.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -20095,7 +20109,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 35.79,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/proteina-de-colageno-en-polvo/11067704/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fproteina-de-colageno-en-polvo%2F11067704%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/11067704-1715338394544129.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -20181,7 +20195,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 90.79,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/proteina-de-suero-hidrolizada/10529805/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fproteina-de-suero-hidrolizada%2F10529805%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10529807-7075204102668506.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -20224,7 +20238,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 76.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-whey/11353515/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-whey%2F11353515%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12968619-2145253818506125.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -20447,7 +20461,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 145.79,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-colageno/17725536/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein-colageno%2F17725536%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17772788-1225352349562610.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -20813,7 +20827,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 25.89,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/protein-iced-coffee/17631051/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fprotein-iced-coffee%2F17631051%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17631052-7525343232951905.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -21191,7 +21205,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 32.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/mezcla-sustitutiva-de-comidas-proteica/11324199/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmezcla-sustitutiva-de-comidas-proteica%2F11324199%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/11324199-1275183633044242.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -21224,14 +21238,14 @@
       "categoria_display": "Proteínas",
       "marca": "Vitobest",
       "peso_kg": 1.0,
-      "precio_por_kg_min": 43.9,
-      "precio_min": 43.9,
+      "precio_por_kg_min": 44.81,
+      "precio_min": 44.81,
       "tienda_mas_barata": "Nutritienda",
       "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f8fc9533-c222-48b9-fc5b-5643a0e18d00/public",
       "precios": [
         {
           "tienda": "Nutritienda",
-          "precio_eur": 43.9,
+          "precio_eur": 44.81,
           "url_afiliado": "https://www.nutritienda.com/es/vitobest/isolate-cfm-zero",
           "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f8fc9533-c222-48b9-fc5b-5643a0e18d00/public",
           "en_oferta": false,
@@ -21362,7 +21376,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 131.49,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-isolate/10530911/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-isolate%2F10530911%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10530911-4745330627747586.png&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -21430,7 +21444,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 131.49,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-isolate-milkshake/17816822/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-isolate-milkshake%2F17816822%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17816823-8485349214817520.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -21523,7 +21537,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 22.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-isolate/12081395/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-isolate%2F12081395%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/13528866-2045329369311588.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -21602,7 +21616,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 29.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-collagen-powder-tub/12865492/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-collagen-powder-tub%2F12865492%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12917287-1915289350138250.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -21758,61 +21772,6 @@
       "nombre_display": "Gold Whey500 g",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 13.33,28.0 26.67,28.0 40.0,28.0 53.33,28.0 66.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 47.48
-    },
-    {
-      "id": "100-whey-prime-creatine-907g-desconocida",
-      "nombre_normalizado": "100% Whey Prime + Creatine 907g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteínas",
-      "marca": "Prozis",
-      "peso_kg": 0.907,
-      "precio_por_kg_min": 47.62,
-      "precio_min": 43.19,
-      "tienda_mas_barata": "Prozis",
-      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1747633_prozis_100-whey-prime--creatine-907g_1.png",
-      "precios": [
-        {
-          "tienda": "Prozis",
-          "precio_eur": 43.19,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g",
-          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1747633_prozis_100-whey-prime--creatine-907g_1.png",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Barquillo de fresa",
-        "Brownie de chocolate",
-        "Caramelo salado",
-        "Chocolate",
-        "Chocolate belga",
-        "Chocolate blanco",
-        "Chocolate y avellanas",
-        "Fresa",
-        "Fresa y Plátano",
-        "Galletas y crema",
-        "Mango",
-        "Neutro",
-        "Vainilla"
-      ],
-      "store_rating": 4.92,
-      "store_rating_count": 64.0,
-      "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g",
-      "protein_subtype": null,
-      "slug_publico": "100-whey-prime-creatine-907g-prozis",
-      "nombre_display": "100% Whey Prime + Creatine 907 g",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 1.36,-0.0 2.71,-0.0 4.07,4.84 5.42,4.84 6.78,4.84 8.14,4.84 9.49,4.84 10.85,4.84 12.2,4.84 13.56,4.84 14.92,4.84 16.27,4.84 17.63,4.84 18.98,4.84 20.34,4.84 21.69,4.84 23.05,4.84 24.41,4.84 25.76,4.84 27.12,4.84 28.47,4.84 29.83,4.84 31.19,4.84 32.54,4.84 33.9,16.42 35.25,16.42 36.61,16.42 37.97,4.84 39.32,4.84 40.68,4.84 42.03,16.42 43.39,16.42 44.75,16.42 46.1,4.84 47.46,4.84 48.81,4.84 50.17,4.84 51.53,4.84 52.88,4.84 54.24,4.84 55.59,4.84 56.95,4.84 58.31,4.84 59.66,16.42 61.02,16.42 62.37,16.42 63.73,4.84 65.08,4.84 66.44,4.84 67.8,28.0 69.15,28.0 70.51,28.0 71.86,16.42 73.22,16.42 74.58,16.42 75.93,16.42 77.29,16.42 78.64,16.42 80.0,16.42\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"16.42\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 42.33
     },
     {
       "id": "evohydro-30hd-500g-desconocida",
@@ -22080,7 +22039,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 24.79,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/smoothie-para-el-desayuno/13251950/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fsmoothie-para-el-desayuno%2F13251950%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/13251951-1305238521056338.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -22422,7 +22381,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 1.0,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-stim-free-pre-workout-muestra/14269813/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-stim-free-pre-workout-muestra%2F14269813%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14269814-1535234423931405.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -22463,7 +22422,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 1.0,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/alpha-pre-entreno/13757999/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Falpha-pre-entreno%2F13757999%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/13758002-4105178424462773.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -22491,47 +22450,6 @@
       "nombre_display": "Alpha Pre-Entreno 20 g",
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 1.45,0.0 2.91,0.0 4.36,0.0 5.82,0.0 7.27,0.0 8.73,0.0 10.18,0.0 11.64,0.0 13.09,0.0 14.55,0.0 16.0,0.0 17.45,0.0 18.91,0.0 20.36,0.0 21.82,0.0 23.27,0.0 24.73,23.49 26.18,23.49 27.64,0.0 29.09,0.0 30.55,0.0 32.0,0.0 33.45,0.0 34.91,0.0 36.36,0.0 37.82,0.0 39.27,0.0 40.73,0.0 42.18,0.0 43.64,0.0 45.09,0.0 46.55,0.0 48.0,0.0 49.45,0.0 50.91,0.0 52.36,0.0 53.82,0.0 55.27,0.0 56.73,0.0 58.18,0.0 59.64,28.0 61.09,28.0 62.55,28.0 64.0,28.0 65.45,28.0 66.91,28.0 68.36,28.0 69.82,28.0 71.27,28.0 72.73,28.0 74.18,28.0 75.64,28.0 77.09,28.0 78.55,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 50.0
-    },
-    {
-      "id": "amix-proteina-gourmet-con-fruta-crecimiento-muscular-1000g-amix",
-      "nombre_normalizado": "Amix Proteína Gourmet con Fruta - Crecimiento Muscular 1000g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteínas",
-      "marca": "Amix",
-      "peso_kg": 1.0,
-      "precio_por_kg_min": 50.15,
-      "precio_min": 50.15,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/8f0e0b96-f816-408a-8805-9ac7eac8b100/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 50.15,
-          "url_afiliado": "https://www.nutritienda.com/es/amix/gourmet-protein-concentrado-de-suero-1000g",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/8f0e0b96-f816-408a-8805-9ac7eac8b100/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-10-06",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.0,
-      "store_rating_count": 2.0,
-      "store_rating_url": "https://www.nutritienda.com/es/amix/gourmet-protein-concentrado-de-suero-1000g",
-      "protein_subtype": null,
-      "slug_publico": "amix-proteina-gourmet-con-fruta-crecimiento-muscular-1000g",
-      "nombre_display": "Amix Proteína Gourmet con Fruta - Crecimiento Muscular 1000 g",
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 8.0,0.0 16.0,0.0 24.0,0.0 32.0,0.0 40.0,0.0 48.0,0.0 56.0,0.0 64.0,0.0 72.0,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 50.15
     },
     {
       "id": "panacea-750g-paleobull",
@@ -22728,7 +22646,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 2.55,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/gel-pre-entrenamiento-muestra/10849505/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fgel-pre-entrenamiento-muestra%2F10849505%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/10798885-8585282128091856.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -22987,7 +22905,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 54.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-protein-y-colageno/17263290/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-protein-y-colageno%2F17263290%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17263295-1395366322728316.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -23513,7 +23431,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 21.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-splash/16111658/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-splash%2F16111658%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17113631-1645261592711069.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -23642,7 +23560,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 14.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myprotein-clear-whey-isolate-retail/12608168/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmyprotein-clear-whey-isolate-retail%2F12608168%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12608170-1645353913271741.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -24767,7 +24685,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 32.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/colageno-marino/12376959/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcolageno-marino%2F12376959%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16633271-5895338394288580.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -25904,7 +25822,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 24.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-protein-con-creatina/15245849/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-protein-con-creatina%2F15245849%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16003862-4445272806411885.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -25951,7 +25869,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 21.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-vegan-protein/12360400/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-vegan-protein%2F12360400%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12872207-7985334444311724.png&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26002,7 +25920,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 1.0,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myprotein-clear-whey-isolate-sample/12081401/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmyprotein-clear-whey-isolate-sample%2F12081401%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12517880-1395129241901131.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26043,7 +25961,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 1.0,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/myvegan-plant-protein-superblend-sample/13972456/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmyvegan-plant-protein-superblend-sample%2F13972456%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/13972457-1755182358402673.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26084,7 +26002,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 9.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/supermezcla-de-proteina-vegetal/13972449/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fsupermezcla-de-proteina-vegetal%2F13972449%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/13972449-9835179481059557.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26129,7 +26047,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 27.49,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/hidrolizado-de-proteina-de-ternera-aislada/10902405/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fhidrolizado-de-proteina-de-ternera-aislada%2F10902405%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17744666-2025352305461212.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26174,7 +26092,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 10.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-pre-entreno-dry-scoop/14024015/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno-dry-scoop%2F14024015%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14024016-8545129203247913.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26219,7 +26137,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 48.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-gainer/13096868/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-gainer%2F13096868%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/13096868-1805183633459787.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26265,7 +26183,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 26.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-electrolyte/12869895/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-electrolyte%2F12869895%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12869896-1205178695301210.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26309,7 +26227,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 46.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-x-chupa-chups-sabor-fresa/14866280/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-x-chupa-chups-sabor-fresa%2F14866280%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14866281-1475093356308738.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26350,7 +26268,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 43.99,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/origin-protein-iron-man-tarta-red-velvet-marvel/16003857/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-protein-iron-man-tarta-red-velvet-marvel%2F16003857%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17538714-1625281534811889.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26394,7 +26312,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 31.89,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/clear-all-in-one/13324944/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-all-in-one%2F13324944%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/13324946-1735183863809723.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26439,7 +26357,7 @@
         {
           "tienda": "MyProtein",
           "precio_eur": 50.59,
-          "url_afiliado": "https://www.myprotein.es/p/nutricion-deportiva/the-whey-sabor-pistacho/14273015/",
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-whey-sabor-pistacho%2F14273015%2F",
           "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14273016-7675193155459901.jpg&format=webp&width=1500&height=1500&fit=cover",
           "en_oferta": false,
           "precio_original": null,
@@ -26548,6 +26466,48 @@
       "nombre_display": "Hydrolyzed Whey Protein Isolate 990 g",
       "spark_svg": "",
       "spark_min": null
+    },
+    {
+      "id": "amix-proteina-gourmet-con-fruta-crecimiento-muscular-1000g-amix",
+      "nombre_normalizado": "Amix Proteína Gourmet con Fruta - Crecimiento Muscular 1000g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteínas",
+      "marca": "Amix",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": null,
+      "precio_min": 50.15,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/8f0e0b96-f816-408a-8805-9ac7eac8b100/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 50.15,
+          "url_afiliado": "https://www.nutritienda.com/es/amix/gourmet-protein-concentrado-de-suero-1000g",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/8f0e0b96-f816-408a-8805-9ac7eac8b100/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-10-06",
+          "_precio_fresco": null,
+          "agotado": true,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.0,
+      "store_rating_count": 2.0,
+      "store_rating_url": "https://www.nutritienda.com/es/amix/gourmet-protein-concentrado-de-suero-1000g",
+      "protein_subtype": null,
+      "agotado": true,
+      "slug_publico": "amix-proteina-gourmet-con-fruta-crecimiento-muscular-1000g",
+      "nombre_display": "Amix Proteína Gourmet con Fruta - Crecimiento Muscular 1000 g",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 8.0,0.0 16.0,0.0 24.0,0.0 32.0,0.0 40.0,0.0 48.0,0.0 56.0,0.0 64.0,0.0 72.0,0.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 50.15
     },
     {
       "id": "pack-regalo-isoprime-cfm-2kg-creatina-monohidrato-30-caps-proteina-premium-amix",

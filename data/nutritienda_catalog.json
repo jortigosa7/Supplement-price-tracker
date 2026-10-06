@@ -1402,5 +1402,9 @@
   "https://www.nutritienda.com/es/best-protein/whey-isolate": {
     "categoria": "Proteinas Whey",
     "first_seen": "2026-10-06"
+  },
+  "https://www.nutritienda.com/es/beverly-nutrition/whey-pro-concentrate": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-06"
   }
 }
