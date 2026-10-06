@@ -31,7 +31,7 @@ from datetime import datetime
 import pandas as pd
 
 from limpieza import limpiar_dataset
-from scrapers import nutritienda, hsn, prozis, myprotein
+from scrapers import nutritienda, hsn, prozis, myprotein, hivital
 
 OUTPUT_DIR = "datasets"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -225,6 +225,15 @@ if __name__ == "__main__":
             print(f"  MyProtein: {len(productos)} productos")
     except Exception as e:
         print(f"  ERROR MyProtein: {e}")
+
+    # ── Hivital (WooCommerce Store API + afiliado Awin) ──────────────────────
+    try:
+        productos = hivital.scrape()
+        todos.extend(productos)
+        if productos:
+            print(f"  Hivital: {len(productos)} productos")
+    except Exception as e:
+        print(f"  ERROR Hivital: {e}")
 
     print(f"\n  Total scrapeados: {len(todos)}")
 

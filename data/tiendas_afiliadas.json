@@ -14,5 +14,20 @@
       "Actualizamos sus precios tres veces por semana. Los enlaces de esta página son de afiliado: si compras a través de ellos, ganamos una pequeña comisión sin coste adicional para ti."
     ],
     "productos_destacados": []
+  },
+  {
+    "slug": "hivital",
+    "nombre": "Hivital",
+    "nombre_largo": "Hivital",
+    "descripcion_corta": "Marca española de suplementos deportivos y vitaminas con venta directa.",
+    "color_var": "--hivital",
+    "url_homepage": "https://www.hivital.com",
+    "afiliacion_id": "20039",
+    "introduccion": [
+      "Hivital es una marca española que fabrica y vende directamente sus propios suplementos deportivos y complementos alimenticios. Su catálogo incluye proteínas whey, creatina, BCAA, glutamina y proteína vegana, además de una amplia gama de vitaminas y minerales.",
+      "En StackFit seguimos {n_productos} productos deportivos de Hivital: proteínas, creatina y aminoácidos. Son los mismos productos que Hivital distribuye a través de Nutritienda, por lo que cuando aparecen ambas tiendas en una comparativa, el precio que ves en Hivital.com es el de venta directa.",
+      "Actualizamos sus precios tres veces por semana. Los enlaces de esta página son de afiliado: si compras a través de ellos, ganamos una pequeña comisión sin coste adicional para ti."
+    ],
+    "productos_destacados": []
   }
 ]

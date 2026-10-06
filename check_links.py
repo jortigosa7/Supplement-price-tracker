@@ -27,6 +27,7 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 import urllib.error
+import urllib.parse
 import urllib.request
 
 DATA_FILE = "data/products.json"
@@ -61,6 +62,17 @@ def decode_hsn_url(aff_url: str) -> str:
     return aff_url
 
 
+def decode_hivital_url(aff_url: str) -> str:
+    """Extrae la URL real del enlace de afiliado de Hivital (parámetro ued en cread.php)."""
+    try:
+        m = re.search(r'[?&]ued=([^&]+)', aff_url)
+        if m:
+            return urllib.parse.unquote(m.group(1))
+    except Exception:
+        pass
+    return aff_url
+
+
 def cargar_urls(solo_tienda: str | None = None) -> list[dict]:
     with open(DATA_FILE, encoding="utf-8") as f:
         data = json.load(f)
@@ -75,7 +87,12 @@ def cargar_urls(solo_tienda: str | None = None) -> list[dict]:
             if not url_afiliado:
                 continue
             # Para HSN, decodificar el enlace de afiliado para obtener la URL real
-            real_url = decode_hsn_url(url_afiliado) if tienda == "HSN" else url_afiliado
+            if tienda == "HSN":
+                real_url = decode_hsn_url(url_afiliado)
+            elif tienda == "Hivital":
+                real_url = decode_hivital_url(url_afiliado)
+            else:
+                real_url = url_afiliado
             urls.append({
                 "tienda": tienda,
                 "prod":   p.get("nombre_normalizado", "?")[:60],

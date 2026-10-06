@@ -186,7 +186,8 @@
     "HSN": "var(--hsn)",
     "Nutritienda": "var(--nutritienda)",
     "Prozis": "var(--prozis)",
-    "MyProtein": "var(--myprotein)"
+    "MyProtein": "var(--myprotein)",
+    "Hivital": "var(--hivital)"
   } %}
 
   <div class="products-list" id="productsList">
@@ -363,7 +364,7 @@
     </p>
     <div class="others-list">
       {% for p in products_otros %}
-      {% set sc_map = {"HSN":"hsn","Nutritienda":"nutritienda","Prozis":"prozis","MyProtein":"myprotein"} %}
+      {% set sc_map = {"HSN":"hsn","Nutritienda":"nutritienda","Prozis":"prozis","MyProtein":"myprotein","Hivital":"hivital"} %}
       <div class="other-item">
         <div class="other-name">
           {{ (p.nombre_display or p.nombre_normalizado) }}
@@ -373,7 +374,7 @@
           {% for pr in p.precios | sort(attribute='precio_eur') %}
           {% set sc = sc_map.get(pr.tienda, 'default') %}
           <a href="{{ pr.url_afiliado }}" class="store-pill store-{{ sc }}" target="_blank" rel="nofollow sponsored noopener">
-            <span class="store-pill-dot" style="background:{{ {"HSN":"var(--hsn)","Nutritienda":"var(--nutritienda)","Prozis":"var(--prozis)","MyProtein":"var(--myprotein)"}.get(pr.tienda, 'var(--amazon)') }};"></span>
+            <span class="store-pill-dot" style="background:{{ {"HSN":"var(--hsn)","Nutritienda":"var(--nutritienda)","Prozis":"var(--prozis)","MyProtein":"var(--myprotein)","Hivital":"var(--hivital)"}.get(pr.tienda, 'var(--amazon)') }};"></span>
             {{ pr.tienda }} · {{ pr.precio_eur|fmtd }} €
           </a>
           {% endfor %}

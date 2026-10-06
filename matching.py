@@ -32,6 +32,7 @@ def _peso_valido(peso) -> float | None:
 MARCAS_NORM = {
     "myprotein": "MyProtein",
     "my protein": "MyProtein",
+    "hivital": "Hivital",
     "hsn": "HSN",
     "hsnstore": "HSN",
     "prozis": "Prozis",

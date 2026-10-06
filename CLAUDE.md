@@ -27,7 +27,7 @@ Stack: Python 3 + Playwright + BeautifulSoup + Jinja2 + vanilla JS en frontend. 
 
 ### Tiendas cubiertas
 
-HSN, MyProtein, Prozis, Nutritienda.
+HSN, MyProtein, Prozis, Nutritienda, Hivital.
 
 ### Categorías cubiertas
 
@@ -79,6 +79,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - "Comparativas frecuentes" en páginas de categoría (sep 2026): bloque estático generado desde `data/comparaciones.json` filtrado por categoría del par.
 - Ticker de precios eliminado del diseño (sep 2026). Sparklines de evolución de precio en tarjetas se mantienen (`compute_spark_data()` en `build_additions.py`).
 - `ENABLE_ALERTAS = False` en `build.py`: flag para sección de alertas de precio. Desactivado.
+- Scraper Hivital (oct 2026): WooCommerce Store API pública; 6 productos deportivos (whey, isolate, vegana, creatina, BCAA, glutamina); enlace de afiliado Awin cread.php (MID 20039). Hivital en MARCAS_NORM para agrupar con los 3 productos Hivital de Nutritienda.
 
 ### Roto o pendiente
 
@@ -90,7 +91,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 ### Decisiones tomadas que no se revisan sin pedir
 
 - Stack estático (no migrar a SSR/SPA).
-- Cuatro tiendas iniciales — no añadir tiendas nuevas hasta estabilizar tráfico y scrapers actuales.
+- Solo se añaden tiendas con afiliación activa (Awin u otro programa). Hivital añadida en oct 2026 (Awin, MID 20039). No añadir tiendas sin afiliación hasta estabilizar tráfico.
 - Categoría perfumes / cualquier comparador paralelo: **no**. Ya se descartó.
 
 ## Deuda técnica conocida
