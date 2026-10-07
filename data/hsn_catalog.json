@@ -496,5 +496,53 @@
     "categoria": "Proteinas Whey",
     "protein_subtype": null,
     "first_seen": "2026-10-06"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/beta-alanina-1000mg": {
+    "nombre": "Beta-alanina 1000mg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-07"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/dextrina-ciclica-cluster-dextrin-en-polvo": {
+    "nombre": "Cluster Dextrin™ (dextrina cíclica altamente ramificada) en polvo",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-07"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/citrulina-malato-2-1-1000mg": {
+    "nombre": "Citrulina malato 2:1 1000mg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-07"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evodextrin": {
+    "nombre": "Evodextrin",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-07"
+  },
+  "https://www.hsnstore.com/marcas/essential-series/taurina-500mg": {
+    "nombre": "L-taurina 500mg",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-07"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/dextrosa-en-polvo": {
+    "nombre": "Dextrosa en polvo",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-07"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/maltodextrina-en-polvo": {
+    "nombre": "Maltodextrina en polvo",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-07"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/taurina-en-polvo": {
+    "nombre": "L-taurina en polvo",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-07"
   }
 }

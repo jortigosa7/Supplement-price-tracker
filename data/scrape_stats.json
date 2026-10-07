@@ -1,8 +1,8 @@
 {
   "prozis_fallback_consecutivo": {
     "BCAA": 0,
-    "Creatina": 1,
-    "Pre-Entreno": 1,
-    "Proteinas Whey": 2
+    "Creatina": 0,
+    "Pre-Entreno": 2,
+    "Proteinas Whey": 0
   }
 }
