@@ -13,7 +13,10 @@ SETUP: no requiere dependencias adicionales (usa requests + BS4).
 DEBUG: python scraper.py --debug-myprotein
 """
 
+import datetime
+import glob
 import json
+import os
 import re
 import time
 from bs4 import BeautifulSoup
@@ -31,6 +34,82 @@ CATEGORIAS = [
     {"nombre": "BCAA",           "url": f"{BASE_URL}/c/nutrition/amino-acids/bcaa/"},
     {"nombre": "Pre-Entreno",    "url": f"{BASE_URL}/c/performance/aminos-preworkout/"},
 ]
+
+CATALOG_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "myprotein_catalog.json")
+MAX_RECUPERACIONES = 30
+
+
+# ── Catálogo persistente ─────────────────────────────────────────────────────
+
+def _cargar_catalogo() -> dict:
+    try:
+        with open(CATALOG_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _guardar_catalogo(catalogo: dict) -> None:
+    os.makedirs(os.path.dirname(CATALOG_FILE), exist_ok=True)
+    with open(CATALOG_FILE, "w", encoding="utf-8") as f:
+        json.dump(catalogo, f, ensure_ascii=False, indent=2)
+
+
+def _seed_catalogo_desde_datasets(catalogo: dict) -> None:
+    """Puebla el catálogo desde la unión de datasets de los últimos 30 días."""
+    datasets_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "datasets")
+    archivos = sorted(glob.glob(os.path.join(datasets_dir, "suplementos_*.json")))
+    hoy = datetime.date.today()
+    hace_30 = hoy - datetime.timedelta(days=30)
+    archivos_periodo = []
+    for arch in archivos:
+        m = re.search(r"suplementos_(\d{4})(\d{2})(\d{2})\.json", os.path.basename(arch))
+        if m:
+            fecha = datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+            if fecha >= hace_30:
+                archivos_periodo.append(arch)
+    if not archivos_periodo:
+        archivos_periodo = archivos[-1:] if archivos else []
+    vistos: dict = {}
+    for arch in archivos_periodo:
+        try:
+            with open(arch, encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            continue
+        for p in data:
+            if p.get("tienda") != TIENDA:
+                continue
+            url = p.get("url")
+            if url:
+                vistos[url] = {"nombre": p.get("nombre", ""), "categoria": p.get("categoria", "")}
+    hoy_str = hoy.isoformat()
+    n = 0
+    for url, meta in vistos.items():
+        if url not in catalogo:
+            catalogo[url] = {"nombre": meta["nombre"], "categoria": meta["categoria"], "first_seen": hoy_str}
+            n += 1
+    print(f"  [catálogo {TIENDA}] {n} URLs añadidas desde {len(archivos_periodo)} datasets (30 días)")
+
+
+def _urls_prioritarias_mp() -> set:
+    """URLs de productos MyProtein en data/comparaciones.json."""
+    try:
+        base_dir = os.path.dirname(os.path.dirname(__file__))
+        with open(os.path.join(base_dir, "data", "comparaciones.json"), encoding="utf-8") as f:
+            comp = json.load(f)
+        with open(os.path.join(base_dir, "data", "products.json"), encoding="utf-8") as f:
+            prods = json.load(f)
+    except Exception:
+        return set()
+    ids_comp = {par["id_a"] for par in comp.get("pares", [])} | {par["id_b"] for par in comp.get("pares", [])}
+    urls: set = set()
+    for p in prods.get("products", []):
+        if p["id"] in ids_comp:
+            for pr in p.get("precios", []):
+                if pr.get("tienda") == TIENDA:
+                    urls.add(pr["url_afiliado"])
+    return urls
 
 
 # ── Utilidades ───────────────────────────────────────────────────────────────
@@ -304,6 +383,64 @@ def scrape(debug: bool = False) -> list[dict]:
     if debug:
         return []
 
+    # ── Catálogo persistente: incluir productos conocidos aunque salgan del listado ──
+    catalogo = _cargar_catalogo()
+    hoy_str = datetime.date.today().isoformat()
+
+    if not catalogo:
+        _seed_catalogo_desde_datasets(catalogo)
+
+    urls_en_listado = {d["url"] for d in productos_raw}
+    for d in productos_raw:
+        if d["url"] not in catalogo:
+            catalogo[d["url"]] = {
+                "nombre":    d["nombre"],
+                "categoria": d["categoria"],
+                "first_seen": hoy_str,
+            }
+
+    urls_a_retirar = []
+    catalog_recuperados = 0
+    urls_priority = _urls_prioritarias_mp()
+
+    urls_pendientes = [u for u in catalogo if u not in urls_en_listado]
+    urls_pendientes.sort(key=lambda u: (0 if u in urls_priority else 1))
+
+    for url_cat in urls_pendientes[:MAX_RECUPERACIONES]:
+        meta = catalogo[url_cat]
+        time.sleep(DELAY)
+        try:
+            resp = hacer_peticion(url_cat)
+        except Exception as e:
+            print(f"  [catálogo {TIENDA}] Error: {e}")
+            continue
+        if resp is None or resp.status_code == 404:
+            print(f"  [catálogo {TIENDA}] 404 — eliminando: {meta.get('nombre', '')[:50]}")
+            urls_a_retirar.append(url_cat)
+            continue
+        if resp.history and resp.url.rstrip("/") != url_cat.rstrip("/"):
+            print(f"  [catálogo {TIENDA}] Redirección — eliminando: {meta.get('nombre', '')[:50]}")
+            urls_a_retirar.append(url_cat)
+            continue
+        print(f"  [catálogo {TIENDA}] Recuperado: {meta.get('nombre', '')[:60]}")
+        productos_raw.append({
+            "nombre":         meta["nombre"],
+            "precio_listing": "N/A",
+            "url":            url_cat,
+            "categoria":      meta["categoria"],
+            "_from_catalog":  True,
+        })
+        catalog_recuperados += 1
+
+    if catalog_recuperados:
+        print(f"  Catálogo {TIENDA}: {catalog_recuperados} producto(s) recuperado(s)")
+    if urls_a_retirar:
+        for url in urls_a_retirar:
+            del catalogo[url]
+        print(f"  Catálogo {TIENDA}: {len(urls_a_retirar)} URL(s) retirada(s)")
+
+    _guardar_catalogo(catalogo)
+
     # ── Fase 2: visitar cada producto (peso, precio, rating, flavors) ────────
     # Precio siempre fresco: misma estrategia que HSN.
     # El HTML se guarda en caché para que _extraer_enriquecimiento lo reutilice
@@ -327,12 +464,6 @@ def scrape(debug: bool = False) -> list[dict]:
                 stats["fetched"] += 1
                 precio_fresco_flag = True
                 variantes, imagen_url = _extraer_variantes(html_prod)
-                if variantes:
-                    best = seleccionar_mejor_formato(variantes)
-                    if best:
-                        peso_best, precio_best = best
-                        nombre_final = f"{d['nombre']} {_talla_str(peso_best)}"
-                        precio_final = str(precio_best)
                 enrichment = _extraer_enriquecimiento(html_prod)
                 if enrichment.get("store_rating_count"):
                     enrichment["store_rating_url"] = d["url"]
@@ -347,6 +478,16 @@ def scrape(debug: bool = False) -> list[dict]:
                         ):
                             enrichment["agotado"] = True
                         break
+                agotado_mp = enrichment.get("agotado", False)
+                if variantes:
+                    best = seleccionar_mejor_formato(variantes)
+                    if best:
+                        peso_best, precio_best = best
+                        precio_final = str(precio_best)
+                        # Catálogo + agotado: el nombre viene del catálogo (ya incluye peso).
+                        # En cualquier otro caso, actualizar con el formato seleccionado.
+                        if not (d.get("_from_catalog") and agotado_mp):
+                            nombre_final = f"{d['nombre']} {_talla_str(peso_best)}"
             else:
                 stats["errors"] += 1
                 # Fallback: precio del listing (fresco), sin peso ni variantes

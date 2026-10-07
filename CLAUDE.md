@@ -82,6 +82,7 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - `ENABLE_ALERTAS = False` en `build.py`: flag para sección de alertas de precio. Desactivado.
 - Scraper Hivital (oct 2026): WooCommerce Store API pública; productos deportivos (whey, isolate, vegana, creatina, BCAA); enlace de afiliado Awin cread.php (MID 20039). Hivital en MARCAS_NORM para agrupar con los productos Hivital de Nutritienda. Soporta productos variable (una entrada por variación) y agotados.
 - Catálogo persistente HSN (oct 2026): igual que Nutritienda. URLs de productos HSN guardadas en `data/hsn_catalog.json`. Productos que salen de listados (agotados u OOS) se recuperan directamente con petición fresca y si `isSalable:false` se marcan `agotado=True`. Productos que dan 404 se eliminan del catálogo. Al inicializar vacío, el catálogo se puebla desde el dataset más reciente en `datasets/`.
+- Catálogo persistente MyProtein y Prozis (oct 2026): mismo patrón. `data/myprotein_catalog.json` y `data/prozis_catalog.json`. Máximo 30 fichas recuperadas por tienda y run, priorizando productos que aparezcan en `data/comparaciones.json`. Para MyProtein: requests normal. Para Prozis: Playwright (misma página del listado). Agotado: nombre y peso del catálogo, precio fresco de JSON-LD. Seed inicial desde los datasets de los últimos 30 días cuando el catálogo está vacío.
 
 ### Roto o pendiente
 

@@ -22,7 +22,10 @@ SETUP (una sola vez):
 DEBUG: python scraper.py --debug-prozis
 """
 
+import datetime
+import glob
 import json
+import os
 import re
 import time
 
@@ -44,6 +47,82 @@ CATEGORIAS = [
 
 # Máximo de errores/bloqueos consecutivos antes de abandonar detalle para Prozis
 _MAX_CONSECUTIVE_ERRORS = 5
+
+CATALOG_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "prozis_catalog.json")
+MAX_RECUPERACIONES = 30
+
+
+# ── Catálogo persistente ─────────────────────────────────────────────────────
+
+def _cargar_catalogo() -> dict:
+    try:
+        with open(CATALOG_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _guardar_catalogo(catalogo: dict) -> None:
+    os.makedirs(os.path.dirname(CATALOG_FILE), exist_ok=True)
+    with open(CATALOG_FILE, "w", encoding="utf-8") as f:
+        json.dump(catalogo, f, ensure_ascii=False, indent=2)
+
+
+def _seed_catalogo_desde_datasets(catalogo: dict) -> None:
+    """Puebla el catálogo desde la unión de datasets de los últimos 30 días."""
+    datasets_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "datasets")
+    archivos = sorted(glob.glob(os.path.join(datasets_dir, "suplementos_*.json")))
+    hoy = datetime.date.today()
+    hace_30 = hoy - datetime.timedelta(days=30)
+    archivos_periodo = []
+    for arch in archivos:
+        m = re.search(r"suplementos_(\d{4})(\d{2})(\d{2})\.json", os.path.basename(arch))
+        if m:
+            fecha = datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+            if fecha >= hace_30:
+                archivos_periodo.append(arch)
+    if not archivos_periodo:
+        archivos_periodo = archivos[-1:] if archivos else []
+    vistos: dict = {}
+    for arch in archivos_periodo:
+        try:
+            with open(arch, encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            continue
+        for p in data:
+            if p.get("tienda") != TIENDA:
+                continue
+            url = p.get("url")
+            if url:
+                vistos[url] = {"nombre": p.get("nombre", ""), "categoria": p.get("categoria", "")}
+    hoy_str = hoy.isoformat()
+    n = 0
+    for url, meta in vistos.items():
+        if url not in catalogo:
+            catalogo[url] = {"nombre": meta["nombre"], "categoria": meta["categoria"], "first_seen": hoy_str}
+            n += 1
+    print(f"  [catálogo {TIENDA}] {n} URLs añadidas desde {len(archivos_periodo)} datasets (30 días)")
+
+
+def _urls_prioritarias_prozis() -> set:
+    """URLs de productos Prozis en data/comparaciones.json."""
+    try:
+        base_dir = os.path.dirname(os.path.dirname(__file__))
+        with open(os.path.join(base_dir, "data", "comparaciones.json"), encoding="utf-8") as f:
+            comp = json.load(f)
+        with open(os.path.join(base_dir, "data", "products.json"), encoding="utf-8") as f:
+            prods = json.load(f)
+    except Exception:
+        return set()
+    ids_comp = {par["id_a"] for par in comp.get("pares", [])} | {par["id_b"] for par in comp.get("pares", [])}
+    urls: set = set()
+    for p in prods.get("products", []):
+        if p["id"] in ids_comp:
+            for pr in p.get("precios", []):
+                if pr.get("tienda") == TIENDA:
+                    urls.add(pr["url_afiliado"])
+    return urls
 
 
 def _extraer_wsdata(html: str) -> tuple[list[dict], dict]:
@@ -111,6 +190,12 @@ def _extraer_enriquecimiento_html(html: str, url: str) -> dict:
                 avail = str(d.get("offers", {}).get("availability", ""))
                 if "OutOfStock" in avail:
                     enrichment["agotado"] = True
+                precio_jld = d.get("offers", {}).get("price")
+                if precio_jld:
+                    try:
+                        enrichment["_precio"] = float(str(precio_jld).replace(",", "."))
+                    except Exception:
+                        pass
                 break
         except Exception:
             pass
@@ -307,6 +392,72 @@ def scrape(debug: bool = False, prev_cat_counts: dict | None = None) -> list[dic
             browser.close()
             return []
 
+        # ── Catálogo persistente: productos conocidos que salieron del listado ──
+        catalogo = _cargar_catalogo()
+        hoy_str = datetime.date.today().isoformat()
+
+        if not catalogo:
+            _seed_catalogo_desde_datasets(catalogo)
+
+        urls_en_listado = {d["url"] for d in productos_raw}
+        for d in productos_raw:
+            if d["url"] not in catalogo:
+                catalogo[d["url"]] = {
+                    "nombre":    d["nombre"],
+                    "categoria": d["categoria"],
+                    "first_seen": hoy_str,
+                }
+
+        urls_a_retirar = []
+        catalog_recuperados = 0
+        urls_priority = _urls_prioritarias_prozis()
+
+        urls_pendientes = [u for u in catalogo if u not in urls_en_listado]
+        urls_pendientes.sort(key=lambda u: (0 if u in urls_priority else 1))
+
+        for url_cat in urls_pendientes[:MAX_RECUPERACIONES]:
+            meta = catalogo[url_cat]
+            time.sleep(DELAY)
+            try:
+                resp_cat = page.goto(url_cat, wait_until="domcontentloaded", timeout=45000)
+                final_url = page.url.rstrip("/")
+                if resp_cat and resp_cat.status == 404:
+                    print(f"  [catálogo {TIENDA}] 404 — eliminando: {meta.get('nombre', '')[:50]}")
+                    urls_a_retirar.append(url_cat)
+                    continue
+                if final_url != url_cat.rstrip("/"):
+                    print(f"  [catálogo {TIENDA}] Redirección — eliminando: {meta.get('nombre', '')[:50]}")
+                    urls_a_retirar.append(url_cat)
+                    continue
+                page.wait_for_timeout(1500)
+                html_cat = page.content()
+                if '"@type"' not in html_cat and 'wsData":' not in html_cat:
+                    print(f"  [catálogo {TIENDA}] Sin datos — manteniendo: {meta.get('nombre', '')[:50]}")
+                    continue
+                save_cache("prozis", url_cat, html_cat)
+                print(f"  [catálogo {TIENDA}] Recuperado: {meta.get('nombre', '')[:60]}")
+                productos_raw.append({
+                    "nombre":        meta["nombre"],
+                    "precio":        "N/A",
+                    "categoria":     meta["categoria"],
+                    "url":           url_cat,
+                    "imagen_url":    None,
+                    "_from_catalog": True,
+                })
+                catalog_recuperados += 1
+            except Exception as e:
+                print(f"  [catálogo {TIENDA}] Error: {e}")
+                continue
+
+        if catalog_recuperados:
+            print(f"  Catálogo {TIENDA}: {catalog_recuperados} producto(s) recuperado(s)")
+        if urls_a_retirar:
+            for url in urls_a_retirar:
+                del catalogo[url]
+            print(f"  Catálogo {TIENDA}: {len(urls_a_retirar)} URL(s) retirada(s)")
+
+        _guardar_catalogo(catalogo)
+
         # ── Paso 2: páginas de detalle (rating + flavors, en serie) ──────────
         print(f"\n  Enriqueciendo {len(productos_raw)} productos (detalle + caché 7 días)...")
         stats = {"cached": 0, "fetched": 0, "errors": 0}
@@ -340,8 +491,15 @@ def scrape(debug: bool = False, prev_cat_counts: dict | None = None) -> list[dic
                                 f"Continuando sin enriquecimiento para los restantes."
                             )
 
+            # Para productos del catálogo: usar el precio extraído del JSON-LD
+            precio_final = d["precio"]
+            if d.get("_from_catalog") and "_precio" in enrichment:
+                precio_final = str(enrichment.pop("_precio"))
+            else:
+                enrichment.pop("_precio", None)  # limpiar si vino de un listado normal
+
             prod = producto_base(
-                d["nombre"], d["precio"], "", d["categoria"], TIENDA,
+                d["nombre"], precio_final, "", d["categoria"], TIENDA,
                 d["url"], d.get("imagen_url"),
             )
             prod.update(enrichment)
