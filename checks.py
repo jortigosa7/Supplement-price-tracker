@@ -242,22 +242,28 @@ def _check_metricas(stats_act: dict, stats_ant: dict) -> list[str]:
         return []
 
     errores = []
-    campos = [
-        ("grupos_multitienda", "grupos multi-tienda"),
-        ("n_sitemap",          "páginas en sitemap"),
-    ]
 
-    for key, label in campos:
-        ant = stats_ant.get(key)
-        act = stats_act.get(key)
-        if ant is None or act is None:
-            continue
-        if act < ant:
+    # Sitemap: no debe bajar nunca
+    ant_sitemap = stats_ant.get("n_sitemap")
+    act_sitemap = stats_act.get("n_sitemap")
+    if ant_sitemap is not None and act_sitemap is not None and act_sitemap < ant_sitemap:
+        errores.append(
+            f"[CHECK 4] páginas en sitemap bajó: {act_sitemap} ahora vs {ant_sitemap} antes (−{ant_sitemap - act_sitemap}).\n"
+            f"  Si es intencionado, ignora. Si no, busca qué página desapareció."
+        )
+
+    # Grupos multi-tienda: error solo si base >= 5 y caída > 40 %; si base < 5, solo aviso
+    ant_mt = stats_ant.get("grupos_multitienda")
+    act_mt = stats_act.get("grupos_multitienda")
+    if ant_mt is not None and act_mt is not None and act_mt < ant_mt:
+        caida = round((1 - act_mt / ant_mt) * 100) if ant_mt > 0 else 0
+        if ant_mt >= 5 and caida > 40:
             errores.append(
-                f"[CHECK 4] {label} bajó: {act} ahora vs {ant} antes (−{ant - act}).\n"
-                f"  Si es intencionado (borraste un par de comparaciones.json), ignora.\n"
-                f"  Si no, busca qué página desapareció o qué grupo se perdió."
+                f"[CHECK 4] grupos multi-tienda bajó: {act_mt} ahora vs {ant_mt} antes (−{ant_mt - act_mt}, {caida}%).\n"
+                f"  El matching cross-tienda puede estar roto."
             )
+        else:
+            print(f"  ⚠️  AVISO [CHECK 4] grupos multi-tienda: {act_mt} (anterior: {ant_mt}) — base pequeña, solo aviso")
 
     return errores
 

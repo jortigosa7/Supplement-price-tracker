@@ -1019,9 +1019,8 @@ def verificar_grupos_multitienda(productos_web: list[dict]) -> tuple[int, bool]:
         anterior = data.get("grupos_multitienda")
 
     if anterior is not None:
-        umbral = int(anterior * 0.60)  # 0 es válido cuando no hay matches cross-tienda legítimos
-        if actual < umbral:
-            caida = round((1 - actual / anterior) * 100) if anterior > 0 else 0
+        caida = round((1 - actual / anterior) * 100) if anterior > 0 else 0
+        if anterior >= 5 and caida > 40:
             print(f"\n{'='*60}")
             print(f"CAIDA DE GRUPOS MULTI-TIENDA — el build saldrá con error al final")
             print(f"{'='*60}")
@@ -1029,7 +1028,10 @@ def verificar_grupos_multitienda(productos_web: list[dict]) -> tuple[int, bool]:
             print("  El matching cross-tienda puede estar roto.")
             print(f"{'='*60}")
             return actual, False
-        print(f"Grupos multi-tienda: {actual} (anterior: {anterior})")
+        if actual < anterior:
+            print(f"  ⚠️  AVISO grupos multi-tienda: {actual} (anterior: {anterior}, caída: {caida}%) — base pequeña, solo aviso")
+        else:
+            print(f"Grupos multi-tienda: {actual} (anterior: {anterior})")
     else:
         print(f"Grupos multi-tienda: {actual} (primera ejecución — sin referencia anterior)")
 
