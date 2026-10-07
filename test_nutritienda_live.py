@@ -108,6 +108,13 @@ CASOS = [
         "estado_esperado": "InStock",
         "acepta_excluido": True,  # EXCLUIDO es aceptable (tamaño-ambiguo)
     },
+    {
+        "slug":            "optimum-nutrition/micronized-creatine-powder-317g",
+        "url":             "https://www.nutritienda.com/es/optimum-nutrition/micronized-creatine-powder",
+        "nombre_listing":  "Micronized Creatine Powder 317g",
+        "precio_esperado": 22.90,
+        "estado_esperado": "Agotado",
+    },
 ]
 
 

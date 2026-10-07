@@ -1985,13 +1985,87 @@ def generar_pares_comparacion(
     ids_faltantes: list[str] = []
     slugs_degradados: set = set()
 
+    # Índice URL → producto actual para alias por URL (productos renombrados)
+    _url_to_producto: dict = {}
+    for _p in productos_web:
+        for _pr in _p.get("precios", []):
+            _u = _pr.get("url_afiliado", "")
+            if _u:
+                _url_to_producto[_u] = _p
+
+    def _hacer_alias(missing_id: str, producto: dict) -> dict:
+        """Crea una vista alias del producto que preserva el slug_publico del ID antiguo.
+        Así la URL de la comparación no cambia aunque el producto haya sido renombrado.
+        Solo se sobreescribe slug_publico si el ID antiguo no contiene 'desconocida'.
+        """
+        if "desconocida" in missing_id:
+            return producto
+        return {**producto, "slug_publico": missing_id}
+
+    def _alias_por_url(missing_id: str):
+        """Devuelve el producto actual con la misma URL que el producto anterior, o None."""
+        if not productos_previos_by_id:
+            return None
+        prev = productos_previos_by_id.get(missing_id)
+        if not prev:
+            return None
+        for pr in prev.get("precios", []):
+            u = pr.get("url_afiliado", "")
+            if u and u in _url_to_producto:
+                alias = _url_to_producto[u]
+                print(f"  [alias-url] {missing_id} → {alias['id']} ({u.split('/es/')[-1] if '/es/' in u else u})")
+                return _hacer_alias(missing_id, alias)
+        return None
+
+    def _alias_por_nombre(missing_id: str):
+        """Busca en productos actuales por tokens del nombre + marca del ID.
+        Fallback cuando el ID ya no está en products.json anterior (ej. rename que lleva varios builds).
+        Solo actúa si hay exactamente un candidato — ambigüedad → sin alias.
+        """
+        partes = missing_id.rsplit("-", 1)
+        if len(partes) != 2:
+            return None
+        name_slug, marca_slug = partes
+        # Tokens del nombre: excluir gramajes y palabras vacías
+        tokens = [t for t in name_slug.split("-")
+                  if t and not re.match(r'^\d+(g|kg|ml|mg|l)?$', t, re.IGNORECASE)
+                  and t not in ('de', 'la', 'el', 'en', 'y', 'con', 'sin')]
+        if not tokens:
+            return None
+        candidatos = []
+        for p in productos_web:
+            nombre_lower = p.get("nombre_normalizado", "").lower()
+            marca_lower = p.get("marca", "").lower()
+            if marca_slug not in marca_lower and marca_lower not in marca_slug:
+                continue
+            if all(t in nombre_lower for t in tokens):
+                candidatos.append(p)
+        if len(candidatos) == 1:
+            alias = candidatos[0]
+            print(f"  [alias-nombre] {missing_id} → {alias['id']}")
+            return _hacer_alias(missing_id, alias)
+        if len(candidatos) > 1:
+            print(f"  [alias-nombre] {missing_id} → {len(candidatos)} candidatos, sin alias")
+        return None
+
     for par in comp_data.get("pares", []):
         id_a = par["id_a"]
         id_b = par["id_b"]
         pa = by_id.get(id_a)
         pb = by_id.get(id_b)
 
-        # Fallback: usar datos del build anterior marcados como agotados temporalmente
+        # Fallback 1a: alias por URL del build anterior
+        if pa is None:
+            pa = _alias_por_url(id_a)
+        if pb is None:
+            pb = _alias_por_url(id_b)
+        # Fallback 1b: alias por nombre+marca si el ID ya no está en products.json anterior
+        if pa is None:
+            pa = _alias_por_nombre(id_a)
+        if pb is None:
+            pb = _alias_por_nombre(id_b)
+
+        # Fallback 2: usar datos del build anterior marcados como agotados temporalmente
         if pa is None and productos_previos_by_id:
             prev = productos_previos_by_id.get(id_a)
             if prev:

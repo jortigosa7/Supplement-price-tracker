@@ -244,6 +244,9 @@ def _resolver_precio_variante(
                         mismo_precio_instock = [oi for oi in instock if oi.get("price") == p_ref]
                         if mismo_precio_instock:
                             return (float(p_ref), False, False)
+                        # Variante identificada por SKU pero está agotada. Devolver su precio
+                        # como agotado sin caer a estrategias a/b que podrían coger otra talla.
+                        return (float(p_ref), False, True)
                     break
 
         # Estrategia a: coincidencia por peso o unidades en el nombre del offer
