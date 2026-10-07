@@ -2021,11 +2021,18 @@ def generar_pares_comparacion(
         """Busca en productos actuales por tokens del nombre + marca del ID.
         Fallback cuando el ID ya no está en products.json anterior (ej. rename que lleva varios builds).
         Solo actúa si hay exactamente un candidato — ambigüedad → sin alias.
+        El peso del ID (500g, 1kg, 908g…) debe coincidir con el del candidato.
         """
         partes = missing_id.rsplit("-", 1)
         if len(partes) != 2:
             return None
         name_slug, marca_slug = partes
+        # Extraer peso del name_slug (ej. "500g", "1kg", "908g")
+        peso_id = None
+        for t in name_slug.split("-"):
+            if re.match(r'^\d+(g|kg|ml|mg|l)$', t, re.IGNORECASE):
+                peso_id = t.lower()
+                break
         # Tokens del nombre: excluir gramajes y palabras vacías
         tokens = [t for t in name_slug.split("-")
                   if t and not re.match(r'^\d+(g|kg|ml|mg|l)?$', t, re.IGNORECASE)
@@ -2038,8 +2045,13 @@ def generar_pares_comparacion(
             marca_lower = p.get("marca", "").lower()
             if marca_slug not in marca_lower and marca_lower not in marca_slug:
                 continue
-            if all(t in nombre_lower for t in tokens):
-                candidatos.append(p)
+            if not all(t in nombre_lower for t in tokens):
+                continue
+            # Verificar coincidencia de peso si el ID lo especifica
+            if peso_id is not None:
+                if peso_id not in nombre_lower:
+                    continue
+            candidatos.append(p)
         if len(candidatos) == 1:
             alias = candidatos[0]
             print(f"  [alias-nombre] {missing_id} → {alias['id']}")
@@ -2117,8 +2129,18 @@ def _slugs_comparaciones_existentes_para_ids(ids_faltantes: list) -> set:
         # Quitar el último token (marca) para obtener la raíz del slug
         raiz = fid.rsplit("-", 1)[0]
         for entry in os.listdir(comparar_dir):
-            if raiz in entry and os.path.isfile(os.path.join(comparar_dir, entry, "index.html")):
-                slugs.add(entry)
+            html_path = os.path.join(comparar_dir, entry, "index.html")
+            if raiz not in entry or not os.path.isfile(html_path):
+                continue
+            # Excluir páginas de redirección (meta-refresh)
+            try:
+                with open(html_path, "rb") as _hf:
+                    cabecera = _hf.read(512).lower()
+                if b"http-equiv" in cabecera and b"refresh" in cabecera:
+                    continue
+            except OSError:
+                continue
+            slugs.add(entry)
     if slugs:
         print(f"  [scan docs/comparar/] {len(slugs)} página(s) preservada(s) por raíz de ID irrecuperable:")
         for s in sorted(slugs):
@@ -3195,10 +3217,11 @@ if __name__ == "__main__":
     print("\n🔍 Ejecutando checks post-build...")
     _checks_ok = run_all_checks(
         productos_web,
-        n_comparaciones=len(compare_slugs) + len(_slugs_degradados - set(compare_slugs)),
+        n_comparaciones=len(compare_slugs),
         grupos_multitienda=grupos_mt,
         docs_dir=DOCS_DIR,
         fechas_por_tienda=fechas_por_tienda,
+        ids_faltantes_gen=_ids_faltantes_gen,
     )
 
     # Limpiar _precio_fresco después de los checks (el check lo necesita hasta aquí)

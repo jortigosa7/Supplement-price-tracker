@@ -243,7 +243,6 @@ def _check_metricas(stats_act: dict, stats_ant: dict) -> list[str]:
 
     errores = []
     campos = [
-        ("n_comparaciones",    "comparaciones generadas"),
         ("grupos_multitienda", "grupos multi-tienda"),
         ("n_sitemap",          "páginas en sitemap"),
     ]
@@ -258,6 +257,71 @@ def _check_metricas(stats_act: dict, stats_ant: dict) -> list[str]:
                 f"[CHECK 4] {label} bajó: {act} ahora vs {ant} antes (−{ant - act}).\n"
                 f"  Si es intencionado (borraste un par de comparaciones.json), ignora.\n"
                 f"  Si no, busca qué página desapareció o qué grupo se perdió."
+            )
+
+    return errores
+
+
+# ── Check 4b: pares sin cobertura (ni página real ni redirección) ────────────
+
+def _check_pares_sin_cobertura(ids_faltantes_gen: list, docs_dir: str) -> list[str]:
+    """
+    Para cada par de comparaciones.json con al menos un ID no resolvible,
+    comprueba que exista una página de comparación real o una entrada en
+    redirecciones.json que cubra ese par. Error si ninguna de las dos.
+    """
+    if not ids_faltantes_gen:
+        return []
+
+    errores = []
+
+    with open(COMP_FILE, encoding="utf-8") as f:
+        comp_data = json.load(f)
+
+    redirecciones = []
+    if os.path.exists(REDIR_FILE):
+        with open(REDIR_FILE, encoding="utf-8") as f:
+            redirecciones = json.load(f)
+    desde_list = [r.get("desde", "") for r in redirecciones]
+
+    ids_sin_pagina = set(ids_faltantes_gen)
+    comparar_dir = os.path.join(docs_dir, "comparar")
+
+    for par in comp_data.get("pares", []):
+        id_a = par["id_a"]
+        id_b = par["id_b"]
+        if id_a not in ids_sin_pagina and id_b not in ids_sin_pagina:
+            continue  # par resuelto normalmente
+
+        # Verificar si hay página de comparación real (no meta-refresh) para algún ID del par
+        tiene_pagina = False
+        if os.path.isdir(comparar_dir):
+            for entry in os.listdir(comparar_dir):
+                html_path = os.path.join(comparar_dir, entry, "index.html")
+                if not os.path.isfile(html_path):
+                    continue
+                if id_a not in entry and id_b not in entry:
+                    continue
+                try:
+                    with open(html_path, "rb") as hf:
+                        cabecera = hf.read(512).lower()
+                    if b"http-equiv" in cabecera and b"refresh" in cabecera:
+                        continue
+                except OSError:
+                    continue
+                tiene_pagina = True
+                break
+
+        if tiene_pagina:
+            continue
+
+        # Verificar si hay una redirección que cubra este par
+        tiene_redir = any(id_a in d or id_b in d for d in desde_list)
+        if not tiene_redir:
+            errores.append(
+                f"[CHECK 4] Par sin cobertura: {id_a} vs {id_b}\n"
+                f"  No hay página de comparación ni entrada en redirecciones.json.\n"
+                f"  Añade una redirección en data/redirecciones.json o recupera el producto."
             )
 
     return errores
@@ -782,6 +846,7 @@ def run_all_checks(
     grupos_multitienda: int,
     docs_dir: str = DOCS_DIR,
     fechas_por_tienda: dict | None = None,
+    ids_faltantes_gen: list | None = None,
 ) -> bool:
     """
     Corre todos los checks post-build.
@@ -823,6 +888,7 @@ def run_all_checks(
     errores += _check_enlaces_internos(docs_dir)
     errores += _check_por_tienda(por_tienda, stats_ant.get("por_tienda", {}), productos_web=productos_web)
     errores += _check_metricas(stats_act, stats_ant)
+    errores += _check_pares_sin_cobertura(ids_faltantes_gen or [], docs_dir)
     errores += _check_desconocido(docs_dir, productos_web)
     _check_nombre_peso_desajuste(productos_web)
     errores += _check_precio_rango(productos_web)
