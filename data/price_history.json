@@ -154726,5 +154726,143 @@
     "fecha": "2026-10-07",
     "precio": 6.29,
     "tienda": "Prozis"
+  },
+  {
+    "producto_id": "creatina-monohidrato-creapure-creatina-sin-gluten-300g-dymatize",
+    "fecha": "2026-10-07",
+    "precio": 24.96,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "yamamoto-creatinapro-creapure-500g-creatina-premium-yamamoto-nutrition",
+    "fecha": "2026-10-07",
+    "precio": 49.95,
+    "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "energy-charge-preentrenamiento-800g-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 20.69,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-300g-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 8.5,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanina-900g-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 26.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "beta-alanina-300g-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 10.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "powered-cafe-preentrenamiento-250g-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 11.24,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "malato-de-l-citrulina-300g-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 13.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "malato-de-l-citrulina-150g-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 9.09,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sachet-powa-3-0-pre-workout-17-8g-cola-x-3-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 3.3,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sachet-powa-3-0-pre-workout-17-5g-apple-x-3-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 3.8,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sachet-ripped-pre-workout-ultra-concentrated-12-3g-x-3-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 4.77,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-46-servings-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 24.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "extreme-big-shot-pre-workout-20-servings-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 12.5,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-sin-cafeina-46-dosis-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 18.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-citrulina-2250-mg-90-comprimidos-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 14.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-23-servings-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 11.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-2400-mg-90-comprimidos-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 7.5,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-8-sticks-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 6.29,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "big-shot-pre-workout-100-caps-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 13.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "cogniview-ultimate-gaming-cognitive-vision-complex-60-caps-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 15.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "l-arginina-2400-mg-180-comprimidos-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 21.58,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "hydrolyzed-whey-protein-isolate-990g-hivital",
+    "fecha": "2026-10-07",
+    "precio": 39.9,
+    "tienda": "Nutritienda"
   }
 ]
