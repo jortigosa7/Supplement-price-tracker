@@ -507,8 +507,12 @@ def _regla_exclusion_flat(nombre: str, cat_norm: str, precio_eur) -> str | None:
         return 'liquido'
     if _RE_GAINER_FLAT.search(n):
         return 'gainer'
-    if re.search(r'\bisomaltulos|\bpalatnos', n):
-        return 'isomaltulosa'
+    if re.search(r'\bdextrosa\b|\bmaltodextrina\b|\bciclodextrina\b|\bamilopectina\b|\bvitargo\b|\bisomaltulos|\bpalatnos|\bcarbohidrato|\bdextrina\b|\bevodextrin\b', n):
+        return 'carbohidratos'
+    if re.search(r'\bbicarbonato\b', n):
+        return 'bicarbonato'
+    if re.search(r'\bácido málico\b|\bacido malico\b|\bmalic acid\b', n):
+        return 'acido_malico'
     # Alimentos: excluir aunque lleven pre-workout en el nombre
     if re.search(r'\bmug cake\b|\bcake\b|\bpancake\b|\btortitas?\b|\bgalletas?\b|\bbarritas?\b', n):
         return 'alimento'
@@ -2751,10 +2755,25 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
         if kg_confirmado and peso_f and peso_f >= 0.1 and mediana and not _es_gainer and not _excluir_producto(p):
             kg_f = float(kg_confirmado)
             if kg_f < mediana * 0.20:
-                anomalias.append(
-                    f"  €/kg CONFIRMADO MUY BAJO: [{cat}] {nombre}\n"
-                    f"    €/kg={kg_f:.2f}  mediana_cat={mediana:.2f}  ratio={kg_f/mediana:.2f}x"
-                )
+                pid = p.get("id", "")
+                hist = hist_by_id.get(pid, [])
+                if hist:
+                    last_precio = hist[-1][2]  # más reciente (sorted by fecha)
+                    precio_min_f = float(precio_min) if precio_min else None
+                    caida = (precio_min_f / last_precio) if (precio_min_f and last_precio) else 1.0
+                    if caida >= 0.60:
+                        print(f"  ⚠️  AVISO [Regla 1] €/kg bajo con histórico estable: [{cat}] {nombre} "
+                              f"(€/kg={kg_f:.2f} vs mediana={mediana:.2f})")
+                    else:
+                        anomalias.append(
+                            f"  €/kg CONFIRMADO MUY BAJO (caída {1-caida:.0%} vs histórico): [{cat}] {nombre}\n"
+                            f"    €/kg={kg_f:.2f}  mediana_cat={mediana:.2f}  ratio={kg_f/mediana:.2f}x"
+                        )
+                else:
+                    anomalias.append(
+                        f"  €/kg CONFIRMADO MUY BAJO (sin histórico): [{cat}] {nombre}\n"
+                        f"    €/kg={kg_f:.2f}  mediana_cat={mediana:.2f}  ratio={kg_f/mediana:.2f}x"
+                    )
 
         # Regla 3: mínimo histórico (spark_min) inconsistente con precio actual
         # Agotados y sin_precio no tienen precio confirmado; su spark_min puede ser

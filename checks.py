@@ -347,7 +347,8 @@ UMBRAL_KG_BAJO = 0.20   # €/kg < 20% de la mediana → anómalo por abajo
 _RE_GAINER = re.compile(r"\b(gainer|ganador|arroz)\b", re.IGNORECASE)
 # Productos no-suplemento que vende HSN con €/kg muy bajo por definición
 _RE_BAJO_ESTRUCTURAL = re.compile(
-    r"\b(bicarbonato|isomaltulosa|palatinose|claras de huevo)\b", re.IGNORECASE
+    r"\b(bicarbonato|isomaltulosa|palatinose|claras de huevo"
+    r"|dextrosa|maltodextrina|ciclodextrina|amilopectina|vitargo)\b", re.IGNORECASE
 )
 
 
@@ -374,12 +375,31 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
 
     Por abajo: €/kg < UMBRAL_KG_BAJO × mediana → precio "desde" incorrecto o
       formato equivocado. Se EXCLUYE a gainers, cremas de arroz y productos con
-      €/kg bajo estructural (bicarbonato, isomaltulosa, claras de huevo).
+      €/kg bajo estructural (bicarbonato, isomaltulosa, claras de huevo, carbohidratos).
+      Si el producto tiene histórico estable (precio no ha bajado >40%), solo aviso.
       Umbral 20%: Evobasic a 5,54 €/kg (11%) salta; whey real a 30+ €/kg no.
 
     Incluye monodosis (<100 g): el extractor de peso o la selección de formato puede estar mal.
     """
+    import json as _json
     errores = []
+
+    # Cargar historial para distinguir caída real vs precio bajo estructural con historia
+    _history_path = os.path.join(os.path.dirname(__file__), "data", "price_history.json")
+    _hist_by_id: dict = defaultdict(list)
+    if os.path.exists(_history_path):
+        try:
+            with open(_history_path, encoding="utf-8") as _f:
+                for _e in _json.load(_f):
+                    _pid = _e.get("producto_id", "")
+                    _fecha = _e.get("fecha", "")
+                    _precio = _e.get("precio")
+                    if _pid and _fecha and _precio is not None:
+                        _hist_by_id[_pid].append((_fecha, float(_precio)))
+            for _pid in _hist_by_id:
+                _hist_by_id[_pid].sort(key=lambda x: x[0])
+        except Exception:
+            pass
 
     # La mediana se calcula excluyendo gainers para que no la arrastren hacia abajo
     kg_por_cat: dict[str, list[float]] = defaultdict(list)
@@ -420,6 +440,19 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
                     f"  Acción: verifica el precio y el peso en el scraper de origen."
                 )
         elif kg_f < mediana * UMBRAL_KG_BAJO and not _es_gainer(nombre) and not _es_bajo_estructural(nombre):
+            _pid = p.get("id", "")
+            _hist = _hist_by_id.get(_pid, [])
+            _precio_min = p.get("precio_min")
+            if _hist:
+                _last_precio = _hist[-1][1]
+                _precio_min_f = float(_precio_min) if _precio_min else None
+                _caida = (_precio_min_f / _last_precio) if (_precio_min_f and _last_precio) else 1.0
+                if _caida >= 0.60:
+                    print(
+                        f"  ⚠️  AVISO [CHECK 7] €/kg bajo con histórico estable: [{cat}] {nombre} "
+                        f"(€/kg={kg_f:.2f}, mediana={mediana:.2f})"
+                    )
+                    continue
             errores.append(
                 f"[CHECK 7] €/kg anormalmente BAJO: [{cat}] {nombre}\n"
                 f"  precio_por_kg={kg_f:.2f} €/kg  mediana_cat={mediana:.2f} €/kg  "
