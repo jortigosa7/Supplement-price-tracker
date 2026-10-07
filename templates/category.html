@@ -376,7 +376,11 @@
           <a href="{{ pr.url_afiliado }}" class="store-pill store-{{ sc }}" target="_blank" rel="nofollow sponsored noopener">
             <span class="store-pill-dot" style="background:{{ {"HSN":"var(--hsn)","Nutritienda":"var(--nutritienda)","Prozis":"var(--prozis)","MyProtein":"var(--myprotein)","Hivital":"var(--hivital)"}.get(pr.tienda, 'var(--amazon)') }};"></span>
             {% if pr.precio_por_unidad %}
-              {{ pr.tienda }} · {{ pr.precio_por_unidad|fmtd }} €/ud.{% if pr.n_unidades %} · {{ pr.n_unidades }} {{ pr.fmt_tipo or 'unidades' }}{% endif %}
+              {% if pr.fmt_tipo == 'dosis' %}
+                {{ pr.tienda }} · {{ pr.precio_por_unidad|fmtd }} €/dosis{% if pr.n_unidades %} · {{ pr.n_unidades }} dosis{% endif %}
+              {% else %}
+                {{ pr.tienda }} · {{ pr.precio_por_unidad|fmtd }} €/ud.{% if pr.n_unidades %} · {{ pr.n_unidades }} {{ pr.fmt_tipo or 'unidades' }}{% endif %}
+              {% endif %}
             {% else %}
               {{ pr.tienda }} · {{ pr.precio_eur|fmtd }} €
             {% endif %}

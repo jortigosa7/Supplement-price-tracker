@@ -512,17 +512,23 @@ def _regla_exclusion_flat(nombre: str, cat_norm: str, precio_eur) -> str | None:
     # Alimentos: excluir aunque lleven pre-workout en el nombre
     if re.search(r'\bmug cake\b|\bcake\b|\bpancake\b|\btortitas?\b|\bgalletas?\b|\bbarritas?\b', n):
         return 'alimento'
+    # Quemagrasas: siempre fuera
+    if re.search(r'\bcutting complex\b', n):
+        return 'cutting_complex'
 
     # Electrolitos como producto principal (no como aditivo de proteína/creatina)
     if re.search(r'\belectro', n):
-        m_main = re.search(r'\bcreatina\b|\bprote[íi]na?\b|\bwhey\b|\bbcaa\b', n)
         m_electro = re.search(r'\belectro', n)
+        m_main    = re.search(r'\bcreatina\b|\bprote[íi]na?\b|\bwhey\b|\bbcaa\b', n)
         if not m_main or m_main.start() > m_electro.start():
             return 'electrolito'
 
     # Exclusiones específicas por categoría
     if cat_norm == 'proteina-whey':
-        if re.search(r'\bcol[áa]geno\b|\bcollagen\b', n):       return 'colageno'
+        if re.search(r'\bcol[áa]geno\b|\bcollagen\b', n):
+            # Conservar si el colágeno es un añadido a un producto primariamente de whey/suero
+            if not re.search(r'\bwhey\b|\bsuero\b|\bprote[íi]na de leche\b', n):
+                return 'colageno'
         if re.search(r'\bcrema de arroz\b', n):                  return 'crema_arroz'
         if re.search(r'\bsmoothe?i?\b', n):                      return 'smoothie'
         if re.search(r'\biced coffee\b', n):                     return 'iced_coffee'
@@ -542,7 +548,7 @@ def _regla_exclusion_flat(nombre: str, cat_norm: str, precio_eur) -> str | None:
 
 def _fmt_tipo_label(raw: str) -> str:
     r = raw.lower()
-    if any(t in r for t in ('cap', 'cáp', 'vcap')):  return 'cápsulas'
+    if any(t in r for t in ('cap', 'cáp', 'vcap')):   return 'cápsulas'
     if any(t in r for t in ('comprimido', 'tablet')):  return 'comprimidos'
     if any(t in r for t in ('gumm', 'gominola')):      return 'gummies'
     if 'stick' in r:                                   return 'sticks'
@@ -561,7 +567,32 @@ def filtrar_productos_flat(productos: list[dict]) -> tuple[list[dict], dict]:
     - lista filtrada de productos (puede tener peso_kg recalculado o categoría cambiada)
     - formato_unidades_by_url: dict url → {precio_por_unidad, n_unidades, fmt_tipo}
       para usar en precios[] después de convertir_a_schema_web()
+      fmt_tipo='dosis' → label "€/dosis · N dosis" (count de ficha)
+      fmt_tipo=otro    → label "€/ud. · N <tipo>" (count del nombre)
     """
+    # Cargar nombres normalizados de productos protegidos (comparaciones.json + products.json)
+    _nombres_prot: set[str] = set()
+    try:
+        _data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+        _ids_prot: set[str] = set()
+        with open(os.path.join(_data_dir, "comparaciones.json"), encoding='utf-8') as _f:
+            for _par in json.load(_f).get('pares', []):
+                _ids_prot.add(_par['id_a'])
+                _ids_prot.add(_par['id_b'])
+        with open(os.path.join(_data_dir, "products.json"), encoding='utf-8') as _f:
+            for _p in json.load(_f).get('products', []):
+                if _p['id'] in _ids_prot:
+                    _nombres_prot.add(_p['nombre_normalizado'].lower())
+    except Exception:
+        pass
+
+    def _es_protegido(nombre: str) -> str | None:
+        n_lower = nombre.lower()
+        for nn in _nombres_prot:
+            if n_lower == nn or n_lower.startswith(nn[:40]) or nn.startswith(n_lower[:40]):
+                return nn
+        return None
+
     filtrados: list[dict] = []
     formato_unidades_by_url: dict = {}
     excl_por_tienda: dict = {}
@@ -578,7 +609,7 @@ def filtrar_productos_flat(productos: list[dict]) -> tuple[list[dict], dict]:
         cat_norm = _norm_cat_flat(cat_orig)
 
         # 1. Recategorización: proteina-whey con pre-workout en nombre → Pre-Entreno
-        #    (Excepto alimentos, que se excluyen en el paso siguiente)
+        #    Excepto alimentos, que se excluyen en el paso siguiente
         cat_efectiva = cat_norm
         if cat_norm == 'proteina-whey' and _RE_PRE_FLAT.search(nombre):
             if not re.search(
@@ -591,58 +622,98 @@ def filtrar_productos_flat(productos: list[dict]) -> tuple[list[dict], dict]:
         # 2. Exclusiones directas
         regla = _regla_exclusion_flat(nombre, cat_efectiva, precio)
         if regla:
-            excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
-            continue
+            prot = _es_protegido(nombre)
+            if prot:
+                print(f"  ⚠️  [PROTEGIDO] ignorando '{regla}' | {tienda} | {nombre[:60]}")
+            else:
+                excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
+                continue
 
-        # 3. Si sin peso_kg Y no hay keyword de unidades → polvo_sin_peso
-        #    Intentar calcular desde servings × serving_size_g
+        # 3. Sin peso_kg y sin keyword de unidades en nombre → resolver peso o formato_dosis
         peso_efectivo = peso_kg
         if (not peso_kg or peso_kg == 0) and not _RE_UNIT_TYPE_FLAT.search(nombre):
             spc = prod.get('servings_per_container')
             ssg = prod.get('serving_size_g')
-            if (spc and isinstance(spc, (int, float)) and int(spc) > 0
-                    and ssg and isinstance(ssg, (int, float)) and float(ssg) > 0):
-                peso_calc = int(spc) * float(ssg) / 1000
+            spc_val = int(spc) if (spc and isinstance(spc, (int, float)) and spc > 0) else 0
+            ssg_val = float(ssg) if (ssg and isinstance(ssg, (int, float)) and ssg > 0) else 0.0
+
+            if spc_val > 0 and ssg_val > 0:
+                # Polvo: intentar calcular peso desde servings × serving_size_g
+                peso_calc = spc_val * ssg_val / 1000
                 if peso_calc >= 0.1:
                     prod = dict(prod)
                     prod['peso_kg'] = peso_calc
                     peso_efectivo = peso_calc
                 else:
+                    # Peso calculado demasiado pequeño → monodosis, excluir
+                    prot = _es_protegido(nombre)
+                    if prot:
+                        print(f"  ⚠️  [PROTEGIDO] ignorando 'monodosis_calc' | {tienda} | {nombre[:60]}")
+                    else:
+                        excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
+                        continue
+            elif spc_val > 0:
+                # spc existe pero no ssg → cápsulas/tabs/polvo HSN sin peso declarado
+                # Tratar como formato_unidades: "€/dosis · N dosis"
+                prot = _es_protegido(nombre)
+                if prot:
+                    print(f"  ⚠️  [PROTEGIDO] ignorando formato_dosis | {tienda} | {nombre[:60]}")
+                elif precio:
+                    formato_unidades_by_url[url] = {
+                        'precio_por_unidad': round(float(precio) / spc_val, 4),
+                        'n_unidades':        spc_val,
+                        'fmt_tipo':          'dosis',
+                    }
+                filtrados.append(prod)
+                continue
+            else:
+                # Sin spc → polvo sin peso calculable, excluir
+                prot = _es_protegido(nombre)
+                if prot:
+                    print(f"  ⚠️  [PROTEGIDO] ignorando 'polvo_sin_peso' | {tienda} | {nombre[:60]}")
+                else:
                     excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
                     continue
-            else:
-                excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
-                continue
 
-        # 4. Formato-unidades: caps/tabs/gummies/sticks/viales/sobres
+        # 4. Formato-unidades: caps/tabs/gummies/sticks/viales/sobres en nombre
         m_count = _RE_UNIT_COUNT_FLAT.search(nombre)
         if m_count:
-            n_ud   = int(m_count.group(1))
-            ftype  = _fmt_tipo_label(m_count.group(2))
-            if precio:
+            # Count explícito en nombre → "€/ud. · N <tipo>"
+            n_ud  = int(m_count.group(1))
+            ftype = _fmt_tipo_label(m_count.group(2))
+            prot  = _es_protegido(nombre)
+            if prot:
+                print(f"  ⚠️  [PROTEGIDO] ignorando formato_unidades | {tienda} | {nombre[:60]}")
+            elif precio:
                 formato_unidades_by_url[url] = {
                     'precio_por_unidad': round(float(precio) / n_ud, 4),
                     'n_unidades':        n_ud,
                     'fmt_tipo':          ftype,
                 }
         elif _RE_UNIT_TYPE_FLAT.search(nombre):
-            # Keyword de unidades pero sin count en nombre — intentar servings_per_container
+            # Keyword en nombre pero sin count → intentar servings_per_container → "€/dosis"
             spc = prod.get('servings_per_container')
             if spc and isinstance(spc, (int, float)) and int(spc) > 0:
-                n_ud  = int(spc)
-                ftype = _fmt_tipo_label(_RE_UNIT_TYPE_FLAT.search(nombre).group(1))
-                if precio:
+                n_ud = int(spc)
+                prot = _es_protegido(nombre)
+                if prot:
+                    print(f"  ⚠️  [PROTEGIDO] ignorando formato_dosis | {tienda} | {nombre[:60]}")
+                elif precio:
                     formato_unidades_by_url[url] = {
                         'precio_por_unidad': round(float(precio) / n_ud, 4),
                         'n_unidades':        n_ud,
-                        'fmt_tipo':          ftype,
+                        'fmt_tipo':          'dosis',
                     }
             else:
-                # Sin count → excluir
-                excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
-                continue
+                # Sin count en nombre ni en spc → excluir
+                prot = _es_protegido(nombre)
+                if prot:
+                    print(f"  ⚠️  [PROTEGIDO] ignorando 'unidades_sin_count' | {tienda} | {nombre[:60]}")
+                else:
+                    excl_por_tienda[tienda] = excl_por_tienda.get(tienda, 0) + 1
+                    continue
 
-        # Si la categoría cambió, actualizar el dict (copia para no mutar)
+        # Actualizar categoría si cambió (copia para no mutar)
         if cat_efectiva != cat_norm:
             prod = dict(prod)
             prod['categoria'] = 'Pre-Entreno'
@@ -653,7 +724,7 @@ def filtrar_productos_flat(productos: list[dict]) -> tuple[list[dict], dict]:
     print(f"\n  [filtrar_productos_flat] Excluidos: {total_excl} "
           f"({dict(sorted(excl_por_tienda.items()))})")
     print(f"  [filtrar_productos_flat] Recategorizados → Pre-Entreno: {recategorizados}")
-    print(f"  [filtrar_productos_flat] Con €/ud: {len(formato_unidades_by_url)}")
+    print(f"  [filtrar_productos_flat] Con €/dosis o €/ud: {len(formato_unidades_by_url)}")
     print(f"  [filtrar_productos_flat] Pasan al matching: {len(filtrados)}")
 
     return filtrados, formato_unidades_by_url
