@@ -154864,5 +154864,35 @@
     "fecha": "2026-10-07",
     "precio": 39.9,
     "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "porridge-de-arroz-proteico-720g-speculoos-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 17.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "porridge-de-arroz-proteico-720g-toffee-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 17.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "batidos-essential-2-5kg-2-5kg-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 89.99,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "3-x-supreme-whey-protein-30g-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 4.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "real-whey-hydro-collagen-25g-x-3-desconocida",
+    "fecha": "2026-10-07",
+    "precio": 3.99,
+    "tienda": "Prozis"
   }
 ]

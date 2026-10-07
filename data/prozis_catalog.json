@@ -1,0 +1,622 @@
+{
+  "https://www.prozis.com/es/es/prozis/zero-bcaa-300-g": {
+    "nombre": "Zero BCAA 300 g",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/bcaa-211-300-g": {
+    "nombre": "BCAA 2:1:1 300 g",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/bcaa-811-300-g": {
+    "nombre": "BCAA 8:1:1 300 g",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/zero-bcaa-150-g": {
+    "nombre": "Zero BCAA 150 g",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/bcaa-811-180-tabs": {
+    "nombre": "BCAA 8:1:1 180 tabs",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/bcaa-glutamine-30-servings": {
+    "nombre": "BCAA + Glutamine 30 servings",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/bcaa-211-200-tabs": {
+    "nombre": "BCAA 2:1:1 200 tabs",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/amino-recovery-20-servings": {
+    "nombre": "Amino Recovery 20 servings",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/amino-prime-caffeine-free-20-servings": {
+    "nombre": "Amino Prime Caffeine Free 20 Servings",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/amino-prime-20-servings": {
+    "nombre": "Amino Prime 20 servings",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/bcaa-811-360-tabs": {
+    "nombre": "BCAA 8:1:1 360 tabs",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/bcaa-211-400-tabs": {
+    "nombre": "BCAA 2:1:1 - 400 tabs",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/bcaa-glutamine-60-servings": {
+    "nombre": "BCAA + Glutamine 60 servings",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/bcaa-411-100-tabs": {
+    "nombre": "BCAA 4:1:1 100 tabs",
+    "categoria": "BCAA",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-600-g": {
+    "nombre": "Monohidrato de Creatina 600 g",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/creatina-glycofusion-300-g": {
+    "nombre": "Creatina GlycoFusion 300 g",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g": {
+    "nombre": "Monohidrato de Creatina 300 g",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/creatina-micronpure-600g": {
+    "nombre": "Creatina MicronPure 600g",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/creatina-creapure-300-g": {
+    "nombre": "Creatina Creapure® 300 g",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/zero-creatine-300-g": {
+    "nombre": "Zero Creatine 300 g",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g": {
+    "nombre": "Creatina MicronPure 300 g",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/zero-creatine-150-g": {
+    "nombre": "Zero Creatine 150 g",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/creatina-creapure-professional-150-g": {
+    "nombre": "Creatina Creapure® Professional 150 g",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/creatina-creapure-80-capsulas": {
+    "nombre": "Creatina Creapure® 80 cápsulas",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/creatina-creapure-90-comprimidos-masticables": {
+    "nombre": "Creatina Creapure® 90 comprimidos masticables",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/creatine-creapure-320-caps": {
+    "nombre": "Creatine Creapure® 320 caps",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-90-comprimidos": {
+    "nombre": "Monohidrato de Creatina 90 comprimidos",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-speculoos-400-g": {
+    "nombre": "Pre-workout Protein Mug Cake - Speculoos 400 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-cafe-y-caramelo-400-g": {
+    "nombre": "Pre-workout Protein Mug Cake - Café y Caramelo 400 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-chocolate-400-g": {
+    "nombre": "Pre-workout Protein Mug Cake - Chocolate 400 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/pre-workout-protein-mug-cake-premix-vainilla-y-pepitas-de-chocolate-400-g": {
+    "nombre": "Pre-workout Protein Mug Cake Premix - Vainilla y Pepitas de Chocolate 400 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/energy-charge-preentrenamiento-800-g": {
+    "nombre": "Energy Charge - Preentrenamiento 800 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/n.o.-shox-1320g": {
+    "nombre": "N.O. Shox 1320g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/beta-alanina-900-g": {
+    "nombre": "Beta-alanina 900 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/l-arginina-300-g": {
+    "nombre": "L-arginina 300 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/beta-alanina-300-g": {
+    "nombre": "Beta-alanina 300 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/powered-cafe-preentrenamiento-250-g": {
+    "nombre": "Powered - Café Preentrenamiento 250 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-300-g": {
+    "nombre": "Malato de L-Citrulina 300 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-150-g": {
+    "nombre": "Malato de L-Citrulina 150 g",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/3-x-sachet-powa-3.0-pre-workout-17.8g-cola": {
+    "nombre": "Sachet POWA 3.0 Pre-Workout 17.8g Cola x 3",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-46-servings": {
+    "nombre": "Big Shot - Pre-Workout 46 servings",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/12-x-big-shot-pre-workout-60-ml": {
+    "nombre": "12 x Big Shot - Pre-Workout 60 mL",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/powa-3.0-pre-workout-20-servings": {
+    "nombre": "POWA 3.0 Pre-Workout 20 servings",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-sin-cafeina-46-dosis": {
+    "nombre": "Big Shot - Pre-Workout sin cafeína 46 dosis",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/extreme-big-shot-pre-workout-20-servings": {
+    "nombre": "Extreme Big Shot - Pre-Workout 20 servings",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/ripped-pre-workout-30-dosis": {
+    "nombre": "RIPPED Pre-Workout 30 dosis",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/l-citrulina-2250-mg-90-comprimidos": {
+    "nombre": "L-citrulina 2250 mg 90 comprimidos",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/x-boost-ultimate-gaming-pre-workout-25-servings": {
+    "nombre": "X-Boost - Ultimate Gaming Pre-Workout 25 servings",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/l-arginina-2400-mg-90-comprimidos": {
+    "nombre": "L-arginina 2400 mg 90 comprimidos",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-8-sticks": {
+    "nombre": "Big Shot - Pre-Workout - 8 sticks",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/beta-alanina-100-capsulas": {
+    "nombre": "Beta-alanina 100 cápsulas",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-23-servings": {
+    "nombre": "Big Shot - Pre-Workout 23 servings",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/aakg-l-arginina-akg-60-capsulas": {
+    "nombre": "AAKG - L-arginina AKG 60 cápsulas",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-100-caps": {
+    "nombre": "Big Shot - Pre-Workout 100 caps",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/beta-alanine-90-capsulas": {
+    "nombre": "Beta-Alanine 90 cápsulas",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/l-arginina-l-ornitina-l-lisina-120-capsulas": {
+    "nombre": "L-arginina L-ornitina L-lisina 120 cápsulas",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/cogniview-ultimate-gaming-cognitive-vision-complex-60-caps": {
+    "nombre": "CogniView - Ultimate Gaming Cognitive & Vision Complex - 60 caps",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/powa-3.0-pre-workout-40-servings": {
+    "nombre": "POWA 3.0 Pre-Workout 40 servings",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/aakg-l-arginina-akg-180-capsulas": {
+    "nombre": "AAKG - L-arginina AKG 180 cápsulas",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/l-arginina-2400-mg-180-comprimidos": {
+    "nombre": "L-Arginina 2400 mg 180 comprimidos",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/l-arginina-l-ornitina-l-lisina-360-capsulas": {
+    "nombre": "L-arginina L-ornitina L-lisina 360 cápsulas",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-90-tabs": {
+    "nombre": "Big Shot - Pre-Workout 90 tabs",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-180-tabs": {
+    "nombre": "Big Shot - Pre-Workout 180 tabs",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/porridge-de-arroz-proteico-720-g-speculoos": {
+    "nombre": "Porridge de Arroz Proteico 720 g - Speculoos",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/porridge-de-arroz-proteico-720-g-toffee": {
+    "nombre": "Porridge de Arroz Proteico 720 g - Toffee",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-whey-prime-1000-g": {
+    "nombre": "100% Whey Prime 1000 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/batido-sustitutivo-de-comida-army-800-g": {
+    "nombre": "Batido Sustitutivo de Comida Army 800 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sustituto-de-comida-800-g": {
+    "nombre": "Sustituto de Comida 800 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/whey-fibre-700-g": {
+    "nombre": "Whey + Fibre 700 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/peanut-whey-protein-907g": {
+    "nombre": "Peanut Whey Protein 907g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/whey-protein-fusion-900-g": {
+    "nombre": "Whey Protein Fusion 900 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/capuchino-proteico-400-g": {
+    "nombre": "Capuchino Proteico 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-400-g": {
+    "nombre": "Latte de Caramelo Proteico 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/real-whey-hydro-collagen-907g": {
+    "nombre": "Real Whey + Hydro Collagen 907g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/whey-protein-fusion-700g": {
+    "nombre": "Whey Protein Fusion 700g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/supreme-whey-protein-907g": {
+    "nombre": "Supreme Whey Protein 907g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g": {
+    "nombre": "100% Whey Prime + Creatine 907g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-real-whey-protein-907g": {
+    "nombre": "100% Real Whey Protein 907g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-real-whey-protein-1814g": {
+    "nombre": "100% Real Whey Protein 1814g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/capuchino-proteico-con-cafeina-extra-400-g": {
+    "nombre": "Capuchino Proteico - Con Cafeína Extra 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-con-cafeina-extra-400-g": {
+    "nombre": "Latte de Caramelo Proteico - Con Cafeína Extra 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/latte-de-avellana-proteico-400-g": {
+    "nombre": "Latte de Avellana Proteico 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/mocachino-proteico-con-cafeina-extra-400-g": {
+    "nombre": "Mocachino Proteico - Con Cafeína Extra 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/latte-de-avellana-proteico-con-cafeina-extra-400-g": {
+    "nombre": "Latte de Avellana Proteico - Con Cafeína Extra 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/latte-proteico-400-g": {
+    "nombre": "Latte Proteico 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/mocachino-proteico-400-g": {
+    "nombre": "Mocachino Proteico 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/natural-real-whey-protein-907g": {
+    "nombre": "Natural Real Whey Protein 907g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/natural-real-whey-protein-1814g": {
+    "nombre": "Natural Real Whey Protein 1814g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/zero-diet-whey-1500-g": {
+    "nombre": "Zero Diet Whey 1500 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/whey-protein-freakin-good-400-g": {
+    "nombre": "Whey Protein - Freakin Good 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/supreme-whey-protein-400g": {
+    "nombre": "Supreme Whey Protein 400g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-real-whey-protein-400-g": {
+    "nombre": "100% Real Whey Protein 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/zero-diet-whey-750-g": {
+    "nombre": "Zero Diet Whey 750 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-400-g": {
+    "nombre": "100% Whey Prime + Creatine 400 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-907g": {
+    "nombre": "Natural Real Whey Isolate 907g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-1814-g": {
+    "nombre": "Natural Real Whey Isolate 1814 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-clear-700g": {
+    "nombre": "100% Whey Hydro Isolate Clear 700g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/2-x-sachet-100-whey-prime-25g": {
+    "nombre": "Sachet 100% Whey Prime + Creatine 25g x 2",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/3-x-sachet-100-real-whey-protein-30-g": {
+    "nombre": "Sachet 100 % Real Whey Protein 30g x 3",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-real-whey-protein-20-servings-vanilla": {
+    "nombre": "100% Real Whey Protein - 20 servings - Vanilla",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-real-whey-protein-20-servings-belgian-chocolate": {
+    "nombre": "100% Real Whey Protein - 20 servings - Belgian Chocolate",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/yogo-whey-high-protein-shake-15-servings": {
+    "nombre": "Yogo Whey - High-Protein Shake 15 servings",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/yogo-whey-creatine-high-protein-shake-15-serv": {
+    "nombre": "Yogo Whey + Creatine - High-Protein Shake 15 serv",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-real-whey-protein-20-servings-cookies-and-cream": {
+    "nombre": "100% Real Whey Protein - 20 servings - Cookies and Cream",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/3-x-supreme-whey-protein-30g": {
+    "nombre": "3 x Supreme Whey Protein 30g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/3-x-real-whey-hydro-collagen-25g": {
+    "nombre": "Real Whey + Hydro Collagen 25g x 3",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/porridge-de-arroz-proteico-720-g": {
+    "nombre": "Porridge de Arroz Proteico 720 g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/peanut-whey-protein-450g": {
+    "nombre": "Peanut Whey Protein 450g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/real-whey-hydro-collagen-400g": {
+    "nombre": "Real Whey + Hydro Collagen 400g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-supreme-whey-protein-30g-x-3": {
+    "nombre": "Sachet Supreme Whey Protein 30g x 3",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-powa-3.0-pre-workout-17.5g-apple-x-3": {
+    "nombre": "Sachet POWA 3.0 Pre-Workout 17.5g Apple x 3",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-powa-3.0-pre-workout-17.8g-cola-x-3": {
+    "nombre": "Sachet POWA 3.0 Pre-Workout 17.8g Cola x 3",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-ripped-pre-workout-ultra-concentrated-12.3-g-x-3": {
+    "nombre": "Sachet RIPPED Pre-Workout Ultra Concentrated 12.3 g x 3",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-60ml-x-2": {
+    "nombre": "Big Shot - Pre-Workout 60ml x 2",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/n.o.-maxshot-60ml-x-2": {
+    "nombre": "N.O. MaxShot 60ml x 2",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-black-series-700g": {
+    "nombre": "100% Whey Hydro Isolate Black Series 700g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-pro-black-series-700g": {
+    "nombre": "100% Whey Hydro Isolate PRO Black Series 700g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-clear-black-series-700g": {
+    "nombre": "100% Whey Hydro Isolate Clear Black Series 700g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-100-whey-prime-creatine-25g-x-2": {
+    "nombre": "Sachet 100% Whey Prime + Creatine 25g x 2",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-yogo-whey-creatine-high-protein-shake-30g-x-3": {
+    "nombre": "Sachet Yogo Whey + Creatine - High-Protein Shake 30g x 3",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-yogo-whey-high-protein-shake-30g-x-3": {
+    "nombre": "Sachet Yogo Whey - High-Protein Shake 30g x 3",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-100-real-whey-protein-silkwhey-30-g-x-3": {
+    "nombre": "Sachet 100 % Real Whey Protein - SilkWhey 30 g x 3",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-100-real-whey-protein-30g-x-3": {
+    "nombre": "Sachet 100 % Real Whey Protein 30g x 3",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/sachet-real-whey-hydro-collagen-25g-x-3": {
+    "nombre": "Sachet Real Whey + Hydro Collagen 25g x 3",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-07"
+  }
+}
