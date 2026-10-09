@@ -533,5 +533,15 @@
     "nombre": "BCAA Energy",
     "categoria": "Pre-Entreno",
     "first_seen": "2026-10-07"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-milkshake-krispy-kreme/17765948/": {
+    "nombre": "Impact Whey Protein Milkshake - Krispy Kreme®",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-09"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-isolate-milkshake-krispy-kreme/17765947/": {
+    "nombre": "Impact Whey Isolate Milkshake – Krispy Kreme®",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-09"
   }
 }

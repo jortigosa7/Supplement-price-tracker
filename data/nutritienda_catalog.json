@@ -1418,5 +1418,17 @@
   "https://www.nutritienda.com/es/yamamoto-nutrition/creatinapro-creapure-500g": {
     "categoria": "Creatina",
     "first_seen": "2026-10-07"
+  },
+  "https://www.nutritienda.com/es/universal-nutrition/animal-100-whey-protein-1-kg": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-09"
+  },
+  "https://www.nutritienda.com/es/universal-nutrition/creatine-6820": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-09"
+  },
+  "https://www.nutritienda.com/es/amix-pro/cellup-shot-pre-entrenamiento-20-unidades-de-60ml": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-09"
   }
 }
