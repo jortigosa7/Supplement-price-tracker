@@ -579,16 +579,6 @@
     "categoria": "Proteinas Whey",
     "first_seen": "2026-10-07"
   },
-  "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-pro-black-series-700g": {
-    "nombre": "100% Whey Hydro Isolate PRO Black Series 700g",
-    "categoria": "Proteinas Whey",
-    "first_seen": "2026-10-07"
-  },
-  "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-clear-black-series-700g": {
-    "nombre": "100% Whey Hydro Isolate Clear Black Series 700g",
-    "categoria": "Proteinas Whey",
-    "first_seen": "2026-10-07"
-  },
   "https://www.prozis.com/es/es/prozis/sachet-100-whey-prime-creatine-25g-x-2": {
     "nombre": "Sachet 100% Whey Prime + Creatine 25g x 2",
     "categoria": "Proteinas Whey",
@@ -618,5 +608,20 @@
     "nombre": "Sachet Real Whey + Hydro Collagen 25g x 3",
     "categoria": "Proteinas Whey",
     "first_seen": "2026-10-07"
+  },
+  "https://www.prozis.com/es/es/prozis/whey-hydro-isolate-pro-black-series-700g": {
+    "nombre": "Whey Hydro Isolate PRO Black Series 700g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-12"
+  },
+  "https://www.prozis.com/es/es/prozis/whey-hydro-isolate-black-series-700g": {
+    "nombre": "Whey Hydro Isolate Black Series 700g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-12"
+  },
+  "https://www.prozis.com/es/es/prozis/whey-hydro-isolate-clear-black-series-700g": {
+    "nombre": "Whey Hydro Isolate Clear Black Series 700g",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-12"
   }
 }
