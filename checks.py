@@ -844,6 +844,70 @@ def _check_precio_fresco_myprotein(productos_web: list[dict]) -> list[str]:
     ]
 
 
+# ── Check JSON-LD de productos en comparaciones ──────────────────────────────
+
+_RE_JSONLD = re.compile(r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.DOTALL | re.IGNORECASE)
+
+
+def _check_jsonld_products(docs_dir: str) -> list[str]:
+    """
+    Parsea el JSON-LD de todos los HTML en docs/comparar/ y falla si algún
+    Product no tiene name, image y offers con lowPrice.
+    """
+    import json as _json
+    errores = []
+    comparar_dir = os.path.join(docs_dir, "comparar")
+    if not os.path.isdir(comparar_dir):
+        return []
+
+    for entry in sorted(os.listdir(comparar_dir)):
+        html_path = os.path.join(comparar_dir, entry, "index.html")
+        if not os.path.isfile(html_path):
+            continue
+        try:
+            contenido = Path(html_path).read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
+
+        # Buscar todos los bloques JSON-LD
+        for match in _RE_JSONLD.finditer(contenido):
+            raw = match.group(1).strip()
+            try:
+                data = _json.loads(raw)
+            except Exception:
+                continue
+
+            items = []
+            if isinstance(data, dict):
+                if data.get("@type") == "Product":
+                    items = [data]
+                elif "@graph" in data:
+                    items = [x for x in data["@graph"] if isinstance(x, dict) and x.get("@type") == "Product"]
+            elif isinstance(data, list):
+                items = [x for x in data if isinstance(x, dict) and x.get("@type") == "Product"]
+
+            for prod in items:
+                nombre = prod.get("name")
+                imagen = prod.get("image")
+                offers = prod.get("offers", {})
+                low_price = offers.get("lowPrice") if isinstance(offers, dict) else None
+
+                if not nombre:
+                    errores.append(
+                        f"[CHECK JSON-LD] Product sin name en: comparar/{entry}/\n"
+                        f"  Acción: revisar el template de comparación."
+                    )
+                if not imagen:
+                    print(f"  ⚠️  AVISO [CHECK JSON-LD] Product sin image en: comparar/{entry}/ (nombre={nombre!r})")
+                if low_price is None:
+                    errores.append(
+                        f"[CHECK JSON-LD] Product sin offers.lowPrice en: comparar/{entry}/ (nombre={nombre!r})\n"
+                        f"  Acción: el producto puede estar agotado o sin precio; no debe emitirse Product."
+                    )
+
+    return errores
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def run_all_checks(
@@ -900,6 +964,7 @@ def run_all_checks(
     errores += _check_precio_rango(productos_web)
     errores += _check_ids(ids_act, set(stats_ant.get("ids", [])))
     errores += _check_slugs(slugs_act, set(stats_ant.get("slugs", [])))
+    errores += _check_jsonld_products(docs_dir)
     errores += _check_gsc_cobertura(docs_dir)
     errores += _check_scrape_stats()
     errores += _check_productos_ausentes(ids_act, stats_ant)

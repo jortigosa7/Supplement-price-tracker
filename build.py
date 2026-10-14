@@ -57,16 +57,16 @@ ENABLE_ALERTAS = False
 CATEGORIA_CONFIG = {
     "Proteínas Whey": {
         "slug":     "proteina-whey",
-        "display":  "Proteínas",
+        "display":  "Proteína Whey",
         "icono":    "🥛",
         "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12l-1.5 4H7.5L6 4z"/><path d="M7.5 8c0 0-.5 2-.5 5s.5 5 .5 5h9s.5-2 .5-5-.5-5-.5-5"/><path d="M9 13h6"/></svg>',
         "seo_title": "Mejor Precio Proteína Whey España 2026",
-        "seo_desc":  "Compara 63 proteínas whey en España ordenadas por €/kg. "
+        "seo_desc":  "Compara proteínas whey en España ordenadas por €/kg. "
                      "Encuentra la más barata entre HSN, MyProtein, Nutritienda y Prozis. Precios actualizados.",
         "keywords":  "mejor precio proteína whey España, comprar whey barato, "
                      "proteína whey oferta España, whey protein precio",
         "h1":    "Mejor Precio Proteína Whey España",
-        "intro": "Comparativa actualizada de proteínas whey disponibles en tiendas españolas. "
+        "intro": "Comparativa actualizada de proteínas whey (suero de leche) disponibles en tiendas españolas. "
                  "Ordenado por precio/kg para que siempre pagues lo justo, sin importar el tamaño del bote.",
         "guia_titulo": "Cómo elegir la mejor proteína whey por precio/kg",
         "guia_texto": (
@@ -114,6 +114,73 @@ CATEGORIA_CONFIG = {
             {
                 "q": "¿Cuánto tiempo dura un kilo de whey?",
                 "a": "Con un servicio diario de 30 g, aproximadamente 33 días.",
+            },
+        ],
+    },
+    "Proteína Vegana": {
+        "slug":        "proteina-vegana",
+        "source_slug": "proteina-whey",   # productos vienen de proteina-whey filtrados por subcategoria
+        "subcategoria": "vegana",
+        "display":  "Proteína Vegana",
+        "icono":    "🌱",
+        "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22c0 0 4-2 8-8s4-8 4-8"/><path d="M22 2s-4 2-8 8-4 8-4 8"/><path d="M12 12c0 0-2-4-2-8"/></svg>',
+        "seo_title": "Mejor Precio Proteína Vegana España 2026",
+        "seo_desc":  "Compara proteínas veganas en España ordenadas por €/kg. "
+                     "Soja, guisante, arroz, cáñamo y mezclas vegetales. Precios actualizados.",
+        "keywords":  "mejor precio proteína vegana España, proteína vegetal barata, "
+                     "proteína guisante precio, proteína arroz España",
+        "h1":    "Mejor Precio Proteína Vegana España",
+        "intro": "Comparativa de proteínas vegetales disponibles en tiendas españolas. "
+                 "Soja, guisante, arroz, cáñamo y mezclas veganas, ordenadas por €/kg.",
+        "guia_titulo": "Cómo elegir proteína vegana: fuentes y precio por kg",
+        "guia_texto": (
+            "Las proteínas vegetales han mejorado mucho en los últimos años: perfiles de "
+            "aminoácidos más completos, mejor palatabilidad y precios cada vez más competitivos. "
+            "Pero no todas las fuentes son iguales.\n\n"
+            "¿Soja, guisante o arroz? La proteína de soja es la más completa nutricionalmente "
+            "(perfil de aminoácidos similar a la whey), pero puede dar problemas digestivos a "
+            "algunas personas. La de guisante tiene un buen contenido en leucina y se tolera muy "
+            "bien. La de arroz es más incompleta en aminoácidos (baja en lisina), por lo que "
+            "es mejor combinarla con legumbres o guisante.\n\n"
+            "Las mezclas veganas combinan varias fuentes para cubrir las deficiencias de cada una. "
+            "Suelen costar un poco más, pero ofrecen un perfil más equilibrado.\n\n"
+            "¿Es igual de efectiva que la whey? Para el aumento de masa muscular, la evidencia "
+            "reciente muestra resultados similares cuando se igualan las dosis de leucina y proteína "
+            "total. La clave está en tomar suficiente cantidad, no en la fuente.\n\n"
+            "Cómo comparar por €/kg: las proteínas veganas suelen costar algo más que la whey "
+            "concentrada por kilo, pero menos que la whey aislada. Compara siempre los gramos de "
+            "proteína por servicio — algunas mezclas veganas tienen solo un 60-70% de proteína "
+            "frente al 80-90% de la soja aislada."
+        ),
+        "como_comparamos": (
+            "Comparamos proteínas veganas de soja, guisante, arroz, cáñamo y mezclas de HSN, "
+            "MyProtein, Nutritienda, Prozis e Hivital. Precio/kg actualizado varias veces por semana."
+        ),
+        "faq": [
+            {
+                "q": "¿La proteína vegana es igual de buena que la whey?",
+                "a": (
+                    "Para ganar músculo, sí, si se toma la dosis adecuada. La clave es consumir "
+                    "suficiente leucina y proteína total al día. Las mezclas veganas (guisante + "
+                    "arroz, por ejemplo) tienen un perfil de aminoácidos muy similar al de la whey."
+                ),
+            },
+            {
+                "q": "¿Qué fuente vegetal de proteína es mejor?",
+                "a": (
+                    "La soja aislada tiene el mejor perfil de aminoácidos de las proteínas veganas. "
+                    "El guisante es buena alternativa si hay sensibilidad a la soja. Las mezclas "
+                    "(guisante + arroz, o multi-fuente) cubren las deficiencias de cada fuente individual."
+                ),
+            },
+            {
+                "q": "¿Soja o guisante: cuál elegir?",
+                "a": (
+                    "Depende: si no tienes problema con la soja, la soja aislada ofrece mejor "
+                    "perfil de aminoácidos y suele ser más barata. El guisante se digiere mejor "
+                    "y no tiene fitoestrógenos, por lo que es la opción preferida de muchos "
+                    "deportistas que quieren evitar la soja."
+                ),
             },
         ],
     },
@@ -978,6 +1045,54 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
                 p["servings_per_container"] = None
                 p["serving_size_g"] = None
 
+    # ── Campos derivados ────────────────────────────────────────────────────
+    _RE_CREATINA_EXCLUIR = re.compile(
+        r"\b(cápsula|capsulas|caps|comprimido|tableta|masticable|gummies|gummy"
+        r"|carbs|colágeno|bcaa|malato|hcl|kre.alkalyn|complex|matrix"
+        r"|power mix|mezcla)\b"
+        r"|\+",
+        re.IGNORECASE,
+    )
+
+    n_pct_prot = 0
+    n_coste_mes = 0
+
+    for p in productos_web:
+        cat = p.get("categoria", "")
+
+        # subcategoria_proteina (solo proteina-whey)
+        if cat == "proteina-whey":
+            p["subcategoria_proteina"] = _subcategoria_proteina(
+                p.get("nombre_display", ""),
+                p.get("nombre_normalizado", ""),
+                p.get("protein_subtype"),
+                p.get("id", ""),
+            )
+
+        # porcentaje_proteina y precio_por_kg_proteina
+        prot_g = p.get("protein_per_serving_g")
+        serv_g = p.get("serving_size_g")
+        kg_min = p.get("precio_por_kg_min")
+        p["porcentaje_proteina"] = None
+        p["precio_por_kg_proteina"] = None
+        if prot_g and serv_g and serv_g > 0:
+            ratio = float(prot_g) / float(serv_g)
+            if 0.30 <= ratio <= 1.0:
+                p["porcentaje_proteina"] = round(ratio, 3)
+                if kg_min:
+                    p["precio_por_kg_proteina"] = round(float(kg_min) / ratio, 2)
+                    n_pct_prot += 1
+
+        # coste_mes: solo creatina monohidrato en polvo (5 g/día × 30 días = 150 g)
+        p["coste_mes"] = None
+        if cat == "creatina" and kg_min:
+            nombre_lower = (p.get("nombre_display") or p.get("nombre_normalizado", "")).lower()
+            if not _RE_CREATINA_EXCLUIR.search(nombre_lower):
+                p["coste_mes"] = round(float(kg_min) * 0.150, 2)
+                n_coste_mes += 1
+
+    print(f"   → {n_pct_prot} productos con €/kg de proteína; {n_coste_mes} creatinas con coste/mes")
+
     return productos_web
 
 
@@ -1223,7 +1338,14 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
     # Datos de categorías para las tarjetas
     categories = []
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
-        prods_cat = [p for p in productos_web if p["categoria"] == cfg["slug"]]
+        source_slug      = cfg.get("source_slug", cfg["slug"])
+        subcategoria_flt = cfg.get("subcategoria")
+        prods_cat = [p for p in productos_web if p["categoria"] == source_slug]
+        if subcategoria_flt:
+            prods_cat = [p for p in prods_cat if p.get("subcategoria_proteina") == subcategoria_flt]
+        elif cfg["slug"] == "proteina-whey":
+            # proteina-whey muestra solo whey (no vegana, no otra)
+            prods_cat = [p for p in prods_cat if p.get("subcategoria_proteina") == "whey"]
         if not prods_cat:
             continue
         # Usar solo productos principales (excluye muestras, mal-categorizado, etc.)
@@ -1255,12 +1377,13 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
     all_search = []
     for p in sorted(con_precio_kg, key=lambda x: x["precio_por_kg_min"]):
         all_search.append({
-            "nombre":      p.get("nombre_display") or p["nombre_normalizado"],
-            "marca":       p.get("marca", ""),
-            "cat":         p["categoria"],
-            "cat_display": p["categoria_display"],
-            "peso_kg":     p.get("peso_kg"),
-            "precio_kg":   p["precio_por_kg_min"],
+            "nombre":             p.get("nombre_display") or p["nombre_normalizado"],
+            "marca":              p.get("marca", ""),
+            "cat":                p["categoria"],
+            "cat_display":        p["categoria_display"],
+            "peso_kg":            p.get("peso_kg"),
+            "precio_kg":          p["precio_por_kg_min"],
+            "precio_kg_proteina": p.get("precio_por_kg_proteina"),
             "tiendas": [
                 {
                     "tienda":           pr["tienda"],
@@ -1494,6 +1617,74 @@ def limpiar_nombre_display(nombre: str) -> str:
 
     return nombre
 
+# ── Clasificación whey / vegana / otra ─────────────────────────────────────
+# Prioridad: whey > vegana > otra > fallback whey
+
+_WHEY_KW = re.compile(
+    r"\b(whey|suero|isolate|isolada|aislada de suero|wpc|wpi"
+    r"|hidrolizado de suero|evowhey|evolate|evobasic|evoexcel|evohydro"
+    r"|impact whey|gold standard)\b"
+    r"|suero de leche",
+    re.IGNORECASE,
+)
+
+_VEGANA_KW = re.compile(
+    r"\b(soja|soy|guisante|pea|arroz|rice|vegan|vegetal|cáñamo|hemp"
+    r"|garbanzo|calabaza|vegana|vegano)\b",
+    re.IGNORECASE,
+)
+
+_OTRA_KW = re.compile(
+    r"\b(caseína|caseina|caseinato|casein|huevo|egg|albúmina|albumina"
+    r"|claras|carne|beef|colágeno|colageno|collagen)\b"
+    r"|aislado de proteína de leche|aislado de proteina de leche",
+    re.IGNORECASE,
+)
+
+# Dict de excepciones manuales: id_producto → subcategoria_proteina
+# Para corregir clasificaciones automáticas incorrectas
+_SUBCATEGORIA_EXCEPCIONES: dict[str, str] = {
+    # Ejemplo: "product-id-here": "whey",
+}
+
+
+def _subcategoria_proteina(nombre_display: str, nombre_norm: str, protein_subtype, prod_id: str) -> str:
+    """
+    Clasifica un producto de proteina-whey en:
+    - "whey": suero, isolate, WPC, WPI, etc.
+    - "vegana": soja, guisante, arroz, cáñamo, mezclas vegetales, etc.
+    - "otra": caseína, huevo, carne, colágeno, etc.
+
+    Si el ID está en _SUBCATEGORIA_EXCEPCIONES, usa esa clasificación.
+    Si no encaja, cae en "whey" con aviso.
+    """
+    if prod_id in _SUBCATEGORIA_EXCEPCIONES:
+        return _SUBCATEGORIA_EXCEPCIONES[prod_id]
+
+    nombre = (nombre_display or nombre_norm or "").lower()
+    subtype = (protein_subtype or "").lower()
+
+    # 1. Prioridad: whey
+    if _WHEY_KW.search(nombre):
+        return "whey"
+
+    # 2. Por subtype explícito whey
+    if subtype == "whey":
+        return "whey"
+
+    # 3. Vegana: keywords en nombre o subtype vegetal
+    if _VEGANA_KW.search(nombre) or subtype == "vegetal":
+        return "vegana"
+
+    # 4. Otra: caseína, huevo, carne, colágeno, o subtypes conocidos
+    if _OTRA_KW.search(nombre) or subtype in ("caseína", "caseina", "huevo", "carne", "secuencial"):
+        return "otra"
+
+    # 5. Fallback: whey con aviso
+    print(f"  ⚠️  subcategoria_proteina sin clasificar → 'whey': {nombre_display or nombre_norm!r}")
+    return "whey"
+
+
 # Keywords que deben ir a "Otros productos" según la categoría
 # (productos mal clasificados que distorsionan el ranking)
 KEYWORDS_EXCLUIR_POR_CATEGORIA = {
@@ -1603,15 +1794,34 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     """Genera docs/{slug}/index.html para una categoría."""
     template = env.get_template("category.html")
 
-    prods_cat = [p for p in productos_web if p["categoria"] == cfg["slug"]]
+    source_slug = cfg.get("source_slug", cfg["slug"])
+    subcategoria_filter = cfg.get("subcategoria")  # e.g. "vegana" para proteina-vegana
+
+    prods_cat = [p for p in productos_web if p["categoria"] == source_slug]
+
+    # Para categorías derivadas (proteina-vegana), filtrar por subcategoria_proteina
+    if subcategoria_filter:
+        prods_cat = [p for p in prods_cat if p.get("subcategoria_proteina") == subcategoria_filter]
 
     # Separar tabla principal de "Otros productos"
     prods_principales = [p for p in prods_cat if not _excluir_producto(p)]
     prods_otros       = [p for p in prods_cat if _excluir_producto(p)]
 
+    # Para proteina-whey: mostrar solo los de subcategoria "whey" en la tabla principal;
+    # las "otras proteínas" (caseína, huevo, carne) van en bloque separado.
+    products_otras_proteinas = []
+    if cfg["slug"] == "proteina-whey" and not subcategoria_filter:
+        prods_whey_main  = [p for p in prods_principales if p.get("subcategoria_proteina") == "whey"]
+        products_otras_proteinas = [
+            p for p in prods_principales
+            if p.get("subcategoria_proteina") == "otra"
+        ]
+        # Las veganas no van en ninguna de las dos secciones de la página whey
+        prods_principales = prods_whey_main
+
     # Añadir tipo_proteina a whey y ruta de imagen local
-    for p in prods_principales:
-        p["img_src"] = _img_local(p["id"], cfg["slug"], p.get("imagen_url"))
+    for p in prods_principales + products_otras_proteinas:
+        p["img_src"] = _img_local(p["id"], source_slug, p.get("imagen_url"))
         if cfg["slug"] == "proteina-whey":
             p["tipo_proteina"] = _tipo_proteina(p["nombre_normalizado"])
 
@@ -1661,28 +1871,33 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     comparaciones_cat = comparaciones_cat[:12]
 
     mes_anio = _mes_anio_es(last_updated)
+    # Usar seo_title / seo_desc del config si están definidos explícitamente,
+    # o generar ones genéricos. Para proteina-whey y proteina-vegana, el config ya tiene los buenos.
+    _seo_title = cfg.get("seo_title") or f"Comparador de {cfg['display']} en España: precios €/kg actualizados | StackFit"
+    _seo_desc  = cfg.get("seo_desc") or (
+        f"Compara precios de {cfg['display']} de HSN, MyProtein, Prozis y Nutritienda "
+        f"normalizados a €/kg. Encuentra la marca más barata en España. "
+        f"Actualizado en {mes_anio}."
+    )
     cat_ctx = {
         **cfg,
-        "seo_title": f"Comparador de {cfg['display']} en España: precios €/kg actualizados | StackFit",
-        "seo_desc":  (
-            f"Compara precios de {cfg['display']} de HSN, MyProtein, Prozis y Nutritienda "
-            f"normalizados a €/kg. Encuentra la marca más barata en España. "
-            f"Actualizado en {mes_anio}."
-        ),
+        "seo_title": _seo_title,
+        "seo_desc":  _seo_desc,
     }
 
     ctx = {
         **contexto_base(last_updated),
-        "active_slug":       cfg["slug"],
-        "cat":               cat_ctx,
-        "products":          prods_principales,
-        "products_otros":    prods_otros,
-        "tiendas":           tiendas,
-        "marcas":            marcas,
-        "precio_kg_min":     precio_kg_min,
-        "precio_kg_max":     precio_kg_max,
-        "slugs_comparacion": json.dumps(list(slugs_cat)),
-        "comparaciones_cat": comparaciones_cat,
+        "active_slug":             cfg["slug"],
+        "cat":                     cat_ctx,
+        "products":                prods_principales,
+        "products_otros":          prods_otros,
+        "products_otras_proteinas": products_otras_proteinas,
+        "tiendas":                 tiendas,
+        "marcas":                  marcas,
+        "precio_kg_min":           precio_kg_min,
+        "precio_kg_max":           precio_kg_max,
+        "slugs_comparacion":       json.dumps(list(slugs_cat)),
+        "comparaciones_cat":       comparaciones_cat,
     }
 
     html = template.render(**ctx)
@@ -2171,6 +2386,14 @@ def generar_comparaciones(env, productos_web: list, last_updated: str, productos
     for p in productos_web:
         if "img_src" not in p:
             p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
+        # img_src_abs: URL absoluta para JSON-LD (solo si es una ruta local o https)
+        img = p.get("img_src", "")
+        if img.startswith("/img/productos/") and "placeholder" not in img:
+            p["img_src_abs"] = f"{SITE_URL}{img}"
+        elif img.startswith("https://"):
+            p["img_src_abs"] = img
+        else:
+            p["img_src_abs"] = None
 
     template = env.get_template("compare.html")
 
@@ -3128,7 +3351,14 @@ if __name__ == "__main__":
 
     # Stats por categoría
     for cfg in CATEGORIA_CONFIG.values():
-        n = sum(1 for p in productos_web if p["categoria"] == cfg["slug"])
+        src = cfg.get("source_slug", cfg["slug"])
+        sub = cfg.get("subcategoria")
+        if sub:
+            n = sum(1 for p in productos_web if p["categoria"] == src and p.get("subcategoria_proteina") == sub)
+        elif cfg["slug"] == "proteina-whey":
+            n = sum(1 for p in productos_web if p["categoria"] == "proteina-whey" and p.get("subcategoria_proteina") == "whey")
+        else:
+            n = sum(1 for p in productos_web if p["categoria"] == cfg["slug"])
         print(f"   • {cfg['display']}: {n} productos")
 
     # 3. Guardar products.json

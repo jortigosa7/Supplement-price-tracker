@@ -60,19 +60,35 @@
       "mainEntity": [{% for f in faqs %}
         {"@type":"Question","name":{{ f.q|tojson }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a|tojson }}}}{% if not loop.last %},{% endif %}{% endfor %}
       ]
-    }{% endif %},
+    }{% endif %}{% set _precios_a = producto_a.precios | selectattr('precio_eur') | list %}{% set _precios_b = producto_b.precios | selectattr('precio_eur') | list %}{% if _precios_a and not producto_a.agotado and not producto_a.sin_precio %},
     {
       "@type": "Product",
-      "name": {{ (producto_a.nombre_display or producto_a.nombre_normalizado)|tojson }},
+      "name": {{ (producto_a.nombre_display or producto_a.nombre_normalizado)|tojson }}{% if producto_a.img_src_abs %},
+      "image": {{ producto_a.img_src_abs|tojson }}{% endif %},
       "brand": {"@type": "Brand", "name": {{ producto_a.marca|tojson }}},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/{% if producto_a.agotado or producto_a.sin_precio %}OutOfStock{% else %}InStock{% endif %}"{% if producto_a.precio_min and not producto_a.agotado and not producto_a.sin_precio %}, "price": {{ producto_a.precio_min }}{% endif %}}
-    },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": {{ '%.2f' | format((_precios_a | sort(attribute='precio_eur') | first).precio_eur) }},
+        "highPrice": {{ '%.2f' | format((_precios_a | sort(attribute='precio_eur') | last).precio_eur) }},
+        "offerCount": {{ _precios_a | length }},
+        "availability": "https://schema.org/InStock"
+      }
+    }{% endif %}{% if _precios_b and not producto_b.agotado and not producto_b.sin_precio %},
     {
       "@type": "Product",
-      "name": {{ (producto_b.nombre_display or producto_b.nombre_normalizado)|tojson }},
+      "name": {{ (producto_b.nombre_display or producto_b.nombre_normalizado)|tojson }}{% if producto_b.img_src_abs %},
+      "image": {{ producto_b.img_src_abs|tojson }}{% endif %},
       "brand": {"@type": "Brand", "name": {{ producto_b.marca|tojson }}},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/{% if producto_b.agotado or producto_b.sin_precio %}OutOfStock{% else %}InStock{% endif %}"{% if producto_b.precio_min and not producto_b.agotado and not producto_b.sin_precio %}, "price": {{ producto_b.precio_min }}{% endif %}}
-    }
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": {{ '%.2f' | format((_precios_b | sort(attribute='precio_eur') | first).precio_eur) }},
+        "highPrice": {{ '%.2f' | format((_precios_b | sort(attribute='precio_eur') | last).precio_eur) }},
+        "offerCount": {{ _precios_b | length }},
+        "availability": "https://schema.org/InStock"
+      }
+    }{% endif %}
   ]
 }
 </script>
@@ -379,6 +395,21 @@
           <td{% if veredicto.mas_proteina.side == 'b' %} class="winner-cell"{% endif %}>{% if gb %}{{ gb }} g{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         {% endif %}
+        {% if producto_a.porcentaje_proteina is not none or producto_b.porcentaje_proteina is not none %}
+        <tr>
+          <td class="label-col">% proteína</td>
+          <td>{% if producto_a.porcentaje_proteina is not none %}{{ (producto_a.porcentaje_proteina * 100)|round(0)|int }}%{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.porcentaje_proteina is not none %}{{ (producto_b.porcentaje_proteina * 100)|round(0)|int }}%{% else %}<span class="na-cell">—</span>{% endif %}</td>
+        </tr>
+        {% endif %}
+        {% if producto_a.precio_por_kg_proteina is not none or producto_b.precio_por_kg_proteina is not none %}
+        {% set _win_pkg_prot = 'a' if (producto_a.precio_por_kg_proteina and producto_b.precio_por_kg_proteina and producto_a.precio_por_kg_proteina < producto_b.precio_por_kg_proteina) else ('b' if (producto_a.precio_por_kg_proteina and producto_b.precio_por_kg_proteina and producto_b.precio_por_kg_proteina < producto_a.precio_por_kg_proteina) else none) %}
+        <tr>
+          <td class="label-col">€/kg proteína</td>
+          <td{% if _win_pkg_prot == 'a' %} class="winner-cell"{% endif %}>{% if producto_a.precio_por_kg_proteina is not none %}<span class="cmp-val-badge{% if _win_pkg_prot == 'a' %} win{% endif %}">{{ producto_a.precio_por_kg_proteina|fmtd }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td{% if _win_pkg_prot == 'b' %} class="winner-cell"{% endif %}>{% if producto_b.precio_por_kg_proteina is not none %}<span class="cmp-val-badge{% if _win_pkg_prot == 'b' %} win{% endif %}">{{ producto_b.precio_por_kg_proteina|fmtd }} €/kg</span>{% else %}<span class="na-cell">—</span>{% endif %}</td>
+        </tr>
+        {% endif %}
         {% if producto_a.servings_per_container is not none or producto_b.servings_per_container is not none %}
         <tr>
           <td class="label-col">Dosis por bote</td>
@@ -411,11 +442,15 @@
         <tr>
           <td class="label-col">Sabores</td>
           <td>
-            {% if producto_a.flavors_available %}{{ producto_a.flavors_available | join(", ") }}
+            {% if producto_a.flavors_available %}
+              {% set flavors = producto_a.flavors_available %}
+              {{ flavors[:6] | join(", ") }}{% if flavors | length > 6 %}<span style="display:none;" class="flavors-extra-a">, {{ flavors[6:] | join(", ") }}</span> <button onclick="this.previousElementSibling.style.display='inline';this.style.display='none';" style="background:none;border:none;color:var(--accent);font-size:0.78rem;cursor:pointer;padding:0;">+{{ flavors | length - 6 }} más</button>{% endif %}
             {% else %}<span class="na-cell">—</span>{% endif %}
           </td>
           <td>
-            {% if producto_b.flavors_available %}{{ producto_b.flavors_available | join(", ") }}
+            {% if producto_b.flavors_available %}
+              {% set flavors = producto_b.flavors_available %}
+              {{ flavors[:6] | join(", ") }}{% if flavors | length > 6 %}<span style="display:none;" class="flavors-extra-b">, {{ flavors[6:] | join(", ") }}</span> <button onclick="this.previousElementSibling.style.display='inline';this.style.display='none';" style="background:none;border:none;color:var(--accent);font-size:0.78rem;cursor:pointer;padding:0;">+{{ flavors | length - 6 }} más</button>{% endif %}
             {% else %}<span class="na-cell">—</span>{% endif %}
           </td>
         </tr>
@@ -507,6 +542,15 @@
     {% for parrafo in editorial %}
     <p>{{ parrafo | safe }}</p>
     {% endfor %}
+    {% if producto_a.precio_por_kg_proteina and producto_b.precio_por_kg_proteina %}
+    {% if producto_a.precio_por_kg_proteina < producto_b.precio_por_kg_proteina %}
+    {% set _diff_prot = ((producto_b.precio_por_kg_proteina - producto_a.precio_por_kg_proteina) / producto_b.precio_por_kg_proteina * 100)|round(0)|int %}
+    <p class="editorial-text" style="margin-top:8px;"><strong>Por kilo de proteína pura</strong>, {{ (producto_a.nombre_display or producto_a.nombre_normalizado) }} sale a {{ producto_a.precio_por_kg_proteina|fmtd }} €/kg de proteína frente a {{ producto_b.precio_por_kg_proteina|fmtd }} €/kg — un {{ _diff_prot }}% más barato.</p>
+    {% elif producto_b.precio_por_kg_proteina < producto_a.precio_por_kg_proteina %}
+    {% set _diff_prot = ((producto_a.precio_por_kg_proteina - producto_b.precio_por_kg_proteina) / producto_a.precio_por_kg_proteina * 100)|round(0)|int %}
+    <p class="editorial-text" style="margin-top:8px;"><strong>Por kilo de proteína pura</strong>, {{ (producto_b.nombre_display or producto_b.nombre_normalizado) }} sale a {{ producto_b.precio_por_kg_proteina|fmtd }} €/kg de proteína frente a {{ producto_a.precio_por_kg_proteina|fmtd }} €/kg — un {{ _diff_prot }}% más barato.</p>
+    {% endif %}
+    {% endif %}
   </div>
 </div>
 

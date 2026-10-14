@@ -12,46 +12,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "{{ cat.h1 }}",
-  "description": "{{ cat.seo_desc }}",
-  "numberOfItems": {{ [products | length, 10] | min }},
-  "itemListElement": [
-    {% set ns = namespace(count=0) %}
-    {% for p in products[:10] %}
-    {% set precios_validos = p.precios | selectattr('precio_eur') | list %}
-    {% if precios_validos %}
-    {% set precios_ord = precios_validos | sort(attribute='precio_eur') %}
-    {% set low  = precios_ord | first %}
-    {% set high = precios_ord | last %}
-    {% if ns.count > 0 %},{% endif %}
-    {% set ns.count = ns.count + 1 %}
-    {
-      "@type": "ListItem",
-      "position": {{ ns.count }},
-      "item": {
-        "@type": "Product",
-        "name": {{ p.nombre_normalizado | tojson }},
-        "url": {{ low.url_afiliado | tojson }},
-        "brand": { "@type": "Brand", "name": {{ p.marca | tojson }} },
-        "offers": {
-          "@type": "AggregateOffer",
-          "priceCurrency": "EUR",
-          "lowPrice": {{ '%.2f' | format(low.precio_eur) }},
-          "highPrice": {{ '%.2f' | format(high.precio_eur) }},
-          "offerCount": {{ [precios_validos | length, 1] | max }},
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    }
-    {% endif %}
-    {% endfor %}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type":"ListItem","position":1,"name":"Inicio","item":"{{ site_url }}/" },
@@ -110,7 +70,12 @@
   </header>
 
   <!-- ── Filtros avanzados ────────────────────────── -->
-  <div class="advanced-filters" id="advancedFilters">
+  <!-- ── Toggle filtros (móvil) ──────────────────────── -->
+  <button class="filters-toggle-btn" id="filtersToggleBtn" onclick="toggleFilters()" aria-expanded="false">
+    <span>Filtros <span id="filtersBadgeText"></span></span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="advanced-filters filters-collapsed" id="advancedFilters">
 
     <!-- Fila 1: tienda + marca -->
     <div class="filter-row">
@@ -236,6 +201,16 @@
           <div class="pc-price-main no-kg">{{ offer.precio_eur|fmtd }}<span class="pc-price-unit">€</span></div>
         {% endif %}
       </div>
+      {% if p.porcentaje_proteina and p.precio_por_kg_proteina %}
+      <div style="font-size:0.75rem; color:#888; margin-top:-4px;">
+        {{ p.precio_por_kg_proteina|fmtd }} €/kg proteína · {{ (p.porcentaje_proteina * 100)|round(0)|int }}%
+      </div>
+      {% endif %}
+      {% if p.coste_mes %}
+      <div style="font-size:0.75rem; color:#888; margin-top:-4px;">
+        ≈ {{ p.coste_mes|fmtd }} €/mes <span style="color:#555;">(5 g/día)</span>
+      </div>
+      {% endif %}
       {% if p.spark_svg %}
       <div class="spark-row">
         <div class="spark-info"><div class="spark-label">Evolución precio · últimas semanas</div>{{ p.spark_svg | safe }}</div>
@@ -286,6 +261,37 @@
       <button class="pagination-btn" id="btnNext" onclick="changePage(1)">Siguiente →</button>
     </div>
   </div>
+
+  {% if cat.slug == 'proteina-whey' and products_otras_proteinas %}
+  <div style="margin-top:48px;" id="secOtrasProteinas">
+    <h2 style="font-size:1rem; font-weight:700; color:var(--text-muted); margin-bottom:8px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.1);">
+      Otras proteínas: caseína, huevo y carne
+    </h2>
+    <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:14px;">
+      Proteínas de origen animal distintas del suero. El precio por kg no es directamente comparable con la whey.
+    </p>
+    <div class="others-list">
+      {% for p in products_otras_proteinas %}
+      {% set sc_map = {"HSN":"hsn","Nutritienda":"nutritienda","Prozis":"prozis","MyProtein":"myprotein","Hivital":"hivital"} %}
+      <div class="other-item">
+        <div class="other-name">
+          {{ (p.nombre_display or p.nombre_normalizado) }}
+          <span class="other-marca">{{ p.marca }}</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          {% for pr in p.precios | sort(attribute='precio_eur') %}
+          {% set sc = sc_map.get(pr.tienda, 'default') %}
+          <a href="{{ pr.url_afiliado }}" class="store-pill store-{{ sc }}" target="_blank" rel="nofollow sponsored noopener">
+            <span class="store-pill-dot" style="background:{{ {"HSN":"var(--hsn)","Nutritienda":"var(--nutritienda)","Prozis":"var(--prozis)","MyProtein":"var(--myprotein)","Hivital":"var(--hivital)"}.get(pr.tienda, 'var(--amazon)') }};"></span>
+            {{ pr.tienda }} · {{ pr.precio_eur|fmtd }} €{% if p.precio_por_kg_min %} · {{ p.precio_por_kg_min|fmtd }} €/kg{% endif %}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
 
   <!-- ── Info bar ──────────────────────────────────── -->
   <div class="info-bar" style="margin-top:32px;">
@@ -463,7 +469,7 @@
     btnNext.disabled = end >= total;
   }
 
-  function resetPage() { page = 0; render(); }
+  function resetPage() { page = 0; render(); updateFiltersBadge(); }
 
   // Tienda pills
   document.querySelectorAll('#storeFilters .store-filter-btn').forEach(btn => {
@@ -530,6 +536,7 @@
     });
     if (marcaSelect) marcaSelect.value = '';
     resetPage();
+    updateFiltersBadge();
   };
 
   window.changePage = function(dir) {
@@ -540,6 +547,33 @@
 
   render();
 })();
+
+// ── Mobile filter toggle ─────────────────────────────────────────────────────
+window.toggleFilters = function() {
+  var btn = document.getElementById('filtersToggleBtn');
+  var panel = document.getElementById('advancedFilters');
+  var collapsed = panel.classList.toggle('filters-collapsed');
+  btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+};
+
+function updateFiltersBadge() {
+  var badge = document.getElementById('filtersBadgeText');
+  if (!badge) return;
+  var rangeMin = document.getElementById('rangeMin');
+  var rangeMax = document.getElementById('rangeMax');
+  var active = 0;
+  if (fTienda) active++;
+  if (fMarca) active++;
+  if (fPeso) active++;
+  if (fTipo) active++;
+  if (fKgMin > parseFloat(rangeMin.min) || fKgMax < parseFloat(rangeMax.max)) active++;
+  badge.textContent = active > 0 ? ' · ' + active : '';
+  var btn = document.getElementById('filtersToggleBtn');
+  if (btn) {
+    var span = btn.querySelector('span');
+    if (span) span.innerHTML = 'Filtros' + (active > 0 ? ' <span class="filters-badge">' + active + '</span>' : '');
+  }
+}
 
 // ── Comparador ────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {

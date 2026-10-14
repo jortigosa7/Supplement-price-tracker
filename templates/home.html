@@ -65,6 +65,7 @@
       <select class="search-select" id="sortOrder">
         <option value="precio_kg">€/kg</option>
         <option value="precio_total">Precio total</option>
+        <option value="precio_kg_proteina">€/kg proteína</option>
       </select>
     </div>
   </section>
@@ -187,12 +188,10 @@
           </div>
           <div class="pc-actions">
             <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Mejor precio →</a>
-            <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn">Ver categoría</a>
           </div>
           {% else %}
           <div class="pc-actions">
             <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }} · {{ offer.precio_eur|fmtd }} €</a>
-            <a href="{{ site_url }}/{{ p.categoria }}/" class="pc-btn">Ver categoría</a>
           </div>
           {% endif %}
         </div>
@@ -313,12 +312,10 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
       actionsHtml = `<div class="pc-stores">${stores}</div>
         <div class="pc-actions">
           <a href="${esc(offer.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Mejor precio →</a>
-          <a href="${esc(siteUrl)}/${esc(p.cat)}/" class="pc-btn">Ver categoría</a>
         </div>`;
     } else {
       actionsHtml = `<div class="pc-actions">
         <a href="${esc(offer.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en ${esc(offer.tienda)} · ${offer.precio.toFixed(2).replace('.', ',')} €</a>
-        <a href="${esc(siteUrl)}/${esc(p.cat)}/" class="pc-btn">Ver categoría</a>
       </div>`;
     }
     return `<div class="product-card${isBest ? ' is-best' : ''}">
@@ -348,11 +345,11 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
       return terms.every(t => hay.includes(t));
     });
 
-    results.sort((a, b) =>
-      order === 'precio_total'
-        ? a.tiendas[0].precio       - b.tiendas[0].precio
-        : (a.precio_kg || 9999)     - (b.precio_kg || 9999)
-    );
+    results.sort((a, b) => {
+      if (order === 'precio_total') return a.tiendas[0].precio - b.tiendas[0].precio;
+      if (order === 'precio_kg_proteina') return (a.precio_kg_proteina || 99999) - (b.precio_kg_proteina || 99999);
+      return (a.precio_kg || 9999) - (b.precio_kg || 9999);
+    });
     return results;
   }
 

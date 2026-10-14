@@ -31,11 +31,12 @@ HSN, MyProtein, Prozis, Nutritienda, Hivital.
 
 ### Categorías cubiertas
 
-Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
+Proteína Whey, Proteína Vegana (subcategoría derivada de proteina-whey), Creatina, BCAA, Pre-Entreno. Todo normalizado a €/kg.
 
 ### Páginas generadas
 
 - Home con filtros
+- Páginas de categoría: `/proteina-whey/`, `/proteina-vegana/`, `/creatina/`, `/bcaa/`, `/pre-entreno/`
 - 57 páginas de comparación en `/comparar/<producto-vs-producto>/` (fijas, desde `data/comparaciones.json`)
 - 116 páginas meta-refresh de redirección desde URLs viejas (no van en sitemap)
 - Recomendador tipo quiz en `/test/`
@@ -50,12 +51,12 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - **Tipado**: no uses type hints exhaustivos. Hints solo en funciones públicas o donde aclaren algo de verdad.
 - **Comentarios**: en español, solo cuando el código no se explica solo. No comentes lo obvio.
 - **Commits**: mensajes en español, presente, imperativo. Ejemplo: "arregla selector de HSN para BCAA".
-- **Campos del JSON de productos**: están en español (`imagen_url`, `precio_min`, `tienda_mas_barata`, etc.). Si añades campos nuevos, mantén esta convención.
+- **Campos del JSON de productos**: están en español (`imagen_url`, `precio_min`, `tienda_mas_barata`, `subcategoria_proteina`, `porcentaje_proteina`, `precio_por_kg_proteina`, `coste_mes`, etc.). Si añades campos nuevos, mantén esta convención.
 
 ## Frontend
 
 - Tema oscuro con acento lima `#c8ff4d`.
-- Fuentes: DM Sans (cuerpo) + Instrument Serif (display). Había una iteración previa con Syne; si ves Syne en algún sitio, pregunta antes de cambiar.
+- Fuentes: Space Grotesk (cuerpo + display). Había iteraciones previas con DM Sans + Instrument Serif y con Syne; si ves alguna de esas fuentes en el código, pregunta antes de cambiar.
 - Vanilla JS, sin frameworks. CSS plano, sin Tailwind (a no ser que Javier lo pida).
 - Móvil first: la mayoría del tráfico esperado es móvil.
 
@@ -82,6 +83,9 @@ Whey protein, creatina, BCAA, pre-entreno. Todo normalizado a €/kg.
 - `ENABLE_ALERTAS = False` en `build.py`: flag para sección de alertas de precio. Desactivado.
 - Scraper Hivital (oct 2026): WooCommerce Store API pública; productos deportivos (whey, isolate, vegana, creatina, BCAA); enlace de afiliado Awin cread.php (MID 20039). Hivital en MARCAS_NORM para agrupar con los productos Hivital de Nutritienda. Soporta productos variable (una entrada por variación) y agotados.
 - Catálogo persistente HSN (oct 2026): igual que Nutritienda. URLs de productos HSN guardadas en `data/hsn_catalog.json`. Productos que salen de listados (agotados u OOS) se recuperan directamente con petición fresca y si `isSalable:false` se marcan `agotado=True`. Productos que dan 404 se eliminan del catálogo. Al inicializar vacío, el catálogo se puebla desde el dataset más reciente en `datasets/`.
+- Página `/proteina-vegana/` (oct 2026): categoría derivada de `proteina-whey`. Los productos se clasifican en `subcategoria_proteina` = `whey` / `vegana` / `otra` en `build.py::_subcategoria_proteina()` mediante keywords (`_WHEY_KW`, `_VEGANA_KW`, `_OTRA_KW`) y fallback al campo `protein_subtype` del scraper. La página `/proteina-whey/` muestra solo whey en el listado principal + sección "otras proteínas" (caseína, huevo, colágeno) debajo. Actualmente: ~144 whey, 17 vegana, 15 otra.
+- Métricas nutricionales en tarjetas (oct 2026): `porcentaje_proteina` = protein_per_serving_g/serving_size_g (solo si 0.30–1.0), `precio_por_kg_proteina` = precio_por_kg_min/porcentaje_proteina. Para creatina monohidrato en polvo (excluye caps/blends/+): `coste_mes` = precio_por_kg_min × 0.150. Todos los campos en `products.json`; se muestran en tarjetas de categoría y en tabla de comparaciones. Opción de ordenar por €/kg proteína en categorías y home.
+- JSON-LD en páginas de comparación (oct 2026): cada producto usa `AggregateOffer` con `lowPrice`/`highPrice`/`offerCount` + `image` desde `img_src_abs` (URL absoluta). Productos sin precio/agotados no emiten bloque Product. `checks.py::_check_jsonld_products()` valida que cada Product tenga `name` y `offers.lowPrice`; imagen ausente genera aviso (no error, Prozis suele carecer de imagen local).
 - Catálogo persistente MyProtein y Prozis (oct 2026): mismo patrón. `data/myprotein_catalog.json` y `data/prozis_catalog.json`. Máximo 30 fichas recuperadas por tienda y run, priorizando productos que aparezcan en `data/comparaciones.json`. Para MyProtein: requests normal. Para Prozis: Playwright (misma página del listado). Agotado: nombre y peso del catálogo, precio fresco de JSON-LD. Seed inicial desde los datasets de los últimos 30 días cuando el catálogo está vacío.
 
 ### Roto o pendiente
