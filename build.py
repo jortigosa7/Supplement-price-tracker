@@ -60,9 +60,6 @@ CATEGORIA_CONFIG = {
         "display":  "Proteína Whey",
         "icono":    "🥛",
         "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12l-1.5 4H7.5L6 4z"/><path d="M7.5 8c0 0-.5 2-.5 5s.5 5 .5 5h9s.5-2 .5-5-.5-5-.5-5"/><path d="M9 13h6"/></svg>',
-        "seo_title": "Mejor Precio Proteína Whey España 2026",
-        "seo_desc":  "Compara proteínas whey en España ordenadas por €/kg. "
-                     "Encuentra la más barata entre HSN, MyProtein, Nutritienda y Prozis. Precios actualizados.",
         "keywords":  "mejor precio proteína whey España, comprar whey barato, "
                      "proteína whey oferta España, whey protein precio",
         "h1":    "Mejor Precio Proteína Whey España",
@@ -124,9 +121,6 @@ CATEGORIA_CONFIG = {
         "display":  "Proteína Vegana",
         "icono":    "🌱",
         "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22c0 0 4-2 8-8s4-8 4-8"/><path d="M22 2s-4 2-8 8-4 8-4 8"/><path d="M12 12c0 0-2-4-2-8"/></svg>',
-        "seo_title": "Mejor Precio Proteína Vegana España 2026",
-        "seo_desc":  "Compara proteínas veganas en España ordenadas por €/kg. "
-                     "Soja, guisante, arroz, cáñamo y mezclas vegetales. Precios actualizados.",
         "keywords":  "mejor precio proteína vegana España, proteína vegetal barata, "
                      "proteína guisante precio, proteína arroz España",
         "h1":    "Mejor Precio Proteína Vegana España",
@@ -189,9 +183,6 @@ CATEGORIA_CONFIG = {
         "display":  "Creatina",
         "icono":    "⚡",
         "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M7 8h10"/><path d="M7 16h10"/><path d="M10 11.5h4"/></svg>',
-        "seo_title": "Mejor Precio Creatina España 2026",
-        "seo_desc":  "Compara creatina monohidrato y Creapure en España por €/kg. "
-                     "Los mejores precios entre HSN, MyProtein, Nutritienda y Prozis.",
         "keywords":  "mejor precio creatina España, comprar creatina barata, "
                      "creatina monohidrato oferta, creatina precio España",
         "h1":    "Mejor Precio Creatina España",
@@ -249,9 +240,6 @@ CATEGORIA_CONFIG = {
         "display":  "BCAA",
         "icono":    "💊",
         "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="6" rx="3"/><line x1="12" y1="9" x2="12" y2="15"/></svg>',
-        "seo_title": "Mejor Precio BCAA España 2026",
-        "seo_desc":  "Compara BCAA 2:1:1 y 4:1:1 en España por €/kg. "
-                     "Encuentra el precio más bajo entre las principales tiendas de suplementos.",
         "keywords":  "mejor precio BCAA España, comprar BCAA barato, "
                      "aminoácidos ramificados precio, BCAA oferta España",
         "h1":    "Mejor Precio BCAA España",
@@ -308,9 +296,6 @@ CATEGORIA_CONFIG = {
         "display":  "Pre-Entreno",
         "icono":    "🔥",
         "icon_svg": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2z"/></svg>',
-        "seo_title": "Mejor Precio Pre-Entreno España 2026",
-        "seo_desc":  "Compara pre-entrenos en España ordenados por €/kg. "
-                     "Precios actualizados de HSN, MyProtein, Nutritienda y Prozis.",
         "keywords":  "mejor precio pre-entreno España, comprar pre-workout barato, "
                      "pre-entreno oferta España, mejor pre-workout precio",
         "h1":    "Mejor Precio Pre-Entreno España",
@@ -1049,7 +1034,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
     _RE_CREATINA_EXCLUIR = re.compile(
         r"\b(cápsula|capsulas|caps|comprimido|tableta|masticable|gummies|gummy"
         r"|carbs|colágeno|bcaa|malato|hcl|kre.alkalyn|complex|matrix"
-        r"|power mix|mezcla)\b"
+        r"|power mix|mezcla|cellbest)\b"
         r"|\+",
         re.IGNORECASE,
     )
@@ -1354,7 +1339,7 @@ def generar_home(env, productos_web: list[dict], last_updated: str, comparacione
         precios_kg = [p["precio_por_kg_min"] for p in prods_main if p["precio_por_kg_min"]]
         categories.append({
             **cfg,
-            "count":      len(prods_cat),
+            "count":      len(prods_main),
             "precio_min": min(precios_kg) if precios_kg else 0,
         })
 
@@ -1621,23 +1606,34 @@ def limpiar_nombre_display(nombre: str) -> str:
 # Prioridad: whey > vegana > otra > fallback whey
 
 _WHEY_KW = re.compile(
-    r"\b(whey|suero|isolate|isolada|aislada de suero|wpc|wpi"
+    r"\b(whey|suero|isolate|isolac|isolada|aislada de suero|wpc|wpi"
     r"|hidrolizado de suero|evowhey|evolate|evobasic|evoexcel|evohydro"
-    r"|impact whey|gold standard)\b"
+    r"|impact whey|gold standard|iso|hydro|hydrolyzed|wheycore|cfm|protein.90)\b"
     r"|suero de leche",
     re.IGNORECASE,
 )
 
 _VEGANA_KW = re.compile(
     r"\b(soja|soy|guisante|pea|arroz|rice|vegan|vegetal|cáñamo|hemp"
-    r"|garbanzo|calabaza|vegana|vegano)\b",
+    r"|garbanzo|calabaza|vegana|vegano|plant)\b",
     re.IGNORECASE,
 )
 
 _OTRA_KW = re.compile(
     r"\b(caseína|caseina|caseinato|casein|huevo|egg|albúmina|albumina"
-    r"|claras|carne|beef|colágeno|colageno|collagen)\b"
-    r"|aislado de proteína de leche|aislado de proteina de leche",
+    r"|claras|carne|beef|colágeno|colageno|collagen"
+    r"|porridge|capuchino|latte|mocachino"
+    r"|recuperador|recovery|sustituto|smoothie)\b"
+    r"|aislado de proteína de leche|aislado de proteina de leche"
+    r"|todo.en.uno|café proteico",
+    re.IGNORECASE,
+)
+
+# Keywords de "otra" con prioridad sobre vegana (porridge, batidos, etc.)
+# Evita que "Porridge de Arroz" vaya a vegana por "arroz"
+_OTRA_FORCE_KW = re.compile(
+    r"\b(porridge|capuchino|latte|mocachino|recuperador|recovery|sustituto|smoothie)\b"
+    r"|todo.en.uno|café proteico",
     re.IGNORECASE,
 )
 
@@ -1664,6 +1660,10 @@ def _subcategoria_proteina(nombre_display: str, nombre_norm: str, protein_subtyp
     nombre = (nombre_display or nombre_norm or "").lower()
     subtype = (protein_subtype or "").lower()
 
+    # 0. Caseína: prioridad explícita (hidrolizado de caseína → otra, no whey)
+    if re.search(r"\b(caseína|caseina|caseinato|casein)\b", nombre, re.IGNORECASE):
+        return "otra"
+
     # 1. Prioridad: whey
     if _WHEY_KW.search(nombre):
         return "whey"
@@ -1672,11 +1672,15 @@ def _subcategoria_proteina(nombre_display: str, nombre_norm: str, protein_subtyp
     if subtype == "whey":
         return "whey"
 
-    # 3. Vegana: keywords en nombre o subtype vegetal
+    # 3a. Fuerza "otra" antes que vegana (porridge, batidos, recuperadores…)
+    if _OTRA_FORCE_KW.search(nombre):
+        return "otra"
+
+    # 3b. Vegana: keywords en nombre o subtype vegetal
     if _VEGANA_KW.search(nombre) or subtype == "vegetal":
         return "vegana"
 
-    # 4. Otra: caseína, huevo, carne, colágeno, o subtypes conocidos
+    # 4. Otra: huevo, carne, colágeno, etc., o subtypes conocidos
     if _OTRA_KW.search(nombre) or subtype in ("caseína", "caseina", "huevo", "carne", "secuencial"):
         return "otra"
 
@@ -1871,8 +1875,6 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     comparaciones_cat = comparaciones_cat[:12]
 
     mes_anio = _mes_anio_es(last_updated)
-    # Usar seo_title / seo_desc del config si están definidos explícitamente,
-    # o generar ones genéricos. Para proteina-whey y proteina-vegana, el config ya tiene los buenos.
     _seo_title = cfg.get("seo_title") or f"Comparador de {cfg['display']} en España: precios €/kg actualizados | StackFit"
     _seo_desc  = cfg.get("seo_desc") or (
         f"Compara precios de {cfg['display']} de HSN, MyProtein, Prozis y Nutritienda "

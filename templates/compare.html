@@ -398,8 +398,8 @@
         {% if producto_a.porcentaje_proteina is not none or producto_b.porcentaje_proteina is not none %}
         <tr>
           <td class="label-col">% proteína</td>
-          <td>{% if producto_a.porcentaje_proteina is not none %}{{ (producto_a.porcentaje_proteina * 100)|round(0)|int }}%{% else %}<span class="na-cell">—</span>{% endif %}</td>
-          <td>{% if producto_b.porcentaje_proteina is not none %}{{ (producto_b.porcentaje_proteina * 100)|round(0)|int }}%{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_a.porcentaje_proteina is not none %}{{ (producto_a.porcentaje_proteina * 100)|round(0)|int }} %{% else %}<span class="na-cell">—</span>{% endif %}</td>
+          <td>{% if producto_b.porcentaje_proteina is not none %}{{ (producto_b.porcentaje_proteina * 100)|round(0)|int }} %{% else %}<span class="na-cell">—</span>{% endif %}</td>
         </tr>
         {% endif %}
         {% if producto_a.precio_por_kg_proteina is not none or producto_b.precio_por_kg_proteina is not none %}
@@ -545,10 +545,10 @@
     {% if producto_a.precio_por_kg_proteina and producto_b.precio_por_kg_proteina %}
     {% if producto_a.precio_por_kg_proteina < producto_b.precio_por_kg_proteina %}
     {% set _diff_prot = ((producto_b.precio_por_kg_proteina - producto_a.precio_por_kg_proteina) / producto_b.precio_por_kg_proteina * 100)|round(0)|int %}
-    <p class="editorial-text" style="margin-top:8px;"><strong>Por kilo de proteína pura</strong>, {{ (producto_a.nombre_display or producto_a.nombre_normalizado) }} sale a {{ producto_a.precio_por_kg_proteina|fmtd }} €/kg de proteína frente a {{ producto_b.precio_por_kg_proteina|fmtd }} €/kg — un {{ _diff_prot }}% más barato.</p>
+    <p class="editorial-text" style="margin-top:8px;"><strong>Por kilo de proteína pura</strong>, {{ (producto_a.nombre_display or producto_a.nombre_normalizado) }} sale a {{ producto_a.precio_por_kg_proteina|fmtd }} €/kg de proteína frente a {{ producto_b.precio_por_kg_proteina|fmtd }} €/kg — un {{ _diff_prot }} % más barato.</p>
     {% elif producto_b.precio_por_kg_proteina < producto_a.precio_por_kg_proteina %}
     {% set _diff_prot = ((producto_a.precio_por_kg_proteina - producto_b.precio_por_kg_proteina) / producto_a.precio_por_kg_proteina * 100)|round(0)|int %}
-    <p class="editorial-text" style="margin-top:8px;"><strong>Por kilo de proteína pura</strong>, {{ (producto_b.nombre_display or producto_b.nombre_normalizado) }} sale a {{ producto_b.precio_por_kg_proteina|fmtd }} €/kg de proteína frente a {{ producto_a.precio_por_kg_proteina|fmtd }} €/kg — un {{ _diff_prot }}% más barato.</p>
+    <p class="editorial-text" style="margin-top:8px;"><strong>Por kilo de proteína pura</strong>, {{ (producto_b.nombre_display or producto_b.nombre_normalizado) }} sale a {{ producto_b.precio_por_kg_proteina|fmtd }} €/kg de proteína frente a {{ producto_a.precio_por_kg_proteina|fmtd }} €/kg — un {{ _diff_prot }} % más barato.</p>
     {% endif %}
     {% endif %}
   </div>

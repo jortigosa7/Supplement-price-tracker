@@ -203,7 +203,7 @@
       </div>
       {% if p.porcentaje_proteina and p.precio_por_kg_proteina %}
       <div style="font-size:0.75rem; color:#888; margin-top:-4px;">
-        {{ p.precio_por_kg_proteina|fmtd }} €/kg proteína · {{ (p.porcentaje_proteina * 100)|round(0)|int }}%
+        {{ p.precio_por_kg_proteina|fmtd }} €/kg proteína · {{ (p.porcentaje_proteina * 100)|round(0)|int }} %
       </div>
       {% endif %}
       {% if p.coste_mes %}
@@ -234,7 +234,7 @@
       </div>
       {% else %}
       <div class="pc-actions">
-        <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }} · {{ offer.precio_eur|fmtd }} €</a>
+        <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }}</a>
         <button class="pc-btn pc-btn-compare" aria-label="Añadir a comparación"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
       {% endif %}
@@ -265,7 +265,7 @@
   {% if cat.slug == 'proteina-whey' and products_otras_proteinas %}
   <div style="margin-top:48px;" id="secOtrasProteinas">
     <h2 style="font-size:1rem; font-weight:700; color:var(--text-muted); margin-bottom:8px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.1);">
-      Otras proteínas: caseína, huevo y carne
+      Otras proteínas y batidos: caseína, huevo, carne y más
     </h2>
     <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:14px;">
       Proteínas de origen animal distintas del suero. El precio por kg no es directamente comparable con la whey.

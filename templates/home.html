@@ -191,7 +191,7 @@
           </div>
           {% else %}
           <div class="pc-actions">
-            <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }} · {{ offer.precio_eur|fmtd }} €</a>
+            <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }}</a>
           </div>
           {% endif %}
         </div>
@@ -315,7 +315,7 @@ window.ALL_PRODUCTS = {{ all_products_json | safe }};
         </div>`;
     } else {
       actionsHtml = `<div class="pc-actions">
-        <a href="${esc(offer.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en ${esc(offer.tienda)} · ${offer.precio.toFixed(2).replace('.', ',')} €</a>
+        <a href="${esc(offer.url)}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en ${esc(offer.tienda)}</a>
       </div>`;
     }
     return `<div class="product-card${isBest ? ' is-best' : ''}">
