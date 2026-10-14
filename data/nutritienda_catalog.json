@@ -1434,5 +1434,21 @@
   "https://www.nutritienda.com/es/ndl-pro-health/creatina-monohidratada-creapure-300g": {
     "categoria": "Creatina",
     "first_seen": "2026-10-12"
+  },
+  "https://www.nutritienda.com/es/amix-nutrition/evolution-isolate": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-14"
+  },
+  "https://www.nutritienda.com/es/amix-nutrition/pro-active-whey": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-14"
+  },
+  "https://www.nutritienda.com/es/crown-sport-nutrition/creatine-monohydrate-300g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-14"
+  },
+  "https://www.nutritienda.com/es/peak/arginine-akg-150-caps": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-14"
   }
 }

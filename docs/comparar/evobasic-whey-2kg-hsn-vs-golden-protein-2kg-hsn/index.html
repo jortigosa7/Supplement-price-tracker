@@ -53,23 +53,39 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, Evobasic whey 2 kg o Golden protein 2 kg?","acceptedAnswer":{"@type":"Answer","text":"Evobasic whey 2 kg es m\u00e1s barato con 20,00 \u20ac/kg frente a 27,00 \u20ac/kg de Golden protein 2 kg \u2014 una diferencia de 7,00 \u20ac/kg."}},
+        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, Evobasic whey 2 kg o Golden protein 2 kg?","acceptedAnswer":{"@type":"Answer","text":"Evobasic whey 2 kg es m\u00e1s barato con 20,00 \u20ac/kg frente a 25,00 \u20ac/kg de Golden protein 2 kg \u2014 una diferencia de 5,00 \u20ac/kg."}},
         {"@type":"Question","name":"\u00bfD\u00f3nde comprar Evobasic whey 2 kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Evobasic whey 2 kg est\u00e1 en HSN, a 39,99 \u20ac."}},
-        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Golden protein 2 kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Golden protein 2 kg est\u00e1 en HSN, a 54,00 \u20ac."}},
+        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Golden protein 2 kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Golden protein 2 kg est\u00e1 en HSN, a 50,00 \u20ac."}},
         {"@type":"Question","name":"\u00bfCu\u00e1l tiene m\u00e1s prote\u00edna por dosis?","acceptedAnswer":{"@type":"Answer","text":"Evobasic whey 2kg aporta m\u00e1s prote\u00edna por dosis: 21 g por toma."}}
       ]
     },
     {
       "@type": "Product",
       "name": "Evobasic whey 2 kg",
+      "image": "https://stackfit.es/img/productos/evobasic-whey-2kg-desconocida.webp",
       "brand": {"@type": "Brand", "name": "HSN"},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "price": 39.99}
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": 39.99,
+        "highPrice": 39.99,
+        "offerCount": 1,
+        "availability": "https://schema.org/InStock"
+      }
     },
     {
       "@type": "Product",
       "name": "Golden protein 2 kg",
+      "image": "https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/g/o/golden-protein-hsn_1.jpg",
       "brand": {"@type": "Brand", "name": "HSN"},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "price": 54.0}
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": 50.00,
+        "highPrice": 50.00,
+        "offerCount": 1,
+        "availability": "https://schema.org/InStock"
+      }
     }
   ]
 }
@@ -339,10 +355,10 @@
       gap: 16px;
     }
     @media (min-width: 640px) {
-      .products-list { grid-template-columns: repeat(2, 1fr); }
+      .products-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (min-width: 1024px) {
-      .products-list { grid-template-columns: repeat(3, 1fr); }
+      .products-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     .product-card {
@@ -491,10 +507,12 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+    .pc-actions .pc-btn-primary { min-width: 0; }
 
     /* ── Compare button ────────────────────────────── */
     .pc-btn-compare {
       flex: 0 0 44px;
+      flex-shrink: 0;
       width: 44px;
       min-width: 44px;
       padding: 9px 0;
@@ -854,8 +872,8 @@
       flex-direction: column;
       gap: 12px;
       margin-bottom: 24px;
-      background: #f9f9f9;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 12px;
       padding: 16px 18px;
     }
@@ -885,10 +903,10 @@
     }
     .filter-select {
       padding: 7px 12px;
-      background: #ffffff;
-      border: 1px solid var(--border);
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
-      color: #333333;
+      color: #e8e8e8;
       font-family: var(--font-body);
       font-size: 0.82rem;
       cursor: pointer;
@@ -906,8 +924,8 @@
       font-weight: 500;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #ffffff;
-      color: #888888;
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
       white-space: nowrap;
@@ -939,9 +957,9 @@
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
-      border: 1px solid #dddddd;
-      background: #ffffff;
-      color: #888888;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
     }
@@ -955,6 +973,43 @@
       .filter-row { flex-direction: column; gap: 12px; }
       .filter-select { max-width: 100%; }
       .filter-group--kg { width: 100%; }
+    }
+
+    /* ── Mobile filter toggle ──────────────────────────── */
+    .filters-toggle-btn {
+      display: none;
+      width: 100%;
+      padding: 9px 16px;
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: #e8e8e8;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .filters-toggle-btn .filters-badge {
+      background: var(--accent);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    @media (min-width: 640px) {
+      .filters-toggle-btn { display: none !important; }
+      .advanced-filters { display: flex !important; }
+    }
+    @media (max-width: 639px) {
+      .filters-toggle-btn { display: flex; }
+      .advanced-filters.filters-collapsed { display: none; }
     }
 
     /* ── Guide / Editorial ─────────────────────────── */
@@ -976,10 +1031,10 @@
     }
 
     /* ── FAQ ───────────────────────────────────────── */
-    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 100%; }
     details.faq-item {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
       overflow: hidden;
     }
@@ -994,24 +1049,24 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      color: #111111;
+      color: #e8e8e8;
     }
     details.faq-item summary::-webkit-details-marker { display: none; }
     .faq-plus { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.2s; }
     details.faq-item[open] .faq-plus { transform: rotate(45deg); }
-    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #666666; line-height: 1.7; }
+    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #aaa; line-height: 1.7; }
 
     /* ── Info bar ──────────────────────────────────── */
     .info-bar {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius-sm);
       padding: 14px 18px;
       font-size: 0.8rem;
-      color: #888888;
+      color: #888;
       line-height: 1.6;
     }
-    .info-bar strong { color: #555555; }
+    .info-bar strong { color: #aaa; }
 
     /* ── Others products ───────────────────────────── */
     .others-list { display: flex; flex-direction: column; gap: 8px; }
@@ -1161,6 +1216,7 @@
       <a class="nav-logo" href="https://stackfit.es/">Stack<span>Fit</span></a>
       <div class="nav-links">
         <a href="https://stackfit.es/proteina-whey/">Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1171,6 +1227,7 @@
     </nav>
     <div class="mobile-subnav">
       <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
       <a href="https://stackfit.es/creatina/">Creatina</a>
       <a href="https://stackfit.es/bcaa/">BCAA</a>
       <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1194,7 +1251,7 @@
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>Evobasic Whey vs Golden Protein: comparativa completa</h1>
-    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Precios actualizados el 12 oct.</p>
+    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Precios actualizados el 14 oct.</p>
   </div>
 </div>
 
@@ -1226,7 +1283,7 @@
         <div class="cmp-hcard-name">Golden protein 2 kg</div>
         <div class="cmp-hcard-meta">HSN · 2,00 kg</div>
         
-          <div class="cmp-hcard-price">desde 54,00 €</div>
+          <div class="cmp-hcard-price">desde 50,00 €</div>
         
       </div>
     </div>
@@ -1313,7 +1370,7 @@
         <tr>
           <td class="label-col">Precio €/kg</td>
           <td><span class="cmp-val-badge win">20,00 €/kg</span></td>
-          <td><span class="cmp-val-badge">27,00 €/kg</span></td>
+          <td><span class="cmp-val-badge">25,00 €/kg</span></td>
         </tr>
         
         
@@ -1321,7 +1378,7 @@
         <tr>
           <td class="label-col">Precio total</td>
           <td class="winner-cell">39,99 € (HSN)</td>
-          <td>54,00 € (HSN)</td>
+          <td>50,00 € (HSN)</td>
         </tr>
         
         <tr>
@@ -1351,6 +1408,21 @@
           
           <td>21 g</td>
           <td>21 g</td>
+        </tr>
+        
+        
+        <tr>
+          <td class="label-col">% proteína</td>
+          <td>70 %</td>
+          <td>52 %</td>
+        </tr>
+        
+        
+        
+        <tr>
+          <td class="label-col">€/kg proteína</td>
+          <td class="winner-cell"><span class="cmp-val-badge win">28,57 €/kg</span></td>
+          <td><span class="cmp-val-badge">47,62 €/kg</span></td>
         </tr>
         
         
@@ -1385,7 +1457,9 @@
         <tr>
           <td class="label-col">Sabores</td>
           <td>
-            capuchino italiano, chocolate, fresa
+            
+              
+              capuchino italiano, chocolate, fresa
             
           </td>
           <td>
@@ -1464,9 +1538,9 @@
       
       
       <div>
-        <div class="cmp-card-price">54,00 €</div>
+        <div class="cmp-card-price">50,00 €</div>
         
-        <div class="cmp-card-kg">27,00 €/kg</div>
+        <div class="cmp-card-kg">25,00 €/kg</div>
         
       </div>
       
@@ -1475,13 +1549,13 @@
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9nb2xkZW4tcHJvdGVpbg==" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
-          <span class="pc-store-price">54,00 €</span>
+          <span class="pc-store-price">50,00 €</span>
           
         </a>
         
       </div>
       
-      <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9nb2xkZW4tcHJvdGVpbg==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 54,00 €</a>
+      <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9nb2xkZW4tcHJvdGVpbg==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 50,00 €</a>
       
     </div>
     
@@ -1493,7 +1567,13 @@
   <h2 class="cmp-section-title">Análisis comparativo</h2>
   <div class="editorial-text">
     
-    <p>Si buscas el mejor precio por kilogramo, <strong>Evobasic whey 2 kg</strong> es la opción más económica con <strong>20,00 €/kg</strong>, 7,00 €/kg menos que Golden protein 2 kg (27,00 €/kg).</p>
+    <p>Si buscas el mejor precio por kilogramo, <strong>Evobasic whey 2 kg</strong> es la opción más económica con <strong>20,00 €/kg</strong>, 5,00 €/kg menos que Golden protein 2 kg (25,00 €/kg).</p>
+    
+    
+    
+    
+    <p class="editorial-text" style="margin-top:8px;"><strong>Por kilo de proteína pura</strong>, Evobasic whey 2 kg sale a 28,57 €/kg de proteína frente a 47,62 €/kg — un 40 % más barato.</p>
+    
     
   </div>
 </div>
@@ -1506,7 +1586,7 @@
     
     <details class="faq-item">
       <summary>¿Cuál es más barato, Evobasic whey 2 kg o Golden protein 2 kg?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">Evobasic whey 2 kg es más barato con 20,00 €/kg frente a 27,00 €/kg de Golden protein 2 kg — una diferencia de 7,00 €/kg.</p>
+      <p class="faq-answer">Evobasic whey 2 kg es más barato con 20,00 €/kg frente a 25,00 €/kg de Golden protein 2 kg — una diferencia de 5,00 €/kg.</p>
     </details>
     
     <details class="faq-item">
@@ -1516,7 +1596,7 @@
     
     <details class="faq-item">
       <summary>¿Dónde comprar Golden protein 2 kg al mejor precio?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">El mejor precio de Golden protein 2 kg está en HSN, a 54,00 €.</p>
+      <p class="faq-answer">El mejor precio de Golden protein 2 kg está en HSN, a 50,00 €.</p>
     </details>
     
     <details class="faq-item">
@@ -1587,6 +1667,7 @@
         <div class="footer-links-label">Categorías</div>
         <a href="https://stackfit.es/">Inicio</a>
         <a href="https://stackfit.es/proteina-whey/">Proteína Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Proteína Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1602,7 +1683,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-10-12</div>
+    <div class="footer-bottom">Última actualización: 2026-10-14</div>
   </footer>
 
 </body>

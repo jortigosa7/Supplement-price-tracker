@@ -53,8 +53,8 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, Evowhey protein sin edulcorantes 2 kg o Keto whey protein 2 kg?","acceptedAnswer":{"@type":"Answer","text":"Keto whey protein 2 kg es m\u00e1s barato con 32,50 \u20ac/kg frente a 37,49 \u20ac/kg de Evowhey protein sin edulcorantes 2 kg \u2014 una diferencia de 4,99 \u20ac/kg."}},
-        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Evowhey protein sin edulcorantes 2 kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Evowhey protein sin edulcorantes 2 kg est\u00e1 en HSN, a 74,99 \u20ac."}},
+        {"@type":"Question","name":"\u00bfCu\u00e1l es m\u00e1s barato, Evowhey protein sin edulcorantes 2 kg o Keto whey protein 2 kg?","acceptedAnswer":{"@type":"Answer","text":"Evowhey protein sin edulcorantes 2 kg es m\u00e1s barato con 30,00 \u20ac/kg frente a 32,50 \u20ac/kg de Keto whey protein 2 kg \u2014 una diferencia de 2,50 \u20ac/kg."}},
+        {"@type":"Question","name":"\u00bfD\u00f3nde comprar Evowhey protein sin edulcorantes 2 kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Evowhey protein sin edulcorantes 2 kg est\u00e1 en HSN, a 59,99 \u20ac."}},
         {"@type":"Question","name":"\u00bfD\u00f3nde comprar Keto whey protein 2 kg al mejor precio?","acceptedAnswer":{"@type":"Answer","text":"El mejor precio de Keto whey protein 2 kg est\u00e1 en HSN, a 65,00 \u20ac."}},
         {"@type":"Question","name":"\u00bfCu\u00e1l tiene m\u00e1s prote\u00edna por dosis?","acceptedAnswer":{"@type":"Answer","text":"Keto whey protein 2kg aporta m\u00e1s prote\u00edna por dosis: 23 g por toma."}}
       ]
@@ -62,14 +62,30 @@
     {
       "@type": "Product",
       "name": "Evowhey protein sin edulcorantes 2 kg",
+      "image": "https://stackfit.es/img/productos/evowhey-protein-sin-edulcorantes-2kg-desconocida.webp",
       "brand": {"@type": "Brand", "name": "HSN"},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "price": 74.99}
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": 59.99,
+        "highPrice": 59.99,
+        "offerCount": 1,
+        "availability": "https://schema.org/InStock"
+      }
     },
     {
       "@type": "Product",
       "name": "Keto whey protein 2 kg",
+      "image": "https://stackfit.es/img/productos/keto-whey-protein-2kg-desconocida.webp",
       "brand": {"@type": "Brand", "name": "HSN"},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "price": 65.0}
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": 65.00,
+        "highPrice": 65.00,
+        "offerCount": 1,
+        "availability": "https://schema.org/InStock"
+      }
     }
   ]
 }
@@ -339,10 +355,10 @@
       gap: 16px;
     }
     @media (min-width: 640px) {
-      .products-list { grid-template-columns: repeat(2, 1fr); }
+      .products-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (min-width: 1024px) {
-      .products-list { grid-template-columns: repeat(3, 1fr); }
+      .products-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     .product-card {
@@ -491,10 +507,12 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+    .pc-actions .pc-btn-primary { min-width: 0; }
 
     /* ── Compare button ────────────────────────────── */
     .pc-btn-compare {
       flex: 0 0 44px;
+      flex-shrink: 0;
       width: 44px;
       min-width: 44px;
       padding: 9px 0;
@@ -854,8 +872,8 @@
       flex-direction: column;
       gap: 12px;
       margin-bottom: 24px;
-      background: #f9f9f9;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 12px;
       padding: 16px 18px;
     }
@@ -885,10 +903,10 @@
     }
     .filter-select {
       padding: 7px 12px;
-      background: #ffffff;
-      border: 1px solid var(--border);
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
-      color: #333333;
+      color: #e8e8e8;
       font-family: var(--font-body);
       font-size: 0.82rem;
       cursor: pointer;
@@ -906,8 +924,8 @@
       font-weight: 500;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #ffffff;
-      color: #888888;
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
       white-space: nowrap;
@@ -939,9 +957,9 @@
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
-      border: 1px solid #dddddd;
-      background: #ffffff;
-      color: #888888;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
     }
@@ -955,6 +973,43 @@
       .filter-row { flex-direction: column; gap: 12px; }
       .filter-select { max-width: 100%; }
       .filter-group--kg { width: 100%; }
+    }
+
+    /* ── Mobile filter toggle ──────────────────────────── */
+    .filters-toggle-btn {
+      display: none;
+      width: 100%;
+      padding: 9px 16px;
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: #e8e8e8;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .filters-toggle-btn .filters-badge {
+      background: var(--accent);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    @media (min-width: 640px) {
+      .filters-toggle-btn { display: none !important; }
+      .advanced-filters { display: flex !important; }
+    }
+    @media (max-width: 639px) {
+      .filters-toggle-btn { display: flex; }
+      .advanced-filters.filters-collapsed { display: none; }
     }
 
     /* ── Guide / Editorial ─────────────────────────── */
@@ -976,10 +1031,10 @@
     }
 
     /* ── FAQ ───────────────────────────────────────── */
-    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 100%; }
     details.faq-item {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
       overflow: hidden;
     }
@@ -994,24 +1049,24 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      color: #111111;
+      color: #e8e8e8;
     }
     details.faq-item summary::-webkit-details-marker { display: none; }
     .faq-plus { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.2s; }
     details.faq-item[open] .faq-plus { transform: rotate(45deg); }
-    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #666666; line-height: 1.7; }
+    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #aaa; line-height: 1.7; }
 
     /* ── Info bar ──────────────────────────────────── */
     .info-bar {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius-sm);
       padding: 14px 18px;
       font-size: 0.8rem;
-      color: #888888;
+      color: #888;
       line-height: 1.6;
     }
-    .info-bar strong { color: #555555; }
+    .info-bar strong { color: #aaa; }
 
     /* ── Others products ───────────────────────────── */
     .others-list { display: flex; flex-direction: column; gap: 8px; }
@@ -1161,6 +1216,7 @@
       <a class="nav-logo" href="https://stackfit.es/">Stack<span>Fit</span></a>
       <div class="nav-links">
         <a href="https://stackfit.es/proteina-whey/">Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1171,6 +1227,7 @@
     </nav>
     <div class="mobile-subnav">
       <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
       <a href="https://stackfit.es/creatina/">Creatina</a>
       <a href="https://stackfit.es/bcaa/">BCAA</a>
       <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1194,7 +1251,7 @@
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>Evowhey Protein Sin Edulcorantes vs Keto Whey Protein: comparativa completa</h1>
-    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Precios actualizados el 12 oct.</p>
+    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Precios actualizados el 14 oct.</p>
   </div>
 </div>
 
@@ -1213,7 +1270,7 @@
         <div class="cmp-hcard-name">Evowhey protein sin edulcorantes 2 kg</div>
         <div class="cmp-hcard-meta">HSN · 2,00 kg</div>
         
-          <div class="cmp-hcard-price">desde 74,99 €</div>
+          <div class="cmp-hcard-price">desde 59,99 €</div>
         
       </div>
     </div>
@@ -1244,8 +1301,8 @@
       <div class="verdict-label">Mejor precio</div>
       
         
-        <div class="verdict-winner">Keto whey protein 2 kg</div>
-        <div class="verdict-value">32,50 €/kg</div>
+        <div class="verdict-winner">Evowhey protein sin edulcorantes 2 kg</div>
+        <div class="verdict-value">30,00 €/kg</div>
       
     </div>
 
@@ -1272,7 +1329,7 @@
       <div class="verdict-label">Mejor relación calidad-precio</div>
       
         
-        <div class="verdict-winner">Keto whey protein 2 kg</div>
+        <div class="verdict-winner">Evowhey protein sin edulcorantes 2 kg</div>
         <div class="verdict-value">Mayor g proteína por €</div>
       
     </div>
@@ -1312,16 +1369,16 @@
         
         <tr>
           <td class="label-col">Precio €/kg</td>
-          <td><span class="cmp-val-badge">37,49 €/kg</span></td>
-          <td><span class="cmp-val-badge win">32,50 €/kg</span></td>
+          <td><span class="cmp-val-badge win">30,00 €/kg</span></td>
+          <td><span class="cmp-val-badge">32,50 €/kg</span></td>
         </tr>
         
         
         
         <tr>
           <td class="label-col">Precio total</td>
-          <td>74,99 € (HSN)</td>
-          <td class="winner-cell">65,00 € (HSN)</td>
+          <td class="winner-cell">59,99 € (HSN)</td>
+          <td>65,00 € (HSN)</td>
         </tr>
         
         <tr>
@@ -1351,6 +1408,21 @@
           
           <td>22 g</td>
           <td class="winner-cell">23 g</td>
+        </tr>
+        
+        
+        <tr>
+          <td class="label-col">% proteína</td>
+          <td>73 %</td>
+          <td>66 %</td>
+        </tr>
+        
+        
+        
+        <tr>
+          <td class="label-col">€/kg proteína</td>
+          <td class="winner-cell"><span class="cmp-val-badge win">40,91 €/kg</span></td>
+          <td><span class="cmp-val-badge">49,46 €/kg</span></td>
         </tr>
         
         
@@ -1385,11 +1457,15 @@
         <tr>
           <td class="label-col">Sabores</td>
           <td>
-            café moca, canela, chocolate, matcha con leche, smoothie de bayas, té chai con leche, vainilla, vainilla y café
+            
+              
+              café moca, canela, chocolate, matcha con leche, smoothie de bayas, té chai con leche<span style="display:none;" class="flavors-extra-a">, vainilla, vainilla y café</span> <button onclick="this.previousElementSibling.style.display='inline';this.style.display='none';" style="background:none;border:none;color:var(--accent);font-size:0.78rem;cursor:pointer;padding:0;">+2 más</button>
             
           </td>
           <td>
-            chocolate, chocolate y galletas, fresa y coco, sirope de arce, vainilla caribeña
+            
+              
+              chocolate, chocolate y galletas, fresa y coco, sirope de arce, vainilla caribeña
             
           </td>
         </tr>
@@ -1429,9 +1505,9 @@
       
       
       <div>
-        <div class="cmp-card-price">74,99 €</div>
+        <div class="cmp-card-price">59,99 €</div>
         
-        <div class="cmp-card-kg">37,49 €/kg</div>
+        <div class="cmp-card-kg">30,00 €/kg</div>
         
       </div>
       
@@ -1440,13 +1516,13 @@
         <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3doZXktcHJvdGVpbi1zaW4tZWR1bGNvcmFudGVz" class="pc-store" target="_blank" rel="nofollow sponsored noopener">
           <span class="pc-store-dot" style="background:var(--hsn);"></span>
           <span class="pc-store-name">HSN</span>
-          <span class="pc-store-price">74,99 €</span>
+          <span class="pc-store-price">59,99 €</span>
           
         </a>
         
       </div>
       
-      <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3doZXktcHJvdGVpbi1zaW4tZWR1bGNvcmFudGVz" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 74,99 €</a>
+      <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b3doZXktcHJvdGVpbi1zaW4tZWR1bGNvcmFudGVz" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 59,99 €</a>
       
     </div>
     
@@ -1494,9 +1570,15 @@
   <h2 class="cmp-section-title">Análisis comparativo</h2>
   <div class="editorial-text">
     
-    <p>Si buscas el mejor precio por kilogramo, <strong>Keto whey protein 2 kg</strong> es la opción más económica con <strong>32,50 €/kg</strong>, 4,99 €/kg menos que Evowhey protein sin edulcorantes 2 kg (37,49 €/kg).</p>
+    <p>Si buscas el mejor precio por kilogramo, <strong>Evowhey protein sin edulcorantes 2 kg</strong> es la opción más económica con <strong>30,00 €/kg</strong>, 2,50 €/kg menos que Keto whey protein 2 kg (32,50 €/kg).</p>
     
     <p>En cuanto a proteína por dosis, <strong>Keto whey protein 2 kg</strong> aporta 23 g por toma frente a los 22 g de Evowhey protein sin edulcorantes 2 kg, una diferencia de 1 g por servicio.</p>
+    
+    
+    
+    
+    <p class="editorial-text" style="margin-top:8px;"><strong>Por kilo de proteína pura</strong>, Evowhey protein sin edulcorantes 2 kg sale a 40,91 €/kg de proteína frente a 49,46 €/kg — un 17 % más barato.</p>
+    
     
   </div>
 </div>
@@ -1509,12 +1591,12 @@
     
     <details class="faq-item">
       <summary>¿Cuál es más barato, Evowhey protein sin edulcorantes 2 kg o Keto whey protein 2 kg?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">Keto whey protein 2 kg es más barato con 32,50 €/kg frente a 37,49 €/kg de Evowhey protein sin edulcorantes 2 kg — una diferencia de 4,99 €/kg.</p>
+      <p class="faq-answer">Evowhey protein sin edulcorantes 2 kg es más barato con 30,00 €/kg frente a 32,50 €/kg de Keto whey protein 2 kg — una diferencia de 2,50 €/kg.</p>
     </details>
     
     <details class="faq-item">
       <summary>¿Dónde comprar Evowhey protein sin edulcorantes 2 kg al mejor precio?<span class="faq-plus">+</span></summary>
-      <p class="faq-answer">El mejor precio de Evowhey protein sin edulcorantes 2 kg está en HSN, a 74,99 €.</p>
+      <p class="faq-answer">El mejor precio de Evowhey protein sin edulcorantes 2 kg está en HSN, a 59,99 €.</p>
     </details>
     
     <details class="faq-item">
@@ -1590,6 +1672,7 @@
         <div class="footer-links-label">Categorías</div>
         <a href="https://stackfit.es/">Inicio</a>
         <a href="https://stackfit.es/proteina-whey/">Proteína Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Proteína Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1605,7 +1688,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-10-12</div>
+    <div class="footer-bottom">Última actualización: 2026-10-14</div>
   </footer>
 
 </body>

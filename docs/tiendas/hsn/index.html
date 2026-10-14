@@ -182,10 +182,10 @@
       gap: 16px;
     }
     @media (min-width: 640px) {
-      .products-list { grid-template-columns: repeat(2, 1fr); }
+      .products-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (min-width: 1024px) {
-      .products-list { grid-template-columns: repeat(3, 1fr); }
+      .products-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     .product-card {
@@ -334,10 +334,12 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+    .pc-actions .pc-btn-primary { min-width: 0; }
 
     /* ── Compare button ────────────────────────────── */
     .pc-btn-compare {
       flex: 0 0 44px;
+      flex-shrink: 0;
       width: 44px;
       min-width: 44px;
       padding: 9px 0;
@@ -697,8 +699,8 @@
       flex-direction: column;
       gap: 12px;
       margin-bottom: 24px;
-      background: #f9f9f9;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 12px;
       padding: 16px 18px;
     }
@@ -728,10 +730,10 @@
     }
     .filter-select {
       padding: 7px 12px;
-      background: #ffffff;
-      border: 1px solid var(--border);
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
-      color: #333333;
+      color: #e8e8e8;
       font-family: var(--font-body);
       font-size: 0.82rem;
       cursor: pointer;
@@ -749,8 +751,8 @@
       font-weight: 500;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #ffffff;
-      color: #888888;
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
       white-space: nowrap;
@@ -782,9 +784,9 @@
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
-      border: 1px solid #dddddd;
-      background: #ffffff;
-      color: #888888;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
     }
@@ -798,6 +800,43 @@
       .filter-row { flex-direction: column; gap: 12px; }
       .filter-select { max-width: 100%; }
       .filter-group--kg { width: 100%; }
+    }
+
+    /* ── Mobile filter toggle ──────────────────────────── */
+    .filters-toggle-btn {
+      display: none;
+      width: 100%;
+      padding: 9px 16px;
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: #e8e8e8;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .filters-toggle-btn .filters-badge {
+      background: var(--accent);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    @media (min-width: 640px) {
+      .filters-toggle-btn { display: none !important; }
+      .advanced-filters { display: flex !important; }
+    }
+    @media (max-width: 639px) {
+      .filters-toggle-btn { display: flex; }
+      .advanced-filters.filters-collapsed { display: none; }
     }
 
     /* ── Guide / Editorial ─────────────────────────── */
@@ -819,10 +858,10 @@
     }
 
     /* ── FAQ ───────────────────────────────────────── */
-    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 100%; }
     details.faq-item {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
       overflow: hidden;
     }
@@ -837,24 +876,24 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      color: #111111;
+      color: #e8e8e8;
     }
     details.faq-item summary::-webkit-details-marker { display: none; }
     .faq-plus { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.2s; }
     details.faq-item[open] .faq-plus { transform: rotate(45deg); }
-    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #666666; line-height: 1.7; }
+    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #aaa; line-height: 1.7; }
 
     /* ── Info bar ──────────────────────────────────── */
     .info-bar {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius-sm);
       padding: 14px 18px;
       font-size: 0.8rem;
-      color: #888888;
+      color: #888;
       line-height: 1.6;
     }
-    .info-bar strong { color: #555555; }
+    .info-bar strong { color: #aaa; }
 
     /* ── Others products ───────────────────────────── */
     .others-list { display: flex; flex-direction: column; gap: 8px; }
@@ -1004,6 +1043,7 @@
       <a class="nav-logo" href="https://stackfit.es/">Stack<span>Fit</span></a>
       <div class="nav-links">
         <a href="https://stackfit.es/proteina-whey/">Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1014,6 +1054,7 @@
     </nav>
     <div class="mobile-subnav">
       <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
       <a href="https://stackfit.es/creatina/">Creatina</a>
       <a href="https://stackfit.es/bcaa/">BCAA</a>
       <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1071,7 +1112,7 @@
   <section style="margin-bottom:52px;">
     <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.07); flex-wrap:wrap;">
       <h2 style="font-size:0.95rem; font-weight:700; color:#c0c0c0;">
-        Proteínas
+        Proteína Whey
         <span style="color:#444; font-weight:400; font-size:0.85rem;">(43 productos)</span>
       </h2>
       <a href="https://stackfit.es/proteina-whey/" style="font-size:0.78rem; font-weight:600; color:var(--accent); white-space:nowrap; text-decoration:none;">Ver categoría completa →</a>
@@ -1105,7 +1146,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvY2xhcmFzLWRlLWh1ZXZvLWxpcXVpZGFz" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 4,46 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvY2xhcmFzLWRlLWh1ZXZvLWxpcXVpZGFz" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1130,14 +1171,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">19,34<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 9,67 €</div>
+            <div class="pc-price-main">17,90<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 8,95 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvcHJvdGVpbmEtZGUtZ3Vpc2FudGUtdGV4dHVyaXphZGE=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 9,67 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvcHJvdGVpbmEtZGUtZ3Vpc2FudGUtdGV4dHVyaXphZGE=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1162,14 +1203,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">24,84<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 12,42 €</div>
+            <div class="pc-price-main">25,30<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 12,65 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1nYXJiYW56bw==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 12,42 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1nYXJiYW56bw==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1194,14 +1235,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">25,88<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 12,94 €</div>
+            <div class="pc-price-main">25,98<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 12,99 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jYXNlaW5hdG8tZGUtY2FsY2lv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 12,94 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jYXNlaW5hdG8tZGUtY2FsY2lv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1226,14 +1267,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">28,08<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 14,04 €</div>
+            <div class="pc-price-main">25,98<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 12,99 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvaHVldm8tZW50ZXJvLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 14,04 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvaHVldm8tZW50ZXJvLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1258,14 +1299,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">32,30<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 16,15 €</div>
+            <div class="pc-price-main">29,90<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 14,95 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvY2FsZG8tcHJvdGVpY28tZGUtcG9sbG8tZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 16,15 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvY2FsZG8tcHJvdGVpY28tZGUtcG9sbG8tZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1290,14 +1331,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">9,49<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 18,99 €</div>
+            <div class="pc-price-main">9,22<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 18,45 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1zb2phLWFpc2xhZGEtMi0w" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 18,99 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1zb2phLWFpc2xhZGEtMi0w" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1309,27 +1350,27 @@
         <!-- Zona 1: imagen + nombre + meta -->
         <div class="pc-top">
           <div class="pc-img">
-            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/r/i/rice-protein-powder-hsn_1.jpg" alt="Proteína de arroz integral concentrada 2 kg" width="72" height="72" loading="lazy">
+            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/1/0/100-whey-protein-concentrate-gral-front-hsn_1.webp" alt="100% Whey protein concentrate 500 g" width="72" height="72" loading="lazy">
           </div>
           <div class="pc-info">
             <div class="pc-name">
-              <span class="pc-name-text">Proteína de arroz integral concentrada 2 kg</span>
+              <span class="pc-name-text">100% Whey protein concentrate 500 g</span>
               
             </div>
-            <div class="pc-meta">HSN · 2,00 kg</div>
+            <div class="pc-meta">HSN · 0,50 kg</div>
           </div>
         </div>
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">10,78<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 21,55 €</div>
+            <div class="pc-price-main">38,48<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 19,24 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9wcm90ZWluYS1kZS1hcnJvei1pbnRlZ3JhbC1jb25jZW50cmFkYQ==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 21,55 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy8xMDAtd2hleS1wcm90ZWluLWNvbmNlbnRyYXRl" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1338,7 +1379,7 @@
     
     <div style="text-align:center; margin-top:16px;">
       <a href="https://stackfit.es/proteina-whey/" style="font-size:0.8rem; color:var(--accent); font-weight:600; text-decoration:none;">
-        Ver los 43 productos de Proteínas →
+        Ver los 43 productos de Proteína Whey →
       </a>
     </div>
     
@@ -1376,45 +1417,13 @@
           
             
             <div class="pc-price-main no-kg">0,08<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">120 dosis · 9,17 €</div>
+            <div class="pc-price-sec">120 dosis · 9,68 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by0xMDAwbWctY3JlYXRpbmE=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 9,17 €</a>
-        </div>
-        
-      </div>
-      
-      
-      
-      
-      <div class="product-card">
-        <!-- Zona 1: imagen + nombre + meta -->
-        <div class="pc-top">
-          <div class="pc-img">
-            <img src="https://www.hsnstore.com/media/catalog/product/c/r/creatine-monohydrate-200-mesh-gral-front-v5-hsn_1_1.webp" alt="Creatina monohidrato en polvo (200 mesh) 1 kg" width="72" height="72" loading="lazy">
-          </div>
-          <div class="pc-info">
-            <div class="pc-name">
-              <span class="pc-name-text">Creatina monohidrato en polvo (200 mesh) 1 kg</span>
-              
-            </div>
-            <div class="pc-meta">HSN · 1,00 kg</div>
-          </div>
-        </div>
-        <!-- Zona 2: fila de precio -->
-        <div class="pc-price-row">
-          
-            <div class="pc-price-main">14,04<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 14,04 €</div>
-          
-        </div>
-        <!-- Zona 3: tiendas + acciones -->
-        
-        <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 14,04 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by0xMDAwbWctY3JlYXRpbmE=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1439,14 +1448,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">31,22<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 15,61 €</div>
+            <div class="pc-price-main">19,98<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 9,99 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NyZWF0aW5l" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 15,61 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2NyZWF0aW5l" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1479,7 +1488,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwMG1nLTEwMC1jcmVhcHVyZQ==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 17,04 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwMG1nLTEwMC1jcmVhcHVyZQ==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1505,14 +1514,46 @@
         <div class="pc-price-row">
           
             
-            <div class="pc-price-main no-kg">0,16<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">120 dosis · 18,84 €</div>
+            <div class="pc-price-main no-kg">0,17<span class="pc-price-unit">€/dosis</span></div>
+            <div class="pc-price-sec">120 dosis · 19,89 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2thbHluLWNyZWF0aW5hLWFsY2FsaW5h" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 18,84 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2thbHluLWNyZWF0aW5hLWFsY2FsaW5h" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
+        </div>
+        
+      </div>
+      
+      
+      
+      
+      <div class="product-card">
+        <!-- Zona 1: imagen + nombre + meta -->
+        <div class="pc-top">
+          <div class="pc-img">
+            <img src="https://www.hsnstore.com/media/catalog/product/c/r/creatine-monohydrate-200-mesh-gral-front-v5-hsn_1_1.webp" alt="Creatina monohidrato en polvo (200 mesh) 1 kg" width="72" height="72" loading="lazy">
+          </div>
+          <div class="pc-info">
+            <div class="pc-name">
+              <span class="pc-name-text">Creatina monohidrato en polvo (200 mesh) 1 kg</span>
+              
+            </div>
+            <div class="pc-meta">HSN · 1,00 kg</div>
+          </div>
+        </div>
+        <!-- Zona 2: fila de precio -->
+        <div class="pc-price-row">
+          
+            <div class="pc-price-main">23,36<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 23,36 €</div>
+          
+        </div>
+        <!-- Zona 3: tiendas + acciones -->
+        
+        <div class="pc-actions">
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1544,7 +1585,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwLWNyZWFwdXJlLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 53,37 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1leGNlbGwtMTAwLWNyZWFwdXJlLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1584,14 +1625,14 @@
         <div class="pc-price-row">
           
             
-            <div class="pc-price-main no-kg">0,23<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">40 dosis · 9,13 €</div>
+            <div class="pc-price-main no-kg">0,21<span class="pc-price-unit">€/dosis</span></div>
+            <div class="pc-price-sec">40 dosis · 8,45 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by0yLTEtMS1iY2FhLXMtMi0xLTEtdml0YW1pbmFzLWI2LXktYjEy" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 9,13 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by0yLTEtMS1iY2FhLXMtMi0xLTEtdml0YW1pbmFzLWI2LXktYjEy" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1617,14 +1658,78 @@
         <div class="pc-price-row">
           
             
-            <div class="pc-price-main no-kg">0,09<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">120 dosis · 10,21 €</div>
+            <div class="pc-price-main no-kg">0,08<span class="pc-price-unit">€/dosis</span></div>
+            <div class="pc-price-sec">120 dosis · 9,45 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtNC0xLTEtdml0YW1pbmFzLWI2LXktYjEy" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 10,21 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtNC0xLTEtdml0YW1pbmFzLWI2LXktYjEy" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
+        </div>
+        
+      </div>
+      
+      
+      
+      
+      <div class="product-card">
+        <!-- Zona 1: imagen + nombre + meta -->
+        <div class="pc-top">
+          <div class="pc-img">
+            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/b/c/bcaas-2-1-1-gral-front-hsn_1_1.webp" alt="BCAA&#39;s instantáneo 2:1:1 2.0 1 kg" width="72" height="72" loading="lazy">
+          </div>
+          <div class="pc-info">
+            <div class="pc-name">
+              <span class="pc-name-text">BCAA&#39;s instantáneo 2:1:1 2.0 1 kg</span>
+              
+            </div>
+            <div class="pc-meta">HSN · 1,00 kg</div>
+          </div>
+        </div>
+        <!-- Zona 2: fila de precio -->
+        <div class="pc-price-row">
+          
+            <div class="pc-price-main">20,00<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 20,00 €</div>
+          
+        </div>
+        <!-- Zona 3: tiendas + acciones -->
+        
+        <div class="pc-actions">
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2Fhcy1pbnN0YW50YW5lby0yLTEtMS0yLTA=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
+        </div>
+        
+      </div>
+      
+      
+      
+      
+      <div class="product-card">
+        <!-- Zona 1: imagen + nombre + meta -->
+        <div class="pc-top">
+          <div class="pc-img">
+            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/v/evobcaas-complex-powder-hsn_1.jpg" alt="EvoBCAA&#39;s complex en polvo 1 kg" width="72" height="72" loading="lazy">
+          </div>
+          <div class="pc-info">
+            <div class="pc-name">
+              <span class="pc-name-text">EvoBCAA&#39;s complex en polvo 1 kg</span>
+              
+            </div>
+            <div class="pc-meta">HSN · 1,00 kg</div>
+          </div>
+        </div>
+        <!-- Zona 2: fila de precio -->
+        <div class="pc-price-row">
+          
+            <div class="pc-price-main">20,45<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 20,45 €</div>
+          
+        </div>
+        <!-- Zona 3: tiendas + acciones -->
+        
+        <div class="pc-actions">
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWFzLWNvbXBsZXgtZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1656,71 +1761,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtaW5zdGFudGFuZW9zLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 20,66 €</a>
-        </div>
-        
-      </div>
-      
-      
-      
-      
-      <div class="product-card">
-        <!-- Zona 1: imagen + nombre + meta -->
-        <div class="pc-top">
-          <div class="pc-img">
-            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/b/c/bcaas-2-1-1-gral-front-hsn_1_1.webp" alt="BCAA&#39;s instantáneo 2:1:1 2.0 1 kg" width="72" height="72" loading="lazy">
-          </div>
-          <div class="pc-info">
-            <div class="pc-name">
-              <span class="pc-name-text">BCAA&#39;s instantáneo 2:1:1 2.0 1 kg</span>
-              
-            </div>
-            <div class="pc-meta">HSN · 1,00 kg</div>
-          </div>
-        </div>
-        <!-- Zona 2: fila de precio -->
-        <div class="pc-price-row">
-          
-            <div class="pc-price-main">21,55<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 21,55 €</div>
-          
-        </div>
-        <!-- Zona 3: tiendas + acciones -->
-        
-        <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2Fhcy1pbnN0YW50YW5lby0yLTEtMS0yLTA=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 21,55 €</a>
-        </div>
-        
-      </div>
-      
-      
-      
-      
-      <div class="product-card">
-        <!-- Zona 1: imagen + nombre + meta -->
-        <div class="pc-top">
-          <div class="pc-img">
-            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/v/evobcaas-complex-powder-hsn_1.jpg" alt="EvoBCAA&#39;s complex en polvo 1 kg" width="72" height="72" loading="lazy">
-          </div>
-          <div class="pc-info">
-            <div class="pc-name">
-              <span class="pc-name-text">EvoBCAA&#39;s complex en polvo 1 kg</span>
-              
-            </div>
-            <div class="pc-meta">HSN · 1,00 kg</div>
-          </div>
-        </div>
-        <!-- Zona 2: fila de precio -->
-        <div class="pc-price-row">
-          
-            <div class="pc-price-main">22,09<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 22,09 €</div>
-          
-        </div>
-        <!-- Zona 3: tiendas + acciones -->
-        
-        <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2JjYWFzLWNvbXBsZXgtZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 22,09 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2by00LTEtMS1iY2FhLXMtaW5zdGFudGFuZW9zLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1745,14 +1786,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">24,78<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 24,78 €</div>
+            <div class="pc-price-main">22,99<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 22,99 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2FhLXMtaW5zdGFudGFuZW8tNC0xLTEtMi0w" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 24,78 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2FhLXMtaW5zdGFudGFuZW8tNC0xLTEtMi0w" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1793,13 +1834,13 @@
           
             
             <div class="pc-price-main no-kg">0,04<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">120 dosis · 4,81 €</div>
+            <div class="pc-price-sec">120 dosis · 4,46 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy90YXVyaW5hLTUwMG1n" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 4,81 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy90YXVyaW5hLTUwMG1n" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1825,14 +1866,14 @@
         <div class="pc-price-row">
           
             
-            <div class="pc-price-main no-kg">0,08<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">120 dosis · 9,67 €</div>
+            <div class="pc-price-main no-kg">0,07<span class="pc-price-unit">€/dosis</span></div>
+            <div class="pc-price-sec">120 dosis · 8,95 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9hcmdpbmluYS1hbGZhLWNldG9nbHV0YXJhdG8tMTAwMG1nLWFha2c=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 9,67 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9hcmdpbmluYS1hbGZhLWNldG9nbHV0YXJhdG8tMTAwMG1nLWFha2c=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1858,14 +1899,14 @@
         <div class="pc-price-row">
           
             
-            <div class="pc-price-main no-kg">0,18<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">60 dosis · 10,75 €</div>
+            <div class="pc-price-main no-kg">0,17<span class="pc-price-unit">€/dosis</span></div>
+            <div class="pc-price-sec">60 dosis · 9,96 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9iZXRhLWFsYW5pbmEtMTAwMG1n" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 10,75 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9iZXRhLWFsYW5pbmEtMTAwMG1n" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1891,14 +1932,14 @@
         <div class="pc-price-row">
           
             
-            <div class="pc-price-main no-kg">0,11<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">120 dosis · 12,90 €</div>
+            <div class="pc-price-main no-kg">0,10<span class="pc-price-unit">€/dosis</span></div>
+            <div class="pc-price-sec">120 dosis · 11,95 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jaXRydWxpbmEtbWFsYXRvLTItMS0xMDAwbWc=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 12,90 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jaXRydWxpbmEtbWFsYXRvLTItMS0xMDAwbWc=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1924,14 +1965,14 @@
         <div class="pc-price-row">
           
             
-            <div class="pc-price-main no-kg">0,27<span class="pc-price-unit">€/dosis</span></div>
-            <div class="pc-price-sec">60 dosis · 16,15 €</div>
+            <div class="pc-price-main no-kg">0,25<span class="pc-price-unit">€/dosis</span></div>
+            <div class="pc-price-sec">60 dosis · 14,95 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9iZXRhLWFsYW5pbmEtMTAwMG1nLWNhcm5vc3lu" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 16,15 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9iZXRhLWFsYW5pbmEtMTAwMG1nLWNhcm5vc3lu" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1956,14 +1997,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">35,54<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 17,77 €</div>
+            <div class="pc-price-main">34,96<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 17,48 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9nbHljb3B1bXAtZ2xpY2Vyb2wtZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 17,77 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9nbHljb3B1bXAtZ2xpY2Vyb2wtZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -1988,14 +2029,14 @@
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">18,84<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 18,84 €</div>
+            <div class="pc-price-main">17,49<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 17,49 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy90YXVyaW5hLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 18,84 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy90YXVyaW5hLWVuLXBvbHZv" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -2007,27 +2048,27 @@
         <!-- Zona 1: imagen + nombre + meta -->
         <div class="pc-top">
           <div class="pc-img">
-            <img src="https://www.hsnstore.com/media/catalog/product/b/e/beta-alanine-powder-hsn_1.jpg" alt="Beta-alanina en polvo 1 kg" width="72" height="72" loading="lazy">
+            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/d/-/d-ribose-powder-hsn_1_1.webp" alt="D-ribosa en polvo 500 g" width="72" height="72" loading="lazy">
           </div>
           <div class="pc-info">
             <div class="pc-name">
-              <span class="pc-name-text">Beta-alanina en polvo 1 kg</span>
+              <span class="pc-name-text">D-ribosa en polvo 500 g</span>
               
             </div>
-            <div class="pc-meta">HSN · 1,00 kg</div>
+            <div class="pc-meta">HSN · 0,50 kg</div>
           </div>
         </div>
         <!-- Zona 2: fila de precio -->
         <div class="pc-price-row">
           
-            <div class="pc-price-main">20,45<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 20,45 €</div>
+            <div class="pc-price-main">40,00<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 20,00 €</div>
           
         </div>
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iZXRhLWFsYW5pbmEtZW4tcG9sdm8=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 20,45 €</a>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9kLXJpYm9zYS1lbi1wb2x2bw==" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN</a>
         </div>
         
       </div>
@@ -2068,6 +2109,7 @@
         <div class="footer-links-label">Categorías</div>
         <a href="https://stackfit.es/">Inicio</a>
         <a href="https://stackfit.es/proteina-whey/">Proteína Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Proteína Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -2083,7 +2125,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-10-12</div>
+    <div class="footer-bottom">Última actualización: 2026-10-14</div>
   </footer>
 
 </body>

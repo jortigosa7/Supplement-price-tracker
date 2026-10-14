@@ -182,10 +182,10 @@
       gap: 16px;
     }
     @media (min-width: 640px) {
-      .products-list { grid-template-columns: repeat(2, 1fr); }
+      .products-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (min-width: 1024px) {
-      .products-list { grid-template-columns: repeat(3, 1fr); }
+      .products-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     .product-card {
@@ -334,10 +334,12 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+    .pc-actions .pc-btn-primary { min-width: 0; }
 
     /* ── Compare button ────────────────────────────── */
     .pc-btn-compare {
       flex: 0 0 44px;
+      flex-shrink: 0;
       width: 44px;
       min-width: 44px;
       padding: 9px 0;
@@ -697,8 +699,8 @@
       flex-direction: column;
       gap: 12px;
       margin-bottom: 24px;
-      background: #f9f9f9;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 12px;
       padding: 16px 18px;
     }
@@ -728,10 +730,10 @@
     }
     .filter-select {
       padding: 7px 12px;
-      background: #ffffff;
-      border: 1px solid var(--border);
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
-      color: #333333;
+      color: #e8e8e8;
       font-family: var(--font-body);
       font-size: 0.82rem;
       cursor: pointer;
@@ -749,8 +751,8 @@
       font-weight: 500;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #ffffff;
-      color: #888888;
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
       white-space: nowrap;
@@ -782,9 +784,9 @@
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
-      border: 1px solid #dddddd;
-      background: #ffffff;
-      color: #888888;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
     }
@@ -798,6 +800,43 @@
       .filter-row { flex-direction: column; gap: 12px; }
       .filter-select { max-width: 100%; }
       .filter-group--kg { width: 100%; }
+    }
+
+    /* ── Mobile filter toggle ──────────────────────────── */
+    .filters-toggle-btn {
+      display: none;
+      width: 100%;
+      padding: 9px 16px;
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: #e8e8e8;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .filters-toggle-btn .filters-badge {
+      background: var(--accent);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    @media (min-width: 640px) {
+      .filters-toggle-btn { display: none !important; }
+      .advanced-filters { display: flex !important; }
+    }
+    @media (max-width: 639px) {
+      .filters-toggle-btn { display: flex; }
+      .advanced-filters.filters-collapsed { display: none; }
     }
 
     /* ── Guide / Editorial ─────────────────────────── */
@@ -819,10 +858,10 @@
     }
 
     /* ── FAQ ───────────────────────────────────────── */
-    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 100%; }
     details.faq-item {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
       overflow: hidden;
     }
@@ -837,24 +876,24 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      color: #111111;
+      color: #e8e8e8;
     }
     details.faq-item summary::-webkit-details-marker { display: none; }
     .faq-plus { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.2s; }
     details.faq-item[open] .faq-plus { transform: rotate(45deg); }
-    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #666666; line-height: 1.7; }
+    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #aaa; line-height: 1.7; }
 
     /* ── Info bar ──────────────────────────────────── */
     .info-bar {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius-sm);
       padding: 14px 18px;
       font-size: 0.8rem;
-      color: #888888;
+      color: #888;
       line-height: 1.6;
     }
-    .info-bar strong { color: #555555; }
+    .info-bar strong { color: #aaa; }
 
     /* ── Others products ───────────────────────────── */
     .others-list { display: flex; flex-direction: column; gap: 8px; }
@@ -1004,6 +1043,7 @@
       <a class="nav-logo" href="https://stackfit.es/">Stack<span>Fit</span></a>
       <div class="nav-links">
         <a href="https://stackfit.es/proteina-whey/">Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1014,6 +1054,7 @@
     </nav>
     <div class="mobile-subnav">
       <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
       <a href="https://stackfit.es/creatina/">Creatina</a>
       <a href="https://stackfit.es/bcaa/">BCAA</a>
       <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1043,7 +1084,7 @@
       <h1 style="font-family:var(--font-display); font-size:clamp(1.5rem,4vw,2rem); font-weight:900; color:#fff; text-transform:uppercase;">MyProtein ES</h1>
     </div>
     <p style="color:#555; font-size:0.85rem; margin-bottom:12px;">
-      46 productos disponibles ·
+      45 productos disponibles ·
       <a href="https://www.myprotein.com/es-es/" target="_blank" rel="nofollow noopener" style="color:#555;">https://www.myprotein.com/es-es/</a>
     </p>
   </header>
@@ -1055,7 +1096,7 @@
       
         <p style="font-size:0.9rem; color:#aaa; line-height:1.8; margin-bottom:14px;">MyProtein es la mayor tienda de nutrición deportiva online de Europa. Nació en el Reino Unido en 2004 y desde entonces ha expandido su catálogo a más de 2.500 productos bajo marca propia, incluyendo proteínas whey, creatina, aminoácidos y barritas.</p>
       
-        <p style="font-size:0.9rem; color:#aaa; line-height:1.8; margin-bottom:14px;">En StackFit seguimos 46 productos de MyProtein España: proteínas, creatina y BCAA. Su punto fuerte es el precio por kilogramo cuando hay promociones activas, que son frecuentes.</p>
+        <p style="font-size:0.9rem; color:#aaa; line-height:1.8; margin-bottom:14px;">En StackFit seguimos 45 productos de MyProtein España: proteínas, creatina y BCAA. Su punto fuerte es el precio por kilogramo cuando hay promociones activas, que son frecuentes.</p>
       
         <p style="font-size:0.9rem; color:#aaa; line-height:1.8; margin-bottom:14px;">Actualizamos sus precios tres veces por semana. Los enlaces de esta página son de afiliado: si compras a través de ellos, ganamos una pequeña comisión sin coste adicional para ti.</p>
       
@@ -1069,7 +1110,7 @@
   <section style="margin-bottom:52px;">
     <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.07); flex-wrap:wrap;">
       <h2 style="font-size:0.95rem; font-weight:700; color:#c0c0c0;">
-        Proteínas
+        Proteína Whey
         <span style="color:#444; font-weight:400; font-size:0.85rem;">(26 productos)</span>
       </h2>
       <a href="https://stackfit.es/proteina-whey/" style="font-size:0.78rem; font-weight:600; color:var(--accent); white-space:nowrap; text-decoration:none;">Ver categoría completa →</a>
@@ -1103,7 +1144,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fessential-whey-protein%2F11052699%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 7,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fessential-whey-protein%2F11052699%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1135,39 +1176,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmyprotein-clear-whey-isolate-retail%2F12608168%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 14,99 €</a>
-        </div>
-        
-      </div>
-      
-      
-      
-      
-      <div class="product-card">
-        <!-- Zona 1: imagen + nombre + meta -->
-        <div class="pc-top">
-          <div class="pc-img">
-            <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17765950-1145373855288243.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Impact Whey Protein Milkshake - Krispy Kreme® 470 g" width="72" height="72" loading="lazy">
-          </div>
-          <div class="pc-info">
-            <div class="pc-name">
-              <span class="pc-name-text">Impact Whey Protein Milkshake - Krispy Kreme® 470 g</span>
-              
-            </div>
-            <div class="pc-meta">MyProtein · 0,47 kg</div>
-          </div>
-        </div>
-        <!-- Zona 2: fila de precio -->
-        <div class="pc-price-row">
-          
-            <div class="pc-price-main">48,91<span class="pc-price-unit">€/kg</span></div>
-            <div class="pc-price-sec">desde 22,99 €</div>
-          
-        </div>
-        <!-- Zona 3: tiendas + acciones -->
-        
-        <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein-milkshake-krispy-kreme%2F17765948%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 22,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmyprotein-clear-whey-isolate-retail%2F12608168%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1199,7 +1208,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-isolate%2F12081395%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 23,39 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-isolate%2F12081395%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1231,7 +1240,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fsmoothie-para-el-desayuno%2F13251950%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 26,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fsmoothie-para-el-desayuno%2F13251950%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1263,7 +1272,39 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-splash%2F16111658%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 32,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fclear-whey-splash%2F16111658%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
+        </div>
+        
+      </div>
+      
+      
+      
+      
+      <div class="product-card">
+        <!-- Zona 1: imagen + nombre + meta -->
+        <div class="pc-top">
+          <div class="pc-img">
+            <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17765950-1145373855288243.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover" alt="Impact Whey Protein Milkshake - Krispy Kreme® 930 g" width="72" height="72" loading="lazy">
+          </div>
+          <div class="pc-info">
+            <div class="pc-name">
+              <span class="pc-name-text">Impact Whey Protein Milkshake - Krispy Kreme® 930 g</span>
+              
+            </div>
+            <div class="pc-meta">MyProtein · 0,93 kg</div>
+          </div>
+        </div>
+        <!-- Zona 2: fila de precio -->
+        <div class="pc-price-row">
+          
+            <div class="pc-price-main">39,77<span class="pc-price-unit">€/kg</span></div>
+            <div class="pc-price-sec">desde 36,99 €</div>
+          
+        </div>
+        <!-- Zona 3: tiendas + acciones -->
+        
+        <div class="pc-actions">
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein-milkshake-krispy-kreme%2F17765948%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1295,7 +1336,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein-elite%2F11243021%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 43,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein-elite%2F11243021%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1327,7 +1368,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Faislado-de-proteina-de-guisante%2F10530136%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 46,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Faislado-de-proteina-de-guisante%2F10530136%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1336,7 +1377,7 @@
     
     <div style="text-align:center; margin-top:16px;">
       <a href="https://stackfit.es/proteina-whey/" style="font-size:0.8rem; color:var(--accent); font-weight:600; text-decoration:none;">
-        Ver los 26 productos de Proteínas →
+        Ver los 26 productos de Proteína Whey →
       </a>
     </div>
     
@@ -1379,7 +1420,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-en-polvo-micronizada%2F17902344%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 21,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-en-polvo-micronizada%2F17902344%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1411,7 +1452,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-monohidrato-en-polvo%2F10530050%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 27,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-monohidrato-en-polvo%2F10530050%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1443,7 +1484,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-hcl%2F17169974%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 31,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-hcl%2F17169974%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1475,7 +1516,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-monohidrato-elite%2F10872819%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 35,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcreatina-monohidrato-elite%2F10872819%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1507,7 +1548,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-creatine-creapure%2F10529740%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 94,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fthe-creatine-creapure%2F10529740%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1553,7 +1594,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbcaa-2-1-1%2F10529280%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 23,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbcaa-2-1-1%2F10529280%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1585,7 +1626,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbcaa-4-1-1-en-polvo%2F10830546%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 29,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbcaa-4-1-1-en-polvo%2F10830546%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1617,7 +1658,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-intra-workout%2F16872733%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 34,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-intra-workout%2F16872733%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1630,7 +1671,7 @@
     <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.07); flex-wrap:wrap;">
       <h2 style="font-size:0.95rem; font-weight:700; color:#c0c0c0;">
         Pre-Entreno
-        <span style="color:#444; font-weight:400; font-size:0.85rem;">(12 productos)</span>
+        <span style="color:#444; font-weight:400; font-size:0.85rem;">(11 productos)</span>
       </h2>
       <a href="https://stackfit.es/pre-entreno/" style="font-size:0.78rem; font-weight:600; color:var(--accent); white-space:nowrap; text-decoration:none;">Ver categoría completa →</a>
     </div>
@@ -1663,7 +1704,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Falpha-pre-entreno%2F13757999%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 1,00 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Falpha-pre-entreno%2F13757999%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1695,7 +1736,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbeta-alanina-en-polvo%2F10529809%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 14,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbeta-alanina-en-polvo%2F10529809%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1727,7 +1768,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmezcla-pre-entreno%2F11542703%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 15,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fmezcla-pre-entreno%2F11542703%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1759,7 +1800,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Ftaurina-en-polvo%2F10530303%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 16,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Ftaurina-en-polvo%2F10530303%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1791,7 +1832,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-shred-pre-workout%2F16547402%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 19,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-shred-pre-workout%2F16547402%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1823,7 +1864,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno%2F12941037%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 22,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno%2F12941037%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1855,7 +1896,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno-sin-estimulantes%2F14269805%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 22,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno-sin-estimulantes%2F14269805%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1887,7 +1928,7 @@
         <!-- Zona 3: tiendas + acciones -->
         
         <div class="pc-actions">
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcitrulina-malato%2F10529326%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein · 22,99 €</a>
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fcitrulina-malato%2F10529326%2F" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en MyProtein</a>
         </div>
         
       </div>
@@ -1896,7 +1937,7 @@
     
     <div style="text-align:center; margin-top:16px;">
       <a href="https://stackfit.es/pre-entreno/" style="font-size:0.8rem; color:var(--accent); font-weight:600; text-decoration:none;">
-        Ver los 12 productos de Pre-Entreno →
+        Ver los 11 productos de Pre-Entreno →
       </a>
     </div>
     
@@ -1928,6 +1969,7 @@
         <div class="footer-links-label">Categorías</div>
         <a href="https://stackfit.es/">Inicio</a>
         <a href="https://stackfit.es/proteina-whey/">Proteína Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Proteína Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1943,7 +1985,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-10-12</div>
+    <div class="footer-bottom">Última actualización: 2026-10-14</div>
   </footer>
 
 </body>

@@ -62,14 +62,30 @@
     {
       "@type": "Product",
       "name": "Evoexcel sin edulcorantes (whey protein isolate + concentrate) 2 kg",
+      "image": "https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/v/evoexcel-no-sweeteners-gral-front-hsn_1_1.webp",
       "brand": {"@type": "Brand", "name": "HSN"},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "price": 78.5}
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": 78.50,
+        "highPrice": 78.50,
+        "offerCount": 1,
+        "availability": "https://schema.org/InStock"
+      }
     },
     {
       "@type": "Product",
       "name": "Evolate 2.0 (whey isolate CFM) 2 kg",
+      "image": "https://stackfit.es/img/productos/evolate-2-0-whey-isolate-cfm-2kg-desconocida.webp",
       "brand": {"@type": "Brand", "name": "HSN"},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "price": 79.99}
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": 79.99,
+        "highPrice": 79.99,
+        "offerCount": 1,
+        "availability": "https://schema.org/InStock"
+      }
     }
   ]
 }
@@ -339,10 +355,10 @@
       gap: 16px;
     }
     @media (min-width: 640px) {
-      .products-list { grid-template-columns: repeat(2, 1fr); }
+      .products-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (min-width: 1024px) {
-      .products-list { grid-template-columns: repeat(3, 1fr); }
+      .products-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     .product-card {
@@ -491,10 +507,12 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+    .pc-actions .pc-btn-primary { min-width: 0; }
 
     /* ── Compare button ────────────────────────────── */
     .pc-btn-compare {
       flex: 0 0 44px;
+      flex-shrink: 0;
       width: 44px;
       min-width: 44px;
       padding: 9px 0;
@@ -854,8 +872,8 @@
       flex-direction: column;
       gap: 12px;
       margin-bottom: 24px;
-      background: #f9f9f9;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 12px;
       padding: 16px 18px;
     }
@@ -885,10 +903,10 @@
     }
     .filter-select {
       padding: 7px 12px;
-      background: #ffffff;
-      border: 1px solid var(--border);
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
-      color: #333333;
+      color: #e8e8e8;
       font-family: var(--font-body);
       font-size: 0.82rem;
       cursor: pointer;
@@ -906,8 +924,8 @@
       font-weight: 500;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #ffffff;
-      color: #888888;
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
       white-space: nowrap;
@@ -939,9 +957,9 @@
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
-      border: 1px solid #dddddd;
-      background: #ffffff;
-      color: #888888;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
     }
@@ -955,6 +973,43 @@
       .filter-row { flex-direction: column; gap: 12px; }
       .filter-select { max-width: 100%; }
       .filter-group--kg { width: 100%; }
+    }
+
+    /* ── Mobile filter toggle ──────────────────────────── */
+    .filters-toggle-btn {
+      display: none;
+      width: 100%;
+      padding: 9px 16px;
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: #e8e8e8;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .filters-toggle-btn .filters-badge {
+      background: var(--accent);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    @media (min-width: 640px) {
+      .filters-toggle-btn { display: none !important; }
+      .advanced-filters { display: flex !important; }
+    }
+    @media (max-width: 639px) {
+      .filters-toggle-btn { display: flex; }
+      .advanced-filters.filters-collapsed { display: none; }
     }
 
     /* ── Guide / Editorial ─────────────────────────── */
@@ -976,10 +1031,10 @@
     }
 
     /* ── FAQ ───────────────────────────────────────── */
-    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 100%; }
     details.faq-item {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
       overflow: hidden;
     }
@@ -994,24 +1049,24 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      color: #111111;
+      color: #e8e8e8;
     }
     details.faq-item summary::-webkit-details-marker { display: none; }
     .faq-plus { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.2s; }
     details.faq-item[open] .faq-plus { transform: rotate(45deg); }
-    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #666666; line-height: 1.7; }
+    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #aaa; line-height: 1.7; }
 
     /* ── Info bar ──────────────────────────────────── */
     .info-bar {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius-sm);
       padding: 14px 18px;
       font-size: 0.8rem;
-      color: #888888;
+      color: #888;
       line-height: 1.6;
     }
-    .info-bar strong { color: #555555; }
+    .info-bar strong { color: #aaa; }
 
     /* ── Others products ───────────────────────────── */
     .others-list { display: flex; flex-direction: column; gap: 8px; }
@@ -1161,6 +1216,7 @@
       <a class="nav-logo" href="https://stackfit.es/">Stack<span>Fit</span></a>
       <div class="nav-links">
         <a href="https://stackfit.es/proteina-whey/">Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1171,6 +1227,7 @@
     </nav>
     <div class="mobile-subnav">
       <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
       <a href="https://stackfit.es/creatina/">Creatina</a>
       <a href="https://stackfit.es/bcaa/">BCAA</a>
       <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1194,7 +1251,7 @@
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>Evoexcel Sin Edulcorantes (Whey Protein Isolate + Concentrate) vs Evolate 2.0 (Whey Isolate Cfm): comparativa completa</h1>
-    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Precios actualizados el 12 oct.</p>
+    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Precios actualizados el 14 oct.</p>
   </div>
 </div>
 
@@ -1363,6 +1420,21 @@
         
         
         <tr>
+          <td class="label-col">% proteína</td>
+          <td><span class="na-cell">—</span></td>
+          <td>90 %</td>
+        </tr>
+        
+        
+        
+        <tr>
+          <td class="label-col">€/kg proteína</td>
+          <td><span class="na-cell">—</span></td>
+          <td><span class="cmp-val-badge">44,43 €/kg</span></td>
+        </tr>
+        
+        
+        <tr>
           <td class="label-col">Dosis por bote</td>
           <td><span class="na-cell">—</span></td>
           <td>67</td>
@@ -1393,11 +1465,15 @@
         <tr>
           <td class="label-col">Sabores</td>
           <td>
-            café con leche, chocolate, matcha con leche, smoothie de bayas, té chai con leche, vainilla
+            
+              
+              café con leche, chocolate, matcha con leche, smoothie de bayas, té chai con leche, vainilla
             
           </td>
           <td>
-            barquillo de chocolate, barquillo de crema de avellana, bombón de chocolate y avellanas, café con leche, café y caramelo, caramelo salado, chocolate, chocolate blanco, chocolate blanco y coco, chocolate blanco y limón, chocolate blanco y mango, chocolate y avellanas, chocolate y cacahuete, chocolate y galletas, coco, doble chocolate, frambuesa, fresa, fresa y chocolate blanco, fresa y coco, fresa y plátano, galletas y crema, leche merengada, manzana y canela, natilla, speculoos, tarta de queso de frutas del bosque, turrón, vainilla, vainilla caribeña, chocolate y avellana
+            
+              
+              barquillo de chocolate, barquillo de crema de avellana, bombón de chocolate y avellanas, café con leche, café y caramelo, caramelo salado<span style="display:none;" class="flavors-extra-b">, chocolate, chocolate blanco, chocolate blanco y coco, chocolate blanco y limón, chocolate blanco y mango, chocolate y avellanas, chocolate y cacahuete, chocolate y galletas, coco, doble chocolate, frambuesa, fresa, fresa y chocolate blanco, fresa y coco, fresa y plátano, galletas y crema, leche merengada, manzana y canela, natilla, speculoos, tarta de queso de frutas del bosque, turrón, vainilla, vainilla caribeña, chocolate y avellana</span> <button onclick="this.previousElementSibling.style.display='inline';this.style.display='none';" style="background:none;border:none;color:var(--accent);font-size:0.78rem;cursor:pointer;padding:0;">+25 más</button>
             
           </td>
         </tr>
@@ -1508,6 +1584,7 @@
     
     <p>Ambos productos son proteína whey de tipo <strong>isolate</strong>; la diferencia principal es el precio por kilogramo.</p>
     
+    
   </div>
 </div>
 
@@ -1600,6 +1677,7 @@
         <div class="footer-links-label">Categorías</div>
         <a href="https://stackfit.es/">Inicio</a>
         <a href="https://stackfit.es/proteina-whey/">Proteína Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Proteína Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1615,7 +1693,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-10-12</div>
+    <div class="footer-bottom">Última actualización: 2026-10-14</div>
   </footer>
 
 </body>

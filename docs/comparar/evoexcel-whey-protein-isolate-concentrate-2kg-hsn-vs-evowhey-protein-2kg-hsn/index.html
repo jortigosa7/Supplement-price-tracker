@@ -62,14 +62,30 @@
     {
       "@type": "Product",
       "name": "Evoexcel (whey protein isolate + concentrate) 2 kg",
+      "image": "https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/v/evoexcel-gral-front-hsn_1_1_1.webp",
       "brand": {"@type": "Brand", "name": "HSN"},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "price": 76.99}
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": 76.99,
+        "highPrice": 76.99,
+        "offerCount": 1,
+        "availability": "https://schema.org/InStock"
+      }
     },
     {
       "@type": "Product",
       "name": "Evowhey protein 2 kg",
+      "image": "https://stackfit.es/img/productos/evowhey-protein-2kg-desconocida.webp",
       "brand": {"@type": "Brand", "name": "HSN"},
-      "offers": {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "price": 59.99}
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": 59.99,
+        "highPrice": 59.99,
+        "offerCount": 1,
+        "availability": "https://schema.org/InStock"
+      }
     }
   ]
 }
@@ -339,10 +355,10 @@
       gap: 16px;
     }
     @media (min-width: 640px) {
-      .products-list { grid-template-columns: repeat(2, 1fr); }
+      .products-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (min-width: 1024px) {
-      .products-list { grid-template-columns: repeat(3, 1fr); }
+      .products-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     .product-card {
@@ -491,10 +507,12 @@
     }
 
     .pc-actions { display: flex; gap: 8px; }
+    .pc-actions .pc-btn-primary { min-width: 0; }
 
     /* ── Compare button ────────────────────────────── */
     .pc-btn-compare {
       flex: 0 0 44px;
+      flex-shrink: 0;
       width: 44px;
       min-width: 44px;
       padding: 9px 0;
@@ -854,8 +872,8 @@
       flex-direction: column;
       gap: 12px;
       margin-bottom: 24px;
-      background: #f9f9f9;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 12px;
       padding: 16px 18px;
     }
@@ -885,10 +903,10 @@
     }
     .filter-select {
       padding: 7px 12px;
-      background: #ffffff;
-      border: 1px solid var(--border);
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
-      color: #333333;
+      color: #e8e8e8;
       font-family: var(--font-body);
       font-size: 0.82rem;
       cursor: pointer;
@@ -906,8 +924,8 @@
       font-weight: 500;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #ffffff;
-      color: #888888;
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
       white-space: nowrap;
@@ -939,9 +957,9 @@
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
-      border: 1px solid #dddddd;
-      background: #ffffff;
-      color: #888888;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #16181a;
+      color: #888;
       transition: all 0.15s;
       font-family: var(--font-body);
     }
@@ -955,6 +973,43 @@
       .filter-row { flex-direction: column; gap: 12px; }
       .filter-select { max-width: 100%; }
       .filter-group--kg { width: 100%; }
+    }
+
+    /* ── Mobile filter toggle ──────────────────────────── */
+    .filters-toggle-btn {
+      display: none;
+      width: 100%;
+      padding: 9px 16px;
+      background: #16181a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: #e8e8e8;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .filters-toggle-btn .filters-badge {
+      background: var(--accent);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    @media (min-width: 640px) {
+      .filters-toggle-btn { display: none !important; }
+      .advanced-filters { display: flex !important; }
+    }
+    @media (max-width: 639px) {
+      .filters-toggle-btn { display: flex; }
+      .advanced-filters.filters-collapsed { display: none; }
     }
 
     /* ── Guide / Editorial ─────────────────────────── */
@@ -976,10 +1031,10 @@
     }
 
     /* ── FAQ ───────────────────────────────────────── */
-    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 100%; }
     details.faq-item {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
       overflow: hidden;
     }
@@ -994,24 +1049,24 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      color: #111111;
+      color: #e8e8e8;
     }
     details.faq-item summary::-webkit-details-marker { display: none; }
     .faq-plus { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.2s; }
     details.faq-item[open] .faq-plus { transform: rotate(45deg); }
-    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #666666; line-height: 1.7; }
+    .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; color: #aaa; line-height: 1.7; }
 
     /* ── Info bar ──────────────────────────────────── */
     .info-bar {
-      background: #f7f7f7;
-      border: 1px solid var(--border);
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius-sm);
       padding: 14px 18px;
       font-size: 0.8rem;
-      color: #888888;
+      color: #888;
       line-height: 1.6;
     }
-    .info-bar strong { color: #555555; }
+    .info-bar strong { color: #aaa; }
 
     /* ── Others products ───────────────────────────── */
     .others-list { display: flex; flex-direction: column; gap: 8px; }
@@ -1161,6 +1216,7 @@
       <a class="nav-logo" href="https://stackfit.es/">Stack<span>Fit</span></a>
       <div class="nav-links">
         <a href="https://stackfit.es/proteina-whey/">Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1171,6 +1227,7 @@
     </nav>
     <div class="mobile-subnav">
       <a href="https://stackfit.es/proteina-whey/">Whey</a>
+      <a href="https://stackfit.es/proteina-vegana/">Vegana</a>
       <a href="https://stackfit.es/creatina/">Creatina</a>
       <a href="https://stackfit.es/bcaa/">BCAA</a>
       <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1194,7 +1251,7 @@
     </div>
     <div class="cmp-hero-label">Comparativa</div>
     <h1>Evoexcel (Whey Protein Isolate + Concentrate) vs Evowhey Protein: comparativa completa</h1>
-    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Precios actualizados el 12 oct.</p>
+    <p class="cmp-hero-sub">Precio, características y dónde comprarlo más barato. Precios actualizados el 14 oct.</p>
   </div>
 </div>
 
@@ -1363,6 +1420,21 @@
         
         
         <tr>
+          <td class="label-col">% proteína</td>
+          <td>87 %</td>
+          <td><span class="na-cell">—</span></td>
+        </tr>
+        
+        
+        
+        <tr>
+          <td class="label-col">€/kg proteína</td>
+          <td><span class="cmp-val-badge">44,41 €/kg</span></td>
+          <td><span class="na-cell">—</span></td>
+        </tr>
+        
+        
+        <tr>
           <td class="label-col">Dosis por bote</td>
           <td>67</td>
           <td><span class="na-cell">—</span></td>
@@ -1393,11 +1465,15 @@
         <tr>
           <td class="label-col">Sabores</td>
           <td>
-            chocolate, chocolate blanco, chocolate y avellanas, chocolate y cacahuete, chocolate y galletas, fresa, fresa y plátano, tarta de queso de frutas del bosque, turrón, vainilla
+            
+              
+              chocolate, chocolate blanco, chocolate y avellanas, chocolate y cacahuete, chocolate y galletas, fresa<span style="display:none;" class="flavors-extra-a">, fresa y plátano, tarta de queso de frutas del bosque, turrón, vainilla</span> <button onclick="this.previousElementSibling.style.display='inline';this.style.display='none';" style="background:none;border:none;color:var(--accent);font-size:0.78rem;cursor:pointer;padding:0;">+4 más</button>
             
           </td>
           <td>
-            banoffee, barquillo de chocolate, barquillo de crema de avellana, bombón de chocolate y avellanas, café con especias de calabaza, café con helado de vainilla, café con leche, café y avellanas, café y caramelo, caramelo, caramelo salado, chocolate, chocolate (con stevia), chocolate blanco, chocolate blanco y cacahuete, chocolate blanco y coco, chocolate blanco y limón, chocolate blanco y mango, chocolate negro y avellanas, chocolate y cacahuete, chocolate y caramelo, chocolate y galletas, chocolate y naranja, chocolate y plátano, coco, cola, crema catalana, doble chocolate, frambuesa, frambuesa y vainilla, fresa, fresa y chocolate blanco, fresa y coco, fresa y plátano, frutas del bosque, galleta, galleta caramelizada, galleta de jengibre, helado de arándanos, helado de vainilla y frambuesas, latte macchiato, leche merengada, manzana y canela, mazapán de chocolate, melocotón y mango, natilla, pastel de nata, piña, piña colada, plátano, rollito de canela, sandia, sirope de arce, snickerdoodle, speculoos, strudel de manzana, té chai con leche, tiramisú, turrón, vainilla, vainilla caribeña, vainilla y coco, yogur y limón, yogur y melón
+            
+              
+              banoffee, barquillo de chocolate, barquillo de crema de avellana, bombón de chocolate y avellanas, café con especias de calabaza, café con helado de vainilla<span style="display:none;" class="flavors-extra-b">, café con leche, café y avellanas, café y caramelo, caramelo, caramelo salado, chocolate, chocolate (con stevia), chocolate blanco, chocolate blanco y cacahuete, chocolate blanco y coco, chocolate blanco y limón, chocolate blanco y mango, chocolate negro y avellanas, chocolate y cacahuete, chocolate y caramelo, chocolate y galletas, chocolate y naranja, chocolate y plátano, coco, cola, crema catalana, doble chocolate, frambuesa, frambuesa y vainilla, fresa, fresa y chocolate blanco, fresa y coco, fresa y plátano, frutas del bosque, galleta, galleta caramelizada, galleta de jengibre, helado de arándanos, helado de vainilla y frambuesas, latte macchiato, leche merengada, manzana y canela, mazapán de chocolate, melocotón y mango, natilla, pastel de nata, piña, piña colada, plátano, rollito de canela, sandia, sirope de arce, snickerdoodle, speculoos, strudel de manzana, té chai con leche, tiramisú, turrón, vainilla, vainilla caribeña, vainilla y coco, yogur y limón, yogur y melón</span> <button onclick="this.previousElementSibling.style.display='inline';this.style.display='none';" style="background:none;border:none;color:var(--accent);font-size:0.78rem;cursor:pointer;padding:0;">+58 más</button>
             
           </td>
         </tr>
@@ -1506,6 +1582,7 @@
     
     <p>En cuanto a proteína por dosis, <strong>Evoexcel (whey protein isolate + concentrate) 2 kg</strong> aporta 26 g por toma frente a los 22 g de Evowhey protein 2 kg, una diferencia de 4 g por servicio.</p>
     
+    
   </div>
 </div>
 
@@ -1598,6 +1675,7 @@
         <div class="footer-links-label">Categorías</div>
         <a href="https://stackfit.es/">Inicio</a>
         <a href="https://stackfit.es/proteina-whey/">Proteína Whey</a>
+        <a href="https://stackfit.es/proteina-vegana/">Proteína Vegana</a>
         <a href="https://stackfit.es/creatina/">Creatina</a>
         <a href="https://stackfit.es/bcaa/">BCAA</a>
         <a href="https://stackfit.es/pre-entreno/">Pre-Entreno</a>
@@ -1613,7 +1691,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-10-12</div>
+    <div class="footer-bottom">Última actualización: 2026-10-14</div>
   </footer>
 
 </body>
