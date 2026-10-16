@@ -1450,5 +1450,9 @@
   "https://www.nutritienda.com/es/peak/arginine-akg-150-caps": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-10-14"
+  },
+  "https://www.nutritienda.com/es/226ers/immune-whey-protein-700g": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-16"
   }
 }
