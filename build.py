@@ -3143,7 +3143,10 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
             ]
             if not previos:
                 continue
-            _, _, precio_prev = previos[-1]
+            # Referencia = mediana de los últimos 5 precios, no solo el último:
+            # así un pico erróneo puntual (p. ej. HSN creatina 14 → 23,36 → 13,90)
+            # no dispara una falsa "bajada" cuando el precio vuelve a lo normal.
+            precio_prev = statistics.median(pr for _, _, pr in previos[-5:])
             if precio_prev <= 0:
                 continue
             bajada = (precio_prev - float(precio_actual)) / precio_prev
