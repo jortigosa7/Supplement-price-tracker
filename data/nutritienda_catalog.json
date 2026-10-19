@@ -1454,5 +1454,25 @@
   "https://www.nutritienda.com/es/226ers/immune-whey-protein-700g": {
     "categoria": "Proteinas Whey",
     "first_seen": "2026-10-16"
+  },
+  "https://www.nutritienda.com/es/optimum-nutrition/100-gold-standard-isolate-930g": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-19"
+  },
+  "https://www.nutritienda.com/es/quamtrax/kre-alkalyn-3000": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-19"
+  },
+  "https://www.nutritienda.com/es/amix-nutrition/black-line-creatine-creapure-drink-350g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-19"
+  },
+  "https://www.nutritienda.com/es/cellucor/c4-original-pwo-shot": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-19"
+  },
+  "https://www.nutritienda.com/es/applied-nutrition/pump-3g-stimulant-pre-workout-375g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-19"
   }
 }
