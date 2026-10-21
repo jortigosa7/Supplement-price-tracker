@@ -544,5 +544,11 @@
     "categoria": "Pre-Entreno",
     "protein_subtype": null,
     "first_seen": "2026-10-07"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evoeaa-s-energy": {
+    "nombre": "EvoEAA's energy",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-10-21"
   }
 }

@@ -1474,5 +1474,17 @@
   "https://www.nutritienda.com/es/applied-nutrition/pump-3g-stimulant-pre-workout-375g": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-10-19"
+  },
+  "https://www.nutritienda.com/es/paleobull/valquiria-aislado-de-proteina-de-leche": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-21"
+  },
+  "https://www.nutritienda.com/es/quamtrax/pure-creatine": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-21"
+  },
+  "https://www.nutritienda.com/es/cellucor/c4-ultimate": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-21"
   }
 }
