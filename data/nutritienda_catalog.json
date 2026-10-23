@@ -111,10 +111,6 @@
     "categoria": "bcaa",
     "first_seen": "2026-09-19"
   },
-  "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-glutamina-bcaa-530g-tribulyn-30-capsulas": {
-    "categoria": "bcaa",
-    "first_seen": "2026-09-19"
-  },
   "https://www.nutritienda.com/es/rule1/r1-bcaa-222g": {
     "categoria": "bcaa",
     "first_seen": "2026-09-19"
@@ -152,14 +148,6 @@
     "first_seen": "2026-09-19"
   },
   "https://www.nutritienda.com/es/evlution-nutrition/bcaa-5000-300g": {
-    "categoria": "bcaa",
-    "first_seen": "2026-09-19"
-  },
-  "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-glutamina-bcaa-530g-multimega-30-caps": {
-    "categoria": "bcaa",
-    "first_seen": "2026-09-19"
-  },
-  "https://www.nutritienda.com/es/amix-nutrition/pack-regalo-glutamina-bcaa-530g-magnechel-30-caps": {
     "categoria": "bcaa",
     "first_seen": "2026-09-19"
   },
@@ -1486,5 +1474,21 @@
   "https://www.nutritienda.com/es/cellucor/c4-ultimate": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-10-21"
+  },
+  "https://www.nutritienda.com/es/san/bcaa-boosted-417g": {
+    "categoria": "BCAA",
+    "first_seen": "2026-10-23"
+  },
+  "https://www.nutritienda.com/es/san/bcaa-6000-essential-417g": {
+    "categoria": "BCAA",
+    "first_seen": "2026-10-23"
+  },
+  "https://www.nutritienda.com/es/pescience/amino-iv-bcaa-eaa-390g": {
+    "categoria": "BCAA",
+    "first_seen": "2026-10-23"
+  },
+  "https://www.nutritienda.com/es/nutrex/outlift-clinical": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-23"
   }
 }
