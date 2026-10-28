@@ -1490,5 +1490,29 @@
   "https://www.nutritienda.com/es/nutrex/outlift-clinical": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-10-23"
+  },
+  "https://www.nutritienda.com/es/myprotein/impact-whey-protein": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-28"
+  },
+  "https://www.nutritienda.com/es/mutant/hardcore-whey-2270g": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-28"
+  },
+  "https://www.nutritienda.com/es/myprotein/creatina-monohidrato": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-28"
+  },
+  "https://www.nutritienda.com/es/mutant-creakong-300g": {
+    "categoria": "Creatina",
+    "first_seen": "2026-10-28"
+  },
+  "https://www.nutritienda.com/es/weider/total-rush-2-pre-entrenamiento-375g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-28"
+  },
+  "https://www.nutritienda.com/es/cobra-labs/the-shadow-270g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-10-28"
   }
 }

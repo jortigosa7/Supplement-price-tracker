@@ -558,5 +558,15 @@
     "nombre": "Creatina 3 en 1 + Colágeno + Electrolitos",
     "categoria": "Creatina",
     "first_seen": "2026-10-19"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/myprotein-creatine-plus-brainwave-usa/17829931/": {
+    "nombre": "MyProtein Creatine Plus BrainWave (USA)",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-28"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/myprotein-hydration-plus-creatine-usa/17703131/": {
+    "nombre": "MyProtein Hydration Plus Creatine (USA)",
+    "categoria": "Creatina",
+    "first_seen": "2026-10-28"
   }
 }
