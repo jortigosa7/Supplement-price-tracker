@@ -51,8 +51,8 @@
 
   <!-- ── Category header ──────────────────────────── -->
   <header style="margin-bottom:32px;">
-    <h1 style="font-family:var(--font-display); font-size:clamp(1.7rem,4vw,2.4rem); font-weight:800; text-transform:uppercase; letter-spacing:-0.5px; line-height:1.1; color:#f0f0f0; margin-bottom:14px;">
-      Mejor precio <em style="color:var(--accent); font-style:normal;">{{ cat.display | lower }}</em> en España
+    <h1 style="font-family:var(--font-display); font-size:clamp(1.5rem,4vw,2.2rem); font-weight:800; letter-spacing:-0.5px; line-height:1.15; color:#f0f0f0; margin-bottom:14px;">
+      {{ cat.h1_seo if cat.h1_seo else ("Mejor precio " ~ cat.display|lower ~ " en España") }}
     </h1>
     <p style="color:var(--text-secondary); font-size:0.92rem; max-width:680px; line-height:1.7;">
       {{ cat.intro }}
@@ -67,6 +67,25 @@
       {% endif %}
       {% endif %}
     </div>
+  {% if top5 %}
+  <div style="margin-top:24px;">
+    <h2 style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin-bottom:12px;">Top 5 calidad-precio</h2>
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      {% for p in top5 %}
+      <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:#111214;border:1px solid rgba(255,255,255,0.07);border-radius:10px;">
+        <span style="font-size:1rem;font-weight:800;color:var(--accent);min-width:22px;">{{ loop.index }}</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:0.84rem;font-weight:700;color:#e0e0e0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ p.nombre_display or p.nombre_normalizado }}</div>
+          <div style="font-size:0.72rem;color:#777;margin-top:1px;">{{ p.marca }} · {{ p.top5_razon }}</div>
+        </div>
+        {% if p.top5_precio_label %}
+        <div style="font-size:0.88rem;font-weight:800;color:var(--accent);white-space:nowrap;">{{ p.top5_precio_label }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
   </header>
 
   <!-- ── Filtros avanzados ────────────────────────── -->

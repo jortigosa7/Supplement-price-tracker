@@ -63,6 +63,8 @@ CATEGORIA_CONFIG = {
         "keywords":  "mejor precio proteína whey España, comprar whey barato, "
                      "proteína whey oferta España, whey protein precio",
         "h1":    "Mejor Precio Proteína Whey España",
+        "seo_title_tpl": "Mejor proteína whey calidad-precio {anio}: comparador por €/kg",
+        "h1_seo_tpl":    "Mejor proteína whey calidad-precio {anio}: comparador por €/kg",
         "intro": "Comparativa actualizada de proteínas whey (suero de leche) disponibles en tiendas españolas. "
                  "Ordenado por precio/kg para que siempre pagues lo justo, sin importar el tamaño del bote.",
         "guia_titulo": "Cómo elegir la mejor proteína whey por precio/kg",
@@ -124,6 +126,8 @@ CATEGORIA_CONFIG = {
         "keywords":  "mejor precio proteína vegana España, proteína vegetal barata, "
                      "proteína guisante precio, proteína arroz España",
         "h1":    "Mejor Precio Proteína Vegana España",
+        "seo_title_tpl": "Mejor proteína vegana {anio}: comparador por €/kg",
+        "h1_seo_tpl":    "Mejor proteína vegana {anio}: comparador por €/kg",
         "intro": "Comparativa de proteínas vegetales disponibles en tiendas españolas. "
                  "Soja, guisante, arroz, cáñamo y mezclas veganas, ordenadas por €/kg.",
         "guia_titulo": "Cómo elegir proteína vegana: fuentes y precio por kg",
@@ -186,6 +190,8 @@ CATEGORIA_CONFIG = {
         "keywords":  "mejor precio creatina España, comprar creatina barata, "
                      "creatina monohidrato oferta, creatina precio España",
         "h1":    "Mejor Precio Creatina España",
+        "seo_title_tpl": "Mejor creatina calidad-precio {anio}: Creapure vs 200 mesh",
+        "h1_seo_tpl":    "Mejor creatina calidad-precio {anio}: Creapure vs 200 mesh",
         "intro": "Comparativa de creatina en tiendas españolas. "
                  "La creatina monohidrato es el suplemento más estudiado — aquí encuentras la opción más económica.",
         "guia_titulo": "Cómo elegir creatina: guía de compra por precio/kg",
@@ -243,6 +249,8 @@ CATEGORIA_CONFIG = {
         "keywords":  "mejor precio BCAA España, comprar BCAA barato, "
                      "aminoácidos ramificados precio, BCAA oferta España",
         "h1":    "Mejor Precio BCAA España",
+        "seo_title_tpl": "Mejores BCAA del mercado {anio}: ranking calidad-precio",
+        "h1_seo_tpl":    "Mejores BCAA del mercado {anio}: ranking calidad-precio",
         "intro": "Comparativa de BCAA (aminoácidos ramificados) disponibles en tiendas españolas. "
                  "Ordenado por precio/kg, comparando tanto polvo como cápsulas.",
         "guia_titulo": "Guía de compra de BCAA: cuándo valen la pena y cómo comparar por €/kg",
@@ -299,6 +307,8 @@ CATEGORIA_CONFIG = {
         "keywords":  "mejor precio pre-entreno España, comprar pre-workout barato, "
                      "pre-entreno oferta España, mejor pre-workout precio",
         "h1":    "Mejor Precio Pre-Entreno España",
+        "seo_title_tpl": "Mejores pre-entrenos {anio}: ranking calidad-precio",
+        "h1_seo_tpl":    "Mejores pre-entrenos {anio}: ranking calidad-precio",
         "intro": "Comparativa de pre-entrenos disponibles en tiendas españolas. "
                  "Ordenado por precio/kg para que compares con criterio.",
         "guia_titulo": "Cómo elegir un pre-entreno: ingredientes que funcionan y precio real por toma",
@@ -1307,6 +1317,7 @@ def contexto_base(last_updated: str) -> dict:
         "dias_desde_datos": dias,
         "datos_obsoletos":  dias > 10,
         "active_slug":      None,
+        "current_year":     last_updated[:4],
     }
 
 
@@ -1875,7 +1886,15 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     comparaciones_cat = comparaciones_cat[:12]
 
     mes_anio = _mes_anio_es(last_updated)
-    _seo_title = cfg.get("seo_title") or f"Comparador de {cfg['display']} en España: precios €/kg actualizados | StackFit"
+    _anio = last_updated[:4]
+    _seo_title_tpl = cfg.get("seo_title_tpl")
+    _h1_seo_tpl = cfg.get("h1_seo_tpl")
+    _seo_title = (
+        _seo_title_tpl.format(anio=_anio) if _seo_title_tpl
+        else cfg.get("seo_title")
+        or f"Comparador de {cfg['display']} en España: precios €/kg actualizados | StackFit"
+    )
+    _h1_seo = _h1_seo_tpl.format(anio=_anio) if _h1_seo_tpl else None
     _seo_desc  = cfg.get("seo_desc") or (
         f"Compara precios de {cfg['display']} de HSN, MyProtein, Prozis y Nutritienda "
         f"normalizados a €/kg. Encuentra la marca más barata en España. "
@@ -1885,7 +1904,27 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
         **cfg,
         "seo_title": _seo_title,
         "seo_desc":  _seo_desc,
+        "h1_seo":    _h1_seo,
     }
+
+    # Top 5 calidad-precio
+    _top5_prods = [p for p in prods_principales if not p.get("agotado") and not p.get("sin_precio")]
+    if cfg["slug"] == "proteina-whey" or cfg.get("subcategoria") == "vegana":
+        _top5_sorted = sorted(_top5_prods, key=lambda p: p.get("precio_por_kg_proteina") or 9999)
+        def _razon_prot(p):
+            if p.get("precio_por_kg_proteina"):
+                return f"{p['precio_por_kg_proteina']:.2f} €/kg proteína".replace('.', ',')
+            return f"{p.get('precio_por_kg_min', 0):.2f} €/kg".replace('.', ',')
+        for p in _top5_sorted[:5]:
+            p["top5_razon"] = _razon_prot(p)
+            p["top5_precio_label"] = f"{p['precio_por_kg_min']:.2f} €/kg".replace('.', ',') if p.get("precio_por_kg_min") else None
+    else:
+        _top5_sorted = sorted(_top5_prods, key=lambda p: p.get("precio_por_kg_min") or 9999)
+        for p in _top5_sorted[:5]:
+            pkg = p.get("precio_por_kg_min")
+            p["top5_razon"] = f"{pkg:.2f} €/kg más barato".replace('.', ',') if pkg else "menor precio"
+            p["top5_precio_label"] = f"{pkg:.2f} €/kg".replace('.', ',') if pkg else None
+    top5 = _top5_sorted[:5]
 
     ctx = {
         **contexto_base(last_updated),
@@ -1900,6 +1939,7 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
         "precio_kg_max":           precio_kg_max,
         "slugs_comparacion":       json.dumps(list(slugs_cat)),
         "comparaciones_cat":       comparaciones_cat,
+        "top5":                    top5,
     }
 
     html = template.render(**ctx)
@@ -3207,6 +3247,179 @@ def limpiar_comparar_dir(slugs_a_preservar: set | None = None):
         print("   docs/comparar/ no existe aún, se creará en el build")
 
 
+def cargar_slugs_historicos() -> list:
+    """Carga data/slugs_historicos.json; devuelve lista vacía si no existe."""
+    path = os.path.join(DATA_DIR, "slugs_historicos.json")
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def actualizar_slugs_historicos(compare_slugs_actuales: list) -> None:
+    """Añade a slugs_historicos.json los slugs que ya no se generan."""
+    path = os.path.join(DATA_DIR, "slugs_historicos.json")
+    historicos = set(cargar_slugs_historicos())
+    nuevos = set(compare_slugs_actuales)
+    # Los slugs que estaban en el historial de docs pero ya no se generan
+    historicos.update(nuevos)  # mantener siempre los actuales también
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(sorted(historicos), f, ensure_ascii=False, indent=2)
+
+
+def _categoria_desde_slug_hist(slug: str) -> str | None:
+    """Infiere categoría desde keywords en el slug."""
+    s = slug.lower()
+    if any(k in s for k in ("creatina", "creatine", "creapure", "clonapure",
+                              "monohydrate", "monohidrato", "ribosa")):
+        return "creatina"
+    if any(k in s for k in ("bcaa", "aminoacid", "ramificad", "glutamin",
+                              "leucin", "recovery-total")):
+        return "bcaa"
+    if any(k in s for k in ("pre-entreno", "pre-workout", "pre-train", "preentreno",
+                              "pump", "venom", "jacked", "beast", "shox", "arginin",
+                              "beta-alanin", "citrulina", "citrulline", "taurina",
+                              "tirosina", "malico", "cafeina", "caffein",
+                              "cellex", "cellzoom", "n-o-shox")):
+        return "pre-entreno"
+    if any(k in s for k in ("whey", "proteina", "protein", "isolat", "hidroliz",
+                              "isolate", "concentrat", "vegana", "vegan",
+                              "mass-gainer", "gainer", "colageno", "collagen",
+                              "predator", "impact-whey", "pure-whey", "smoothie")):
+        return "proteina-whey"
+    # Fallback para slugs sin keywords reconocibles (productos descatalogados sin categoría clara)
+    return "proteina-whey"
+
+
+def _target_para_slug_historico(slug_hist: str, compare_slugs_set: set, productos_por_slug: dict) -> str | None:
+    """
+    Determina URL de destino para un slug histórico sin página ni redirección.
+    Prioridad: (a) par actual del mismo par → (b) comparación viva con un producto → (c) categoría.
+    Nunca devuelve /comparar/ ni la home.
+    """
+    if "-vs-" not in slug_hist:
+        return None
+
+    partes = slug_hist.split("-vs-", 1)
+    slug_a_hist, slug_b_hist = partes[0], partes[1]
+
+    def _match_prod(slug_part: str) -> str | None:
+        """Encuentra el slug_publico actual más cercano por prefijo."""
+        # Exact match
+        if slug_part in productos_por_slug:
+            return slug_part
+        # El slug histórico puede estar truncado (builds antiguos truncaban a 40 chars por lado)
+        for sp in productos_por_slug:
+            if sp.startswith(slug_part) or slug_part.startswith(sp):
+                return sp
+        # Fallback: prefijo común más largo
+        best = None
+        best_len = 0
+        for sp in productos_por_slug:
+            common = 0
+            for c1, c2 in zip(slug_part, sp):
+                if c1 == c2:
+                    common += 1
+                else:
+                    break
+            if common > best_len and common >= min(20, len(slug_part) - 3):
+                best_len = common
+                best = sp
+        return best
+
+    prod_a = _match_prod(slug_a_hist)
+    prod_b = _match_prod(slug_b_hist)
+
+    # (a) Ambos productos encontrados: buscar comparación actual con ese par
+    if prod_a and prod_b:
+        sa, sb = sorted([prod_a, prod_b])
+        slug_par = f"{sa}-vs-{sb}"
+        if slug_par in compare_slugs_set:
+            return f"/comparar/{slug_par}/"
+
+    # (b) Al menos uno encontrado: cualquier comparación que lo incluya
+    for prod in [prod_a, prod_b]:
+        if not prod:
+            continue
+        for cs in compare_slugs_set:
+            if prod in cs:
+                return f"/comparar/{cs}/"
+
+    # (c) Categoría por keywords
+    cat = _categoria_desde_slug_hist(slug_hist)
+    if cat:
+        return f"/{cat}/"
+
+    return None
+
+
+def generar_redirects_historicos(
+    slugs_historicos: list,
+    compare_slugs_set: set,
+    redirs_existentes: set,
+    productos_web: list,
+) -> int:
+    """
+    Para cada slug histórico sin página ni redirección, genera meta-refresh
+    con la URL de destino inferida.
+    También procesa data/gsc_404_conocidas.json.
+    """
+    import html as html_mod_local
+
+    # Índice de slug_publico → producto
+    productos_por_slug = {
+        p["slug_publico"]: p
+        for p in productos_web
+        if p.get("slug_publico")
+    }
+
+    # URLs ya cubiertas: páginas reales + redirecciones ya existentes
+    cubiertas = compare_slugs_set | redirs_existentes
+
+    # Añadir URLs de gsc_404_conocidas.json al listado de slugs a procesar
+    slugs_a_procesar = list(slugs_historicos)
+    gsc_path = os.path.join(DATA_DIR, "gsc_404_conocidas.json")
+    if os.path.exists(gsc_path):
+        with open(gsc_path, encoding="utf-8") as f:
+            gsc_data = json.load(f)
+        for entry in gsc_data:
+            url = entry.get("url", "")
+            slug = url.strip("/").removeprefix("comparar/")
+            if slug and slug not in slugs_a_procesar:
+                slugs_a_procesar.append(slug)
+
+    generadas = 0
+    for slug in slugs_a_procesar:
+        if slug in cubiertas:
+            continue
+        target = _target_para_slug_historico(slug, compare_slugs_set, productos_por_slug)
+        if not target:
+            continue
+        outdir = os.path.join(DOCS_DIR, "comparar", slug)
+        os.makedirs(outdir, exist_ok=True)
+        path = os.path.join(outdir, "index.html")
+        if os.path.exists(path):
+            continue  # no sobreescribir páginas reales ya generadas
+        html_content = (
+            '<!DOCTYPE html><html lang="es"><head>'
+            '<meta charset="UTF-8">'
+            f'<meta http-equiv="refresh" content="0; url={html_mod_local.escape(target)}">'
+            f'<link rel="canonical" href="{html_mod_local.escape(SITE_URL + target)}">'
+            '<title>Redirigiendo...</title>'
+            '</head><body>'
+            f'<p>Esta página ha sido movida. '
+            f'<a href="{html_mod_local.escape(target)}">Haz clic aquí si no eres redirigido automáticamente.</a>'
+            '</p></body></html>'
+        )
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+        generadas += 1
+
+    if generadas:
+        print(f"↪️  Generadas {generadas} redirecciones históricas")
+    return generadas
+
+
 def generar_redirecciones(slugs_generados: set):
     """
     Lee data/redirecciones.json y genera una página HTML mínima con meta-refresh
@@ -3397,6 +3610,21 @@ if __name__ == "__main__":
     # Generar páginas de redirección (old URLs → new slug_publico URLs)
     slugs_generados_set = set(compare_slugs)
     n_redir = generar_redirecciones(slugs_generados_set)
+
+    # Actualizar slugs_historicos.json con comparaciones que ya no se generan
+    actualizar_slugs_historicos(compare_slugs)
+
+    # Redirecciones para slugs históricos y URLs de gsc_404_conocidas
+    _slugs_hist = cargar_slugs_historicos()
+    _redirs_existentes = set()
+    _redir_path = os.path.join(DATA_DIR, "redirecciones.json")
+    if os.path.exists(_redir_path):
+        with open(_redir_path, encoding="utf-8") as _f:
+            for _r in json.load(_f):
+                _slug_r = _r["desde"].strip("/").removeprefix("comparar/")
+                _redirs_existentes.add(_slug_r)
+    n_redir_hist = generar_redirects_historicos(_slugs_hist, slugs_generados_set, _redirs_existentes, productos_web)
+    n_redir += n_redir_hist
 
     # Recuperar las 6 populares (misma lógica que en generar_comparaciones)
     from itertools import combinations as _combinations

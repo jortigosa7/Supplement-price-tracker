@@ -279,7 +279,12 @@
       "id_a": "iso-whey-zero-450g-biotechusa",
       "id_b": "iso-whey-zero-black-908g-biotechusa",
       "fuente": "GSC-restaurado"
+    },
+    {
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
+      "id_b": "creatina-excell-100-creapure-en-polvo-1kg-desconocida",
+      "fuente": "CTR-404"
     }
   ],
-  "total": 56
+  "total": 57
 }

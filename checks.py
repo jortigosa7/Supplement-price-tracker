@@ -616,6 +616,36 @@ def _check_gsc_cobertura(docs_dir: str) -> list[str]:
     return ["\n".join(lineas)]
 
 
+def _check_slugs_historicos(docs_dir: str) -> list[str]:
+    """
+    Falla si algún slug histórico de /comparar/ no tiene ni página real ni redirección.
+    Un slug se considera cubierto si existe docs/comparar/<slug>/index.html.
+    """
+    hist_path = "data/slugs_historicos.json"
+    if not os.path.exists(hist_path):
+        return []
+
+    with open(hist_path, encoding="utf-8") as f:
+        slugs_hist = json.load(f)
+
+    comparar_dir = os.path.join(docs_dir, "comparar")
+    errores = []
+    sin_cobertura = []
+    for slug in slugs_hist:
+        page = os.path.join(comparar_dir, slug, "index.html")
+        if not os.path.exists(page):
+            sin_cobertura.append(slug)
+
+    if sin_cobertura:
+        errores.append(
+            f"[CHECK HIST] {len(sin_cobertura)} slug(s) histórico(s) sin página ni redirección:\n"
+            + "\n".join(f"  • {s}" for s in sin_cobertura[:10])
+            + (f"\n  ... y {len(sin_cobertura) - 10} más" if len(sin_cobertura) > 10 else "")
+            + "\n  Acción: añadir a data/redirecciones.json o a la lógica de generar_redirects_historicos."
+        )
+    return errores
+
+
 def _check_ids(ids_act: set[str], ids_ant: set[str]) -> list[str]:
     """
     Si >10% de los IDs anteriores desaparecen de golpe, es probable que
@@ -965,6 +995,7 @@ def run_all_checks(
     errores += _check_ids(ids_act, set(stats_ant.get("ids", [])))
     errores += _check_slugs(slugs_act, set(stats_ant.get("slugs", [])))
     errores += _check_jsonld_products(docs_dir)
+    errores += _check_slugs_historicos(docs_dir)
     errores += _check_gsc_cobertura(docs_dir)
     errores += _check_scrape_stats()
     errores += _check_productos_ausentes(ids_act, stats_ant)

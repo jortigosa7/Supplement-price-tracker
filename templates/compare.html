@@ -1,26 +1,63 @@
 {% extends "base.html" %}
 
 {% block title %}
-{%- set _t_full  = producto_a.nombre_seo ~ " vs " ~ producto_b.nombre_seo ~ ": precio, valoraciones y características | " ~ site_name -%}
-{%- set _t_mid   = producto_a.nombre_seo ~ " vs " ~ producto_b.nombre_seo ~ ": precio, valoraciones y características" -%}
-{%- set _t_short = producto_a.nombre_seo ~ " vs " ~ producto_b.nombre_seo ~ ": precio y comparativa" -%}
-{%- if _t_full|length <= 60 -%}{{ _t_full }}
-{%- elif _t_mid|length <= 60 -%}{{ _t_mid }}
-{%- else -%}{{ _t_short }}
+{%- set _anio = current_year -%}
+{%- set _na = producto_a.nombre_seo -%}
+{%- set _nb = producto_b.nombre_seo -%}
+{%- set _ka = producto_a.precio_por_kg_min -%}
+{%- set _kb = producto_b.precio_por_kg_min -%}
+{%- if _ka and _kb -%}
+  {%- set _t_data = _na ~ " vs " ~ _nb ~ ": " ~ _ka|fmtd ~ " vs " ~ _kb|fmtd ~ " €/kg · opiniones " ~ _anio -%}
+  {%- set _t_short = _na[:12] ~ "… vs " ~ _nb[:12] ~ "…: " ~ _ka|fmtd ~ " vs " ~ _kb|fmtd ~ " €/kg · " ~ _anio -%}
+  {%- if _t_data|length <= 60 -%}{{ _t_data }}
+  {%- else -%}{{ _t_short }}
+  {%- endif -%}
+{%- else -%}
+  {%- set _t_full = _na ~ " vs " ~ _nb ~ ": precio, €/kg y opiniones " ~ _anio -%}
+  {%- set _t_short = _na[:15] ~ "… vs " ~ _nb[:15] ~ "…: precio y €/kg " ~ _anio -%}
+  {%- if _t_full|length <= 60 -%}{{ _t_full }}
+  {%- else -%}{{ _t_short }}
+  {%- endif -%}
 {%- endif -%}
 {% endblock %}
 {% block meta_desc %}
 {%- set _na = producto_a.nombre_seo -%}
 {%- set _nb = producto_b.nombre_seo -%}
-{%- if producto_a.store_rating and producto_b.store_rating and producto_a.precio_por_kg_min and producto_b.precio_por_kg_min -%}
-  {%- if (producto_a.precio_por_kg_min < producto_b.precio_por_kg_min and producto_a.store_rating < producto_b.store_rating) or
-         (producto_b.precio_por_kg_min < producto_a.precio_por_kg_min and producto_b.store_rating < producto_a.store_rating) -%}
-    {{- _na ~ " vs " ~ _nb ~ ": uno es más barato, otro está mejor valorado. Comparamos precio, €/kg y reseñas para que decidas tú." -}}
-  {%- else -%}
-    {{- _na ~ " vs " ~ _nb ~ ": comparamos precio, €/kg, valoraciones y características. Mira cuál te compensa." -}}
+{%- set _ka = producto_a.precio_por_kg_min -%}
+{%- set _kb = producto_b.precio_por_kg_min -%}
+{%- set _ta = producto_a.tienda_mas_barata -%}
+{%- set _tb = producto_b.tienda_mas_barata -%}
+{%- set _ra = producto_a.store_rating -%}
+{%- set _rb = producto_b.store_rating -%}
+{%- set _nra = producto_a.store_rating_count -%}
+{%- set _nrb = producto_b.store_rating_count -%}
+{%- if _ka and _kb -%}
+  {%- set _tienda = _ta if _ta else "la tienda" -%}
+  {%- set _desc = _na ~ " sale a " ~ _ka|fmtd ~ " €/kg y " ~ _nb ~ " a " ~ _kb|fmtd ~ " €/kg." -%}
+  {%- if _ra and _rb and _nra and _nrb -%}
+    {%- set _desc = _desc ~ " " ~ _na ~ ": " ~ _ra|fmtd ~ "/5 con " ~ _nra|int ~ " valoraciones; " ~ _nb ~ ": " ~ _rb|fmtd ~ "/5 (" ~ _nrb|int ~ ")." -%}
+  {%- elif _ra and _nra -%}
+    {%- set _desc = _desc ~ " " ~ _na ~ ": " ~ _ra|fmtd ~ "/5 (" ~ _nra|int ~ " valoraciones)." -%}
+  {%- elif _rb and _nrb -%}
+    {%- set _desc = _desc ~ " " ~ _nb ~ ": " ~ _rb|fmtd ~ "/5 (" ~ _nrb|int ~ " valoraciones)." -%}
   {%- endif -%}
+  {%- if producto_a.precio_por_kg_proteina and producto_b.precio_por_kg_proteina -%}
+    {%- set _diff = ((producto_a.precio_por_kg_proteina - producto_b.precio_por_kg_proteina)|abs / ([producto_a.precio_por_kg_proteina, producto_b.precio_por_kg_proteina]|max) * 100)|round(0)|int -%}
+    {%- set _desc = _desc ~ " Diferencia en €/kg proteína: " ~ _diff ~ " %." -%}
+  {%- elif producto_a.sweetener_free != producto_b.sweetener_free -%}
+    {%- if producto_a.sweetener_free -%}
+      {%- set _desc = _desc ~ " " ~ _na ~ " no lleva edulcorantes." -%}
+    {%- else -%}
+      {%- set _desc = _desc ~ " " ~ _nb ~ " no lleva edulcorantes." -%}
+    {%- endif -%}
+  {%- elif producto_a.porcentaje_proteina and producto_b.porcentaje_proteina -%}
+    {%- set _win_prot = _na if producto_a.porcentaje_proteina >= producto_b.porcentaje_proteina else _nb -%}
+    {%- set _max_prot = ([producto_a.porcentaje_proteina, producto_b.porcentaje_proteina]|max * 100)|round(0)|int -%}
+    {%- set _desc = _desc ~ " Mayor % proteína por dosis: " ~ _win_prot ~ " (" ~ _max_prot ~ " %)." -%}
+  {%- endif -%}
+  {{- _desc[:158] -}}
 {%- else -%}
-  {{- _na ~ " vs " ~ _nb ~ ": comparamos precio, €/kg y características. Elige según lo que más te importe." -}}
+  {{- _na ~ " vs " ~ _nb ~ ": comparamos precio, €/kg y opiniones. Elige el mejor suplemento para tu objetivo." -}}
 {%- endif -%}
 {% endblock %}
 {% block meta_keywords %}{{ producto_a.nombre_normalizado }} vs {{ producto_b.nombre_normalizado }}, comparar suplementos, mejor precio suplementos España{% endblock %}
@@ -534,6 +571,37 @@
     {% endfor %}
   </div>
 </div>
+
+<!-- ── Opiniones ─── -->
+{% if producto_a.store_rating or producto_b.store_rating %}
+<div class="cmp-section">
+  <h2 class="cmp-section-title">Opiniones y valoraciones</h2>
+  <div class="cmp-header-grid" style="margin-bottom:0;">
+    {% for prod in [producto_a, producto_b] %}
+    <div class="verdict-card">
+      <div class="verdict-label">{{ prod.nombre_seo }}</div>
+      {% if prod.store_rating %}
+      <div style="font-size:1.4rem;font-weight:800;color:var(--accent);margin:6px 0 2px;">{{ prod.store_rating|fmtd }}<span style="font-size:0.9rem;color:#888;font-weight:600;">/5</span></div>
+      {% if prod.store_rating_count %}
+      <div style="font-size:0.78rem;color:#888;">{{ prod.store_rating_count|int }} valoraciones en <strong>{{ prod.tienda_mas_barata or "tienda" }}</strong></div>
+      {% endif %}
+      <div style="margin-top:8px;display:flex;gap:2px;">
+        {% set _stars = (prod.store_rating / 1)|round(0,'floor')|int %}
+        {% for i in range(5) %}
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="{% if i < _stars %}var(--accent){% else %}#333{% endif %}" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div style="font-size:0.82rem;color:#555;font-style:italic;">Sin valoraciones disponibles</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% if producto_a.store_rating_url or producto_b.store_rating_url %}
+  <p style="font-size:0.75rem;color:#666;margin-top:12px;">Valoraciones extraídas directamente de las tiendas oficiales. Pueden variar con el tiempo.</p>
+  {% endif %}
+</div>
+{% endif %}
 
 <!-- ── Editorial ─── -->
 <div class="cmp-section">
