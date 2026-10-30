@@ -1,23 +1,22 @@
 {% extends "base.html" %}
 
 {% block title %}
-{%- set _anio = current_year -%}
-{%- set _na = producto_a.nombre_seo -%}
-{%- set _nb = producto_b.nombre_seo -%}
+{%- set _ca = nombre_corto_a if nombre_corto_a else producto_a.nombre_seo -%}
+{%- set _cb = nombre_corto_b if nombre_corto_b else producto_b.nombre_seo -%}
 {%- set _ka = producto_a.precio_por_kg_min -%}
 {%- set _kb = producto_b.precio_por_kg_min -%}
 {%- if _ka and _kb -%}
-  {%- set _t_data = _na ~ " vs " ~ _nb ~ ": " ~ _ka|fmtd ~ " vs " ~ _kb|fmtd ~ " €/kg · opiniones " ~ _anio -%}
-  {%- set _t_short = _na[:12] ~ "… vs " ~ _nb[:12] ~ "…: " ~ _ka|fmtd ~ " vs " ~ _kb|fmtd ~ " €/kg · " ~ _anio -%}
-  {%- if _t_data|length <= 60 -%}{{ _t_data }}
-  {%- else -%}{{ _t_short }}
+  {%- set _kas = (_ka|fmtd)|replace(',00','') -%}
+  {%- set _kbs = (_kb|fmtd)|replace(',00','') -%}
+  {%- set _t1 = _ca ~ " vs " ~ _cb ~ ": " ~ _kas ~ " vs " ~ _kbs ~ " €/kg y opiniones" -%}
+  {%- set _t2 = _ca ~ " vs " ~ _cb ~ ": " ~ _kas ~ " vs " ~ _kbs ~ " €/kg" -%}
+  {%- set _t3 = _ca ~ " vs " ~ _cb ~ ": precio y opiniones" -%}
+  {%- if _t1|length <= 65 -%}{{ _t1 }}
+  {%- elif _t2|length <= 65 -%}{{ _t2 }}
+  {%- else -%}{{ _t3 }}
   {%- endif -%}
 {%- else -%}
-  {%- set _t_full = _na ~ " vs " ~ _nb ~ ": precio, €/kg y opiniones " ~ _anio -%}
-  {%- set _t_short = _na[:15] ~ "… vs " ~ _nb[:15] ~ "…: precio y €/kg " ~ _anio -%}
-  {%- if _t_full|length <= 60 -%}{{ _t_full }}
-  {%- else -%}{{ _t_short }}
-  {%- endif -%}
+  {{ _ca ~ " vs " ~ _cb ~ ": precio y opiniones" }}
 {%- endif -%}
 {% endblock %}
 {% block meta_desc %}

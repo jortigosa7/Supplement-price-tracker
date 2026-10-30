@@ -938,6 +938,66 @@ def _check_jsonld_products(docs_dir: str) -> list[str]:
     return errores
 
 
+def _check_titulos_duplicados(docs_dir: str) -> list[str]:
+    """
+    Falla si dos páginas de comparación comparten el mismo <title> o
+    la misma meta description.
+    """
+    import re as _re
+    errores = []
+    comparar_dir = os.path.join(docs_dir, "comparar")
+    if not os.path.isdir(comparar_dir):
+        return []
+
+    titulos: dict[str, str] = {}     # título → primer slug que lo usa
+    descrips: dict[str, str] = {}    # desc   → primer slug que lo usa
+
+    _re_title = _re.compile(r'<title>([^<]+)</title>', _re.IGNORECASE)
+    _re_desc  = _re.compile(
+        r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']',
+        _re.IGNORECASE | _re.DOTALL,
+    )
+
+    for entry in sorted(os.listdir(comparar_dir)):
+        html_path = os.path.join(comparar_dir, entry, "index.html")
+        if not os.path.isfile(html_path):
+            continue
+        # Saltar páginas de redirección (meta-refresh, sin <title> real)
+        try:
+            contenido = Path(html_path).read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
+        if 'http-equiv="refresh"' in contenido:
+            continue
+
+        m_t = _re_title.search(contenido)
+        titulo = m_t.group(1).strip() if m_t else ""
+        m_d = _re_desc.search(contenido)
+        desc = m_d.group(1).strip() if m_d else ""
+
+        if titulo:
+            if titulo in titulos:
+                errores.append(
+                    f"[CHECK TÍTULOS] Título duplicado en comparar/{entry}/\n"
+                    f"  Mismo título que: comparar/{titulos[titulo]}/\n"
+                    f"  Título: {titulo!r}"
+                )
+            else:
+                titulos[titulo] = entry
+
+        if desc:
+            if desc in descrips:
+                errores.append(
+                    f"[CHECK TÍTULOS] Meta description duplicada en comparar/{entry}/\n"
+                    f"  Misma desc que: comparar/{descrips[desc]}/\n"
+                    f"  Desc: {desc[:80]!r}{'...' if len(desc) > 80 else ''}"
+                )
+            else:
+                descrips[desc] = entry
+
+    return errores
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def run_all_checks(
@@ -995,6 +1055,7 @@ def run_all_checks(
     errores += _check_ids(ids_act, set(stats_ant.get("ids", [])))
     errores += _check_slugs(slugs_act, set(stats_ant.get("slugs", [])))
     errores += _check_jsonld_products(docs_dir)
+    errores += _check_titulos_duplicados(docs_dir)
     errores += _check_slugs_historicos(docs_dir)
     errores += _check_gsc_cobertura(docs_dir)
     errores += _check_scrape_stats()

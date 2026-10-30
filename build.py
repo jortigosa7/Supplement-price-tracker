@@ -25,6 +25,7 @@ import json
 import math
 import os
 import re
+import subprocess
 import sys
 import glob
 import html as html_mod
@@ -2256,10 +2257,12 @@ def generar_pares_comparacion(
         """Crea una vista alias del producto que preserva el slug_publico del ID antiguo.
         Así la URL de la comparación no cambia aunque el producto haya sido renombrado.
         Solo se sobreescribe slug_publico si el ID antiguo no contiene 'desconocida'.
+        _comparaciones_id preserva el ID original de comparaciones.json para lookups
+        (ej. nombres_cortos.json que usa el ID de comparaciones, no el ID actual).
         """
         if "desconocida" in missing_id:
-            return producto
-        return {**producto, "slug_publico": missing_id}
+            return {**producto, "_comparaciones_id": missing_id}
+        return {**producto, "slug_publico": missing_id, "_comparaciones_id": missing_id}
 
     def _alias_por_url(missing_id: str):
         """Devuelve el producto actual con la misma URL que el producto anterior, o None."""
@@ -2340,11 +2343,11 @@ def generar_pares_comparacion(
         if pa is None and productos_previos_by_id:
             prev = productos_previos_by_id.get(id_a)
             if prev:
-                pa = {**prev, "agotado": True, "precio_por_kg_min": None}
+                pa = {**prev, "agotado": True, "precio_por_kg_min": None, "_comparaciones_id": id_a}
         if pb is None and productos_previos_by_id:
             prev = productos_previos_by_id.get(id_b)
             if prev:
-                pb = {**prev, "agotado": True, "precio_por_kg_min": None}
+                pb = {**prev, "agotado": True, "precio_por_kg_min": None, "_comparaciones_id": id_b}
 
         if pa is None:
             ids_faltantes.append(id_a)
@@ -2419,6 +2422,12 @@ def generar_comparaciones(env, productos_web: list, last_updated: str, productos
     Genera docs/comparar/<slug>/index.html para cada par y docs/comparar/index.html.
     Devuelve (slugs_generados, ids_faltantes).
     """
+    _nc_path = os.path.join(DATA_DIR, "nombres_cortos.json")
+    _nombres_cortos: dict = {}
+    if os.path.exists(_nc_path):
+        with open(_nc_path, encoding="utf-8") as _f:
+            _nombres_cortos = json.load(_f)
+
     pares, ids_faltantes, _ = generar_pares_comparacion(productos_web, productos_previos_by_id)
     n_total = len(pares)
     print(f"   → {n_total} pares en total")
@@ -2474,6 +2483,8 @@ def generar_comparaciones(env, productos_web: list, last_updated: str, productos
             "active_slug":              "comparar",
             "producto_a":               pa,
             "producto_b":               pb,
+            "nombre_corto_a":           _nombres_cortos.get(pa.get("_comparaciones_id") or pa["id"]),
+            "nombre_corto_b":           _nombres_cortos.get(pb.get("_comparaciones_id") or pb["id"]),
             "slug_comparacion":         slug_par,
             "veredicto":                veredicto,
             "editorial":                editorial,
@@ -3267,45 +3278,95 @@ def actualizar_slugs_historicos(compare_slugs_actuales: list) -> None:
         json.dump(sorted(historicos), f, ensure_ascii=False, indent=2)
 
 
+def _cargar_cache_categorias_hist() -> dict:
+    path = os.path.join(DATA_DIR, "categorias_slug_hist_cache.json")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def _guardar_cache_categorias_hist(cache: dict) -> None:
+    path = os.path.join(DATA_DIR, "categorias_slug_hist_cache.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2, sort_keys=True)
+
+
+def _categoria_desde_git_breadcrumb(slug: str, cache: dict) -> str | None:
+    """
+    Busca la categoría en el BreadcrumbList JSON-LD de la última versión
+    git de docs/comparar/<slug>/index.html.
+    El resultado (incluido None) se guarda en `cache` para no repetir la consulta.
+    """
+    if slug in cache:
+        return cache[slug]
+
+    path_hist = f"docs/comparar/{slug}/index.html"
+    r = subprocess.run(
+        ["git", "log", "--all", "--oneline", "-1", "--", path_hist],
+        capture_output=True, text=True, encoding="utf-8", errors="replace",
+    )
+    commit = r.stdout.strip().split()[0] if r.stdout.strip() else None
+    if commit:
+        r2 = subprocess.run(
+            ["git", "show", f"{commit}:{path_hist}"],
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+        )
+        for url in re.findall(r'"item"\s*:\s*"([^"]+)"', r2.stdout):
+            m = re.search(r'/(proteina-whey|proteina-vegana|creatina|bcaa|pre-entreno)/', url)
+            if m:
+                cache[slug] = m.group(1)
+                return m.group(1)
+
+    cache[slug] = None
+    return None
+
+
 def _categoria_desde_slug_hist(slug: str) -> str | None:
-    """Infiere categoría desde keywords en el slug."""
+    """Infiere categoría desde keywords en el slug. Devuelve None si no reconoce."""
     s = slug.lower()
     if any(k in s for k in ("creatina", "creatine", "creapure", "clonapure",
                               "monohydrate", "monohidrato", "ribosa")):
         return "creatina"
     if any(k in s for k in ("bcaa", "aminoacid", "ramificad", "glutamin",
-                              "leucin", "recovery-total")):
+                              "leucin", "recovery-total", "myocell",
+                              "muscle-recovery")):
         return "bcaa"
     if any(k in s for k in ("pre-entreno", "pre-workout", "pre-train", "preentreno",
-                              "pump", "venom", "jacked", "beast", "shox", "arginin",
-                              "beta-alanin", "citrulina", "citrulline", "taurina",
-                              "tirosina", "malico", "cafeina", "caffein",
-                              "cellex", "cellzoom", "n-o-shox")):
+                              "preentrenamiento", "pump", "venom", "jacked", "beast",
+                              "shox", "arginin", "beta-alanin", "citrulina",
+                              "citrulline", "taurina", "tirosina", "malico", "cafeina",
+                              "caffein", "cellex", "cellzoom", "n-o-shox",
+                              "hot-blood", "nitrox", "supernova", "cellup",
+                              "amino-energy")):
         return "pre-entreno"
     if any(k in s for k in ("whey", "proteina", "protein", "isolat", "hidroliz",
                               "isolate", "concentrat", "vegana", "vegan",
                               "mass-gainer", "gainer", "colageno", "collagen",
-                              "predator", "impact-whey", "pure-whey", "smoothie")):
+                              "predator", "impact-whey", "pure-whey", "smoothie",
+                              "hydropro", "isopro", "isolac", "evoclear",
+                              "batido", "mezcla-de-rendimiento", "mezcla-ganador",
+                              "porridge", "panacea", "anabolic-masster",
+                              "pack-regalo")):
         return "proteina-whey"
-    # Fallback para slugs sin keywords reconocibles (productos descatalogados sin categoría clara)
-    return "proteina-whey"
+    return None
 
 
-def _target_para_slug_historico(slug_hist: str, compare_slugs_set: set, productos_por_slug: dict) -> str | None:
+def _target_para_slug_historico(slug_hist: str, compare_slugs_set: set, productos_por_slug: dict) -> tuple[str | None, str]:
     """
     Determina URL de destino para un slug histórico sin página ni redirección.
-    Prioridad: (a) par actual del mismo par → (b) comparación viva con un producto → (c) categoría.
-    Nunca devuelve /comparar/ ni la home.
+    Prioridad: (a) par actual del mismo par → (b) comparación viva con un producto → (c) categoría keywords.
+    Devuelve (target_url_o_None, caso) donde caso es 'A', 'B', 'C' o '?'.
+    Los casos D (breadcrumb git) y E (/comparar/ fallback) se resuelven en el llamador.
     """
     if "-vs-" not in slug_hist:
-        return None
+        return None, "?"
 
     partes = slug_hist.split("-vs-", 1)
     slug_a_hist, slug_b_hist = partes[0], partes[1]
 
     def _match_prod(slug_part: str) -> str | None:
         """Encuentra el slug_publico actual más cercano por prefijo."""
-        # Exact match
         if slug_part in productos_por_slug:
             return slug_part
         # El slug histórico puede estar truncado (builds antiguos truncaban a 40 chars por lado)
@@ -3335,7 +3396,7 @@ def _target_para_slug_historico(slug_hist: str, compare_slugs_set: set, producto
         sa, sb = sorted([prod_a, prod_b])
         slug_par = f"{sa}-vs-{sb}"
         if slug_par in compare_slugs_set:
-            return f"/comparar/{slug_par}/"
+            return f"/comparar/{slug_par}/", "A"
 
     # (b) Al menos uno encontrado: cualquier comparación que lo incluya
     for prod in [prod_a, prod_b]:
@@ -3343,14 +3404,14 @@ def _target_para_slug_historico(slug_hist: str, compare_slugs_set: set, producto
             continue
         for cs in compare_slugs_set:
             if prod in cs:
-                return f"/comparar/{cs}/"
+                return f"/comparar/{cs}/", "B"
 
     # (c) Categoría por keywords
     cat = _categoria_desde_slug_hist(slug_hist)
     if cat:
-        return f"/{cat}/"
+        return f"/{cat}/", "C"
 
-    return None
+    return None, "?"
 
 
 def generar_redirects_historicos(
@@ -3388,13 +3449,32 @@ def generar_redirects_historicos(
             if slug and slug not in slugs_a_procesar:
                 slugs_a_procesar.append(slug)
 
+    casos: dict[str, int] = {"A": 0, "B": 0, "C": 0, "D": 0, "E": 0}
+    cache_git = _cargar_cache_categorias_hist()
+    cache_dirty = False
+    slugs_comparar_fallback: list[str] = []
+
     generadas = 0
     for slug in slugs_a_procesar:
         if slug in cubiertas:
             continue
-        target = _target_para_slug_historico(slug, compare_slugs_set, productos_por_slug)
-        if not target:
-            continue
+        target, caso = _target_para_slug_historico(slug, compare_slugs_set, productos_por_slug)
+
+        if target is None:
+            # (d) Intentar categoría desde BreadcrumbList git
+            cat_git = _categoria_desde_git_breadcrumb(slug, cache_git)
+            cache_dirty = True
+            if cat_git:
+                target = f"/{cat_git}/"
+                caso = "D"
+            else:
+                # (e) Fallback final: /comparar/
+                target = "/comparar/"
+                caso = "E"
+                slugs_comparar_fallback.append(slug)
+
+        casos[caso] = casos.get(caso, 0) + 1
+
         outdir = os.path.join(DOCS_DIR, "comparar", slug)
         os.makedirs(outdir, exist_ok=True)
         path = os.path.join(outdir, "index.html")
@@ -3415,8 +3495,23 @@ def generar_redirects_historicos(
             f.write(html_content)
         generadas += 1
 
-    if generadas:
-        print(f"↪️  Generadas {generadas} redirecciones históricas")
+    if cache_dirty:
+        _guardar_cache_categorias_hist(cache_git)
+
+    if slugs_comparar_fallback:
+        print(f"  ⚠️  AVISO: {len(slugs_comparar_fallback)} slug(s) histórico(s) sin categoría detectable, redirigen a /comparar/:")
+        for s in slugs_comparar_fallback[:10]:
+            print(f"     • {s}")
+        if len(slugs_comparar_fallback) > 10:
+            print(f"     ... y {len(slugs_comparar_fallback) - 10} más")
+
+    total_procesados = sum(casos.values())
+    if total_procesados:
+        print(
+            f"↪️  Redirecciones históricas: {generadas} nuevas | "
+            f"casos — A(par):{casos['A']} B(afín):{casos['B']} "
+            f"C(keywords):{casos['C']} D(breadcrumb):{casos['D']} E(/comparar/):{casos['E']}"
+        )
     return generadas
 
 
