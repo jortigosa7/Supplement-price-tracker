@@ -278,7 +278,11 @@
         <img src="{{ prod.img_src }}" alt="{{ (prod.nombre_display or prod.nombre_normalizado) }}" width="52" height="52" loading="eager">
       </div>
       <div class="cmp-hcard-info">
-        <div class="cmp-hcard-name">{{ (prod.nombre_display or prod.nombre_normalizado) }}</div>
+        {% if prod.pagina_url %}
+          <a href="{{ site_url }}{{ prod.pagina_url }}" class="cmp-hcard-name" style="color:inherit;text-decoration:none;">{{ (prod.nombre_display or prod.nombre_normalizado) }}</a>
+        {% else %}
+          <div class="cmp-hcard-name">{{ (prod.nombre_display or prod.nombre_normalizado) }}</div>
+        {% endif %}
         <div class="cmp-hcard-meta">{{ prod.marca }}{% if prod.peso_kg %} · {{ prod.peso_kg|fmtd }} kg{% endif %}</div>
         {% if prod.sin_precio %}
           <div class="cmp-hcard-price" style="color:#888;font-size:0.78rem;">Precio no disponible</div>

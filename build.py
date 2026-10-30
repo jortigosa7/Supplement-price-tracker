@@ -1806,7 +1806,7 @@ def _tipo_proteina(nombre: str) -> str:
     return "Otra"
 
 
-def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None, comparaciones_data: list | None = None):
+def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None, comparaciones_data: list | None = None, productos_con_pagina_set: set | None = None):
     """Genera docs/{slug}/index.html para una categoría."""
     template = env.get_template("category.html")
 
@@ -1941,6 +1941,7 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
         "slugs_comparacion":       json.dumps(list(slugs_cat)),
         "comparaciones_cat":       comparaciones_cat,
         "top5":                    top5,
+        "productos_con_pagina":    productos_con_pagina_set or set(),
     }
 
     html = template.render(**ctx)
@@ -2950,7 +2951,7 @@ def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_update
     print(f"✅ Generado: {path}  ({total_productos} productos en {len(secciones)} categorías)")
 
 
-def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tiendas_cfg: list | None = None):
+def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tiendas_cfg: list | None = None, slugs_producto: list | None = None):
     """Genera docs/sitemap.xml."""
     urls = [
         {"loc": f"{SITE_URL}/",             "priority": "1.0", "changefreq": "weekly"},
@@ -2997,6 +2998,15 @@ def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tienda
             urls.append({
                 "loc":        f"{SITE_URL}/tiendas/{tienda['slug']}/",
                 "priority":   "0.6",
+                "changefreq": "weekly",
+            })
+
+    # Páginas de producto individuales
+    if slugs_producto:
+        for slug_cat_prod in slugs_producto:
+            urls.append({
+                "loc":        f"{SITE_URL}/{slug_cat_prod}/",
+                "priority":   "0.7",
                 "changefreq": "weekly",
             })
 
@@ -3515,6 +3525,516 @@ def generar_redirects_historicos(
     return generadas
 
 
+# ============================================================
+# PASO 5b: Páginas de producto individuales
+# ============================================================
+
+TIENDAS_CON_PAGINA = {"HSN", "MyProtein", "Hivital"}
+_SLUGS_PRODUCTO_HIST_FILE = os.path.join(DATA_DIR, "slugs_producto_historicos.json")
+
+
+def _price_history_por_id(price_history: list) -> dict:
+    """Indexa historial de precios por producto_id → lista de entradas."""
+    by_id: dict = {}
+    for e in price_history:
+        pid = e.get("producto_id")
+        if pid:
+            by_id.setdefault(pid, []).append(e)
+    return by_id
+
+
+def _stats_precio_90d(historial: list) -> dict:
+    """
+    A partir de la lista de entradas del historial de un producto,
+    calcula estadísticas de los últimos 90 días.
+    Devuelve mediana, mínimo, fecha del mínimo, precio actual y diferencia %.
+    """
+    if not historial:
+        return {}
+
+    hoy = datetime.now().date()
+    cutoff = (hoy - __import__("datetime").timedelta(days=90)).isoformat()
+    entradas_90d = [e for e in historial if e.get("fecha", "") >= cutoff]
+
+    if not entradas_90d:
+        entradas_90d = sorted(historial, key=lambda e: e.get("fecha", ""))[-30:]
+
+    precios = [e["precio"] for e in entradas_90d if e.get("precio") is not None]
+    if not precios:
+        return {}
+
+    import statistics as _stats
+    mediana = _stats.median(precios)
+    minimo = min(precios)
+    entrada_min = min(
+        (e for e in entradas_90d if e.get("precio") == minimo),
+        key=lambda e: e.get("fecha", ""),
+        default=None,
+    )
+    fecha_min = entrada_min["fecha"] if entrada_min else None
+
+    # Precio "actual": el de la entrada más reciente
+    entrada_actual = max(historial, key=lambda e: e.get("fecha", ""))
+    precio_actual = entrada_actual.get("precio")
+
+    diff_vs_mediana = None
+    if precio_actual is not None and mediana:
+        diff_vs_mediana = round((precio_actual - mediana) / mediana * 100, 1)
+
+    diff_vs_minimo = None
+    if precio_actual is not None and minimo:
+        diff_vs_minimo = round((precio_actual - minimo) / minimo * 100, 1)
+
+    return {
+        "mediana":        round(mediana, 2),
+        "minimo":         round(minimo, 2),
+        "fecha_min":      fecha_min,
+        "precio_actual":  precio_actual,
+        "diff_vs_mediana": diff_vs_mediana,
+        "diff_vs_minimo":  diff_vs_minimo,
+        "n_puntos":       len(precios),
+    }
+
+
+def _veredicto_compra(stats: dict, nombre: str) -> str:
+    """
+    Genera la frase del veredicto a partir de las estadísticas de precio.
+    """
+    if not stats:
+        return "No tenemos suficientes datos de historial para este producto."
+
+    precio = stats.get("precio_actual")
+    mediana = stats.get("mediana")
+    minimo = stats.get("minimo")
+    diff_m = stats.get("diff_vs_mediana")
+    diff_min = stats.get("diff_vs_minimo")
+    fecha_min = stats.get("fecha_min")
+
+    if precio is None or mediana is None:
+        return "No hay suficiente historial de precios para hacer un análisis."
+
+    precio_fmt = f"{precio:.2f}".replace(".", ",")
+    mediana_fmt = f"{mediana:.2f}".replace(".", ",")
+    minimo_fmt = f"{minimo:.2f}".replace(".", ",") if minimo else "—"
+
+    if diff_m is not None and diff_m <= -5:
+        return (
+            f"El precio actual ({precio_fmt} €/kg) está por debajo de la mediana de los últimos 90 días "
+            f"({mediana_fmt} €/kg). Buen momento para comprar."
+        )
+    elif diff_m is not None and diff_m >= 10:
+        return (
+            f"El precio actual ({precio_fmt} €/kg) está un {diff_m:.0f}% por encima de la mediana "
+            f"de los últimos 90 días ({mediana_fmt} €/kg). Puede merecer esperar."
+        )
+    elif diff_min is not None and diff_min == 0:
+        return (
+            f"Precio actual en mínimo histórico de los últimos 90 días ({precio_fmt} €/kg). "
+            f"Muy buen momento para comprar."
+        )
+    elif diff_min is not None and diff_min <= 5:
+        return (
+            f"El precio actual ({precio_fmt} €/kg) está muy cerca del mínimo de los últimos 90 días "
+            f"({minimo_fmt} €/kg). Buen momento para comprar."
+        )
+    else:
+        return (
+            f"El precio actual ({precio_fmt} €/kg) está en línea con su media histórica "
+            f"({mediana_fmt} €/kg en los últimos 90 días)."
+        )
+
+
+def _svg_sparkline_producto(historial: list, w: int = 400, h: int = 80) -> str:
+    """
+    Genera un SVG de historial de precios sin librerías externas.
+    Agrupa por fecha (media si hay varios en el mismo día), ordena cronológicamente.
+    """
+    if not historial:
+        return ""
+
+    from collections import defaultdict as _dd
+    por_fecha: dict = _dd(list)
+    for e in historial:
+        if e.get("fecha") and e.get("precio") is not None:
+            por_fecha[e["fecha"]].append(e["precio"])
+
+    if len(por_fecha) < 2:
+        return ""
+
+    fechas_sorted = sorted(por_fecha.keys())
+    puntos = [(f, sum(por_fecha[f]) / len(por_fecha[f])) for f in fechas_sorted]
+
+    precios = [p for _, p in puntos]
+    p_min = min(precios)
+    p_max = max(precios)
+    rango = p_max - p_min if p_max != p_min else 1.0
+
+    pad = 6
+    n = len(puntos)
+    coords = []
+    for i, (_, precio) in enumerate(puntos):
+        x = pad + (w - 2 * pad) * i / (n - 1) if n > 1 else w / 2
+        y = pad + (h - 2 * pad) * (1 - (precio - p_min) / rango)
+        coords.append((round(x, 1), round(y, 1)))
+
+    polyline = " ".join(f"{x},{y}" for x, y in coords)
+    lx, ly = coords[-1]
+
+    # Color: verde si el precio actual <= mediana, naranja si no
+    precio_actual = precios[-1]
+    mediana = sorted(precios)[len(precios) // 2]
+    color = "#22c55e" if precio_actual <= mediana else "#f97316"
+
+    return (
+        f'<svg viewBox="0 0 {w} {h}" width="{w}" height="{h}" '
+        f'xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios">'
+        f'<polyline points="{polyline}" fill="none" stroke="{color}" '
+        f'stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
+        f'<circle cx="{lx}" cy="{ly}" r="4" fill="{color}"/>'
+        f'</svg>'
+    )
+
+
+def _alternativas(producto: dict, productos_web: list, n: int = 5) -> list:
+    """
+    Devuelve hasta n productos alternativos de la misma categoría/subcategoría,
+    de tiendas afiliadas, ordenados por €/kg proteína (si existe) o €/kg.
+    Excluye el propio producto y agotados.
+    """
+    pid = producto["id"]
+    cat = producto["categoria"]
+    subcat = producto.get("subcategoria_proteina")
+
+    candidatos = [
+        p for p in productos_web
+        if p["id"] != pid
+        and p["categoria"] == cat
+        and p.get("tienda_mas_barata") in TIENDAS_CON_PAGINA
+        and not p.get("agotado")
+        and p.get("precio_por_kg_min") is not None
+    ]
+
+    # Preferir misma subcategoría si existe
+    if subcat:
+        misma_sub = [p for p in candidatos if p.get("subcategoria_proteina") == subcat]
+        if len(misma_sub) >= 3:
+            candidatos = misma_sub
+
+    def _sort_key(p):
+        pkg_prot = p.get("precio_por_kg_proteina")
+        if pkg_prot:
+            return pkg_prot
+        return p.get("precio_por_kg_min") or 9999
+
+    candidatos.sort(key=_sort_key)
+    alts = []
+    for p in candidatos[:n]:
+        precio_ref = p.get("precio_por_kg_proteina") or p.get("precio_por_kg_min")
+        precio_prod = producto.get("precio_por_kg_proteina") or producto.get("precio_por_kg_min")
+        diff_pct = None
+        if precio_ref and precio_prod:
+            diff_pct = round((precio_ref - precio_prod) / precio_prod * 100, 1)
+        alts.append({
+            **p,
+            "diff_pct": diff_pct,
+        })
+    return alts
+
+
+def _comparaciones_del_producto(producto_id: str, comparaciones: list) -> list:
+    """Filtra comparaciones.json devolviendo los pares que incluyen este producto."""
+    return [
+        par for par in comparaciones
+        if par.get("id_a") == producto_id or par.get("id_b") == producto_id
+    ]
+
+
+def _posicion_categoria(producto: dict, productos_web: list) -> dict:
+    """
+    Devuelve rango y total del producto en su categoría por €/kg proteína o €/kg.
+    """
+    cat = producto["categoria"]
+    subcat = producto.get("subcategoria_proteina")
+
+    # Misma subcategoría si aplica
+    candidatos = [
+        p for p in productos_web
+        if p["categoria"] == cat
+        and not p.get("agotado")
+        and p.get("precio_por_kg_min") is not None
+    ]
+    if subcat:
+        sub_cands = [p for p in candidatos if p.get("subcategoria_proteina") == subcat]
+        if sub_cands:
+            candidatos = sub_cands
+
+    usa_prot = bool(producto.get("precio_por_kg_proteina"))
+
+    def _key(p):
+        if usa_prot:
+            return p.get("precio_por_kg_proteina") or 9999
+        return p.get("precio_por_kg_min") or 9999
+
+    ordenados = sorted(candidatos, key=_key)
+    try:
+        pos = next(i + 1 for i, p in enumerate(ordenados) if p["id"] == producto["id"])
+    except StopIteration:
+        pos = None
+
+    return {
+        "posicion": pos,
+        "total":    len(ordenados),
+        "por_proteina": usa_prot,
+    }
+
+
+def _productos_con_pagina(productos_web: list, hist_by_id: dict) -> list:
+    """
+    Filtra productos que cumplen los criterios para tener página individual:
+    - tienda_mas_barata en TIENDAS_CON_PAGINA
+    - store_rating_count >= 20
+    - al menos 5 fechas distintas en historial
+    - precio_por_kg_min no None
+    Incluye agotados (con aviso en la página).
+    """
+    elegibles = []
+    for p in productos_web:
+        if p.get("tienda_mas_barata") not in TIENDAS_CON_PAGINA:
+            continue
+        if (p.get("store_rating_count") or 0) < 20:
+            continue
+        historial = hist_by_id.get(p["id"], [])
+        n_fechas = len(set(e["fecha"] for e in historial if e.get("fecha")))
+        if n_fechas < 5:
+            continue
+        if p.get("precio_por_kg_min") is None:
+            continue
+        elegibles.append(p)
+    return elegibles
+
+
+def cargar_slugs_producto_historicos() -> list:
+    """Carga data/slugs_producto_historicos.json; devuelve lista vacía si no existe."""
+    if not os.path.exists(_SLUGS_PRODUCTO_HIST_FILE):
+        return []
+    with open(_SLUGS_PRODUCTO_HIST_FILE, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def actualizar_slugs_producto_historicos(slugs_actuales: list) -> None:
+    """Añade slugs generados al fichero histórico (formato 'categoria/slug_publico')."""
+    historicos = set(cargar_slugs_producto_historicos())
+    historicos.update(slugs_actuales)
+    with open(_SLUGS_PRODUCTO_HIST_FILE, "w", encoding="utf-8") as f:
+        json.dump(sorted(historicos), f, ensure_ascii=False, indent=2)
+
+
+def _url_afiliado_producto(producto: dict) -> str | None:
+    """Devuelve la URL de afiliado de la tienda más barata."""
+    tienda = producto.get("tienda_mas_barata")
+    for pr in producto.get("precios", []):
+        if pr.get("tienda") == tienda and pr.get("url_afiliado"):
+            return pr["url_afiliado"]
+    return None
+
+
+def generar_paginas_producto(
+    env,
+    productos_web: list,
+    price_history: list,
+    last_updated: str,
+    comparaciones: list,
+) -> list:
+    """
+    Genera docs/<categoria>/<slug_publico>/index.html para cada producto elegible.
+    Devuelve lista de slugs generados en formato 'categoria/slug_publico'.
+    """
+    template = env.get_template("producto.html")
+    hist_by_id = _price_history_por_id(price_history)
+    elegibles = _productos_con_pagina(productos_web, hist_by_id)
+    slugs_generados = []
+
+    # Marcar los productos elegibles con su pagina_url para que los templates lo usen
+    elegibles_ids = {p["id"] for p in elegibles}
+    for p in productos_web:
+        if p["id"] in elegibles_ids:
+            p["pagina_url"] = f"/{p['categoria']}/{p['slug_publico']}/"
+        else:
+            p.pop("pagina_url", None)
+
+    # Asegurar que todos los productos tienen img_src para alternativas
+    for p in productos_web:
+        if "img_src" not in p:
+            p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
+        img = p.get("img_src", "")
+        if img.startswith("/img/productos/") and "placeholder" not in img:
+            p["img_src_abs"] = f"{SITE_URL}{img}"
+        elif img.startswith("https://"):
+            p["img_src_abs"] = img
+        else:
+            p["img_src_abs"] = None
+
+    prod_map = {p["id"]: p for p in productos_web}
+
+    for p in elegibles:
+        historial = hist_by_id.get(p["id"], [])
+        stats = _stats_precio_90d(historial)
+        veredicto = _veredicto_compra(stats, p.get("nombre_display") or p["nombre_normalizado"])
+        sparkline_svg = _svg_sparkline_producto(historial)
+        alternativas = _alternativas(p, productos_web)
+        posicion = _posicion_categoria(p, productos_web)
+        comparaciones_prod = _comparaciones_del_producto(p["id"], comparaciones)
+
+        # Enriquecer comparaciones con slugs
+        comps_enriquecidas = []
+        for par in comparaciones_prod:
+            pa = prod_map.get(par.get("id_a"))
+            pb = prod_map.get(par.get("id_b"))
+            if not pa or not pb:
+                continue
+            sa = pa.get("slug_publico") or ""
+            sb = pb.get("slug_publico") or ""
+            if not sa or not sb:
+                continue
+            if sa > sb:
+                sa, sb = sb, sa
+            comps_enriquecidas.append({
+                "slug":     f"{sa}-vs-{sb}",
+                "nombre_a": pa.get("nombre_display") or pa["nombre_normalizado"],
+                "nombre_b": pb.get("nombre_display") or pb["nombre_normalizado"],
+            })
+
+        # Determinar categoría display
+        cat_cfg = next(
+            (cfg for cfg in CATEGORIA_CONFIG.values() if cfg["slug"] == p["categoria"]),
+            None,
+        )
+        cat_display = cat_cfg["display"] if cat_cfg else p["categoria"].replace("-", " ").title()
+        cat_slug    = p["categoria"]
+
+        img_src = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
+        img_src_abs = None
+        if img_src.startswith("/img/productos/") and "placeholder" not in img_src:
+            img_src_abs = f"{SITE_URL}{img_src}"
+        elif img_src.startswith("https://"):
+            img_src_abs = img_src
+
+        url_afiliado = _url_afiliado_producto(p)
+        precio_fmt   = f"{p['precio_por_kg_min']:.2f}".replace(".", ",") if p.get("precio_por_kg_min") else None
+        precio_eur_fmt = f"{p['precio_min']:.2f}".replace(".", ",") if p.get("precio_min") else None
+        pkg_prot_fmt = f"{p['precio_por_kg_proteina']:.2f}".replace(".", ",") if p.get("precio_por_kg_proteina") else None
+        coste_mes_fmt = f"{p['coste_mes']:.2f}".replace(".", ",") if p.get("coste_mes") else None
+
+        tienda = p.get("tienda_mas_barata", "")
+        tienda_clase = tienda.lower().replace(" ", "")
+        tienda_color = {
+            "HSN": "#FF6B35",
+            "MyProtein": "#F2C94C",
+            "Hivital": "#8B5CF6",
+        }.get(tienda, "#888")
+
+        rating = p.get("store_rating")
+        rating_count = p.get("store_rating_count")
+        rating_fmt = f"{rating:.1f}".replace(".", ",") if rating else None
+
+        nombre = p.get("nombre_display") or p["nombre_normalizado"]
+
+        # SEO title: nombre + tienda + "precio y análisis"
+        seo_title = f"{nombre} | Precio y análisis | StackFit"
+        if len(seo_title) > 65:
+            seo_title = f"{nombre} | StackFit"
+
+        seo_desc = (
+            f"{nombre} desde {precio_eur_fmt} € ({precio_fmt} €/kg) en {tienda}. "
+            f"Historial de precios, alternativas y veredicto de compra. Actualizado {_mes_anio_es(last_updated)}."
+        )
+        if len(seo_desc) > 160:
+            seo_desc = seo_desc[:157] + "..."
+
+        prod_url = f"/{cat_slug}/{p['slug_publico']}/"
+
+        ctx = {
+            **contexto_base(last_updated),
+            "active_slug":      cat_slug,
+            "producto":         p,
+            "nombre":           nombre,
+            "seo_title":        seo_title,
+            "seo_desc":         seo_desc,
+            "prod_url":         prod_url,
+            "cat_display":      cat_display,
+            "cat_slug":         cat_slug,
+            "img_src":          img_src,
+            "img_src_abs":      img_src_abs,
+            "url_afiliado":     url_afiliado,
+            "tienda":           tienda,
+            "tienda_clase":     tienda_clase,
+            "tienda_color":     tienda_color,
+            "precio_fmt":       precio_fmt,
+            "precio_eur_fmt":   precio_eur_fmt,
+            "pkg_prot_fmt":     pkg_prot_fmt,
+            "coste_mes_fmt":    coste_mes_fmt,
+            "rating_fmt":       rating_fmt,
+            "rating_count":     rating_count,
+            "stats_90d":        stats,
+            "veredicto":        veredicto,
+            "sparkline_svg":    sparkline_svg,
+            "alternativas":     alternativas,
+            "posicion":         posicion,
+            "comparaciones_prod": comps_enriquecidas,
+            "agotado":          p.get("agotado", False),
+        }
+
+        html_out = template.render(**ctx)
+        outdir = os.path.join(DOCS_DIR, cat_slug, p["slug_publico"])
+        os.makedirs(outdir, exist_ok=True)
+        path = os.path.join(outdir, "index.html")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html_out)
+        slugs_generados.append(f"{cat_slug}/{p['slug_publico']}")
+
+    print(f"✅ Generadas {len(slugs_generados)} páginas de producto")
+    return slugs_generados
+
+
+def generar_redirecciones_producto_historicas(slugs_producto_actuales: set) -> int:
+    """
+    Para slugs en slugs_producto_historicos.json que ya no tienen página,
+    genera una redirección meta-refresh a la categoría correspondiente.
+    """
+    historicos = cargar_slugs_producto_historicos()
+    generadas = 0
+    for slug_cat_prod in historicos:
+        if slug_cat_prod in slugs_producto_actuales:
+            continue
+        partes = slug_cat_prod.split("/", 1)
+        if len(partes) != 2:
+            continue
+        cat_slug, slug_prod = partes
+        outdir = os.path.join(DOCS_DIR, cat_slug, slug_prod)
+        path = os.path.join(outdir, "index.html")
+        if os.path.exists(path):
+            continue
+        os.makedirs(outdir, exist_ok=True)
+        destino = f"/{cat_slug}/"
+        html = (
+            '<!DOCTYPE html><html lang="es"><head>'
+            '<meta charset="UTF-8">'
+            f'<meta http-equiv="refresh" content="0; url={html_mod.escape(destino)}">'
+            f'<link rel="canonical" href="{html_mod.escape(SITE_URL + destino)}">'
+            '<title>Redirigiendo...</title>'
+            '</head><body>'
+            f'<p>Esta página ha sido movida. '
+            f'<a href="{html_mod.escape(destino)}">Ir a la categoría</a></p>'
+            '</body></html>'
+        )
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html)
+        generadas += 1
+    if generadas:
+        print(f"↪️  {generadas} redirecciones de páginas de producto históricas")
+    return generadas
+
+
 def generar_redirecciones(slugs_generados: set):
     """
     Lee data/redirecciones.json y genera una página HTML mínima con meta-refresh
@@ -3750,9 +4270,26 @@ if __name__ == "__main__":
         with open(_comp_path, encoding="utf-8") as _f:
             _pares_json = json.load(_f).get("pares", [])
 
+    # 4b. Páginas de producto individuales
+    print("\n📄 Generando páginas de producto...")
+    _hist_by_id_main = _price_history_por_id(historial_precio)
+    _elegibles_main = _productos_con_pagina(productos_web, _hist_by_id_main)
+    _productos_con_pagina_set = {p["id"] for p in _elegibles_main}
+    slugs_producto = generar_paginas_producto(
+        env, productos_web, historial_precio, last_updated, _pares_json,
+    )
+    slugs_producto_set = set(slugs_producto)
+    actualizar_slugs_producto_historicos(slugs_producto)
+    generar_redirecciones_producto_historicas(slugs_producto_set)
+
     slugs_set = set(compare_slugs)
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
-        generar_categoria(env, cat_raw, cfg, productos_web, last_updated, slugs_comparacion=slugs_set, comparaciones_data=_pares_json)
+        generar_categoria(
+            env, cat_raw, cfg, productos_web, last_updated,
+            slugs_comparacion=slugs_set,
+            comparaciones_data=_pares_json,
+            productos_con_pagina_set=_productos_con_pagina_set,
+        )
 
     # 5. Páginas legales, test y sobre nosotros
     for pagina in PAGINAS_LEGALES:
@@ -3769,7 +4306,7 @@ if __name__ == "__main__":
 
     # 6. Sitemap, robots, .nojekyll
     print("\n📋 Generando ficheros auxiliares...")
-    generar_sitemap(last_updated, compare_slugs=compare_slugs, tiendas_cfg=tiendas_cfg)
+    generar_sitemap(last_updated, compare_slugs=compare_slugs, tiendas_cfg=tiendas_cfg, slugs_producto=slugs_producto)
     generar_robots()
     generar_nojekyll()
 
@@ -3790,14 +4327,20 @@ if __name__ == "__main__":
             _pr.pop("_precio_fresco", None)
 
     duracion = (datetime.now() - inicio).total_seconds()
-    # +1 /test/ + 1 /tiendas/ + len(tiendas_cfg) páginas de tienda individuales
-    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1 + len(compare_slugs) + (1 + len(tiendas_cfg) if tiendas_cfg else 0)
+    # +1 /test/ + 1 /tiendas/ + len(tiendas_cfg) páginas de tienda individuales + páginas de producto
+    total_paginas = (
+        1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1
+        + len(compare_slugs)
+        + (1 + len(tiendas_cfg) if tiendas_cfg else 0)
+        + len(slugs_producto)
+    )
 
     print("\n" + "=" * 54)
     print(f"  BUILD COMPLETADO en {duracion:.1f}s")
     print(f"  {total_paginas} paginas HTML generadas en docs/")
     print(f"  {len(productos_web)} productos  |  {last_updated}")
     print(f"  {len(compare_slugs)} páginas de comparación")
+    print(f"  {len(slugs_producto)} páginas de producto individual")
     print()
     print("  SIGUIENTE PASO:")
     print('  git add docs/ data/ && git commit -m "build: update site"')

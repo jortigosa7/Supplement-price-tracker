@@ -1,0 +1,564 @@
+{% extends "base.html" %}
+
+{% block title %}{{ seo_title }}{% endblock %}
+{% block meta_desc %}{{ seo_desc }}{% endblock %}
+{% block meta_keywords %}{{ nombre }}, precio {{ nombre }}, {{ tienda }}, €/kg, StackFit{% endblock %}
+{% block canonical_path %}{{ prod_url }}{% endblock %}
+{% block og_title %}{{ seo_title }}{% endblock %}
+{% block og_desc %}{{ seo_desc }}{% endblock %}
+{% block og_path %}{{ prod_url }}{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "{{ site_url }}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ cat_display }}",
+          "item": "{{ site_url }}/{{ cat_slug }}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ nombre }}",
+          "item": "{{ site_url }}{{ prod_url }}"
+        }
+      ]
+    }{% if not agotado and producto.precio_min %},
+    {
+      "@type": "Product",
+      "name": "{{ nombre | replace('"', '&quot;') }}",
+      "brand": {
+        "@type": "Brand",
+        "name": "{{ producto.marca }}"
+      }{% if img_src_abs %},
+      "image": "{{ img_src_abs }}"{% endif %},
+      "offers": {
+        "@type": "Offer",
+        "price": "{{ producto.precio_min }}",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"{% if url_afiliado %},
+        "url": "{{ url_afiliado }}"{% endif %}
+      }
+    }{% endif %}
+  ]
+}
+</script>
+
+<style>
+  /* ── Página de producto ─────────────────────────── */
+  .prod-page { padding: 24px 0 80px; }
+
+  .prod-breadcrumb {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .prod-breadcrumb a { color: #888; }
+  .prod-breadcrumb a:hover { color: var(--accent); }
+  .prod-breadcrumb-sep { color: #444; font-size: 0.7rem; }
+
+  /* Header */
+  .prod-header {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    align-items: start;
+    background: #111214;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 640px) {
+    .prod-header { grid-template-columns: 1fr; }
+  }
+  .prod-img-wrap {
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .prod-img-wrap { width: 100px; height: 100px; }
+  }
+  .prod-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
+  .prod-info { display: flex; flex-direction: column; gap: 12px; }
+  .prod-marca {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #666;
+  }
+  .prod-nombre {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #f0f0f0;
+    line-height: 1.25;
+  }
+  .prod-agotado-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(255,107,43,0.15);
+    border: 1px solid rgba(255,107,43,0.35);
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ff6b2b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .prod-precios {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .prod-pkg {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .prod-pkg-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-left: 2px;
+  }
+  .prod-precio-eur { font-size: 0.9rem; color: #888; }
+  .prod-precio-prot {
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: rgba(200,255,77,0.08);
+    border: 1px solid rgba(200,255,77,0.2);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .prod-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: var(--accent);
+    color: #000;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    width: fit-content;
+  }
+  .prod-cta:hover { opacity: 0.85; }
+  .prod-cta-tienda { font-weight: 500; font-size: 0.78rem; color: rgba(0,0,0,0.6); text-transform: none; letter-spacing: 0; }
+
+  /* Secciones */
+  .prod-section {
+    background: #111214;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .prod-section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #666;
+    margin-bottom: 14px;
+  }
+
+  /* Veredicto */
+  .prod-veredicto-text {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.7;
+  }
+  .prod-veredicto-text strong { color: var(--accent); }
+
+  /* Sparkline grande */
+  .prod-sparkline-wrap {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .prod-sparkline-wrap svg {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    display: block;
+  }
+  .prod-stats-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: #666;
+  }
+  .prod-stat-item strong { color: #ccc; }
+  .prod-stat-item .good { color: #22c55e; }
+  .prod-stat-item .bad  { color: #f97316; }
+
+  /* Ficha nutricional */
+  .prod-ficha-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .prod-ficha-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .prod-ficha-label { font-size: 0.68rem; color: #555; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .prod-ficha-val { font-size: 0.92rem; font-weight: 700; color: #e0e0e0; }
+
+  /* Posición */
+  .prod-posicion-text {
+    font-size: 0.92rem;
+    color: #ccc;
+    line-height: 1.6;
+  }
+  .prod-posicion-num {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    display: inline;
+  }
+
+  /* Opiniones */
+  .prod-rating-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .prod-rating-num {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #f0f0f0;
+    line-height: 1;
+  }
+  .prod-stars { color: #f59e0b; font-size: 1.1rem; letter-spacing: 2px; }
+  .prod-rating-info { font-size: 0.8rem; color: #555; line-height: 1.5; }
+  .prod-rating-fuente { font-size: 0.72rem; color: #444; margin-top: 4px; }
+
+  /* Alternativas */
+  .prod-alts-list { display: flex; flex-direction: column; gap: 10px; }
+  .prod-alt-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+  .prod-alt-item:hover { border-color: rgba(200,255,77,0.3); }
+  .prod-alt-img {
+    width: 44px; height: 44px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.04);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .prod-alt-img img { width: 44px; height: 44px; object-fit: contain; }
+  .prod-alt-nombre { flex: 1; min-width: 0; font-size: 0.85rem; font-weight: 600; color: #e0e0e0; line-height: 1.3; }
+  .prod-alt-tienda { font-size: 0.72rem; color: #666; }
+  .prod-alt-precio { text-align: right; flex-shrink: 0; }
+  .prod-alt-pkg { font-size: 0.92rem; font-weight: 800; color: var(--accent); }
+  .prod-alt-diff {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-top: 2px;
+    display: inline-block;
+  }
+  .prod-alt-diff.cheaper { background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.25); }
+  .prod-alt-diff.pricier  { background: rgba(249,115,22,0.12); color: #f97316; border: 1px solid rgba(249,115,22,0.25); }
+
+  /* Comparaciones */
+  .prod-comps-list { display: flex; flex-direction: column; gap: 8px; }
+  .prod-comp-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: #ccc;
+    gap: 10px;
+    transition: border-color 0.15s;
+  }
+  .prod-comp-item:hover { border-color: rgba(200,255,77,0.3); color: var(--accent); }
+  .prod-comp-vs { color: #444; font-size: 0.72rem; font-weight: 700; flex-shrink: 0; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container prod-page">
+
+  <!-- Breadcrumb -->
+  <nav class="prod-breadcrumb" aria-label="Navegación de ubicación">
+    <a href="{{ site_url }}/">Inicio</a>
+    <span class="prod-breadcrumb-sep">›</span>
+    <a href="{{ site_url }}/{{ cat_slug }}/">{{ cat_display }}</a>
+    <span class="prod-breadcrumb-sep">›</span>
+    <span>{{ nombre }}</span>
+  </nav>
+
+  <!-- Header del producto -->
+  <header class="prod-header">
+    <div class="prod-img-wrap">
+      <img src="{{ img_src }}"
+           alt="{{ nombre }}"
+           width="140" height="140"
+           loading="eager"
+           onerror="this.src='/img/productos/placeholder-{{ cat_slug }}.svg'">
+    </div>
+    <div class="prod-info">
+      <div class="prod-marca">{{ producto.marca }}</div>
+      <h1 class="prod-nombre">{{ nombre }}</h1>
+      {% if agotado %}
+        <span class="prod-agotado-badge">Agotado — datos históricos</span>
+      {% endif %}
+      <div class="prod-precios">
+        {% if precio_fmt %}
+          <div>
+            <span class="prod-pkg">{{ precio_fmt }}</span>
+            <span class="prod-pkg-label">€/kg</span>
+          </div>
+        {% endif %}
+        {% if precio_eur_fmt %}
+          <span class="prod-precio-eur">desde {{ precio_eur_fmt }} €</span>
+        {% endif %}
+        {% if pkg_prot_fmt %}
+          <span class="prod-precio-prot">{{ pkg_prot_fmt }} €/kg proteína</span>
+        {% endif %}
+      </div>
+      {% if url_afiliado and not agotado %}
+        <a href="{{ url_afiliado }}"
+           rel="nofollow sponsored noopener"
+           target="_blank"
+           class="prod-cta">
+          Ver en <span class="prod-cta-tienda">{{ tienda }}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- Veredicto de compra -->
+  <section class="prod-section prod-veredicto" aria-label="Veredicto de compra">
+    <div class="prod-section-title">¿Es buen momento para comprar?</div>
+    <p class="prod-veredicto-text">{{ veredicto }}</p>
+  </section>
+
+  <!-- Historial de precios -->
+  {% if sparkline_svg %}
+  <section class="prod-section prod-historico" aria-label="Historial de precios">
+    <div class="prod-section-title">Evolución del precio (últimos meses)</div>
+    <div class="prod-sparkline-wrap">
+      {{ sparkline_svg | safe }}
+    </div>
+    {% if stats_90d %}
+    <div class="prod-stats-row">
+      {% if stats_90d.mediana %}
+      <div class="prod-stat-item">
+        Mediana 90 días: <strong>{{ "%.2f"|format(stats_90d.mediana)|replace('.', ',') }} €/kg</strong>
+      </div>
+      {% endif %}
+      {% if stats_90d.minimo %}
+      <div class="prod-stat-item">
+        Mínimo: <strong class="good">{{ "%.2f"|format(stats_90d.minimo)|replace('.', ',') }} €/kg</strong>
+        {% if stats_90d.fecha_min %}
+          <span style="color:#444;font-size:0.72rem;">({{ stats_90d.fecha_min }})</span>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% if stats_90d.diff_vs_mediana is not none %}
+        {% if stats_90d.diff_vs_mediana <= -5 %}
+        <div class="prod-stat-item"><span class="good">▼ {{ stats_90d.diff_vs_mediana|abs }}% bajo la mediana</span></div>
+        {% elif stats_90d.diff_vs_mediana >= 10 %}
+        <div class="prod-stat-item"><span class="bad">▲ {{ stats_90d.diff_vs_mediana }}% sobre la mediana</span></div>
+        {% endif %}
+      {% endif %}
+      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">{{ stats_90d.n_puntos }} registros</div>
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  <!-- Ficha del producto -->
+  {% set tiene_ficha = producto.protein_per_serving_g or producto.serving_size_g or producto.servings_per_container or coste_mes_fmt or producto.sweetener_free or producto.vegan %}
+  {% if tiene_ficha %}
+  <section class="prod-section prod-ficha" aria-label="Ficha del producto">
+    <div class="prod-section-title">Ficha nutricional</div>
+    <div class="prod-ficha-grid">
+      {% if producto.porcentaje_proteina %}
+      <div class="prod-ficha-item">
+        <div class="prod-ficha-label">% Proteína</div>
+        <div class="prod-ficha-val">{{ (producto.porcentaje_proteina * 100)|round(1)|string|replace('.', ',') }}%</div>
+      </div>
+      {% endif %}
+      {% if producto.protein_per_serving_g %}
+      <div class="prod-ficha-item">
+        <div class="prod-ficha-label">Proteína / dosis</div>
+        <div class="prod-ficha-val">{{ producto.protein_per_serving_g|fmtg }} g</div>
+      </div>
+      {% endif %}
+      {% if producto.serving_size_g %}
+      <div class="prod-ficha-item">
+        <div class="prod-ficha-label">Tamaño dosis</div>
+        <div class="prod-ficha-val">{{ producto.serving_size_g|fmtg }} g</div>
+      </div>
+      {% endif %}
+      {% if producto.servings_per_container %}
+      <div class="prod-ficha-item">
+        <div class="prod-ficha-label">Dosis / envase</div>
+        <div class="prod-ficha-val">{{ producto.servings_per_container|int }}</div>
+      </div>
+      {% endif %}
+      {% if coste_mes_fmt %}
+      <div class="prod-ficha-item">
+        <div class="prod-ficha-label">Coste / mes</div>
+        <div class="prod-ficha-val">{{ coste_mes_fmt }} €</div>
+      </div>
+      {% endif %}
+      {% if producto.sweetener_free %}
+      <div class="prod-ficha-item">
+        <div class="prod-ficha-label">Sin edulcorantes</div>
+        <div class="prod-ficha-val">Sí</div>
+      </div>
+      {% endif %}
+      {% if producto.vegan %}
+      <div class="prod-ficha-item">
+        <div class="prod-ficha-label">Vegano</div>
+        <div class="prod-ficha-val">Sí</div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Posición en categoría -->
+  {% if posicion.posicion %}
+  <section class="prod-section prod-posicion" aria-label="Posición en categoría">
+    <div class="prod-section-title">Posición en el ranking</div>
+    <p class="prod-posicion-text">
+      <span class="prod-posicion-num">{{ posicion.posicion }}º</span>
+      de {{ posicion.total }}
+      {{ cat_display | lower }}
+      {% if posicion.por_proteina %}por €/kg de proteína{% else %}por €/kg{% endif %}
+      que seguimos en España.
+    </p>
+  </section>
+  {% endif %}
+
+  <!-- Opiniones / rating -->
+  {% if rating_fmt and rating_count %}
+  <section class="prod-section prod-opiniones" aria-label="Valoraciones">
+    <div class="prod-section-title">Valoración</div>
+    <div class="prod-rating-row">
+      <div class="prod-rating-num">{{ rating_fmt }}</div>
+      <div>
+        <div class="prod-stars">
+          {% set r = producto.store_rating %}
+          {% for i in range(1, 6) %}
+            {% if r >= i %}★{% elif r >= i - 0.5 %}½{% else %}☆{% endif %}
+          {% endfor %}
+        </div>
+        <div class="prod-rating-info">{{ rating_count|int }} valoraciones</div>
+        <div class="prod-rating-fuente">Fuente: {{ tienda }}</div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Alternativas -->
+  {% if alternativas %}
+  <section class="prod-section prod-alternativas" aria-label="Alternativas">
+    <div class="prod-section-title">Alternativas similares</div>
+    <div class="prod-alts-list">
+      {% for alt in alternativas %}
+        {% set alt_url = '/' + alt.categoria + '/' + alt.slug_publico + '/' %}
+        <a href="{{ site_url }}{{ alt_url }}" class="prod-alt-item">
+          <div class="prod-alt-img">
+            <img src="{{ alt.img_src }}"
+                 alt="{{ alt.nombre_display or alt.nombre_normalizado }}"
+                 width="44" height="44"
+                 loading="lazy"
+                 onerror="this.src='/img/productos/placeholder-{{ alt.categoria }}.svg'">
+          </div>
+          <div class="prod-alt-nombre">
+            {{ alt.nombre_display or alt.nombre_normalizado }}
+            <div class="prod-alt-tienda">{{ alt.tienda_mas_barata }}</div>
+          </div>
+          <div class="prod-alt-precio">
+            {% if alt.precio_por_kg_proteina %}
+              <div class="prod-alt-pkg">{{ "%.2f"|format(alt.precio_por_kg_proteina)|replace('.', ',') }} €/kg prot.</div>
+            {% elif alt.precio_por_kg_min %}
+              <div class="prod-alt-pkg">{{ "%.2f"|format(alt.precio_por_kg_min)|replace('.', ',') }} €/kg</div>
+            {% endif %}
+            {% if alt.diff_pct is not none %}
+              {% if alt.diff_pct < 0 %}
+                <span class="prod-alt-diff cheaper">{{ alt.diff_pct }}%</span>
+              {% elif alt.diff_pct > 0 %}
+                <span class="prod-alt-diff pricier">+{{ alt.diff_pct }}%</span>
+              {% endif %}
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Comparaciones directas -->
+  {% if comparaciones_prod %}
+  <section class="prod-section prod-comparaciones" aria-label="Comparativas disponibles">
+    <div class="prod-section-title">Comparativas disponibles</div>
+    <div class="prod-comps-list">
+      {% for comp in comparaciones_prod %}
+      <a href="{{ site_url }}/comparar/{{ comp.slug }}/" class="prod-comp-item">
+        <span>{{ comp.nombre_a }}</span>
+        <span class="prod-comp-vs">VS</span>
+        <span>{{ comp.nombre_b }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+</div>
+{% endblock %}

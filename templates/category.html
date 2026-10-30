@@ -197,7 +197,11 @@
         </div>
         <div class="pc-info">
           <div class="pc-name">
-            <span class="pc-name-text">{{ (p.nombre_display or p.nombre_normalizado) }}</span>
+            {% if p.id in productos_con_pagina %}
+              <a href="{{ site_url }}/{{ p.categoria }}/{{ p.slug_publico }}/" class="pc-name-text" style="color:inherit;text-decoration:none;">{{ (p.nombre_display or p.nombre_normalizado) }}</a>
+            {% else %}
+              <span class="pc-name-text">{{ (p.nombre_display or p.nombre_normalizado) }}</span>
+            {% endif %}
             {% if loop.index == 1 %}
               <span class="pc-badge best">Mejor precio</span>
             {% elif is_deal %}
