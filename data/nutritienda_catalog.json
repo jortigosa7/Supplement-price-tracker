@@ -1526,5 +1526,9 @@
   "https://www.nutritienda.com/es/vitobest/creatine-monohydrate-creapure-500g": {
     "categoria": "Creatina",
     "first_seen": "2026-10-30"
+  },
+  "https://www.nutritienda.com/es/biotech-usa/protein-power-4000g": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-10-30"
   }
 }
