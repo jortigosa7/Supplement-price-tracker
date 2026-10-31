@@ -395,22 +395,23 @@
     <div class="prod-stats-row">
       {% if stats_90d.mediana %}
       <div class="prod-stat-item">
-        Mediana 90 días: <strong>{{ "%.2f"|format(stats_90d.mediana)|replace('.', ',') }} €/kg</strong>
+        Mediana 90 días: <strong>{{ "%.2f"|format(stats_90d.mediana)|replace('.', ',') }} €</strong>
       </div>
       {% endif %}
       {% if stats_90d.minimo %}
       <div class="prod-stat-item">
-        Mínimo: <strong class="good">{{ "%.2f"|format(stats_90d.minimo)|replace('.', ',') }} €/kg</strong>
+        Mínimo: <strong class="good">{{ "%.2f"|format(stats_90d.minimo)|replace('.', ',') }} €</strong>
         {% if stats_90d.fecha_min %}
-          <span style="color:#444;font-size:0.72rem;">({{ stats_90d.fecha_min }})</span>
+          {%- set _fm = stats_90d.fecha_min.split('-') -%}
+          <span style="color:#444;font-size:0.72rem;">({{ _fm[2] }}/{{ _fm[1] }})</span>
         {% endif %}
       </div>
       {% endif %}
       {% if stats_90d.diff_vs_mediana is not none %}
         {% if stats_90d.diff_vs_mediana <= -5 %}
-        <div class="prod-stat-item"><span class="good">▼ {{ stats_90d.diff_vs_mediana|abs }}% bajo la mediana</span></div>
+        <div class="prod-stat-item"><span class="good">▼ {{ "%.1f"|format(stats_90d.diff_vs_mediana|abs)|replace('.', ',') }} % bajo la mediana</span></div>
         {% elif stats_90d.diff_vs_mediana >= 10 %}
-        <div class="prod-stat-item"><span class="bad">▲ {{ stats_90d.diff_vs_mediana }}% sobre la mediana</span></div>
+        <div class="prod-stat-item"><span class="bad">▲ {{ "%.1f"|format(stats_90d.diff_vs_mediana)|replace('.', ',') }} % sobre la mediana</span></div>
         {% endif %}
       {% endif %}
       <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">{{ stats_90d.n_puntos }} registros</div>
@@ -525,17 +526,11 @@
             <div class="prod-alt-tienda">{{ alt.tienda_mas_barata }}</div>
           </div>
           <div class="prod-alt-precio">
-            {% if alt.precio_por_kg_proteina %}
-              <div class="prod-alt-pkg">{{ "%.2f"|format(alt.precio_por_kg_proteina)|replace('.', ',') }} €/kg prot.</div>
-            {% elif alt.precio_por_kg_min %}
-              <div class="prod-alt-pkg">{{ "%.2f"|format(alt.precio_por_kg_min)|replace('.', ',') }} €/kg</div>
+            {% if alt.alt_metric_fmt %}
+              <div class="prod-alt-pkg">{{ alt.alt_metric_fmt }} {{ alt.alt_metric_label }}</div>
             {% endif %}
-            {% if alt.diff_pct is not none %}
-              {% if alt.diff_pct < 0 %}
-                <span class="prod-alt-diff cheaper">{{ alt.diff_pct }}%</span>
-              {% elif alt.diff_pct > 0 %}
-                <span class="prod-alt-diff pricier">+{{ alt.diff_pct }}%</span>
-              {% endif %}
+            {% if alt.diff_str %}
+              <span class="prod-alt-diff {% if alt.diff_pct < 0 %}cheaper{% elif alt.diff_pct > 0 %}pricier{% endif %}">{{ alt.diff_str }}</span>
             {% endif %}
           </div>
         </a>

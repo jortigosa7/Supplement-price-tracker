@@ -3596,9 +3596,10 @@ def _stats_precio_90d(historial: list) -> dict:
     }
 
 
-def _veredicto_compra(stats: dict, nombre: str) -> str:
+def _veredicto_compra(stats: dict) -> str:
     """
-    Genera la frase del veredicto a partir de las estadísticas de precio.
+    Genera la frase del veredicto a partir de las estadísticas de precio (en €, no €/kg).
+    Formato: "Hoy cuesta X €, [valoración]. Mínimo: X € el DD/MM."
     """
     if not stats:
         return "No tenemos suficientes datos de historial para este producto."
@@ -3607,7 +3608,6 @@ def _veredicto_compra(stats: dict, nombre: str) -> str:
     mediana = stats.get("mediana")
     minimo = stats.get("minimo")
     diff_m = stats.get("diff_vs_mediana")
-    diff_min = stats.get("diff_vs_minimo")
     fecha_min = stats.get("fecha_min")
 
     if precio is None or mediana is None:
@@ -3615,33 +3615,47 @@ def _veredicto_compra(stats: dict, nombre: str) -> str:
 
     precio_fmt = f"{precio:.2f}".replace(".", ",")
     mediana_fmt = f"{mediana:.2f}".replace(".", ",")
-    minimo_fmt = f"{minimo:.2f}".replace(".", ",") if minimo else "—"
+
+    def _fmt_pct(v):
+        """Formatea un porcentaje con coma decimal y espacio antes de %."""
+        s = f"{abs(v):.1f}".replace(".", ",")
+        # Quitar decimales si son ,0
+        if s.endswith(",0"):
+            s = s[:-2]
+        return s + " %"
 
     if diff_m is not None and diff_m <= -5:
-        return (
-            f"El precio actual ({precio_fmt} €/kg) está por debajo de la mediana de los últimos 90 días "
-            f"({mediana_fmt} €/kg). Buen momento para comprar."
+        texto = (
+            f"Hoy cuesta {precio_fmt} €, un {_fmt_pct(diff_m)} bajo su precio habitual "
+            f"(mediana 90 días: {mediana_fmt} €). Buen momento para comprar."
         )
     elif diff_m is not None and diff_m >= 10:
-        return (
-            f"El precio actual ({precio_fmt} €/kg) está un {diff_m:.0f}% por encima de la mediana "
-            f"de los últimos 90 días ({mediana_fmt} €/kg). Puede merecer esperar."
+        texto = (
+            f"Hoy cuesta {precio_fmt} €, un {_fmt_pct(diff_m)} por encima de su precio habitual "
+            f"(mediana 90 días: {mediana_fmt} €). Puede merecer esperar."
         )
-    elif diff_min is not None and diff_min == 0:
-        return (
-            f"Precio actual en mínimo histórico de los últimos 90 días ({precio_fmt} €/kg). "
-            f"Muy buen momento para comprar."
-        )
-    elif diff_min is not None and diff_min <= 5:
-        return (
-            f"El precio actual ({precio_fmt} €/kg) está muy cerca del mínimo de los últimos 90 días "
-            f"({minimo_fmt} €/kg). Buen momento para comprar."
+    elif diff_m is not None and abs(diff_m) < 0.5:
+        texto = (
+            f"Hoy cuesta {precio_fmt} €, igual que su precio habitual "
+            f"(mediana 90 días: {mediana_fmt} €)."
         )
     else:
-        return (
-            f"El precio actual ({precio_fmt} €/kg) está en línea con su media histórica "
-            f"({mediana_fmt} €/kg en los últimos 90 días)."
+        texto = (
+            f"Hoy cuesta {precio_fmt} €, en línea con su precio habitual "
+            f"(mediana 90 días: {mediana_fmt} €)."
         )
+
+    # Añadir mínimo con fecha
+    if minimo is not None and fecha_min:
+        minimo_fmt = f"{minimo:.2f}".replace(".", ",")
+        try:
+            partes = fecha_min.split("-")
+            fecha_fmt = f"{int(partes[2]):02d}/{int(partes[1]):02d}"
+        except Exception:
+            fecha_fmt = fecha_min
+        texto += f" Mínimo: {minimo_fmt} € el {fecha_fmt}."
+
+    return texto
 
 
 def _svg_sparkline_producto(historial: list, w: int = 400, h: int = 80) -> str:
@@ -3695,15 +3709,46 @@ def _svg_sparkline_producto(historial: list, w: int = 400, h: int = 80) -> str:
     )
 
 
+_MIXTO_KW = re.compile(
+    r'\b(oats?|avena|gainer|collagen|col[aá]geno|\+\s*creatina|diet\s+whey)\b',
+    re.I,
+)
+
+
+def _es_mixto(nombre: str) -> bool:
+    """Devuelve True si el nombre indica una proteína mezclada (oats, gainer, colágeno, etc.)."""
+    return bool(_MIXTO_KW.search(nombre))
+
+
 def _alternativas(producto: dict, productos_web: list, n: int = 5) -> list:
     """
     Devuelve hasta n productos alternativos de la misma categoría/subcategoría,
-    de tiendas afiliadas, ordenados por €/kg proteína (si existe) o €/kg.
-    Excluye el propio producto y agotados.
+    de tiendas afiliadas con página individual.
+    Reglas:
+    - Métrica consistente: si el producto tiene precio_por_kg_proteina, solo candidatos
+      que también lo tengan; si no, usar precio_por_kg_min en ambos lados.
+    - Para proteínas: excluir mixtos (oats, colágeno, gainer) si el producto es puro.
+      Preferir misma subcategoría (whey → whey, vegana → vegana).
+    - Ordenar por precio (más barato primero). Si quedan <3 tras filtros, rellenar.
+    - Incluir diff_pct (número) y diff_str (string formateado) en cada alternativa.
     """
     pid = producto["id"]
     cat = producto["categoria"]
     subcat = producto.get("subcategoria_proteina")
+    usa_prot = bool(producto.get("precio_por_kg_proteina"))
+    metric_base = (
+        producto.get("precio_por_kg_proteina") if usa_prot
+        else producto.get("precio_por_kg_min")
+    )
+    metric_key = "precio_por_kg_proteina" if usa_prot else "precio_por_kg_min"
+
+    if not metric_base:
+        return []
+
+    es_proteina = cat in ("proteina-whey", "proteina-vegana")
+    base_es_mixto = es_proteina and _es_mixto(
+        producto.get("nombre_display") or producto.get("nombre_normalizado", "")
+    )
 
     candidatos = [
         p for p in productos_web
@@ -3711,32 +3756,60 @@ def _alternativas(producto: dict, productos_web: list, n: int = 5) -> list:
         and p["categoria"] == cat
         and p.get("tienda_mas_barata") in TIENDAS_CON_PAGINA
         and not p.get("agotado")
-        and p.get("precio_por_kg_min") is not None
+        and p.get(metric_key) is not None
     ]
 
-    # Preferir misma subcategoría si existe
-    if subcat:
+    # Para proteínas puras: filtrar mixtos y preferir misma subcategoría
+    if es_proteina and not base_es_mixto:
+        candidatos = [
+            p for p in candidatos
+            if not _es_mixto(p.get("nombre_display") or p.get("nombre_normalizado", ""))
+        ]
+
+    if subcat and es_proteina:
         misma_sub = [p for p in candidatos if p.get("subcategoria_proteina") == subcat]
         if len(misma_sub) >= 3:
             candidatos = misma_sub
 
-    def _sort_key(p):
-        pkg_prot = p.get("precio_por_kg_proteina")
-        if pkg_prot:
-            return pkg_prot
-        return p.get("precio_por_kg_min") or 9999
+    candidatos.sort(key=lambda p: p.get(metric_key) or 9999)
 
-    candidatos.sort(key=_sort_key)
+    # Si quedan <3, completar sin filtro de mixtos pero manteniendo la misma métrica
+    if len(candidatos) < 3:
+        extra_pool = [
+            p for p in productos_web
+            if p["id"] != pid
+            and p["categoria"] == cat
+            and p.get("tienda_mas_barata") in TIENDAS_CON_PAGINA
+            and not p.get("agotado")
+            and p.get(metric_key) is not None
+            and p not in candidatos
+        ]
+        extra_pool.sort(key=lambda p: p.get(metric_key) or 9999)
+        candidatos = candidatos + extra_pool
+
+    def _fmt_pct(v: float) -> str:
+        s = f"{abs(v):.1f}".replace(".", ",")
+        if s.endswith(",0"):
+            s = s[:-2]
+        return s + " %"
+
+    alt_label = "€/kg prot." if usa_prot else "€/kg"
+
     alts = []
     for p in candidatos[:n]:
-        precio_ref = p.get("precio_por_kg_proteina") or p.get("precio_por_kg_min")
-        precio_prod = producto.get("precio_por_kg_proteina") or producto.get("precio_por_kg_min")
-        diff_pct = None
-        if precio_ref and precio_prod:
-            diff_pct = round((precio_ref - precio_prod) / precio_prod * 100, 1)
+        precio_ref = p.get(metric_key)
+        diff_pct = round((precio_ref - metric_base) / metric_base * 100, 1) if precio_ref else None
+        if diff_pct is not None:
+            diff_str = f"\u2212{_fmt_pct(diff_pct)}" if diff_pct < 0 else f"+{_fmt_pct(diff_pct)}"
+        else:
+            diff_str = ""
+        alt_metric_fmt = f"{precio_ref:.2f}".replace(".", ",") if precio_ref else None
         alts.append({
             **p,
             "diff_pct": diff_pct,
+            "diff_str": diff_str,
+            "alt_metric_fmt": alt_metric_fmt,
+            "alt_metric_label": alt_label,
         })
     return alts
 
@@ -3854,6 +3927,13 @@ def generar_paginas_producto(
     elegibles = _productos_con_pagina(productos_web, hist_by_id)
     slugs_generados = []
 
+    # Cargar nombres canónicos para páginas de producto (clave = slug_publico)
+    _nc_prod: dict = {}
+    _nc_path = os.path.join(DATA_DIR, "nombres_cortos.json")
+    if os.path.exists(_nc_path):
+        with open(_nc_path, encoding="utf-8") as _f:
+            _nc_prod = json.load(_f)
+
     # Marcar los productos elegibles con su pagina_url para que los templates lo usen
     elegibles_ids = {p["id"] for p in elegibles}
     for p in productos_web:
@@ -3878,9 +3958,18 @@ def generar_paginas_producto(
 
     for p in elegibles:
         historial = hist_by_id.get(p["id"], [])
-        stats = _stats_precio_90d(historial)
-        veredicto = _veredicto_compra(stats, p.get("nombre_display") or p["nombre_normalizado"])
-        sparkline_svg = _svg_sparkline_producto(historial)
+        # Filtrar historial a la tienda más barata para stats coherentes con el precio mostrado
+        tienda_mb = p.get("tienda_mas_barata", "")
+        historial_tienda = [e for e in historial if e.get("tienda") == tienda_mb]
+        stats = _stats_precio_90d(historial_tienda or historial)
+        # Usar precio_min actual como "precio actual" (más fiable que el último del historial)
+        if stats and p.get("precio_min") is not None:
+            stats["precio_actual"] = p["precio_min"]
+            med = stats.get("mediana")
+            if med:
+                stats["diff_vs_mediana"] = round((p["precio_min"] - med) / med * 100, 1)
+        veredicto = _veredicto_compra(stats)
+        sparkline_svg = _svg_sparkline_producto(historial_tienda or historial)
         alternativas = _alternativas(p, productos_web)
         posicion = _posicion_categoria(p, productos_web)
         comparaciones_prod = _comparaciones_del_producto(p["id"], comparaciones)
@@ -3937,17 +4026,24 @@ def generar_paginas_producto(
         rating_count = p.get("store_rating_count")
         rating_fmt = f"{rating:.1f}".replace(".", ",") if rating else None
 
-        nombre = p.get("nombre_display") or p["nombre_normalizado"]
+        # Nombre canónico: primero nombres_cortos.json (clave slug_publico), luego nombre_display
+        nombre = _nc_prod.get(p.get("slug_publico", "")) or (p.get("nombre_display") or p["nombre_normalizado"])
 
-        # SEO title: nombre + tienda + "precio y análisis"
-        seo_title = f"{nombre} | Precio y análisis | StackFit"
+        # SEO title: "{nombre}: precio hoy, €/kg y opiniones" (max 65 chars)
+        seo_title = f"{nombre}: precio hoy, €/kg y opiniones"
         if len(seo_title) > 65:
-            seo_title = f"{nombre} | StackFit"
+            seo_title = f"{nombre}: €/kg y opiniones"
 
-        seo_desc = (
-            f"{nombre} desde {precio_eur_fmt} € ({precio_fmt} €/kg) en {tienda}. "
-            f"Historial de precios, alternativas y veredicto de compra. Actualizado {_mes_anio_es(last_updated)}."
-        )
+        # Meta description: datos concretos, sin frases genéricas
+        _parts = [f"{nombre} desde {precio_eur_fmt} €" if precio_eur_fmt else nombre]
+        if precio_fmt:
+            _parts[0] += f" ({precio_fmt} €/kg)"
+        _parts[0] += f" en {tienda}."
+        if pkg_prot_fmt:
+            _parts.append(f"{pkg_prot_fmt} €/kg de proteína.")
+        if rating_fmt and rating_count:
+            _parts.append(f"{rating_fmt}/5 con {int(rating_count)} valoraciones en {tienda}.")
+        seo_desc = " ".join(_parts)
         if len(seo_desc) > 160:
             seo_desc = seo_desc[:157] + "..."
 
