@@ -304,6 +304,8 @@
   }
   .prod-alt-diff.cheaper { background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.25); }
   .prod-alt-diff.pricier  { background: rgba(249,115,22,0.12); color: #f97316; border: 1px solid rgba(249,115,22,0.25); }
+  .prod-alt-badge { font-size: 0.65rem; background: #333; color: #888; border-radius: 3px; padding: 1px 5px; margin-left: 4px; vertical-align: middle; }
+  .prod-alt-otro-tipo { opacity: 0.75; }
 
   /* Comparaciones */
   .prod-comps-list { display: flex; flex-direction: column; gap: 8px; }
@@ -473,15 +475,11 @@
   {% endif %}
 
   <!-- Posición en categoría -->
-  {% if posicion.posicion %}
+  {% if posicion %}
   <section class="prod-section prod-posicion" aria-label="Posición en categoría">
     <div class="prod-section-title">Posición en el ranking</div>
     <p class="prod-posicion-text">
-      <span class="prod-posicion-num">{{ posicion.posicion }}º</span>
-      de {{ posicion.total }}
-      {{ cat_display | lower }}
-      {% if posicion.por_proteina %}por €/kg de proteína{% else %}por €/kg{% endif %}
-      que seguimos en España.
+      Es <span class="prod-posicion-num">{{ posicion.texto }}</span> en España.
     </p>
   </section>
   {% endif %}
@@ -509,11 +507,11 @@
   <!-- Alternativas -->
   {% if alternativas %}
   <section class="prod-section prod-alternativas" aria-label="Alternativas">
-    <div class="prod-section-title">Alternativas similares</div>
+    <div class="prod-section-title">{% if tipo_label %}Otras {{ tipo_label }}{% else %}Alternativas similares{% endif %}</div>
     <div class="prod-alts-list">
       {% for alt in alternativas %}
-        {% set alt_url = '/' + alt.categoria + '/' + alt.slug_publico + '/' %}
-        <a href="{{ site_url }}{{ alt_url }}" class="prod-alt-item">
+        {% set alt_url = alt.pagina_url if alt.pagina_url else ('/' + alt.categoria + '/' + alt.slug_publico + '/') %}
+        <a href="{{ site_url }}{{ alt_url }}" class="prod-alt-item{% if alt.otro_tipo %} prod-alt-otro-tipo{% endif %}">
           <div class="prod-alt-img">
             <img src="{{ alt.img_src }}"
                  alt="{{ alt.nombre_display or alt.nombre_normalizado }}"
@@ -523,7 +521,10 @@
           </div>
           <div class="prod-alt-nombre">
             {{ alt.nombre_display or alt.nombre_normalizado }}
-            <div class="prod-alt-tienda">{{ alt.tienda_mas_barata }}</div>
+            <div class="prod-alt-tienda">
+              {{ alt.tienda_mas_barata }}
+              {% if alt.otro_tipo %}<span class="prod-alt-badge">otro tipo</span>{% endif %}
+            </div>
           </div>
           <div class="prod-alt-precio">
             {% if alt.alt_metric_fmt %}
