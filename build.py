@@ -955,7 +955,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
         cat_slug    = cat_config.get("slug", slugify(cat_raw))
         cat_display = cat_config.get("display", cat_raw)
 
-        _pt = _tipo_proteina({"nombre_display": g["nombre_normalizado"], "subcategoria_proteina": None}) if cat_slug == "proteina-whey" else None
+        _pt = _tipo_proteina(g["nombre_normalizado"]) if cat_slug == "proteina-whey" else None
         productos_web.append({
             "id":                  f"{slugify(g['nombre_normalizado'])}-{slugify(g['marca'])}"[:80],
             "nombre_normalizado":  g["nombre_normalizado"],
@@ -1641,13 +1641,6 @@ _OTRA_KW = re.compile(
     re.IGNORECASE,
 )
 
-# Keywords de vegana con prioridad ABSOLUTA sobre whey
-# Evita que "Evoclear Hydro Vegan" se clasifique como whey por "hydro"
-_VEGANA_FORCE_KW = re.compile(
-    r'\b(vegan[ao]?|plant(?:\s+protein)?|guisante|soja|soy|arroz|calabaza|garbanzo)\b',
-    re.IGNORECASE,
-)
-
 # Keywords de "otra" con prioridad sobre vegana (porridge, batidos, etc.)
 # Evita que "Porridge de Arroz" vaya a vegana por "arroz"
 _OTRA_FORCE_KW = re.compile(
@@ -1683,31 +1676,27 @@ def _subcategoria_proteina(nombre_display: str, nombre_norm: str, protein_subtyp
     if re.search(r"\b(caseína|caseina|caseinato|casein)\b", nombre, re.IGNORECASE):
         return "otra"
 
-    # 1. Fuerza "otra" antes que vegana (porridge, batidos, recuperadores…)
-    if _OTRA_FORCE_KW.search(nombre):
-        return "otra"
-
-    # 2. Vegana forzada: estas keywords siempre ganan sobre _WHEY_KW
-    if _VEGANA_FORCE_KW.search(nombre):
-        return "vegana"
-
-    # 3. Whey: suero, isolate, hydro, etc.
+    # 1. Prioridad: whey
     if _WHEY_KW.search(nombre):
         return "whey"
 
-    # 4. Por subtype explícito whey
+    # 2. Por subtype explícito whey
     if subtype == "whey":
         return "whey"
 
-    # 5. Vegana: keywords restantes en nombre o subtype vegetal
+    # 3a. Fuerza "otra" antes que vegana (porridge, batidos, recuperadores…)
+    if _OTRA_FORCE_KW.search(nombre):
+        return "otra"
+
+    # 3b. Vegana: keywords en nombre o subtype vegetal
     if _VEGANA_KW.search(nombre) or subtype == "vegetal":
         return "vegana"
 
-    # 6. Otra: huevo, carne, colágeno, etc., o subtypes conocidos
+    # 4. Otra: huevo, carne, colágeno, etc., o subtypes conocidos
     if _OTRA_KW.search(nombre) or subtype in ("caseína", "caseina", "huevo", "carne", "secuencial"):
         return "otra"
 
-    # 7. Fallback: whey con aviso
+    # 5. Fallback: whey con aviso
     print(f"  ⚠️  subcategoria_proteina sin clasificar → 'whey': {nombre_display or nombre_norm!r}")
     return "whey"
 
@@ -1805,19 +1794,254 @@ def _img_local(producto_id: str, categoria: str, imagen_url: str | None = None) 
     return f"/img/productos/placeholder-{categoria}.svg"
 
 
-def _tipo_proteina_categoria(nombre: str) -> str:
-    """Detecta tipo de whey por keywords en el nombre (para filtros de categoría)."""
+def _tipo_proteina(nombre: str) -> str:
+    """Detecta tipo de whey por keywords en el nombre.
+    Usado en categoría y en páginas de producto para clasificar proteínas."""
     n = nombre.lower()
+    # Clear antes de hidrolizada (evoclear contiene "clear" sin word boundary)
+    if "clear" in n:
+        return "clear"
     if any(k in n for k in ("hidroliz", "hydrolyse", "hydrolys", "hidro", "hydro")):
-        return "Hidrolizada"
+        return "hidrolizada"
     if any(k in n for k in ("isolat", "aislad")):
-        return "Isolate"
+        return "aislada"
     if any(k in n for k in ("concentr",)):
-        return "Concentrada"
-    return "Otra"
+        return "concentrada"
+    # Subtipos específicos
+    if re.search(r"\b(caseína|caseina|caseinato|casein)\b", n):
+        return "caseína"
+    if re.search(r"\b(huevo|egg|albúmina|albumina)\b", n):
+        return "huevo"
+    if re.search(r"\b(carne|beef)\b", n):
+        return "carne"
+    if re.search(r"\b(soja|soy|guisante|pea|arroz|rice|vegan|vegetal|cáñamo|hemp|vegana|vegano|plant)\b", n):
+        return "vegana"
+    return "whey"
 
 
-def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None, comparaciones_data: list | None = None, productos_con_pagina_set: set | None = None):
+def _tipo_preenterno(producto: dict) -> str:
+    """Clasifica un pre-entreno por ingrediente o 'blend'."""
+    nombre = (producto.get("nombre_display") or producto.get("nombre_normalizado") or "")
+    n = nombre.lower()
+    if re.search(r'\b(taurina|taurine)\b', n): return "taurina"
+    if re.search(r'\b(beta.alanina|beta.alanine)\b', n): return "beta-alanina"
+    if re.search(r'\b(citrulina|citrulline|citrulato)\b', n): return "citrulina"
+    if re.search(r'\b(arginina|arginine|aakg)\b', n): return "arginina"
+    if re.search(r'\b(ribosa|ribose|d.ribosa)\b', n): return "ribosa"
+    if re.search(r'\b(glicerol|glycerol|glycopump|glicero)\b', n): return "glicerol"
+    return "blend"
+
+
+# ── Labels y títulos de sección para tipos de producto ──────────────────────
+
+_TIPO_LABEL = {
+    "clear":        "clear whey",
+    "hidrolizada":  "hidrolizada",
+    "aislada":      "aislada",
+    "concentrada":  "whey concentrada",
+    "caseína":      "caseína",
+    "huevo":        "proteína de huevo",
+    "carne":        "proteína de carne",
+    "vegana":       "proteína vegana",
+    "whey":         "whey",
+    "taurina":      "taurina",
+    "beta-alanina": "beta-alanina",
+    "citrulina":    "citrulina",
+    "arginina":     "arginina",
+    "ribosa":       "ribosa",
+    "glicerol":     "glicerol",
+    "blend":        "mezcla pre-entreno",
+}
+
+_TIPO_SECCION_TITLE = {
+    "clear":         "Otras clear whey",
+    "hidrolizada":   "Otras hidrolizadas",
+    "aislada":       "Otras aisladas",
+    "concentrada":   "Otras whey concentradas",
+    "caseína":       "Otras caseínas",
+    "huevo":         "Otras proteínas de huevo",
+    "carne":         "Otras proteínas de carne",
+    "vegana":        "Otras proteínas veganas",
+    "whey":          "Otras whey",
+    "taurina":       "Otras taurinas",
+    "beta-alanina":  "Otras beta-alaninas",
+    "citrulina":     "Más citrulina",
+    "arginina":      "Otras argininas",
+    "ribosa":        "Más ribosa",
+    "glicerol":      "Más glicerol",
+    "blend":         "Otras mezclas pre-entreno",
+}
+
+
+def _ordinal_es(n: int) -> str:
+    """Devuelve ordinal femenino español: 1 → '1.ª', 2 → '2.ª', etc."""
+    return f"{n}.ª"
+
+
+# ── Exclusión de productos sin página ───────────────────────────────────────
+
+TIENDAS_CON_PAGINA = {"HSN", "MyProtein", "Hivital"}
+
+_NO_PAGINA_IDS = {
+    "caldo-proteico-de-pollo-en-polvo-500g-hsn",
+    "claras-de-huevo-liquidas-1kg-hsn",
+    "huevo-entero-en-polvo-500g-hsn",
+    "proteina-de-guisante-texturizada-500g-hsn",
+}
+
+_NO_PAGINA_NOMBRES_KW = re.compile(
+    r'\b(caldo\s+proteico|claras\s+de\s+huevo|huevo\s+entero\s+en\s+polvo|guisante\s+texturizada)\b',
+    re.IGNORECASE
+)
+
+
+def _price_history_por_id(historial: list[dict], productos_web=None) -> dict:
+    """Agrupa el historial de precios por producto_id.
+    Devuelve {producto_id: [{fecha, precio, tienda}, ...]}.
+    Si se pasan productos_web, los IDs legacy '-desconocida' se fusionan
+    con los IDs actuales (p.ej. evobasic-whey-2kg-desconocida → evobasic-whey-2kg-hsn)."""
+    by_id: dict[str, list] = {}
+    for e in historial:
+        by_id.setdefault(e["producto_id"], []).append(e)
+
+    if productos_web:
+        # Mapa base → IDs actuales (base = ID sin último segmento tras '-')
+        base_to_ids: dict[str, list] = {}
+        for p in productos_web:
+            pid = p.get("id", "")
+            parts = pid.rsplit("-", 1)
+            if len(parts) == 2:
+                base_to_ids.setdefault(parts[0], []).append(pid)
+
+        for desconocida_id, entries in list(by_id.items()):
+            if "-desconocida" not in desconocida_id:
+                continue
+            base = desconocida_id.replace("-desconocida", "")
+            for current_id in base_to_ids.get(base, []):
+                existing = {(e["fecha"], e["tienda"]) for e in by_id.get(current_id, [])}
+                for e in entries:
+                    if (e["fecha"], e["tienda"]) not in existing:
+                        by_id.setdefault(current_id, []).append(e)
+
+    return by_id
+
+
+def _productos_con_pagina(productos_web: list[dict], hist_by_id: dict) -> list[dict]:
+    """
+    Filtra productos que cumplen los criterios para tener página individual:
+    - tienda_mas_barata en TIENDAS_CON_PAGINA
+    - store_rating_count >= 20
+    - al menos 5 fechas distintas en historial
+    - precio_por_kg_min no None
+    - nombre no en _NO_PAGINA_NOMBRES_KW
+    - ID no en _NO_PAGINA_IDS
+    Incluye agotados (con aviso en la página).
+    """
+    elegibles = []
+    for p in productos_web:
+        if p.get("id") in _NO_PAGINA_IDS:
+            continue
+        nd = p.get("nombre_display", "")
+        nn = p.get("nombre_normalizado", "")
+        if _NO_PAGINA_NOMBRES_KW.search(nd) or _NO_PAGINA_NOMBRES_KW.search(nn):
+            continue
+        if p.get("tienda_mas_barata") not in TIENDAS_CON_PAGINA:
+            continue
+        if (p.get("store_rating_count") or 0) < 20:
+            continue
+        historial = hist_by_id.get(p["id"], [])
+        n_fechas = len(set(e["fecha"] for e in historial if e.get("fecha")))
+        if n_fechas < 5:
+            continue
+        if p.get("precio_por_kg_min") is None:
+            continue
+        elegibles.append(p)
+    return elegibles
+
+
+# ── Posición en categoría ───────────────────────────────────────────────────
+
+def _posicion_categoria(producto: dict, todos: list[dict], tipo: str) -> dict | None:
+    """Calcula la posición de un producto dentro de su tipo por €/kg."""
+    tipo_pool = [
+        p for p in todos
+        if not _excluir_producto(p)
+        and p.get("precio_por_kg_min") is not None
+        and p.get("_tipo") == tipo
+    ]
+    tipo_pool.sort(key=lambda p: p["precio_por_kg_min"])
+    tipo_label = _TIPO_LABEL.get(tipo, tipo)
+
+    # Buscar posición del producto
+    pos = None
+    for i, p in enumerate(tipo_pool, 1):
+        if p["id"] == producto["id"]:
+            pos = i
+            break
+    if pos is None:
+        return None
+
+    total = len(tipo_pool)
+    if pos == 1:
+        texto = f"la {tipo_label} más barata por €/kg de las {total} que seguimos"
+    else:
+        texto = f"la {_ordinal_es(pos)} {tipo_label} más barata por €/kg de las {total} que seguimos"
+
+    return {
+        "pos": pos,
+        "total": total,
+        "texto": texto,
+        "tipo_label": tipo_label,
+    }
+
+
+# ── Alternativas ────────────────────────────────────────────────────────────
+
+def _alternativas(producto: dict, todos: list[dict], tipo: str, max_n: int = 5) -> list[dict]:
+    """Devuelve hasta max_n alternativas del mismo tipo, ordenadas por métrica estricta."""
+    base_prot = producto.get("precio_por_kg_proteina")
+    base_kg = producto.get("precio_por_kg_min")
+
+    # Elegir métrica
+    metric_key = "precio_por_kg_proteina" if base_prot else "precio_por_kg_min"
+    metric_base = base_prot if base_prot else base_kg
+    alt_label = "€/kg prot." if base_prot else "€/kg"
+
+    if metric_base is None:
+        return []
+
+    candidates = [
+        p for p in todos
+        if not _excluir_producto(p)
+        and p["id"] != producto["id"]
+        and p.get("_tipo") == tipo
+        and p.get(metric_key) is not None
+    ]
+    candidates.sort(key=lambda p: p[metric_key])
+
+    result = []
+    for p in candidates[:max_n]:
+        # Encontrar url_afiliado de la tienda más barata
+        pagina_url = p.get("pagina_url")
+        url_afiliado = None
+        for pr in p.get("precios", []):
+            if pr.get("tienda") == p.get("tienda_mas_barata") and pr.get("url_afiliado"):
+                url_afiliado = pr["url_afiliado"]
+                break
+        alt_url = pagina_url or url_afiliado
+        alt_is_internal = bool(pagina_url)
+
+        result.append({
+            **p,
+            "alt_metric": p[metric_key],
+            "alt_label": alt_label,
+            "alt_url": alt_url,
+            "alt_is_internal": alt_is_internal,
+        })
+    return result
+
+
+def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], last_updated: str, slugs_comparacion: set | None = None, comparaciones_data: list | None = None):
     """Genera docs/{slug}/index.html para una categoría."""
     template = env.get_template("category.html")
 
@@ -1850,7 +2074,7 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
     for p in prods_principales + products_otras_proteinas:
         p["img_src"] = _img_local(p["id"], source_slug, p.get("imagen_url"))
         if cfg["slug"] == "proteina-whey":
-            p["tipo_proteina"] = _tipo_proteina_categoria(p["nombre_normalizado"])
+            p["tipo_proteina"] = _tipo_proteina(p["nombre_normalizado"])
 
     # Marcas únicas ordenadas
     marcas = sorted(set(p["marca"] for p in prods_principales if p.get("marca")))
@@ -1952,7 +2176,6 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
         "slugs_comparacion":       json.dumps(list(slugs_cat)),
         "comparaciones_cat":       comparaciones_cat,
         "top5":                    top5,
-        "productos_con_pagina":    productos_con_pagina_set or set(),
     }
 
     html = template.render(**ctx)
@@ -2592,6 +2815,203 @@ def generar_comparaciones(env, productos_web: list, last_updated: str, productos
 
 
 # ============================================================
+# PASO 3b: Páginas de producto individuales
+# ============================================================
+
+
+def _veredicto_producto(producto: dict, hist_entries: list[dict]) -> dict:
+    """Genera datos de veredicto para una página de producto.
+    Incluye tendencia de precio y resumen."""
+    precios_hist = sorted(hist_entries, key=lambda e: e["fecha"])
+    fechas_unicas = sorted(set(e["fecha"] for e in precios_hist))
+
+    precio_actual = producto.get("precio_por_kg_min")
+    if not precio_actual or len(fechas_unicas) < 2:
+        return {"tendencia": "sin datos", "texto": ""}
+
+    # Calcular si precio subió o bajó respecto a la mediana del historial
+    import datetime as _dt
+    precios_kg = []
+    for e in precios_hist:
+        if e.get("precio") and producto.get("peso_kg") and producto["peso_kg"] > 0:
+            precios_kg.append(e["precio"] / producto["peso_kg"])
+    if not precios_kg:
+        return {"tendencia": "sin datos", "texto": ""}
+
+    # Comprobar si no ha cambiado en los últimos 90 días
+    cutoff_90 = (_dt.date.today() - _dt.timedelta(days=90)).isoformat()
+    entradas_90 = [e for e in precios_hist if e.get("fecha", "") >= cutoff_90]
+    if entradas_90 and producto.get("peso_kg") and producto["peso_kg"] > 0:
+        precios_90 = set(round(e["precio"] / producto["peso_kg"], 2) for e in entradas_90 if e.get("precio"))
+        if len(precios_90) <= 1:
+            return {
+                "tendencia": "estable",
+                "texto": f"Hoy cuesta {_fmtc(precio_actual)} €/kg. No ha cambiado de precio en los últimos 90 días.",
+            }
+
+    # Comprobar si solo hay un precio único en todo el historial
+    precios_unicos = set(round(pk, 2) for pk in precios_kg)
+    if len(precios_unicos) <= 1:
+        return {
+            "tendencia": "estable",
+            "texto": f"Se mantiene en {_fmtc(precio_actual)} €/kg desde que lo seguimos.",
+        }
+
+    import statistics as _stats
+    mediana = _stats.median(precios_kg)
+    diff_pct = ((precio_actual - mediana) / mediana) * 100
+
+    if diff_pct < -5:
+        tendencia = "bajada"
+        texto = f"Está un {abs(diff_pct):.0f}% por debajo de su mediana histórica ({_fmtc(mediana)} €/kg)."
+    elif diff_pct > 5:
+        tendencia = "subida"
+        texto = f"Está un {diff_pct:.0f}% por encima de su mediana histórica ({_fmtc(mediana)} €/kg)."
+    else:
+        tendencia = "estable"
+        texto = f"Precio estable en torno a {_fmtc(mediana)} €/kg."
+
+    return {"tendencia": tendencia, "texto": texto}
+
+
+def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
+                             hist_by_id: dict, comparaciones_data: list | None = None):
+    """Genera docs/<categoria>/<slug_publico>/index.html para cada producto elegible."""
+    template = env.get_template("producto.html")
+
+    # Cargar nombres cortos
+    _nc_path = os.path.join(DATA_DIR, "nombres_cortos.json")
+    _nombres_cortos: dict = {}
+    if os.path.exists(_nc_path):
+        with open(_nc_path, encoding="utf-8") as _f:
+            _nombres_cortos = json.load(_f)
+
+    # Mapa slug_publico → nombre corto
+    _nc_prod: dict[str, str] = {}
+    for p in productos_web:
+        sp = p.get("slug_publico", "")
+        if sp in _nombres_cortos:
+            _nc_prod[sp] = _nombres_cortos[sp]
+
+    # Establecer nombre_canonico en todos los productos
+    for p in productos_web:
+        p["nombre_canonico"] = _nc_prod.get(p.get("slug_publico", "")) or p.get("nombre_display") or p["nombre_normalizado"]
+
+    # Clasificar tipo en todos los productos (para alternativas y posición)
+    for p in productos_web:
+        cat = p.get("categoria", "")
+        if cat == "proteina-whey":
+            nombre = p.get("nombre_normalizado", "")
+            p["_tipo"] = _tipo_proteina(nombre)
+        elif cat == "pre-entreno":
+            p["_tipo"] = _tipo_preenterno(p)
+        else:
+            # Para creatina/bcaa, usar la categoría como tipo
+            p["_tipo"] = cat
+
+    # Mapa de comparaciones por producto
+    prod_map = {p["id"]: p for p in productos_web}
+    comp_por_id: dict[str, list] = {}
+    for par in (comparaciones_data or []):
+        id_a, id_b = par.get("id_a", ""), par.get("id_b", "")
+        pa = prod_map.get(id_a)
+        pb = prod_map.get(id_b)
+        if not pa or not pb:
+            continue
+        sa = pa.get("slug_publico", "")
+        sb = pb.get("slug_publico", "")
+        if not sa or not sb:
+            continue
+        if sa > sb:
+            sa, sb = sb, sa
+        slug = f"{sa}-vs-{sb}"
+        entry_a = {
+            "slug": slug,
+            "nombre_a": _nc_prod.get(pa.get("slug_publico", "")) or pa.get("nombre_display") or pa["nombre_normalizado"],
+            "nombre_b": _nc_prod.get(pb.get("slug_publico", "")) or pb.get("nombre_display") or pb["nombre_normalizado"],
+            "url_a": pa.get("pagina_url"),
+            "url_b": pb.get("pagina_url"),
+        }
+        comp_por_id.setdefault(id_a, []).append(entry_a)
+        comp_por_id.setdefault(id_b, []).append(entry_a)
+
+    elegibles = [p for p in productos_web if p.get("pagina_url")]
+    slugs_producto = []
+
+    for p in elegibles:
+        cat = p.get("categoria", "")
+        url_cat = "proteina-vegana" if p.get("subcategoria_proteina") == "vegana" else cat
+        slug_pub = p["slug_publico"]
+        tipo = p.get("_tipo", cat)
+
+        # Imagen
+        p["img_src"] = _img_local(p["id"], cat, p.get("imagen_url"))
+        img = p.get("img_src", "")
+        if img.startswith("/img/productos/") and "placeholder" not in img:
+            p["img_src_abs"] = f"{SITE_URL}{img}"
+        elif img.startswith("https://"):
+            p["img_src_abs"] = img
+        else:
+            p["img_src_abs"] = None
+
+        # Historial y veredicto
+        hist_entries = hist_by_id.get(p["id"], [])
+        veredicto = _veredicto_producto(p, hist_entries)
+
+        # Posición en categoría
+        todos_cat = [x for x in productos_web if x.get("categoria") == cat]
+        posicion = _posicion_categoria(p, todos_cat, tipo)
+
+        # Alternativas
+        alternativas = _alternativas(p, todos_cat, tipo, max_n=5)
+
+        # Comparaciones de este producto
+        comps = comp_por_id.get(p["id"], [])[:6]
+
+        # Precios ordenados
+        precios_ord = sorted(p.get("precios", []), key=lambda pr: pr.get("precio_eur", 9999))
+
+        # SEO
+        nombre_seo = p.get("nombre_canonico", p.get("nombre_display") or p["nombre_normalizado"])
+        cat_display = p.get("categoria_display", cat.replace("-", " ").title())
+        seo_title = f"{nombre_seo}: precio y opiniones — StackFit"
+        if len(seo_title) > 65:
+            seo_title = f"{nombre_seo} — StackFit"
+        meta_desc = f"Compara precios de {nombre_seo} en tiendas españolas."
+        if p.get("precio_por_kg_min"):
+            meta_desc += f" Desde {_fmtc(p['precio_por_kg_min'])} €/kg."
+
+        tipo_seccion_title = _TIPO_SECCION_TITLE.get(tipo, "Alternativas similares")
+
+        ctx = {
+            **contexto_base(last_updated),
+            "active_slug":      url_cat,
+            "producto":         p,
+            "precios_ord":      precios_ord,
+            "veredicto":        veredicto,
+            "posicion":         posicion,
+            "alternativas":     alternativas,
+            "comparaciones":    comps,
+            "seo_title":        seo_title,
+            "meta_desc":        meta_desc,
+            "cat_slug":         url_cat,
+            "cat_display":      cat_display,
+            "tipo_seccion_title": tipo_seccion_title,
+        }
+
+        html_out = template.render(**ctx)
+        outdir = os.path.join(DOCS_DIR, url_cat, slug_pub)
+        os.makedirs(outdir, exist_ok=True)
+        path = os.path.join(outdir, "index.html")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html_out)
+        slugs_producto.append(f"/{url_cat}/{slug_pub}/")
+
+    print(f"✅ Generadas: {len(slugs_producto)} páginas de producto")
+    return slugs_producto
+
+
+# ============================================================
 # PASO 4: Sitemap y robots.txt
 # ============================================================
 
@@ -2962,7 +3382,7 @@ def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_update
     print(f"✅ Generado: {path}  ({total_productos} productos en {len(secciones)} categorías)")
 
 
-def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tiendas_cfg: list | None = None, slugs_producto: list | None = None):
+def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tiendas_cfg: list | None = None, product_slugs: list | None = None):
     """Genera docs/sitemap.xml."""
     urls = [
         {"loc": f"{SITE_URL}/",             "priority": "1.0", "changefreq": "weekly"},
@@ -2998,6 +3418,15 @@ def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tienda
                 "changefreq": "weekly",
             })
 
+    # Páginas de producto
+    if product_slugs:
+        for slug in product_slugs:
+            urls.append({
+                "loc":        f"{SITE_URL}{slug}",
+                "priority":   "0.5",
+                "changefreq": "weekly",
+            })
+
     # Tiendas afiliadas
     if tiendas_cfg:
         urls.append({
@@ -3009,15 +3438,6 @@ def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tienda
             urls.append({
                 "loc":        f"{SITE_URL}/tiendas/{tienda['slug']}/",
                 "priority":   "0.6",
-                "changefreq": "weekly",
-            })
-
-    # Páginas de producto individuales
-    if slugs_producto:
-        for slug_cat_prod in slugs_producto:
-            urls.append({
-                "loc":        f"{SITE_URL}/{slug_cat_prod}/",
-                "priority":   "0.7",
                 "changefreq": "weekly",
             })
 
@@ -3536,720 +3956,6 @@ def generar_redirects_historicos(
     return generadas
 
 
-# ============================================================
-# PASO 5b: Páginas de producto individuales
-# ============================================================
-
-TIENDAS_CON_PAGINA = {"HSN", "MyProtein", "Hivital"}
-_SLUGS_PRODUCTO_HIST_FILE = os.path.join(DATA_DIR, "slugs_producto_historicos.json")
-
-
-def _price_history_por_id(price_history: list) -> dict:
-    """Indexa historial de precios por producto_id → lista de entradas."""
-    by_id: dict = {}
-    for e in price_history:
-        pid = e.get("producto_id")
-        if pid:
-            by_id.setdefault(pid, []).append(e)
-    return by_id
-
-
-def _stats_precio_90d(historial: list) -> dict:
-    """
-    A partir de la lista de entradas del historial de un producto,
-    calcula estadísticas de los últimos 90 días.
-    Devuelve mediana, mínimo, fecha del mínimo, precio actual y diferencia %.
-    """
-    if not historial:
-        return {}
-
-    hoy = datetime.now().date()
-    cutoff = (hoy - __import__("datetime").timedelta(days=90)).isoformat()
-    entradas_90d = [e for e in historial if e.get("fecha", "") >= cutoff]
-
-    if not entradas_90d:
-        entradas_90d = sorted(historial, key=lambda e: e.get("fecha", ""))[-30:]
-
-    precios = [e["precio"] for e in entradas_90d if e.get("precio") is not None]
-    if not precios:
-        return {}
-
-    import statistics as _stats
-    mediana = _stats.median(precios)
-    minimo = min(precios)
-    entrada_min = min(
-        (e for e in entradas_90d if e.get("precio") == minimo),
-        key=lambda e: e.get("fecha", ""),
-        default=None,
-    )
-    fecha_min = entrada_min["fecha"] if entrada_min else None
-
-    # Precio "actual": el de la entrada más reciente
-    entrada_actual = max(historial, key=lambda e: e.get("fecha", ""))
-    precio_actual = entrada_actual.get("precio")
-
-    diff_vs_mediana = None
-    if precio_actual is not None and mediana:
-        diff_vs_mediana = round((precio_actual - mediana) / mediana * 100, 1)
-
-    diff_vs_minimo = None
-    if precio_actual is not None and minimo:
-        diff_vs_minimo = round((precio_actual - minimo) / minimo * 100, 1)
-
-    return {
-        "mediana":        round(mediana, 2),
-        "minimo":         round(minimo, 2),
-        "fecha_min":      fecha_min,
-        "precio_actual":  precio_actual,
-        "diff_vs_mediana": diff_vs_mediana,
-        "diff_vs_minimo":  diff_vs_minimo,
-        "n_puntos":       len(precios),
-        "precio_unico":   len(set(round(pr, 2) for pr in precios)) == 1,
-    }
-
-
-def _veredicto_compra(stats: dict) -> str:
-    """
-    Genera la frase del veredicto a partir de las estadísticas de precio (en €, no €/kg).
-    Formato: "Hoy cuesta X €, [valoración]. Mínimo: X € el DD/MM."
-    """
-    if not stats:
-        return "No tenemos suficientes datos de historial para este producto."
-
-    precio = stats.get("precio_actual")
-    mediana = stats.get("mediana")
-    minimo = stats.get("minimo")
-    diff_m = stats.get("diff_vs_mediana")
-    fecha_min = stats.get("fecha_min")
-
-    if precio is None or mediana is None:
-        return "No hay suficiente historial de precios para hacer un análisis."
-
-    precio_fmt = f"{precio:.2f}".replace(".", ",")
-    mediana_fmt = f"{mediana:.2f}".replace(".", ",")
-
-    def _fmt_pct(v):
-        """Formatea un porcentaje con 1 decimal fijo, coma decimal y espacio antes de %."""
-        return f"{abs(v):.1f}".replace(".", ",") + " %"
-
-    # Caso: precio sin cambios en todo el periodo
-    if stats.get("precio_unico"):
-        return f"Hoy cuesta {precio_fmt} €. No ha cambiado de precio en los últimos 90 días."
-
-    if diff_m is not None and diff_m <= -5:
-        texto = (
-            f"Hoy cuesta {precio_fmt} €, un {_fmt_pct(diff_m)} por debajo de su precio habitual "
-            f"(mediana 90 días: {mediana_fmt} €). Buen momento para comprar."
-        )
-    elif diff_m is not None and diff_m >= 10:
-        texto = (
-            f"Hoy cuesta {precio_fmt} €, un {_fmt_pct(diff_m)} por encima de su precio habitual "
-            f"(mediana 90 días: {mediana_fmt} €). Puede merecer esperar."
-        )
-    elif diff_m is not None and abs(diff_m) < 0.5:
-        texto = (
-            f"Hoy cuesta {precio_fmt} €, igual que su precio habitual "
-            f"(mediana 90 días: {mediana_fmt} €)."
-        )
-    else:
-        texto = (
-            f"Hoy cuesta {precio_fmt} €, en línea con su precio habitual "
-            f"(mediana 90 días: {mediana_fmt} €)."
-        )
-
-    # Añadir mínimo con fecha
-    if minimo is not None and fecha_min:
-        minimo_fmt = f"{minimo:.2f}".replace(".", ",")
-        try:
-            partes = fecha_min.split("-")
-            fecha_fmt = f"{int(partes[2]):02d}/{int(partes[1]):02d}"
-        except Exception:
-            fecha_fmt = fecha_min
-        texto += f" Mínimo: {minimo_fmt} € el {fecha_fmt}."
-
-    return texto
-
-
-def _svg_sparkline_producto(historial: list, w: int = 400, h: int = 80) -> str:
-    """
-    Genera un SVG de historial de precios sin librerías externas.
-    Agrupa por fecha (media si hay varios en el mismo día), ordena cronológicamente.
-    """
-    if not historial:
-        return ""
-
-    from collections import defaultdict as _dd
-    por_fecha: dict = _dd(list)
-    for e in historial:
-        if e.get("fecha") and e.get("precio") is not None:
-            por_fecha[e["fecha"]].append(e["precio"])
-
-    if len(por_fecha) < 2:
-        return ""
-
-    fechas_sorted = sorted(por_fecha.keys())
-    puntos = [(f, sum(por_fecha[f]) / len(por_fecha[f])) for f in fechas_sorted]
-
-    precios = [p for _, p in puntos]
-    p_min = min(precios)
-    p_max = max(precios)
-    rango = p_max - p_min if p_max != p_min else 1.0
-
-    pad = 6
-    n = len(puntos)
-    coords = []
-    for i, (_, precio) in enumerate(puntos):
-        x = pad + (w - 2 * pad) * i / (n - 1) if n > 1 else w / 2
-        y = pad + (h - 2 * pad) * (1 - (precio - p_min) / rango)
-        coords.append((round(x, 1), round(y, 1)))
-
-    polyline = " ".join(f"{x},{y}" for x, y in coords)
-    lx, ly = coords[-1]
-
-    # Color: verde si el precio actual <= mediana, naranja si no
-    precio_actual = precios[-1]
-    mediana = sorted(precios)[len(precios) // 2]
-    color = "#22c55e" if precio_actual <= mediana else "#f97316"
-
-    return (
-        f'<svg viewBox="0 0 {w} {h}" width="{w}" height="{h}" '
-        f'xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios">'
-        f'<polyline points="{polyline}" fill="none" stroke="{color}" '
-        f'stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
-        f'<circle cx="{lx}" cy="{ly}" r="4" fill="{color}"/>'
-        f'</svg>'
-    )
-
-
-_MIXTO_KW = re.compile(
-    r'\b(oats?|avena|gainer|collagen|col[aá]geno|\+\s*creatina|diet\s+whey)\b',
-    re.I,
-)
-
-
-def _es_mixto(nombre: str) -> bool:
-    """Devuelve True si el nombre indica una proteína mezclada (oats, gainer, colágeno, etc.)."""
-    return bool(_MIXTO_KW.search(nombre))
-
-
-# ── Clasificación de tipo dentro de categoría (para ranking y alternativas) ──────────────
-
-_TIPO_LABEL = {
-    "clear":       "clear whey",
-    "hidrolizada": "hidrolizada",
-    "aislada":     "aislada",
-    "concentrada": "concentrada",
-    "caseína":     "caseína",
-    "huevo":       "proteína de huevo",
-    "carne":       "proteína de carne",
-    "vegana":      "vegana",
-    "whey":        "whey",
-    "ingrediente": "ingrediente único",
-    "blend":       "blend",
-}
-
-
-def _tipo_proteina(producto: dict) -> str:
-    """Clasifica una proteína en su tipo específico para ranking y alternativas."""
-    subcat = producto.get("subcategoria_proteina")
-    nombre = (producto.get("nombre_display") or producto.get("nombre_normalizado") or "").lower()
-
-    if subcat == "vegana":
-        return "vegana"
-
-    if subcat == "otra":
-        if re.search(r'\b(caseín|caseina|caseinato|casein)\b', nombre):
-            return "caseína"
-        if re.search(r'\b(beef|carne|evobeef)\b', nombre):
-            return "carne"
-        if re.search(r'\b(huevo|egg|albúmina|albumina|claras)\b', nombre):
-            return "huevo"
-        return "otra"
-
-    # Whey subtypes (orden relevante: clear > hidrolizada > aislada > concentrada)
-    if re.search(r'\bclear\b', nombre):
-        return "clear"
-    if re.search(r'\b(hidrolizado|hydro|hidrolizada|hydrolyzed)\b', nombre):
-        return "hidrolizada"
-    if re.search(r'\b(isolate|isolada|aislada|wpi|cfm|isolac|evolate)\b', nombre):
-        return "aislada"
-    if re.search(r'\b(concentrad|wpc|concentrate|basic|evobasic|evowhey)\b', nombre):
-        return "concentrada"
-    return "whey"
-
-
-def _tipo_preenterno(producto: dict) -> str:
-    """Clasifica un pre-entreno en 'ingrediente' (único) o 'blend'."""
-    nombre = (producto.get("nombre_display") or producto.get("nombre_normalizado") or "")
-    if re.search(
-        r'\b(taurina|taurine|beta.alanina|beta.alanine|citrulina|citrulline'
-        r'|arginina|arginine|d.ribosa|glycopump|glicerol|glicero)\b',
-        nombre, re.IGNORECASE,
-    ):
-        return "ingrediente"
-    return "blend"
-
-
-def _tipo_producto(producto: dict) -> str | None:
-    """Devuelve el tipo del producto para ranking y alternativas; None si no aplica."""
-    cat = producto.get("categoria")
-    if cat in ("proteina-whey", "proteina-vegana"):
-        return _tipo_proteina(producto)
-    if cat == "pre-entreno":
-        return _tipo_preenterno(producto)
-    return None
-
-
-def _ordinal_es(n: int) -> str:
-    """Ordinal en español: 1.ª, 2.ª, 3.ª, ..."""
-    return f"{n}.\u00aa"
-
-
-def _alternativas(producto: dict, productos_web: list, n: int = 5) -> list:
-    """
-    Devuelve hasta n productos alternativos de la misma categoría, de tiendas afiliadas
-    con página individual.
-    Reglas:
-    - Métrica consistente: si el producto tiene precio_por_kg_proteina usamos esa métrica
-      en ambos lados; si no, precio_por_kg_min.
-    - Para proteínas puras: excluir mixtos (oats, colágeno, gainer).
-    - Primero: mismo tipo (clear→clear, aislada→aislada, vegana→vegana, blend→blend…).
-      Si el pool del mismo tipo da ≥3, se usa solo ese pool.
-      Si da <3, se completa con otros tipos marcados como "otro_tipo": True.
-    - Ordenar por precio (más barato primero).
-    """
-    pid = producto["id"]
-    cat = producto["categoria"]
-    base_prot = producto.get("precio_por_kg_proteina")
-    base_kg   = producto.get("precio_por_kg_min")
-
-    if not base_kg:
-        return []
-
-    es_proteina = cat in ("proteina-whey", "proteina-vegana")
-    base_es_mixto = es_proteina and _es_mixto(
-        producto.get("nombre_display") or producto.get("nombre_normalizado", "")
-    )
-    base_tipo = _tipo_producto(producto)
-
-    def _candidato_base(p):
-        return (
-            p["id"] != pid
-            and p["categoria"] == cat
-            and p.get("tienda_mas_barata") in TIENDAS_CON_PAGINA
-            and not p.get("agotado")
-            and p.get("precio_por_kg_min") is not None
-        )
-
-    # Pool total sin mixtos (si el producto base es puro)
-    pool = [p for p in productos_web if _candidato_base(p)]
-    if es_proteina and not base_es_mixto:
-        pool = [p for p in pool if not _es_mixto(p.get("nombre_display") or p.get("nombre_normalizado", ""))]
-
-    # Pool mismo tipo
-    if base_tipo:
-        mismo_tipo = [p for p in pool if _tipo_producto(p) == base_tipo]
-    else:
-        mismo_tipo = pool[:]
-
-    # Ordenar siempre por €/kg (disponible en todos)
-    mismo_tipo.sort(key=lambda p: p.get("precio_por_kg_min") or 9999)
-
-    def _fmt_pct(v: float) -> str:
-        return f"{abs(v):.1f}".replace(".", ",") + " %"
-
-    def _enriquecer(p, otro_tipo=False):
-        # Mostrar €/kg prot si disponible en ambos lados; si no, €/kg
-        alt_prot = p.get("precio_por_kg_proteina")
-        if base_prot and alt_prot:
-            precio_ref  = alt_prot
-            metric_base = base_prot
-            alt_label   = "€/kg prot."
-        else:
-            precio_ref  = p.get("precio_por_kg_min")
-            metric_base = base_kg
-            alt_label   = "€/kg"
-
-        diff_pct = round((precio_ref - metric_base) / metric_base * 100, 1) if precio_ref else None
-        if diff_pct is not None:
-            diff_str = f"\u2212{_fmt_pct(diff_pct)}" if diff_pct < 0 else f"+{_fmt_pct(diff_pct)}"
-        else:
-            diff_str = ""
-        return {
-            **p,
-            "diff_pct":         diff_pct,
-            "diff_str":         diff_str,
-            "alt_metric_fmt":   f"{precio_ref:.2f}".replace(".", ",") if precio_ref else None,
-            "alt_metric_label": alt_label,
-            "otro_tipo":        otro_tipo,
-        }
-
-    if len(mismo_tipo) >= 3:
-        return [_enriquecer(p) for p in mismo_tipo[:n]]
-
-    # Menos de 3 en el mismo tipo: completar con otros tipos
-    ids_usados = {p["id"] for p in mismo_tipo}
-    otros = [p for p in pool if p["id"] not in ids_usados]
-    otros.sort(key=lambda p: p.get("precio_por_kg_min") or 9999)
-
-    result = [_enriquecer(p) for p in mismo_tipo]
-    for p in otros:
-        if len(result) >= n:
-            break
-        result.append(_enriquecer(p, otro_tipo=True))
-    return result
-
-
-def _comparaciones_del_producto(producto_id: str, comparaciones: list) -> list:
-    """Filtra comparaciones.json devolviendo los pares que incluyen este producto."""
-    return [
-        par for par in comparaciones
-        if par.get("id_a") == producto_id or par.get("id_b") == producto_id
-    ]
-
-
-def _posicion_categoria(producto: dict, productos_web: list) -> dict | None:
-    """
-    Devuelve rango, total y texto de posición del producto dentro de su tipo.
-    Si el grupo de tipo tiene <3 productos, devuelve None (omitir posición).
-    """
-    cat = producto["categoria"]
-    usa_prot = bool(producto.get("precio_por_kg_proteina"))
-    metric_key = "precio_por_kg_proteina" if usa_prot else "precio_por_kg_min"
-    base_tipo = _tipo_producto(producto)
-
-    candidatos = [
-        p for p in productos_web
-        if p["categoria"] == cat
-        and not p.get("agotado")
-        and p.get(metric_key) is not None
-    ]
-
-    # Filtrar al mismo tipo si aplica
-    if base_tipo:
-        tipo_pool = [p for p in candidatos if _tipo_producto(p) == base_tipo]
-    else:
-        tipo_pool = candidatos[:]
-
-    if len(tipo_pool) < 3:
-        return None
-
-    ordenados = sorted(tipo_pool, key=lambda p: p.get(metric_key) or 9999)
-    try:
-        pos = next(i + 1 for i, p in enumerate(ordenados) if p["id"] == producto["id"])
-    except StopIteration:
-        return None
-
-    tipo_label = _TIPO_LABEL.get(base_tipo, base_tipo) if base_tipo else ""
-    metrica_label = "€/kg prot." if usa_prot else "€/kg"
-    texto = (
-        f"la {_ordinal_es(pos)} {tipo_label} más barata por {metrica_label} "
-        f"de las {len(tipo_pool)} que seguimos"
-    )
-
-    return {
-        "posicion":     pos,
-        "total":        len(tipo_pool),
-        "por_proteina": usa_prot,
-        "tipo_label":   tipo_label,
-        "texto":        texto,
-    }
-
-
-# Productos excluidos de páginas individuales por no ser suplementos deportivos típicos
-_NO_PAGINA_IDS = {
-    "caldo-proteico-de-pollo-en-polvo-500g-hsn",
-    "claras-de-huevo-liquidas-1kg-hsn",
-    "huevo-entero-en-polvo-500g-hsn",
-    "proteina-de-guisante-texturizada-500g-hsn",
-}
-
-
-def _productos_con_pagina(productos_web: list, hist_by_id: dict) -> list:
-    """
-    Filtra productos que cumplen los criterios para tener página individual:
-    - tienda_mas_barata en TIENDAS_CON_PAGINA
-    - store_rating_count >= 20
-    - al menos 5 fechas distintas en historial
-    - precio_por_kg_min no None
-    - ID no en _NO_PAGINA_IDS (productos no-suplemento excluidos)
-    Incluye agotados (con aviso en la página).
-    """
-    elegibles = []
-    for p in productos_web:
-        if p.get("id") in _NO_PAGINA_IDS:
-            continue
-        if p.get("tienda_mas_barata") not in TIENDAS_CON_PAGINA:
-            continue
-        if (p.get("store_rating_count") or 0) < 20:
-            continue
-        historial = hist_by_id.get(p["id"], [])
-        n_fechas = len(set(e["fecha"] for e in historial if e.get("fecha")))
-        if n_fechas < 5:
-            continue
-        if p.get("precio_por_kg_min") is None:
-            continue
-        elegibles.append(p)
-    return elegibles
-
-
-def cargar_slugs_producto_historicos() -> list:
-    """Carga data/slugs_producto_historicos.json; devuelve lista vacía si no existe."""
-    if not os.path.exists(_SLUGS_PRODUCTO_HIST_FILE):
-        return []
-    with open(_SLUGS_PRODUCTO_HIST_FILE, encoding="utf-8") as f:
-        return json.load(f)
-
-
-def actualizar_slugs_producto_historicos(slugs_actuales: list) -> None:
-    """Añade slugs generados al fichero histórico (formato 'categoria/slug_publico')."""
-    historicos = set(cargar_slugs_producto_historicos())
-    historicos.update(slugs_actuales)
-    with open(_SLUGS_PRODUCTO_HIST_FILE, "w", encoding="utf-8") as f:
-        json.dump(sorted(historicos), f, ensure_ascii=False, indent=2)
-
-
-def _url_afiliado_producto(producto: dict) -> str | None:
-    """Devuelve la URL de afiliado de la tienda más barata."""
-    tienda = producto.get("tienda_mas_barata")
-    for pr in producto.get("precios", []):
-        if pr.get("tienda") == tienda and pr.get("url_afiliado"):
-            return pr["url_afiliado"]
-    return None
-
-
-def generar_paginas_producto(
-    env,
-    productos_web: list,
-    price_history: list,
-    last_updated: str,
-    comparaciones: list,
-) -> list:
-    """
-    Genera docs/<categoria>/<slug_publico>/index.html para cada producto elegible.
-    Devuelve lista de slugs generados en formato 'categoria/slug_publico'.
-    """
-    template = env.get_template("producto.html")
-    hist_by_id = _price_history_por_id(price_history)
-    elegibles = _productos_con_pagina(productos_web, hist_by_id)
-    slugs_generados = []
-
-    # Cargar nombres canónicos para páginas de producto (clave = slug_publico)
-    _nc_prod: dict = {}
-    _nc_path = os.path.join(DATA_DIR, "nombres_cortos.json")
-    if os.path.exists(_nc_path):
-        with open(_nc_path, encoding="utf-8") as _f:
-            _nc_prod = json.load(_f)
-
-    def _cat_url(p):
-        """URL de categoría real: vegana → proteina-vegana, resto → categoria del producto."""
-        if p.get("subcategoria_proteina") == "vegana":
-            return "proteina-vegana"
-        return p["categoria"]
-
-    # Marcar los productos elegibles con su pagina_url para que los templates lo usen
-    elegibles_ids = {p["id"] for p in elegibles}
-    for p in productos_web:
-        if p["id"] in elegibles_ids:
-            p["pagina_url"] = f"/{_cat_url(p)}/{p['slug_publico']}/"
-        else:
-            p.pop("pagina_url", None)
-
-    # Asegurar que todos los productos tienen img_src para alternativas
-    for p in productos_web:
-        if "img_src" not in p:
-            p["img_src"] = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
-        img = p.get("img_src", "")
-        if img.startswith("/img/productos/") and "placeholder" not in img:
-            p["img_src_abs"] = f"{SITE_URL}{img}"
-        elif img.startswith("https://"):
-            p["img_src_abs"] = img
-        else:
-            p["img_src_abs"] = None
-
-    prod_map = {p["id"]: p for p in productos_web}
-
-    for p in elegibles:
-        historial = hist_by_id.get(p["id"], [])
-        # Filtrar historial a la tienda más barata para stats coherentes con el precio mostrado
-        tienda_mb = p.get("tienda_mas_barata", "")
-        historial_tienda = [e for e in historial if e.get("tienda") == tienda_mb]
-        stats = _stats_precio_90d(historial_tienda or historial)
-        # Usar precio_min actual como "precio actual" (más fiable que el último del historial)
-        if stats and p.get("precio_min") is not None:
-            stats["precio_actual"] = p["precio_min"]
-            med = stats.get("mediana")
-            if med:
-                stats["diff_vs_mediana"] = round((p["precio_min"] - med) / med * 100, 1)
-        veredicto = _veredicto_compra(stats)
-        sparkline_svg = _svg_sparkline_producto(historial_tienda or historial)
-        alternativas = _alternativas(p, productos_web)
-        posicion = _posicion_categoria(p, productos_web)
-        comparaciones_prod = _comparaciones_del_producto(p["id"], comparaciones)
-
-        # Enriquecer comparaciones con slugs
-        comps_enriquecidas = []
-        for par in comparaciones_prod:
-            pa = prod_map.get(par.get("id_a"))
-            pb = prod_map.get(par.get("id_b"))
-            if not pa or not pb:
-                continue
-            sa = pa.get("slug_publico") or ""
-            sb = pb.get("slug_publico") or ""
-            if not sa or not sb:
-                continue
-            if sa > sb:
-                sa, sb = sb, sa
-            comps_enriquecidas.append({
-                "slug":     f"{sa}-vs-{sb}",
-                "nombre_a": pa.get("nombre_display") or pa["nombre_normalizado"],
-                "nombre_b": pb.get("nombre_display") or pb["nombre_normalizado"],
-            })
-
-        # Determinar URL de categoría real (vegana → proteina-vegana)
-        url_cat = _cat_url(p)
-        cat_cfg = next(
-            (cfg for cfg in CATEGORIA_CONFIG.values() if cfg["slug"] == url_cat),
-            None,
-        )
-        cat_display = cat_cfg["display"] if cat_cfg else url_cat.replace("-", " ").title()
-        cat_slug    = url_cat
-
-        img_src = _img_local(p["id"], p["categoria"], p.get("imagen_url"))
-        img_src_abs = None
-        if img_src.startswith("/img/productos/") and "placeholder" not in img_src:
-            img_src_abs = f"{SITE_URL}{img_src}"
-        elif img_src.startswith("https://"):
-            img_src_abs = img_src
-
-        url_afiliado = _url_afiliado_producto(p)
-        precio_fmt   = f"{p['precio_por_kg_min']:.2f}".replace(".", ",") if p.get("precio_por_kg_min") else None
-        precio_eur_fmt = f"{p['precio_min']:.2f}".replace(".", ",") if p.get("precio_min") else None
-        pkg_prot_fmt = f"{p['precio_por_kg_proteina']:.2f}".replace(".", ",") if p.get("precio_por_kg_proteina") else None
-        coste_mes_fmt = f"{p['coste_mes']:.2f}".replace(".", ",") if p.get("coste_mes") else None
-
-        tienda = p.get("tienda_mas_barata", "")
-        tienda_clase = tienda.lower().replace(" ", "")
-        tienda_color = {
-            "HSN": "#FF6B35",
-            "MyProtein": "#F2C94C",
-            "Hivital": "#8B5CF6",
-        }.get(tienda, "#888")
-
-        rating = p.get("store_rating")
-        rating_count = p.get("store_rating_count")
-        rating_fmt = f"{rating:.1f}".replace(".", ",") if rating else None
-
-        # Nombre canónico: primero nombres_cortos.json (clave slug_publico), luego nombre_display
-        nombre = _nc_prod.get(p.get("slug_publico", "")) or (p.get("nombre_display") or p["nombre_normalizado"])
-        marca = p.get("marca") or tienda
-
-        # SEO title: "{nombre} ({marca}): precio hoy, €/kg y opiniones" (max 65 chars)
-        seo_title = f"{nombre} ({marca}): precio hoy, €/kg y opiniones"
-        if len(seo_title) > 65:
-            seo_title = f"{nombre} ({marca}): €/kg y opiniones"
-
-        # Meta description: datos concretos, sin frases genéricas
-        _parts = [f"{nombre} desde {precio_eur_fmt} €" if precio_eur_fmt else nombre]
-        if precio_fmt:
-            _parts[0] += f" ({precio_fmt} €/kg)"
-        _parts[0] += f" en {tienda}."
-        if pkg_prot_fmt:
-            _parts.append(f"{pkg_prot_fmt} €/kg de proteína.")
-        if rating_fmt and rating_count:
-            _parts.append(f"{rating_fmt}/5 con {int(rating_count)} valoraciones en {tienda}.")
-        seo_desc = " ".join(_parts)
-        if len(seo_desc) > 160:
-            seo_desc = seo_desc[:157] + "..."
-
-        prod_url = f"/{url_cat}/{p['slug_publico']}/"
-
-        tipo = _tipo_producto(p)
-        ctx = {
-            **contexto_base(last_updated),
-            "active_slug":      cat_slug,
-            "producto":         p,
-            "nombre":           nombre,
-            "marca":            marca,
-            "tipo":             tipo,
-            "tipo_label":       _TIPO_LABEL.get(tipo, "") if tipo else "",
-            "seo_title":        seo_title,
-            "seo_desc":         seo_desc,
-            "prod_url":         prod_url,
-            "cat_display":      cat_display,
-            "cat_slug":         cat_slug,
-            "img_src":          img_src,
-            "img_src_abs":      img_src_abs,
-            "url_afiliado":     url_afiliado,
-            "tienda":           tienda,
-            "tienda_clase":     tienda_clase,
-            "tienda_color":     tienda_color,
-            "precio_fmt":       precio_fmt,
-            "precio_eur_fmt":   precio_eur_fmt,
-            "pkg_prot_fmt":     pkg_prot_fmt,
-            "coste_mes_fmt":    coste_mes_fmt,
-            "rating_fmt":       rating_fmt,
-            "rating_count":     rating_count,
-            "stats_90d":        stats,
-            "veredicto":        veredicto,
-            "sparkline_svg":    sparkline_svg,
-            "alternativas":     alternativas,
-            "posicion":         posicion,
-            "comparaciones_prod": comps_enriquecidas,
-            "agotado":          p.get("agotado", False),
-        }
-
-        html_out = template.render(**ctx)
-        outdir = os.path.join(DOCS_DIR, url_cat, p["slug_publico"])
-        os.makedirs(outdir, exist_ok=True)
-        path = os.path.join(outdir, "index.html")
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(html_out)
-        slugs_generados.append(f"{url_cat}/{p['slug_publico']}")
-
-    print(f"✅ Generadas {len(slugs_generados)} páginas de producto")
-    return slugs_generados
-
-
-def generar_redirecciones_producto_historicas(slugs_producto_actuales: set) -> int:
-    """
-    Para slugs en slugs_producto_historicos.json que ya no tienen página,
-    genera una redirección meta-refresh a la categoría correspondiente.
-    """
-    historicos = cargar_slugs_producto_historicos()
-    generadas = 0
-    for slug_cat_prod in historicos:
-        if slug_cat_prod in slugs_producto_actuales:
-            continue
-        partes = slug_cat_prod.split("/", 1)
-        if len(partes) != 2:
-            continue
-        cat_slug, slug_prod = partes
-        outdir = os.path.join(DOCS_DIR, cat_slug, slug_prod)
-        path = os.path.join(outdir, "index.html")
-        if os.path.exists(path):
-            continue
-        os.makedirs(outdir, exist_ok=True)
-        destino = f"/{cat_slug}/"
-        html = (
-            '<!DOCTYPE html><html lang="es"><head>'
-            '<meta charset="UTF-8">'
-            f'<meta http-equiv="refresh" content="0; url={html_mod.escape(destino)}">'
-            f'<link rel="canonical" href="{html_mod.escape(SITE_URL + destino)}">'
-            '<title>Redirigiendo...</title>'
-            '</head><body>'
-            f'<p>Esta página ha sido movida. '
-            f'<a href="{html_mod.escape(destino)}">Ir a la categoría</a></p>'
-            '</body></html>'
-        )
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(html)
-        generadas += 1
-    if generadas:
-        print(f"↪️  {generadas} redirecciones de páginas de producto históricas")
-    return generadas
-
-
 def generar_redirecciones(slugs_generados: set):
     """
     Lee data/redirecciones.json y genera una página HTML mínima con meta-refresh
@@ -4417,6 +4123,18 @@ if __name__ == "__main__":
     tiendas_cfg = cargar_tiendas_afiliadas()
     print(f"\n🏪 Tiendas afiliadas cargadas: {len(tiendas_cfg)}")
 
+    # 3c. Asignar pagina_url ANTES de generar HTML (necesario para enlaces internos)
+    hist_by_id = _price_history_por_id(historial_precio, productos_web)
+    elegibles_pagina = _productos_con_pagina(productos_web, hist_by_id)
+    elegibles_ids = {p["id"] for p in elegibles_pagina}
+    for p in productos_web:
+        if p["id"] in elegibles_ids:
+            url_cat = "proteina-vegana" if p.get("subcategoria_proteina") == "vegana" else p["categoria"]
+            p["pagina_url"] = f"/{url_cat}/{p['slug_publico']}/"
+        else:
+            p.pop("pagina_url", None)
+    print(f"   → {len(elegibles_ids)} productos con página individual")
+
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")
 
@@ -4485,26 +4203,36 @@ if __name__ == "__main__":
         with open(_comp_path, encoding="utf-8") as _f:
             _pares_json = json.load(_f).get("pares", [])
 
-    # 4b. Páginas de producto individuales
-    print("\n📄 Generando páginas de producto...")
-    _hist_by_id_main = _price_history_por_id(historial_precio)
-    _elegibles_main = _productos_con_pagina(productos_web, _hist_by_id_main)
-    _productos_con_pagina_set = {p["id"] for p in _elegibles_main}
-    slugs_producto = generar_paginas_producto(
-        env, productos_web, historial_precio, last_updated, _pares_json,
-    )
-    slugs_producto_set = set(slugs_producto)
-    actualizar_slugs_producto_historicos(slugs_producto)
-    generar_redirecciones_producto_historicas(slugs_producto_set)
-
     slugs_set = set(compare_slugs)
     for cat_raw, cfg in CATEGORIA_CONFIG.items():
-        generar_categoria(
-            env, cat_raw, cfg, productos_web, last_updated,
-            slugs_comparacion=slugs_set,
-            comparaciones_data=_pares_json,
-            productos_con_pagina_set=_productos_con_pagina_set,
-        )
+        generar_categoria(env, cat_raw, cfg, productos_web, last_updated, slugs_comparacion=slugs_set, comparaciones_data=_pares_json)
+
+    # 4c. Páginas de producto individuales
+    print("\n📄 Generando páginas de producto...")
+    slugs_producto = generar_paginas_producto(env, productos_web, last_updated, hist_by_id, comparaciones_data=_pares_json)
+
+    # 4d. Limpiar páginas de producto obsoletas (de builds anteriores)
+    import shutil as _shutil
+    slugs_producto_set = {s.strip("/") for s in slugs_producto}  # e.g. "proteina-whey/evobasic-whey-2kg-hsn"
+    _cat_dirs = [cfg["slug"] for _, cfg in CATEGORIA_CONFIG.items()]
+    eliminados_prod = 0
+    for cat_dir_name in _cat_dirs:
+        cat_path = os.path.join(DOCS_DIR, cat_dir_name)
+        if not os.path.isdir(cat_path):
+            continue
+        for entry in os.listdir(cat_path):
+            entry_path = os.path.join(cat_path, entry)
+            if not os.path.isdir(entry_path):
+                continue
+            slug_key = f"{cat_dir_name}/{entry}"
+            if slug_key not in slugs_producto_set:
+                # Solo eliminar si tiene index.html (es una página, no otro recurso)
+                idx = os.path.join(entry_path, "index.html")
+                if os.path.exists(idx):
+                    _shutil.rmtree(entry_path)
+                    eliminados_prod += 1
+    if eliminados_prod:
+        print(f"🗑️  Limpiadas {eliminados_prod} páginas de producto obsoletas")
 
     # 5. Páginas legales, test y sobre nosotros
     for pagina in PAGINAS_LEGALES:
@@ -4521,7 +4249,7 @@ if __name__ == "__main__":
 
     # 6. Sitemap, robots, .nojekyll
     print("\n📋 Generando ficheros auxiliares...")
-    generar_sitemap(last_updated, compare_slugs=compare_slugs, tiendas_cfg=tiendas_cfg, slugs_producto=slugs_producto)
+    generar_sitemap(last_updated, compare_slugs=compare_slugs, tiendas_cfg=tiendas_cfg, product_slugs=slugs_producto)
     generar_robots()
     generar_nojekyll()
 
@@ -4542,20 +4270,14 @@ if __name__ == "__main__":
             _pr.pop("_precio_fresco", None)
 
     duracion = (datetime.now() - inicio).total_seconds()
-    # +1 /test/ + 1 /tiendas/ + len(tiendas_cfg) páginas de tienda individuales + páginas de producto
-    total_paginas = (
-        1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1
-        + len(compare_slugs)
-        + (1 + len(tiendas_cfg) if tiendas_cfg else 0)
-        + len(slugs_producto)
-    )
+    # +1 /test/ + 1 /tiendas/ + len(tiendas_cfg) páginas de tienda individuales
+    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1 + len(compare_slugs) + len(slugs_producto) + (1 + len(tiendas_cfg) if tiendas_cfg else 0)
 
     print("\n" + "=" * 54)
     print(f"  BUILD COMPLETADO en {duracion:.1f}s")
     print(f"  {total_paginas} paginas HTML generadas en docs/")
     print(f"  {len(productos_web)} productos  |  {last_updated}")
     print(f"  {len(compare_slugs)} páginas de comparación")
-    print(f"  {len(slugs_producto)} páginas de producto individual")
     print()
     print("  SIGUIENTE PASO:")
     print('  git add docs/ data/ && git commit -m "build: update site"')

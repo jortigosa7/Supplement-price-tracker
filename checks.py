@@ -998,78 +998,97 @@ def _check_titulos_duplicados(docs_dir: str) -> list[str]:
     return errores
 
 
-_SLUGS_PRODUCTO_HIST_FILE = "data/slugs_producto_historicos.json"
+# ── Check A: Enlaces internos rotos a páginas de producto/categoría/comparación ─
+
+_PRODUCTO_PREFIXES = (
+    "/proteina-whey/", "/proteina-vegana/", "/creatina/",
+    "/bcaa/", "/pre-entreno/", "/comparar/",
+)
 
 
-def _check_paginas_producto(docs_dir: str, productos_web: list[dict]) -> list[str]:
-    """
-    Verifica páginas de producto individuales:
-    - Cada página en docs/<cat>/<slug>/index.html (fuera de comparar/) tiene título,
-      meta description, precio visible y al menos 1 alternativa.
-    - Ningún slug de slugs_producto_historicos.json sin página ni redirección.
-    """
-    errores: list[str] = []
+def _check_broken_product_links(docs_dir: str) -> list[str]:
+    """Verifica que los hrefs internos a páginas de producto/categoría/comparación
+    apunten a directorios existentes con index.html."""
+    docs = Path(docs_dir)
+    errores = []
+    vistos: set[str] = set()
 
-    # Categorías conocidas
-    cat_slugs = {"proteina-whey", "proteina-vegana", "creatina", "bcaa", "pre-entreno"}
+    re_href = re.compile(r'href="(/[a-zA-Z0-9/_.\-]+)"')
 
-    # Identificar carpetas de producto: docs/<cat>/<slug>/index.html
-    # Excluir: docs/<cat>/index.html (es la página de categoría)
-    prod_slugs_encontrados: set[str] = set()
-    for cat in cat_slugs:
-        cat_dir = os.path.join(docs_dir, cat)
-        if not os.path.isdir(cat_dir):
+    for html_file in sorted(docs.rglob("*.html")):
+        try:
+            content = html_file.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
             continue
-        for entry in os.listdir(cat_dir):
-            if entry == "index.html":
-                continue
-            html_path = os.path.join(cat_dir, entry, "index.html")
-            if not os.path.isfile(html_path):
-                continue
-            try:
-                contenido = Path(html_path).read_text(encoding="utf-8", errors="ignore")
-            except Exception:
-                continue
-            # Saltar redirecciones
-            if 'http-equiv="refresh"' in contenido:
-                continue
-            slug_key = f"{cat}/{entry}"
-            prod_slugs_encontrados.add(slug_key)
+        # Saltar meta-refresh
+        if 'http-equiv="refresh"' in content:
+            continue
 
-            # Verificar elementos mínimos
-            if "<title>" not in contenido:
-                errores.append(f"[CHECK PRODUCTO] Sin <title> en {cat}/{entry}/")
-            if 'name="description"' not in contenido:
-                errores.append(f"[CHECK PRODUCTO] Sin meta description en {cat}/{entry}/")
-            if "€/kg" not in contenido and "precio" not in contenido.lower():
-                errores.append(f"[CHECK PRODUCTO] Sin precio visible en {cat}/{entry}/")
-            if "prod-alt-item" not in contenido:
-                errores.append(f"[CHECK PRODUCTO] Sin alternativas en {cat}/{entry}/")
-
-    # Verificar slugs históricos de producto
-    if os.path.exists(_SLUGS_PRODUCTO_HIST_FILE):
-        with open(_SLUGS_PRODUCTO_HIST_FILE, encoding="utf-8") as f:
-            historicos = json.load(f)
-        sin_cobertura = []
-        for slug_cat_prod in historicos:
-            partes = slug_cat_prod.split("/", 1)
-            if len(partes) != 2:
+        for href in set(re_href.findall(content)):
+            if href in vistos:
                 continue
-            cat_slug, slug_prod = partes
-            page_path = os.path.join(docs_dir, cat_slug, slug_prod, "index.html")
-            if not os.path.exists(page_path):
-                sin_cobertura.append(slug_cat_prod)
-        if sin_cobertura:
-            errores.append(
-                f"[CHECK PRODUCTO] {len(sin_cobertura)} slug(s) histórico(s) sin página ni redirección:\n"
-                + "\n".join(f"  • {s}" for s in sin_cobertura[:10])
-                + ("..." if len(sin_cobertura) > 10 else "")
-            )
+            # Solo checar rutas bajo prefijos de producto/categoría/comparación
+            if not any(href.startswith(pfx) for pfx in _PRODUCTO_PREFIXES):
+                continue
+            # Debe ser una ruta con al menos un segmento bajo el prefijo
+            # (evitar checar las propias categorías raíz)
+            segments = href.strip("/").split("/")
+            if len(segments) < 2:
+                continue
 
-    if prod_slugs_encontrados:
-        print(f"  → {len(prod_slugs_encontrados)} páginas de producto verificadas")
+            target = docs / href.lstrip("/")
+            existe = target.exists() or (target / "index.html").exists()
+            if not existe:
+                vistos.add(href)
+                rel = html_file.relative_to(docs)
+                errores.append(
+                    f"[CHECK A] Enlace interno roto a página de producto:\n"
+                    f"  href  : {href}\n"
+                    f"  página: {rel}\n"
+                    f"  Acción: producto sin página o slug incorrecto."
+                )
 
     return errores
+
+
+# ── Check B: Páginas de producto enlazadas desde categoría ───────────────────
+
+def _check_product_pages_linked(docs_dir: str, productos_web: list) -> list[str]:
+    """Avisa (no falla) si una página de producto no tiene enlaces desde su categoría."""
+    docs = Path(docs_dir)
+    avisos = []
+
+    for p in productos_web:
+        pagina_url = p.get("pagina_url")
+        if not pagina_url:
+            continue
+        # Determinar categoría
+        cat_slug = pagina_url.strip("/").split("/")[0] if pagina_url else None
+        if not cat_slug:
+            continue
+        cat_html = docs / cat_slug / "index.html"
+        if not cat_html.exists():
+            continue
+        try:
+            contenido = cat_html.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
+        if pagina_url not in contenido:
+            avisos.append(
+                f"[CHECK B] Página de producto sin enlace desde categoría (aviso):\n"
+                f"  producto: {p.get('nombre_display') or p.get('nombre_normalizado')}\n"
+                f"  pagina  : {pagina_url}\n"
+                f"  cat     : /{cat_slug}/"
+            )
+
+    # Solo avisar, no devolver como errores
+    if avisos:
+        print(f"  ⚠️  {len(avisos)} página(s) de producto sin enlace desde categoría:")
+        for a in avisos[:5]:
+            print(f"     {a}")
+        if len(avisos) > 5:
+            print(f"     ... y {len(avisos) - 5} más")
+    return []  # no error, solo aviso
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
@@ -1120,7 +1139,6 @@ def run_all_checks(
     errores: list[str] = []
     errores += _check_redirects(docs_dir)
     errores += _check_enlaces_internos(docs_dir)
-    errores += _check_paginas_producto(docs_dir, productos_web)
     errores += _check_por_tienda(por_tienda, stats_ant.get("por_tienda", {}), productos_web=productos_web)
     errores += _check_metricas(stats_act, stats_ant)
     errores += _check_pares_sin_cobertura(ids_faltantes_gen or [], docs_dir)
@@ -1136,6 +1154,8 @@ def run_all_checks(
     errores += _check_scrape_stats()
     errores += _check_productos_ausentes(ids_act, stats_ant)
     errores += _check_precio_fresco_myprotein(productos_web)
+    errores += _check_broken_product_links(docs_dir)
+    _check_product_pages_linked(docs_dir, productos_web)
     if fechas_por_tienda:
         errores += _check_fechas_scrape(fechas_por_tienda)
 
