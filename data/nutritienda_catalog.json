@@ -1530,5 +1530,13 @@
   "https://www.nutritienda.com/es/biotech-usa/protein-power-4000g": {
     "categoria": "Proteinas Whey",
     "first_seen": "2026-10-30"
+  },
+  "https://www.nutritienda.com/es/big/cfm-iso-zero": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-02"
+  },
+  "https://www.nutritienda.com/es/nutrend/caffeine-caps-60-capsulas": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-11-02"
   }
 }
