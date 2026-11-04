@@ -1538,5 +1538,29 @@
   "https://www.nutritienda.com/es/nutrend/caffeine-caps-60-capsulas": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-11-02"
+  },
+  "https://www.nutritienda.com/es/scitec/100-whey-isolate": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-04"
+  },
+  "https://www.nutritienda.com/es/scitec/100-hydro-isolate": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-04"
+  },
+  "https://www.nutritienda.com/es/scitec/100-creatine-monohydrate-6611": {
+    "categoria": "Creatina",
+    "first_seen": "2026-11-04"
+  },
+  "https://www.nutritienda.com/es/scitec/bcaa-x": {
+    "categoria": "BCAA",
+    "first_seen": "2026-11-04"
+  },
+  "https://www.nutritienda.com/es/scitec/hot-blood-hardcore": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-11-04"
+  },
+  "https://www.nutritienda.com/es/ghost/ghost-legend-v4-660g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-11-04"
   }
 }
