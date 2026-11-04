@@ -40,9 +40,9 @@
         "Original (White)",
         "Raspberry Candy"
       ],
-      "store_rating": null,
-      "store_rating_count": null,
-      "store_rating_url": null,
+      "store_rating": 4.0,
+      "store_rating_count": 1.0,
+      "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/origin-intra-workout/16872733/",
       "protein_subtype": null,
       "slug_publico": "origin-intra-workout-1-2kg-myprotein",
       "nombre_display": "Origin Intra-Workout 1,2 kg",
@@ -666,7 +666,7 @@
         "Mango y Melocotón"
       ],
       "store_rating": 4.5,
-      "store_rating_count": 8980.0,
+      "store_rating_count": 8981.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/bcaa-211-300-g",
       "protein_subtype": null,
       "slug_publico": "bcaa-2-1-1-300g-prozis",
@@ -4212,7 +4212,7 @@
       "vegan": null,
       "flavors_available": [],
       "store_rating": 4.75,
-      "store_rating_count": 9929.0,
+      "store_rating_count": 9931.0,
       "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh",
       "protein_subtype": null,
       "slug_publico": "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn",
@@ -6194,7 +6194,7 @@
         "Sandía"
       ],
       "store_rating": 4.7,
-      "store_rating_count": 33371.0,
+      "store_rating_count": 33372.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/monohidrato-de-creatina-300-g",
       "protein_subtype": null,
       "slug_publico": "monohidrato-de-creatina-300g-prozis",
@@ -6641,7 +6641,7 @@
         "Sandía"
       ],
       "store_rating": 4.7,
-      "store_rating_count": 5944.0,
+      "store_rating_count": 5945.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600g",
       "protein_subtype": null,
       "slug_publico": "creatina-micronpure-600g-prozis",
@@ -6782,7 +6782,7 @@
         "Té helado de melocotón"
       ],
       "store_rating": 4.75,
-      "store_rating_count": 20723.0,
+      "store_rating_count": 20726.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-creapure-300-g",
       "protein_subtype": null,
       "slug_publico": "creatina-creapure-300g-prozis",
@@ -7056,7 +7056,7 @@
         "Sandía"
       ],
       "store_rating": 4.7,
-      "store_rating_count": 5944.0,
+      "store_rating_count": 5945.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g",
       "protein_subtype": null,
       "slug_publico": "creatina-micronpure-300g-prozis",
@@ -7104,7 +7104,7 @@
         "Sandía"
       ],
       "store_rating": 4.72,
-      "store_rating_count": 2965.0,
+      "store_rating_count": 2966.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-creatine-300-g",
       "protein_subtype": null,
       "slug_publico": "zero-creatine-300g-prozis",
@@ -7460,7 +7460,7 @@
         "Sandía"
       ],
       "store_rating": 4.72,
-      "store_rating_count": 2965.0,
+      "store_rating_count": 2966.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-creatine-150-g",
       "protein_subtype": null,
       "slug_publico": "zero-creatine-150g-prozis",
@@ -10350,7 +10350,7 @@
         "Neutro"
       ],
       "store_rating": 4.66,
-      "store_rating_count": 3599.0,
+      "store_rating_count": 3600.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/beta-alanina-300-g",
       "protein_subtype": null,
       "slug_publico": "beta-alanina-300g-prozis",
@@ -10908,7 +10908,7 @@
         "Sandía"
       ],
       "store_rating": 4.72,
-      "store_rating_count": 2899.0,
+      "store_rating_count": 2900.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-300-g",
       "protein_subtype": null,
       "slug_publico": "malato-de-l-citrulina-300g-prozis",
@@ -11528,7 +11528,7 @@
         "Sandía"
       ],
       "store_rating": 4.69,
-      "store_rating_count": 3654.0,
+      "store_rating_count": 3655.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-150-g",
       "protein_subtype": null,
       "slug_publico": "malato-de-l-citrulina-150g-prozis",
@@ -14346,7 +14346,7 @@
         "Naranja"
       ],
       "store_rating": 4.63,
-      "store_rating_count": 17022.0,
+      "store_rating_count": 17023.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-46-servings",
       "protein_subtype": null,
       "slug_publico": "big-shot-pre-workout-46-servings-prozis",
@@ -14395,8 +14395,8 @@
         "Flash Cola",
         "Frambuesa"
       ],
-      "store_rating": 4.63,
-      "store_rating_count": 1628.0,
+      "store_rating": 4.64,
+      "store_rating_count": 1629.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-sin-cafeina-46-dosis",
       "protein_subtype": null,
       "slug_publico": "big-shot-pre-workout-sin-cafeina-46-dosis-prozis",
@@ -14544,7 +14544,7 @@
         "Naranja"
       ],
       "store_rating": 4.63,
-      "store_rating_count": 17022.0,
+      "store_rating_count": 17023.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-8-sticks",
       "protein_subtype": null,
       "slug_publico": "big-shot-pre-workout-8-sticks-prozis",
@@ -14598,7 +14598,7 @@
         "Naranja"
       ],
       "store_rating": 4.63,
-      "store_rating_count": 17022.0,
+      "store_rating_count": 17023.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-23-servings",
       "protein_subtype": null,
       "slug_publico": "big-shot-pre-workout-23-servings-prozis",
@@ -15566,7 +15566,7 @@
         "Caramelo Salado"
       ],
       "store_rating": 4.05,
-      "store_rating_count": 289.0,
+      "store_rating_count": 290.0,
       "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/aislado-de-proteina-de-soja/10529701/",
       "protein_subtype": null,
       "slug_publico": "aislado-de-proteina-de-soja-1kg-myprotein",
@@ -17001,7 +17001,7 @@
         "Krispy Kreme® Original Glazed™ (Milkshake)"
       ],
       "store_rating": 4.57,
-      "store_rating_count": 3618.0,
+      "store_rating_count": 3619.0,
       "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein/10530943/",
       "protein_subtype": null,
       "slug_publico": "impact-whey-protein-840g-myprotein",
@@ -17096,7 +17096,7 @@
         "Krispy Kreme® Original Glazed™ (Milkshake)"
       ],
       "store_rating": 4.57,
-      "store_rating_count": 3618.0,
+      "store_rating_count": 3619.0,
       "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/proteina-de-suero-organica/11272855/",
       "protein_subtype": null,
       "slug_publico": "proteina-de-suero-organica-840g-myprotein",
@@ -17250,7 +17250,7 @@
         "Vainilla"
       ],
       "store_rating": 4.91,
-      "store_rating_count": 139.0,
+      "store_rating_count": 140.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/peanut-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "peanut-whey-protein-907g-prozis",
@@ -17391,7 +17391,7 @@
         "Vainilla"
       ],
       "store_rating": 4.91,
-      "store_rating_count": 139.0,
+      "store_rating_count": 140.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/peanut-whey-protein-450g",
       "protein_subtype": null,
       "slug_publico": "peanut-whey-protein-450g-prozis",
@@ -18960,8 +18960,8 @@
         "Speculoos",
         "Vainilla"
       ],
-      "store_rating": 4.72,
-      "store_rating_count": 132.0,
+      "store_rating": 4.73,
+      "store_rating_count": 133.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/real-whey-hydro-collagen-907g",
       "protein_subtype": null,
       "slug_publico": "real-whey-hydro-collagen-907g-prozis",
@@ -19069,7 +19069,7 @@
         "Vainilla francesa"
       ],
       "store_rating": 4.79,
-      "store_rating_count": 476.0,
+      "store_rating_count": 477.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/supreme-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "supreme-whey-protein-907g-prozis",
@@ -20006,8 +20006,8 @@
         "Speculoos",
         "Vainilla"
       ],
-      "store_rating": 4.72,
-      "store_rating_count": 132.0,
+      "store_rating": 4.73,
+      "store_rating_count": 133.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/real-whey-hydro-collagen-400g",
       "protein_subtype": null,
       "slug_publico": "real-whey-hydro-collagen-400g-prozis",
@@ -20117,7 +20117,7 @@
         "Vainilla"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 76676.0,
+      "store_rating_count": 76681.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "100-real-whey-protein-907g-prozis",
@@ -20182,7 +20182,7 @@
         "Vainilla"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 76676.0,
+      "store_rating_count": 76681.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-1814g",
       "protein_subtype": null,
       "slug_publico": "100-real-whey-protein-1814g-prozis",
@@ -20718,7 +20718,7 @@
         "Vainilla francesa"
       ],
       "store_rating": 4.79,
-      "store_rating_count": 474.0,
+      "store_rating_count": 477.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/supreme-whey-protein-400g",
       "protein_subtype": null,
       "slug_publico": "supreme-whey-protein-400g-prozis",
@@ -21944,7 +21944,7 @@
       "vegan": null,
       "flavors_available": [],
       "store_rating": 4.53,
-      "store_rating_count": 1181.0,
+      "store_rating_count": 1182.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-con-cafeina-extra-400-g",
       "protein_subtype": null,
       "slug_publico": "latte-de-caramelo-proteico-con-cafeina-extra-400g-prozis",
@@ -22405,7 +22405,7 @@
         "Vainilla"
       ],
       "store_rating": 4.61,
-      "store_rating_count": 2462.0,
+      "store_rating_count": 2463.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-1814-g",
       "protein_subtype": null,
       "slug_publico": "natural-real-whey-isolate-1814g-prozis",
@@ -23256,7 +23256,7 @@
         "Vainilla francesa"
       ],
       "store_rating": 4.79,
-      "store_rating_count": 474.0,
+      "store_rating_count": 477.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sachet-supreme-whey-protein-30g-x-3",
       "protein_subtype": null,
       "slug_publico": "sachet-supreme-whey-protein-30g-x-3-prozis",
@@ -23365,7 +23365,7 @@
         "Vainilla francesa"
       ],
       "store_rating": 4.79,
-      "store_rating_count": 474.0,
+      "store_rating_count": 477.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/3-x-supreme-whey-protein-30g",
       "protein_subtype": null,
       "slug_publico": "3-x-supreme-whey-protein-30g-prozis",
@@ -23414,8 +23414,8 @@
         "Speculoos",
         "Vainilla"
       ],
-      "store_rating": 4.72,
-      "store_rating_count": 132.0,
+      "store_rating": 4.73,
+      "store_rating_count": 133.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sachet-real-whey-hydro-collagen-25g-x-3",
       "protein_subtype": null,
       "slug_publico": "sachet-real-whey-hydro-collagen-25g-x-3-prozis",
@@ -23464,8 +23464,8 @@
         "Speculoos",
         "Vainilla"
       ],
-      "store_rating": 4.72,
-      "store_rating_count": 132.0,
+      "store_rating": 4.73,
+      "store_rating_count": 133.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/3-x-real-whey-hydro-collagen-25g",
       "protein_subtype": null,
       "slug_publico": "real-whey-hydro-collagen-25g-x-3-prozis",
@@ -24247,7 +24247,7 @@
         "Galletas y crema"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 76676.0,
+      "store_rating_count": 76681.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sachet-100-real-whey-protein-30g-x-3",
       "protein_subtype": null,
       "agotado": true,
