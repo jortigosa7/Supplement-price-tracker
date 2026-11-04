@@ -150,27 +150,38 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
     if "Fuente:" not in t or "valoraciones" not in t:
         fallos["Sin sección de opiniones"].append(url)
 
-    # Veredicto
-    ver = tramo(t, "Hoy cuesta", ["Evolución del precio", "Ficha", "Posición en el ranking"])
-    mp = re.search(r"Hoy cuesta (\d{1,3}(?:\.\d{3})*,\d{2}) €", ver)
-    if not mp:
-        fallos["Veredicto ausente o sin 'Hoy cuesta X €'"].append(url)
+    # Veredicto: en € ("Hoy cuesta X €") comparando solo con el formato actual, o en €/kg
+    # ("Hoy sale a X €/kg") si el producto ha cambiado de formato. Nunca mezclado.
+    NUM = r"(\d{1,3}(?:\.\d{3})*,\d{2})"
+    ver = tramo(t, "Hoy cuesta", ["Evolución del precio", "Ficha", "Posición en el ranking"]) or \
+        tramo(t, "Hoy sale a", ["Evolución del precio", "Ficha", "Posición en el ranking"])
+    mp = re.search(r"Hoy cuesta " + NUM + r" €(?!/kg)", ver)
+    mk = re.search(r"Hoy sale a " + NUM + r" €/kg", ver)
+    if "suficiente historial" in t:
+        pass  # sin historial suficiente: mensaje honesto, sin cifras que comprobar
+    elif not (mp or mk):
+        fallos["Veredicto ausente o sin 'Hoy cuesta X €' / 'Hoy sale a X €/kg'"].append(url)
     else:
-        if "€/kg" in ver:
-            fallos["Veredicto mezcla € y €/kg"].append(f"{url} → {ver[:120]}")
-        precio = num(mp.group(1))
-        md = re.search(r"mediana 90 días: (\d{1,3}(?:\.\d{3})*,\d{2}) €", ver)
-        mn = re.search(r"Mínimo: (\d{1,3}(?:\.\d{3})*,\d{2}) €", ver)
+        if mp and "€/kg" in ver:
+            fallos["Veredicto en € mezclado con €/kg"].append(f"{url} → {ver[:120]}")
+        if mk and (re.search(NUM + r" €(?!/kg)", ver) or "por kilo" not in ver):
+            fallos["Veredicto en €/kg mezclado con € o sin explicar que compara por kilo"].append(f"{url} → {ver[:120]}")
+        precio = num((mp or mk).group(1))
+        md = re.search(r"mediana 90 días: " + NUM, ver)
+        mn = re.search(r"Mínimo: " + NUM, ver)
         if md:
             mediana = num(md.group(1))
+            real_md = abs(precio - mediana) / mediana * 100
             pct = re.search(r"un (\d+,\d) % (por debajo|por encima)", ver)
-            if pct:
-                real = abs(precio - mediana) / mediana * 100
-                if abs(real - num(pct.group(1))) > 0.15:
-                    fallos["% del veredicto mal calculado"].append(f"{url} → dice {pct.group(1)} %, real {real:.1f} %")
-                if num(pct.group(1)) > 40:
-                    fallos["Veredicto con más de un 40 % de diferencia (¿compara formatos distintos o dato anómalo?)"].append(
-                        f"{url} → {ver[:110]}")
+            if pct and abs(real_md - num(pct.group(1))) > 0.15:
+                fallos["% del veredicto mal calculado"].append(f"{url} → dice {pct.group(1)} %, real {real_md:.1f} %")
+            if real_md > 60:
+                fallos["Precio actual y mediana difieren más de un 60 % (¿formatos mezclados o dato anómalo?)"].append(
+                    f"{url} → {ver[:110]}")
+            if real_md > 3 and re.search(r"en línea|igual que", ver):
+                fallos["Veredicto dice 'en línea'/'igual' con más de un 3 % de diferencia"].append(f"{url} → {ver[:110]}")
+            if mn and num(mn.group(1)) < 0.6 * precio:
+                fallos["Mínimo por debajo del 60 % del precio actual (¿mínimo de otro formato?)"].append(f"{url} → {ver[:140]}")
             if mn and num(mn.group(1)) == mediana == precio:
                 fallos["Precio plano sin 'No ha cambiado de precio'"].append(url)
         elif "No ha cambiado de precio" not in ver:
@@ -181,13 +192,18 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
     ma = re.compile(r"\b(Otras|Otros|Más|Alternativas) ").search(t, ini)
     alt = tramo(t[ma.start():], ma.group(0), ["Comparativas", "Comparaciones", "Stack Fit Comparador"]) if ma else ""
     filas = FILA_ALT.findall(alt)
-    # Un pre-entreno de ingrediente único puede quedar sin alternativas si no hay más
-    # productos del mismo ingrediente con página. Se acepta en ese caso.
-    _es_preent_ingrediente_unico = cat == "pre-entreno" and any(
-        re.search(rx, slug.replace("-", " "), re.I) for rx in INGREDIENTES.values()
-    )
-    if not filas and not _es_preent_ingrediente_unico:
-        fallos["Sin alternativas"].append(url)
+    ingrediente_suelto = cat == "pre-entreno" and any(re.search(rx, slug.replace("-", " "), re.I) for rx in INGREDIENTES.values())
+    # Sin comparables del mismo tipo (carne, huevo, cajón "otra"...): la página tiene que decirlo
+    sin_comparables = "No hay productos comparables de este tipo" in t
+    if not filas and not ingrediente_suelto and not sin_comparables:
+        fallos["Sin alternativas (ni aviso de que no hay comparables)"].append(url)
+    if filas and sin_comparables:
+        fallos["Muestra alternativas y a la vez el aviso de que no hay comparables"].append(url)
+    if (cat == "proteina-whey" and not sin_comparables and not re.search(NO_LACTEO_KW, slug, re.I)
+            and len(filas) < 3):
+        fallos["Proteína láctea con menos de 3 alternativas (si no hay 3 con €/kg de proteína, usar €/kg)"].append(url)
+    if re.search(r"\d+(?:,\d+)? ?k?g \d+(?:,\d+)? ?k?g", alt):
+        fallos["Alternativa con dos pesos en el nombre (dato anómalo del scraper)"].append(url)
     else:
         unidades = {u for _, u, _, _ in filas}
         if len(unidades) > 1:
@@ -217,6 +233,8 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
     pos = tramo(t, "Posición en el ranking", ["Valoración", "Otras ", "Comparativas"])
     if re.search(r"la \d+\.ª más barata", pos):
         fallos["Posición sin tipo de producto ('la N.ª más barata' sin decir de qué)"].append(f"{url} → {pos[:90]}")
+    if re.search(r"proteina-(whey|vegana)", pos):
+        fallos["Posición usa el slug de la categoría como tipo"].append(f"{url} → {pos[:90]}")
     if "ingrediente único" in pos:
         fallos["Posición agrupa ingredientes distintos"].append(url)
     if filas and filas[0][1] == "€/kg prot." and pos and "proteína" not in pos:

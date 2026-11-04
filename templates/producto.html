@@ -389,7 +389,7 @@
   <!-- Historial de precios -->
   {% if sparkline_svg %}
   <section class="prod-section prod-historico" aria-label="Historial de precios">
-    <div class="prod-section-title">Evolución del precio (últimos meses)</div>
+    <div class="prod-section-title">Evolución del precio{% if stats_90d and stats_90d.modo == "kg" %} por kilo{% endif %} (últimos 90 días)</div>
     <div class="prod-sparkline-wrap">
       {{ sparkline_svg | safe }}
     </div>
@@ -397,12 +397,12 @@
     <div class="prod-stats-row">
       {% if stats_90d.mediana %}
       <div class="prod-stat-item">
-        Mediana 90 días: <strong>{{ "%.2f"|format(stats_90d.mediana)|replace('.', ',') }} €</strong>
+        Mediana 90 días: <strong>{{ "%.2f"|format(stats_90d.mediana)|replace('.', ',') }} {{ stats_90d.unidad }}</strong>
       </div>
       {% endif %}
       {% if stats_90d.minimo %}
       <div class="prod-stat-item">
-        Mínimo: <strong class="good">{{ "%.2f"|format(stats_90d.minimo)|replace('.', ',') }} €</strong>
+        Mínimo: <strong class="good">{{ "%.2f"|format(stats_90d.minimo)|replace('.', ',') }} {{ stats_90d.unidad }}</strong>
         {% if stats_90d.fecha_min %}
           {%- set _fm = stats_90d.fecha_min.split('-') -%}
           <span style="color:#444;font-size:0.72rem;">({{ _fm[2] }}/{{ _fm[1] }})</span>
@@ -507,7 +507,7 @@
   <!-- Alternativas -->
   {% if alternativas %}
   <section class="prod-section prod-alternativas" aria-label="Alternativas">
-    <div class="prod-section-title">{% if tipo_label %}Otras {{ tipo_label }}{% else %}Alternativas similares{% endif %}</div>
+    <div class="prod-section-title">{{ titulo_alternativas }}</div>
     <div class="prod-alts-list">
       {% for alt in alternativas %}
         {% if alt.pagina_url %}
@@ -542,6 +542,11 @@
         {% if alt.pagina_url or alt.url_afiliado_fallback %}</a>{% else %}</div>{% endif %}
       {% endfor %}
     </div>
+  </section>
+  {% else %}
+  <section class="prod-section prod-alternativas" aria-label="Alternativas">
+    <div class="prod-section-title">Alternativas</div>
+    <p class="prod-veredicto-text">No hay productos comparables de este tipo en las tiendas que seguimos.</p>
   </section>
   {% endif %}
 
