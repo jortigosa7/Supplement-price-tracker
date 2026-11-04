@@ -22,6 +22,7 @@ DATA = "data"
 CATS = ("proteina-whey", "proteina-vegana", "creatina", "bcaa", "pre-entreno")
 EXCLUIDOS = ("caldo", "claras-de-huevo", "huevo-entero", "texturizada")
 VEGANO_KW = r"guisante|soja|arroz|calabaza|garbanzo|vegan|plant|cáñamo|canamo"
+NO_LACTEO_KW = VEGANO_KW + r"|carne|beef|huevo|alb[uú]mina|egg"
 ANIMAL_KW = r"whey|suero|case[ií]n|huevo|alb[uú]mina|carne|beef|leche"
 INGREDIENTES = {
     "taurina": r"taurina",
@@ -167,6 +168,9 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
                 real = abs(precio - mediana) / mediana * 100
                 if abs(real - num(pct.group(1))) > 0.15:
                     fallos["% del veredicto mal calculado"].append(f"{url} → dice {pct.group(1)} %, real {real:.1f} %")
+                if num(pct.group(1)) > 40:
+                    fallos["Veredicto con más de un 40 % de diferencia (¿compara formatos distintos o dato anómalo?)"].append(
+                        f"{url} → {ver[:110]}")
             if mn and num(mn.group(1)) == mediana == precio:
                 fallos["Precio plano sin 'No ha cambiado de precio'"].append(url)
         elif "No ha cambiado de precio" not in ver:
@@ -177,7 +181,12 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
     ma = re.compile(r"\b(Otras|Otros|Más|Alternativas) ").search(t, ini)
     alt = tramo(t[ma.start():], ma.group(0), ["Comparativas", "Comparaciones", "Stack Fit Comparador"]) if ma else ""
     filas = FILA_ALT.findall(alt)
-    if not filas:
+    # Un pre-entreno de ingrediente único puede quedar sin alternativas si no hay más
+    # productos del mismo ingrediente con página. Se acepta en ese caso.
+    _es_preent_ingrediente_unico = cat == "pre-entreno" and any(
+        re.search(rx, slug.replace("-", " "), re.I) for rx in INGREDIENTES.values()
+    )
+    if not filas and not _es_preent_ingrediente_unico:
         fallos["Sin alternativas"].append(url)
     else:
         unidades = {u for _, u, _, _ in filas}
@@ -190,15 +199,15 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
             fallos["Alternativa sin % de diferencia (o sin coma decimal)"].append(url)
         trozos = FILA_ALT.split(alt)[0::5]
         nombres_alt = " | ".join(trozos)
-        if cat == "proteina-whey" and re.search(VEGANO_KW, nombres_alt, re.I) and "otro tipo" not in alt:
-            fallos["Whey con alternativas veganas"].append(url)
+        if cat == "proteina-whey" and not re.search(NO_LACTEO_KW, slug, re.I) and re.search(NO_LACTEO_KW, nombres_alt, re.I):
+            fallos["Proteína láctea con alternativas veganas, de carne o de huevo"].append(url)
         if cat == "proteina-vegana" and re.search(ANIMAL_KW, nombres_alt, re.I) and "otro tipo" not in alt:
             fallos["Vegana con alternativas animales"].append(url)
         if cat == "pre-entreno":
             for ing, rx in INGREDIENTES.items():
                 if re.search(rx, slug.replace("-", " "), re.I):
                     otros = [n for n in trozos[:len(filas)] if n.strip() and not re.search(rx, n, re.I)]
-                    if otros and "otro tipo" not in alt:
+                    if otros:
                         fallos["Pre-entreno con alternativas de otro ingrediente"].append(f"{url} ({ing})")
                     break
         if "clear" in slug and cat != "proteina-vegana" and "clear" not in alt.lower():
@@ -206,6 +215,8 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
 
     # Posición
     pos = tramo(t, "Posición en el ranking", ["Valoración", "Otras ", "Comparativas"])
+    if re.search(r"la \d+\.ª más barata", pos):
+        fallos["Posición sin tipo de producto ('la N.ª más barata' sin decir de qué)"].append(f"{url} → {pos[:90]}")
     if "ingrediente único" in pos:
         fallos["Posición agrupa ingredientes distintos"].append(url)
     if filas and filas[0][1] == "€/kg prot." and pos and "proteína" not in pos:

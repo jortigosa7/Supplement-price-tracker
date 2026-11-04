@@ -2078,6 +2078,14 @@ def _posicion_categoria(producto: dict, productos_web: list) -> dict | None:
         return None
 
     tipo_label = _TIPO_LABEL.get(base_tipo, base_tipo) if base_tipo else ""
+    # Si no hay tipo_label (bcaa, creatina), usar el nombre de la categoría para que
+    # el texto no quede como "la N.ª más barata" sin especificar de qué.
+    if not tipo_label:
+        _CAT_LABEL = {
+            "bcaa":      "BCAA",
+            "creatina":  "creatina",
+        }
+        tipo_label = _CAT_LABEL.get(cat, cat)
     metrica_label = "€/kg de proteína" if usa_prot else "€/kg"
     texto = (
         f"la {_ordinal_es(pos)} {tipo_label} más barata por {metrica_label} "
@@ -2142,6 +2150,12 @@ def _alternativas(producto: dict, productos_web: list, n: int = 5, nc_prod: dict
     if es_proteina and not base_es_mixto:
         pool = [p for p in pool if not _es_mixto(p.get("nombre_display") or p.get("nombre_normalizado", ""))]
 
+    # Para proteína láctea (proteina-whey con tipo no vegano/carne/huevo),
+    # excluir del pool candidatos de tipo no-lácteo (vegana, carne, huevo, otra).
+    _TIPOS_NO_LACTEO = {"vegana", "carne", "huevo", "otra"}
+    if cat == "proteina-whey" and base_tipo not in _TIPOS_NO_LACTEO:
+        pool = [p for p in pool if _tipo_producto(p) not in _TIPOS_NO_LACTEO]
+
     if base_tipo:
         mismo_tipo = [p for p in pool if _tipo_producto(p) == base_tipo]
     else:
@@ -2178,7 +2192,18 @@ def _alternativas(producto: dict, productos_web: list, n: int = 5, nc_prod: dict
             "nc_nombre":           nc_nombre,
         }
 
-    if len(mismo_tipo) >= 3:
+    # Para pre-entreno con ingrediente específico (no blend): solo mostrar el mismo
+    # ingrediente. Si no hay candidatos, devolver lista vacía (sin mezclar con otros tipos).
+    _preent_ingrediente = cat == "pre-entreno" and base_tipo and base_tipo != "blend"
+    if _preent_ingrediente:
+        seleccionados = [_enriquecer(p) for p in mismo_tipo]
+        seleccionados.sort(key=lambda a: a["_metric_val"])
+        return seleccionados[:n]
+
+    # Para proteína láctea: no rellenar con otros tipos si ya hay candidatos del mismo tipo.
+    # Si mismo_tipo está vacío, se hace fallback normal.
+    _solo_mismo_tipo_lactea = mismo_tipo and cat == "proteina-whey" and base_tipo not in _TIPOS_NO_LACTEO
+    if len(mismo_tipo) >= 3 or _solo_mismo_tipo_lactea:
         seleccionados = [_enriquecer(p) for p in mismo_tipo]
     else:
         ids_usados = {p["id"] for p in mismo_tipo}
@@ -3035,7 +3060,11 @@ def _stats_precio_90d(historial: list) -> dict:
 
     diff_vs_mediana = None
     if precio_actual is not None and mediana:
-        diff_vs_mediana = round((precio_actual - mediana) / mediana * 100, 1)
+        _d = round((precio_actual - mediana) / mediana * 100, 1)
+        # Si la diferencia supera el 40 %, probablemente hay mezcla de formatos o dato anómalo.
+        # En ese caso tratamos como si no hubiera mediana fiable.
+        if abs(_d) <= 40:
+            diff_vs_mediana = _d
 
     diff_vs_minimo = None
     if precio_actual is not None and minimo:
@@ -3229,7 +3258,10 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
             stats["precio_actual"] = p["precio_min"]
             med = stats.get("mediana")
             if med:
-                stats["diff_vs_mediana"] = round((p["precio_min"] - med) / med * 100, 1)
+                _d = round((p["precio_min"] - med) / med * 100, 1)
+                # Si la diferencia supera el 40 %, probablemente hay mezcla de formatos.
+                # En ese caso no emitir comparación con mediana.
+                stats["diff_vs_mediana"] = _d if abs(_d) <= 40 else None
         veredicto = _veredicto_compra(stats)
         sparkline_svg = _svg_sparkline_producto(historial_tienda or historial)
         alternativas = _alternativas(p, productos_web, nc_prod=_nc_prod)
