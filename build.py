@@ -1010,7 +1010,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
     # Se hace DESPUÉS de corregir_marcas para usar la marca definitiva
     slugs_usados: set[str] = set()
     for p in productos_web:
-        slug = generar_slug_publico(p["nombre_normalizado"], p.get("marca", ""))
+        slug = generar_slug_publico(p["nombre_normalizado"], p.get("marca", ""), p.get("peso_kg"))
         # Resolver colisiones añadiendo sufijo numérico
         if slug in slugs_usados:
             i = 2
@@ -1654,7 +1654,8 @@ _OTRA_FORCE_KW = re.compile(
 # Para corregir clasificaciones automáticas incorrectas
 _SUBCATEGORIA_EXCEPCIONES: dict[str, str] = {
     # Productos donde el clasificador automático falla (hydro/iso en nombre vegano)
-    "evoclear-hydro-vegan-500g-hsn": "vegana",
+    "evoclear-hydro-vegan-500g-desconocida": "vegana",
+    "evoclear-hydro-vegan-hsn": "vegana",
 }
 
 
@@ -1917,8 +1918,6 @@ _NO_PAGINA_IDS = {
     "claras-de-huevo-liquidas-1kg-hsn",
     "huevo-entero-en-polvo-500g-hsn",
     "proteina-de-guisante-texturizada-500g-hsn",
-    # Hybrid clear+vegan: not classifiable as clear (vegana alternatives) or vegana (no clear alts)
-    "evoclear-hydro-vegan-500g-hsn",
 }
 
 _NO_PAGINA_NOMBRES_KW = re.compile(
@@ -1958,7 +1957,39 @@ def _price_history_por_id(historial: list[dict], productos_web=None) -> dict:
     return by_id
 
 
-def _productos_con_pagina(productos_web: list[dict], hist_by_id: dict) -> list[dict]:
+# Regex que elimina el token de peso de un ID de producto para obtener el slug-base
+# solo cuando el token está inmediatamente antes de la marca/tienda al final
+_STRIP_PESO_FROM_ID_RE = re.compile(
+    r'-\d+(?:-\d+)?(?:g|kg)(?=-(?:hsn|myprotein|hivital|prozis|nutritienda|desconocida)(?:-\d+)?$)',
+    re.IGNORECASE,
+)
+
+
+def _hist_by_slug(hist_by_id: dict) -> dict:
+    """
+    Agrupa el historial por slug-sin-peso (slug estable).
+    Permite que al cambiar de formato (ej. 630g→600g), la historia acumulada siga
+    asociada al mismo slug de página.
+    """
+    by_slug: dict[str, list] = {}
+    for pid, entries in hist_by_id.items():
+        slug_base = _STRIP_PESO_FROM_ID_RE.sub('', pid)
+        by_slug.setdefault(slug_base, []).extend(entries)
+
+    # Deduplicar y ordenar
+    for slug in by_slug:
+        seen: set = set()
+        uniq = []
+        for e in by_slug[slug]:
+            key = (e.get("fecha"), e.get("tienda"), e.get("precio"))
+            if key not in seen:
+                seen.add(key)
+                uniq.append(e)
+        by_slug[slug] = sorted(uniq, key=lambda e: e.get("fecha", ""))
+    return by_slug
+
+
+def _productos_con_pagina(productos_web: list[dict], hist_by_id: dict, hbs: dict | None = None) -> list[dict]:
     """
     Filtra productos que cumplen los criterios para tener página individual:
     - tienda_mas_barata en TIENDAS_CON_PAGINA
@@ -1981,7 +2012,9 @@ def _productos_con_pagina(productos_web: list[dict], hist_by_id: dict) -> list[d
             continue
         if (p.get("store_rating_count") or 0) < 20:
             continue
-        historial = hist_by_id.get(p["id"], [])
+        # Usar hist_by_slug para contar fechas (incluye historial de formatos anteriores)
+        _slug_key = _STRIP_PESO_FROM_ID_RE.sub('', p.get("id", ""))
+        historial = (hbs or hist_by_id).get(_slug_key if hbs else p["id"], [])
         n_fechas = len(set(e["fecha"] for e in historial if e.get("fecha")))
         if n_fechas < 5:
             continue
@@ -2062,7 +2095,7 @@ def _posicion_categoria(producto: dict, productos_web: list) -> dict | None:
 
 # ── Alternativas ────────────────────────────────────────────────────────────
 
-def _alternativas(producto: dict, productos_web: list, n: int = 5) -> list[dict]:
+def _alternativas(producto: dict, productos_web: list, n: int = 5, nc_prod: dict = None) -> list[dict]:
     """
     Devuelve hasta n productos alternativos de la misma categoría, de tiendas afiliadas.
     Reglas:
@@ -2131,6 +2164,8 @@ def _alternativas(producto: dict, productos_web: list, n: int = 5) -> list[dict]
                 url_afiliado_fallback = pr["url_afiliado"]
                 break
 
+        nc_nombre = (nc_prod or {}).get(p.get("slug_publico", ""))
+
         return {
             **p,
             "_metric_val":         precio_ref or 9999,
@@ -2140,6 +2175,7 @@ def _alternativas(producto: dict, productos_web: list, n: int = 5) -> list[dict]
             "alt_metric_label":    alt_label_g,
             "otro_tipo":           otro_tipo,
             "url_afiliado_fallback": url_afiliado_fallback,
+            "nc_nombre":           nc_nombre,
         }
 
     if len(mismo_tipo) >= 3:
@@ -2309,7 +2345,31 @@ def generar_categoria(env, cat_raw: str, cfg: dict, productos_web: list[dict], l
 # PASO 4b: Comparaciones producto vs producto
 # ============================================================
 
-def generar_slug_publico(nombre: str, marca: str) -> str:
+def _peso_a_slug_token(peso_kg: float) -> str:
+    """Devuelve el token de peso tal como aparece en el slug: 2.0→'2kg', 0.5→'500g', 2.88→'2-88kg'."""
+    if peso_kg >= 1.0:
+        if abs(peso_kg - round(peso_kg)) < 0.001:
+            return f"{int(round(peso_kg))}kg"
+        s = f"{peso_kg:.10g}"          # "2.88", "2.5"
+        partes = s.split(".")
+        return f"{partes[0]}-{partes[1]}kg"
+    else:
+        return f"{round(peso_kg * 1000)}g"
+
+
+def _formato_peso(peso_kg: float) -> str:
+    """Peso formateado en español para mostrar en el título: 2.0→'2 kg', 0.5→'500 g', 2.88→'2,88 kg'."""
+    if peso_kg >= 1.0:
+        if abs(peso_kg - round(peso_kg)) < 0.001:
+            return f"{int(round(peso_kg))} kg"
+        s = f"{peso_kg:.10g}"
+        partes = s.split(".")
+        return f"{partes[0]},{partes[1]} kg"
+    else:
+        return f"{round(peso_kg * 1000)} g"
+
+
+def generar_slug_publico(nombre: str, marca: str, peso_kg: float | None = None) -> str:
     """
     Genera el slug público de un producto a partir de nombre y marca.
     Diferente del ID interno: sin 'desconocida', sin cortes a mitad de palabra.
@@ -2335,6 +2395,10 @@ def generar_slug_publico(nombre: str, marca: str) -> str:
             else:
                 break
         candidato = resultado
+    # Quitar token de peso para URLs estables ante cambios de formato
+    if peso_kg is not None:
+        token = _peso_a_slug_token(peso_kg)
+        candidato = re.sub(rf'-{re.escape(token)}(?=-|$)', '', candidato)
     return candidato.strip('-')
 
 
@@ -3121,7 +3185,8 @@ def _comparaciones_del_producto(producto_id: str, comparaciones: list) -> list:
 
 
 def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
-                             hist_by_id: dict, comparaciones_data: list | None = None):
+                             hist_by_id: dict, comparaciones_data: list | None = None,
+                             hist_by_slug: dict | None = None):
     """Genera docs/<categoria>/<slug_publico>/index.html para cada producto elegible."""
     template = env.get_template("producto.html")
 
@@ -3153,8 +3218,9 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
         url_cat = "proteina-vegana" if p.get("subcategoria_proteina") == "vegana" else cat
         slug_pub = p["slug_publico"]
 
-        # Historial filtrado a la tienda más barata
-        historial = hist_by_id.get(p["id"], [])
+        # Historial completo (por slug estable, incluye formatos anteriores)
+        _slug_key = _STRIP_PESO_FROM_ID_RE.sub('', p.get("id", ""))
+        historial = (hist_by_slug or hist_by_id).get(_slug_key if hist_by_slug else p["id"], [])
         tienda_mb = p.get("tienda_mas_barata", "")
         historial_tienda = [e for e in historial if e.get("tienda") == tienda_mb]
         stats = _stats_precio_90d(historial_tienda or historial)
@@ -3166,7 +3232,7 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
                 stats["diff_vs_mediana"] = round((p["precio_min"] - med) / med * 100, 1)
         veredicto = _veredicto_compra(stats)
         sparkline_svg = _svg_sparkline_producto(historial_tienda or historial)
-        alternativas = _alternativas(p, productos_web)
+        alternativas = _alternativas(p, productos_web, nc_prod=_nc_prod)
         posicion = _posicion_categoria(p, productos_web)
 
         # Comparaciones enriquecidas con slug y nombres
@@ -3215,10 +3281,13 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
         if not _nc_prod.get(p.get("slug_publico", "")) and nombre.endswith(f"({marca})"):
             nombre = nombre[:-(len(marca) + 2)].strip()
 
-        # SEO title: "{nombre} ({marca}): precio hoy, €/kg y opiniones" (max 65 chars)
-        seo_title = f"{nombre} ({marca}): precio hoy, €/kg y opiniones"
+        # SEO title: "{nombre} {peso} ({marca}): precio hoy, €/kg y opiniones" (max 65 chars)
+        _peso_actual = p.get("peso_kg")
+        _fmt = _formato_peso(_peso_actual) if _peso_actual else None
+        _base = f"{nombre} {_fmt} ({marca})" if _fmt else f"{nombre} ({marca})"
+        seo_title = f"{_base}: precio hoy, €/kg y opiniones"
         if len(seo_title) > 65:
-            seo_title = f"{nombre} ({marca}): €/kg y opiniones"
+            seo_title = f"{_base}: €/kg y opiniones"
 
         # Meta description con €/kg y valoración
         _parts = [f"{nombre} desde {precio_eur_fmt} €" if precio_eur_fmt else nombre]
@@ -4401,7 +4470,8 @@ if __name__ == "__main__":
 
     # 3c. Asignar pagina_url ANTES de generar HTML (necesario para enlaces internos)
     hist_by_id = _price_history_por_id(historial_precio, productos_web)
-    elegibles_pagina = _productos_con_pagina(productos_web, hist_by_id)
+    _hbs = _hist_by_slug(hist_by_id)
+    elegibles_pagina = _productos_con_pagina(productos_web, hist_by_id, hbs=_hbs)
     elegibles_ids = {p["id"] for p in elegibles_pagina}
     for p in productos_web:
         if p["id"] in elegibles_ids:
@@ -4485,7 +4555,7 @@ if __name__ == "__main__":
 
     # 4c. Páginas de producto individuales
     print("\n📄 Generando páginas de producto...")
-    slugs_producto = generar_paginas_producto(env, productos_web, last_updated, hist_by_id, comparaciones_data=_pares_json)
+    slugs_producto = generar_paginas_producto(env, productos_web, last_updated, hist_by_id, comparaciones_data=_pares_json, hist_by_slug=_hbs)
 
     # 4d. Limpiar páginas de producto obsoletas (de builds anteriores)
     import shutil as _shutil

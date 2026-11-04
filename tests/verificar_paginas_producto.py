@@ -2,7 +2,7 @@
 Verificación de aceptación de las páginas de producto de StackFit.
 
 Se ejecuta DESPUÉS de build.py, sobre docs/ ya generado:
-    python verificar_paginas_producto.py
+    python tests/verificar_paginas_producto.py
 
 Sale con código 1 si algo falla. No modifica nada.
 """
@@ -31,6 +31,9 @@ INGREDIENTES = {
     "ribosa": r"ribosa",
     "glicerol": r"glicerol|glycopump",
 }
+PESO_EN_SLUG = re.compile(r"(?:^|-)\d+(?:-\d+)?(?:g|kg)(?:-|$)")
+PESO_FINAL = re.compile(r"\d+(?:,\d+)?\s?(?:g|kg)$")
+MINUSCULAS_OK = {"de", "del", "en", "y", "con", "sin", "edulcorantes", "polvo", "mesh", "la", "el", "a", "g", "kg"}
 FILA_ALT = re.compile(r"(\d{1,3}(?:\.\d{3})*,\d{2}) (€/kg prot\.|€/kg)(?: ([+−-])(\d+,\d) %)?")
 
 fallos = collections.defaultdict(list)
@@ -104,13 +107,31 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
     if any(k in slug for k in EXCLUIDOS):
         fallos["Producto excluido con página"].append(url)
 
-    # Nombre corto y título
+    # URL estable: sin peso ni formato, para que no cambie cuando la tienda cambia el formato más barato
+    if PESO_EN_SLUG.search(slug):
+        fallos["URL de producto con peso/formato (cambia cuando cambia el formato)"].append(url)
+
+    # Nombre corto (clave = slug de la URL) y título
     nc = nombres_cortos.get(slug)
     if not nc:
         fallos["Sin entrada en nombres_cortos.json"].append(slug)
-    m = re.match(r"^(?P<n>.+) \((?P<b>[^)]+)\): (precio hoy, )?€/kg y opiniones$", title)
+    else:
+        problemas = []
+        if PESO_FINAL.search(nc):
+            problemas.append("lleva peso")
+        if re.search(r"[()®™]", nc):
+            problemas.append("paréntesis o ®/™")
+        if len(nc) > 40:
+            problemas.append(f"{len(nc)} caracteres")
+        minus = [w for w in re.split(r"[\s/]+", nc) if w and w[0].isalpha() and w[0].islower() and w not in MINUSCULAS_OK]
+        if minus:
+            problemas.append("minúsculas en " + ", ".join(minus))
+        if problemas:
+            fallos["Nombre corto mal formado (sin peso, sin paréntesis, ≤40, marca y línea en mayúscula)"].append(
+                f"{slug} → '{nc}': {'; '.join(problemas)}")
+    m = re.match(r"^(?P<n>.+?)(?: \d+(?:,\d+)? (?:g|kg))? \((?P<b>[^)]+)\): (precio hoy, )?€/kg y opiniones$", title)
     if not m:
-        fallos["Título fuera de formato '{nombre} ({marca}): [precio hoy, ]€/kg y opiniones'"].append(f"{url} → {title}")
+        fallos["Título fuera de formato '{nombre} [formato] ({marca}): [precio hoy, ]€/kg y opiniones'"].append(f"{url} → {title}")
     elif nc and m.group("n") != nc:
         fallos["Título no usa el nombre corto"].append(f"{url} → '{m.group('n')}' ≠ '{nc}'")
     if "€/kg" not in meta or "/5 con" not in meta:
@@ -180,7 +201,7 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
                     if otros and "otro tipo" not in alt:
                         fallos["Pre-entreno con alternativas de otro ingrediente"].append(f"{url} ({ing})")
                     break
-        if "clear" in slug and "clear" not in alt.lower():
+        if "clear" in slug and cat != "proteina-vegana" and "clear" not in alt.lower():
             fallos["Clear whey sin alternativas clear"].append(url)
 
     # Posición
@@ -224,16 +245,13 @@ for url, (cat, slug, h, t) in productos.items():
     if url not in hrefs(leer(f"{DOCS}/{cat}/index.html")):
         fallos["Producto no enlazado desde su categoría"].append(url)
 
-slug_a_url = {slug: url for url, (cat, slug, h, t) in productos.items()}
-for f in glob.glob(f"{DOCS}/comparar/*/index.html"):
-    h = leer(f)
-    if es_redirect(h):
-        continue
-    par = os.path.basename(os.path.dirname(f))
-    hs = hrefs(h)
-    for s in par.split("-vs-"):
-        if s in slug_a_url and slug_a_url[s] not in hs:
-            fallos["Comparación sin enlace a la página de producto"].append(f"{par} → {slug_a_url[s]}")
+# Cada comparación que aparece en una página de producto tiene que enlazar de vuelta a esa página
+for url, (cat, slug, h, t) in productos.items():
+    for l in hrefs(h):
+        if l.startswith("/comparar/") and l != "/comparar/":
+            fc = os.path.join(DOCS, l.strip("/"), "index.html")
+            if os.path.exists(fc) and not es_redirect(leer(fc)) and url not in hrefs(leer(fc)):
+                fallos["Comparación sin enlace a la página de producto"].append(f"{l} → {url}")
 
 # Redirecciones históricas intactas
 for fichero, base in (("slugs_historicos.json", "comparar"), ("slugs_producto_historicos.json", None)):

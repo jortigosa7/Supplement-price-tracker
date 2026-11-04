@@ -519,13 +519,13 @@
         {% endif %}
           <div class="prod-alt-img">
             <img src="{{ alt.img_src }}"
-                 alt="{{ alt.nombre_display or alt.nombre_normalizado }}"
+                 alt="{{ alt.nc_nombre or alt.nombre_display or alt.nombre_normalizado }}"
                  width="44" height="44"
                  loading="lazy"
                  onerror="this.src='/img/productos/placeholder-{{ alt.categoria }}.svg'">
           </div>
           <div class="prod-alt-nombre">
-            {{ alt.nombre_display or alt.nombre_normalizado }}
+            {{ alt.nc_nombre or alt.nombre_display or alt.nombre_normalizado }}
             <div class="prod-alt-tienda">
               {{ alt.tienda_mas_barata }}
               {% if alt.otro_tipo %}<span class="prod-alt-badge">otro tipo</span>{% endif %}
