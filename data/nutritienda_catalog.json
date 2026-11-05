@@ -1562,5 +1562,37 @@
   "https://www.nutritienda.com/es/ghost/ghost-legend-v4-660g": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-11-04"
+  },
+  "https://www.nutritienda.com/es/amix-nutrition/whey-pure-fusion?variant=657": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-05"
+  },
+  "https://www.nutritienda.com/es/biotech-usa/iso-whey-zero-black?variant=116180": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-05"
+  },
+  "https://www.nutritienda.com/es/vitobest/soy-iso-protein?variant=150291": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-05"
+  },
+  "https://www.nutritienda.com/es/scitec/100-beff-protein?variant=225148": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-05"
+  },
+  "https://www.nutritienda.com/es/quamtrax-direct/bcaa-glutamina?variant=184488": {
+    "categoria": "BCAA",
+    "first_seen": "2026-11-05"
+  },
+  "https://www.nutritienda.com/es/biotech-usa/bcaa-zero-drink?variant=112862": {
+    "categoria": "BCAA",
+    "first_seen": "2026-11-05"
+  },
+  "https://www.nutritienda.com/es/amix-nutrition/nitronox-shot?variant=134544": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-11-05"
+  },
+  "https://www.nutritienda.com/es/amix-nutrition/cellex-unlimited?variant=182800": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-11-05"
   }
 }
