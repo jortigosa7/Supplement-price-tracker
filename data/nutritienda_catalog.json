@@ -1594,5 +1594,13 @@
   "https://www.nutritienda.com/es/amix-nutrition/cellex-unlimited?variant=182800": {
     "categoria": "Pre-Entreno",
     "first_seen": "2026-11-05"
+  },
+  "https://www.nutritienda.com/es/life-pro-nutrition/creatina-creapure": {
+    "categoria": "Creatina",
+    "first_seen": "2026-11-06"
+  },
+  "https://www.nutritienda.com/es/life-pro-nutrition/venom-pre-workout-full-strenght-300g": {
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-11-06"
   }
 }
