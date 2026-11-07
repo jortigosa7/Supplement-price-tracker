@@ -362,7 +362,7 @@
           </div>
         {% endif %}
         {% if precio_eur_fmt %}
-          <span class="prod-precio-eur">desde {{ precio_eur_fmt }} €</span>
+          <span class="prod-precio-eur">{% if agotado %}último precio {{ precio_eur_fmt }} €{% else %}desde {{ precio_eur_fmt }} €{% endif %}</span>
         {% endif %}
         {% if pkg_prot_fmt %}
           <span class="prod-precio-prot">{{ pkg_prot_fmt }} €/kg proteína</span>

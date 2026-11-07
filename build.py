@@ -2023,7 +2023,7 @@ def _productos_con_pagina(productos_web: list[dict], hist_by_id: dict, hbs: dict
         n_fechas = len(set(e["fecha"] for e in historial if e.get("fecha")))
         if n_fechas < 5:
             continue
-        if p.get("precio_por_kg_min") is None:
+        if _precio_kg_referencia(p) is None:
             continue
         n_fechas_por_id[p["id"]] = n_fechas
         elegibles.append(p)
@@ -2041,6 +2041,32 @@ def _productos_con_pagina(productos_web: list[dict], hist_by_id: dict, hbs: dict
         else:
             print(f"  ⚠️  AVISO: misma URL de producto para {actual['id']} y {p['id']}; se queda {actual['id']}")
     return list(por_url.values())
+
+
+def _precio_kg_referencia(p: dict) -> float | None:
+    """
+    €/kg con el que se compara el producto. Si está agotado, el build deja
+    precio_por_kg_min a None; se usa el último precio conocido para que la página
+    no desaparezca cada vez que la tienda se queda sin stock.
+    """
+    if p.get("precio_por_kg_min") is not None:
+        return p["precio_por_kg_min"]
+    if p.get("agotado") and p.get("precio_min") and p.get("peso_kg"):
+        return round(float(p["precio_min"]) / float(p["peso_kg"]), 2)
+    return None
+
+
+def _producto_referencia(p: dict) -> dict:
+    """Vista del producto con €/kg (y €/kg de proteína) del último precio si está agotado."""
+    if p.get("precio_por_kg_min") is not None:
+        return p
+    kg = _precio_kg_referencia(p)
+    porcentaje = p.get("porcentaje_proteina")
+    return {
+        **p,
+        "precio_por_kg_min": kg,
+        "precio_por_kg_proteina": round(kg / porcentaje, 2) if kg and porcentaje else None,
+    }
 
 
 def _url_cat_producto(p: dict) -> str:
@@ -3194,6 +3220,25 @@ def _veredicto_compra(stats: dict) -> str:
     return texto + nota_kilo
 
 
+def _veredicto_agotado(producto: dict, stats: dict, hay_alternativas: bool) -> str:
+    """Veredicto de un producto agotado: último precio y referencia del historial."""
+    def _fmt(v):
+        return f"{v:.2f}".replace(".", ",")
+
+    tienda = producto.get("tienda_mas_barata", "la tienda")
+    texto = f"Ahora mismo está agotado en {tienda}."
+    if producto.get("precio_min"):
+        texto += f" Su último precio fue {_fmt(float(producto['precio_min']))} €"
+        if stats and stats.get("modo") == "eur":
+            y, m, d = stats["fecha_min"].split("-")
+            texto += (f" (mediana 90 días: {_fmt(stats['mediana'])} €; mínimo: "
+                      f"{_fmt(stats['minimo'])} € el {d}/{m})")
+        texto += "."
+    if hay_alternativas:
+        texto += " Abajo tienes alternativas parecidas con stock."
+    return texto
+
+
 def _svg_sparkline_producto(historial: list, w: int = 400, h: int = 80) -> str:
     """
     Genera un SVG de historial de precios sin librerías externas.
@@ -3300,13 +3345,19 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
         _slug_key = _STRIP_PESO_FROM_ID_RE.sub('', p.get("id", ""))
         historial = (hist_by_slug or hist_by_id).get(_slug_key if hist_by_slug else p["id"], [])
         stats = _stats_producto(p, historial)
-        veredicto = _veredicto_compra(stats)
+        agotado = bool(p.get("agotado"))
+        # Agotado: se compara con su último precio conocido y se ofrecen alternativas con stock
+        p_ref = _producto_referencia(p)
         sparkline_svg = _svg_sparkline_producto(
             [{"fecha": f, "precio": v} for f, v in stats.get("serie", [])]
         )
-        alternativas = _alternativas(p, productos_web, nc_prod=_nc_prod)
+        alternativas = _alternativas(p_ref, productos_web, nc_prod=_nc_prod)
         titulo_alternativas = _titulo_alternativas(p, alternativas)
-        posicion = _posicion_categoria(p, productos_web)
+        posicion = None if agotado else _posicion_categoria(p, productos_web)
+        if agotado:
+            veredicto = _veredicto_agotado(p, stats, bool(alternativas))
+        else:
+            veredicto = _veredicto_compra(stats)
 
         # Comparaciones enriquecidas con slug y nombres
         comparaciones_prod_raw = _comparaciones_del_producto(p["id"], comparaciones_data or [])
@@ -3337,9 +3388,9 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
             img_src_abs = img_src
 
         url_afiliado = _url_afiliado_producto(p)
-        precio_fmt    = f"{p['precio_por_kg_min']:.2f}".replace(".", ",") if p.get("precio_por_kg_min") else None
+        precio_fmt    = f"{p_ref['precio_por_kg_min']:.2f}".replace(".", ",") if p_ref.get("precio_por_kg_min") else None
         precio_eur_fmt = f"{p['precio_min']:.2f}".replace(".", ",") if p.get("precio_min") else None
-        pkg_prot_fmt  = f"{p['precio_por_kg_proteina']:.2f}".replace(".", ",") if p.get("precio_por_kg_proteina") else None
+        pkg_prot_fmt  = f"{p_ref['precio_por_kg_proteina']:.2f}".replace(".", ",") if p_ref.get("precio_por_kg_proteina") else None
         coste_mes_fmt = f"{p['coste_mes']:.2f}".replace(".", ",") if p.get("coste_mes") else None
 
         tienda = p.get("tienda_mas_barata", "")
@@ -3363,10 +3414,14 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
             seo_title = f"{_base}: €/kg y opiniones"
 
         # Meta description con €/kg y valoración
-        _parts = [f"{nombre} desde {precio_eur_fmt} €" if precio_eur_fmt else nombre]
-        if precio_fmt:
-            _parts[0] += f" ({precio_fmt} €/kg)"
-        _parts[0] += f" en {tienda}."
+        if agotado:
+            _parts = [f"{nombre}: agotado ahora mismo en {tienda}. Último precio: {precio_eur_fmt} €"
+                      + (f" ({precio_fmt} €/kg)." if precio_fmt else ".")]
+        else:
+            _parts = [f"{nombre} desde {precio_eur_fmt} €" if precio_eur_fmt else nombre]
+            if precio_fmt:
+                _parts[0] += f" ({precio_fmt} €/kg)"
+            _parts[0] += f" en {tienda}."
         if pkg_prot_fmt:
             _parts.append(f"{pkg_prot_fmt} €/kg de proteína.")
         if rating_fmt and rating_count:
@@ -3898,6 +3953,11 @@ def generar_nojekyll():
     print(f"✅ Generado: {path}")
 
 
+# Tiendas con rebajas fuertes muy frecuentes (MyProtein: 40-60 % casi cada semana).
+# En ellas una bajada brusca (Regla 2) es aviso, no error. HSN sigue dando error:
+# ahí una bajada así era el bug del precio "desde".
+TIENDAS_REBAJAS_FRECUENTES = {"MyProtein"}
+
 # IDs con un €/kg o un histórico que no pueden ser reales (Reglas 1 y 3, también los
 # avisos de la Regla 1). Las páginas de producto los excluyen de páginas, alternativas
 # y rankings para no enseñar un precio que es un error del scraper. Las bajadas bruscas
@@ -4075,12 +4135,19 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
             if bajada > 0.40:
                 kg_actual = float(precio_actual) / peso_f
                 kg_prev   = precio_prev / peso_f
-                anomalias.append(
+                detalle = (
                     f"  BAJADA BRUSCA >40%: [{cat}] {nombre} ({tienda})\n"
                     f"    precio anterior={precio_prev:.2f}  actual={precio_actual:.2f}"
                     f"  => €/kg anterior={kg_prev:.2f}  actual={kg_actual:.2f}"
                     f"  bajada={bajada*100:.0f}%"
                 )
+                if tienda in TIENDAS_REBAJAS_FRECUENTES:
+                    # Rebajas del 40-60 % habituales: solo aviso, para que el job en rojo
+                    # siga significando que algo se ha roto. Los precios imposibles los
+                    # siguen cazando las Reglas 1 y 3.
+                    print(f"  ⚠️  AVISO [Regla 2] probable rebaja, no bloquea:\n{detalle}")
+                else:
+                    anomalias.append(detalle)
 
     if anomalias:
         print("\n" + "=" * 60)

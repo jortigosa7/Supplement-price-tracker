@@ -159,6 +159,12 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
     mk = re.search(r"Hoy sale a " + NUM + r" €/kg", ver)
     if "suficiente historial" in t:
         pass  # sin historial suficiente: mensaje honesto, sin cifras que comprobar
+    elif "Ahora mismo está agotado" in t:
+        # Agotado: tiene que dar el último precio y no puede recomendar comprar
+        if not re.search(r"Su último precio fue " + NUM + r" €", t):
+            fallos["Agotado sin último precio"].append(url)
+        if "Buen momento para comprar" in t:
+            fallos["Agotado con 'Buen momento para comprar'"].append(url)
     elif not (mp or mk):
         fallos["Veredicto ausente o sin 'Hoy cuesta X €' / 'Hoy sale a X €/kg'"].append(url)
     else:
@@ -242,7 +248,7 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
 
 # Evobasic tiene que mostrar posición (es la página con más tráfico)
 evo = [u for u in productos if "evobasic-whey" in u]
-if evo and "Posición en el ranking" not in productos[evo[0]][3]:
+if evo and "Posición en el ranking" not in productos[evo[0]][3] and "Ahora mismo está agotado" not in productos[evo[0]][3]:
     fallos["Evobasic Whey sin texto de posición"].append(evo[0])
 
 # ── Enlazado y URLs en todo el sitio ────────────────────────────────

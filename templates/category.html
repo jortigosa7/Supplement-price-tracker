@@ -392,7 +392,7 @@
       {% set sc_map = {"HSN":"hsn","Nutritienda":"nutritienda","Prozis":"prozis","MyProtein":"myprotein","Hivital":"hivital"} %}
       <div class="other-item">
         <div class="other-name">
-          {{ (p.nombre_display or p.nombre_normalizado) }}
+          {% if p.pagina_url %}<a href="{{ site_url }}{{ p.pagina_url }}" style="color:inherit;text-decoration:none;">{{ (p.nombre_display or p.nombre_normalizado) }}</a>{% else %}{{ (p.nombre_display or p.nombre_normalizado) }}{% endif %}
           <span class="other-marca">{{ p.marca }}</span>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:6px;">
