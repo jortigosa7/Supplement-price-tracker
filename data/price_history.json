@@ -190270,5 +190270,269 @@
     "fecha": "2026-11-07",
     "precio": 39.9,
     "tienda": "Nutritienda"
+  },
+  {
+    "producto_id": "porridge-de-arroz-proteico-720g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 17.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "porridge-de-arroz-proteico-720g-speculoos-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 17.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "porridge-de-arroz-proteico-720g-toffee-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 17.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-fibre-700g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 17.24,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sustituto-de-comida-800g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "peanut-whey-protein-907g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 26.24,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "peanut-whey-protein-450g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 13.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "real-whey-hydro-collagen-907g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 33.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-protein-fusion-700g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 26.24,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "supreme-whey-protein-907g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 34.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-hydro-isolate-black-series-700g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 29.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-whey-hydro-isolate-black-series-700g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 29.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "real-whey-hydro-collagen-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 17.24,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-real-whey-protein-907g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 39.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-real-whey-protein-1814g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 79.98,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "natural-real-whey-protein-907g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 40.79,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "natural-real-whey-protein-1814g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 81.58,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "zero-diet-whey-1500g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 67.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-protein-freakin-good-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 18.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-hydro-isolate-pro-black-series-700g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 32.24,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "supreme-whey-protein-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 18.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "whey-hydro-isolate-clear-black-series-700g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 33.74,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-real-whey-protein-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 19.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "zero-diet-whey-750g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 37.49,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-whey-prime-creatine-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 21.59,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "capuchino-proteico-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-caramelo-proteico-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-caramelo-proteico-con-cafeina-extra-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "capuchino-proteico-con-cafeina-extra-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-avellana-proteico-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-de-avellana-proteico-con-cafeina-extra-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "mocachino-proteico-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "mocachino-proteico-con-cafeina-extra-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "latte-proteico-400g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 22.39,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "natural-real-whey-isolate-907g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 56.79,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "natural-real-whey-isolate-1814g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 113.58,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "100-whey-hydro-isolate-clear-700g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 43.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sachet-yogo-whey-high-protein-shake-30g-x-3-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 3.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sachet-supreme-whey-protein-30g-x-3-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 3.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "3-x-supreme-whey-protein-30g-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 3.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sachet-real-whey-hydro-collagen-25g-x-3-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 3.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "real-whey-hydro-collagen-25g-x-3-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 3.99,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sachet-yogo-whey-creatine-high-protein-shake-30g-x-3-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 4.79,
+    "tienda": "Prozis"
+  },
+  {
+    "producto_id": "sachet-100-real-whey-protein-silkwhey-30g-x-3-desconocida",
+    "fecha": "2026-11-07",
+    "precio": 5.59,
+    "tienda": "Prozis"
   }
 ]
