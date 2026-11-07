@@ -188,6 +188,8 @@
     margin-bottom: 16px;
   }
   .prod-section-title {
+    margin-top: 0;
+    line-height: 1.4;
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -382,14 +384,14 @@
 
   <!-- Veredicto de compra -->
   <section class="prod-section prod-veredicto" aria-label="Veredicto de compra">
-    <div class="prod-section-title">¿Es buen momento para comprar?</div>
+    <h2 class="prod-section-title">¿Es buen momento para comprar?</h2>
     <p class="prod-veredicto-text">{{ veredicto }}</p>
   </section>
 
   <!-- Historial de precios -->
   {% if sparkline_svg %}
   <section class="prod-section prod-historico" aria-label="Historial de precios">
-    <div class="prod-section-title">Evolución del precio{% if stats_90d and stats_90d.modo == "kg" %} por kilo{% endif %} (últimos 90 días)</div>
+    <h2 class="prod-section-title">Evolución del precio{% if stats_90d and stats_90d.modo == "kg" %} por kilo{% endif %} (últimos 90 días)</h2>
     <div class="prod-sparkline-wrap">
       {{ sparkline_svg | safe }}
     </div>
@@ -426,7 +428,7 @@
   {% set tiene_ficha = producto.protein_per_serving_g or producto.serving_size_g or producto.servings_per_container or coste_mes_fmt or producto.sweetener_free or producto.vegan %}
   {% if tiene_ficha %}
   <section class="prod-section prod-ficha" aria-label="Ficha del producto">
-    <div class="prod-section-title">Ficha nutricional</div>
+    <h2 class="prod-section-title">Ficha nutricional</h2>
     <div class="prod-ficha-grid">
       {% if producto.porcentaje_proteina %}
       <div class="prod-ficha-item">
@@ -477,7 +479,7 @@
   <!-- Posición en categoría -->
   {% if posicion %}
   <section class="prod-section prod-posicion" aria-label="Posición en categoría">
-    <div class="prod-section-title">Posición en el ranking</div>
+    <h2 class="prod-section-title">Posición en el ranking</h2>
     <p class="prod-posicion-text">
       Es <span class="prod-posicion-num">{{ posicion.texto }}</span> en España.
     </p>
@@ -487,7 +489,7 @@
   <!-- Opiniones / rating -->
   {% if rating_fmt and rating_count %}
   <section class="prod-section prod-opiniones" aria-label="Valoraciones">
-    <div class="prod-section-title">Valoración</div>
+    <h2 class="prod-section-title">Valoraciones en {{ tienda }}</h2>
     <div class="prod-rating-row">
       <div class="prod-rating-num">{{ rating_fmt }}</div>
       <div>
@@ -507,7 +509,7 @@
   <!-- Alternativas -->
   {% if alternativas %}
   <section class="prod-section prod-alternativas" aria-label="Alternativas">
-    <div class="prod-section-title">{{ titulo_alternativas }}</div>
+    <h2 class="prod-section-title">{{ titulo_alternativas }}</h2>
     <div class="prod-alts-list">
       {% for alt in alternativas %}
         {% if alt.pagina_url %}
@@ -545,7 +547,7 @@
   </section>
   {% else %}
   <section class="prod-section prod-alternativas" aria-label="Alternativas">
-    <div class="prod-section-title">Alternativas</div>
+    <h2 class="prod-section-title">Alternativas</h2>
     <p class="prod-veredicto-text">No hay productos comparables de este tipo en las tiendas que seguimos.</p>
   </section>
   {% endif %}
@@ -553,7 +555,7 @@
   <!-- Comparaciones directas -->
   {% if comparaciones_prod %}
   <section class="prod-section prod-comparaciones" aria-label="Comparativas disponibles">
-    <div class="prod-section-title">Comparativas disponibles</div>
+    <h2 class="prod-section-title">Comparativas disponibles</h2>
     <div class="prod-comps-list">
       {% for comp in comparaciones_prod %}
       <a href="{{ site_url }}/comparar/{{ comp.slug }}/" class="prod-comp-item">

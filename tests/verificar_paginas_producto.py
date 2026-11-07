@@ -130,9 +130,9 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
         if problemas:
             fallos["Nombre corto mal formado (sin peso, sin paréntesis, ≤40, marca y línea en mayúscula)"].append(
                 f"{slug} → '{nc}': {'; '.join(problemas)}")
-    m = re.match(r"^(?P<n>.+?)(?: \d+(?:,\d+)? (?:g|kg))? \((?P<b>[^)]+)\): (precio hoy, )?€/kg y opiniones$", title)
+    m = re.match(r"^(?P<n>.+?)(?: \d+(?:,\d+)? (?:g|kg))? \((?P<b>[^)]+)\): (precio hoy, )?€/kg y valoraciones$", title)
     if not m:
-        fallos["Título fuera de formato '{nombre} [formato] ({marca}): [precio hoy, ]€/kg y opiniones'"].append(f"{url} → {title}")
+        fallos["Título fuera de formato '{nombre} [formato] ({marca}): [precio hoy, ]€/kg y valoraciones'"].append(f"{url} → {title}")
     elif nc and m.group("n") != nc:
         fallos["Título no usa el nombre corto"].append(f"{url} → '{m.group('n')}' ≠ '{nc}'")
     if "€/kg" not in meta or "/5 con" not in meta:

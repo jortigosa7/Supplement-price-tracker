@@ -3405,13 +3405,15 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
         if not _nc_prod.get(slug_pub) and nombre.endswith(f"({marca})"):
             nombre = nombre[:-(len(marca) + 2)].strip()
 
-        # SEO title: "{nombre} {peso} ({marca}): precio hoy, €/kg y opiniones" (max 65 chars)
+        # SEO title: "{nombre} {peso} ({marca}): precio hoy, €/kg y valoraciones" (max 65 chars).
+        # "valoraciones" y no "opiniones": la página enseña la nota y el número de valoraciones
+        # de la tienda, no opiniones escritas.
         _peso_actual = p.get("peso_kg")
         _fmt = _formato_peso(_peso_actual) if _peso_actual else None
         _base = f"{nombre} {_fmt} ({marca})" if _fmt else f"{nombre} ({marca})"
-        seo_title = f"{_base}: precio hoy, €/kg y opiniones"
+        seo_title = f"{_base}: precio hoy, €/kg y valoraciones"
         if len(seo_title) > 65:
-            seo_title = f"{_base}: €/kg y opiniones"
+            seo_title = f"{_base}: €/kg y valoraciones"
 
         # Meta description con €/kg y valoración
         if agotado:
