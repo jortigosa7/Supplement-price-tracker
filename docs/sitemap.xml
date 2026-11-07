@@ -583,19 +583,25 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://stackfit.es/pre-entreno/evostamina-hsn/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://stackfit.es/proteina-vegana/proteina-de-soja-aislada-2-0-hsn/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-vegana/proteina-de-guisante-aislada-2-0-hsn/</loc>
+    <loc>https://stackfit.es/proteina-vegana/proteina-de-arroz-integral-concentrada-hsn/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-vegana/proteina-de-arroz-integral-concentrada-hsn/</loc>
+    <loc>https://stackfit.es/proteina-vegana/proteina-de-guisante-aislada-2-0-hsn/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -637,12 +643,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-whey/evoegg-2-0-albumina-de-huevo-hsn/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://stackfit.es/proteina-whey/albumina-de-huevo-en-polvo-hsn/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -662,6 +662,12 @@
   </url>
   <url>
     <loc>https://stackfit.es/proteina-whey/caseina-micelar-hsn/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://stackfit.es/proteina-whey/evoegg-2-0-albumina-de-huevo-hsn/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -872,6 +878,18 @@
   </url>
   <url>
     <loc>https://stackfit.es/proteina-whey/evopept-2-0-peptopro-hsn/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://stackfit.es/proteina-whey/evobasic-whey-hsn/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://stackfit.es/proteina-whey/cafe-proteico-sin-edulcorantes-cafefitconq-hsn/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
