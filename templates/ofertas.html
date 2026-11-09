@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block title %}Ofertas reales en suplementos: precios en mínimos ({{ mes_anio }}) | StackFit{% endblock %}
+{% block meta_desc %}Suplementos de {{ tiendas_afiliadas | join(', ') }} que hoy están en su precio más bajo de los últimos meses, comprobado con nuestro historial. Sin descuentos de mentira.{% endblock %}
+{% block meta_keywords %}ofertas suplementos, ofertas proteína whey, precio mínimo creatina, historial de precios suplementos{% endblock %}
+{% block canonical_path %}/{{ ofertas_slug }}/{% endblock %}
+{% block og_title %}Ofertas reales en suplementos | StackFit{% endblock %}
+{% block og_desc %}Solo los productos que hoy cuestan menos que en todo su historial reciente.{% endblock %}
+{% block og_path %}/{{ ofertas_slug }}/{% endblock %}
+
+{% block content %}
+<style>
+  .of-h1 { font-family:var(--font-display); font-size:clamp(1.6rem,4.5vw,2.3rem); font-weight:900; text-transform:uppercase; color:#f0f0f0; line-height:1.1; margin-bottom:14px; }
+  .of-h1 em { color:var(--accent); font-style:normal; }
+  .of-lead { color:#999; font-size:0.95rem; max-width:640px; line-height:1.7; }
+  .of-fecha { color:#555; font-size:0.78rem; margin-top:10px; }
+  .of-canal { margin:28px 0 8px; background:#111214; border:1px solid var(--accent-border); border-radius:var(--radius); padding:18px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .of-canal-txt { flex:1; min-width:220px; }
+  .of-canal-txt strong { display:block; color:#f0f0f0; font-size:0.98rem; }
+  .of-canal-txt span { color:#888; font-size:0.82rem; }
+  .of-canal-btn { background:var(--accent); color:#000; font-weight:800; font-size:0.86rem; padding:11px 18px; border-radius:10px; white-space:nowrap; }
+  .of-canal-btn:hover { background:var(--accent-dim); }
+  .of-lista { display:flex; flex-direction:column; gap:14px; margin-top:28px; }
+  .of-card { background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:18px; display:grid; grid-template-columns:72px 1fr; gap:14px 16px; }
+  .of-img { width:72px; height:72px; background:#fff; border-radius:10px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .of-img img { width:64px; height:64px; object-fit:contain; }
+  .of-nombre { font-weight:700; color:#eee; font-size:0.98rem; line-height:1.3; }
+  .of-nombre a { color:inherit; }
+  .of-nombre a:hover { color:var(--accent); }
+  .of-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .of-sello { font-size:0.74rem; font-weight:700; color:var(--accent); background:var(--accent-bg); border:1px solid var(--accent-border); border-radius:6px; padding:3px 9px; }
+  .of-cuerpo { grid-column:1 / -1; display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .of-precio { font-family:var(--font-display); font-size:1.9rem; font-weight:900; color:#fff; line-height:1; }
+  .of-precio small { font-size:0.95rem; font-weight:700; color:#888; margin-left:2px; }
+  .of-habitual { color:#888; font-size:0.82rem; margin-top:6px; }
+  .of-habitual s { color:#666; }
+  .of-habitual b { color:var(--accent); font-weight:700; }
+  .of-kg { color:#555; font-size:0.76rem; margin-top:2px; }
+  .of-grafico { flex:0 1 260px; min-width:160px; }
+  .of-grafico svg { width:100%; height:auto; display:block; }
+  .of-grafico span { display:block; color:#555; font-size:0.7rem; text-align:right; margin-top:2px; }
+  .of-acciones { grid-column:1 / -1; display:flex; gap:10px; flex-wrap:wrap; }
+  .of-btn { flex:1 1 200px; text-align:center; padding:11px 14px; border-radius:10px; font-weight:800; font-size:0.84rem; border:1px solid rgba(255,255,255,0.12); color:#aaa; }
+  .of-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .of-btn.principal { background:var(--accent); border-color:var(--accent); color:#000; }
+  .of-btn.principal:hover { background:var(--accent-dim); border-color:var(--accent-dim); color:#000; }
+  .of-vacio { margin-top:28px; background:#111214; border:1px dashed rgba(255,255,255,0.14); border-radius:var(--radius); padding:28px 22px; color:#999; font-size:0.92rem; line-height:1.7; }
+  .of-vacio strong { color:#eee; display:block; margin-bottom:6px; font-size:1rem; }
+  .of-h2 { font-size:1.05rem; font-weight:800; color:#e0e0e0; margin:52px 0 16px; }
+  .of-reglas { display:grid; grid-template-columns:1fr; gap:12px; }
+  @media (min-width:640px) { .of-reglas { grid-template-columns:1fr 1fr; } }
+  .of-regla { background:#111214; border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius); padding:16px 18px; }
+  .of-regla strong { color:#ddd; font-size:0.9rem; display:block; margin-bottom:4px; }
+  .of-regla p { color:#888; font-size:0.84rem; line-height:1.65; }
+</style>
+
+<div class="container" style="padding-top:32px; padding-bottom:80px;">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ site_url }}/">Inicio</a>
+    <span>›</span>
+    <span>Ofertas reales</span>
+  </nav>
+
+  <header>
+    <h1 class="of-h1">Ofertas <em>reales</em> en suplementos</h1>
+    <p class="of-lead">
+      Las tiendas de suplementos tienen algún código de descuento casi siempre, así que un «−40&nbsp;%» no dice nada.
+      Aquí solo aparece un producto cuando hoy cuesta menos que en todo el tiempo que llevamos siguiendo su precio.
+    </p>
+    <p class="of-fecha">Precios comprobados el {{ fecha_precios }}{% if ofertas %} · {{ ofertas | length }} producto{{ '' if ofertas | length == 1 else 's' }} en mínimos{% endif %}</p>
+  </header>
+
+  {% if telegram_canal_url %}
+  <div class="of-canal">
+    <div class="of-canal-txt">
+      <strong>Recibe el aviso en Telegram</strong>
+      <span>Solo cuando un producto toca su mínimo real. Como mucho, tres avisos al día.</span>
+    </div>
+    <a class="of-canal-btn" href="{{ telegram_canal_url }}" target="_blank" rel="noopener">Unirme al canal →</a>
+  </div>
+  {% endif %}
+
+  {% if ofertas %}
+  <div class="of-lista">
+    {% for o in ofertas %}
+    <article class="of-card">
+      <div class="of-img">
+        <img src="{{ o.img_src }}" alt="{{ o.nombre }}" width="64" height="64" loading="lazy">
+      </div>
+      <div>
+        <h2 class="of-nombre">
+          {% if o.pagina_url %}<a href="{{ site_url }}{{ o.pagina_url }}">{{ o.nombre }}</a>{% else %}{{ o.nombre }}{% endif %}
+        </h2>
+        <div class="of-meta">
+          <span class="store-pill store-{{ o.tienda | lower }}"><span class="store-pill-dot" style="background:currentColor;"></span>{{ o.tienda }}</span>
+          <span class="of-sello">
+            {% if o.es_record %}Precio más bajo en {{ o.dias_historial }} días{% else %}Iguala su mínimo de {{ o.dias_historial }} días{% endif %}
+          </span>
+        </div>
+      </div>
+
+      <div class="of-cuerpo">
+        <div>
+          <div class="of-precio">{{ o.precio | fmtd }}<small>€</small></div>
+          <div class="of-habitual">Suele costar <s>{{ o.precio_habitual | fmtd }} €</s> · <b>−{{ o.rebaja_pct | round | int }}&nbsp;%</b> ({{ o.ahorro_eur | fmtd }} € menos)</div>
+          {% if o.precio_por_kg %}<div class="of-kg">{{ o.precio_por_kg | fmtd }} €/kg · a este precio desde el {{ o.desde_corta }}</div>{% endif %}
+        </div>
+        {% if o.grafico_svg %}
+        <div class="of-grafico">
+          {{ o.grafico_svg | safe }}
+          <span>Precio en {{ o.tienda }}, últimos {{ o.dias_historial }} días</span>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="of-acciones">
+        <a class="of-btn principal" href="{{ o.url_afiliado }}" target="_blank" rel="nofollow sponsored noopener">Ver en {{ o.tienda }} →</a>
+        {% if o.pagina_url %}<a class="of-btn" href="{{ site_url }}{{ o.pagina_url }}">Ver historial completo</a>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="of-vacio">
+    <strong>Hoy no hay ningún producto en mínimos.</strong>
+    Es lo normal la mayoría de los días: si esta página estuviera siempre llena, no serían ofertas de verdad.
+    Mientras tanto puedes ver el precio de hoy de cada producto en
+    <a href="{{ site_url }}/proteina-whey/">proteína whey</a>,
+    <a href="{{ site_url }}/creatina/">creatina</a>,
+    <a href="{{ site_url }}/bcaa/">BCAA</a> y
+    <a href="{{ site_url }}/pre-entreno/">pre-entreno</a>.
+  </div>
+  {% endif %}
+
+  <h2 class="of-h2">Cómo decidimos que una oferta es real</h2>
+  <div class="of-reglas">
+    <div class="of-regla">
+      <strong>Tiene que ser su precio más bajo</strong>
+      <p>Comparamos el precio de hoy con todos los que hemos registrado en los últimos {{ criterios.ventana_dias }} días. Si alguna vez estuvo más barato, no entra.</p>
+    </div>
+    <div class="of-regla">
+      <strong>Y bastante por debajo de lo habitual</strong>
+      <p>Al menos un {{ criterios.min_rebaja_pct }}&nbsp;% menos que el precio al que suele estar (la mediana de ese periodo), no el «precio anterior» tachado que pone la tienda.</p>
+    </div>
+    <div class="of-regla">
+      <strong>Que no esté así cada dos por tres</strong>
+      <p>Si un producto ha estado a este precio más del {{ criterios.max_frec_pct }}&nbsp;% de los días, ese es su precio normal y no lo contamos como oferta.</p>
+    </div>
+    <div class="of-regla">
+      <strong>Mismo producto, mismo formato, misma tienda</strong>
+      <p>Solo comparamos un bote consigo mismo, y solo si llevamos al menos {{ criterios.min_dias }} días siguiéndolo. Revisamos los precios tres veces por semana.</p>
+    </div>
+  </div>
+
+  <div class="info-bar" style="margin-top:36px;">
+    <strong>Nota de afiliación:</strong>
+    Solo seguimos tiendas con las que tenemos afiliación ({{ tiendas_afiliadas | join(', ') }}): si compras a través de estos enlaces, recibimos una pequeña comisión sin coste extra para ti.
+    Dentro de esas tiendas, qué producto aparece lo decide únicamente su historial de precios.
+    <a href="{{ site_url }}/como-financiamos/" style="color:#888; margin-left:4px;">Más información →</a>
+  </div>
+
+</div>
+{% endblock %}
