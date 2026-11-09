@@ -535,13 +535,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/pre-entreno/glycopump-glicerol-en-polvo-hsn/</loc>
+    <loc>https://stackfit.es/pre-entreno/evoeaa-s-energy-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/pre-entreno/evoeaa-s-energy-hsn/</loc>
+    <loc>https://stackfit.es/pre-entreno/glycopump-glicerol-en-polvo-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -553,13 +553,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/pre-entreno/d-ribosa-en-polvo-hsn/</loc>
+    <loc>https://stackfit.es/pre-entreno/evobomb-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/pre-entreno/evobomb-hsn/</loc>
+    <loc>https://stackfit.es/pre-entreno/d-ribosa-en-polvo-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -643,12 +643,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-whey/albumina-de-huevo-en-polvo-hsn/</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://stackfit.es/proteina-vegana/impact-plant-protein-myprotein/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -662,6 +656,12 @@
   </url>
   <url>
     <loc>https://stackfit.es/proteina-whey/caseina-micelar-hsn/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://stackfit.es/proteina-whey/albumina-de-huevo-en-polvo-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -691,13 +691,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-vegana/proteina-de-garbanzo-hsn/</loc>
+    <loc>https://stackfit.es/proteina-whey/evopro-mezcla-proteinas-premium-digezyme-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-vegana/proteina-de-semilla-de-calabaza-hsn/</loc>
+    <loc>https://stackfit.es/proteina-vegana/proteina-de-garbanzo-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -715,7 +715,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-whey/golden-protein-hsn/</loc>
+    <loc>https://stackfit.es/proteina-vegana/proteina-de-semilla-de-calabaza-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -733,7 +733,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-whey/evopro-mezcla-proteinas-premium-digezyme-hsn/</loc>
+    <loc>https://stackfit.es/proteina-whey/golden-protein-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -763,13 +763,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-whey/impact-whey-isolate-myprotein/</loc>
+    <loc>https://stackfit.es/proteina-whey/keto-whey-protein-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-whey/keto-whey-protein-hsn/</loc>
+    <loc>https://stackfit.es/proteina-whey/impact-whey-isolate-myprotein/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -871,13 +871,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-whey/peptopro-hidrolizado-de-caseina-en-polvo-hsn/</loc>
+    <loc>https://stackfit.es/proteina-whey/evopept-2-0-peptopro-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/proteina-whey/evopept-2-0-peptopro-hsn/</loc>
+    <loc>https://stackfit.es/proteina-whey/peptopro-hidrolizado-de-caseina-en-polvo-hsn/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
