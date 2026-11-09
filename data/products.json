@@ -1,7 +1,7 @@
 {
   "last_updated": "2026-11-09",
   "site": "StackFit",
-  "total": 525,
+  "total": 524,
   "grupos_multitienda": 1,
   "products": [
     {
@@ -821,7 +821,7 @@
         "Melocotón y fruta de la pasión"
       ],
       "store_rating": 4.64,
-      "store_rating_count": 7905.0,
+      "store_rating_count": 7906.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/bcaa-811-300-g",
       "protein_subtype": null,
       "slug_publico": "bcaa-8-1-1-300g-prozis",
@@ -4208,7 +4208,7 @@
       "vegan": null,
       "flavors_available": [],
       "store_rating": 4.52,
-      "store_rating_count": 12211.0,
+      "store_rating_count": 12212.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/bcaa-411-100-tabs",
       "protein_subtype": null,
       "slug_publico": "bcaa-4-1-1-100-tabs-prozis",
@@ -4326,13 +4326,13 @@
       "precio_por_kg_min": 13.9,
       "precio_min": 13.9,
       "tienda_mas_barata": "HSN",
-      "imagen_url": "https://www.hsnstore.com/media/catalog/product/c/r/creatine-monohydrate-200-mesh-gral-front-v5-hsn_1_1.webp",
+      "imagen_url": "https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/c/r/creatine-monohydrate-200-mesh-gral-front-v5-hsn_1_1.webp",
       "precios": [
         {
           "tienda": "HSN",
           "precio_eur": 13.9,
           "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by1lbi1wb2x2by0yMDAtbWVzaA==",
-          "imagen_url": "https://www.hsnstore.com/media/catalog/product/c/r/creatine-monohydrate-200-mesh-gral-front-v5-hsn_1_1.webp",
+          "imagen_url": "https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/c/r/creatine-monohydrate-200-mesh-gral-front-v5-hsn_1_1.webp",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-11-09",
@@ -4349,7 +4349,7 @@
       "vegan": null,
       "flavors_available": [],
       "store_rating": 4.75,
-      "store_rating_count": 9953.0,
+      "store_rating_count": 9962.0,
       "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/creatina-monohidrato-en-polvo-200-mesh",
       "protein_subtype": null,
       "slug_publico": "creatina-monohidrato-en-polvo-200-mesh-1kg-hsn",
@@ -5067,65 +5067,6 @@
       "spark_min": 41.96
     },
     {
-      "id": "100-whey-prime-creatine-907g-desconocida",
-      "nombre_normalizado": "100% Whey Prime + Creatine 907g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Prozis",
-      "peso_kg": 0.907,
-      "precio_por_kg_min": 42.33,
-      "precio_min": 38.39,
-      "tienda_mas_barata": "Prozis",
-      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1747633_prozis_100-whey-prime--creatine-907g_1.png",
-      "precios": [
-        {
-          "tienda": "Prozis",
-          "precio_eur": 38.39,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g",
-          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1747633_prozis_100-whey-prime--creatine-907g_1.png",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-09",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Barquillo de fresa",
-        "Brownie de chocolate",
-        "Caramelo salado",
-        "Chocolate",
-        "Chocolate belga",
-        "Chocolate blanco",
-        "Chocolate y avellanas",
-        "Fresa",
-        "Fresa y Plátano",
-        "Galletas y crema",
-        "Mango",
-        "Neutro",
-        "Vainilla"
-      ],
-      "store_rating": 4.91,
-      "store_rating_count": 77.0,
-      "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g",
-      "protein_subtype": null,
-      "slug_publico": "100-whey-prime-creatine-907g-prozis",
-      "slug_producto": "100-whey-prime-creatine-prozis",
-      "nombre_display": "100% Whey Prime + Creatine 907 g",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 1.05,-0.0 2.11,-0.0 3.16,4.84 4.21,4.84 5.26,4.84 6.32,4.84 7.37,4.84 8.42,4.84 9.47,4.84 10.53,4.84 11.58,4.84 12.63,4.84 13.68,4.84 14.74,4.84 15.79,4.84 16.84,4.84 17.89,4.84 18.95,4.84 20.0,4.84 21.05,4.84 22.11,4.84 23.16,4.84 24.21,4.84 25.26,4.84 26.32,16.42 27.37,16.42 28.42,16.42 29.47,4.84 30.53,4.84 31.58,4.84 32.63,16.42 33.68,16.42 34.74,16.42 35.79,4.84 36.84,4.84 37.89,4.84 38.95,4.84 40.0,4.84 41.05,4.84 42.11,4.84 43.16,4.84 44.21,4.84 45.26,4.84 46.32,16.42 47.37,16.42 48.42,16.42 49.47,4.84 50.53,4.84 51.58,4.84 52.63,28.0 53.68,28.0 54.74,28.0 55.79,16.42 56.84,16.42 57.89,16.42 58.95,16.42 60.0,16.42 61.05,16.42 62.11,16.42 63.16,16.42 64.21,16.42 65.26,4.84 66.32,4.84 67.37,4.84 68.42,16.42 69.47,16.42 70.53,16.42 71.58,16.42 72.63,16.42 73.68,16.42 74.74,28.0 75.79,28.0 76.84,28.0 77.89,28.0 78.95,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 42.33
-    },
-    {
       "id": "nutrisport-creatina-creapure-proteina-500g-nutrisport",
       "nombre_normalizado": "Nutrisport Creatina Creapure® Proteína 500g",
       "categoria": "creatina",
@@ -5383,7 +5324,7 @@
       "vegan": null,
       "flavors_available": [],
       "store_rating": 4.75,
-      "store_rating_count": 6925.0,
+      "store_rating_count": 6926.0,
       "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/creatina-excell-100-creapure-en-polvo",
       "protein_subtype": null,
       "slug_publico": "creatina-excell-100-creapure-en-polvo-1kg-hsn",
@@ -5852,7 +5793,7 @@
         "Sandía"
       ],
       "store_rating": 4.71,
-      "store_rating_count": 5970.0,
+      "store_rating_count": 5973.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-600g",
       "protein_subtype": null,
       "slug_publico": "creatina-micronpure-600g-prozis",
@@ -6406,7 +6347,7 @@
         "Sandía"
       ],
       "store_rating": 4.71,
-      "store_rating_count": 5970.0,
+      "store_rating_count": 5973.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-micronpure-300-g",
       "protein_subtype": null,
       "slug_publico": "creatina-micronpure-300g-prozis",
@@ -6730,7 +6671,7 @@
         "Té helado de melocotón"
       ],
       "store_rating": 4.75,
-      "store_rating_count": 20740.0,
+      "store_rating_count": 20743.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/creatina-creapure-300-g",
       "protein_subtype": null,
       "slug_publico": "creatina-creapure-300g-prozis",
@@ -7831,52 +7772,6 @@
       "coste_mes": 28.59,
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 3.48,0.0 6.96,0.0 10.43,0.0 13.91,0.0 17.39,28.0 20.87,28.0 24.35,28.0 27.83,28.0 31.3,0.0 34.78,0.0 38.26,0.0 41.74,24.0 45.22,24.0 48.7,24.0 52.17,28.0 55.65,28.0 59.13,28.0 62.61,20.0 66.09,20.0 69.57,20.0 73.04,20.0 76.52,20.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 190.6
-    },
-    {
-      "id": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold-nutrition",
-      "nombre_normalizado": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000g",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "Gold Nutrition",
-      "peso_kg": 1.0,
-      "precio_por_kg_min": null,
-      "precio_min": 25.25,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 25.25,
-          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-09",
-          "_precio_fresco": null,
-          "agotado": true,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.7,
-      "store_rating_count": 93.0,
-      "store_rating_url": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
-      "protein_subtype": null,
-      "agotado": true,
-      "slug_publico": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold",
-      "slug_producto": "goldnutrition-creatine-power-mix-creapure-premium-gold",
-      "nombre_display": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.08,28.0 6.15,28.0 9.23,28.0 12.31,28.0 15.38,28.0 18.46,28.0 21.54,28.0 24.62,28.0 27.69,28.0 30.77,28.0 33.85,28.0 36.92,28.0 40.0,28.0 43.08,28.0 46.15,28.0 49.23,28.0 52.31,28.0 55.38,28.0 58.46,28.0 61.54,28.0 64.62,28.0 67.69,28.0 70.77,28.0 73.85,28.0 76.92,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 25.25
     },
     {
       "id": "creatina-celular-800g-keepgoing",
@@ -9067,54 +8962,6 @@
       "spark_min": 13.44
     },
     {
-      "id": "creatina-monohidrato-1000mg-creatina-desconocida",
-      "nombre_normalizado": "Creatina monohidrato (1000mg creatina)",
-      "categoria": "creatina",
-      "categoria_display": "Creatina",
-      "marca": "HSN",
-      "peso_kg": null,
-      "precio_por_kg_min": null,
-      "precio_min": 9.52,
-      "tienda_mas_barata": "HSN",
-      "imagen_url": "https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/c/r/creatine-1000mg-gral-veg-caps-front-hsn_1_1.webp",
-      "precios": [
-        {
-          "tienda": "HSN",
-          "precio_eur": 9.52,
-          "url_afiliado": "https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9jcmVhdGluYS1tb25vaGlkcmF0by0xMDAwbWctY3JlYXRpbmE=",
-          "imagen_url": "https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/c/r/creatine-1000mg-gral-veg-caps-front-hsn_1_1.webp",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-09",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null,
-          "precio_por_unidad": 0.0793,
-          "n_unidades": 120,
-          "fmt_tipo": "dosis"
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": 120.0,
-      "sweetener_free": false,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.75,
-      "store_rating_count": 200.0,
-      "store_rating_url": "https://www.hsnstore.com/marcas/essential-series/creatina-monohidrato-1000mg-creatina",
-      "protein_subtype": null,
-      "slug_publico": "creatina-monohidrato-1000mg-creatina-hsn",
-      "slug_producto": "creatina-monohidrato-1000mg-creatina-hsn",
-      "nombre_display": "Creatina monohidrato (1000mg creatina)",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,17.99 2.86,28.0 5.71,19.4 8.57,28.0 11.43,22.47 14.29,17.99 17.14,22.47 20.0,22.47 22.86,22.47 25.71,22.47 28.57,20.98 31.43,20.98 34.29,28.0 37.14,17.99 40.0,22.47 42.86,17.99 45.71,16.41 48.57,0.0 51.43,17.99 54.29,17.99 57.14,22.47 60.0,28.0 62.86,17.99 65.71,17.99 68.57,17.99 71.43,17.99 74.29,22.47 77.14,22.47 80.0,19.4\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"19.4\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 8.54
-    },
-    {
       "id": "evokalyn-creatina-alcalina-desconocida",
       "nombre_normalizado": "Evokalyn creatina alcalina",
       "categoria": "creatina",
@@ -9150,7 +8997,7 @@
       "vegan": null,
       "flavors_available": [],
       "store_rating": 4.75,
-      "store_rating_count": 427.0,
+      "store_rating_count": 428.0,
       "store_rating_url": "https://www.hsnstore.com/marcas/sport-series/evokalyn-creatina-alcalina",
       "protein_subtype": null,
       "slug_publico": "evokalyn-creatina-alcalina-hsn",
@@ -9358,6 +9205,52 @@
       "coste_mes": null,
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,9.33 0.98,9.33 1.95,0.0 2.93,0.0 3.9,0.0 4.88,0.0 5.85,0.0 6.83,0.0 7.8,0.0 8.78,0.0 9.76,0.0 10.73,0.0 11.71,0.0 12.68,0.0 13.66,0.0 14.63,0.0 15.61,0.0 16.59,0.0 17.56,0.0 18.54,0.0 19.51,0.0 20.49,0.0 21.46,0.0 22.44,0.0 23.41,0.0 24.39,0.0 25.37,0.0 26.34,0.0 27.32,0.0 28.29,0.0 29.27,0.0 30.24,13.99 31.22,13.99 32.2,13.99 33.17,0.0 34.15,0.0 35.12,0.0 36.1,18.66 37.07,18.66 38.05,18.66 39.02,0.0 40.0,0.0 40.98,0.0 41.95,0.0 42.93,0.0 43.9,0.0 44.88,0.0 45.85,0.0 46.83,0.0 47.8,0.0 48.78,18.66 49.76,18.66 50.73,18.66 51.71,0.0 52.68,0.0 53.66,0.0 54.63,18.66 55.61,18.66 56.59,18.66 57.56,28.0 58.54,28.0 59.51,28.0 60.49,28.0 61.46,28.0 62.44,18.66 63.41,18.66 64.39,18.66 65.37,18.66 66.34,0.0 67.32,0.0 68.29,0.0 69.27,13.99 70.24,13.99 71.22,13.99 72.2,18.66 73.17,18.66 74.15,18.66 75.12,9.33 76.1,9.33 77.07,9.33 78.05,9.33 79.02,9.33 80.0,23.32\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"23.32\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 52.51
+    },
+    {
+      "id": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold-nutrition",
+      "nombre_normalizado": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000g",
+      "categoria": "creatina",
+      "categoria_display": "Creatina",
+      "marca": "Gold Nutrition",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": null,
+      "precio_min": 25.25,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 25.25,
+          "url_afiliado": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/4c2188e0-cc23-4ae3-c702-22840ec35b00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": true,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.7,
+      "store_rating_count": 93.0,
+      "store_rating_url": "https://www.nutritienda.com/es/gold-nutrition-creatine-power-mix-1kg",
+      "protein_subtype": null,
+      "agotado": true,
+      "slug_publico": "goldnutrition-creatine-power-mix-creapure-premium-1000g-gold",
+      "slug_producto": "goldnutrition-creatine-power-mix-creapure-premium-gold",
+      "nombre_display": "GoldNutrition Creatine Power Mix - Creapure® Premium 1000 g",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.08,28.0 6.15,28.0 9.23,28.0 12.31,28.0 15.38,28.0 18.46,28.0 21.54,28.0 24.62,28.0 27.69,28.0 30.77,28.0 33.85,28.0 36.92,28.0 40.0,28.0 43.08,28.0 46.15,28.0 49.23,28.0 52.31,28.0 55.38,28.0 58.46,28.0 61.54,28.0 64.62,28.0 67.69,28.0 70.77,28.0 73.85,28.0 76.92,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 25.25
     },
     {
       "id": "gold-nutrition-creatine-collagen-200g-200g-gold-nutrition",
@@ -10251,55 +10144,6 @@
       "spark_min": 24.42
     },
     {
-      "id": "origin-pre-entreno-600g-desconocida",
-      "nombre_normalizado": "Origin Pre-Entreno 600g",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "MyProtein",
-      "peso_kg": 0.6,
-      "precio_por_kg_min": 25.0,
-      "precio_min": 15.0,
-      "tienda_mas_barata": "MyProtein",
-      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12941038-1465372342226336.jpg&format=webp&width=1500&height=1500&fit=cover",
-      "precios": [
-        {
-          "tienda": "MyProtein",
-          "precio_eur": 15.0,
-          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno%2F12941037%2F",
-          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12941038-1465372342226336.jpg&format=webp&width=1500&height=1500&fit=cover",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-09",
-          "_precio_fresco": true,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Blue Raspberry Fizz",
-        "Sour Apples",
-        "Orange Mango Soda"
-      ],
-      "store_rating": 4.22,
-      "store_rating_count": 27.0,
-      "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/origin-pre-entreno/12941037/",
-      "protein_subtype": null,
-      "slug_publico": "origin-pre-entreno-600g-myprotein",
-      "slug_producto": "origin-pre-entreno-myprotein",
-      "nombre_display": "Origin Pre-Entreno 600 g",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 2.58,-0.0 5.16,-0.0 7.74,-0.0 10.32,-0.0 12.9,-0.0 15.48,-0.0 18.06,12.28 20.65,19.11 23.23,-0.0 25.81,-0.0 28.39,-0.0 30.97,-0.0 33.55,-0.0 36.13,-0.0 38.71,-0.0 41.29,-0.0 43.87,-0.0 46.45,12.28 49.03,28.0 51.61,28.0 54.19,14.02 56.77,-0.0 59.35,-0.0 61.94,-0.0 64.52,-0.0 67.1,28.0 69.68,28.0 72.26,28.0 74.84,28.0 77.42,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 25.0
-    },
-    {
       "id": "evobeast-1kg-desconocida",
       "nombre_normalizado": "Evobeast 1kg",
       "categoria": "pre-entreno",
@@ -10603,6 +10447,55 @@
       "coste_mes": null,
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 8.0,0.0 16.0,16.0 24.0,16.0 32.0,16.0 40.0,0.0 48.0,28.0 56.0,28.0 64.0,4.0 72.0,4.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 32.95
+    },
+    {
+      "id": "origin-pre-entreno-630g-desconocida",
+      "nombre_normalizado": "Origin Pre-Entreno 630g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "MyProtein",
+      "peso_kg": 0.63,
+      "precio_por_kg_min": 34.11,
+      "precio_min": 21.49,
+      "tienda_mas_barata": "MyProtein",
+      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12941038-1465372342226336.jpg&format=webp&width=1500&height=1500&fit=cover",
+      "precios": [
+        {
+          "tienda": "MyProtein",
+          "precio_eur": 21.49,
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno%2F12941037%2F",
+          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/12941038-1465372342226336.jpg&format=webp&width=1500&height=1500&fit=cover",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": true,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Blue Raspberry Fizz",
+        "Sour Apples",
+        "Cherry Drops"
+      ],
+      "store_rating": 4.22,
+      "store_rating_count": 27.0,
+      "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/origin-pre-entreno/12941037/",
+      "protein_subtype": null,
+      "slug_publico": "origin-pre-entreno-630g-myprotein",
+      "slug_producto": "origin-pre-entreno-myprotein",
+      "nombre_display": "Origin Pre-Entreno 630 g",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 4.44,28.0 8.89,28.0 13.33,-0.0 17.78,-0.0 22.22,-0.0 26.67,-0.0 31.11,-0.0 35.56,-0.0 40.0,-0.0 44.44,-0.0 48.89,-0.0 53.33,-0.0 57.78,-0.0 62.22,-0.0 66.67,-0.0 71.11,-0.0 75.56,-0.0 80.0,12.01\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"12.01\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_min": 30.94
     },
     {
       "id": "origin-pre-entreno-sin-estimulantes-630g-desconocida",
@@ -11257,7 +11150,7 @@
         "Sandía"
       ],
       "store_rating": 4.72,
-      "store_rating_count": 2906.0,
+      "store_rating_count": 2907.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-300-g",
       "protein_subtype": null,
       "slug_publico": "malato-de-l-citrulina-300g-prozis",
@@ -11307,7 +11200,7 @@
         "Speculoos"
       ],
       "store_rating": 4.91,
-      "store_rating_count": 84.0,
+      "store_rating_count": 85.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/powered-cafe-preentrenamiento-250-g",
       "protein_subtype": null,
       "slug_publico": "powered-cafe-preentrenamiento-250g-prozis",
@@ -11679,7 +11572,7 @@
         "Sandía"
       ],
       "store_rating": 4.69,
-      "store_rating_count": 3661.0,
+      "store_rating_count": 3662.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/malato-de-l-citrulina-150-g",
       "protein_subtype": null,
       "slug_publico": "malato-de-l-citrulina-150g-prozis",
@@ -12500,51 +12393,6 @@
       "coste_mes": null,
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 4.21,0.0 8.42,0.0 12.63,0.0 16.84,28.0 21.05,28.0 25.26,0.0 29.47,0.0 33.68,0.0 37.89,0.0 42.11,0.0 46.32,0.0 50.53,0.0 54.74,0.0 58.95,0.0 63.16,0.0 67.37,0.0 71.58,0.0 75.79,0.0 80.0,0.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 73.68
-    },
-    {
-      "id": "the-shadow-270g-cobra-labs",
-      "nombre_normalizado": "The Shadow 270g",
-      "categoria": "pre-entreno",
-      "categoria_display": "Pre-Entreno",
-      "marca": "Cobra Labs",
-      "peso_kg": 0.27,
-      "precio_por_kg_min": 89.63,
-      "precio_min": 24.2,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/cf8b4859-750a-414e-a2ee-cf0656d8ae00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 24.2,
-          "url_afiliado": "https://www.nutritienda.com/es/cobra-labs/the-shadow-270g",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/cf8b4859-750a-414e-a2ee-cf0656d8ae00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-09",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": null,
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.0,
-      "store_rating_count": 1.0,
-      "store_rating_url": "https://www.nutritienda.com/es/cobra-labs/the-shadow-270g",
-      "protein_subtype": null,
-      "slug_publico": "the-shadow-270g-cobra-labs",
-      "slug_producto": "the-shadow-cobra-labs",
-      "nombre_display": "The Shadow 270 g",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 10.0,28.0 20.0,28.0 30.0,28.0 40.0,28.0 50.0,28.0 60.0,28.0 70.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 89.63
     },
     {
       "id": "pump-caffeine-free-330g-biotechusa",
@@ -14147,6 +13995,52 @@
       "spark_min": 63.61
     },
     {
+      "id": "the-shadow-270g-cobra-labs",
+      "nombre_normalizado": "The Shadow 270g",
+      "categoria": "pre-entreno",
+      "categoria_display": "Pre-Entreno",
+      "marca": "Cobra Labs",
+      "peso_kg": 0.27,
+      "precio_por_kg_min": null,
+      "precio_min": 24.2,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/cf8b4859-750a-414e-a2ee-cf0656d8ae00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 24.2,
+          "url_afiliado": "https://www.nutritienda.com/es/cobra-labs/the-shadow-270g",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/cf8b4859-750a-414e-a2ee-cf0656d8ae00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": true,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": null,
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.0,
+      "store_rating_count": 1.0,
+      "store_rating_url": "https://www.nutritienda.com/es/cobra-labs/the-shadow-270g",
+      "protein_subtype": null,
+      "agotado": true,
+      "slug_publico": "the-shadow-270g-cobra-labs",
+      "slug_producto": "the-shadow-cobra-labs",
+      "nombre_display": "The Shadow 270 g",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 10.0,28.0 20.0,28.0 30.0,28.0 40.0,28.0 50.0,28.0 60.0,28.0 70.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 89.63
+    },
+    {
       "id": "cafeina-taurina-60-caps-60caps-biotechusa",
       "nombre_normalizado": "Cafeína + Taurina 60 Caps 60caps",
       "categoria": "pre-entreno",
@@ -14910,7 +14804,7 @@
         "Naranja"
       ],
       "store_rating": 4.63,
-      "store_rating_count": 17027.0,
+      "store_rating_count": 17028.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-46-servings",
       "protein_subtype": null,
       "slug_publico": "big-shot-pre-workout-46-servings-prozis",
@@ -15119,7 +15013,7 @@
         "Naranja"
       ],
       "store_rating": 4.63,
-      "store_rating_count": 17027.0,
+      "store_rating_count": 17028.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-8-sticks",
       "protein_subtype": null,
       "slug_publico": "big-shot-pre-workout-8-sticks-prozis",
@@ -15222,7 +15116,7 @@
         "Naranja"
       ],
       "store_rating": 4.63,
-      "store_rating_count": 17027.0,
+      "store_rating_count": 17028.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/big-shot-pre-workout-23-servings",
       "protein_subtype": null,
       "slug_publico": "big-shot-pre-workout-23-servings-prozis",
@@ -17054,6 +16948,57 @@
       "spark_min": 22.22
     },
     {
+      "id": "sustituto-de-comida-800g-desconocida",
+      "nombre_normalizado": "Sustituto de Comida 800g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Prozis",
+      "peso_kg": 0.8,
+      "precio_por_kg_min": 23.42,
+      "precio_min": 18.74,
+      "tienda_mas_barata": "Prozis",
+      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1802981_prozis_meal-replacement-800g_1.png",
+      "precios": [
+        {
+          "tienda": "Prozis",
+          "precio_eur": 18.74,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/sustituto-de-comida-800-g",
+          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1802981_prozis_meal-replacement-800g_1.png",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "whey",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Barquillo de vainilla",
+        "Chocolate",
+        "Fresa y Plátano",
+        "Toffee de Vainilla"
+      ],
+      "store_rating": 4.64,
+      "store_rating_count": 320.0,
+      "store_rating_url": "https://www.prozis.com/es/es/prozis/sustituto-de-comida-800-g",
+      "protein_subtype": null,
+      "slug_publico": "sustituto-de-comida-800g-prozis",
+      "slug_producto": "sustituto-de-comida-prozis",
+      "nombre_display": "Sustituto de Comida 800 g",
+      "subcategoria_proteina": "otra",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.21 3.64,11.21 7.27,11.21 10.91,11.21 14.55,11.21 18.18,11.21 21.82,11.21 25.45,11.21 29.09,11.21 32.73,-0.0 36.36,-0.0 40.0,-0.0 43.64,11.21 47.27,11.21 50.91,11.21 54.55,11.21 58.18,11.21 61.82,22.38 65.45,22.38 69.09,22.38 72.73,22.38 76.36,22.38 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 23.42
+    },
+    {
       "id": "evopro-mezcla-proteinas-premium-digezyme-2kg-desconocida",
       "nombre_normalizado": "Evopro (mezcla proteínas premium) + DigeZyme® 2kg",
       "categoria": "proteina-whey",
@@ -17131,7 +17076,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1848350_prozis_protein-rice-porridge-720g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -17162,7 +17107,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.81,28.0 7.62,28.0 11.43,28.0 15.24,28.0 19.05,28.0 22.86,28.0 26.67,28.0 30.48,28.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,20.99 49.52,20.99 53.33,20.99 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.64,28.0 7.27,28.0 10.91,28.0 14.55,28.0 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,20.99 47.27,20.99 50.91,20.99 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 24.43
     },
     {
@@ -17184,7 +17129,7 @@
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -17215,7 +17160,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 5.71,28.0 11.43,0.0 17.14,0.0 22.86,0.0 28.57,20.99 34.29,20.99 40.0,20.99 45.71,28.0 51.43,28.0 57.14,28.0 62.86,28.0 68.57,28.0 74.29,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 5.33,28.0 10.67,0.0 16.0,0.0 21.33,0.0 26.67,20.99 32.0,20.99 37.33,20.99 42.67,28.0 48.0,28.0 53.33,28.0 58.67,28.0 64.0,28.0 69.33,28.0 74.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 24.43
     },
     {
@@ -17237,7 +17182,7 @@
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -17268,7 +17213,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 5.71,28.0 11.43,0.0 17.14,0.0 22.86,0.0 28.57,20.99 34.29,20.99 40.0,20.99 45.71,28.0 51.43,28.0 57.14,28.0 62.86,28.0 68.57,28.0 74.29,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 5.33,28.0 10.67,0.0 16.0,0.0 21.33,0.0 26.67,20.99 32.0,20.99 37.33,20.99 42.67,28.0 48.0,28.0 53.33,28.0 58.67,28.0 64.0,28.0 69.33,28.0 74.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 24.43
     },
     {
@@ -17290,7 +17235,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1722939_prozis_whey--fibre-700g_chocolate-hazelnuts_flavor_21.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -17316,59 +17261,8 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 2.35,28.0 4.71,20.59 7.06,20.59 9.41,20.59 11.76,20.59 14.12,20.59 16.47,20.59 18.82,20.59 21.18,20.59 23.53,18.95 25.88,18.95 28.24,18.95 30.59,9.46 32.94,9.46 35.29,9.46 37.65,9.46 40.0,9.46 42.35,18.95 44.71,18.95 47.06,18.95 49.41,18.95 51.76,0.0 54.12,0.0 56.47,0.0 58.82,14.22 61.18,14.22 63.53,14.22 65.88,18.95 68.24,18.95 70.59,23.67 72.94,23.67 75.29,23.67 77.65,23.67 80.0,23.67\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"23.67\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 2.29,28.0 4.57,20.59 6.86,20.59 9.14,20.59 11.43,20.59 13.71,20.59 16.0,20.59 18.29,20.59 20.57,20.59 22.86,18.95 25.14,18.95 27.43,18.95 29.71,9.46 32.0,9.46 34.29,9.46 36.57,9.46 38.86,9.46 41.14,18.95 43.43,18.95 45.71,18.95 48.0,18.95 50.29,0.0 52.57,0.0 54.86,0.0 57.14,14.22 59.43,14.22 61.71,14.22 64.0,18.95 66.29,18.95 68.57,23.67 70.86,23.67 73.14,23.67 75.43,23.67 77.71,23.67 80.0,23.67\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"23.67\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 23.13
-    },
-    {
-      "id": "sustituto-de-comida-800g-desconocida",
-      "nombre_normalizado": "Sustituto de Comida 800g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Prozis",
-      "peso_kg": 0.8,
-      "precio_por_kg_min": 24.99,
-      "precio_min": 19.99,
-      "tienda_mas_barata": "Prozis",
-      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1802981_prozis_meal-replacement-800g_1.png",
-      "precios": [
-        {
-          "tienda": "Prozis",
-          "precio_eur": 19.99,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/sustituto-de-comida-800-g",
-          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1802981_prozis_meal-replacement-800g_1.png",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-07",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": "whey",
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Barquillo de vainilla",
-        "Chocolate",
-        "Fresa y Plátano",
-        "Toffee de Vainilla"
-      ],
-      "store_rating": 4.64,
-      "store_rating_count": 320.0,
-      "store_rating_url": "https://www.prozis.com/es/es/prozis/sustituto-de-comida-800-g",
-      "protein_subtype": null,
-      "slug_publico": "sustituto-de-comida-800g-prozis",
-      "slug_producto": "sustituto-de-comida-prozis",
-      "nombre_display": "Sustituto de Comida 800 g",
-      "subcategoria_proteina": "otra",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.02 3.81,14.02 7.62,14.02 11.43,14.02 15.24,14.02 19.05,14.02 22.86,14.02 26.67,14.02 30.48,14.02 34.29,0.0 38.1,0.0 41.9,0.0 45.71,14.02 49.52,14.02 53.33,14.02 57.14,14.02 60.95,14.02 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 24.99
     },
     {
       "id": "proteina-de-garbanzo-500g-desconocida",
@@ -17910,7 +17804,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1821152_prozis_peanut-whey-protein-907g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -17929,8 +17823,8 @@
         "Tarta de Plátano y Toffee",
         "Vainilla"
       ],
-      "store_rating": 4.9,
-      "store_rating_count": 143.0,
+      "store_rating": 4.91,
+      "store_rating_count": 144.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/peanut-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "peanut-whey-protein-907g-prozis",
@@ -17940,7 +17834,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 1.9,0.0 3.81,0.0 5.71,0.0 7.62,0.0 9.52,0.0 11.43,0.0 13.33,0.0 15.24,0.0 17.14,0.0 19.05,0.0 20.95,0.0 22.86,16.8 24.76,16.8 26.67,16.8 28.57,0.0 30.48,0.0 32.38,0.0 34.29,0.0 36.19,0.0 38.1,0.0 40.0,16.8 41.9,16.8 43.81,16.8 45.71,16.8 47.62,16.8 49.52,22.4 51.43,22.4 53.33,22.4 55.24,22.4 57.14,0.0 59.05,0.0 60.95,0.0 62.86,16.8 64.76,16.8 66.67,16.8 68.57,22.4 70.48,22.4 72.38,28.0 74.29,28.0 76.19,28.0 78.1,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 1.86,0.0 3.72,0.0 5.58,0.0 7.44,0.0 9.3,0.0 11.16,0.0 13.02,0.0 14.88,0.0 16.74,0.0 18.6,0.0 20.47,0.0 22.33,16.8 24.19,16.8 26.05,16.8 27.91,0.0 29.77,0.0 31.63,0.0 33.49,0.0 35.35,0.0 37.21,0.0 39.07,16.8 40.93,16.8 42.79,16.8 44.65,16.8 46.51,16.8 48.37,22.4 50.23,22.4 52.09,22.4 53.95,22.4 55.81,0.0 57.67,0.0 59.53,0.0 61.4,16.8 63.26,16.8 65.12,16.8 66.98,22.4 68.84,22.4 70.7,28.0 72.56,28.0 74.42,28.0 76.28,28.0 78.14,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 28.93
     },
     {
@@ -18008,7 +17902,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1832578_prozis_peanut-whey-protein-450g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -18027,8 +17921,8 @@
         "Tarta de Plátano y Toffee",
         "Vainilla"
       ],
-      "store_rating": 4.9,
-      "store_rating_count": 143.0,
+      "store_rating": 4.91,
+      "store_rating_count": 144.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/peanut-whey-protein-450g",
       "protein_subtype": null,
       "slug_publico": "peanut-whey-protein-450g-prozis",
@@ -18038,7 +17932,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 3.2,0.0 6.4,0.0 9.6,0.0 12.8,16.8 16.0,16.8 19.2,16.8 22.4,16.8 25.6,16.8 28.8,22.4 32.0,22.4 35.2,22.4 38.4,22.4 41.6,0.0 44.8,0.0 48.0,0.0 51.2,16.8 54.4,16.8 57.6,16.8 60.8,22.4 64.0,22.4 67.2,28.0 70.4,28.0 73.6,28.0 76.8,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 3.08,0.0 6.15,0.0 9.23,0.0 12.31,16.8 15.38,16.8 18.46,16.8 21.54,16.8 24.62,16.8 27.69,22.4 30.77,22.4 33.85,22.4 36.92,22.4 40.0,0.0 43.08,0.0 46.15,0.0 49.23,16.8 52.31,16.8 55.38,16.8 58.46,22.4 61.54,22.4 64.62,28.0 67.69,28.0 70.77,28.0 73.85,28.0 76.92,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 29.98
     },
     {
@@ -18707,6 +18601,63 @@
       "spark_min": 29.9
     },
     {
+      "id": "impact-whey-protein-milkshake-3-72kg-desconocida",
+      "nombre_normalizado": "Impact Whey Protein Milkshake 3.72kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "MyProtein",
+      "peso_kg": 3.72,
+      "precio_por_kg_min": 33.87,
+      "precio_min": 125.99,
+      "tienda_mas_barata": "MyProtein",
+      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17755459-1255352842601240.jpg&format=webp&width=1500&height=1500&fit=cover",
+      "precios": [
+        {
+          "tienda": "MyProtein",
+          "precio_eur": 125.99,
+          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein-milkshake%2F17755445%2F",
+          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17755459-1255352842601240.jpg&format=webp&width=1500&height=1500&fit=cover",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": true,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "whey",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Caramelo Salado",
+        "Helado de Vainilla",
+        "Chocolate y Caramelo (Fudge)",
+        "Krispy Kreme® Original Glazed™",
+        "Banana Milkshake",
+        "White Chocolate Swirl",
+        "Cookie Crumble",
+        "Chocolate Milk",
+        "Chupa Chups® Strawberries & Cream",
+        "Sin Sabor"
+      ],
+      "store_rating": 4.1,
+      "store_rating_count": 81.0,
+      "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-milkshake/17755445/",
+      "protein_subtype": null,
+      "slug_publico": "impact-whey-protein-milkshake-3-72kg-myprotein",
+      "slug_producto": "impact-whey-protein-milkshake-myprotein",
+      "nombre_display": "Impact Whey Protein Milkshake 3,72 kg",
+      "subcategoria_proteina": "whey",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "",
+      "spark_min": null
+    },
+    {
       "id": "grass-fed-impact-milk-protein-isolate-780g-desconocida",
       "nombre_normalizado": "Grass-Fed Impact Milk Protein Isolate 780g",
       "categoria": "proteina-whey",
@@ -19072,63 +19023,6 @@
       "spark_min": 34.9
     },
     {
-      "id": "impact-whey-protein-milkshake-3-6kg-desconocida",
-      "nombre_normalizado": "Impact Whey Protein Milkshake 3.6kg",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "MyProtein",
-      "peso_kg": 3.6,
-      "precio_por_kg_min": 35.0,
-      "precio_min": 125.99,
-      "tienda_mas_barata": "MyProtein",
-      "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17755459-1255352842601240.jpg&format=webp&width=1500&height=1500&fit=cover",
-      "precios": [
-        {
-          "tienda": "MyProtein",
-          "precio_eur": 125.99,
-          "url_afiliado": "https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fimpact-whey-protein-milkshake%2F17755445%2F",
-          "imagen_url": "https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/17755459-1255352842601240.jpg&format=webp&width=1500&height=1500&fit=cover",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-09",
-          "_precio_fresco": true,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": "whey",
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [
-        "Caramelo Salado",
-        "Helado de Vainilla",
-        "Chocolate y Caramelo (Fudge)",
-        "Krispy Kreme® Original Glazed™",
-        "Banana Milkshake",
-        "White Chocolate Swirl",
-        "Cookie Crumble",
-        "Chocolate Milk",
-        "Chupa Chups® Strawberries & Cream",
-        "Sin Sabor"
-      ],
-      "store_rating": 4.1,
-      "store_rating_count": 81.0,
-      "store_rating_url": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-milkshake/17755445/",
-      "protein_subtype": null,
-      "slug_publico": "impact-whey-protein-milkshake-3-6kg-myprotein",
-      "slug_producto": "impact-whey-protein-milkshake-myprotein",
-      "nombre_display": "Impact Whey Protein Milkshake 3,6 kg",
-      "subcategoria_proteina": "whey",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 8.0,28.0 16.0,28.0 24.0,28.0 32.0,28.0 40.0,28.0 48.0,28.0 56.0,28.0 64.0,28.0 72.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 35.0
-    },
-    {
       "id": "proteina-aislada-de-suero-de-leche-isolate-1kg-hivital",
       "nombre_normalizado": "Proteína Aislada de Suero de Leche ISOLATE 1kg",
       "categoria": "proteina-whey",
@@ -19255,7 +19149,7 @@
         "sin sabor"
       ],
       "store_rating": 4.75,
-      "store_rating_count": 1911.0,
+      "store_rating_count": 1913.0,
       "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-concentrate",
       "protein_subtype": "whey",
       "slug_publico": "100-whey-protein-concentrate-500g-hsn",
@@ -19475,7 +19369,7 @@
         "sin sabor"
       ],
       "store_rating": 4.75,
-      "store_rating_count": 2187.0,
+      "store_rating_count": 2188.0,
       "store_rating_url": "https://www.hsnstore.com/marcas/raw-series/100-whey-protein-isolate",
       "protein_subtype": "whey",
       "slug_publico": "100-whey-protein-isolate-2kg-hsn",
@@ -19655,7 +19549,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1851676_prozis_real-whey--hydro-collagen-907g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -19674,7 +19568,7 @@
         "Vainilla"
       ],
       "store_rating": 4.71,
-      "store_rating_count": 139.0,
+      "store_rating_count": 141.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/real-whey-hydro-collagen-907g",
       "protein_subtype": null,
       "slug_publico": "real-whey-hydro-collagen-907g-prozis",
@@ -19684,7 +19578,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 1.57,0.0 3.14,0.0 4.71,0.0 6.27,0.0 7.84,0.0 9.41,0.0 10.98,0.0 12.55,0.0 14.12,22.4 15.69,22.4 17.25,0.0 18.82,0.0 20.39,0.0 21.96,0.0 23.53,0.0 25.1,0.0 26.67,0.0 28.24,0.0 29.8,0.0 31.37,0.0 32.94,11.2 34.51,11.2 36.08,11.2 37.65,0.0 39.22,0.0 40.78,0.0 42.35,22.4 43.92,22.4 45.49,22.4 47.06,16.8 48.63,16.8 50.2,16.8 51.76,16.8 53.33,16.8 54.9,22.4 56.47,22.4 58.04,22.4 59.61,22.4 61.18,0.0 62.75,0.0 64.31,0.0 65.88,16.8 67.45,16.8 69.02,16.8 70.59,22.4 72.16,22.4 73.73,28.0 75.29,28.0 76.86,28.0 78.43,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 1.54,0.0 3.08,0.0 4.62,0.0 6.15,0.0 7.69,0.0 9.23,0.0 10.77,0.0 12.31,0.0 13.85,22.4 15.38,22.4 16.92,0.0 18.46,0.0 20.0,0.0 21.54,0.0 23.08,0.0 24.62,0.0 26.15,0.0 27.69,0.0 29.23,0.0 30.77,0.0 32.31,11.2 33.85,11.2 35.38,11.2 36.92,0.0 38.46,0.0 40.0,0.0 41.54,22.4 43.08,22.4 44.62,22.4 46.15,16.8 47.69,16.8 49.23,16.8 50.77,16.8 52.31,16.8 53.85,22.4 55.38,22.4 56.92,22.4 58.46,22.4 60.0,0.0 61.54,0.0 63.08,0.0 64.62,16.8 66.15,16.8 67.69,16.8 69.23,22.4 70.77,22.4 72.31,28.0 73.85,28.0 75.38,28.0 76.92,28.0 78.46,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 37.2
     },
     {
@@ -19706,7 +19600,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1831935_prozis_whey-protein-fusion-700g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -19737,7 +19631,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 2.96,0.0 5.93,0.0 8.89,0.0 11.85,0.0 14.81,0.0 17.78,16.8 20.74,16.8 23.7,16.8 26.67,16.8 29.63,16.8 32.59,11.2 35.56,11.2 38.52,11.2 41.48,11.2 44.44,0.0 47.41,0.0 50.37,0.0 53.33,11.2 56.3,11.2 59.26,11.2 62.22,11.2 65.19,11.2 68.15,28.0 71.11,28.0 74.07,28.0 77.04,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 2.86,0.0 5.71,0.0 8.57,0.0 11.43,0.0 14.29,0.0 17.14,16.8 20.0,16.8 22.86,16.8 25.71,16.8 28.57,16.8 31.43,11.2 34.29,11.2 37.14,11.2 40.0,11.2 42.86,0.0 45.71,0.0 48.57,0.0 51.43,11.2 54.29,11.2 57.14,11.2 60.0,11.2 62.86,11.2 65.71,28.0 68.57,28.0 71.43,28.0 74.29,28.0 77.14,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 37.49
     },
     {
@@ -19759,7 +19653,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1813193_prozis_supreme-whey-protein-907g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -19783,8 +19677,8 @@
         "Tarta de Plátano y Toffee",
         "Vainilla francesa"
       ],
-      "store_rating": 4.78,
-      "store_rating_count": 503.0,
+      "store_rating": 4.79,
+      "store_rating_count": 525.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/supreme-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "supreme-whey-protein-907g-prozis",
@@ -19794,7 +19688,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 1.9,0.0 3.81,0.0 5.71,0.0 7.62,0.0 9.52,0.0 11.43,0.0 13.33,0.0 15.24,0.0 17.14,0.0 19.05,0.0 20.95,0.0 22.86,16.8 24.76,16.8 26.67,16.8 28.57,0.0 30.48,0.0 32.38,0.0 34.29,0.0 36.19,0.0 38.1,0.0 40.0,16.8 41.9,16.8 43.81,16.8 45.71,16.8 47.62,16.8 49.52,22.41 51.43,22.41 53.33,22.41 55.24,22.41 57.14,0.0 59.05,0.0 60.95,0.0 62.86,16.8 64.76,16.8 66.67,16.8 68.57,22.41 70.48,22.41 72.38,28.0 74.29,28.0 76.19,28.0 78.1,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 1.86,0.0 3.72,0.0 5.58,0.0 7.44,0.0 9.3,0.0 11.16,0.0 13.02,0.0 14.88,0.0 16.74,0.0 18.6,0.0 20.47,0.0 22.33,16.8 24.19,16.8 26.05,16.8 27.91,0.0 29.77,0.0 31.63,0.0 33.49,0.0 35.35,0.0 37.21,0.0 39.07,16.8 40.93,16.8 42.79,16.8 44.65,16.8 46.51,16.8 48.37,22.41 50.23,22.41 52.09,22.41 53.95,22.41 55.81,0.0 57.67,0.0 59.53,0.0 61.4,16.8 63.26,16.8 65.12,16.8 66.98,22.41 68.84,22.41 70.7,28.0 72.56,28.0 74.42,28.0 76.28,28.0 78.14,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 38.03
     },
     {
@@ -20450,6 +20344,66 @@
       "spark_min": 34.99
     },
     {
+      "id": "100-whey-prime-creatine-907g-desconocida",
+      "nombre_normalizado": "100% Whey Prime + Creatine 907g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Prozis",
+      "peso_kg": 0.907,
+      "precio_por_kg_min": 42.33,
+      "precio_min": 38.39,
+      "tienda_mas_barata": "Prozis",
+      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1747633_prozis_100-whey-prime--creatine-907g_1.png",
+      "precios": [
+        {
+          "tienda": "Prozis",
+          "precio_eur": 38.39,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g",
+          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1747633_prozis_100-whey-prime--creatine-907g_1.png",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "whey",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [
+        "Barquillo de fresa",
+        "Brownie de chocolate",
+        "Caramelo salado",
+        "Chocolate",
+        "Chocolate belga",
+        "Chocolate blanco",
+        "Chocolate y avellanas",
+        "Fresa",
+        "Fresa y Plátano",
+        "Galletas y crema",
+        "Mango",
+        "Neutro",
+        "Vainilla"
+      ],
+      "store_rating": 4.91,
+      "store_rating_count": 78.0,
+      "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-907g",
+      "protein_subtype": null,
+      "slug_publico": "100-whey-prime-creatine-907g-prozis",
+      "slug_producto": "100-whey-prime-creatine-prozis",
+      "nombre_display": "100% Whey Prime + Creatine 907 g",
+      "subcategoria_proteina": "whey",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,-0.0 1.05,-0.0 2.11,-0.0 3.16,4.84 4.21,4.84 5.26,4.84 6.32,4.84 7.37,4.84 8.42,4.84 9.47,4.84 10.53,4.84 11.58,4.84 12.63,4.84 13.68,4.84 14.74,4.84 15.79,4.84 16.84,4.84 17.89,4.84 18.95,4.84 20.0,4.84 21.05,4.84 22.11,4.84 23.16,4.84 24.21,4.84 25.26,4.84 26.32,16.42 27.37,16.42 28.42,16.42 29.47,4.84 30.53,4.84 31.58,4.84 32.63,16.42 33.68,16.42 34.74,16.42 35.79,4.84 36.84,4.84 37.89,4.84 38.95,4.84 40.0,4.84 41.05,4.84 42.11,4.84 43.16,4.84 44.21,4.84 45.26,4.84 46.32,16.42 47.37,16.42 48.42,16.42 49.47,4.84 50.53,4.84 51.58,4.84 52.63,28.0 53.68,28.0 54.74,28.0 55.79,16.42 56.84,16.42 57.89,16.42 58.95,16.42 60.0,16.42 61.05,16.42 62.11,16.42 63.16,16.42 64.21,16.42 65.26,4.84 66.32,4.84 67.37,4.84 68.42,16.42 69.47,16.42 70.53,16.42 71.58,16.42 72.63,16.42 73.68,16.42 74.74,28.0 75.79,28.0 76.84,28.0 77.89,28.0 78.95,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 42.33
+    },
+    {
       "id": "hydrolyzed-whey-protein-isolate-990g-hivital",
       "nombre_normalizado": "Hydrolyzed Whey Protein Isolate 990g",
       "categoria": "proteina-whey",
@@ -20560,7 +20514,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1853405_prozis_whey-hydro-isolate-black-series-700g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -20579,7 +20533,7 @@
         "Vainilla"
       ],
       "store_rating": 5.0,
-      "store_rating_count": 10.0,
+      "store_rating_count": 12.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/whey-hydro-isolate-black-series-700g",
       "protein_subtype": null,
       "slug_publico": "whey-hydro-isolate-black-series-700g-prozis",
@@ -20589,7 +20543,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.21 6.15,-0.0 12.31,-0.0 18.46,-0.0 24.62,11.21 30.77,11.21 36.92,11.21 43.08,11.21 49.23,11.21 55.38,28.0 61.54,28.0 67.69,28.0 73.85,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.21 5.71,-0.0 11.43,-0.0 17.14,-0.0 22.86,11.21 28.57,11.21 34.29,11.21 40.0,11.21 45.71,11.21 51.43,28.0 57.14,28.0 62.86,28.0 68.57,28.0 74.29,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 42.84
     },
     {
@@ -20611,7 +20565,7 @@
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -20630,7 +20584,7 @@
         "Vainilla"
       ],
       "store_rating": 5.0,
-      "store_rating_count": 10.0,
+      "store_rating_count": 12.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-black-series-700g",
       "protein_subtype": null,
       "slug_publico": "100-whey-hydro-isolate-black-series-700g-prozis",
@@ -20640,7 +20594,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.21 4.21,11.21 8.42,11.21 12.63,11.21 16.84,11.21 21.05,11.21 25.26,11.21 29.47,-0.0 33.68,-0.0 37.89,-0.0 42.11,11.21 46.32,11.21 50.53,11.21 54.74,11.21 58.95,11.21 63.16,28.0 67.37,28.0 71.58,28.0 75.79,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.21 4.0,11.21 8.0,11.21 12.0,11.21 16.0,11.21 20.0,11.21 24.0,11.21 28.0,-0.0 32.0,-0.0 36.0,-0.0 40.0,11.21 44.0,11.21 48.0,11.21 52.0,11.21 56.0,11.21 60.0,28.0 64.0,28.0 68.0,28.0 72.0,28.0 76.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 42.84
     },
     {
@@ -20662,7 +20616,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1780613_prozis_real-whey--hydro-collagen-400g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -20681,7 +20635,7 @@
         "Vainilla"
       ],
       "store_rating": 4.71,
-      "store_rating_count": 139.0,
+      "store_rating_count": 140.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/real-whey-hydro-collagen-400g",
       "protein_subtype": null,
       "slug_publico": "real-whey-hydro-collagen-400g-prozis",
@@ -20691,7 +20645,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 3.08,0.0 6.15,22.39 9.23,22.39 12.31,22.39 15.38,16.8 18.46,16.8 21.54,16.8 24.62,16.8 27.69,16.8 30.77,22.39 33.85,22.39 36.92,22.39 40.0,22.39 43.08,0.0 46.15,0.0 49.23,0.0 52.31,16.8 55.38,16.8 58.46,16.8 61.54,22.39 64.62,22.39 67.69,28.0 70.77,28.0 73.85,28.0 76.92,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 2.96,0.0 5.93,22.39 8.89,22.39 11.85,22.39 14.81,16.8 17.78,16.8 20.74,16.8 23.7,16.8 26.67,16.8 29.63,22.39 32.59,22.39 35.56,22.39 38.52,22.39 41.48,0.0 44.44,0.0 47.41,0.0 50.37,16.8 53.33,16.8 56.3,16.8 59.26,22.39 62.22,22.39 65.19,28.0 68.15,28.0 71.11,28.0 74.07,28.0 77.04,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 43.1
     },
     {
@@ -20815,7 +20769,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1817205_prozis_100-real-whey-protein-907g_unflavoured_flavor_21.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -20849,7 +20803,7 @@
         "Vainilla"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 76690.0,
+      "store_rating_count": 76700.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-907g",
       "protein_subtype": null,
       "slug_publico": "100-real-whey-protein-907g-prozis",
@@ -20859,7 +20813,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.19,28.0 2.39,22.7 3.58,18.16 4.78,18.16 5.97,18.16 7.16,18.16 8.36,18.16 9.55,18.16 10.75,18.16 11.94,6.05 13.13,6.05 14.33,6.05 15.52,6.05 16.72,6.05 17.91,6.05 19.1,1.52 20.3,1.52 21.49,1.52 22.69,1.52 23.88,1.52 25.07,1.52 26.27,1.52 27.46,1.52 28.66,1.52 29.85,0.0 31.04,0.0 32.24,0.0 33.43,0.0 34.63,0.0 35.82,0.0 37.01,0.0 38.21,0.0 39.4,0.0 40.6,0.0 41.79,0.0 42.99,0.0 44.18,7.58 45.37,7.58 46.57,7.58 47.76,0.0 48.96,0.0 50.15,0.0 51.34,0.0 52.54,0.0 53.73,0.0 54.93,7.58 56.12,7.58 57.31,7.58 58.51,7.58 59.7,7.58 60.9,7.58 62.09,7.58 63.28,7.58 64.48,7.58 65.67,0.0 66.87,0.0 68.06,0.0 69.25,7.58 70.45,7.58 71.64,7.58 72.84,7.58 74.03,7.58 75.22,15.14 76.42,15.14 77.61,15.14 78.81,15.14 80.0,15.14\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"15.14\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.18,28.0 2.35,22.7 3.53,18.16 4.71,18.16 5.88,18.16 7.06,18.16 8.24,18.16 9.41,18.16 10.59,18.16 11.76,6.05 12.94,6.05 14.12,6.05 15.29,6.05 16.47,6.05 17.65,6.05 18.82,1.52 20.0,1.52 21.18,1.52 22.35,1.52 23.53,1.52 24.71,1.52 25.88,1.52 27.06,1.52 28.24,1.52 29.41,0.0 30.59,0.0 31.76,0.0 32.94,0.0 34.12,0.0 35.29,0.0 36.47,0.0 37.65,0.0 38.82,0.0 40.0,0.0 41.18,0.0 42.35,0.0 43.53,7.58 44.71,7.58 45.88,7.58 47.06,0.0 48.24,0.0 49.41,0.0 50.59,0.0 51.76,0.0 52.94,0.0 54.12,7.58 55.29,7.58 56.47,7.58 57.65,7.58 58.82,7.58 60.0,7.58 61.18,7.58 62.35,7.58 63.53,7.58 64.71,0.0 65.88,0.0 67.06,0.0 68.24,7.58 69.41,7.58 70.59,7.58 71.76,7.58 72.94,7.58 74.12,15.14 75.29,15.14 76.47,15.14 77.65,15.14 78.82,15.14 80.0,15.14\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"15.14\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 34.72
     },
     {
@@ -20881,7 +20835,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1722166_prozis_100-real-whey-protein-1814g_cookies-and-cream_flavor_21.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -20915,7 +20869,7 @@
         "Vainilla"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 76690.0,
+      "store_rating_count": 76700.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-1814g",
       "protein_subtype": null,
       "slug_publico": "100-real-whey-protein-1814g-prozis",
@@ -20925,7 +20879,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.19,28.0 2.39,23.99 3.58,19.4 4.78,19.4 5.97,19.4 7.16,19.4 8.36,19.4 9.55,19.4 10.75,19.4 11.94,5.17 13.13,5.17 14.33,5.17 15.52,5.17 16.72,5.17 17.91,5.17 19.1,1.3 20.3,1.3 21.49,1.3 22.69,1.3 23.88,1.3 25.07,1.3 26.27,1.3 27.46,1.3 28.66,1.3 29.85,0.0 31.04,0.0 32.24,0.0 33.43,0.0 34.63,0.0 35.82,0.0 37.01,0.0 38.21,0.0 39.4,0.0 40.6,0.0 41.79,0.0 42.99,0.0 44.18,6.48 45.37,6.48 46.57,6.48 47.76,0.0 48.96,0.0 50.15,0.0 51.34,0.0 52.54,0.0 53.73,0.0 54.93,6.48 56.12,6.48 57.31,6.48 58.51,6.48 59.7,6.48 60.9,6.48 62.09,6.48 63.28,6.48 64.48,6.48 65.67,0.0 66.87,0.0 68.06,0.0 69.25,6.48 70.45,6.48 71.64,6.48 72.84,6.48 74.03,6.48 75.22,12.94 76.42,12.94 77.61,12.94 78.81,12.94 80.0,12.94\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"12.94\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.18,28.0 2.35,23.99 3.53,19.4 4.71,19.4 5.88,19.4 7.06,19.4 8.24,19.4 9.41,19.4 10.59,19.4 11.76,5.17 12.94,5.17 14.12,5.17 15.29,5.17 16.47,5.17 17.65,5.17 18.82,1.3 20.0,1.3 21.18,1.3 22.35,1.3 23.53,1.3 24.71,1.3 25.88,1.3 27.06,1.3 28.24,1.3 29.41,0.0 30.59,0.0 31.76,0.0 32.94,0.0 34.12,0.0 35.29,0.0 36.47,0.0 37.65,0.0 38.82,0.0 40.0,0.0 41.18,0.0 42.35,0.0 43.53,6.48 44.71,6.48 45.88,6.48 47.06,0.0 48.24,0.0 49.41,0.0 50.59,0.0 51.76,0.0 52.94,0.0 54.12,6.48 55.29,6.48 56.47,6.48 57.65,6.48 58.82,6.48 60.0,6.48 61.18,6.48 62.35,6.48 63.53,6.48 64.71,0.0 65.88,0.0 67.06,0.0 68.24,6.48 69.41,6.48 70.59,6.48 71.76,6.48 72.94,6.48 74.12,12.94 75.29,12.94 76.47,12.94 77.65,12.94 78.82,12.94 80.0,12.94\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"12.94\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 31.25
     },
     {
@@ -20975,6 +20929,52 @@
       "spark_min": 40.05
     },
     {
+      "id": "isolate-cfm-zero-1kg-vitobest",
+      "nombre_normalizado": "Isolate CFM Zero 1Kg",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Vitobest",
+      "peso_kg": 1.0,
+      "precio_por_kg_min": 44.81,
+      "precio_min": 44.81,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f8fc9533-c222-48b9-fc5b-5643a0e18d00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 44.81,
+          "url_afiliado": "https://www.nutritienda.com/es/vitobest/isolate-cfm-zero",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f8fc9533-c222-48b9-fc5b-5643a0e18d00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "aislada",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.9,
+      "store_rating_count": 7.0,
+      "store_rating_url": "https://www.nutritienda.com/es/vitobest/isolate-cfm-zero",
+      "protein_subtype": null,
+      "slug_publico": "isolate-cfm-zero-1kg-vitobest",
+      "slug_producto": "isolate-cfm-zero-vitobest",
+      "nombre_display": "Isolate CFM Zero 1 kg",
+      "subcategoria_proteina": "whey",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,27.08 3.81,24.19 7.62,24.19 11.43,24.19 15.24,24.19 19.05,28.0 22.86,26.11 26.67,24.19 30.48,24.19 34.29,0.0 38.1,24.19 41.9,24.19 45.71,0.0 49.52,24.19 53.33,24.19 57.14,24.19 60.95,0.0 64.76,0.0 68.57,0.0 72.38,0.0 76.19,24.19 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_min": 43.9
+    },
+    {
       "id": "natural-real-whey-protein-907g-desconocida",
       "nombre_normalizado": "Natural Real Whey Protein 907g",
       "categoria": "proteina-whey",
@@ -20993,7 +20993,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1722610_prozis_natural-real-whey-protein-907g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -21022,7 +21022,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.19,28.0 2.39,22.58 3.58,16.56 4.78,16.56 5.97,16.56 7.16,16.56 8.36,16.56 9.55,16.56 10.75,16.56 11.94,4.52 13.13,4.52 14.33,4.52 15.52,4.52 16.72,4.52 17.91,4.52 19.1,1.5 20.3,1.5 21.49,1.5 22.69,1.5 23.88,1.5 25.07,1.5 26.27,1.5 27.46,1.5 28.66,1.5 29.85,0.0 31.04,0.0 32.24,0.0 33.43,0.0 34.63,0.0 35.82,0.0 37.01,0.0 38.21,0.0 39.4,0.0 40.6,0.0 41.79,0.0 42.99,0.0 44.18,7.67 45.37,7.67 46.57,7.67 47.76,0.0 48.96,0.0 50.15,0.0 51.34,0.0 52.54,0.0 53.73,0.0 54.93,7.67 56.12,7.67 57.31,7.67 58.51,7.67 59.7,7.67 60.9,7.67 62.09,7.67 63.28,7.67 64.48,7.67 65.67,0.0 66.87,0.0 68.06,0.0 69.25,7.67 70.45,7.67 71.64,7.67 72.84,7.67 74.03,7.67 75.22,15.36 76.42,15.36 77.61,15.36 78.81,15.36 80.0,15.36\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"15.36\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.18,28.0 2.35,22.58 3.53,16.56 4.71,16.56 5.88,16.56 7.06,16.56 8.24,16.56 9.41,16.56 10.59,16.56 11.76,4.52 12.94,4.52 14.12,4.52 15.29,4.52 16.47,4.52 17.65,4.52 18.82,1.5 20.0,1.5 21.18,1.5 22.35,1.5 23.53,1.5 24.71,1.5 25.88,1.5 27.06,1.5 28.24,1.5 29.41,0.0 30.59,0.0 31.76,0.0 32.94,0.0 34.12,0.0 35.29,0.0 36.47,0.0 37.65,0.0 38.82,0.0 40.0,0.0 41.18,0.0 42.35,0.0 43.53,7.67 44.71,7.67 45.88,7.67 47.06,0.0 48.24,0.0 49.41,0.0 50.59,0.0 51.76,0.0 52.94,0.0 54.12,7.67 55.29,7.67 56.47,7.67 57.65,7.67 58.82,7.67 60.0,7.67 61.18,7.67 62.35,7.67 63.53,7.67 64.71,0.0 65.88,0.0 67.06,0.0 68.24,7.67 69.41,7.67 70.59,7.67 71.76,7.67 72.94,7.67 74.12,15.36 75.29,15.36 76.47,15.36 77.65,15.36 78.82,15.36 80.0,15.36\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"15.36\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 35.71
     },
     {
@@ -21044,7 +21044,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1722683_prozis_natural-real-whey-protein-1814g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -21073,7 +21073,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.19,28.0 2.39,23.96 3.58,19.48 4.78,19.48 5.97,19.48 7.16,18.91 8.36,18.91 9.55,18.91 10.75,18.91 11.94,3.79 13.13,3.79 14.33,3.79 15.52,3.79 16.72,3.79 17.91,3.79 19.1,1.26 20.3,1.26 21.49,1.26 22.69,1.26 23.88,1.26 25.07,1.26 26.27,1.26 27.46,1.26 28.66,1.26 29.85,0.0 31.04,0.0 32.24,0.0 33.43,0.0 34.63,0.0 35.82,0.0 37.01,0.0 38.21,0.0 39.4,0.0 40.6,0.0 41.79,0.0 42.99,0.0 44.18,6.43 45.37,6.43 46.57,6.43 47.76,0.0 48.96,0.0 50.15,0.0 51.34,0.0 52.54,0.0 53.73,0.0 54.93,6.43 56.12,6.43 57.31,6.43 58.51,6.43 59.7,6.43 60.9,6.43 62.09,6.43 63.28,6.43 64.48,6.43 65.67,0.0 66.87,0.0 68.06,0.0 69.25,6.43 70.45,6.43 71.64,6.43 72.84,6.43 74.03,6.43 75.22,12.87 76.42,12.87 77.61,12.87 78.81,12.87 80.0,12.87\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"12.87\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.18,28.0 2.35,23.96 3.53,19.48 4.71,19.48 5.88,19.48 7.06,18.91 8.24,18.91 9.41,18.91 10.59,18.91 11.76,3.79 12.94,3.79 14.12,3.79 15.29,3.79 16.47,3.79 17.65,3.79 18.82,1.26 20.0,1.26 21.18,1.26 22.35,1.26 23.53,1.26 24.71,1.26 25.88,1.26 27.06,1.26 28.24,1.26 29.41,0.0 30.59,0.0 31.76,0.0 32.94,0.0 34.12,0.0 35.29,0.0 36.47,0.0 37.65,0.0 38.82,0.0 40.0,0.0 41.18,0.0 42.35,0.0 43.53,6.43 44.71,6.43 45.88,6.43 47.06,0.0 48.24,0.0 49.41,0.0 50.59,0.0 51.76,0.0 52.94,0.0 54.12,6.43 55.29,6.43 56.47,6.43 57.65,6.43 58.82,6.43 60.0,6.43 61.18,6.43 62.35,6.43 63.53,6.43 64.71,0.0 65.88,0.0 67.06,0.0 68.24,6.43 69.41,6.43 70.59,6.43 71.76,6.43 72.94,6.43 74.12,12.87 75.29,12.87 76.47,12.87 77.65,12.87 78.82,12.87 80.0,12.87\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"12.87\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 31.75
     },
     {
@@ -21095,7 +21095,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1760519_prozis_zero-diet-whey-1500-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -21115,7 +21115,7 @@
         "Vainilla"
       ],
       "store_rating": 4.71,
-      "store_rating_count": 2261.0,
+      "store_rating_count": 2262.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-diet-whey-1500-g",
       "protein_subtype": null,
       "slug_publico": "zero-diet-whey-1500g-prozis",
@@ -21125,7 +21125,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.01 3.81,14.01 7.62,14.01 11.43,14.01 15.24,14.01 19.05,14.01 22.86,14.01 26.67,14.01 30.48,14.01 34.29,0.0 38.1,0.0 41.9,0.0 45.71,14.01 49.52,14.01 53.33,14.01 57.14,14.01 60.95,14.01 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.01 3.64,14.01 7.27,14.01 10.91,14.01 14.55,14.01 18.18,14.01 21.82,14.01 25.45,14.01 29.09,14.01 32.73,0.0 36.36,0.0 40.0,0.0 43.64,14.01 47.27,14.01 50.91,14.01 54.55,14.01 58.18,14.01 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 45.33
     },
     {
@@ -21147,7 +21147,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1367964_prozis_whey-protein-freakin-good-400-g_bonbon_flavor_21.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -21164,7 +21164,7 @@
         "Brownie de chocolate"
       ],
       "store_rating": 4.63,
-      "store_rating_count": 2970.0,
+      "store_rating_count": 2971.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/whey-protein-freakin-good-400-g",
       "protein_subtype": null,
       "slug_publico": "whey-protein-freakin-good-400g-prozis",
@@ -21174,7 +21174,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.81,13.99 7.62,13.99 11.43,13.99 15.24,13.99 19.05,13.99 22.86,13.99 26.67,13.99 30.48,13.99 34.29,0.0 38.1,0.0 41.9,0.0 45.71,13.99 49.52,13.99 53.33,13.99 57.14,13.99 60.95,13.99 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.64,13.99 7.27,13.99 10.91,13.99 14.55,13.99 18.18,13.99 21.82,13.99 25.45,13.99 29.09,13.99 32.73,0.0 36.36,0.0 40.0,0.0 43.64,13.99 47.27,13.99 50.91,13.99 54.55,13.99 58.18,13.99 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 45.98
     },
     {
@@ -21196,7 +21196,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1847919_prozis_whey-hydro-isolate-pro-black-series-700g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -21215,7 +21215,7 @@
         "Vainilla"
       ],
       "store_rating": 5.0,
-      "store_rating_count": 5.0,
+      "store_rating_count": 6.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/whey-hydro-isolate-pro-black-series-700g",
       "protein_subtype": null,
       "slug_publico": "whey-hydro-isolate-pro-black-series-700g-prozis",
@@ -21225,7 +21225,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.2 6.15,0.0 12.31,0.0 18.46,0.0 24.62,11.2 30.77,11.2 36.92,11.2 43.08,11.2 49.23,11.2 55.38,28.0 61.54,28.0 67.69,28.0 73.85,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.2 5.71,0.0 11.43,0.0 17.14,0.0 22.86,11.2 28.57,11.2 34.29,11.2 40.0,11.2 45.71,11.2 51.43,28.0 57.14,28.0 62.86,28.0 68.57,28.0 74.29,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 46.06
     },
     {
@@ -21378,7 +21378,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1815217_prozis_supreme-whey-protein-400g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -21402,8 +21402,8 @@
         "Tarta de Plátano y Toffee",
         "Vainilla francesa"
       ],
-      "store_rating": 4.78,
-      "store_rating_count": 503.0,
+      "store_rating": 4.79,
+      "store_rating_count": 523.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/supreme-whey-protein-400g",
       "protein_subtype": null,
       "slug_publico": "supreme-whey-protein-400g-prozis",
@@ -21413,7 +21413,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,4.48 2.22,0.0 4.44,0.0 6.67,0.0 8.89,0.0 11.11,0.0 13.33,16.8 15.56,16.8 17.78,16.8 20.0,0.0 22.22,0.0 24.44,0.0 26.67,0.0 28.89,0.0 31.11,0.0 33.33,16.8 35.56,16.8 37.78,16.8 40.0,16.8 42.22,16.8 44.44,22.41 46.67,22.41 48.89,22.41 51.11,22.41 53.33,0.0 55.56,0.0 57.78,0.0 60.0,16.8 62.22,16.8 64.44,16.8 66.67,22.41 68.89,22.41 71.11,28.0 73.33,28.0 75.56,28.0 77.78,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,4.48 2.16,0.0 4.32,0.0 6.49,0.0 8.65,0.0 10.81,0.0 12.97,16.8 15.14,16.8 17.3,16.8 19.46,0.0 21.62,0.0 23.78,0.0 25.95,0.0 28.11,0.0 30.27,0.0 32.43,16.8 34.59,16.8 36.76,16.8 38.92,16.8 41.08,16.8 43.24,22.41 45.41,22.41 47.57,22.41 49.73,22.41 51.89,0.0 54.05,0.0 56.22,0.0 58.38,16.8 60.54,16.8 62.7,16.8 64.86,22.41 67.03,22.41 69.19,28.0 71.35,28.0 73.51,28.0 75.68,28.0 77.84,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 46.85
     },
     {
@@ -21530,7 +21530,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1853303_prozis_whey-hydro-isolate-clear-black-series-700g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -21558,7 +21558,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.2 6.15,0.0 12.31,0.0 18.46,0.0 24.62,11.2 30.77,11.2 36.92,11.2 43.08,11.2 49.23,11.2 55.38,28.0 61.54,28.0 67.69,28.0 73.85,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.2 5.71,0.0 11.43,0.0 17.14,0.0 22.86,11.2 28.57,11.2 34.29,11.2 40.0,11.2 45.71,11.2 51.43,28.0 57.14,28.0 62.86,28.0 68.57,28.0 74.29,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 48.2
     },
     {
@@ -21939,16 +21939,16 @@
       "precio_por_kg_min": 49.97,
       "precio_min": 19.99,
       "tienda_mas_barata": "Prozis",
-      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1816734_prozis_100-real-whey-protein-400g_extreme-milk-chocolate_flavor_21.png",
+      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1816710_prozis_100-real-whey-protein-400g_1.png",
       "precios": [
         {
           "tienda": "Prozis",
           "precio_eur": 19.99,
           "url_afiliado": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-400-g",
-          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1816734_prozis_100-real-whey-protein-400g_extreme-milk-chocolate_flavor_21.png",
+          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1816710_prozis_100-real-whey-protein-400g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -21982,7 +21982,7 @@
         "Vainilla"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 36245.0,
+      "store_rating_count": 36248.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-real-whey-protein-400-g",
       "protein_subtype": null,
       "slug_publico": "100-real-whey-protein-400g-prozis",
@@ -21992,7 +21992,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.81,14.0 7.62,14.0 11.43,14.0 15.24,14.0 19.05,14.0 22.86,14.0 26.67,14.0 30.48,14.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,14.0 49.52,14.0 53.33,14.0 57.14,14.0 60.95,14.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.64,14.0 7.27,14.0 10.91,14.0 14.55,14.0 18.18,14.0 21.82,14.0 25.45,14.0 29.09,14.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,14.0 47.27,14.0 50.91,14.0 54.55,14.0 58.18,14.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 49.97
     },
     {
@@ -22014,7 +22014,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1753536_prozis_zero-diet-whey-750g_cookies-and-cream_flavor_21.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -22034,7 +22034,7 @@
         "Vainilla"
       ],
       "store_rating": 4.67,
-      "store_rating_count": 6206.0,
+      "store_rating_count": 6207.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/zero-diet-whey-750-g",
       "protein_subtype": null,
       "slug_publico": "zero-diet-whey-750g-prozis",
@@ -22044,100 +22044,8 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.19 3.81,11.19 7.62,11.19 11.43,11.19 15.24,11.19 19.05,11.19 22.86,11.19 26.67,11.19 30.48,11.19 34.29,0.0 38.1,0.0 41.9,0.0 45.71,11.19 49.52,11.19 53.33,11.19 57.14,11.19 60.95,11.19 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,11.19 3.64,11.19 7.27,11.19 10.91,11.19 14.55,11.19 18.18,11.19 21.82,11.19 25.45,11.19 29.09,11.19 32.73,0.0 36.36,0.0 40.0,0.0 43.64,11.19 47.27,11.19 50.91,11.19 54.55,11.19 58.18,11.19 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 49.99
-    },
-    {
-      "id": "isolate-cfm-zero-1kg-vitobest",
-      "nombre_normalizado": "Isolate CFM Zero 1Kg",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Vitobest",
-      "peso_kg": 1.0,
-      "precio_por_kg_min": 50.58,
-      "precio_min": 50.58,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f8fc9533-c222-48b9-fc5b-5643a0e18d00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 50.58,
-          "url_afiliado": "https://www.nutritienda.com/es/vitobest/isolate-cfm-zero",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f8fc9533-c222-48b9-fc5b-5643a0e18d00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-09",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": "aislada",
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.9,
-      "store_rating_count": 7.0,
-      "store_rating_url": "https://www.nutritienda.com/es/vitobest/isolate-cfm-zero",
-      "protein_subtype": null,
-      "slug_publico": "isolate-cfm-zero-1kg-vitobest",
-      "slug_producto": "isolate-cfm-zero-vitobest",
-      "nombre_display": "Isolate CFM Zero 1 kg",
-      "subcategoria_proteina": "whey",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,27.08 3.81,24.19 7.62,24.19 11.43,24.19 15.24,24.19 19.05,28.0 22.86,26.11 26.67,24.19 30.48,24.19 34.29,0.0 38.1,24.19 41.9,24.19 45.71,0.0 49.52,24.19 53.33,24.19 57.14,24.19 60.95,0.0 64.76,0.0 68.57,0.0 72.38,0.0 76.19,24.19 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 43.9
-    },
-    {
-      "id": "panacea-750g-paleobull",
-      "nombre_normalizado": "Panacea 750g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Paleobull",
-      "peso_kg": 0.75,
-      "precio_por_kg_min": 50.6,
-      "precio_min": 37.95,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f74236da-01d5-4888-2122-5ba18e0da000/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 37.95,
-          "url_afiliado": "https://www.nutritienda.com/es/paleobull/panacea",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f74236da-01d5-4888-2122-5ba18e0da000/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-09",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": "whey",
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.9,
-      "store_rating_count": 180.0,
-      "store_rating_url": "https://www.nutritienda.com/es/paleobull/panacea",
-      "protein_subtype": null,
-      "slug_publico": "panacea-750g-paleobull",
-      "slug_producto": "panacea-paleobull",
-      "nombre_display": "Panacea 750 g",
-      "subcategoria_proteina": "whey",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,4.25 2.58,4.25 5.16,3.67 7.74,0.0 10.32,0.0 12.9,0.0 15.48,0.0 18.06,0.0 20.65,0.0 23.23,0.0 25.81,0.0 28.39,28.0 30.97,0.0 33.55,0.0 36.13,0.0 38.71,0.0 41.29,0.0 43.87,0.0 46.45,0.0 49.03,0.0 51.61,0.0 54.19,0.0 56.77,0.0 59.35,0.0 61.94,0.0 64.52,0.0 67.1,0.0 69.68,0.0 72.26,0.0 74.84,0.0 77.42,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 26.6
     },
     {
       "id": "isopro-t-1000g-infisport",
@@ -22296,7 +22204,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1850604_prozis_100-whey-prime--creatine-400g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -22324,7 +22232,7 @@
         "Vainilla"
       ],
       "store_rating": 4.56,
-      "store_rating_count": 47969.0,
+      "store_rating_count": 47974.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-prime-creatine-400-g",
       "protein_subtype": null,
       "slug_publico": "100-whey-prime-creatine-400g-prozis",
@@ -22334,7 +22242,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 3.33,14.0 6.67,14.0 10.0,14.0 13.33,14.0 16.67,14.0 20.0,14.0 23.33,14.0 26.67,14.0 30.0,14.0 33.33,14.0 36.67,14.0 40.0,0.0 43.33,0.0 46.67,0.0 50.0,14.0 53.33,14.0 56.67,14.0 60.0,14.0 63.33,14.0 66.67,28.0 70.0,28.0 73.33,28.0 76.67,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 3.2,14.0 6.4,14.0 9.6,14.0 12.8,14.0 16.0,14.0 19.2,14.0 22.4,14.0 25.6,14.0 28.8,14.0 32.0,14.0 35.2,14.0 38.4,0.0 41.6,0.0 44.8,0.0 48.0,14.0 51.2,14.0 54.4,14.0 57.6,14.0 60.8,14.0 64.0,28.0 67.2,28.0 70.4,28.0 73.6,28.0 76.8,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 53.97
     },
     {
@@ -22485,22 +22393,22 @@
       "spark_min": 49.68
     },
     {
-      "id": "whey-protein-sabor-neutro-500g-quamtrax",
-      "nombre_normalizado": "Whey Protein Sabor Neutro 500g",
+      "id": "latte-de-caramelo-proteico-400g-desconocida",
+      "nombre_normalizado": "Latte de Caramelo Proteico 400g",
       "categoria": "proteina-whey",
       "categoria_display": "Proteína Whey",
-      "marca": "Quamtrax",
-      "peso_kg": 0.5,
-      "precio_por_kg_min": 55.8,
-      "precio_min": 27.9,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/5c943c43-b13e-4f78-cbbe-e0af409b8400/public",
+      "marca": "Prozis",
+      "peso_kg": 0.4,
+      "precio_por_kg_min": 55.98,
+      "precio_min": 22.39,
+      "tienda_mas_barata": "Prozis",
+      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244415_prozis_protein-caramel-latte-400-g_1.png",
       "precios": [
         {
-          "tienda": "Nutritienda",
-          "precio_eur": 27.9,
-          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/whey-protein-sabor-neutro-500g",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/5c943c43-b13e-4f78-cbbe-e0af409b8400/public",
+          "tienda": "Prozis",
+          "precio_eur": 22.39,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-400-g",
+          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244415_prozis_protein-caramel-latte-400-g_1.png",
           "en_oferta": false,
           "precio_original": null,
           "fecha": "2026-11-09",
@@ -22516,19 +22424,19 @@
       "sweetener_free": null,
       "vegan": null,
       "flavors_available": [],
-      "store_rating": null,
-      "store_rating_count": null,
-      "store_rating_url": null,
+      "store_rating": 4.62,
+      "store_rating_count": 1268.0,
+      "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-400-g",
       "protein_subtype": null,
-      "slug_publico": "whey-protein-sabor-neutro-500g-quamtrax",
-      "slug_producto": "whey-protein-sabor-neutro-quamtrax",
-      "nombre_display": "Whey Protein Sabor Neutro 500 g",
-      "subcategoria_proteina": "whey",
+      "slug_publico": "latte-de-caramelo-proteico-400g-prozis",
+      "slug_producto": "latte-de-caramelo-proteico-prozis",
+      "nombre_display": "Latte de Caramelo Proteico 400 g",
+      "subcategoria_proteina": "otra",
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.48,28.0 6.96,28.0 10.43,28.0 13.91,28.0 17.39,28.0 20.87,28.0 24.35,28.0 27.83,28.0 31.3,28.0 34.78,28.0 38.26,28.0 41.74,28.0 45.22,28.0 48.7,28.0 52.17,28.0 55.65,28.0 59.13,28.0 62.61,28.0 66.09,0.0 69.57,0.0 73.04,0.0 76.52,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
-      "spark_min": 41.0
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.64,13.99 7.27,13.99 10.91,13.99 14.55,13.99 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,21.02 47.27,21.02 50.91,21.02 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 55.98
     },
     {
       "id": "capuchino-proteico-400g-desconocida",
@@ -22549,7 +22457,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244506_prozis_protein-cappuccino-400-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -22573,99 +22481,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.81,13.99 7.62,13.99 11.43,13.99 15.24,13.99 19.05,28.0 22.86,28.0 26.67,28.0 30.48,28.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,21.02 49.52,21.02 53.33,21.02 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 55.98
-    },
-    {
-      "id": "latte-de-caramelo-proteico-400g-desconocida",
-      "nombre_normalizado": "Latte de Caramelo Proteico 400g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Prozis",
-      "peso_kg": 0.4,
-      "precio_por_kg_min": 55.98,
-      "precio_min": 22.39,
-      "tienda_mas_barata": "Prozis",
-      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244415_prozis_protein-caramel-latte-400-g_1.png",
-      "precios": [
-        {
-          "tienda": "Prozis",
-          "precio_eur": 22.39,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-400-g",
-          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244415_prozis_protein-caramel-latte-400-g_1.png",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-07",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": "whey",
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.62,
-      "store_rating_count": 1267.0,
-      "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-400-g",
-      "protein_subtype": null,
-      "slug_publico": "latte-de-caramelo-proteico-400g-prozis",
-      "slug_producto": "latte-de-caramelo-proteico-prozis",
-      "nombre_display": "Latte de Caramelo Proteico 400 g",
-      "subcategoria_proteina": "otra",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.81,13.99 7.62,13.99 11.43,13.99 15.24,13.99 19.05,28.0 22.86,28.0 26.67,28.0 30.48,28.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,21.02 49.52,21.02 53.33,21.02 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 55.98
-    },
-    {
-      "id": "latte-de-caramelo-proteico-con-cafeina-extra-400g-desconocida",
-      "nombre_normalizado": "Latte de Caramelo Proteico - Con Cafeína Extra 400g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Prozis",
-      "peso_kg": 0.4,
-      "precio_por_kg_min": 55.98,
-      "precio_min": 22.39,
-      "tienda_mas_barata": "Prozis",
-      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244428_prozis_protein-caramel-latte-extra-caffeine-400-g_1.png",
-      "precios": [
-        {
-          "tienda": "Prozis",
-          "precio_eur": 22.39,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-con-cafeina-extra-400-g",
-          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244428_prozis_protein-caramel-latte-extra-caffeine-400-g_1.png",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-07",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": "whey",
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.53,
-      "store_rating_count": 1183.0,
-      "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-con-cafeina-extra-400-g",
-      "protein_subtype": null,
-      "slug_publico": "latte-de-caramelo-proteico-con-cafeina-extra-400g-prozis",
-      "slug_producto": "latte-de-caramelo-proteico-con-cafeina-extra-prozis",
-      "nombre_display": "Latte de Caramelo Proteico - Con Cafeína Extra 400 g",
-      "subcategoria_proteina": "otra",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.81,28.0 7.62,28.0 11.43,28.0 15.24,28.0 19.05,28.0 22.86,28.0 26.67,28.0 30.48,28.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,21.02 49.52,21.02 53.33,21.02 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.64,13.99 7.27,13.99 10.91,13.99 14.55,13.99 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,21.02 47.27,21.02 50.91,21.02 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 55.98
     },
     {
@@ -22687,7 +22503,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244493_prozis_protein-cappuccino-extra-caffeine-400-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -22711,7 +22527,53 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.81,28.0 7.62,28.0 11.43,28.0 15.24,28.0 19.05,28.0 22.86,28.0 26.67,28.0 30.48,28.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,21.02 49.52,21.02 53.33,21.02 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.64,28.0 7.27,28.0 10.91,28.0 14.55,28.0 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,21.02 47.27,21.02 50.91,21.02 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 55.98
+    },
+    {
+      "id": "latte-de-caramelo-proteico-con-cafeina-extra-400g-desconocida",
+      "nombre_normalizado": "Latte de Caramelo Proteico - Con Cafeína Extra 400g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Prozis",
+      "peso_kg": 0.4,
+      "precio_por_kg_min": 55.98,
+      "precio_min": 22.39,
+      "tienda_mas_barata": "Prozis",
+      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244428_prozis_protein-caramel-latte-extra-caffeine-400-g_1.png",
+      "precios": [
+        {
+          "tienda": "Prozis",
+          "precio_eur": 22.39,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-con-cafeina-extra-400-g",
+          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244428_prozis_protein-caramel-latte-extra-caffeine-400-g_1.png",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "whey",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.53,
+      "store_rating_count": 1183.0,
+      "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-de-caramelo-proteico-con-cafeina-extra-400-g",
+      "protein_subtype": null,
+      "slug_publico": "latte-de-caramelo-proteico-con-cafeina-extra-400g-prozis",
+      "slug_producto": "latte-de-caramelo-proteico-con-cafeina-extra-prozis",
+      "nombre_display": "Latte de Caramelo Proteico - Con Cafeína Extra 400 g",
+      "subcategoria_proteina": "otra",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.64,28.0 7.27,28.0 10.91,28.0 14.55,28.0 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,21.02 47.27,21.02 50.91,21.02 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 55.98
     },
     {
@@ -22733,7 +22595,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244402_prozis_protein-hazelnut-latte-400-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -22757,7 +22619,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,21.02 3.81,21.02 7.62,21.02 11.43,21.02 15.24,21.02 19.05,28.0 22.86,28.0 26.67,28.0 30.48,28.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,21.02 49.52,21.02 53.33,21.02 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,21.02 3.64,21.02 7.27,21.02 10.91,21.02 14.55,21.02 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,21.02 47.27,21.02 50.91,21.02 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 55.98
     },
     {
@@ -22779,7 +22641,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244389_prozis_protein-hazelnut-latte-extra-caffeine-400-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -22803,7 +22665,53 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.81,13.99 7.62,13.99 11.43,13.99 15.24,13.99 19.05,28.0 22.86,28.0 26.67,28.0 30.48,28.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,21.02 49.52,21.02 53.33,21.02 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.64,13.99 7.27,13.99 10.91,13.99 14.55,13.99 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,21.02 47.27,21.02 50.91,21.02 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 55.98
+    },
+    {
+      "id": "mocachino-proteico-con-cafeina-extra-400g-desconocida",
+      "nombre_normalizado": "Mocachino Proteico - Con Cafeína Extra 400g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Prozis",
+      "peso_kg": 0.4,
+      "precio_por_kg_min": 55.98,
+      "precio_min": 22.39,
+      "tienda_mas_barata": "Prozis",
+      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244519_prozis_protein-mochaccino-extra-caffeine-400-g_1.png",
+      "precios": [
+        {
+          "tienda": "Prozis",
+          "precio_eur": 22.39,
+          "url_afiliado": "https://www.prozis.com/es/es/prozis/mocachino-proteico-con-cafeina-extra-400-g",
+          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244519_prozis_protein-mochaccino-extra-caffeine-400-g_1.png",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "whey",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.58,
+      "store_rating_count": 601.0,
+      "store_rating_url": "https://www.prozis.com/es/es/prozis/mocachino-proteico-con-cafeina-extra-400-g",
+      "protein_subtype": null,
+      "slug_publico": "mocachino-proteico-con-cafeina-extra-400g-prozis",
+      "slug_producto": "mocachino-proteico-con-cafeina-extra-prozis",
+      "nombre_display": "Mocachino Proteico - Con Cafeína Extra 400 g",
+      "subcategoria_proteina": "otra",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.64,13.99 7.27,13.99 10.91,13.99 14.55,13.99 18.18,13.99 21.82,13.99 25.45,13.99 29.09,13.99 32.73,0.0 36.36,0.0 40.0,0.0 43.64,13.99 47.27,13.99 50.91,13.99 54.55,13.99 58.18,13.99 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 55.98
     },
     {
@@ -22825,7 +22733,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244532_prozis_protein-mochaccino-400-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -22849,53 +22757,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.81,28.0 7.62,28.0 11.43,28.0 15.24,28.0 19.05,28.0 22.86,28.0 26.67,28.0 30.48,28.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,21.02 49.52,21.02 53.33,21.02 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 55.98
-    },
-    {
-      "id": "mocachino-proteico-con-cafeina-extra-400g-desconocida",
-      "nombre_normalizado": "Mocachino Proteico - Con Cafeína Extra 400g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Prozis",
-      "peso_kg": 0.4,
-      "precio_por_kg_min": 55.98,
-      "precio_min": 22.39,
-      "tienda_mas_barata": "Prozis",
-      "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244519_prozis_protein-mochaccino-extra-caffeine-400-g_1.png",
-      "precios": [
-        {
-          "tienda": "Prozis",
-          "precio_eur": 22.39,
-          "url_afiliado": "https://www.prozis.com/es/es/prozis/mocachino-proteico-con-cafeina-extra-400-g",
-          "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244519_prozis_protein-mochaccino-extra-caffeine-400-g_1.png",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-07",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": "whey",
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.58,
-      "store_rating_count": 600.0,
-      "store_rating_url": "https://www.prozis.com/es/es/prozis/mocachino-proteico-con-cafeina-extra-400-g",
-      "protein_subtype": null,
-      "slug_publico": "mocachino-proteico-con-cafeina-extra-400g-prozis",
-      "slug_producto": "mocachino-proteico-con-cafeina-extra-prozis",
-      "nombre_display": "Mocachino Proteico - Con Cafeína Extra 400 g",
-      "subcategoria_proteina": "otra",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,13.99 3.81,13.99 7.62,13.99 11.43,13.99 15.24,13.99 19.05,13.99 22.86,13.99 26.67,13.99 30.48,13.99 34.29,0.0 38.1,0.0 41.9,0.0 45.71,13.99 49.52,13.99 53.33,13.99 57.14,13.99 60.95,13.99 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.64,28.0 7.27,28.0 10.91,28.0 14.55,28.0 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,21.02 47.27,21.02 50.91,21.02 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 55.98
     },
     {
@@ -22917,7 +22779,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1244480_prozis_protein-latte-400-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -22931,7 +22793,7 @@
       "vegan": null,
       "flavors_available": [],
       "store_rating": 4.56,
-      "store_rating_count": 230.0,
+      "store_rating_count": 231.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/latte-proteico-400-g",
       "protein_subtype": null,
       "slug_publico": "latte-proteico-400g-prozis",
@@ -22941,7 +22803,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.81,28.0 7.62,28.0 11.43,28.0 15.24,28.0 19.05,28.0 22.86,28.0 26.67,28.0 30.48,28.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,21.02 49.52,21.02 53.33,21.02 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.64,28.0 7.27,28.0 10.91,28.0 14.55,28.0 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,21.02 47.27,21.02 50.91,21.02 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 55.98
     },
     {
@@ -23086,6 +22948,52 @@
       "spark_min": 57.65
     },
     {
+      "id": "panacea-750g-paleobull",
+      "nombre_normalizado": "Panacea 750g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Paleobull",
+      "peso_kg": 0.75,
+      "precio_por_kg_min": 59.93,
+      "precio_min": 44.95,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f74236da-01d5-4888-2122-5ba18e0da000/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 44.95,
+          "url_afiliado": "https://www.nutritienda.com/es/paleobull/panacea",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f74236da-01d5-4888-2122-5ba18e0da000/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "whey",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.9,
+      "store_rating_count": 180.0,
+      "store_rating_url": "https://www.nutritienda.com/es/paleobull/panacea",
+      "protein_subtype": null,
+      "slug_publico": "panacea-750g-paleobull",
+      "slug_producto": "panacea-paleobull",
+      "nombre_display": "Panacea 750 g",
+      "subcategoria_proteina": "whey",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,4.25 2.58,4.25 5.16,3.67 7.74,0.0 10.32,0.0 12.9,0.0 15.48,0.0 18.06,0.0 20.65,0.0 23.23,0.0 25.81,0.0 28.39,28.0 30.97,0.0 33.55,0.0 36.13,0.0 38.71,0.0 41.29,0.0 43.87,0.0 46.45,0.0 49.03,0.0 51.61,0.0 54.19,0.0 56.77,0.0 59.35,0.0 61.94,0.0 64.52,0.0 67.1,0.0 69.68,0.0 72.26,0.0 74.84,0.0 77.42,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_min": 26.6
+    },
+    {
       "id": "100-whey-isolate-700g-quamtrax",
       "nombre_normalizado": "100% Whey Isolate 700g",
       "categoria": "proteina-whey",
@@ -23196,7 +23104,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1723044_prozis_natural-real-whey-isolate-907g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -23214,7 +23122,7 @@
         "Vainilla"
       ],
       "store_rating": 4.61,
-      "store_rating_count": 2463.0,
+      "store_rating_count": 2465.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-907g",
       "protein_subtype": null,
       "slug_publico": "natural-real-whey-isolate-907g-prozis",
@@ -23224,7 +23132,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.19,28.0 2.39,22.61 3.58,17.23 4.78,17.23 5.97,17.23 7.16,17.23 8.36,17.23 9.55,17.23 10.75,17.23 11.94,0.0 13.13,0.0 14.33,0.0 15.52,0.0 16.72,0.0 17.91,0.0 19.1,0.0 20.3,0.0 21.49,0.0 22.69,0.0 23.88,0.0 25.07,0.0 26.27,0.0 27.46,0.0 28.66,0.0 29.85,0.0 31.04,0.0 32.24,0.0 33.43,0.0 34.63,0.0 35.82,0.0 37.01,0.0 38.21,0.0 39.4,0.0 40.6,0.0 41.79,0.0 42.99,0.0 44.18,7.65 45.37,7.65 46.57,7.65 47.76,0.0 48.96,0.0 50.15,0.0 51.34,0.0 52.54,0.0 53.73,0.0 54.93,7.65 56.12,7.65 57.31,7.65 58.51,7.65 59.7,7.65 60.9,7.65 62.09,7.65 63.28,7.65 64.48,7.65 65.67,0.0 66.87,0.0 68.06,0.0 69.25,7.65 70.45,7.65 71.64,7.65 72.84,7.65 74.03,7.65 75.22,15.29 76.42,15.29 77.61,15.29 78.81,15.29 80.0,15.29\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"15.29\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.18,28.0 2.35,22.61 3.53,17.23 4.71,17.23 5.88,17.23 7.06,17.23 8.24,17.23 9.41,17.23 10.59,17.23 11.76,0.0 12.94,0.0 14.12,0.0 15.29,0.0 16.47,0.0 17.65,0.0 18.82,0.0 20.0,0.0 21.18,0.0 22.35,0.0 23.53,0.0 24.71,0.0 25.88,0.0 27.06,0.0 28.24,0.0 29.41,0.0 30.59,0.0 31.76,0.0 32.94,0.0 34.12,0.0 35.29,0.0 36.47,0.0 37.65,0.0 38.82,0.0 40.0,0.0 41.18,0.0 42.35,0.0 43.53,7.65 44.71,7.65 45.88,7.65 47.06,0.0 48.24,0.0 49.41,0.0 50.59,0.0 51.76,0.0 52.94,0.0 54.12,7.65 55.29,7.65 56.47,7.65 57.65,7.65 58.82,7.65 60.0,7.65 61.18,7.65 62.35,7.65 63.53,7.65 64.71,0.0 65.88,0.0 67.06,0.0 68.24,7.65 69.41,7.65 70.59,7.65 71.76,7.65 72.94,7.65 74.12,15.29 75.29,15.29 76.47,15.29 77.65,15.29 78.82,15.29 80.0,15.29\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"15.29\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 49.6
     },
     {
@@ -23246,7 +23154,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1723086_prozis_natural-real-whey-isolate-1814-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -23264,7 +23172,7 @@
         "Vainilla"
       ],
       "store_rating": 4.61,
-      "store_rating_count": 2463.0,
+      "store_rating_count": 2465.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/natural-real-whey-isolate-1814-g",
       "protein_subtype": null,
       "slug_publico": "natural-real-whey-isolate-1814g-prozis",
@@ -23274,7 +23182,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.81,14.0 7.62,14.0 11.43,14.0 15.24,14.0 19.05,14.0 22.86,14.0 26.67,14.0 30.48,14.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,14.0 49.52,14.0 53.33,14.0 57.14,14.0 60.95,14.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.64,14.0 7.27,14.0 10.91,14.0 14.55,14.0 18.18,14.0 21.82,14.0 25.45,14.0 29.09,14.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,14.0 47.27,14.0 50.91,14.0 54.55,14.0 58.18,14.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 62.61
     },
     {
@@ -23296,7 +23204,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1835243_prozis_100-whey-hydro-isolate-clear-700g_orange_flavor_21.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -23316,7 +23224,7 @@
         "Sandía"
       ],
       "store_rating": 4.67,
-      "store_rating_count": 381.0,
+      "store_rating_count": 384.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-hydro-isolate-clear-700g",
       "protein_subtype": null,
       "slug_publico": "100-whey-hydro-isolate-clear-700g-prozis",
@@ -23326,7 +23234,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.19,28.0 2.39,21.16 3.58,14.66 4.78,14.66 5.97,14.66 7.16,14.66 8.36,14.66 9.55,14.66 10.75,14.66 11.94,0.0 13.13,0.0 14.33,0.0 15.52,0.0 16.72,0.0 17.91,0.0 19.1,0.0 20.3,0.0 21.49,0.0 22.69,0.0 23.88,0.0 25.07,0.0 26.27,0.0 27.46,0.0 28.66,0.0 29.85,0.0 31.04,0.0 32.24,0.0 33.43,0.0 34.63,0.0 35.82,0.0 37.01,0.0 38.21,0.0 39.4,0.0 40.6,0.0 41.79,0.0 42.99,0.0 44.18,8.96 45.37,8.96 46.57,8.96 47.76,0.0 48.96,0.0 50.15,0.0 51.34,0.0 52.54,0.0 53.73,0.0 54.93,8.96 56.12,8.96 57.31,8.96 58.51,8.96 59.7,8.96 60.9,8.96 62.09,8.96 63.28,8.96 64.48,8.96 65.67,0.0 66.87,0.0 68.06,0.0 69.25,8.96 70.45,8.96 71.64,8.96 72.84,8.96 74.03,8.96 75.22,17.91 76.42,17.91 77.61,17.91 78.81,17.91 80.0,17.91\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"17.91\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 1.18,28.0 2.35,21.16 3.53,14.66 4.71,14.66 5.88,14.66 7.06,14.66 8.24,14.66 9.41,14.66 10.59,14.66 11.76,0.0 12.94,0.0 14.12,0.0 15.29,0.0 16.47,0.0 17.65,0.0 18.82,0.0 20.0,0.0 21.18,0.0 22.35,0.0 23.53,0.0 24.71,0.0 25.88,0.0 27.06,0.0 28.24,0.0 29.41,0.0 30.59,0.0 31.76,0.0 32.94,0.0 34.12,0.0 35.29,0.0 36.47,0.0 37.65,0.0 38.82,0.0 40.0,0.0 41.18,0.0 42.35,0.0 43.53,8.96 44.71,8.96 45.88,8.96 47.06,0.0 48.24,0.0 49.41,0.0 50.59,0.0 51.76,0.0 52.94,0.0 54.12,8.96 55.29,8.96 56.47,8.96 57.65,8.96 58.82,8.96 60.0,8.96 61.18,8.96 62.35,8.96 63.53,8.96 64.71,0.0 65.88,0.0 67.06,0.0 68.24,8.96 69.41,8.96 70.59,8.96 71.76,8.96 72.94,8.96 74.12,17.91 75.29,17.91 76.47,17.91 77.65,17.91 78.82,17.91 80.0,17.91\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"17.91\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 53.99
     },
     {
@@ -23572,52 +23480,6 @@
       "coste_mes": null,
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 2.86,28.0 5.71,28.0 8.57,28.0 11.43,28.0 14.29,28.0 17.14,28.0 20.0,28.0 22.86,28.0 25.71,28.0 28.57,28.0 31.43,28.0 34.29,28.0 37.14,28.0 40.0,28.0 42.86,28.0 45.71,28.0 48.57,28.0 51.43,28.0 54.29,28.0 57.14,28.0 60.0,28.0 62.86,28.0 65.71,28.0 68.57,28.0 71.43,28.0 74.29,28.0 77.14,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 66.65
-    },
-    {
-      "id": "pure-whey-isolate-95-600g-olimp",
-      "nombre_normalizado": "PURE WHEY ISOLATE 95 600g",
-      "categoria": "proteina-whey",
-      "categoria_display": "Proteína Whey",
-      "marca": "Olimp",
-      "peso_kg": 0.6,
-      "precio_por_kg_min": 68.25,
-      "precio_min": 40.95,
-      "tienda_mas_barata": "Nutritienda",
-      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f0ebed97-9a1d-449f-5093-b606b104cb00/public",
-      "precios": [
-        {
-          "tienda": "Nutritienda",
-          "precio_eur": 40.95,
-          "url_afiliado": "https://www.nutritienda.com/es/olimp/pure-whey-isolate-95",
-          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f0ebed97-9a1d-449f-5093-b606b104cb00/public",
-          "en_oferta": false,
-          "precio_original": null,
-          "fecha": "2026-11-09",
-          "_precio_fresco": null,
-          "agotado": null,
-          "sin_precio": null
-        }
-      ],
-      "protein_type": "aislada",
-      "protein_per_serving_g": null,
-      "serving_size_g": null,
-      "servings_per_container": null,
-      "sweetener_free": null,
-      "vegan": null,
-      "flavors_available": [],
-      "store_rating": 4.4,
-      "store_rating_count": 53.0,
-      "store_rating_url": "https://www.nutritienda.com/es/olimp/pure-whey-isolate-95",
-      "protein_subtype": null,
-      "slug_publico": "pure-whey-isolate-95-600g-olimp",
-      "slug_producto": "pure-whey-isolate-95-olimp",
-      "nombre_display": "Pure Whey Isolate 95 600 g",
-      "subcategoria_proteina": "whey",
-      "porcentaje_proteina": null,
-      "precio_por_kg_proteina": null,
-      "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 2.96,28.0 5.93,28.0 8.89,28.0 11.85,28.0 14.81,28.0 17.78,28.0 20.74,28.0 23.7,28.0 26.67,28.0 29.63,28.0 32.59,28.0 35.56,28.0 38.52,28.0 41.48,28.0 44.44,28.0 47.41,28.0 50.37,28.0 53.33,28.0 56.3,28.0 59.26,28.0 62.22,28.0 65.19,28.0 68.15,28.0 71.11,28.0 74.07,28.0 77.04,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
-      "spark_min": 68.25
     },
     {
       "id": "amix-proteina-clear-iso-whey-sin-azucar-comprar-1kg-amix",
@@ -24044,6 +23906,52 @@
       "spark_min": 78.82
     },
     {
+      "id": "pure-whey-isolate-95-600g-olimp",
+      "nombre_normalizado": "PURE WHEY ISOLATE 95 600g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Olimp",
+      "peso_kg": 0.6,
+      "precio_por_kg_min": 83.32,
+      "precio_min": 49.99,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f0ebed97-9a1d-449f-5093-b606b104cb00/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 49.99,
+          "url_afiliado": "https://www.nutritienda.com/es/olimp/pure-whey-isolate-95",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/f0ebed97-9a1d-449f-5093-b606b104cb00/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": null,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "aislada",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": 4.4,
+      "store_rating_count": 53.0,
+      "store_rating_url": "https://www.nutritienda.com/es/olimp/pure-whey-isolate-95",
+      "protein_subtype": null,
+      "slug_publico": "pure-whey-isolate-95-600g-olimp",
+      "slug_producto": "pure-whey-isolate-95-olimp",
+      "nombre_display": "Pure Whey Isolate 95 600 g",
+      "subcategoria_proteina": "whey",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 2.96,28.0 5.93,28.0 8.89,28.0 11.85,28.0 14.81,28.0 17.78,28.0 20.74,28.0 23.7,28.0 26.67,28.0 29.63,28.0 32.59,28.0 35.56,28.0 38.52,28.0 41.48,28.0 44.44,28.0 47.41,28.0 50.37,28.0 53.33,28.0 56.3,28.0 59.26,28.0 62.22,28.0 65.19,28.0 68.15,28.0 71.11,28.0 74.07,28.0 77.04,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_min": 68.25
+    },
+    {
       "id": "immune-whey-protein-700g-226ers-226ers",
       "nombre_normalizado": "Immune Whey Protein 700g | 226ERS",
       "categoria": "proteina-whey",
@@ -24154,7 +24062,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1828072_prozis_3-x-sachet-yogo-whey-high-protein-shake-30g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -24186,7 +24094,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.81,14.0 7.62,14.0 11.43,14.0 15.24,14.0 19.05,14.0 22.86,14.0 26.67,14.0 30.48,14.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,14.0 49.52,14.0 53.33,14.0 57.14,14.0 60.95,14.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.64,14.0 7.27,14.0 10.91,14.0 14.55,14.0 18.18,14.0 21.82,14.0 25.45,14.0 29.09,14.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,14.0 47.27,14.0 50.91,14.0 54.55,14.0 58.18,14.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 133.0
     },
     {
@@ -24208,7 +24116,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1813478_prozis_3-x-supreme-whey-protein-30g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -24232,8 +24140,8 @@
         "Tarta de Plátano y Toffee",
         "Vainilla francesa"
       ],
-      "store_rating": 4.78,
-      "store_rating_count": 503.0,
+      "store_rating": 4.79,
+      "store_rating_count": 525.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sachet-supreme-whey-protein-30g-x-3",
       "protein_subtype": null,
       "slug_publico": "sachet-supreme-whey-protein-30g-x-3-prozis",
@@ -24243,7 +24151,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.81,14.0 7.62,14.0 11.43,14.0 15.24,14.0 19.05,14.0 22.86,14.0 26.67,14.0 30.48,14.0 34.29,0.0 38.1,0.0 41.9,0.0 45.71,14.0 49.52,14.0 53.33,14.0 57.14,14.0 60.95,14.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.64,14.0 7.27,14.0 10.91,14.0 14.55,14.0 18.18,14.0 21.82,14.0 25.45,14.0 29.09,14.0 32.73,0.0 36.36,0.0 40.0,0.0 43.64,14.0 47.27,14.0 50.91,14.0 54.55,14.0 58.18,14.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 133.0
     },
     {
@@ -24265,7 +24173,7 @@
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -24289,8 +24197,8 @@
         "Tarta de Plátano y Toffee",
         "Vainilla francesa"
       ],
-      "store_rating": 4.78,
-      "store_rating_count": 503.0,
+      "store_rating": 4.79,
+      "store_rating_count": 525.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/3-x-supreme-whey-protein-30g",
       "protein_subtype": null,
       "slug_publico": "3-x-supreme-whey-protein-30g-prozis",
@@ -24300,7 +24208,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 4.21,0.0 8.42,0.0 12.63,0.0 16.84,0.0 21.05,14.0 25.26,14.0 29.47,0.0 33.68,0.0 37.89,0.0 42.11,14.0 46.32,14.0 50.53,14.0 54.74,14.0 58.95,14.0 63.16,28.0 67.37,28.0 71.58,28.0 75.79,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,0.0 4.0,0.0 8.0,0.0 12.0,0.0 16.0,0.0 20.0,14.0 24.0,14.0 28.0,0.0 32.0,0.0 36.0,0.0 40.0,14.0 44.0,14.0 48.0,14.0 52.0,14.0 56.0,14.0 60.0,28.0 64.0,28.0 68.0,28.0 72.0,28.0 76.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 133.0
     },
     {
@@ -24322,7 +24230,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1814456_prozis_3-x-real-whey--hydro-collagen-25g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -24341,7 +24249,7 @@
         "Vainilla"
       ],
       "store_rating": 4.71,
-      "store_rating_count": 139.0,
+      "store_rating_count": 140.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sachet-real-whey-hydro-collagen-25g-x-3",
       "protein_subtype": null,
       "slug_publico": "sachet-real-whey-hydro-collagen-25g-x-3-prozis",
@@ -24351,7 +24259,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 4.0,28.0 8.0,28.0 12.0,28.0 16.0,28.0 20.0,28.0 24.0,28.0 28.0,28.0 32.0,0.0 36.0,0.0 40.0,0.0 44.0,21.0 48.0,21.0 52.0,21.0 56.0,28.0 60.0,28.0 64.0,28.0 68.0,28.0 72.0,28.0 76.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.81,28.0 7.62,28.0 11.43,28.0 15.24,28.0 19.05,28.0 22.86,28.0 26.67,28.0 30.48,0.0 34.29,0.0 38.1,0.0 41.9,21.0 45.71,21.0 49.52,21.0 53.33,28.0 57.14,28.0 60.95,28.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 159.6
     },
     {
@@ -24373,7 +24281,7 @@
           "imagen_url": null,
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -24392,7 +24300,7 @@
         "Vainilla"
       ],
       "store_rating": 4.71,
-      "store_rating_count": 139.0,
+      "store_rating_count": 140.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/3-x-real-whey-hydro-collagen-25g",
       "protein_subtype": null,
       "slug_publico": "real-whey-hydro-collagen-25g-x-3-prozis",
@@ -24402,7 +24310,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 5.0,28.0 10.0,28.0 15.0,28.0 20.0,0.0 25.0,0.0 30.0,0.0 35.0,21.0 40.0,21.0 45.0,21.0 50.0,28.0 55.0,28.0 60.0,28.0 65.0,28.0 70.0,28.0 75.0,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 4.71,28.0 9.41,28.0 14.12,28.0 18.82,0.0 23.53,0.0 28.24,0.0 32.94,21.0 37.65,21.0 42.35,21.0 47.06,28.0 51.76,28.0 56.47,28.0 61.18,28.0 65.88,28.0 70.59,28.0 75.29,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 159.6
     },
     {
@@ -24424,7 +24332,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1845284_prozis_sachet-yogo-whey--creatine-high-protein-shake-30g-x-3_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -24456,7 +24364,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.81,28.0 7.62,28.0 11.43,28.0 15.24,28.0 19.05,11.2 22.86,11.2 26.67,11.2 30.48,11.2 34.29,0.0 38.1,0.0 41.9,0.0 45.71,11.2 49.52,11.2 53.33,11.2 57.14,11.2 60.95,11.2 64.76,22.4 68.57,22.4 72.38,22.4 76.19,22.4 80.0,22.4\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"22.4\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.64,28.0 7.27,28.0 10.91,28.0 14.55,28.0 18.18,11.2 21.82,11.2 25.45,11.2 29.09,11.2 32.73,0.0 36.36,0.0 40.0,0.0 43.64,11.2 47.27,11.2 50.91,11.2 54.55,11.2 58.18,11.2 61.82,22.4 65.45,22.4 69.09,22.4 72.73,22.4 76.36,22.4 80.0,22.4\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"22.4\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
       "spark_min": 149.67
     },
     {
@@ -24478,7 +24386,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1856437_prozis_sachet-100--real-whey-protein-silkwhey-30-g-x-3_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": null,
           "sin_precio": null
@@ -24512,7 +24420,7 @@
         "Vainilla"
       ],
       "store_rating": 4.78,
-      "store_rating_count": 85.0,
+      "store_rating_count": 88.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sachet-100-real-whey-protein-silkwhey-30-g-x-3",
       "protein_subtype": null,
       "slug_publico": "sachet-100-real-whey-protein-silkwhey-30g-x-3-prozis",
@@ -24522,7 +24430,7 @@
       "porcentaje_proteina": null,
       "precio_por_kg_proteina": null,
       "coste_mes": null,
-      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.81,14.0 7.62,14.0 11.43,14.0 15.24,14.0 19.05,14.0 22.86,14.0 26.67,14.0 30.48,14.0 34.29,-0.0 38.1,-0.0 41.9,-0.0 45.71,14.0 49.52,14.0 53.33,14.0 57.14,14.0 60.95,14.0 64.76,28.0 68.57,28.0 72.38,28.0 76.19,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,14.0 3.64,14.0 7.27,14.0 10.91,14.0 14.55,14.0 18.18,14.0 21.82,14.0 25.45,14.0 29.09,14.0 32.73,-0.0 36.36,-0.0 40.0,-0.0 43.64,14.0 47.27,14.0 50.91,14.0 54.55,14.0 58.18,14.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 186.33
     },
     {
@@ -24643,7 +24551,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1735081_prozis_100-whey-prime-1000g_strawberry-wafer_flavor_21.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": true,
           "sin_precio": null
@@ -24671,7 +24579,7 @@
         "Vainilla"
       ],
       "store_rating": 4.56,
-      "store_rating_count": 47969.0,
+      "store_rating_count": 47974.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/100-whey-prime-1000-g",
       "protein_subtype": null,
       "agotado": true,
@@ -24704,7 +24612,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1042656_prozis_whey-protein-fusion-900-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": true,
           "sin_precio": null
@@ -25225,7 +25133,7 @@
           "imagen_url": "//static.sscontent.com/thumb/750/750/t/products/124/v1478451_prozis_3-x-sachet-100--real-whey-protein-30-g_1.png",
           "en_oferta": false,
           "precio_original": null,
-          "fecha": "2026-11-07",
+          "fecha": "2026-11-09",
           "_precio_fresco": null,
           "agotado": true,
           "sin_precio": null
@@ -25242,7 +25150,7 @@
         "Galletas y crema"
       ],
       "store_rating": 4.62,
-      "store_rating_count": 76690.0,
+      "store_rating_count": 76700.0,
       "store_rating_url": "https://www.prozis.com/es/es/prozis/sachet-100-real-whey-protein-30g-x-3",
       "protein_subtype": null,
       "agotado": true,
@@ -25302,6 +25210,53 @@
       "coste_mes": null,
       "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.64,28.0 7.27,28.0 10.91,28.0 14.55,28.0 18.18,28.0 21.82,28.0 25.45,28.0 29.09,28.0 32.73,28.0 36.36,28.0 40.0,28.0 43.64,28.0 47.27,28.0 50.91,28.0 54.55,28.0 58.18,28.0 61.82,28.0 65.45,28.0 69.09,28.0 72.73,28.0 76.36,28.0 80.0,28.0\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"28.0\" r=\"2.5\" fill=\"#22c55e\"/></svg>",
       "spark_min": 49.83
+    },
+    {
+      "id": "whey-protein-sabor-neutro-500g-quamtrax",
+      "nombre_normalizado": "Whey Protein Sabor Neutro 500g",
+      "categoria": "proteina-whey",
+      "categoria_display": "Proteína Whey",
+      "marca": "Quamtrax",
+      "peso_kg": 0.5,
+      "precio_por_kg_min": null,
+      "precio_min": 27.9,
+      "tienda_mas_barata": "Nutritienda",
+      "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/5c943c43-b13e-4f78-cbbe-e0af409b8400/public",
+      "precios": [
+        {
+          "tienda": "Nutritienda",
+          "precio_eur": 27.9,
+          "url_afiliado": "https://www.nutritienda.com/es/quamtrax-direct/whey-protein-sabor-neutro-500g",
+          "imagen_url": "https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/5c943c43-b13e-4f78-cbbe-e0af409b8400/public",
+          "en_oferta": false,
+          "precio_original": null,
+          "fecha": "2026-11-09",
+          "_precio_fresco": null,
+          "agotado": true,
+          "sin_precio": null
+        }
+      ],
+      "protein_type": "whey",
+      "protein_per_serving_g": null,
+      "serving_size_g": null,
+      "servings_per_container": null,
+      "sweetener_free": null,
+      "vegan": null,
+      "flavors_available": [],
+      "store_rating": null,
+      "store_rating_count": null,
+      "store_rating_url": null,
+      "protein_subtype": null,
+      "agotado": true,
+      "slug_publico": "whey-protein-sabor-neutro-500g-quamtrax",
+      "slug_producto": "whey-protein-sabor-neutro-quamtrax",
+      "nombre_display": "Whey Protein Sabor Neutro 500 g",
+      "subcategoria_proteina": "whey",
+      "porcentaje_proteina": null,
+      "precio_por_kg_proteina": null,
+      "coste_mes": null,
+      "spark_svg": "<svg viewBox=\"0 0 80 28\" width=\"80\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polyline points=\"0.0,28.0 3.48,28.0 6.96,28.0 10.43,28.0 13.91,28.0 17.39,28.0 20.87,28.0 24.35,28.0 27.83,28.0 31.3,28.0 34.78,28.0 38.26,28.0 41.74,28.0 45.22,28.0 48.7,28.0 52.17,28.0 55.65,28.0 59.13,28.0 62.61,28.0 66.09,0.0 69.57,0.0 73.04,0.0 76.52,0.0 80.0,0.0\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"80.0\" cy=\"0.0\" r=\"2.5\" fill=\"#ef4444\"/></svg>",
+      "spark_min": 41.0
     },
     {
       "id": "muscletech-iso-whey-proteina-aislada-premium-907g-muscletech",
