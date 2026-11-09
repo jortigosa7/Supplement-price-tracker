@@ -47,6 +47,19 @@ jobs:
         continue-on-error: true
         run: python build.py
 
+      # Publica en el canal los mínimos reales nuevos (data/minimos.json → Telegram).
+      # Va antes del commit para que data/avisos_enviados.json se guarde y no se repitan avisos.
+      # Solo si el build ha ido bien: nunca se avisa con precios de un build roto.
+      # Sin los secrets TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID no publica nada (modo prueba).
+      - name: Publicar avisos de mínimos en Telegram
+        id: avisos
+        if: steps.build.outcome == 'success'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python avisos_telegram.py
+
       - name: Commit & push changes
         run: |
           git config user.name  "github-actions[bot]"
@@ -61,4 +74,11 @@ jobs:
         run: |
           echo "❌ Build finalizó con errores (pares degradados u otro fallo)."
           echo "   Los precios y el HTML están comprometidos. Revisa el log del step 'Run build'."
+          exit 1
+
+      - name: Fail si Telegram rechazó algún aviso
+        if: steps.avisos.outcome == 'failure'
+        run: |
+          echo "❌ No se pudo publicar algún aviso en Telegram. Revisa el log del step 'Publicar avisos'."
+          echo "   La web y los precios sí se han actualizado; los avisos pendientes se reintentan en el próximo run."
           exit 1

@@ -34,6 +34,7 @@ from itertools import combinations
 from jinja2 import Environment, FileSystemLoader
 from build_additions import compute_spark_data
 from checks import run_all_checks
+import minimos as minimos_mod
 
 # Forzar UTF-8 en stdout (necesario en Windows con cp1252)
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
@@ -50,6 +51,11 @@ DATA_DIR     = "data"
 DOCS_DIR     = "docs"
 TEMPLATES_DIR = "templates"
 ENABLE_ALERTAS = False
+
+# Página /ofertas/ y canal de avisos de mínimos reales (ver minimos.py y avisos_telegram.py).
+# TELEGRAM_CANAL_URL vacío = la web no enlaza a ningún canal. Formato: "https://t.me/nombre_del_canal".
+OFERTAS_SLUG = "ofertas"
+TELEGRAM_CANAL_URL = ""
 
 # ============================================================
 # CONFIGURACIÓN DE CATEGORÍAS
@@ -1321,6 +1327,8 @@ def contexto_base(last_updated: str) -> dict:
         "datos_obsoletos":  dias > 10,
         "active_slug":      None,
         "current_year":     last_updated[:4],
+        "ofertas_slug":     OFERTAS_SLUG,
+        "telegram_canal_url": TELEGRAM_CANAL_URL,
     }
 
 
@@ -3858,6 +3866,95 @@ def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_update
     print(f"✅ Generado: {path}  ({total_productos} productos en {len(secciones)} categorías)")
 
 
+# ============================================================
+# OFERTAS — mínimos reales de precio (página /ofertas/ + data/minimos.json)
+# ============================================================
+
+def calcular_minimos(productos_web: list[dict], hist_by_id: dict, tiendas_cfg: list[dict]) -> list[dict]:
+    """Productos que hoy están en mínimo real en una tienda afiliada (ver minimos.py)."""
+    candidatos = [p for p in productos_web if not _excluir_producto(p)]
+    return minimos_mod.detectar_minimos(
+        candidatos,
+        hist_by_id,
+        {t["nombre"] for t in tiendas_cfg},
+        ids_excluidos=IDS_PRECIO_SOSPECHOSO,
+    )
+
+
+def guardar_minimos(minimos_hoy: list[dict], last_updated: str) -> str:
+    """Escribe data/minimos.json. Es lo que lee avisos_telegram.py para publicar en el canal."""
+    path = os.path.join(DATA_DIR, "minimos.json")
+    for m in minimos_hoy:
+        m["pagina_url_abs"] = f"{SITE_URL}{m['pagina_url']}" if m.get("pagina_url") else None
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(
+            {
+                "fecha":       last_updated,
+                "ofertas_url": f"{SITE_URL}/{OFERTAS_SLUG}/",
+                "minimos":     minimos_hoy,
+            },
+            f, ensure_ascii=False, indent=2,
+        )
+    print(f"✅ Mínimos reales: {path} ({len(minimos_hoy)} productos)")
+    return path
+
+
+def generar_ofertas(env, minimos_hoy: list[dict], productos_web: list[dict],
+                    hist_by_id: dict, tiendas_cfg: list[dict], last_updated: str):
+    """Genera docs/ofertas/index.html con los productos que hoy están en mínimo real."""
+    por_id = {p["id"]: p for p in productos_web}
+    afiliadas = sorted({t["nombre"] for t in tiendas_cfg})
+
+    # Fecha que se enseña: el último scrape de la tienda afiliada que lleve más tiempo sin
+    # actualizarse. last_updated no sirve aquí porque incluye tiendas que esta página no usa.
+    ultimo_scrape: dict[str, str] = {}
+    for p in productos_web:
+        for pr in p.get("precios", []):
+            if pr.get("tienda") in afiliadas and (pr.get("fecha") or "") > ultimo_scrape.get(pr["tienda"], ""):
+                ultimo_scrape[pr["tienda"]] = pr["fecha"]
+    fecha_precios = min(ultimo_scrape.values()) if ultimo_scrape else last_updated
+    corte = (datetime.now().date() - timedelta(days=minimos_mod.VENTANA_DIAS)).isoformat()
+    ofertas = []
+    for m in minimos_hoy:
+        p = por_id.get(m["id"], {})
+        historial = [
+            e for e in hist_by_id.get(m["id"], [])
+            if e.get("tienda") == m["tienda"] and e.get("fecha", "") >= corte
+        ]
+        dd, mm = m["desde"][8:10], m["desde"][5:7]
+        ofertas.append({
+            **m,
+            "marca":       p.get("marca"),
+            "img_src":     _img_local(m["id"], m["categoria"], p.get("imagen_url")),
+            "grafico_svg": _svg_sparkline_producto(historial, w=260, h=56),
+            "desde_corta": f"{dd}/{mm}",
+            "ahorro_eur":  round(m["precio_habitual"] - m["precio"], 2),
+        })
+
+    template = env.get_template("ofertas.html")
+    ctx = {
+        **contexto_base(last_updated),
+        "active_slug":   OFERTAS_SLUG,
+        "ofertas":       ofertas,
+        "mes_anio":      _mes_anio_es(last_updated),
+        "fecha_precios": _fecha_larga_es(fecha_precios),
+        "criterios": {
+            "ventana_dias":   minimos_mod.VENTANA_DIAS,
+            "min_dias":       minimos_mod.MIN_DIAS_HISTORIAL,
+            "min_rebaja_pct": round(minimos_mod.MIN_REBAJA * 100),
+            "max_frec_pct":   round(minimos_mod.MAX_FRECUENCIA * 100),
+        },
+        "tiendas_afiliadas": afiliadas,
+    }
+    html = template.render(**ctx)
+    outdir = os.path.join(DOCS_DIR, OFERTAS_SLUG)
+    os.makedirs(outdir, exist_ok=True)
+    path = os.path.join(outdir, "index.html")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"✅ Generado: {path}  ({len(ofertas)} productos en mínimo real)")
+
+
 def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tiendas_cfg: list | None = None, product_slugs: list | None = None):
     """Genera docs/sitemap.xml."""
     urls = [
@@ -3879,6 +3976,11 @@ def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tienda
         "loc":        f"{SITE_URL}/test/",
         "priority":   "0.7",
         "changefreq": "weekly",
+    })
+    urls.append({
+        "loc":        f"{SITE_URL}/{OFERTAS_SLUG}/",
+        "priority":   "0.7",
+        "changefreq": "daily",
     })
     # Comparaciones
     if compare_slugs:
@@ -4639,6 +4741,10 @@ if __name__ == "__main__":
             p.pop("pagina_url", None)
     print(f"   → {len(elegibles_ids)} productos con página individual")
 
+    # 3d. Mínimos reales de hoy (después de pagina_url: el aviso enlaza a la página del producto)
+    minimos_hoy = calcular_minimos(productos_web, hist_by_id, tiendas_cfg)
+    guardar_minimos(minimos_hoy, last_updated)
+
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")
 
@@ -4773,6 +4879,7 @@ if __name__ == "__main__":
         generar_pagina_legal(env, pagina, last_updated)
 
     generar_test(env, productos_web, last_updated)
+    generar_ofertas(env, minimos_hoy, productos_web, hist_by_id, tiendas_cfg, last_updated)
 
     # 5b. Páginas de tiendas afiliadas
     if tiendas_cfg:
@@ -4804,8 +4911,8 @@ if __name__ == "__main__":
             _pr.pop("_precio_fresco", None)
 
     duracion = (datetime.now() - inicio).total_seconds()
-    # +1 /test/ + 1 /tiendas/ + len(tiendas_cfg) páginas de tienda individuales
-    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 1 + len(compare_slugs) + len(slugs_producto) + (1 + len(tiendas_cfg) if tiendas_cfg else 0)
+    # +1 /test/ + 1 /ofertas/ + 1 /tiendas/ + len(tiendas_cfg) páginas de tienda individuales
+    total_paginas = 1 + len(CATEGORIA_CONFIG) + len(PAGINAS_LEGALES) + 2 + len(compare_slugs) + len(slugs_producto) + (1 + len(tiendas_cfg) if tiendas_cfg else 0)
 
     print("\n" + "=" * 54)
     print(f"  BUILD COMPLETADO en {duracion:.1f}s")
