@@ -37,14 +37,16 @@ jobs:
         # Los mirrors de Ubuntu a veces no resuelven en el runner y --with-deps falla
         # (11 nov 2026, dos runs seguidos). Se reintenta y, si sigue fallando, se instala
         # solo Chromium: si Prozis no puede scrapear, scraper.py usa sus datos anteriores.
+        # Cada intento tiene un tope de 5 min: sin él, apt se queda reintentando la DNS
+        # y el job (timeout de 60 min) se acaba antes de scrapear.
         run: |
-          for i in 1 2 3; do
-            playwright install chromium --with-deps && exit 0
+          for i in 1 2; do
+            timeout 300 playwright install chromium --with-deps && exit 0
             echo "Intento $i fallido; reintento en 30 s"
             sleep 30
           done
           echo "::warning::No se pudieron instalar las dependencias del sistema de Playwright; se instala solo Chromium"
-          playwright install chromium
+          timeout 300 playwright install chromium
 
       - name: Run scraper
         run: python scraper.py
