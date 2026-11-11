@@ -35,6 +35,7 @@ from jinja2 import Environment, FileSystemLoader
 from markupsafe import Markup
 from build_additions import compute_spark_data
 from checks import run_all_checks
+import black_friday as bf_mod
 import minimos as minimos_mod
 
 # Forzar UTF-8 en stdout (necesario en Windows con cp1252)
@@ -62,6 +63,12 @@ PAGINAS_VS_TIENDAS: list[str] = []
 
 # Productos en mínimo real hoy; lo usa el aviso de ofertas que sale en todas las páginas
 N_MINIMOS_HOY = 0
+
+# Página /black-friday/ (black_friday.py): rebajas reales de hoy en tiendas afiliadas y
+# si la página sigue abierta (hasta una semana después de Cyber Monday)
+BF_SLUG = "black-friday"
+N_REBAJAS_BF = 0
+BF_ABIERTA = False
 
 # Códigos de descuento de los programas de afiliación (data/codigos_descuento.json).
 # Solo códigos dados por el programa (las condiciones de Awin prohíben otros) y con fecha
@@ -1382,6 +1389,9 @@ def contexto_base(last_updated: str) -> dict:
         "ofertas_slug":     OFERTAS_SLUG,
         "telegram_canal_url": TELEGRAM_CANAL_URL,
         "n_minimos_hoy":    N_MINIMOS_HOY,
+        "bf_slug":          BF_SLUG,
+        "n_rebajas_bf":     N_REBAJAS_BF,
+        "bf_abierta":       BF_ABIERTA,
         "es_black_friday":  _es_temporada_black_friday(last_updated),
         "paginas_vs_tiendas": PAGINAS_VS_TIENDAS,
     }
@@ -3989,6 +3999,98 @@ def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_update
 
 
 # ============================================================
+# BLACK FRIDAY — /black-friday/ (lógica en black_friday.py)
+# ============================================================
+
+_BF_CATEGORIAS = {
+    "proteina-whey": "Proteína",
+    "creatina":      "Creatina",
+    "bcaa":          "BCAA y aminoácidos",
+    "pre-entreno":   "Pre-entreno",
+}
+
+
+def generar_black_friday(env, analisis: dict, productos_web: list[dict], tiendas_cfg: list[dict],
+                         last_updated: str):
+    """
+    Genera docs/black-friday/index.html. Las cifras agregadas son de todas las tiendas y
+    sin nombres de tienda (el desglose por tienda va al informe, no a la web); los listados
+    con enlace, solo de tiendas afiliadas.
+    """
+    por_id = {p["id"]: p for p in productos_web}
+
+    def _con_imagen(items: list[dict], n: int) -> list[dict]:
+        out = []
+        for it in items[:n]:
+            p = por_id.get(it["id"], {})
+            out.append({
+                **it,
+                "img_src":    _img_local(it["id"], it.get("categoria", ""), p.get("imagen_url")),
+                "ahorro_eur": round(it["habitual"] - it["precio"], 2),
+            })
+        return out
+
+    anio = last_updated[:4]
+    total = analisis["total"]
+    pct = analisis["pct_estado"]
+    n_real = analisis["por_estado"]["rebaja_real"]
+    categorias = [
+        {"nombre": _BF_CATEGORIAS.get(c, c), "total": sum(v.values()), **v}
+        for c, v in analisis["por_categoria"].items()
+    ]
+    afiliadas = sorted({t["nombre"] for t in tiendas_cfg})
+    seo_desc = (
+        f"Comparamos {total} suplementos con lo que costaban antes de noviembre: hoy "
+        f"{n_real} tienen una rebaja real y el {pct['precio_habitual']} % sigue al precio de siempre. "
+        f"Actualizado el {_fecha_larga_es(last_updated)}."
+    )
+    faqs = [
+        {"q": "¿Cómo sabéis si una rebaja de Black Friday es real?",
+         "a": (f"Comparamos el precio de hoy de cada producto con lo que costaba antes de noviembre: "
+               f"su precio habitual (la mediana de los {bf_mod.VENTANA_HABITUAL} días anteriores al "
+               f"{_fecha_larga_es(analisis['referencia_fin'])}) y su precio más bajo de los "
+               f"{bf_mod.VENTANA_MINIMO} días anteriores. Es rebaja real si hoy cuesta menos que ese mínimo "
+               f"y al menos un {int(bf_mod.UMBRAL * 100)} % menos que su precio habitual. Siempre el mismo "
+               f"producto, el mismo formato y la misma tienda.")},
+        {"q": "¿Por qué comparáis con los precios de antes de noviembre?",
+         "a": ("Porque las tiendas empiezan las promociones semanas antes del viernes. Si una tienda sube un "
+               "precio a primeros de noviembre y luego lo «rebaja» al precio de octubre, para nosotros sigue "
+               "siendo el precio de siempre.")},
+        {"q": "¿Qué tiendas revisáis?",
+         "a": (f"HSN, MyProtein, Prozis, Nutritienda y Hivital. Las cifras generales incluyen las cinco; "
+               f"las ofertas con enlace son de las tiendas con las que colaboramos ({', '.join(afiliadas)}), "
+               f"que nos pagan una pequeña comisión si compras a través del enlace, sin coste para ti.")},
+    ]
+    ctx = {
+        **contexto_base(last_updated),
+        "active_slug":   BF_SLUG,
+        "anio":          anio,
+        "analisis":      analisis,
+        "total":         total,
+        "pct":           pct,
+        "por_estado":    analisis["por_estado"],
+        "categorias":    categorias,
+        "rebajas_reales": _con_imagen(analisis["rebajas_reales"], 40),
+        "rebajados":     _con_imagen(analisis["rebajados"], 20),
+        "ref_fin_txt":   _fecha_larga_es(analisis["referencia_fin"]),
+        "campana_fin_txt": _fecha_larga_es(bf_mod.CAMPANA_FIN),
+        "abierta":       BF_ABIERTA,
+        "umbral_pct":    int(bf_mod.UMBRAL * 100),
+        "ventana_minimo":   bf_mod.VENTANA_MINIMO,
+        "ventana_habitual": bf_mod.VENTANA_HABITUAL,
+        "seo_desc":      seo_desc,
+        "faqs":          faqs,
+    }
+    outdir = os.path.join(DOCS_DIR, BF_SLUG)
+    os.makedirs(outdir, exist_ok=True)
+    path = os.path.join(outdir, "index.html")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(env.get_template("black_friday.html").render(**ctx))
+    print(f"✅ Generado: {path}  ({total} productos analizados, {n_real} rebajas reales, "
+          f"{len(analisis['rebajas_reales'])} con enlace)")
+
+
+# ============================================================
 # TIENDA vs TIENDA — /tiendas/hsn-vs-myprotein/
 # ============================================================
 
@@ -4290,6 +4392,11 @@ def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tienda
         "loc":        f"{SITE_URL}/{OFERTAS_SLUG}/",
         "priority":   "0.7",
         "changefreq": "daily",
+    })
+    urls.append({
+        "loc":        f"{SITE_URL}/{BF_SLUG}/",
+        "priority":   "0.8" if BF_ABIERTA else "0.5",
+        "changefreq": "daily" if BF_ABIERTA else "monthly",
     })
     # Comparaciones
     if compare_slugs:
@@ -5067,6 +5174,14 @@ if __name__ == "__main__":
     minimos_hoy = calcular_minimos(productos_web, hist_by_id, tiendas_cfg)
     guardar_minimos(minimos_hoy, last_updated)
     N_MINIMOS_HOY = len(minimos_hoy)
+
+    # 3e. Black Friday: cada producto frente a lo que costaba antes de noviembre
+    BF_ABIERTA = bf_mod.pagina_abierta(datetime.now().strftime("%Y-%m-%d"))
+    analisis_bf = bf_mod.analizar(
+        productos_web, hist_by_id, {t["nombre"] for t in tiendas_cfg},
+        ids_excluidos=IDS_PRECIO_SOSPECHOSO,
+    )
+    N_REBAJAS_BF = len(analisis_bf["rebajas_reales"]) if BF_ABIERTA else 0
     CODIGOS_ACTIVOS = cargar_codigos_descuento(datetime.now().strftime("%Y-%m-%d"))
     if CODIGOS_ACTIVOS:
         _lista = ", ".join(t + "=" + c["codigo"] for t, c in CODIGOS_ACTIVOS.items())
@@ -5207,6 +5322,7 @@ if __name__ == "__main__":
 
     generar_test(env, productos_web, last_updated)
     generar_ofertas(env, minimos_hoy, productos_web, hist_by_id, tiendas_cfg, last_updated)
+    generar_black_friday(env, analisis_bf, productos_web, tiendas_cfg, last_updated)
 
     # 5b. Páginas de tiendas afiliadas
     if tiendas_cfg:

@@ -1075,11 +1075,18 @@
     </div>
   </header>
 
-  {% if n_minimos_hoy and active_slug != ofertas_slug %}
+  {% set _strip_bf = es_black_friday and n_rebajas_bf %}
+  {% if (_strip_bf or n_minimos_hoy) and active_slug not in (ofertas_slug, bf_slug) %}
   <div class="ofertas-strip">
-    <a href="{{ site_url }}/{{ ofertas_slug }}/">
-      {% if es_black_friday %}<strong>Black Friday</strong> · {% endif %}Hoy hay {{ n_minimos_hoy }} {{ "oferta real" if n_minimos_hoy == 1 else "ofertas reales" }}: {{ "producto" if n_minimos_hoy == 1 else "productos" }} en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+    {% if _strip_bf %}
+    <a href="{{ site_url }}/{{ bf_slug }}/">
+      <strong>Black Friday</strong> · Hoy hay {{ n_rebajas_bf }} {{ "rebaja real" if n_rebajas_bf == 1 else "rebajas reales" }}, comprobadas con lo que costaba cada producto antes de noviembre <span>Ver rebajas →</span>
     </a>
+    {% else %}
+    <a href="{{ site_url }}/{{ ofertas_slug }}/">
+      Hoy hay {{ n_minimos_hoy }} {{ "oferta real" if n_minimos_hoy == 1 else "ofertas reales" }}: {{ "producto" if n_minimos_hoy == 1 else "productos" }} en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+    </a>
+    {% endif %}
   </div>
   {% endif %}
 
@@ -1128,6 +1135,7 @@
         <div class="footer-links-label">Herramientas</div>
         <a href="{{ site_url }}/comparar/">Comparar productos</a>
         <a href="{{ site_url }}/{{ ofertas_slug }}/">Ofertas reales</a>
+        {% if bf_abierta %}<a href="{{ site_url }}/{{ bf_slug }}/">Black Friday {{ current_year }}: rebajas reales</a>{% endif %}
         <a href="{{ site_url }}/tiendas/">Nuestras tiendas recomendadas</a>
         <a href="{{ site_url }}/como-financiamos/">Cómo financiamos</a>
         <a href="{{ site_url }}/sobre-nosotros/">Sobre nosotros</a>

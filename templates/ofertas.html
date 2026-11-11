@@ -68,6 +68,7 @@
       Las tiendas de suplementos tienen algún código de descuento casi siempre, así que un «−40&nbsp;%» no dice nada.
       Aquí solo aparece un producto cuando hoy cuesta menos que en todo el tiempo que llevamos siguiendo su precio.
     </p>
+    {% if bf_abierta %}<p class="of-fecha"><a href="{{ site_url }}/{{ bf_slug }}/" style="color:var(--accent); font-weight:700;">Black Friday {{ current_year }}: qué rebajas son reales →</a></p>{% endif %}
     <p class="of-fecha">Precios comprobados el {{ fecha_precios }}{% if ofertas %} · {{ ofertas | length }} producto{{ '' if ofertas | length == 1 else 's' }} en mínimos{% endif %}</p>
   </header>
 

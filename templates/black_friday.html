@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block title %}Black Friday {{ anio }} en suplementos: qué rebajas son reales{% endblock %}
+{% block meta_desc %}{{ seo_desc }}{% endblock %}
+{% block meta_keywords %}black friday suplementos, black friday proteína, black friday hsn, black friday myprotein, rebajas reales suplementos{% endblock %}
+{% block canonical_path %}/{{ bf_slug }}/{% endblock %}
+{% block og_title %}Black Friday {{ anio }} en suplementos: qué rebajas son reales{% endblock %}
+{% block og_desc %}Cada suplemento comparado con lo que costaba antes de noviembre. Sin descuentos de mentira.{% endblock %}
+{% block og_path %}/{{ bf_slug }}/{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "{{ site_url }}/"},
+    {"@type": "ListItem", "position": 2, "name": "Black Friday {{ anio }}", "item": "{{ site_url }}/{{ bf_slug }}/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{% for f in faqs %}
+    {"@type": "Question", "name": {{ f.q|tojson }}, "acceptedAnswer": {"@type": "Answer", "text": {{ f.a|tojson }}}}{% if not loop.last %},{% endif %}{% endfor %}
+  ]
+}
+</script>
+<style>
+  .bf-h1 { font-family:var(--font-display); font-size:clamp(1.6rem,4.5vw,2.3rem); font-weight:900; color:#f0f0f0; line-height:1.15; margin-bottom:14px; }
+  .bf-h1 em { color:var(--accent); font-style:normal; }
+  .bf-lead { color:#999; font-size:0.95rem; max-width:680px; line-height:1.7; }
+  .bf-fecha { color:#666; font-size:0.78rem; margin-top:10px; }
+  .bf-cerrada { margin-top:24px; border:1px dashed rgba(255,255,255,0.18); border-radius:var(--radius); padding:18px 20px; color:#aaa; font-size:0.9rem; line-height:1.7; }
+  .bf-datos { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:28px 0 10px; }
+  @media (min-width:720px) { .bf-datos { grid-template-columns:repeat(4,1fr); } }
+  .bf-dato { background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:14px 16px; }
+  .bf-dato.real { border-color:var(--accent-border); background:var(--accent-bg); }
+  .bf-dato-pct { font-family:var(--font-display); font-size:1.8rem; font-weight:900; color:#fff; line-height:1; }
+  .bf-dato.real .bf-dato-pct { color:var(--accent); }
+  .bf-dato-label { font-size:0.8rem; color:#bbb; margin-top:6px; line-height:1.35; }
+  .bf-dato-n { font-size:0.72rem; color:#666; margin-top:4px; }
+  .bf-nota { color:#666; font-size:0.76rem; line-height:1.6; }
+  .bf-h2 { font-size:1.05rem; font-weight:800; color:#e0e0e0; margin:44px 0 6px; }
+  .bf-sub { color:#888; font-size:0.84rem; line-height:1.6; margin-bottom:16px; }
+  .bf-tabla { width:100%; border-collapse:collapse; font-size:0.84rem; }
+  .bf-tabla th { text-align:right; color:#777; font-weight:600; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; padding:8px 6px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .bf-tabla th:first-child, .bf-tabla td:first-child { text-align:left; }
+  .bf-tabla td { text-align:right; color:#ccc; padding:9px 6px; border-bottom:1px solid rgba(255,255,255,0.05); font-variant-numeric:tabular-nums; }
+  .bf-tabla td.real { color:var(--accent); font-weight:700; }
+  .bf-lista { display:flex; flex-direction:column; gap:12px; }
+  .bf-card { background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:16px; display:grid; grid-template-columns:64px 1fr; gap:12px 14px; }
+  .bf-img { width:64px; height:64px; background:#fff; border-radius:10px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .bf-img img { width:56px; height:56px; object-fit:contain; }
+  .bf-nombre { font-weight:700; color:#eee; font-size:0.95rem; line-height:1.3; }
+  .bf-nombre a { color:inherit; }
+  .bf-nombre a:hover { color:var(--accent); }
+  .bf-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .bf-sello { font-size:0.74rem; font-weight:800; color:#000; background:var(--accent); border-radius:6px; padding:2px 8px; }
+  .bf-sello.suave { color:var(--accent); background:var(--accent-bg); border:1px solid var(--accent-border); }
+  .bf-cuerpo { grid-column:1 / -1; display:flex; flex-direction:column; gap:10px; }
+  .bf-precio { font-family:var(--font-display); font-size:1.7rem; font-weight:900; color:#fff; line-height:1; }
+  .bf-precio small { font-size:0.9rem; color:#888; margin-left:2px; }
+  .bf-antes { color:#888; font-size:0.8rem; line-height:1.5; }
+  .bf-antes b { color:#ccc; font-weight:600; }
+  .bf-btn { display:block; text-align:center; padding:11px 14px; border-radius:10px; font-weight:800; font-size:0.84rem; background:var(--accent); color:#000; }
+  .bf-btn:hover { background:var(--accent-dim); color:#000; }
+  .bf-btn.sec { background:transparent; border:1px solid rgba(255,255,255,0.18); color:#ccc; }
+  .bf-btn.sec:hover { border-color:var(--accent); color:var(--accent); }
+  .bf-vacio { background:#111214; border:1px dashed rgba(255,255,255,0.14); border-radius:var(--radius); padding:22px 20px; color:#999; font-size:0.9rem; line-height:1.7; }
+  .bf-canal { margin-top:22px; background:#111214; border:1px solid var(--accent-border); border-radius:var(--radius); padding:16px 18px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .bf-canal div { flex:1; min-width:200px; color:#ccc; font-size:0.88rem; line-height:1.5; }
+  .bf-canal strong { color:#f0f0f0; display:block; }
+  .bf-faq h3 { font-size:0.92rem; color:#eee; margin:18px 0 6px; }
+  .bf-faq p { font-size:0.88rem; color:#aaa; line-height:1.7; }
+  .bf-enlaces { display:flex; gap:10px; flex-wrap:wrap; margin-top:30px; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top:32px; padding-bottom:80px;">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ site_url }}/">Inicio</a>
+    <span>›</span>
+    <span>Black Friday {{ anio }}</span>
+  </nav>
+
+  <header>
+    <h1 class="bf-h1">Black Friday {{ anio }} en suplementos: <em>qué rebajas son reales</em></h1>
+    <p class="bf-lead">
+      Comparamos el precio de hoy de cada suplemento con lo que costaba antes de noviembre, en la misma tienda y el mismo formato.
+      Si una tienda sube un precio a primeros de mes y luego lo «rebaja» al de octubre, aquí sale como precio de siempre.
+    </p>
+    <p class="bf-fecha">Precios del {{ fecha_datos_larga }} · {{ total }} productos de HSN, MyProtein, Prozis, Nutritienda y Hivital con historial suficiente</p>
+  </header>
+
+  {% if not abierta %}
+  <div class="bf-cerrada">
+    El Black Friday {{ anio }} terminó con el Cyber Monday ({{ campana_fin_txt }}). Para las ofertas de ahora mira la página de
+    <a href="{{ site_url }}/{{ ofertas_slug }}/" style="color:var(--accent);">ofertas reales</a>, que compara cada producto con sus últimos 90 días.
+  </div>
+  {% else %}
+
+  <div class="bf-datos">
+    <div class="bf-dato real">
+      <div class="bf-dato-pct">{{ pct.rebaja_real }} %</div>
+      <div class="bf-dato-label">Rebaja real: más barato que en todo octubre y un {{ umbral_pct }} % o más bajo lo habitual</div>
+      <div class="bf-dato-n">{{ por_estado.rebaja_real }} productos</div>
+    </div>
+    <div class="bf-dato">
+      <div class="bf-dato-pct">{{ pct.rebajado }} %</div>
+      <div class="bf-dato-label">Más barato de lo habitual, pero ya estuvo así en octubre</div>
+      <div class="bf-dato-n">{{ por_estado.rebajado }} productos</div>
+    </div>
+    <div class="bf-dato">
+      <div class="bf-dato-pct">{{ pct.precio_habitual }} %</div>
+      <div class="bf-dato-label">Al precio de siempre (±{{ umbral_pct }} %)</div>
+      <div class="bf-dato-n">{{ por_estado.precio_habitual }} productos</div>
+    </div>
+    <div class="bf-dato">
+      <div class="bf-dato-pct">{{ pct.mas_caro }} %</div>
+      <div class="bf-dato-label">Más caro que antes de noviembre</div>
+      <div class="bf-dato-n">{{ por_estado.mas_caro }} productos</div>
+    </div>
+  </div>
+  <p class="bf-nota">«Rebaja real»: hoy cuesta menos que su precio más bajo de los {{ ventana_minimo }} días anteriores al {{ ref_fin_txt }} y al menos un {{ umbral_pct }} % menos que su precio habitual (la mediana de los {{ ventana_habitual }} días anteriores).</p>
+
+  {% if telegram_canal_url %}
+  <div class="bf-canal">
+    <div><strong>Avisos de rebajas reales en Telegram</strong>Solo cuando un producto toca su precio mínimo. Como mucho, tres al día.</div>
+    <a class="bf-btn" href="{{ telegram_canal_url }}" target="_blank" rel="noopener">Unirme al canal →</a>
+  </div>
+  {% endif %}
+
+  <h2 class="bf-h2">Rebajas reales hoy</h2>
+  <p class="bf-sub">De las tiendas con las que colaboramos, ordenadas por cuánto bajan frente a su precio habitual.</p>
+  {% if rebajas_reales %}
+  <div class="bf-lista">
+    {% for o in rebajas_reales %}
+    <article class="bf-card">
+      <div class="bf-img"><img src="{{ o.img_src }}" alt="{{ o.nombre }}" width="56" height="56" loading="lazy"></div>
+      <div>
+        <h3 class="bf-nombre">{% if o.pagina_url %}<a href="{{ site_url }}{{ o.pagina_url }}">{{ o.nombre }}</a>{% else %}{{ o.nombre }}{% endif %}</h3>
+        <div class="bf-meta">
+          <span class="store-pill store-{{ o.tienda | lower }}"><span class="store-pill-dot" style="background:currentColor;"></span>{{ o.tienda }}</span>
+          <span class="bf-sello">−{{ o.rebaja_pct|round|int }} % real</span>
+        </div>
+      </div>
+      <div class="bf-cuerpo">
+        <div>
+          <div class="bf-precio">{{ o.precio|fmtd }}<small>€</small></div>
+          <div class="bf-antes">Antes de noviembre: <b>{{ o.habitual|fmtd }} €</b> de precio habitual y <b>{{ o.minimo_30|fmtd }} €</b> como mínimo. Te ahorras {{ o.ahorro_eur|fmtd }} €.</div>
+        </div>
+        {% if o.url_afiliado %}<a class="bf-btn" href="{{ o.url_afiliado }}" target="_blank" rel="nofollow sponsored noopener">Ver en {{ o.tienda }} →</a>{% endif %}
+        {{ codigo_tienda(o.tienda) }}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="bf-vacio">
+    Hoy ningún producto de nuestras tiendas afiliadas cuesta menos que en los 30 días antes de noviembre.
+    Actualizamos los precios tres veces por semana y más a menudo durante la campaña.
+  </div>
+  {% endif %}
+
+  {% if rebajados %}
+  <h2 class="bf-h2">Más baratos de lo habitual (pero ya estuvieron así en octubre)</h2>
+  <p class="bf-sub">Buen precio frente a lo que suelen costar, aunque no es un mínimo nuevo: el mismo precio, o uno más bajo, ya se vio antes de noviembre.</p>
+  <div class="bf-lista">
+    {% for o in rebajados %}
+    <article class="bf-card">
+      <div class="bf-img"><img src="{{ o.img_src }}" alt="{{ o.nombre }}" width="56" height="56" loading="lazy"></div>
+      <div>
+        <h3 class="bf-nombre">{% if o.pagina_url %}<a href="{{ site_url }}{{ o.pagina_url }}">{{ o.nombre }}</a>{% else %}{{ o.nombre }}{% endif %}</h3>
+        <div class="bf-meta">
+          <span class="store-pill store-{{ o.tienda | lower }}"><span class="store-pill-dot" style="background:currentColor;"></span>{{ o.tienda }}</span>
+          <span class="bf-sello suave">−{{ o.rebaja_pct|round|int }} % sobre su precio habitual</span>
+        </div>
+      </div>
+      <div class="bf-cuerpo">
+        <div>
+          <div class="bf-precio">{{ o.precio|fmtd }}<small>€</small></div>
+          <div class="bf-antes">Precio habitual <b>{{ o.habitual|fmtd }} €</b> · mínimo de antes de noviembre <b>{{ o.minimo_30|fmtd }} €</b></div>
+        </div>
+        {% if o.url_afiliado %}<a class="bf-btn sec" href="{{ o.url_afiliado }}" target="_blank" rel="nofollow sponsored noopener">Ver en {{ o.tienda }}</a>{% endif %}
+        {{ codigo_tienda(o.tienda) }}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <h2 class="bf-h2">Por tipo de producto</h2>
+  <p class="bf-sub">Las cinco tiendas juntas. Número de productos en cada situación.</p>
+  <table class="bf-tabla">
+    <thead><tr><th>Tipo</th><th>Revisados</th><th>Rebaja real</th><th>Precio de siempre</th><th>Más caro</th></tr></thead>
+    <tbody>
+      {% for c in categorias %}
+      <tr><td>{{ c.nombre }}</td><td>{{ c.total }}</td><td class="real">{{ c.rebaja_real }}</td><td>{{ c.precio_habitual }}</td><td>{{ c.mas_caro }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <h2 class="bf-h2">Preguntas frecuentes</h2>
+  <div class="bf-faq">
+    {% for f in faqs %}
+    <h3>{{ f.q }}</h3>
+    <p>{{ f.a }}</p>
+    {% endfor %}
+  </div>
+
+  <div class="bf-enlaces">
+    <a class="bf-btn sec" href="{{ site_url }}/{{ ofertas_slug }}/">Ofertas reales del día →</a>
+    <a class="bf-btn sec" href="{{ site_url }}/tiendas/hsn-vs-myprotein/">¿HSN o MyProtein? →</a>
+  </div>
+
+  <div class="info-bar" style="margin-top:28px;">
+    <strong>Nota de afiliación:</strong>
+    Los enlaces a HSN, MyProtein y Hivital son de afiliado: si compras a través de ellos recibimos una pequeña comisión sin coste extra para ti. Eso no cambia qué rebajas cuentan como reales: el criterio es el mismo para las cinco tiendas.
+    <a href="{{ site_url }}/como-financiamos/" style="color:#888; margin-left:4px;">Más información →</a>
+  </div>
+
+</div>
+{% endblock %}
