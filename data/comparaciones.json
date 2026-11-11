@@ -284,7 +284,47 @@
       "id_a": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
       "id_b": "creatina-excell-100-creapure-en-polvo-1kg-desconocida",
       "fuente": "CTR-404"
+    },
+    {
+      "id_a": "evowhey-protein-2kg-desconocida",
+      "id_b": "impact-whey-protein-840g-desconocida",
+      "fuente": "afiliadas-HSN-MyProtein"
+    },
+    {
+      "id_a": "evolate-2-0-whey-isolate-cfm-2kg-desconocida",
+      "id_b": "impact-whey-isolate-2-88kg-desconocida",
+      "fuente": "afiliadas-HSN-MyProtein"
+    },
+    {
+      "id_a": "evoclear-hydro-1kg-desconocida",
+      "id_b": "clear-whey-isolate-500g-desconocida",
+      "fuente": "afiliadas-HSN-MyProtein"
+    },
+    {
+      "id_a": "evocasein-2-0-caseina-micelar-digezyme-2kg-desconocida",
+      "id_b": "caseina-de-liberacion-lenta-2-7kg-desconocida",
+      "fuente": "afiliadas-HSN-MyProtein"
+    },
+    {
+      "id_a": "creatina-monohidrato-en-polvo-200-mesh-1kg-desconocida",
+      "id_b": "creatina-monohidrato-en-polvo-250g-desconocida",
+      "fuente": "afiliadas-HSN-MyProtein"
+    },
+    {
+      "id_a": "proteina-de-guisante-aislada-2-0-2kg-desconocida",
+      "id_b": "aislado-de-proteina-de-guisante-2-88kg-desconocida",
+      "fuente": "afiliadas-HSN-MyProtein"
+    },
+    {
+      "id_a": "proteina-de-soja-aislada-2-0-2kg-desconocida",
+      "id_b": "aislado-de-proteina-de-soja-1kg-desconocida",
+      "fuente": "afiliadas-HSN-MyProtein"
+    },
+    {
+      "id_a": "bcaa-s-instantaneo-2-1-1-2-0-1kg-desconocida",
+      "id_b": "bcaa-2-1-1-250g-myprotein",
+      "fuente": "afiliadas-HSN-MyProtein"
     }
   ],
-  "total": 57
+  "total": 65
 }

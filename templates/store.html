@@ -27,6 +27,9 @@
       {{ total_productos }} productos disponibles ·
       <a href="{{ tienda.url_homepage }}" target="_blank" rel="nofollow noopener" style="color:#555;">{{ tienda.url_homepage }}</a>
     </p>
+    {% for ruta in paginas_vs_tiendas if ('/' ~ tienda.slug ~ '-vs-') in ruta or ('-vs-' ~ tienda.slug ~ '/') in ruta %}
+    <a href="{{ site_url }}{{ ruta }}" style="font-size:0.85rem; font-weight:700; color:var(--accent); text-decoration:none;">¿HSN o MyProtein? Comparamos precios por tipo de producto →</a>
+    {% endfor %}
   </header>
 
   <!-- Introducción -->

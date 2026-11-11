@@ -29,6 +29,13 @@
     </a>
   </header>
 
+  {% for ruta in paginas_vs_tiendas %}
+  <a href="{{ site_url }}{{ ruta }}" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:24px; padding:16px 20px; border:1px solid rgba(200,255,77,0.25); background:rgba(200,255,77,0.05); border-radius:12px; text-decoration:none;">
+    <span style="font-weight:800; color:#e8e8e8;">¿HSN o MyProtein? Cuál sale más barata, por tipo de producto</span>
+    <span style="font-size:0.8rem; font-weight:700; color:var(--accent); white-space:nowrap;">Ver comparativa →</span>
+  </a>
+  {% endfor %}
+
   <div style="display:flex; flex-direction:column; gap:16px;">
     {% for tienda in tiendas %}
     <a href="{{ site_url }}/tiendas/{{ tienda.slug }}/" style="display:block; text-decoration:none;">

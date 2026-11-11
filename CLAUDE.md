@@ -37,7 +37,8 @@ Proteína Whey, Proteína Vegana (subcategoría derivada de proteina-whey), Crea
 
 - Home con filtros
 - Páginas de categoría: `/proteina-whey/`, `/proteina-vegana/`, `/creatina/`, `/bcaa/`, `/pre-entreno/`
-- 57 páginas de comparación en `/comparar/<producto-vs-producto>/` (fijas, desde `data/comparaciones.json`)
+- 65 páginas de comparación en `/comparar/<producto-vs-producto>/` (fijas, desde `data/comparaciones.json`; 8 de ellas HSN vs MyProtein, fuente `afiliadas-HSN-MyProtein`)
+- `/tiendas/hsn-vs-myprotein/`: comparativa entre tiendas afiliadas (ver "Tienda vs tienda")
 - 116 páginas meta-refresh de redirección desde URLs viejas (no van en sitemap)
 - Recomendador tipo quiz en `/test/`
 - JSON-LD schema markup en todas
@@ -94,6 +95,9 @@ Proteína Whey, Proteína Vegana (subcategoría derivada de proteina-whey), Crea
 
 - Agotados en tiendas afiliadas (nov 2026): `_url_avisame()` en `build.py`. Si un producto está agotado en HSN/MyProtein/Hivital, la comparación y la página de producto mantienen un botón "Avísame en {tienda} cuando vuelva" con el enlace de afiliado (la visita llega con nuestro ID aunque no haya stock). En la página de producto agotado, la alternativa más barata con stock de tienda afiliada ocupa el botón principal (`alternativa_stock`). En la comparación, si solo uno tiene stock, "Mejor precio" es ese ("el único con stock") y la meta description dice que el otro está agotado. En tiendas sin afiliación no se enlaza el agotado. Motivo: Evobasic (la página con ~40 % de los clics) se agotó el 5 nov y la web se quedó sin enlace a HSN para quien la buscaba.
 - Precios imposibles fuera de listados (nov 2026): `IDS_PRECIO_IMPOSIBLE` (solo Regla 1, €/kg < 20 % de la mediana) hace que `_excluir_producto()` mande el producto a "Otros productos". Antes un error de formato de MyProtein (Batidos Essential, 6 €/kg) salía como el más barato de `/proteina-whey/` y en la home.
+
+- Tienda vs tienda (nov 2026): `generar_vs_tiendas()` genera `/tiendas/hsn-vs-myprotein/` solo con datos del catálogo: el más barato y la mediana de €/kg por tipo de producto (`_VS_FILAS`, sin mezclas), % de productos con rebaja >25 % sobre su mediana de 90 días y valoración media. Las dos tiendas son afiliadas: gane la que gane, el clic cuenta. Enlazada desde `/tiendas/`, las fichas de HSN y MyProtein y el sitemap. Busca "hsn o myprotein" / "hsn vs myprotein", que ya daban impresiones sin página propia.
+- Aviso de ofertas (nov 2026): franja bajo la cabecera en todas las páginas menos `/ofertas/` con el número de mínimos reales de hoy (`N_MINIMOS_HOY`). Del 14 nov al 1 dic añade "Black Friday" (`_es_temporada_black_friday`). Si no hay mínimos, no sale.
 
 - Anomalías de precio (nov 2026): en MyProtein (`TIENDAS_REBAJAS_FRECUENTES`) una bajada >40 % (Regla 2) es aviso, no error, porque sus rebajas del 40-60 % son casi semanales; en el resto de tiendas sigue siendo error. Así el job en rojo vuelve a significar que algo se ha roto.
 

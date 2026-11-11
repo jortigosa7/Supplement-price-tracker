@@ -1034,6 +1034,11 @@
       color: #444444;
       text-align: center;
     }
+    .ofertas-strip { border-bottom: 1px solid rgba(200,255,77,0.18); background: rgba(200,255,77,0.06); margin-bottom: 10px; }
+    .ofertas-strip a { display: block; max-width: 1200px; margin: 0 auto; padding: 9px 20px; font-size: 0.8rem; line-height: 1.45; color: #ddd; text-decoration: none; }
+    .ofertas-strip strong { color: var(--accent); }
+    .ofertas-strip span { color: var(--accent); font-weight: 700; white-space: nowrap; margin-left: 4px; }
+    .ofertas-strip a:hover span { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -1066,6 +1071,13 @@
     </div>
   </header>
 
+  {% if n_minimos_hoy and active_slug != ofertas_slug %}
+  <div class="ofertas-strip">
+    <a href="{{ site_url }}/{{ ofertas_slug }}/">
+      {% if es_black_friday %}<strong>Black Friday</strong> · {% endif %}Hoy hay {{ n_minimos_hoy }} {{ "oferta real" if n_minimos_hoy == 1 else "ofertas reales" }}: {{ "producto" if n_minimos_hoy == 1 else "productos" }} en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+    </a>
+  </div>
+  {% endif %}
 
   <main>
     {% block content %}{% endblock %}

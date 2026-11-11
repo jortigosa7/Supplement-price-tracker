@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% set a = tiendas[0] %}
+{% set b = tiendas[1] %}
+
+{% block title %}{{ a }} o {{ b }}: ¿cuál es más barata? Precios {{ mes_anio }}{% endblock %}
+{% block meta_desc %}Comparamos {{ n_productos[a] }} productos de {{ a }} y {{ n_productos[b] }} de {{ b }} por precio por kilo: proteína whey, creatina, BCAA y pre-entreno. Cuál sale más barata y cuándo conviene cada una.{% endblock %}
+{% block canonical_path %}{{ ruta }}{% endblock %}
+{% block og_title %}{{ a }} o {{ b }}: ¿cuál es más barata?{% endblock %}
+{% block og_path %}{{ ruta }}{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "{{ site_url }}/"},
+    {"@type": "ListItem", "position": 2, "name": "Tiendas", "item": "{{ site_url }}/tiendas/"},
+    {"@type": "ListItem", "position": 3, "name": "{{ a }} vs {{ b }}", "item": "{{ site_url }}{{ ruta }}"}
+  ]
+}
+</script>
+{% if faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{% for f in faqs %}
+    {"@type": "Question", "name": {{ f.q|tojson }}, "acceptedAnswer": {"@type": "Answer", "text": {{ f.a|tojson }}}}{% if not loop.last %},{% endif %}{% endfor %}
+  ]
+}
+</script>
+{% endif %}
+<style>
+  .vs-resumen { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:40px; }
+  .vs-dato { background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px 18px; }
+  .vs-dato-label { font-size:0.68rem; font-weight:700; color:#777; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:10px; }
+  .vs-dato-fila { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:2px 8px; font-size:0.84rem; color:#ccc; padding:3px 0; }
+  .vs-dato-fila strong { color:#fff; font-variant-numeric:tabular-nums; }
+  .vs-h2 { font-size:0.95rem; font-weight:700; color:#c0c0c0; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .vs-fila { background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px; margin-bottom:12px; }
+  .vs-fila-titulo { font-size:0.9rem; font-weight:800; color:#eee; margin-bottom:12px; }
+  .vs-celdas { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .vs-celda { border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:6px; min-width:0; }
+  .vs-celda.gana { border-color:rgba(200,255,77,0.45); background:rgba(200,255,77,0.04); }
+  .vs-celda-tienda { display:flex; align-items:center; flex-wrap:wrap; gap:4px 6px; font-size:0.72rem; font-weight:700; color:#999; text-transform:uppercase; letter-spacing:0.06em; }
+  .vs-celda-tienda .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .vs-badge { font-size:0.6rem; color:#000; background:var(--accent); border-radius:4px; padding:1px 5px; letter-spacing:0.04em; white-space:nowrap; }
+  .vs-kg { font-size:1.35rem; font-weight:900; color:var(--accent); line-height:1.1; font-variant-numeric:tabular-nums; }
+  .vs-kg span { font-size:0.7rem; color:#777; font-weight:700; margin-left:2px; }
+  .vs-prod { font-size:0.8rem; color:#ddd; line-height:1.35; overflow-wrap:anywhere; }
+  .vs-prod a { color:inherit; text-decoration:underline; text-decoration-color:rgba(255,255,255,0.25); }
+  .vs-mediana { font-size:0.72rem; color:#777; }
+  .vs-celda .pc-btn { margin-top:auto; font-size:0.72rem; padding:8px 10px; text-align:center; white-space:normal; line-height:1.3; }
+  .vs-celda .pc-btn:not(.pc-btn-primary) { background:transparent; border:1px solid rgba(255,255,255,0.2); color:#ccc; }
+  .vs-vacia { font-size:0.8rem; color:#666; }
+  .vs-duelos { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; margin-bottom:40px; }
+  .vs-duelo { display:block; background:#111214; border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; font-size:0.85rem; color:#ddd; text-decoration:none; }
+  .vs-duelo:hover { border-color:var(--accent); }
+  .vs-duelo em { font-style:normal; color:#666; margin:0 6px; font-size:0.75rem; }
+  .vs-faq { margin-bottom:14px; }
+  .vs-faq h3 { font-size:0.9rem; color:#eee; margin-bottom:6px; }
+  .vs-faq p { font-size:0.88rem; color:#aaa; line-height:1.7; }
+</style>
+{% endblock %}
+
+{% block content %}
+{% set store_colors = {"HSN":"var(--hsn)","MyProtein":"var(--myprotein)","Hivital":"var(--hivital)"} %}
+<div class="container" style="padding-top:32px; padding-bottom:80px;">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ site_url }}/">Inicio</a>
+    <span>›</span>
+    <a href="{{ site_url }}/tiendas/">Tiendas</a>
+    <span>›</span>
+    <span>{{ a }} vs {{ b }}</span>
+  </nav>
+
+  <header style="margin-bottom:28px;">
+    <h1 style="font-family:var(--font-display); font-size:clamp(1.5rem,4vw,2.1rem); font-weight:900; color:#fff; margin-bottom:12px;">{{ a }} o {{ b }}: ¿cuál es más barata?</h1>
+    <p style="color:#999; font-size:0.9rem; line-height:1.7; max-width:720px;">
+      Comparamos {{ n_productos[a] }} productos de {{ a }} y {{ n_productos[b] }} de {{ b }} por precio por kilo, con precios actualizados el {{ fecha_datos_larga }}.
+      {% if n_comparables %}
+      Hoy {{ a }} tiene el producto más barato por kilo en {{ gana[a]|length }} de {{ n_comparables }} tipos de producto y {{ b }} en {{ gana[b]|length }}.
+      {% endif %}
+      {% if rebajas[a].pct is not none and rebajas[b].pct is not none %}
+      La gran diferencia está en las rebajas: en los últimos 90 días, el {{ rebajas[b].pct }} % de los productos de {{ b }} bajó más de un {{ rebaja_fuerte_pct }} % sobre su precio habitual, frente al {{ rebajas[a].pct }} % en {{ a }}.
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="vs-resumen">
+    <div class="vs-dato">
+      <div class="vs-dato-label">Más barato por kilo en</div>
+      {% for t in tiendas %}<div class="vs-dato-fila"><span>{{ t }}</span><strong>{{ gana[t]|length }} de {{ n_comparables }} tipos</strong></div>{% endfor %}
+    </div>
+    <div class="vs-dato">
+      <div class="vs-dato-label">Mediana de €/kg más baja en</div>
+      {% for t in tiendas %}<div class="vs-dato-fila"><span>{{ t }}</span><strong>{{ mediana_menor[t] }} de {{ n_comparables }} tipos</strong></div>{% endfor %}
+    </div>
+    <div class="vs-dato">
+      <div class="vs-dato-label">Productos con rebaja &gt;{{ rebaja_fuerte_pct }} % (90 días)</div>
+      {% for t in tiendas %}<div class="vs-dato-fila"><span>{{ t }}</span><strong>{% if rebajas[t].pct is not none %}{{ rebajas[t].pct }} %{% else %}—{% endif %}</strong></div>{% endfor %}
+    </div>
+    <div class="vs-dato">
+      <div class="vs-dato-label">Valoración media en su web</div>
+      {% for t in tiendas %}<div class="vs-dato-fila"><span>{{ t }}</span><strong>{% if valoraciones[t].media %}{{ valoraciones[t].media|fmtd }}/5{% else %}—{% endif %}</strong></div>{% endfor %}
+    </div>
+  </div>
+
+  <section style="margin-bottom:40px;">
+    <h2 class="vs-h2">El más barato de cada tienda, por tipo de producto</h2>
+    {% for fila in filas %}
+    <div class="vs-fila">
+      <div class="vs-fila-titulo">{{ fila.etiqueta }}</div>
+      <div class="vs-celdas">
+        {% for t in tiendas %}
+        {% set c = fila.tiendas.get(t) %}
+        <div class="vs-celda{% if fila.ganador == t %} gana{% endif %}">
+          <div class="vs-celda-tienda"><span class="dot" style="background:{{ store_colors.get(t, '#888') }};"></span>{{ t }}{% if fila.ganador == t %}<span class="vs-badge">MÁS BARATO</span>{% endif %}</div>
+          {% if c %}
+            <div class="vs-kg">{{ c.mejor.precio_kg|fmtd }}<span>€/kg</span></div>
+            <div class="vs-prod">{% if c.mejor.pagina_url %}<a href="{{ site_url }}{{ c.mejor.pagina_url }}">{{ c.mejor.nombre }}</a>{% else %}{{ c.mejor.nombre }}{% endif %}</div>
+            <div class="vs-mediana">Mediana {{ c.mediana|fmtd }} €/kg · {{ c.n }} {{ "producto" if c.n == 1 else "productos" }}</div>
+            {% if c.mejor.url_afiliado %}
+            <a href="{{ c.mejor.url_afiliado }}" class="pc-btn{% if fila.ganador == t %} pc-btn-primary{% endif %}" target="_blank" rel="nofollow sponsored noopener">Ver en {{ t }}{% if c.mejor.precio_eur %}<br>{{ c.mejor.precio_eur|fmtd }} €{% endif %}</a>
+            {% endif %}
+          {% else %}
+            <div class="vs-vacia">No lo seguimos en {{ t }}.</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+    <p style="font-size:0.75rem; color:#666; line-height:1.6; margin-top:10px;">El precio por kilo es el del formato más barato por kilo de cada producto. La mediana es el precio por kilo típico de los productos de ese tipo en cada tienda. Sin mezclas (avena, gainers, colágeno) en proteínas.</p>
+  </section>
+
+  {% if duelos %}
+  <section>
+    <h2 class="vs-h2">Comparativas de producto: {{ a }} vs {{ b }}</h2>
+    <div class="vs-duelos">
+      {% for d in duelos %}
+      <a class="vs-duelo" href="{{ site_url }}/comparar/{{ d.slug }}/">{{ d.nombre_a }}<em>vs</em>{{ d.nombre_b }}</a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if faqs %}
+  <section style="margin-bottom:40px;">
+    <h2 class="vs-h2">Preguntas frecuentes</h2>
+    {% for f in faqs %}
+    <div class="vs-faq">
+      <h3>{{ f.q }}</h3>
+      <p>{{ f.a }}</p>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px;">
+    <a href="{{ site_url }}/tiendas/{{ cfg_a.slug }}/" class="pc-btn">Todo {{ a }} →</a>
+    <a href="{{ site_url }}/tiendas/{{ cfg_b.slug }}/" class="pc-btn">Todo {{ b }} →</a>
+  </div>
+
+  <div class="info-bar">
+    <strong>Nota de afiliación:</strong>
+    StackFit colabora con {{ a }} y {{ b }} a través de programas de afiliación. Si compras a través de estos enlaces recibimos una pequeña comisión sin coste extra para ti. Los datos de esta página salen solo de los precios que publican las tiendas.
+    <a href="{{ site_url }}/como-financiamos/" style="color:#888; margin-left:4px;">Más información →</a>
+  </div>
+
+</div>
+{% endblock %}

@@ -55,6 +55,12 @@ ENABLE_ALERTAS = False
 # Página /ofertas/ y canal de avisos de mínimos reales (ver minimos.py y avisos_telegram.py).
 # TELEGRAM_CANAL_URL vacío = la web no enlaza a ningún canal. Formato: "https://t.me/nombre_del_canal".
 OFERTAS_SLUG = "ofertas"
+
+# Rutas de las páginas "tienda vs tienda" generadas en este build (sitemap y enlaces)
+PAGINAS_VS_TIENDAS: list[str] = []
+
+# Productos en mínimo real hoy; lo usa el aviso de ofertas que sale en todas las páginas
+N_MINIMOS_HOY = 0
 TELEGRAM_CANAL_URL = ""
 
 # ============================================================
@@ -1309,6 +1315,15 @@ def setup_jinja():
     return env
 
 
+def _es_temporada_black_friday(fecha_iso: str) -> bool:
+    """Del 14 de noviembre al 1 de diciembre (Black Friday + Cyber Monday)."""
+    try:
+        f = datetime.strptime(fecha_iso, "%Y-%m-%d")
+    except (TypeError, ValueError):
+        return False
+    return (f.month == 11 and f.day >= 14) or (f.month == 12 and f.day == 1)
+
+
 def contexto_base(last_updated: str) -> dict:
     """Contexto común a todas las páginas."""
     from datetime import date as _date
@@ -1329,6 +1344,9 @@ def contexto_base(last_updated: str) -> dict:
         "current_year":     last_updated[:4],
         "ofertas_slug":     OFERTAS_SLUG,
         "telegram_canal_url": TELEGRAM_CANAL_URL,
+        "n_minimos_hoy":    N_MINIMOS_HOY,
+        "es_black_friday":  _es_temporada_black_friday(last_updated),
+        "paginas_vs_tiendas": PAGINAS_VS_TIENDAS,
     }
 
 
@@ -2866,6 +2884,24 @@ def generar_pares_comparacion(
             print(f"  [alias-nombre] {missing_id} → {len(candidatos)} candidatos, sin alias")
         return None
 
+    # ID sin el peso → productos actuales. Cuando una tienda cambia el formato más barato
+    # (MyProtein lo hace con cada rebaja) el ID cambia de peso; el alias por URL solo
+    # funciona en el primer build tras el cambio, porque en el siguiente el ID viejo ya
+    # no está en el products.json anterior y la comparativa desaparecía.
+    _por_raiz: dict = {}
+    for _p in productos_web:
+        _por_raiz.setdefault(_STRIP_PESO_FROM_ID_RE.sub("", _p["id"]), []).append(_p)
+
+    def _alias_por_raiz(missing_id: str):
+        raiz = _STRIP_PESO_FROM_ID_RE.sub("", missing_id)
+        if raiz == missing_id:
+            return None  # el ID no tiene peso: no hay nada que ignorar
+        candidatos = _por_raiz.get(raiz, [])
+        if len(candidatos) == 1:
+            print(f"  [alias-raiz] {missing_id} → {candidatos[0]['id']}")
+            return _hacer_alias(missing_id, candidatos[0])
+        return None
+
     for par in comp_data.get("pares", []):
         id_a = par["id_a"]
         id_b = par["id_b"]
@@ -2882,6 +2918,11 @@ def generar_pares_comparacion(
             pa = _alias_por_nombre(id_a)
         if pb is None:
             pb = _alias_por_nombre(id_b)
+        # Fallback 1c: mismo producto con otro formato (ID igual salvo el peso)
+        if pa is None:
+            pa = _alias_por_raiz(id_a)
+        if pb is None:
+            pb = _alias_por_raiz(id_b)
 
         # Fallback 2: usar datos del build anterior marcados como agotados temporalmente
         if pa is None and productos_previos_by_id:
@@ -2956,7 +2997,7 @@ def _slugs_comparaciones_existentes_para_ids(ids_faltantes: list) -> set:
 
 def _nombre_seo(nombre: str) -> str:
     """Elimina gramaje (150g, 2kg, 500 ml…) y devuelve en sentence case."""
-    limpio = re.sub(r'\s*\d+\s*(kg|g|ml)\b', '', nombre, flags=re.IGNORECASE).strip()
+    limpio = re.sub(r'\s*\d+(?:[.,]\d+)?\s*(kg|g|ml)\b', '', nombre, flags=re.IGNORECASE).strip()
     titled = limpio.title()
     return re.sub(r"'([A-Z])", lambda m: "'" + m.group(1).lower(), titled)
 
@@ -3911,6 +3952,193 @@ def generar_tienda(env, tienda_cfg: dict, productos_web: list[dict], last_update
 
 
 # ============================================================
+# TIENDA vs TIENDA — /tiendas/hsn-vs-myprotein/
+# ============================================================
+
+# Filas de la tabla: (etiqueta, filtro). Solo productos comparables entre sí:
+# sin mezclas (oats, gainer...) en proteína y solo mezclas en pre-entreno.
+_VS_FILAS = [
+    ("Proteína whey", lambda p: p["categoria"] == "proteina-whey"
+        and _tipo_producto(p) in ("concentrada", "whey") and not _es_mixto(_nombre_prod(p))),
+    ("Whey aislada", lambda p: p["categoria"] == "proteina-whey"
+        and _tipo_producto(p) == "aislada" and not _es_mixto(_nombre_prod(p))),
+    ("Proteína vegana", lambda p: p["categoria"] in ("proteina-whey", "proteina-vegana")
+        and _tipo_producto(p) == "vegana" and not _es_mixto(_nombre_prod(p))),
+    ("Creatina", lambda p: p["categoria"] == "creatina"),
+    ("BCAA y aminoácidos", lambda p: p["categoria"] == "bcaa"),
+    ("Pre-entreno (mezclas)", lambda p: p["categoria"] == "pre-entreno" and _tipo_producto(p) == "blend"),
+]
+
+# Rebaja que cuenta como "rebaja fuerte" frente al precio habitual (mediana de 90 días)
+_VS_REBAJA_FUERTE = 0.25
+
+
+def _vs_rebajas(tienda: str, productos: list[dict], hist_by_id: dict, hoy: str) -> tuple[int, int]:
+    """(productos con historial, productos que han tenido una rebaja fuerte en 90 días)."""
+    import statistics
+    desde = (datetime.strptime(hoy, "%Y-%m-%d") - timedelta(days=90)).strftime("%Y-%m-%d")
+    total = con_rebaja = 0
+    for p in productos:
+        precios = [e["precio"] for e in hist_by_id.get(p["id"], [])
+                   if e.get("tienda") == tienda and e.get("fecha", "") >= desde and e.get("precio")]
+        if len(precios) < 5:
+            continue
+        total += 1
+        if min(precios) <= statistics.median(precios) * (1 - _VS_REBAJA_FUERTE):
+            con_rebaja += 1
+    return total, con_rebaja
+
+
+def generar_vs_tiendas(env, cfg_a: dict, cfg_b: dict, productos_web: list[dict], hist_by_id: dict,
+                       pares: dict, last_updated: str) -> str:
+    """
+    Página "{A} vs {B}" con datos del catálogo: producto más barato y mediana de €/kg
+    por tipo de producto, frecuencia de rebajas fuertes y valoraciones. Las dos tiendas
+    son afiliadas, así que gane la que gane el clic cuenta. Devuelve la ruta pública.
+    """
+    import statistics
+    tiendas = [cfg_a["nombre"], cfg_b["nombre"]]
+    activos = {
+        t: [p for p in productos_web
+            if p.get("tienda_mas_barata") == t and not _excluir_producto(p)
+            and p.get("id") not in IDS_PRECIO_SOSPECHOSO]
+        for t in tiendas
+    }
+
+    def _vista(p: dict) -> dict:
+        url = next((pr["url_afiliado"] for pr in p["precios"]
+                    if pr["tienda"] == p["tienda_mas_barata"] and pr.get("url_afiliado")), None)
+        return {
+            "nombre":       p.get("nombre_display") or p["nombre_normalizado"],
+            "precio_kg":    p["precio_por_kg_min"],
+            "precio_eur":   p.get("precio_min"),
+            "pagina_url":   p.get("pagina_url"),
+            "url_afiliado": url,
+            "tienda":       p["tienda_mas_barata"],
+        }
+
+    filas = []
+    for etiqueta, filtro in _VS_FILAS:
+        fila = {"etiqueta": etiqueta, "tiendas": {}, "ganador": None}
+        for t in tiendas:
+            ps = [p for p in activos[t] if filtro(p)]
+            if not ps:
+                continue
+            mejor = min(ps, key=lambda p: p["precio_por_kg_min"])
+            fila["tiendas"][t] = {
+                "n":       len(ps),
+                "mejor":   _vista(mejor),
+                "mediana": round(statistics.median(p["precio_por_kg_min"] for p in ps), 2),
+            }
+        if len(fila["tiendas"]) == 2:
+            a, b = (fila["tiendas"][t]["mejor"]["precio_kg"] for t in tiendas)
+            if a != b:
+                fila["ganador"] = tiendas[0] if a < b else tiendas[1]
+        if fila["tiendas"]:
+            filas.append(fila)
+
+    comparables = [f for f in filas if len(f["tiendas"]) == 2]
+    gana = {t: [f["etiqueta"] for f in comparables if f["ganador"] == t] for t in tiendas}
+    mediana_menor = {
+        t: sum(1 for f in comparables
+               if f["tiendas"][t]["mediana"] < f["tiendas"][tiendas[1 - tiendas.index(t)]]["mediana"])
+        for t in tiendas
+    }
+
+    rebajas = {}
+    for t in tiendas:
+        total, con = _vs_rebajas(t, activos[t], hist_by_id, last_updated)
+        rebajas[t] = {"total": total, "con_rebaja": con,
+                      "pct": round(100 * con / total) if total else None}
+
+    valoraciones = {}
+    for t in tiendas:
+        con_notas = [p for p in activos[t] if p.get("store_rating") and (p.get("store_rating_count") or 0) >= 20]
+        valoraciones[t] = {
+            "media": round(statistics.mean(p["store_rating"] for p in con_notas), 2) if con_notas else None,
+            "n_productos": len(con_notas),
+            "n_valoraciones": int(sum(p["store_rating_count"] for p in con_notas)),
+        }
+
+    # Comparativas de producto entre las dos tiendas (nombres cortos escritos a mano)
+    _nc_path = os.path.join(DATA_DIR, "nombres_cortos.json")
+    nc = {}
+    if os.path.exists(_nc_path):
+        with open(_nc_path, encoding="utf-8") as f:
+            nc = json.load(f)
+
+    def _nombre_duelo(p: dict) -> str:
+        return (nc.get(p.get("_comparaciones_id") or p["id"])
+                or _nombre_seo(p.get("nombre_display") or p["nombre_normalizado"]))
+
+    duelos = []
+    for slug, (pa, pb) in sorted(pares.items()):
+        if {pa.get("tienda_mas_barata"), pb.get("tienda_mas_barata")} == set(tiendas):
+            duelos.append({"slug": slug, "nombre_a": _nombre_duelo(pa), "nombre_b": _nombre_duelo(pb)})
+
+    # Respuestas de las FAQ, solo con lo que dicen los datos
+    a, b = tiendas
+    if len(gana[a]) != len(gana[b]):
+        lider, otra = (a, b) if len(gana[a]) > len(gana[b]) else (b, a)
+        resp_barata = (f"Depende del producto. Hoy {lider} tiene el más barato por kilo en "
+                       f"{len(gana[lider])} de {len(comparables)} tipos de producto "
+                       f"({', '.join(gana[lider]).lower()}) y {otra} en {len(gana[otra])}"
+                       + (f" ({', '.join(gana[otra]).lower()})" if gana[otra] else "") + ".")
+    else:
+        resp_barata = (f"Hoy están empatadas: cada una tiene el más barato por kilo en "
+                       f"{len(gana[a])} de {len(comparables)} tipos de producto.")
+    faqs = [{"q": f"¿Qué es más barato, {a} o {b}?", "a": resp_barata}]
+    if rebajas[a]["pct"] is not None and rebajas[b]["pct"] is not None:
+        mas, menos = (a, b) if rebajas[a]["pct"] >= rebajas[b]["pct"] else (b, a)
+        faqs.append({
+            "q": f"¿Cuándo conviene comprar en {mas}?",
+            "a": (f"Cuando está de rebajas. En los últimos 90 días, el {rebajas[mas]['pct']} % de sus "
+                  f"productos tuvo una bajada de más del {int(_VS_REBAJA_FUERTE * 100)} % sobre su precio "
+                  f"habitual, frente al {rebajas[menos]['pct']} % en {menos}, que cambia menos de precio. "
+                  f"En la página de ofertas avisamos cuando un producto está en su precio más bajo."),
+        })
+    if valoraciones[a]["media"] and valoraciones[b]["media"]:
+        faqs.append({
+            "q": "¿Qué tienda tiene mejores valoraciones?",
+            "a": (f"Los productos de {a} tienen de media {_fmtc(valoraciones[a]['media'])}/5 "
+                  f"({valoraciones[a]['n_valoraciones']} valoraciones) y los de {b} "
+                  f"{_fmtc(valoraciones[b]['media'])}/5 ({valoraciones[b]['n_valoraciones']} valoraciones), "
+                  f"contando los productos con al menos 20 valoraciones en su web."),
+        })
+
+    slug = f"{cfg_a['slug']}-vs-{cfg_b['slug']}"
+    ruta = f"/tiendas/{slug}/"
+    mes_anio = _mes_anio_es(last_updated)
+    template = env.get_template("tiendas_vs.html")
+    ctx = {
+        **contexto_base(last_updated),
+        "active_slug":   "tiendas",
+        "cfg_a":         cfg_a,
+        "cfg_b":         cfg_b,
+        "tiendas":       tiendas,
+        "ruta":          ruta,
+        "mes_anio":      mes_anio,
+        "filas":         filas,
+        "n_comparables": len(comparables),
+        "gana":          gana,
+        "mediana_menor": mediana_menor,
+        "rebajas":       rebajas,
+        "rebaja_fuerte_pct": int(_VS_REBAJA_FUERTE * 100),
+        "valoraciones":  valoraciones,
+        "n_productos":   {t: len(activos[t]) for t in tiendas},
+        "duelos":        duelos,
+        "faqs":          faqs,
+    }
+    outdir = os.path.join(DOCS_DIR, "tiendas", slug)
+    os.makedirs(outdir, exist_ok=True)
+    path = os.path.join(outdir, "index.html")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(template.render(**ctx))
+    print(f"✅ Generado: {path}  ({len(comparables)} tipos comparables, {len(duelos)} comparativas)")
+    return ruta
+
+
+# ============================================================
 # OFERTAS — mínimos reales de precio (página /ofertas/ + data/minimos.json)
 # ============================================================
 
@@ -4056,6 +4284,12 @@ def generar_sitemap(last_updated: str, compare_slugs: list | None = None, tienda
             "priority":   "0.6",
             "changefreq": "monthly",
         })
+        for ruta in PAGINAS_VS_TIENDAS:
+            urls.append({
+                "loc":        f"{SITE_URL}{ruta}",
+                "priority":   "0.7",
+                "changefreq": "weekly",
+            })
         for tienda in tiendas_cfg:
             urls.append({
                 "loc":        f"{SITE_URL}/tiendas/{tienda['slug']}/",
@@ -4795,6 +5029,7 @@ if __name__ == "__main__":
     # 3d. Mínimos reales de hoy (después de pagina_url: el aviso enlaza a la página del producto)
     minimos_hoy = calcular_minimos(productos_web, hist_by_id, tiendas_cfg)
     guardar_minimos(minimos_hoy, last_updated)
+    N_MINIMOS_HOY = len(minimos_hoy)
 
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")
@@ -4935,6 +5170,11 @@ if __name__ == "__main__":
     # 5b. Páginas de tiendas afiliadas
     if tiendas_cfg:
         print("\n🏪 Generando páginas de tiendas...")
+        _cfg_por_nombre = {t["nombre"]: t for t in tiendas_cfg}
+        if "HSN" in _cfg_por_nombre and "MyProtein" in _cfg_por_nombre:
+            PAGINAS_VS_TIENDAS.append(generar_vs_tiendas(
+                env, _cfg_por_nombre["HSN"], _cfg_por_nombre["MyProtein"],
+                productos_web, hist_by_id, _pares_home, last_updated))
         generar_tiendas_index(env, tiendas_cfg, last_updated)
         for tienda in tiendas_cfg:
             generar_tienda(env, tienda, productos_web, last_updated)
