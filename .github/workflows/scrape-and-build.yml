@@ -34,7 +34,17 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Install Playwright browsers
-        run: playwright install chromium --with-deps
+        # Los mirrors de Ubuntu a veces no resuelven en el runner y --with-deps falla
+        # (11 nov 2026, dos runs seguidos). Se reintenta y, si sigue fallando, se instala
+        # solo Chromium: si Prozis no puede scrapear, scraper.py usa sus datos anteriores.
+        run: |
+          for i in 1 2 3; do
+            playwright install chromium --with-deps && exit 0
+            echo "Intento $i fallido; reintento en 30 s"
+            sleep 30
+          done
+          echo "::warning::No se pudieron instalar las dependencias del sistema de Playwright; se instala solo Chromium"
+          playwright install chromium
 
       - name: Run scraper
         run: python scraper.py
