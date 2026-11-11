@@ -124,6 +124,7 @@
             <div class="vs-mediana">Mediana {{ c.mediana|fmtd }} €/kg · {{ c.n }} {{ "producto" if c.n == 1 else "productos" }}</div>
             {% if c.mejor.url_afiliado %}
             <a href="{{ c.mejor.url_afiliado }}" class="pc-btn{% if fila.ganador == t %} pc-btn-primary{% endif %}" target="_blank" rel="nofollow sponsored noopener">Ver en {{ t }}{% if c.mejor.precio_eur %}<br>{{ c.mejor.precio_eur|fmtd }} €{% endif %}</a>
+            {{ codigo_tienda(t) }}
             {% endif %}
           {% else %}
             <div class="vs-vacia">No lo seguimos en {{ t }}.</div>

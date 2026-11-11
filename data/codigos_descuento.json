@@ -1,0 +1,10 @@
+[
+  {
+    "tienda": "MyProtein",
+    "codigo": "MYPCODE",
+    "descripcion": "10 % de descuento extra",
+    "valido_desde": "2026-04-09",
+    "valido_hasta": "2027-01-31",
+    "fuente": "Awin, promoción genérica de Myprotein ES (el programa no da códigos exclusivos). En Awin termina el 1/2/2027 a las 0:29: se pone el 31/1 para no enseñarlo caducado."
+  }
+]

@@ -32,6 +32,7 @@ import html as html_mod
 from datetime import datetime, timedelta
 from itertools import combinations
 from jinja2 import Environment, FileSystemLoader
+from markupsafe import Markup
 from build_additions import compute_spark_data
 from checks import run_all_checks
 import minimos as minimos_mod
@@ -61,6 +62,11 @@ PAGINAS_VS_TIENDAS: list[str] = []
 
 # Productos en mínimo real hoy; lo usa el aviso de ofertas que sale en todas las páginas
 N_MINIMOS_HOY = 0
+
+# Códigos de descuento de los programas de afiliación (data/codigos_descuento.json).
+# Solo códigos dados por el programa (las condiciones de Awin prohíben otros) y con fecha
+# de fin visible: enseñar un código caducado puede suponer la expulsión del programa.
+CODIGOS_ACTIVOS: dict[str, dict] = {}
 TELEGRAM_CANAL_URL = ""
 
 # ============================================================
@@ -1290,6 +1296,36 @@ def _check_agotados_30d(productos_web: list[dict], historial: list[dict]) -> Non
 # PASO 3: Generar HTML con Jinja2
 # ============================================================
 
+def cargar_codigos_descuento(hoy: str) -> dict[str, dict]:
+    """{tienda: código} con los códigos vigentes hoy (valido_desde <= hoy <= valido_hasta)."""
+    path = os.path.join(DATA_DIR, "codigos_descuento.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        codigos = json.load(f)
+    activos = {}
+    for c in codigos:
+        if not (c.get("valido_desde", "") <= hoy <= c.get("valido_hasta", "")):
+            continue
+        fin = datetime.strptime(c["valido_hasta"], "%Y-%m-%d")
+        activos[c["tienda"]] = {**c, "hasta_fmt": f"{fin.day} de {MESES_ES[fin.month - 1]} de {fin.year}"}
+    return activos
+
+
+def _html_codigo(tienda: str) -> Markup:
+    """Línea con el código de descuento de la tienda (o nada si no hay ninguno vigente)."""
+    c = CODIGOS_ACTIVOS.get(tienda)
+    if not c:
+        return Markup("")
+    return Markup(
+        '<div class="cod-desc" data-hasta="{hasta}">{desc} con el código '
+        '<button type="button" class="cod-copiar" data-codigo="{codigo}" '
+        'aria-label="Copiar el código {codigo}">{codigo}</button> '
+        '<span class="cod-hasta">hasta el {hasta_fmt}</span></div>'
+    ).format(hasta=c["valido_hasta"], desc=c["descripcion"], codigo=c["codigo"],
+             hasta_fmt=c["hasta_fmt"])
+
+
 def setup_jinja():
     """Configura el entorno Jinja2."""
     env = Environment(
@@ -1312,6 +1348,7 @@ def setup_jinja():
 
     env.filters['fmtd'] = _fmtd
     env.filters['fmtg'] = _fmtg
+    env.globals['codigo_tienda'] = _html_codigo
     return env
 
 
@@ -5030,6 +5067,10 @@ if __name__ == "__main__":
     minimos_hoy = calcular_minimos(productos_web, hist_by_id, tiendas_cfg)
     guardar_minimos(minimos_hoy, last_updated)
     N_MINIMOS_HOY = len(minimos_hoy)
+    CODIGOS_ACTIVOS = cargar_codigos_descuento(datetime.now().strftime("%Y-%m-%d"))
+    if CODIGOS_ACTIVOS:
+        _lista = ", ".join(t + "=" + c["codigo"] for t, c in CODIGOS_ACTIVOS.items())
+        print(f"   → Códigos de descuento vigentes: {_lista}")
 
     # 4. Generar HTML
     print("\n🏗️  Generando HTML...")

@@ -118,6 +118,7 @@
         <a class="of-btn principal" href="{{ o.url_afiliado }}" target="_blank" rel="nofollow sponsored noopener">Ver en {{ o.tienda }} →</a>
         {% if o.pagina_url %}<a class="of-btn" href="{{ site_url }}{{ o.pagina_url }}">Ver historial completo</a>{% endif %}
       </div>
+      {{ codigo_tienda(o.tienda) }}
     </article>
     {% endfor %}
   </div>

@@ -588,6 +588,7 @@
       </div>
       {% set best = prod.precios | rejectattr('sin_precio') | sort(attribute='precio_eur') | first %}
       <a href="{{ best.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ best.tienda }} · {{ best.precio_eur|fmtd }} €</a>
+      {{ codigo_tienda(best.tienda) }}
       {% endif %}
     </div>
     {% endfor %}

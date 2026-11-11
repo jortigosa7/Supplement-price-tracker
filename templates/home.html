@@ -189,10 +189,12 @@
           <div class="pc-actions">
             <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Mejor precio →</a>
           </div>
+          {{ codigo_tienda(offer.tienda) }}
           {% else %}
           <div class="pc-actions">
             <a href="{{ offer.url_afiliado }}" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en {{ offer.tienda }}</a>
           </div>
+          {{ codigo_tienda(offer.tienda) }}
           {% endif %}
         </div>
         {% endfor %}
