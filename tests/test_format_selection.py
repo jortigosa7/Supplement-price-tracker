@@ -77,3 +77,28 @@ class TestSeleccionarMejorFormato:
         # Verificar que el par (peso, precio) existe exactamente en la lista original
         assert best in formatos, "El par (peso, precio) debe pertenecer al listado original"
         assert best == (1.0, 12.0)
+
+
+class TestNombreConFormatoMyProtein:
+    """El nombre de MyProtein solo puede llevar el peso del formato elegido."""
+
+    def _fn(self):
+        from scrapers.myprotein import _nombre_con_formato
+        return _nombre_con_formato
+
+    def test_listado_sin_peso_añade_formato(self):
+        assert self._fn()("Impact Whey Protein", 2.5) == "Impact Whey Protein 2.5kg"
+
+    def test_catalogo_con_otro_peso_lo_sustituye(self):
+        from limpieza import extraer_peso_kg
+        nombre = self._fn()("Batidos Essential 2.5kg", 1.0)
+        assert nombre == "Batidos Essential 1kg"
+        assert extraer_peso_kg(nombre) == 1.0
+        nombre = self._fn()("Mezcla de Rendimiento Todo-En-Uno 2.5kg", 5.0)
+        assert extraer_peso_kg(nombre) == 5.0
+        nombre = self._fn()("Creatina en polvo micronizada 500g", 0.25)
+        assert nombre == "Creatina en polvo micronizada 250g"
+
+    def test_catalogo_con_mismo_peso_no_cambia_id(self):
+        assert self._fn()("Total Protein 5kg", 5.0) == "Total Protein 5kg 5kg"
+        assert self._fn()("Origin Shred Pre-Workout 660g", 0.66) == "Origin Shred Pre-Workout 660g 660g"

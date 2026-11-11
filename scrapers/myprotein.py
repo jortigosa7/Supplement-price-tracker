@@ -163,6 +163,28 @@ def _talla_str(peso_kg: float) -> str:
     return f"{peso_kg:g}kg"
 
 
+_PESO_FINAL_RE = re.compile(r"\s\d+(?:[.,]\d+)?\s*(?:kg|g)\s*$", re.IGNORECASE)
+
+
+def _nombre_con_formato(nombre: str, peso_kg: float) -> str:
+    """
+    Añade al nombre el peso del formato elegido.
+
+    Los nombres del catálogo ya traen un peso ("Batidos Essential 2.5kg"). Si el
+    formato elegido es otro, se sustituye en vez de añadirse: con dos pesos en el
+    nombre, limpieza.extraer_peso_kg se queda con el primero y el €/kg sale mal
+    (15 € del bote de 1 kg divididos entre 2,5 kg = 6 €/kg). Si el peso coincide
+    se deja como estaba ("Total Protein 5kg 5kg") para no cambiar el ID.
+    """
+    talla = _talla_str(peso_kg)
+    m = _PESO_FINAL_RE.search(nombre)
+    if m:
+        peso_nombre = _peso_kg_de_texto(m.group(0))
+        if peso_nombre is not None and abs(peso_nombre - peso_kg) > 0.001:
+            return f"{nombre[:m.start()].rstrip()} {talla}"
+    return f"{nombre} {talla}"
+
+
 # ── Fase 1: listado de categoría ─────────────────────────────────────────────
 
 def _extraer_listado(html: str) -> list[dict]:
@@ -487,7 +509,7 @@ def scrape(debug: bool = False) -> list[dict]:
                         # Catálogo + agotado: el nombre viene del catálogo (ya incluye peso).
                         # En cualquier otro caso, actualizar con el formato seleccionado.
                         if not (d.get("_from_catalog") and agotado_mp):
-                            nombre_final = f"{d['nombre']} {_talla_str(peso_best)}"
+                            nombre_final = _nombre_con_formato(d["nombre"], peso_best)
             else:
                 stats["errors"] += 1
                 # Fallback: precio del listing (fresco), sin peso ni variantes
