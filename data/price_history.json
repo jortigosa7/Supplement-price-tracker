@@ -195484,5 +195484,17 @@
     "fecha": "2026-11-11",
     "precio": 5.59,
     "tienda": "Prozis"
+  },
+  {
+    "producto_id": "batidos-essential-1kg-desconocida",
+    "fecha": "2026-11-11",
+    "precio": 15.0,
+    "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "mezcla-de-rendimiento-todo-en-uno-5kg-desconocida",
+    "fecha": "2026-11-11",
+    "precio": 159.99,
+    "tienda": "MyProtein"
   }
 ]

@@ -190,6 +190,30 @@
     width: fit-content;
   }
   .prod-cta:hover { opacity: 0.85; }
+  .prod-cta-sec {
+    display: inline-block;
+    width: fit-content;
+    padding: 9px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.18);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #ccc;
+    text-decoration: none;
+  }
+  .prod-cta-sec:hover { border-color: var(--accent); color: var(--accent); }
+  .prod-alt-stock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    border: 1px solid rgba(200,255,77,0.25);
+    border-radius: 10px;
+    background: rgba(200,255,77,0.05);
+  }
+  .prod-alt-stock-label { font-size: 0.7rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
+  .prod-alt-stock-nombre { font-size: 0.92rem; color: #eee; }
+  .prod-alt-stock-nombre a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.3); }
   .prod-cta-tienda { font-weight: 500; font-size: 0.78rem; color: rgba(0,0,0,0.6); text-transform: none; letter-spacing: 0; }
 
   /* Secciones */
@@ -1412,6 +1436,26 @@
           <span class="prod-precio-prot">72,20 €/kg proteína</span>
         
       </div>
+      
+      
+        
+        <div class="prod-alt-stock">
+          <div class="prod-alt-stock-label">Mientras vuelve, la alternativa más barata con stock</div>
+          <div class="prod-alt-stock-nombre">
+            <a href="https://stackfit.es/proteina-whey/golden-protein-hsn/">Golden Protein</a>
+            · 54,29 €/kg prot.
+          </div>
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZXNzZW50aWFsLXNlcmllcy9nb2xkZW4tcHJvdGVpbg=="
+             rel="nofollow sponsored noopener"
+             target="_blank"
+             class="prod-cta">
+            Ver en <span class="prod-cta-tienda">HSN · 56,99 €</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      
+      
+        <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvZm9vZC1zZXJpZXMvY2FmZS1wcm90ZWljby1zaW4tZWR1bGNvcmFudGVzLWNhZmVmaXRjb25x" rel="nofollow sponsored noopener" target="_blank" class="prod-cta-sec">Avísame en HSN cuando vuelva</a>
       
     </div>
   </header>

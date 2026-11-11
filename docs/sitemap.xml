@@ -349,12 +349,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://stackfit.es/comparar/bcaa-4-1-1-en-polvo-250g-myprotein-vs-bcaa-s-instantaneo-2-1-1-2-0-1kg-hsn/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://stackfit.es/comparar/creatina-excell-100-creapure-en-polvo-1kg-hsn-vs-evocreatine-500g-hsn/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -757,6 +751,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://stackfit.es/proteina-whey/mezcla-de-rendimiento-todo-en-uno-myprotein/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://stackfit.es/proteina-whey/evoexcel-whey-protein-isolate-concentrate-hsn/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -872,12 +872,6 @@
   </url>
   <url>
     <loc>https://stackfit.es/proteina-whey/clear-whey-protein-y-colageno-myprotein/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://stackfit.es/proteina-whey/mezcla-de-rendimiento-todo-en-uno-myprotein/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
