@@ -1377,6 +1377,15 @@
       color: #444444;
       text-align: center;
     }
+    .ofertas-strip { border-bottom: 1px solid rgba(200,255,77,0.18); background: rgba(200,255,77,0.06); margin-bottom: 10px; }
+    .ofertas-strip a { display: block; max-width: 1200px; margin: 0 auto; padding: 9px 20px; font-size: 0.8rem; line-height: 1.45; color: #ddd; text-decoration: none; }
+    .ofertas-strip strong { color: var(--accent); }
+    .ofertas-strip span { color: var(--accent); font-weight: 700; white-space: nowrap; margin-left: 4px; }
+    .ofertas-strip a:hover span { text-decoration: underline; }
+    .cod-desc { font-size: 0.74rem; line-height: 1.5; color: #9a9a9a; }
+    .cod-copiar { font: inherit; font-weight: 800; letter-spacing: 0.04em; color: var(--accent); background: rgba(200,255,77,0.08); border: 1px dashed rgba(200,255,77,0.5); border-radius: 5px; padding: 1px 6px; cursor: pointer; }
+    .cod-copiar.copiado { border-style: solid; }
+    .cod-hasta { color: #666; white-space: nowrap; }
   </style>
 </head>
 <body>
@@ -1409,6 +1418,13 @@
     </div>
   </header>
 
+  
+  <div class="ofertas-strip">
+    <a href="https://stackfit.es/ofertas/">
+      Hoy hay 4 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+    </a>
+  </div>
+  
 
   <main>
     
@@ -1456,6 +1472,7 @@
           Ver en <span class="prod-cta-tienda">HSN</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
+        
       
       
       
@@ -1745,6 +1762,12 @@
         <span>Creapure Excell</span>
       </a>
       
+      <a href="https://stackfit.es/comparar/creatina-monohidrato-en-polvo-200-mesh-1kg-hsn-vs-creatina-monohidrato-en-polvo-250g-myprotein/" class="prod-comp-item">
+        <span>Creatina 200 Mesh</span>
+        <span class="prod-comp-vs">VS</span>
+        <span>Creatina Monohidrato</span>
+      </a>
+      
     </div>
   </section>
   
@@ -1752,6 +1775,24 @@
 </div>
 
   </main>
+  <script>
+    // Códigos de descuento: copiar al pulsar y ocultar si ya ha pasado su fecha de fin
+    (function () {
+      var hoy = new Date().toISOString().slice(0, 10);
+      document.querySelectorAll('.cod-desc').forEach(function (el) {
+        if (el.dataset.hasta && el.dataset.hasta < hoy) el.remove();
+      });
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest && e.target.closest('.cod-copiar');
+        if (!b) return;
+        var c = b.dataset.codigo;
+        if (navigator.clipboard) navigator.clipboard.writeText(c).catch(function () {});
+        b.textContent = 'Copiado';
+        b.classList.add('copiado');
+        setTimeout(function () { b.textContent = c; b.classList.remove('copiado'); }, 1500);
+      });
+    })();
+  </script>
 
   <footer class="site-footer">
     <div class="footer-inner">

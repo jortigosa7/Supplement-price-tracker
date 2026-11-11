@@ -1208,6 +1208,15 @@
       color: #444444;
       text-align: center;
     }
+    .ofertas-strip { border-bottom: 1px solid rgba(200,255,77,0.18); background: rgba(200,255,77,0.06); margin-bottom: 10px; }
+    .ofertas-strip a { display: block; max-width: 1200px; margin: 0 auto; padding: 9px 20px; font-size: 0.8rem; line-height: 1.45; color: #ddd; text-decoration: none; }
+    .ofertas-strip strong { color: var(--accent); }
+    .ofertas-strip span { color: var(--accent); font-weight: 700; white-space: nowrap; margin-left: 4px; }
+    .ofertas-strip a:hover span { text-decoration: underline; }
+    .cod-desc { font-size: 0.74rem; line-height: 1.5; color: #9a9a9a; }
+    .cod-copiar { font: inherit; font-weight: 800; letter-spacing: 0.04em; color: var(--accent); background: rgba(200,255,77,0.08); border: 1px dashed rgba(200,255,77,0.5); border-radius: 5px; padding: 1px 6px; cursor: pointer; }
+    .cod-copiar.copiado { border-style: solid; }
+    .cod-hasta { color: #666; white-space: nowrap; }
   </style>
 </head>
 <body>
@@ -1240,6 +1249,13 @@
     </div>
   </header>
 
+  
+  <div class="ofertas-strip">
+    <a href="https://stackfit.es/ofertas/">
+      Hoy hay 4 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+    </a>
+  </div>
+  
 
   <main>
     
@@ -1506,6 +1522,7 @@
       
       <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2Fhcy1pbnN0YW50YW5lby0yLTEtMS0yLTA=" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 22,79 €</a>
       
+      
     </div>
     
     
@@ -1541,6 +1558,7 @@
       </div>
       
       <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9iY2FhLXMtaW5zdGFudGFuZW8tNC0xLTEtMi0w" class="pc-btn pc-btn-primary" target="_blank" rel="nofollow sponsored noopener">Ver en HSN · 26,21 €</a>
+      
       
     </div>
     
@@ -1646,12 +1664,47 @@
 
 <!-- ── Relacionadas ─── -->
 
+<div class="cmp-section" style="margin-bottom:48px;">
+  <h2 class="cmp-section-title">Otras comparaciones relacionadas</h2>
+  <div class="related-grid">
+    
+    <a href="https://stackfit.es/comparar/bcaa-4-1-1-en-polvo-250g-myprotein-vs-bcaa-s-instantaneo-2-1-1-2-0-1kg-hsn/" class="related-card">
+      <div class="related-tag">comparativa</div>
+      <div class="related-title">BCAA 4:1:1 en polvo 250 g vs BCAA&#39;s instantáneo 2:1:1 2.0 1 kg</div>
+    </a>
+    
+    <a href="https://stackfit.es/comparar/bcaa-2-1-1-250g-myprotein-vs-bcaa-s-instantaneo-2-1-1-2-0-1kg-hsn/" class="related-card">
+      <div class="related-tag">comparativa</div>
+      <div class="related-title">BCAA&#39;s instantáneo 2:1:1 2.0 1 kg vs BCAA 2:1:1 250 g</div>
+    </a>
+    
+  </div>
+</div>
+
 
 </div><!-- /.container -->
 </div><!-- /.cmp-wrap -->
 
 
   </main>
+  <script>
+    // Códigos de descuento: copiar al pulsar y ocultar si ya ha pasado su fecha de fin
+    (function () {
+      var hoy = new Date().toISOString().slice(0, 10);
+      document.querySelectorAll('.cod-desc').forEach(function (el) {
+        if (el.dataset.hasta && el.dataset.hasta < hoy) el.remove();
+      });
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest && e.target.closest('.cod-copiar');
+        if (!b) return;
+        var c = b.dataset.codigo;
+        if (navigator.clipboard) navigator.clipboard.writeText(c).catch(function () {});
+        b.textContent = 'Copiado';
+        b.classList.add('copiado');
+        setTimeout(function () { b.textContent = c; b.classList.remove('copiado'); }, 1500);
+      });
+    })();
+  </script>
 
   <footer class="site-footer">
     <div class="footer-inner">

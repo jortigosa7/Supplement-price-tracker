@@ -195496,5 +195496,11 @@
     "fecha": "2026-11-11",
     "precio": 159.99,
     "tienda": "MyProtein"
+  },
+  {
+    "producto_id": "soy-iso-protein-1000g-vitobest",
+    "fecha": "2026-11-11",
+    "precio": 27.54,
+    "tienda": "Nutritienda"
   }
 ]
