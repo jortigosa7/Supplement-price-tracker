@@ -563,5 +563,10 @@
     "nombre": "Grass-Fed Impact Milk Protein Isolate",
     "categoria": "Proteinas Whey",
     "first_seen": "2026-11-06"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/shot-pre-entreno/12748579/": {
+    "nombre": "Shot Pre-Entreno",
+    "categoria": "Pre-Entreno",
+    "first_seen": "2026-11-11"
   }
 }
