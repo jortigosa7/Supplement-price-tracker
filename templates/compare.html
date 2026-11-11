@@ -55,6 +55,21 @@
     {%- set _desc = _desc ~ " Mayor % proteína por dosis: " ~ _win_prot ~ " (" ~ _max_prot ~ " %)." -%}
   {%- endif -%}
   {{- _desc[:158] -}}
+{%- elif (producto_a.agotado or producto_a.sin_precio) != (producto_b.agotado or producto_b.sin_precio) -%}
+  {%- set _no = producto_a if (producto_a.agotado or producto_a.sin_precio) else producto_b -%}
+  {%- set _si = producto_b if (producto_a.agotado or producto_a.sin_precio) else producto_a -%}
+  {%- set _desc = _no.nombre_seo ~ " está agotado en " ~ (_no.tienda_mas_barata or "la tienda") -%}
+  {%- if _no.precio_min -%}{%- set _desc = _desc ~ " (último precio " ~ _no.precio_min|fmtd ~ " €)" -%}{%- endif -%}
+  {%- set _desc = _desc ~ "." -%}
+  {%- if _si.precio_por_kg_min -%}
+    {%- set _desc = _desc ~ " " ~ _si.nombre_seo ~ " sale a " ~ _si.precio_por_kg_min|fmtd ~ " €/kg" -%}
+    {%- if _si.store_rating and _si.store_rating_count -%}
+      {%- set _desc = _desc ~ ", " ~ _si.store_rating|fmtd ~ "/5 (" ~ _si.store_rating_count|int ~ " valoraciones)" -%}
+    {%- endif -%}
+    {%- set _desc = _desc ~ "." -%}
+  {%- endif -%}
+  {%- if _no.pagina_url -%}{%- set _desc = _desc ~ " Alternativas con stock." -%}{%- endif -%}
+  {{- _desc[:158] -}}
 {%- else -%}
   {{- _na ~ " vs " ~ _nb ~ ": comparamos precio, €/kg y opiniones. Elige el mejor suplemento para tu objetivo." -}}
 {%- endif -%}
@@ -228,6 +243,8 @@
   /* ── Cards con CTAs ────── */
   .cmp-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
   @media (max-width:480px) { .cmp-cards { grid-template-columns:1fr; } }
+  .cmp-alt-link { font-size:0.82rem; font-weight:600; color:var(--accent); text-decoration:none; }
+  .cmp-alt-link:hover { text-decoration:underline; }
   .cmp-card { background:#111214; border:1.5px solid rgba(255,255,255,0.08); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
   .cmp-card-img { width:72px; height:72px; border-radius:8px; background:rgba(255,255,255,0.04); overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .cmp-card-img img { width:72px; height:72px; object-fit:contain; }
@@ -544,6 +561,12 @@
         <span style="font-size:0.72rem;font-weight:700;color:#e07a5f;text-transform:uppercase;letter-spacing:0.06em;">Agotado</span>
         <span style="font-size:0.78rem;color:#666;">Último precio: {{ prod.precio_min|fmtd }} €{% if prod.precios %} · {{ prod.precios[0].fecha[:7] if prod.precios[0].fecha else '' }}{% endif %}</span>
       </div>
+      {% if prod.url_avisame %}
+      <a href="{{ prod.url_avisame }}" class="pc-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#ccc;" target="_blank" rel="nofollow sponsored noopener">Avísame en {{ prod.tienda_mas_barata }} cuando vuelva</a>
+      {% endif %}
+      {% if prod.pagina_url %}
+      <a href="{{ site_url }}{{ prod.pagina_url }}" class="cmp-alt-link">Ver alternativas con stock →</a>
+      {% endif %}
       {% else %}
       {% if prod.precio_min %}
       <div>

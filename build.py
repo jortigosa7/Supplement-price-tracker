@@ -1739,6 +1739,8 @@ def _excluir_producto(p: dict) -> bool:
     """Devuelve True si el producto debe ir a 'Otros productos'."""
     if p.get("agotado") or p.get("sin_precio"):
         return True
+    if p.get("id") in IDS_PRECIO_IMPOSIBLE:
+        return True
     precio_kg = p.get("precio_por_kg_min")
     if not precio_kg or precio_kg == 0:
         return True
@@ -1921,6 +1923,26 @@ def _ordinal_es(n: int) -> str:
 # ── Exclusión de productos sin página ───────────────────────────────────────
 
 TIENDAS_CON_PAGINA = {"HSN", "MyProtein", "Hivital"}
+
+
+def _url_avisame(p: dict) -> str | None:
+    """
+    Enlace de afiliado de un producto agotado, solo en tiendas afiliadas.
+
+    La ficha de la tienda tiene botón de "avísame" y la visita llega con nuestro ID,
+    así que si el usuario acaba comprando otra cosa allí la venta puede contar.
+    Sin este enlace, quien busca un producto agotado vuelve a Google y entra
+    directo en la tienda. En tiendas sin afiliación no se enlaza.
+    """
+    if not p.get("agotado"):
+        return None
+    tienda = p.get("tienda_mas_barata")
+    if tienda not in TIENDAS_CON_PAGINA:
+        return None
+    for pr in p.get("precios", []):
+        if pr.get("tienda") == tienda and pr.get("url_afiliado"):
+            return pr["url_afiliado"]
+    return None
 
 _NO_PAGINA_IDS = {
     "caldo-proteico-de-pollo-en-polvo-500g-hsn",
@@ -2530,9 +2552,16 @@ def generar_veredicto(pa: dict, pb: dict) -> dict:
     prot_a = pa.get("protein_per_serving_g")
     prot_b = pb.get("protein_per_serving_g")
 
-    # Mejor precio €/kg
+    # Mejor precio €/kg. Si solo uno tiene stock, gana ese: el €/kg del otro es
+    # un precio que ahora mismo no se puede pagar.
+    oos_a = bool(pa.get("agotado") or pa.get("sin_precio"))
+    oos_b = bool(pb.get("agotado") or pb.get("sin_precio"))
     side_kg = _side(kg_a, kg_b, menor_es_mejor=True)
-    if kg_a and kg_b and kg_a == kg_b:
+    if oos_a != oos_b and (kg_b if oos_a else kg_a):
+        side_kg = "b" if oos_a else "a"
+        kg_disp = kg_b if oos_a else kg_a
+        mejor_precio = {"side": side_kg, "valor": f"{_fmtc(kg_disp)} €/kg · el único con stock"}
+    elif kg_a and kg_b and kg_a == kg_b:
         mejor_precio = {"side": None, "valor": "Empate"}
     elif kg_a and kg_b:
         ganador_kg = kg_a if side_kg == "a" else kg_b
@@ -2989,6 +3018,9 @@ def generar_comparaciones(env, productos_web: list, last_updated: str, productos
         pa["nombre_seo"] = _nombre_seo(pa.get("nombre_display") or pa["nombre_normalizado"])
         pb["nombre_seo"] = _nombre_seo(pb.get("nombre_display") or pb["nombre_normalizado"])
 
+        pa["url_avisame"] = _url_avisame(pa)
+        pb["url_avisame"] = _url_avisame(pb)
+
         veredicto  = generar_veredicto(pa, pb)
         editorial  = generar_editorial(pa, pb)
         faqs       = generar_faq_comparacion(pa, pb)
@@ -3396,6 +3428,16 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
             img_src_abs = img_src
 
         url_afiliado = _url_afiliado_producto(p)
+        url_avisame = _url_avisame(p)
+        # Agotado: la alternativa más barata con stock en tienda afiliada ocupa el botón principal
+        alternativa_stock = None
+        if agotado:
+            alternativa_stock = next(
+                (a for a in alternativas
+                 if a.get("url_afiliado_fallback") and a.get("precio_min")
+                 and a.get("tienda_mas_barata") in TIENDAS_CON_PAGINA),
+                None,
+            )
         precio_fmt    = f"{p_ref['precio_por_kg_min']:.2f}".replace(".", ",") if p_ref.get("precio_por_kg_min") else None
         precio_eur_fmt = f"{p['precio_min']:.2f}".replace(".", ",") if p.get("precio_min") else None
         pkg_prot_fmt  = f"{p_ref['precio_por_kg_proteina']:.2f}".replace(".", ",") if p_ref.get("precio_por_kg_proteina") else None
@@ -3466,6 +3508,8 @@ def generar_paginas_producto(env, productos_web: list[dict], last_updated: str,
             "img_src":           img_src,
             "img_src_abs":       img_src_abs,
             "url_afiliado":      url_afiliado,
+            "url_avisame":       url_avisame,
+            "alternativa_stock": alternativa_stock,
             "tienda":            tienda,
             "precio_fmt":        precio_fmt,
             "precio_eur_fmt":    precio_eur_fmt,
@@ -4068,6 +4112,11 @@ TIENDAS_REBAJAS_FRECUENTES = {"MyProtein"}
 # (Regla 2) no se excluyen: en MyProtein suelen ser rebajas reales del 40-50 %.
 IDS_PRECIO_SOSPECHOSO: set[str] = set()
 
+# Solo Regla 1 (€/kg por debajo del 20 % de la mediana de su categoría): no puede ser
+# real, así que además sale de los listados (_excluir_producto → "Otros productos")
+# y nunca aparece como "el más barato" de una categoría.
+IDS_PRECIO_IMPOSIBLE: set[str] = set()
+
 
 def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
     """
@@ -4167,6 +4216,7 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
                     precio_min_f = float(precio_min) if precio_min else None
                     caida = (precio_min_f / last_precio) if (precio_min_f and last_precio) else 1.0
                     IDS_PRECIO_SOSPECHOSO.add(pid)
+                    IDS_PRECIO_IMPOSIBLE.add(pid)
                     if caida >= 0.60:
                         print(f"  ⚠️  AVISO [Regla 1] €/kg bajo con histórico estable: [{cat}] {nombre} "
                               f"(€/kg={kg_f:.2f} vs mediana={mediana:.2f})")
@@ -4177,6 +4227,7 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
                         )
                 else:
                     IDS_PRECIO_SOSPECHOSO.add(pid)
+                    IDS_PRECIO_IMPOSIBLE.add(pid)
                     anomalias.append(
                         f"  €/kg CONFIRMADO MUY BAJO (sin histórico): [{cat}] {nombre}\n"
                         f"    €/kg={kg_f:.2f}  mediana_cat={mediana:.2f}  ratio={kg_f/mediana:.2f}x"
