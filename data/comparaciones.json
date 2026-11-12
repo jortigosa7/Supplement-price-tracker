@@ -324,7 +324,12 @@
       "id_a": "bcaa-s-instantaneo-2-1-1-2-0-1kg-desconocida",
       "id_b": "bcaa-2-1-1-250g-myprotein",
       "fuente": "afiliadas-HSN-MyProtein"
+    },
+    {
+      "id_a": "creatina-excell-100-creapure-en-polvo-1kg-desconocida",
+      "id_b": "the-creatine-creapure-1kg-desconocida",
+      "fuente": "afiliadas-HSN-MyProtein"
     }
   ],
-  "total": 65
+  "total": 66
 }

@@ -37,7 +37,7 @@ Proteína Whey, Proteína Vegana (subcategoría derivada de proteina-whey), Crea
 
 - Home con filtros
 - Páginas de categoría: `/proteina-whey/`, `/proteina-vegana/`, `/creatina/`, `/bcaa/`, `/pre-entreno/`
-- 65 páginas de comparación en `/comparar/<producto-vs-producto>/` (fijas, desde `data/comparaciones.json`; 8 de ellas HSN vs MyProtein, fuente `afiliadas-HSN-MyProtein`)
+- 66 páginas de comparación en `/comparar/<producto-vs-producto>/` (fijas, desde `data/comparaciones.json`; 9 de ellas HSN vs MyProtein, fuente `afiliadas-HSN-MyProtein`)
 - `/tiendas/hsn-vs-myprotein/`: comparativa entre tiendas afiliadas (ver "Tienda vs tienda")
 - 116 páginas meta-refresh de redirección desde URLs viejas (no van en sitemap)
 - Recomendador tipo quiz en `/test/`
