@@ -4,6 +4,7 @@ scrapers/base.py — Utilidades compartidas por todos los scrapers
 
 import re
 import time
+import urllib.parse
 import requests
 from datetime import datetime
 
@@ -41,6 +42,21 @@ def hacer_peticion(url: str, max_reintentos: int = 3, delay: int = 2) -> request
         if intento < max_reintentos - 1:
             time.sleep(delay)
     return None
+
+
+def url_canonica(url: str) -> str:
+    """URL de la ficha sin el envoltorio de Awin ni el parámetro ?variation= de MyProtein.
+
+    Sirve para comparar URLs entre builds aunque el enlace final apunte a una
+    variante concreta (sabor/formato) que puede cambiar de un día para otro.
+    """
+    if not url:
+        return ""
+    if "awin1.com" in url:
+        m = re.search(r"[?&]ued=([^&]+)", url)
+        if m:
+            url = urllib.parse.unquote(m.group(1))
+    return re.sub(r"[?&]variation=\d+$", "", url)
 
 
 def seleccionar_mejor_formato(formatos: list[tuple[float, float]]) -> tuple[float, float] | None:

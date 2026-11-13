@@ -312,6 +312,9 @@ def agrupar_productos(productos_flat: list[dict]) -> list[dict]:
             "_precio_fresco": p.get("_precio_fresco", None),
             "agotado":       p.get("agotado", False),
             "sin_precio":    p.get("sin_precio", False),
+            # Ficha con la variante del precio elegido (MyProtein); url_afiliado
+            # sigue siendo la URL base porque se usa como clave en el build.
+            "url_variante":  p.get("url_variante"),
         }
 
         _brand_by_url[url] = extraer_marca_normalizada(nombre, marca_raw) or marca_raw

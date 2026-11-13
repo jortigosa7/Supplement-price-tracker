@@ -56,6 +56,8 @@ def guardar_dataset(df: pd.DataFrame) -> tuple[str, str]:
         "agotado",
         # Variante no identificable → sin precio publicable
         "sin_precio",
+        # URL de la variante elegida (MyProtein ?variation=): destino del enlace de afiliado
+        "url_variante",
     ]
     cols_ok = [c for c in columnas if c in df.columns]
     df_out  = df[cols_ok].copy()

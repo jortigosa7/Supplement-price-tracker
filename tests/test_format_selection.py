@@ -102,3 +102,102 @@ class TestNombreConFormatoMyProtein:
     def test_catalogo_con_mismo_peso_no_cambia_id(self):
         assert self._fn()("Total Protein 5kg", 5.0) == "Total Protein 5kg 5kg"
         assert self._fn()("Origin Shred Pre-Workout 660g", 0.66) == "Origin Shred Pre-Workout 660g 660g"
+
+
+def _html_batidos(variantes):
+    """Página mínima de MyProtein con un ProductGroup (formato actual del JSON-LD)."""
+    import json
+    base = "https://www.myprotein.es/p/nutricion-deportiva/batidos-essential/16670299/"
+    has_variant = [
+        {
+            "@type": "Product",
+            "sku": sku,
+            "name": f"Batidos Essential {nombre}",
+            "offers": {
+                "@type": "Offer",
+                "price": precio,
+                "url": f"{base}?variation={sku}",
+                "availability": f"https://schema.org/{'InStock' if stock else 'OutOfStock'}",
+            },
+        }
+        for sku, nombre, precio, stock in variantes
+    ]
+    schema = {"@context": "https://schema.org", "@type": "ProductGroup",
+              "name": "Batidos Essential", "hasVariant": has_variant}
+    return f'<script type="application/ld+json">{json.dumps(schema)}</script>'
+
+
+# Datos reales de la ficha (13 nov 2026): el 1 kg a 15 € solo existe en tres sabores;
+# la variante por defecto es el 2,5 kg de chocolate a 78,99 €.
+_BATIDOS = [
+    ("16747355", "2.5KG - 70raciones Chocolate y Caramelo (Fudge)", "78.99", True),
+    ("16670305", "2.5KG - 70raciones Vanilla Honeycomb", "78.99", True),
+    ("16914179", "1KG - 28raciones Banana Milkshake", "15", True),
+    ("16914180", "1KG - 28raciones Strawberry Ice Cream", "15", True),
+    ("17537772", "500G - 14raciones Chocolate y Caramelo (Fudge)", "19.99", True),
+    ("17537773", "500G - 14raciones Strawberry Ice Cream", "10", True),
+]
+
+
+class TestVarianteMyProtein:
+    """El enlace tiene que abrir la variante del precio que enseñamos."""
+
+    def test_url_de_la_variante_elegida(self):
+        from scrapers.myprotein import _extraer_variantes, _url_variante
+        html = _html_batidos(_BATIDOS)
+        variantes, _ = _extraer_variantes(html)
+        peso, precio = seleccionar_mejor_formato(variantes)
+        assert (peso, precio) == (1.0, 15.0)
+        url = _url_variante(html, peso, precio)
+        assert url.endswith("?variation=16914179")
+
+    def test_ignora_sabores_agotados(self):
+        """Si el formato barato está agotado en todos los sabores, no puede ser el precio."""
+        from scrapers.myprotein import _extraer_variantes, _url_variante
+        filas = [(s, n, p, not n.startswith("1KG")) for s, n, p, _ in _BATIDOS]
+        html = _html_batidos(filas)
+        variantes, _ = _extraer_variantes(html)
+        assert 1.0 not in dict(variantes)
+        peso, precio = seleccionar_mejor_formato(variantes)
+        assert (peso, precio) == (0.5, 10.0)  # 500 g fresa, 20 €/kg
+        assert _url_variante(html, peso, precio).endswith("?variation=17537773")
+
+    def test_todo_agotado_mantiene_precio(self):
+        from scrapers.myprotein import _extraer_variantes
+        filas = [(s, n, p, False) for s, n, p, _ in _BATIDOS]
+        variantes, _ = _extraer_variantes(_html_batidos(filas))
+        assert seleccionar_mejor_formato(variantes) == (1.0, 15.0)
+
+    def test_sin_variante_no_hay_url(self):
+        from scrapers.myprotein import _url_variante
+        assert _url_variante(_html_batidos(_BATIDOS), 1.0, 14.0) is None
+
+
+class TestUrlCanonica:
+
+    def test_awin_con_variante_igual_a_ficha(self):
+        from scrapers.base import url_canonica
+        ficha = "https://www.myprotein.es/p/nutricion-deportiva/batidos-essential/16670299/"
+        awin = ("https://www.awin1.com/cread.php?awinmid=10603&awinaffid=2845182&ued="
+                "https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbatidos-essential"
+                "%2F16670299%2F%3Fvariation%3D16914179")
+        assert url_canonica(awin) == ficha
+        assert url_canonica(ficha + "?variation=16914179") == ficha
+        assert url_canonica(ficha) == ficha
+
+    def test_awin_convierte_a_la_variante(self):
+        import build
+        p = {"precios": [{
+            "tienda": "MyProtein",
+            "url_afiliado": "https://www.myprotein.es/p/x/batidos-essential/16670299/",
+            "url_variante": "https://www.myprotein.es/p/x/batidos-essential/16670299/?variation=16914179",
+        }, {
+            "tienda": "MyProtein",
+            "url_afiliado": "https://www.myprotein.es/p/x/otro/1/",
+            "url_variante": float("nan"),  # columna vacía en datasets viejos
+        }]}
+        build.aplicar_afiliados_awin([p])
+        a, b = p["precios"]
+        assert "%3Fvariation%3D16914179" in a["url_afiliado"]
+        assert b["url_afiliado"].endswith("ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fx%2Fotro%2F1%2F")
+        assert "url_variante" not in a and "url_variante" not in b

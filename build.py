@@ -34,6 +34,7 @@ from itertools import combinations
 from jinja2 import Environment, FileSystemLoader
 from markupsafe import Markup
 from build_additions import compute_spark_data
+from scrapers.base import url_canonica
 from checks import run_all_checks
 import black_friday as bf_mod
 import minimos as minimos_mod
@@ -458,6 +459,8 @@ def aplicar_afiliados_awin(productos_web: list[dict]) -> list[dict]:
     convertidos = 0
     for p in productos_web:
         for pr in p.get("precios", []):
+            # url_variante solo sirve para el destino del enlace; no se publica
+            url_variante = pr.pop("url_variante", None)
             tienda_key = pr.get("tienda", "").lower()
             mid = TIENDAS_AWIN.get(tienda_key)
             if not mid:
@@ -465,6 +468,11 @@ def aplicar_afiliados_awin(productos_web: list[dict]) -> list[dict]:
             url = pr.get("url_afiliado", "")
             if not url or "awin1.com" in url:
                 continue
+            # Enlazar la variante exacta (sabor + formato) del precio que mostramos:
+            # la ficha base abre la variante por defecto de MyProtein, con otro precio.
+            if (isinstance(url_variante, str)
+                    and url_canonica(url_variante) == url_canonica(url)):
+                url = url_variante
             pr["url_afiliado"] = (
                 f"https://www.awin1.com/cread.php"
                 f"?awinmid={mid}&awinaffid={AWIN_AFFID}"
@@ -947,6 +955,7 @@ def convertir_a_schema_web(productos_flat: list[dict]) -> list[dict]:
             "_precio_fresco": p.get("_precio_fresco", None),
             "agotado":       p.get("agotado", False),
             "sin_precio":    p.get("sin_precio", False),
+            "url_variante":  p.get("url_variante"),
         })
 
     grupos = agrupar_productos(productos_para_matching)
@@ -2858,7 +2867,7 @@ def generar_pares_comparacion(
     _url_to_producto: dict = {}
     for _p in productos_web:
         for _pr in _p.get("precios", []):
-            _u = _pr.get("url_afiliado", "")
+            _u = url_canonica(_pr.get("url_afiliado", ""))
             if _u:
                 _url_to_producto[_u] = _p
 
@@ -2881,7 +2890,8 @@ def generar_pares_comparacion(
         if not prev:
             return None
         for pr in prev.get("precios", []):
-            u = pr.get("url_afiliado", "")
+            # Sin ?variation=: el sabor enlazado puede cambiar entre builds
+            u = url_canonica(pr.get("url_afiliado", ""))
             if u and u in _url_to_producto:
                 alias = _url_to_producto[u]
                 print(f"  [alias-url] {missing_id} → {alias['id']} ({u.split('/es/')[-1] if '/es/' in u else u})")

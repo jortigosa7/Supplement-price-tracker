@@ -20,7 +20,7 @@ import os
 import re
 import time
 from bs4 import BeautifulSoup
-from .base import hacer_peticion, producto_base, seleccionar_mejor_formato
+from .base import hacer_peticion, producto_base, seleccionar_mejor_formato, url_canonica
 from .detail_cache import save_cache
 
 TIENDA   = "MyProtein"
@@ -108,7 +108,9 @@ def _urls_prioritarias_mp() -> set:
         if p["id"] in ids_comp:
             for pr in p.get("precios", []):
                 if pr.get("tienda") == TIENDA:
-                    urls.add(pr["url_afiliado"])
+                    # En products.json el enlace ya va envuelto en Awin: hay que
+                    # sacar la URL de la ficha para cruzarla con el catálogo.
+                    urls.add(url_canonica(pr["url_afiliado"]))
     return urls
 
 
@@ -268,17 +270,75 @@ def _extraer_enriquecimiento(html: str) -> dict:
     return enrichment
 
 
-def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None]:
+def _extraer_ofertas(schemas: list[dict]) -> list[dict]:
     """
-    Extrae variantes (peso_kg, precio_eur) del JSON-LD de la página de producto.
+    Todas las variantes con peso del JSON-LD: {peso, precio, url, en_stock}.
     Intenta dos estructuras (MyProtein ha cambiado su schema con el tiempo):
       1. @type Product/IndividualProduct con offers[].name  (formato antiguo)
       2. @type ProductGroup con hasVariant[].name           (formato actual)
+    """
+    def _oferta(nombre, offer, url_defecto=""):
+        peso = _peso_kg_de_texto(nombre)
+        if not peso:
+            return None
+        try:
+            precio = float(str(offer.get("price", "0")).replace(",", "."))
+        except (TypeError, ValueError):
+            return None
+        if precio <= 0:
+            return None
+        return {
+            "peso": peso,
+            "precio": precio,
+            "url": offer.get("url") or url_defecto,
+            "en_stock": "OutOfStock" not in str(offer.get("availability", "")),
+        }
+
+    ofertas = []
+    # Formato antiguo: Product/IndividualProduct con offers
+    for schema in schemas:
+        if schema.get("@type") not in ("Product", "IndividualProduct"):
+            continue
+        offers = schema.get("offers", [])
+        if isinstance(offers, dict):
+            offers = [offers]
+        for offer in offers:
+            o = _oferta(offer.get("name", schema.get("name", "")), offer)
+            if o:
+                ofertas.append(o)
+    if ofertas:
+        return ofertas
+
+    # Formato actual: ProductGroup con hasVariant[].name + offers.price
+    for schema in schemas:
+        if schema.get("@type") != "ProductGroup":
+            continue
+        for variant in schema.get("hasVariant", []):
+            voffers = variant.get("offers", {})
+            if isinstance(voffers, list):
+                voffers = voffers[0] if voffers else {}
+            o = _oferta(variant.get("name", ""), voffers, variant.get("url", ""))
+            if o:
+                ofertas.append(o)
+        if ofertas:
+            break
+    return ofertas
+
+
+def _ofertas_comprables(ofertas: list[dict]) -> list[dict]:
+    """Solo las variantes con stock; si no hay ninguna, todas (producto agotado)."""
+    con_stock = [o for o in ofertas if o["en_stock"]]
+    return con_stock or ofertas
+
+
+def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None]:
+    """
+    Extrae variantes (peso_kg, precio_eur) del JSON-LD de la página de producto.
+    Ignora los sabores agotados mientras quede alguno con stock: si no, el
+    precio más barato podía ser de una variante que no se puede comprar.
     Devuelve (lista ordenada por peso ascendente, imagen_url o None).
     """
-    variantes = []
     imagen_url = None
-
     schemas = _parsear_schemas_jsonld(html)
 
     # Imagen: buscar en cualquier schema Product/ProductGroup/IndividualProduct
@@ -292,56 +352,30 @@ def _extraer_variantes(html: str) -> tuple[list[tuple[float, float]], str | None
         if imagen_url:
             break
 
-    # Formato antiguo: Product/IndividualProduct con offers
-    for schema in schemas:
-        if schema.get("@type") not in ("Product", "IndividualProduct"):
-            continue
-
-        offers = schema.get("offers", [])
-        if isinstance(offers, dict):
-            offers = [offers]
-
-        for offer in offers:
-            offer_name = offer.get("name", schema.get("name", ""))
-            peso = _peso_kg_de_texto(offer_name)
-            if not peso:
-                continue
-            try:
-                precio = float(str(offer.get("price", "0")).replace(",", "."))
-            except (TypeError, ValueError):
-                continue
-            if precio > 0:
-                variantes.append((peso, precio))
-
-    # Formato actual: ProductGroup con hasVariant[].name + offers.price
-    if not variantes:
-        for schema in schemas:
-            if schema.get("@type") != "ProductGroup":
-                continue
-            for variant in schema.get("hasVariant", []):
-                vname = variant.get("name", "")
-                peso = _peso_kg_de_texto(vname)
-                if not peso:
-                    continue
-                voffers = variant.get("offers", {})
-                if isinstance(voffers, list):
-                    voffers = voffers[0] if voffers else {}
-                try:
-                    precio = float(str(voffers.get("price", "0")).replace(",", "."))
-                except (TypeError, ValueError):
-                    continue
-                if precio > 0:
-                    variantes.append((peso, precio))
-            if variantes:
-                break
-
     by_peso: dict[float, float] = {}
-    for peso, precio in variantes:
-        key = round(peso, 2)
-        if key not in by_peso or precio < by_peso[key]:
-            by_peso[key] = precio
+    for o in _ofertas_comprables(_extraer_ofertas(schemas)):
+        key = round(o["peso"], 2)
+        if key not in by_peso or o["precio"] < by_peso[key]:
+            by_peso[key] = o["precio"]
 
     return sorted(by_peso.items()), imagen_url
+
+
+def _url_variante(html: str, peso_kg: float, precio: float) -> str | None:
+    """
+    URL (?variation=...) de la variante elegida, para que el enlace de afiliado
+    abra la ficha con ese sabor y formato. Sin ella MyProtein enseña su variante
+    por defecto, que puede ser otra: en Batidos Essential salía el 2,5 kg de
+    chocolate a 31,60 €/kg cuando el 1 kg de otros sabores estaba a 15 €.
+    """
+    ofertas = _ofertas_comprables(_extraer_ofertas(_parsear_schemas_jsonld(html)))
+    for o in ofertas:
+        if (round(o["peso"], 2) == round(peso_kg, 2)
+                and abs(o["precio"] - precio) < 0.005
+                and "variation=" in o["url"]
+                and o["url"].startswith("https://www.myprotein.es/")):
+            return o["url"]
+    return None
 
 
 # ── Scraper principal ─────────────────────────────────────────────────────────
@@ -477,6 +511,7 @@ def scrape(debug: bool = False) -> list[dict]:
         imagen_url = None
         enrichment: dict = {}
         precio_fresco_flag = False
+        url_variante = None
 
         try:
             resp = hacer_peticion(d["url"])
@@ -506,6 +541,7 @@ def scrape(debug: bool = False) -> list[dict]:
                     if best:
                         peso_best, precio_best = best
                         precio_final = str(precio_best)
+                        url_variante = _url_variante(html_prod, peso_best, precio_best)
                         # Catálogo + agotado: el nombre viene del catálogo (ya incluye peso).
                         # En cualquier otro caso, actualizar con el formato seleccionado.
                         if not (d.get("_from_catalog") and agotado_mp):
@@ -521,6 +557,8 @@ def scrape(debug: bool = False) -> list[dict]:
         )
         prod.update(enrichment)
         prod["_precio_fresco"] = precio_fresco_flag
+        if url_variante:
+            prod["url_variante"] = url_variante
         productos.append(prod)
 
         if (i + 1) % 10 == 0:
