@@ -470,6 +470,8 @@
   </section>
   {% endif %}
 
+  {% include "_canal.html" %}
+
   <!-- Ficha del producto -->
   {% set tiene_ficha = producto.protein_per_serving_g or producto.serving_size_g or producto.servings_per_container or coste_mes_fmt or producto.sweetener_free or producto.vegan %}
   {% if tiene_ficha %}
