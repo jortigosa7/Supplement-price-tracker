@@ -1,0 +1,10 @@
+{# Aviso del canal de Telegram. El canal avisa de mínimos de cualquier producto, no de uno concreto: el texto no promete otra cosa. #}
+{% if telegram_canal_url %}
+<aside class="canal-box" aria-label="Canal de Telegram">
+  <div class="canal-box-txt">
+    <strong>{{ canal_titulo | default("¿Prefieres esperar a una oferta?") }}</strong>
+    <span>En nuestro canal de Telegram avisamos solo cuando un suplemento toca su precio mínimo real. Como mucho, tres avisos al día.</span>
+  </div>
+  <a class="canal-box-btn" href="{{ telegram_canal_url }}" target="_blank" rel="noopener">Unirme al canal →</a>
+</aside>
+{% endif %}

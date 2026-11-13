@@ -1034,6 +1034,13 @@
       color: #444444;
       text-align: center;
     }
+    .canal-box { margin: 20px 0; background: #111214; border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 16px 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .cmp-section > .canal-box { margin: 0; }
+    .canal-box-txt { flex: 1 1 240px; }
+    .canal-box-txt strong { display: block; color: #f0f0f0; font-size: 0.95rem; margin-bottom: 2px; }
+    .canal-box-txt span { color: #999; font-size: 0.82rem; line-height: 1.5; }
+    .canal-box-btn { background: var(--accent); color: #000; font-weight: 800; font-size: 0.84rem; padding: 10px 16px; border-radius: 10px; white-space: nowrap; }
+    .canal-box-btn:hover { background: var(--accent-dim); color: #000; }
     .ofertas-strip { border-bottom: 1px solid rgba(200,255,77,0.18); background: rgba(200,255,77,0.06); margin-bottom: 10px; }
     .ofertas-strip a { display: block; max-width: 1200px; margin: 0 auto; padding: 9px 20px; font-size: 0.8rem; line-height: 1.45; color: #ddd; text-decoration: none; }
     .ofertas-strip strong { color: var(--accent); }
@@ -1135,6 +1142,7 @@
         <div class="footer-links-label">Herramientas</div>
         <a href="{{ site_url }}/comparar/">Comparar productos</a>
         <a href="{{ site_url }}/{{ ofertas_slug }}/">Ofertas reales</a>
+        {% if telegram_canal_url %}<a href="{{ telegram_canal_url }}" target="_blank" rel="noopener">Canal de Telegram</a>{% endif %}
         {% if bf_abierta %}<a href="{{ site_url }}/{{ bf_slug }}/">Black Friday {{ current_year }}: rebajas reales</a>{% endif %}
         <a href="{{ site_url }}/tiendas/">Nuestras tiendas recomendadas</a>
         <a href="{{ site_url }}/como-financiamos/">Cómo financiamos</a>
