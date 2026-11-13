@@ -1,0 +1,22 @@
+{
+  "enviados": [
+    {
+      "id": "bcaa-2-1-1-250g-myprotein",
+      "tienda": "MyProtein",
+      "precio": 10.0,
+      "fecha": "2026-11-13"
+    },
+    {
+      "id": "the-creatine-creapure-1kg-desconocida",
+      "tienda": "MyProtein",
+      "precio": 59.99,
+      "fecha": "2026-11-13"
+    },
+    {
+      "id": "creatina-hcl-500g-desconocida",
+      "tienda": "MyProtein",
+      "precio": 24.99,
+      "fecha": "2026-11-13"
+    }
+  ]
+}

@@ -1377,6 +1377,13 @@
       color: #444444;
       text-align: center;
     }
+    .canal-box { margin: 20px 0; background: #111214; border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 16px 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .cmp-section > .canal-box { margin: 0; }
+    .canal-box-txt { flex: 1 1 240px; }
+    .canal-box-txt strong { display: block; color: #f0f0f0; font-size: 0.95rem; margin-bottom: 2px; }
+    .canal-box-txt span { color: #999; font-size: 0.82rem; line-height: 1.5; }
+    .canal-box-btn { background: var(--accent); color: #000; font-weight: 800; font-size: 0.84rem; padding: 10px 16px; border-radius: 10px; white-space: nowrap; }
+    .canal-box-btn:hover { background: var(--accent-dim); color: #000; }
     .ofertas-strip { border-bottom: 1px solid rgba(200,255,77,0.18); background: rgba(200,255,77,0.06); margin-bottom: 10px; }
     .ofertas-strip a { display: block; max-width: 1200px; margin: 0 auto; padding: 9px 20px; font-size: 0.8rem; line-height: 1.45; color: #ddd; text-decoration: none; }
     .ofertas-strip strong { color: var(--accent); }
@@ -1423,7 +1430,7 @@
   <div class="ofertas-strip">
     
     <a href="https://stackfit.es/ofertas/">
-      Hoy hay 4 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+      Hoy hay 3 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
     </a>
     
   </div>
@@ -1487,7 +1494,7 @@
   <!-- Veredicto de compra -->
   <section class="prod-section prod-veredicto" aria-label="Veredicto de compra">
     <h2 class="prod-section-title">¿Es buen momento para comprar?</h2>
-    <p class="prod-veredicto-text">Hoy cuesta 56,99 €, un 0,9 % por encima de su precio habitual (mediana 90 días: 56,49 €). Mínimo: 50,00 € el 14/10.</p>
+    <p class="prod-veredicto-text">Hoy cuesta 56,99 €, igual que su precio habitual (mediana 90 días: 56,99 €). Mínimo: 50,00 € el 14/10.</p>
   </section>
 
   <!-- Historial de precios -->
@@ -1495,13 +1502,13 @@
   <section class="prod-section prod-historico" aria-label="Historial de precios">
     <h2 class="prod-section-title">Evolución del precio (últimos 90 días)</h2>
     <div class="prod-sparkline-wrap">
-      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,63.3 19.4,63.3 32.8,63.3 46.1,49.0 59.5,59.7 72.9,49.0 86.3,59.7 99.7,59.7 113.0,59.7 126.4,59.7 139.8,49.0 153.2,49.0 166.6,49.0 179.9,49.0 193.3,59.7 206.7,74.0 220.1,45.4 233.4,6.0 246.8,49.0 260.2,49.0 273.6,49.0 287.0,49.0 300.3,49.0 313.7,49.0 327.1,59.7 340.5,59.7 353.9,59.7 367.2,59.7 380.6,52.6 394.0,49.0" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="49.0" r="4" fill="#22c55e"/></svg>
+      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,63.3 18.9,63.3 31.9,63.3 44.8,49.0 57.7,59.7 70.7,49.0 83.6,59.7 96.5,59.7 109.5,59.7 122.4,59.7 135.3,49.0 148.3,49.0 161.2,49.0 174.1,49.0 187.1,59.7 200.0,74.0 212.9,45.4 225.9,6.0 238.8,49.0 251.7,49.0 264.7,49.0 277.6,49.0 290.5,49.0 303.5,49.0 316.4,59.7 329.3,59.7 342.3,59.7 355.2,59.7 368.1,52.6 381.1,49.0 394.0,49.0" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="49.0" r="4" fill="#22c55e"/></svg>
     </div>
     
     <div class="prod-stats-row">
       
       <div class="prod-stat-item">
-        Mediana 90 días: <strong>56,49 €</strong>
+        Mediana 90 días: <strong>56,99 €</strong>
       </div>
       
       
@@ -1514,11 +1521,22 @@
       
         
       
-      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">30 registros</div>
+      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">31 registros</div>
     </div>
     
   </section>
   
+
+  
+
+<aside class="canal-box" aria-label="Canal de Telegram">
+  <div class="canal-box-txt">
+    <strong>¿Prefieres esperar a una oferta?</strong>
+    <span>En nuestro canal de Telegram avisamos solo cuando un suplemento toca su precio mínimo real. Como mucho, tres avisos al día.</span>
+  </div>
+  <a class="canal-box-btn" href="https://t.me/stackfit" target="_blank" rel="noopener">Unirme al canal →</a>
+</aside>
+
 
   <!-- Ficha del producto -->
   
@@ -1765,6 +1783,7 @@
         <div class="footer-links-label">Herramientas</div>
         <a href="https://stackfit.es/comparar/">Comparar productos</a>
         <a href="https://stackfit.es/ofertas/">Ofertas reales</a>
+        <a href="https://t.me/stackfit" target="_blank" rel="noopener">Canal de Telegram</a>
         <a href="https://stackfit.es/black-friday/">Black Friday 2026: rebajas reales</a>
         <a href="https://stackfit.es/tiendas/">Nuestras tiendas recomendadas</a>
         <a href="https://stackfit.es/como-financiamos/">Cómo financiamos</a>
@@ -1773,7 +1792,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-11-11</div>
+    <div class="footer-bottom">Última actualización: 2026-11-13</div>
   </footer>
 
 </body>

@@ -550,5 +550,29 @@
     "categoria": "Pre-Entreno",
     "protein_subtype": null,
     "first_seen": "2026-10-21"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/aminoacidos-esenciales-eaa-s-en-polvo": {
+    "nombre": "Aminoácidos esenciales (EAA's) en polvo",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-11-13"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/amilopectina-2-0-almidon-de-maiz": {
+    "nombre": "Amilopectina 2.0 (almidón de maiz)",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-11-13"
+  },
+  "https://www.hsnstore.com/marcas/raw-series/amilopectina-almidon-de-patata": {
+    "nombre": "Amilopectina (almidón de patata)",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-11-13"
+  },
+  "https://www.hsnstore.com/marcas/sport-series/evoeaa-s": {
+    "nombre": "EvoEAA's",
+    "categoria": "Pre-Entreno",
+    "protein_subtype": null,
+    "first_seen": "2026-11-13"
   }
 }

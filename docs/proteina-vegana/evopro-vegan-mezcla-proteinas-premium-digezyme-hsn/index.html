@@ -1377,6 +1377,13 @@
       color: #444444;
       text-align: center;
     }
+    .canal-box { margin: 20px 0; background: #111214; border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 16px 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .cmp-section > .canal-box { margin: 0; }
+    .canal-box-txt { flex: 1 1 240px; }
+    .canal-box-txt strong { display: block; color: #f0f0f0; font-size: 0.95rem; margin-bottom: 2px; }
+    .canal-box-txt span { color: #999; font-size: 0.82rem; line-height: 1.5; }
+    .canal-box-btn { background: var(--accent); color: #000; font-weight: 800; font-size: 0.84rem; padding: 10px 16px; border-radius: 10px; white-space: nowrap; }
+    .canal-box-btn:hover { background: var(--accent-dim); color: #000; }
     .ofertas-strip { border-bottom: 1px solid rgba(200,255,77,0.18); background: rgba(200,255,77,0.06); margin-bottom: 10px; }
     .ofertas-strip a { display: block; max-width: 1200px; margin: 0 auto; padding: 9px 20px; font-size: 0.8rem; line-height: 1.45; color: #ddd; text-decoration: none; }
     .ofertas-strip strong { color: var(--accent); }
@@ -1423,7 +1430,7 @@
   <div class="ofertas-strip">
     
     <a href="https://stackfit.es/ofertas/">
-      Hoy hay 4 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+      Hoy hay 3 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
     </a>
     
   </div>
@@ -1495,7 +1502,7 @@
   <section class="prod-section prod-historico" aria-label="Historial de precios">
     <h2 class="prod-section-title">Evolución del precio (últimos 90 días)</h2>
     <div class="prod-sparkline-wrap">
-      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,74.0 22.9,74.0 39.7,74.0 56.6,74.0 73.5,60.4 90.3,60.4 107.2,60.4 124.1,60.4 141.0,74.0 157.8,69.5 174.7,55.9 191.6,6.0 208.4,60.4 225.3,60.4 242.2,60.4 259.0,60.4 275.9,60.4 292.8,60.4 309.7,60.4 326.5,60.4 343.4,65.0 360.3,65.0 377.1,65.0 394.0,60.4" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="60.4" r="4" fill="#22c55e"/></svg>
+      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,74.0 22.2,74.0 38.3,74.0 54.5,74.0 70.7,60.4 86.8,60.4 103.0,60.4 119.2,60.4 135.3,74.0 151.5,69.5 167.7,55.9 183.8,6.0 200.0,60.4 216.2,60.4 232.3,60.4 248.5,60.4 264.7,60.4 280.8,60.4 297.0,60.4 313.2,60.4 329.3,65.0 345.5,65.0 361.7,65.0 377.8,60.4 394.0,60.4" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="60.4" r="4" fill="#22c55e"/></svg>
     </div>
     
     <div class="prod-stats-row">
@@ -1514,11 +1521,22 @@
       
         
       
-      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">24 registros</div>
+      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">25 registros</div>
     </div>
     
   </section>
   
+
+  
+
+<aside class="canal-box" aria-label="Canal de Telegram">
+  <div class="canal-box-txt">
+    <strong>¿Prefieres esperar a una oferta?</strong>
+    <span>En nuestro canal de Telegram avisamos solo cuando un suplemento toca su precio mínimo real. Como mucho, tres avisos al día.</span>
+  </div>
+  <a class="canal-box-btn" href="https://t.me/stackfit" target="_blank" rel="noopener">Unirme al canal →</a>
+</aside>
+
 
   <!-- Ficha del producto -->
   
@@ -1647,10 +1665,10 @@
           </div>
           <div class="prod-alt-precio">
             
-              <div class="prod-alt-pkg">15,20 €/kg prot.</div>
+              <div class="prod-alt-pkg">13,33 €/kg prot.</div>
             
             
-              <span class="prod-alt-diff cheaper">−34,0 %</span>
+              <span class="prod-alt-diff cheaper">−42,1 %</span>
             
           </div>
         </a>
@@ -1788,6 +1806,7 @@
         <div class="footer-links-label">Herramientas</div>
         <a href="https://stackfit.es/comparar/">Comparar productos</a>
         <a href="https://stackfit.es/ofertas/">Ofertas reales</a>
+        <a href="https://t.me/stackfit" target="_blank" rel="noopener">Canal de Telegram</a>
         <a href="https://stackfit.es/black-friday/">Black Friday 2026: rebajas reales</a>
         <a href="https://stackfit.es/tiendas/">Nuestras tiendas recomendadas</a>
         <a href="https://stackfit.es/como-financiamos/">Cómo financiamos</a>
@@ -1796,7 +1815,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-11-11</div>
+    <div class="footer-bottom">Última actualización: 2026-11-13</div>
   </footer>
 
 </body>

@@ -1377,6 +1377,13 @@
       color: #444444;
       text-align: center;
     }
+    .canal-box { margin: 20px 0; background: #111214; border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 16px 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .cmp-section > .canal-box { margin: 0; }
+    .canal-box-txt { flex: 1 1 240px; }
+    .canal-box-txt strong { display: block; color: #f0f0f0; font-size: 0.95rem; margin-bottom: 2px; }
+    .canal-box-txt span { color: #999; font-size: 0.82rem; line-height: 1.5; }
+    .canal-box-btn { background: var(--accent); color: #000; font-weight: 800; font-size: 0.84rem; padding: 10px 16px; border-radius: 10px; white-space: nowrap; }
+    .canal-box-btn:hover { background: var(--accent-dim); color: #000; }
     .ofertas-strip { border-bottom: 1px solid rgba(200,255,77,0.18); background: rgba(200,255,77,0.06); margin-bottom: 10px; }
     .ofertas-strip a { display: block; max-width: 1200px; margin: 0 auto; padding: 9px 20px; font-size: 0.8rem; line-height: 1.45; color: #ddd; text-decoration: none; }
     .ofertas-strip strong { color: var(--accent); }
@@ -1423,7 +1430,7 @@
   <div class="ofertas-strip">
     
     <a href="https://stackfit.es/ofertas/">
-      Hoy hay 4 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+      Hoy hay 3 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
     </a>
     
   </div>
@@ -1493,7 +1500,7 @@
   <section class="prod-section prod-historico" aria-label="Historial de precios">
     <h2 class="prod-section-title">Evolución del precio (últimos 90 días)</h2>
     <div class="prod-sparkline-wrap">
-      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,69.1 19.4,69.1 32.8,30.5 46.1,30.5 59.5,74.0 72.9,30.5 86.3,30.5 99.7,30.5 113.0,30.5 126.4,30.5 139.8,6.3 153.2,6.3 166.6,6.3 179.9,30.5 193.3,30.5 206.7,6.0 220.1,6.0 233.4,10.9 246.8,6.0 260.2,6.0 273.6,30.2 287.0,6.0 300.3,68.9 313.7,68.9 327.1,68.9 340.5,68.9 353.9,6.0 367.2,6.0 380.6,6.0 394.0,6.0" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="6.0" r="4" fill="#f97316"/></svg>
+      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,69.1 18.9,69.1 31.9,30.5 44.8,30.5 57.7,74.0 70.7,30.5 83.6,30.5 96.5,30.5 109.5,30.5 122.4,30.5 135.3,6.3 148.3,6.3 161.2,6.3 174.1,30.5 187.1,30.5 200.0,6.0 212.9,6.0 225.9,10.9 238.8,6.0 251.7,6.0 264.7,30.2 277.6,6.0 290.5,68.9 303.5,68.9 316.4,68.9 329.3,68.9 342.3,6.0 355.2,6.0 368.1,6.0 381.1,6.0 394.0,6.0" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="6.0" r="4" fill="#f97316"/></svg>
     </div>
     
     <div class="prod-stats-row">
@@ -1512,11 +1519,22 @@
       
         
       
-      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">30 registros</div>
+      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">31 registros</div>
     </div>
     
   </section>
   
+
+  
+
+<aside class="canal-box" aria-label="Canal de Telegram">
+  <div class="canal-box-txt">
+    <strong>¿Prefieres esperar a una oferta?</strong>
+    <span>En nuestro canal de Telegram avisamos solo cuando un suplemento toca su precio mínimo real. Como mucho, tres avisos al día.</span>
+  </div>
+  <a class="canal-box-btn" href="https://t.me/stackfit" target="_blank" rel="noopener">Unirme al canal →</a>
+</aside>
+
 
   <!-- Ficha del producto -->
   
@@ -1545,7 +1563,7 @@
   <section class="prod-section prod-posicion" aria-label="Posición en categoría">
     <h2 class="prod-section-title">Posición en el ranking</h2>
     <p class="prod-posicion-text">
-      Es <span class="prod-posicion-num">la 1.ª whey hidrolizada más barata por €/kg de las 13 que seguimos</span> en España.
+      Es <span class="prod-posicion-num">la 2.ª whey hidrolizada más barata por €/kg de las 14 que seguimos</span> en España.
     </p>
   </section>
   
@@ -1585,7 +1603,7 @@
     <div class="prod-alts-list">
       
         
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbatidos-essential%2F16670299%2F" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item prod-alt-otro-tipo">
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Fbatidos-essential%2F16670299%2F%3Fvariation%3D16914179" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item prod-alt-otro-tipo">
         
           <div class="prod-alt-img">
             <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16747355-1945257701043326.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover"
@@ -1612,7 +1630,7 @@
         </a>
       
         
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Ftotal-protein%2F10529951%2F" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item prod-alt-otro-tipo">
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Ftotal-protein%2F10529951%2F%3Fvariation%3D11373019" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item prod-alt-otro-tipo">
         
           <div class="prod-alt-img">
             <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/11373018-4525182337176716.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover"
@@ -1634,6 +1652,33 @@
             
             
               <span class="prod-alt-diff cheaper">−51,8 %</span>
+            
+          </div>
+        </a>
+      
+        
+          <a href="https://stackfit.es/proteina-whey/evobasic-whey-hsn/" class="prod-alt-item prod-alt-otro-tipo">
+        
+          <div class="prod-alt-img">
+            <img src="/img/productos/evobasic-whey-2kg-desconocida.webp"
+                 alt="Evobasic Whey"
+                 width="44" height="44"
+                 loading="lazy"
+                 onerror="this.src='/img/productos/placeholder-proteina-whey.svg'">
+          </div>
+          <div class="prod-alt-nombre">
+            Evobasic Whey
+            <div class="prod-alt-tienda">
+              HSN
+              <span class="prod-alt-badge">otro tipo</span>
+            </div>
+          </div>
+          <div class="prod-alt-precio">
+            
+              <div class="prod-alt-pkg">20,00 €/kg</div>
+            
+            
+              <span class="prod-alt-diff cheaper">−46,1 %</span>
             
           </div>
         </a>
@@ -1688,33 +1733,6 @@
             
             
               <span class="prod-alt-diff cheaper">−26,1 %</span>
-            
-          </div>
-        </a>
-      
-        
-          <a href="https://www.awin1.com/cread.php?awinmid=20039&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.hivital.com%2Fproducto%2Fproteina-whey%2F" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item prod-alt-otro-tipo">
-        
-          <div class="prod-alt-img">
-            <img src="https://www.hivital.com/wp-content/uploads/2025/03/Frontal-Whey-Attrezo-800x800-JPG.jpg"
-                 alt="Whey Concentrado Hivital"
-                 width="44" height="44"
-                 loading="lazy"
-                 onerror="this.src='/img/productos/placeholder-proteina-whey.svg'">
-          </div>
-          <div class="prod-alt-nombre">
-            Whey Concentrado Hivital
-            <div class="prod-alt-tienda">
-              Hivital
-              <span class="prod-alt-badge">otro tipo</span>
-            </div>
-          </div>
-          <div class="prod-alt-precio">
-            
-              <div class="prod-alt-pkg">27,77 €/kg</div>
-            
-            
-              <span class="prod-alt-diff cheaper">−25,1 %</span>
             
           </div>
         </a>
@@ -1784,6 +1802,7 @@
         <div class="footer-links-label">Herramientas</div>
         <a href="https://stackfit.es/comparar/">Comparar productos</a>
         <a href="https://stackfit.es/ofertas/">Ofertas reales</a>
+        <a href="https://t.me/stackfit" target="_blank" rel="noopener">Canal de Telegram</a>
         <a href="https://stackfit.es/black-friday/">Black Friday 2026: rebajas reales</a>
         <a href="https://stackfit.es/tiendas/">Nuestras tiendas recomendadas</a>
         <a href="https://stackfit.es/como-financiamos/">Cómo financiamos</a>
@@ -1792,7 +1811,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-11-11</div>
+    <div class="footer-bottom">Última actualización: 2026-11-13</div>
   </footer>
 
 </body>

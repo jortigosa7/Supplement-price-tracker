@@ -1377,6 +1377,13 @@
       color: #444444;
       text-align: center;
     }
+    .canal-box { margin: 20px 0; background: #111214; border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 16px 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .cmp-section > .canal-box { margin: 0; }
+    .canal-box-txt { flex: 1 1 240px; }
+    .canal-box-txt strong { display: block; color: #f0f0f0; font-size: 0.95rem; margin-bottom: 2px; }
+    .canal-box-txt span { color: #999; font-size: 0.82rem; line-height: 1.5; }
+    .canal-box-btn { background: var(--accent); color: #000; font-weight: 800; font-size: 0.84rem; padding: 10px 16px; border-radius: 10px; white-space: nowrap; }
+    .canal-box-btn:hover { background: var(--accent-dim); color: #000; }
     .ofertas-strip { border-bottom: 1px solid rgba(200,255,77,0.18); background: rgba(200,255,77,0.06); margin-bottom: 10px; }
     .ofertas-strip a { display: block; max-width: 1200px; margin: 0 auto; padding: 9px 20px; font-size: 0.8rem; line-height: 1.45; color: #ddd; text-decoration: none; }
     .ofertas-strip strong { color: var(--accent); }
@@ -1423,7 +1430,7 @@
   <div class="ofertas-strip">
     
     <a href="https://stackfit.es/ofertas/">
-      Hoy hay 4 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+      Hoy hay 3 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
     </a>
     
   </div>
@@ -1493,7 +1500,7 @@
   <section class="prod-section prod-historico" aria-label="Historial de precios">
     <h2 class="prod-section-title">Evolución del precio (últimos 90 días)</h2>
     <div class="prod-sparkline-wrap">
-      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,22.1 19.4,22.1 32.8,24.5 46.1,74.0 59.5,19.8 72.9,22.1 86.3,29.0 99.7,29.0 113.0,29.0 126.4,74.0 139.8,22.1 153.2,74.0 166.6,22.1 179.9,22.1 193.3,29.0 206.7,74.0 220.1,19.8 233.4,6.0 246.8,22.1 260.2,22.1 273.6,22.1 287.0,22.1 300.3,74.0 313.7,38.3 327.1,74.0 340.5,74.0 353.9,24.5 367.2,24.5 380.6,38.3 394.0,22.1" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="22.1" r="4" fill="#f97316"/></svg>
+      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,22.1 18.9,22.1 31.9,24.5 44.8,74.0 57.7,19.8 70.7,22.1 83.6,29.0 96.5,29.0 109.5,29.0 122.4,74.0 135.3,22.1 148.3,74.0 161.2,22.1 174.1,22.1 187.1,29.0 200.0,74.0 212.9,19.8 225.9,6.0 238.8,22.1 251.7,22.1 264.7,22.1 277.6,22.1 290.5,74.0 303.5,38.3 316.4,74.0 329.3,74.0 342.3,24.5 355.2,24.5 368.1,38.3 381.1,22.1 394.0,22.1" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="22.1" r="4" fill="#f97316"/></svg>
     </div>
     
     <div class="prod-stats-row">
@@ -1512,11 +1519,22 @@
       
         
       
-      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">30 registros</div>
+      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">31 registros</div>
     </div>
     
   </section>
   
+
+  
+
+<aside class="canal-box" aria-label="Canal de Telegram">
+  <div class="canal-box-txt">
+    <strong>¿Prefieres esperar a una oferta?</strong>
+    <span>En nuestro canal de Telegram avisamos solo cuando un suplemento toca su precio mínimo real. Como mucho, tres avisos al día.</span>
+  </div>
+  <a class="canal-box-btn" href="https://t.me/stackfit" target="_blank" rel="noopener">Unirme al canal →</a>
+</aside>
+
 
   <!-- Ficha del producto -->
   
@@ -1555,7 +1573,7 @@
   <section class="prod-section prod-posicion" aria-label="Posición en categoría">
     <h2 class="prod-section-title">Posición en el ranking</h2>
     <p class="prod-posicion-text">
-      Es <span class="prod-posicion-num">la 9.ª creatina más barata por €/kg de las 78 que seguimos</span> en España.
+      Es <span class="prod-posicion-num">la 8.ª creatina más barata por €/kg de las 76 que seguimos</span> en España.
     </p>
   </section>
   
@@ -1818,6 +1836,7 @@
         <div class="footer-links-label">Herramientas</div>
         <a href="https://stackfit.es/comparar/">Comparar productos</a>
         <a href="https://stackfit.es/ofertas/">Ofertas reales</a>
+        <a href="https://t.me/stackfit" target="_blank" rel="noopener">Canal de Telegram</a>
         <a href="https://stackfit.es/black-friday/">Black Friday 2026: rebajas reales</a>
         <a href="https://stackfit.es/tiendas/">Nuestras tiendas recomendadas</a>
         <a href="https://stackfit.es/como-financiamos/">Cómo financiamos</a>
@@ -1826,7 +1845,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-11-11</div>
+    <div class="footer-bottom">Última actualización: 2026-11-13</div>
   </footer>
 
 </body>

@@ -1377,6 +1377,13 @@
       color: #444444;
       text-align: center;
     }
+    .canal-box { margin: 20px 0; background: #111214; border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 16px 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .cmp-section > .canal-box { margin: 0; }
+    .canal-box-txt { flex: 1 1 240px; }
+    .canal-box-txt strong { display: block; color: #f0f0f0; font-size: 0.95rem; margin-bottom: 2px; }
+    .canal-box-txt span { color: #999; font-size: 0.82rem; line-height: 1.5; }
+    .canal-box-btn { background: var(--accent); color: #000; font-weight: 800; font-size: 0.84rem; padding: 10px 16px; border-radius: 10px; white-space: nowrap; }
+    .canal-box-btn:hover { background: var(--accent-dim); color: #000; }
     .ofertas-strip { border-bottom: 1px solid rgba(200,255,77,0.18); background: rgba(200,255,77,0.06); margin-bottom: 10px; }
     .ofertas-strip a { display: block; max-width: 1200px; margin: 0 auto; padding: 9px 20px; font-size: 0.8rem; line-height: 1.45; color: #ddd; text-decoration: none; }
     .ofertas-strip strong { color: var(--accent); }
@@ -1423,7 +1430,7 @@
   <div class="ofertas-strip">
     
     <a href="https://stackfit.es/ofertas/">
-      Hoy hay 4 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
+      Hoy hay 3 ofertas reales: productos en su precio mínimo, comprobado con nuestro historial <span>Ver ofertas →</span>
     </a>
     
   </div>
@@ -1485,7 +1492,7 @@
   <!-- Veredicto de compra -->
   <section class="prod-section prod-veredicto" aria-label="Veredicto de compra">
     <h2 class="prod-section-title">¿Es buen momento para comprar?</h2>
-    <p class="prod-veredicto-text">Hoy cuesta 28,45 €, un 3,7 % por encima de su precio habitual (mediana 90 días: 27,45 €). Mínimo: 24,95 € el 24/09.</p>
+    <p class="prod-veredicto-text">Hoy cuesta 28,45 €, un 1,8 % por encima de su precio habitual (mediana 90 días: 27,94 €). Mínimo: 24,95 € el 24/09.</p>
   </section>
 
   <!-- Historial de precios -->
@@ -1493,13 +1500,13 @@
   <section class="prod-section prod-historico" aria-label="Historial de precios">
     <h2 class="prod-section-title">Evolución del precio (últimos 90 días)</h2>
     <div class="prod-sparkline-wrap">
-      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,57.0 19.4,57.0 32.8,48.5 46.1,74.0 59.5,40.0 72.9,44.2 86.3,57.0 99.7,57.0 113.0,57.0 126.4,57.0 139.8,44.2 153.2,44.2 166.6,44.2 179.9,44.2 193.3,57.0 206.7,74.0 220.1,40.0 233.4,6.0 246.8,44.2 260.2,44.2 273.6,61.3 287.0,61.3 300.3,74.0 313.7,74.0 327.1,74.0 340.5,74.0 353.9,48.5 367.2,48.5 380.6,48.5 394.0,44.2" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="44.2" r="4" fill="#f97316"/></svg>
+      <svg viewBox="0 0 400 80" width="400" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="Historial de precios"><polyline points="6.0,57.0 18.9,57.0 31.9,48.5 44.8,74.0 57.7,40.0 70.7,44.2 83.6,57.0 96.5,57.0 109.5,57.0 122.4,57.0 135.3,44.2 148.3,44.2 161.2,44.2 174.1,44.2 187.1,57.0 200.0,74.0 212.9,40.0 225.9,6.0 238.8,44.2 251.7,44.2 264.7,61.3 277.6,61.3 290.5,74.0 303.5,74.0 316.4,74.0 329.3,74.0 342.3,48.5 355.2,48.5 368.1,48.5 381.1,44.2 394.0,44.2" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="394.0" cy="44.2" r="4" fill="#f97316"/></svg>
     </div>
     
     <div class="prod-stats-row">
       
       <div class="prod-stat-item">
-        Mediana 90 días: <strong>27,45 €</strong>
+        Mediana 90 días: <strong>27,94 €</strong>
       </div>
       
       
@@ -1512,11 +1519,22 @@
       
         
       
-      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">30 registros</div>
+      <div class="prod-stat-item" style="color:#444;font-size:0.72rem;">31 registros</div>
     </div>
     
   </section>
   
+
+  
+
+<aside class="canal-box" aria-label="Canal de Telegram">
+  <div class="canal-box-txt">
+    <strong>¿Prefieres esperar a una oferta?</strong>
+    <span>En nuestro canal de Telegram avisamos solo cuando un suplemento toca su precio mínimo real. Como mucho, tres avisos al día.</span>
+  </div>
+  <a class="canal-box-btn" href="https://t.me/stackfit" target="_blank" rel="noopener">Unirme al canal →</a>
+</aside>
+
 
   <!-- Ficha del producto -->
   
@@ -1550,7 +1568,7 @@
   <section class="prod-section prod-posicion" aria-label="Posición en categoría">
     <h2 class="prod-section-title">Posición en el ranking</h2>
     <p class="prod-posicion-text">
-      Es <span class="prod-posicion-num">la 3.ª mezcla pre-entreno más barata por €/kg de las 64 que seguimos</span> en España.
+      Es <span class="prod-posicion-num">la 3.ª mezcla pre-entreno más barata por €/kg de las 67 que seguimos</span> en España.
     </p>
   </section>
   
@@ -1590,7 +1608,7 @@
     <div class="prod-alts-list">
       
         
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-shred-pre-workout%2F16547402%2F" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item">
+          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-shred-pre-workout%2F16547402%2F%3Fvariation%3D16547403" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item">
         
           <div class="prod-alt-img">
             <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/16547403-4175287072301670.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover"
@@ -1612,6 +1630,33 @@
             
             
               <span class="prod-alt-diff cheaper">−46,7 %</span>
+            
+          </div>
+        </a>
+      
+        
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvc3BvcnQtc2VyaWVzL2V2b2VhYS1z" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item">
+        
+          <div class="prod-alt-img">
+            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/v/evoeaas-gral-front-hsn_1.webp"
+                 alt="EvoEAA&#39;s 1 kg"
+                 width="44" height="44"
+                 loading="lazy"
+                 onerror="this.src='/img/productos/placeholder-pre-entreno.svg'">
+          </div>
+          <div class="prod-alt-nombre">
+            EvoEAA&#39;s 1 kg
+            <div class="prod-alt-tienda">
+              HSN
+              
+            </div>
+          </div>
+          <div class="prod-alt-precio">
+            
+              <div class="prod-alt-pkg">32,43 €/kg</div>
+            
+            
+              <span class="prod-alt-diff pricier">+14,0 %</span>
             
           </div>
         </a>
@@ -1644,6 +1689,33 @@
         </a>
       
         
+          <a href="https://www.hsnstore.com/affiliate/click/index?linkid=cHJvZHVjdHx8fHxKT1JUSUdPU0F8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmNvbS9tYXJjYXMvcmF3LXNlcmllcy9hbWlub2FjaWRvcy1lc2VuY2lhbGVzLWVhYS1zLWVuLXBvbHZv" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item">
+        
+          <div class="prod-alt-img">
+            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/a/eaas-powder-hsn_1.jpg"
+                 alt="Aminoácidos esenciales (EAA&#39;s) en polvo 1 kg"
+                 width="44" height="44"
+                 loading="lazy"
+                 onerror="this.src='/img/productos/placeholder-pre-entreno.svg'">
+          </div>
+          <div class="prod-alt-nombre">
+            Aminoácidos esenciales (EAA&#39;s) en polvo 1 kg
+            <div class="prod-alt-tienda">
+              HSN
+              
+            </div>
+          </div>
+          <div class="prod-alt-precio">
+            
+              <div class="prod-alt-pkg">35,33 €/kg</div>
+            
+            
+              <span class="prod-alt-diff pricier">+24,2 %</span>
+            
+          </div>
+        </a>
+      
+        
           <a href="https://stackfit.es/pre-entreno/origin-pre-entreno-myprotein/" class="prod-alt-item">
         
           <div class="prod-alt-img">
@@ -1662,64 +1734,10 @@
           </div>
           <div class="prod-alt-precio">
             
-              <div class="prod-alt-pkg">36,49 €/kg</div>
+              <div class="prod-alt-pkg">35,82 €/kg</div>
             
             
-              <span class="prod-alt-diff pricier">+28,3 %</span>
-            
-          </div>
-        </a>
-      
-        
-          <a href="https://stackfit.es/pre-entreno/evoeaa-s-energy-hsn/" class="prod-alt-item">
-        
-          <div class="prod-alt-img">
-            <img src="https://www.hsnstore.com/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/v/evoeaas-energy-hsn_1.jpg"
-                 alt="EvoEAA&#39;s Energy"
-                 width="44" height="44"
-                 loading="lazy"
-                 onerror="this.src='/img/productos/placeholder-pre-entreno.svg'">
-          </div>
-          <div class="prod-alt-nombre">
-            EvoEAA&#39;s Energy
-            <div class="prod-alt-tienda">
-              HSN
-              
-            </div>
-          </div>
-          <div class="prod-alt-precio">
-            
-              <div class="prod-alt-pkg">37,57 €/kg</div>
-            
-            
-              <span class="prod-alt-diff pricier">+32,1 %</span>
-            
-          </div>
-        </a>
-      
-        
-          <a href="https://www.awin1.com/cread.php?awinmid=10603&amp;awinaffid=2845182&amp;ued=https%3A%2F%2Fwww.myprotein.es%2Fp%2Fnutricion-deportiva%2Forigin-pre-entreno-sin-estimulantes%2F14269805%2F" rel="nofollow sponsored noopener" target="_blank" class="prod-alt-item">
-        
-          <div class="prod-alt-img">
-            <img src="https://main.thgimages.com?url=https://static.thcdn.com/productimg/original/14269807-1625372342263992.jpg&amp;format=webp&amp;width=1500&amp;height=1500&amp;fit=cover"
-                 alt="Origin Pre-Entreno sin Estimulantes"
-                 width="44" height="44"
-                 loading="lazy"
-                 onerror="this.src='/img/productos/placeholder-pre-entreno.svg'">
-          </div>
-          <div class="prod-alt-nombre">
-            Origin Pre-Entreno sin Estimulantes
-            <div class="prod-alt-tienda">
-              MyProtein
-              
-            </div>
-          </div>
-          <div class="prod-alt-precio">
-            
-              <div class="prod-alt-pkg">38,32 €/kg</div>
-            
-            
-              <span class="prod-alt-diff pricier">+34,7 %</span>
+              <span class="prod-alt-diff pricier">+25,9 %</span>
             
           </div>
         </a>
@@ -1789,6 +1807,7 @@
         <div class="footer-links-label">Herramientas</div>
         <a href="https://stackfit.es/comparar/">Comparar productos</a>
         <a href="https://stackfit.es/ofertas/">Ofertas reales</a>
+        <a href="https://t.me/stackfit" target="_blank" rel="noopener">Canal de Telegram</a>
         <a href="https://stackfit.es/black-friday/">Black Friday 2026: rebajas reales</a>
         <a href="https://stackfit.es/tiendas/">Nuestras tiendas recomendadas</a>
         <a href="https://stackfit.es/como-financiamos/">Cómo financiamos</a>
@@ -1797,7 +1816,7 @@
         <a href="https://stackfit.es/privacidad/">Privacidad</a>
       </div>
     </div>
-    <div class="footer-bottom">Última actualización: 2026-11-11</div>
+    <div class="footer-bottom">Última actualización: 2026-11-13</div>
   </footer>
 
 </body>
