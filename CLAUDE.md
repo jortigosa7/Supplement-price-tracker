@@ -109,7 +109,7 @@ Proteína Whey, Proteína Vegana (subcategoría derivada de proteina-whey), Crea
 
 ### Roto o pendiente
 
-- **Canal de Telegram**: falta crear el canal y el bot, guardar los dos secrets en el repo y poner la URL del canal en `TELEGRAM_CANAL_URL` (`build.py`); mientras esté vacía, `/ofertas/` no enlaza a ningún canal.
+- **Canal de Telegram**: el canal existe (`@stackfit`, https://t.me/stackfit) y `/ofertas/` ya lo enlaza. Falta crear el bot, hacerlo admin del canal y guardar los secrets `TELEGRAM_BOT_TOKEN` y `TELEGRAM_CHAT_ID` (`@stackfit`); hasta entonces no se publica ningún aviso.
 - **Scraper Prozis**: no se tocó en el round de mayo 2026, puede seguir con selectores desactualizados.
 - **GitHub Actions**: timeout del job subido a 90 min (nov 2026; un run normal dura 40-47 min). La instalación de Playwright reintenta 2 veces con tope de 5 min y si no, instala Chromium sin dependencias (los mirrors de Ubuntu fallaron el 11 nov). El paso de build tiene `continue-on-error: true` — si build.py sale con error (ej. pares degradados), el workflow commitea y pushea igualmente, y después falla el job para generar notificación.
 - **`añadir_afiliados.py`**: staged y listo, pero con MyProtein ya integrado en build.py tiene menos relevancia. Aún podría usarse para Prozis y Nutritienda si se aprueban.

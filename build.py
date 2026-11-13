@@ -75,7 +75,7 @@ BF_ABIERTA = False
 # Solo códigos dados por el programa (las condiciones de Awin prohíben otros) y con fecha
 # de fin visible: enseñar un código caducado puede suponer la expulsión del programa.
 CODIGOS_ACTIVOS: dict[str, dict] = {}
-TELEGRAM_CANAL_URL = ""
+TELEGRAM_CANAL_URL = "https://t.me/stackfit"
 
 # ============================================================
 # CONFIGURACIÓN DE CATEGORÍAS
