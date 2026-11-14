@@ -36,6 +36,7 @@
   .of-habitual s { color:#666; }
   .of-habitual b { color:var(--accent); font-weight:700; }
   .of-kg { color:#555; font-size:0.76rem; margin-top:2px; }
+  .of-puesto { color:var(--accent); font-size:0.76rem; margin-top:2px; }
   .of-grafico { flex:0 1 260px; min-width:160px; }
   .of-grafico svg { width:100%; height:auto; display:block; }
   .of-grafico span { display:block; color:#555; font-size:0.7rem; text-align:right; margin-top:2px; }
@@ -48,7 +49,7 @@
   .of-vacio strong { color:#eee; display:block; margin-bottom:6px; font-size:1rem; }
   .of-h2 { font-size:1.05rem; font-weight:800; color:#e0e0e0; margin:52px 0 16px; }
   .of-reglas { display:grid; grid-template-columns:1fr; gap:12px; }
-  @media (min-width:640px) { .of-reglas { grid-template-columns:1fr 1fr; } }
+  @media (min-width:640px) { .of-reglas { grid-template-columns:1fr 1fr; } .of-regla.ancha { grid-column:1 / -1; } }
   .of-regla { background:#111214; border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius); padding:16px 18px; }
   .of-regla strong { color:#ddd; font-size:0.9rem; display:block; margin-bottom:4px; }
   .of-regla p { color:#888; font-size:0.84rem; line-height:1.65; }
@@ -66,7 +67,8 @@
     <h1 class="of-h1">Ofertas <em>reales</em> en suplementos</h1>
     <p class="of-lead">
       Las tiendas de suplementos tienen algún código de descuento casi siempre, así que un «−40&nbsp;%» no dice nada.
-      Aquí solo aparece un producto cuando hoy cuesta menos que en todo el tiempo que llevamos siguiendo su precio.
+      Aquí solo aparece un producto cuando hoy cuesta menos que en todo el tiempo que llevamos siguiendo su precio
+      y, además, con la rebaja queda entre los más baratos de su tipo.
     </p>
     {% if bf_abierta %}<p class="of-fecha"><a href="{{ site_url }}/{{ bf_slug }}/" style="color:var(--accent); font-weight:700;">Black Friday {{ current_year }}: qué rebajas son reales →</a></p>{% endif %}
     <p class="of-fecha">Precios comprobados el {{ fecha_precios }}{% if ofertas %} · {{ ofertas | length }} producto{{ '' if ofertas | length == 1 else 's' }} en mínimos{% endif %}</p>
@@ -106,6 +108,7 @@
           <div class="of-precio">{{ o.precio | fmtd }}<small>€</small></div>
           <div class="of-habitual">Suele costar <s>{{ o.precio_habitual | fmtd }} €</s> · <b>−{{ o.rebaja_pct | round | int }}&nbsp;%</b> ({{ o.ahorro_eur | fmtd }} € menos)</div>
           {% if o.precio_por_kg %}<div class="of-kg">{{ o.precio_por_kg | fmtd }} €/kg · a este precio desde el {{ o.desde_corta }}</div>{% endif %}
+          {% if o.puesto_texto %}<div class="of-puesto">Con esta rebaja es {{ o.puesto_texto }}</div>{% endif %}
         </div>
         {% if o.grafico_svg %}
         <div class="of-grafico">
@@ -153,12 +156,16 @@
       <strong>Mismo producto, mismo formato, misma tienda</strong>
       <p>Solo comparamos un bote consigo mismo, y solo si llevamos al menos {{ criterios.min_dias }} días siguiéndolo. Revisamos los precios tres veces por semana.</p>
     </div>
+    <div class="of-regla ancha">
+      <strong>Y que salga barato frente a los demás</strong>
+      <p>Con la rebaja tiene que quedar entre los {{ criterios.max_puesto }} más baratos de su tipo (whey aislada, creatina, BCAA…) de todas las tiendas que seguimos, y en la mitad más barata. Un producto caro rebajado sigue sin ser buena compra si hay otros parecidos a mitad de precio.</p>
+    </div>
   </div>
 
   <div class="info-bar" style="margin-top:36px;">
     <strong>Nota de afiliación:</strong>
     Solo seguimos tiendas con las que tenemos afiliación ({{ tiendas_afiliadas | join(', ') }}): si compras a través de estos enlaces, recibimos una pequeña comisión sin coste extra para ti.
-    Dentro de esas tiendas, qué producto aparece lo decide únicamente su historial de precios.
+    Dentro de esas tiendas, qué producto aparece lo deciden únicamente los precios: su historial y los de los demás productos de su tipo.
     <a href="{{ site_url }}/como-financiamos/" style="color:#888; margin-left:4px;">Más información →</a>
   </div>
 

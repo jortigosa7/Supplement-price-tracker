@@ -9,6 +9,11 @@ suplementos encadenan códigos de descuento, así que "está rebajado" no dice n
 Solo se compara un producto consigo mismo: mismo ID (mismo formato) y misma tienda,
 en euros. Nunca se mezclan botes de distinto peso.
 
+Además, con la rebaja tiene que quedar entre los más baratos de su tipo en todas las
+tiendas que seguimos (el ranking de las páginas de producto). Sin esto salían cosas
+como una creatina Creapure a 60 €/kg "en mínimo" cuando hay monohidrato a 14 €/kg:
+cierto frente a su historial, pero no es una buena compra.
+
 Lo usan build.py (página /ofertas/ y data/minimos.json) y avisos_telegram.py.
 """
 
@@ -25,6 +30,8 @@ MAX_CAIDA = 0.50              # una caída mayor del 50 % se trata como error de
 PRECIO_MINIMO_EUR = 8.0       # por debajo de esto (sobres, muestras) no merece aviso
 PESO_MINIMO_KG = 0.15         # mismo corte que _excluir_producto en build.py
 TOLERANCIA = 0.005            # medio céntimo: iguala el mínimo aunque baile el redondeo
+MAX_PUESTO = 5                # con la rebaja, como mucho el 5.º más barato de su tipo...
+MAX_PUESTO_RELATIVO = 0.5     # ...y en la mitad barata (con 3 comparables, solo el 1.º)
 
 
 def _serie_previa(entradas: list[dict], tienda: str, fecha_hoy: str) -> list[tuple[str, float]]:
@@ -90,14 +97,28 @@ def evaluar_precio(precio_hoy: float, serie: list[tuple[str, float]], fecha_hoy:
     }
 
 
+def es_competitivo(posicion: dict | None) -> bool:
+    """
+    True si el puesto del producto entre los de su tipo es de los baratos.
+    posicion es lo que devuelve build._posicion_categoria(): {"posicion", "total", ...},
+    o None si no hay con qué compararlo; entonces no se puede afirmar que sea barato.
+    """
+    if not posicion:
+        return False
+    return posicion["posicion"] <= min(MAX_PUESTO, posicion["total"] * MAX_PUESTO_RELATIVO)
+
+
 def detectar_minimos(productos_web: list[dict], hist_by_id: dict, tiendas_afiliadas: set[str],
-                     ids_excluidos: set[str] | None = None) -> list[dict]:
+                     posicion, ids_excluidos: set[str] | None = None) -> list[dict]:
     """
     Productos que hoy están en mínimo real en una tienda afiliada, ordenados por
     interés (rebaja frente al precio habitual, ponderada por popularidad).
 
     Solo cuenta si la tienda afiliada es además la más barata para ese producto:
     avisar de un "mínimo" cuando otra tienda lo vende por menos sería engañar.
+
+    posicion(producto) da su puesto entre los de su tipo con el precio de hoy
+    (build._posicion_categoria); solo entran los que pasan es_competitivo().
     """
     ids_excluidos = ids_excluidos or set()
 
@@ -132,6 +153,9 @@ def detectar_minimos(productos_web: list[dict], hist_by_id: dict, tiendas_afilia
         cifras = evaluar_precio(float(precio_hoy), serie, fecha_hoy)
         if not cifras:
             continue
+        puesto = posicion(p)
+        if not es_competitivo(puesto):
+            continue
 
         valoraciones = int(p.get("store_rating_count") or 0)
         minimos.append({
@@ -148,6 +172,9 @@ def detectar_minimos(productos_web: list[dict], hist_by_id: dict, tiendas_afilia
             # Rebaja ponderada por popularidad: un -27 % en una whey con 900 valoraciones
             # interesa a más gente que un -40 % en un producto que casi nadie compra.
             "interes":       round(cifras["rebaja_pct"] * math.log10(10 + valoraciones), 1),
+            "puesto":        puesto["posicion"],
+            "puesto_total":  puesto["total"],
+            "puesto_texto":  puesto["texto"],     # "la 2.ª whey aislada más barata por €/kg de las 21..."
             **cifras,
         })
 
