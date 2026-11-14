@@ -4292,12 +4292,18 @@ def generar_vs_tiendas(env, cfg_a: dict, cfg_b: dict, productos_web: list[dict],
 # ============================================================
 
 def calcular_minimos(productos_web: list[dict], hist_by_id: dict, tiendas_cfg: list[dict]) -> list[dict]:
-    """Productos que hoy están en mínimo real en una tienda afiliada (ver minimos.py)."""
+    """
+    Productos que hoy están en mínimo real en una tienda afiliada y que, con la rebaja,
+    quedan entre los más baratos de su tipo (ver minimos.py). El puesto se calcula
+    contra todo el catálogo, no solo contra los candidatos: incluye las tiendas sin
+    afiliación, porque el usuario también puede comprar allí.
+    """
     candidatos = [p for p in productos_web if not _excluir_producto(p)]
     return minimos_mod.detectar_minimos(
         candidatos,
         hist_by_id,
         {t["nombre"] for t in tiendas_cfg},
+        posicion=lambda p: _posicion_categoria(p, productos_web),
         ids_excluidos=IDS_PRECIO_SOSPECHOSO,
     )
 
@@ -4364,6 +4370,7 @@ def generar_ofertas(env, minimos_hoy: list[dict], productos_web: list[dict],
             "min_dias":       minimos_mod.MIN_DIAS_HISTORIAL,
             "min_rebaja_pct": round(minimos_mod.MIN_REBAJA * 100),
             "max_frec_pct":   round(minimos_mod.MAX_FRECUENCIA * 100),
+            "max_puesto":     minimos_mod.MAX_PUESTO,
         },
         "tiendas_afiliadas": afiliadas,
     }

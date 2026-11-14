@@ -82,6 +82,11 @@ def _producto(pid="evowhey-2kg-hsn", tienda="HSN", precio=39.9, fecha=HOY, **ext
     }
 
 
+def _primero(p: dict) -> dict:
+    """Ranking de prueba: el producto es el más barato de su tipo."""
+    return {"posicion": 1, "total": 10, "texto": "la 1.ª whey más barata por €/kg de las 10 que seguimos"}
+
+
 def _historial(pid="evowhey-2kg-hsn", tienda="HSN", precios=None) -> dict:
     precios = precios or [47.9] * 14
     return {pid: [{"producto_id": pid, "tienda": tienda, "fecha": f, "precio": p} for f, p in _serie(precios)]}
@@ -90,7 +95,7 @@ def _historial(pid="evowhey-2kg-hsn", tienda="HSN", precios=None) -> dict:
 class TestDetectarMinimos:
 
     def test_detecta_el_minimo_con_sus_datos(self):
-        res = minimos.detectar_minimos([_producto()], _historial(), {"HSN"})
+        res = minimos.detectar_minimos([_producto()], _historial(), {"HSN"}, posicion=_primero)
         assert len(res) == 1
         assert res[0]["precio"] == 39.9
         assert res[0]["url_afiliado"] == "https://tienda.example/afiliado"
@@ -98,28 +103,58 @@ class TestDetectarMinimos:
 
     def test_tienda_sin_afiliacion_no_entra(self):
         p = _producto(tienda="Nutritienda")
-        assert minimos.detectar_minimos([p], _historial(tienda="Nutritienda"), {"HSN"}) == []
+        assert minimos.detectar_minimos([p], _historial(tienda="Nutritienda"), {"HSN"}, posicion=_primero) == []
 
     def test_agotado_o_excluido_no_entra(self):
-        assert minimos.detectar_minimos([_producto(agotado=True)], _historial(), {"HSN"}) == []
-        assert minimos.detectar_minimos([_producto()], _historial(), {"HSN"}, ids_excluidos={"evowhey-2kg-hsn"}) == []
+        assert minimos.detectar_minimos([_producto(agotado=True)], _historial(), {"HSN"}, posicion=_primero) == []
+        assert minimos.detectar_minimos([_producto()], _historial(), {"HSN"}, posicion=_primero, ids_excluidos={"evowhey-2kg-hsn"}) == []
 
     def test_precio_de_un_scrape_anterior_no_entra(self):
         # La tienda se scrapeó hoy (otro producto lo prueba), pero este precio es de hace 4 días
         viejo = _producto(fecha="2026-11-05")
         otro = _producto(pid="otro-1kg-hsn", precio=20.0)
-        assert minimos.detectar_minimos([viejo, otro], _historial(), {"HSN"}) == []
+        assert minimos.detectar_minimos([viejo, otro], _historial(), {"HSN"}, posicion=_primero) == []
 
     def test_no_mezcla_historial_de_otra_tienda(self):
         hist = _historial(tienda="MyProtein")  # el historial es de otra tienda: HSN no tiene datos
-        assert minimos.detectar_minimos([_producto()], hist, {"HSN", "MyProtein"}) == []
+        assert minimos.detectar_minimos([_producto()], hist, {"HSN", "MyProtein"}, posicion=_primero) == []
 
     def test_ordena_por_interes_no_solo_por_rebaja(self):
         popular = _producto(pid="popular-2kg-hsn", precio=40.0, store_rating_count=5000)
         raro = _producto(pid="raro-2kg-hsn", precio=36.0, store_rating_count=3)
         hist = {**_historial("popular-2kg-hsn"), **_historial("raro-2kg-hsn")}
-        res = minimos.detectar_minimos([raro, popular], hist, {"HSN"})
+        res = minimos.detectar_minimos([raro, popular], hist, {"HSN"}, posicion=_primero)
         assert [m["id"] for m in res] == ["popular-2kg-hsn", "raro-2kg-hsn"]
+
+    def test_guarda_el_puesto_para_el_aviso(self):
+        res = minimos.detectar_minimos([_producto()], _historial(), {"HSN"}, posicion=_primero)
+        assert res[0]["puesto"] == 1 and res[0]["puesto_total"] == 10
+        assert res[0]["puesto_texto"].startswith("la 1.ª whey")
+
+    def test_minimo_de_su_historial_pero_caro_frente_a_su_tipo_no_entra(self):
+        # La Creapure del 13 nov: mínimo de sus 53 días, pero la 28.ª de 76 creatinas por €/kg
+        caro = lambda p: {"posicion": 28, "total": 76, "texto": "x"}
+        assert minimos.detectar_minimos([_producto()], _historial(), {"HSN"}, posicion=caro) == []
+
+    def test_sin_ranking_no_entra(self):
+        # Sin comparables (tipo "otra", menos de 3) no se puede afirmar que sea barato
+        assert minimos.detectar_minimos([_producto()], _historial(), {"HSN"}, posicion=lambda p: None) == []
+
+
+class TestEsCompetitivo:
+
+    def test_hasta_el_quinto_en_grupos_grandes(self):
+        assert minimos.es_competitivo({"posicion": 5, "total": 75})
+        assert not minimos.es_competitivo({"posicion": 6, "total": 75})
+
+    def test_en_grupos_pequenos_solo_la_mitad_barata(self):
+        assert minimos.es_competitivo({"posicion": 1, "total": 3})
+        assert not minimos.es_competitivo({"posicion": 2, "total": 3})
+        assert minimos.es_competitivo({"posicion": 4, "total": 8})
+        assert not minimos.es_competitivo({"posicion": 5, "total": 8})
+
+    def test_sin_posicion_no_es_competitivo(self):
+        assert not minimos.es_competitivo(None)
 
 
 def _minimo(pid="evowhey-2kg-hsn", precio=39.9, **extra) -> dict:
@@ -154,6 +189,11 @@ class TestAvisos:
         assert 'href="https://tienda.example/a?x=1&amp;y=2"' in texto   # & escapado para Telegram
         assert "Enlace de afiliado" in texto
         assert "otros 2 productos" in texto
+
+    def test_aviso_dice_el_puesto_en_su_tipo(self):
+        texto = avisos_telegram.formatear_aviso(_minimo(puesto_texto="la 2.ª whey aislada más barata por €/kg de las 21 que seguimos"))
+        assert "Con esta rebaja es la 2.ª whey aislada más barata por €/kg de las 21 que seguimos" in texto
+        assert "Con esta rebaja" not in avisos_telegram.formatear_aviso(_minimo())
 
     def test_aviso_que_iguala_no_dice_record(self):
         texto = avisos_telegram.formatear_aviso(_minimo(es_record=False))

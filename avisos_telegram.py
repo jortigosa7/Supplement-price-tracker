@@ -85,8 +85,10 @@ def formatear_aviso(m: dict, pendientes: int = 0, ofertas_url: str = "") -> str:
         f"<b>{nombre}</b> · {tienda}",
         f"<b>{_eur(m['precio'])} €</b>  (suele costar {_eur(m['precio_habitual'])} €, −{round(m['rebaja_pct'])} %)",
         sello + (f" · {_eur(m['precio_por_kg'])} €/kg" if m.get("precio_por_kg") else ""),
-        "",
     ]
+    if m.get("puesto_texto"):
+        lineas.append(f"Con esta rebaja es {html.escape(m['puesto_texto'])}")
+    lineas.append("")
     enlaces = [f'<a href="{html.escape(m["url_afiliado"], quote=True)}">Ver en {tienda}</a>']
     if m.get("pagina_url_abs"):
         enlaces.append(f'<a href="{html.escape(m["pagina_url_abs"], quote=True)}">Historial de precios</a>')
