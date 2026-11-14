@@ -2064,10 +2064,11 @@ def _price_history_por_id(historial: list[dict], productos_web=None) -> dict:
 
 # Regex que elimina el token de peso de un ID de producto para obtener el slug-base
 # solo cuando el token está inmediatamente antes de la marca/tienda al final
-_STRIP_PESO_FROM_ID_RE = re.compile(
-    r'-\d+(?:-\d+)?(?:g|kg)(?=-(?:hsn|myprotein|hivital|prozis|nutritienda|desconocida)(?:-\d+)?$)',
-    re.IGNORECASE,
-)
+# Token de peso al final del ID: "-500g", "-1kg", "-2-5kg" (2,5 kg). El decimal solo existe
+# en kg y no empieza por 0: así "bcaa-2-1-1-250g" es 250 g (no "1,250 g") y "evordx-2-0-1kg"
+# es 1 kg (no "0,1 kg"). Antes de nov 2026 esos IDs se leían mal.
+_TOKEN_PESO_ID = r'-(?:([1-9]\d*)-(\d{1,2})(?=kg)|(\d+))(g|kg)(?=-(?:hsn|myprotein|hivital|prozis|nutritienda|desconocida)(?:-\d+)?$)'
+_STRIP_PESO_FROM_ID_RE = re.compile(_TOKEN_PESO_ID, re.IGNORECASE)
 
 
 def _hist_by_slug(hist_by_id: dict) -> dict:
@@ -3229,10 +3230,7 @@ def generar_comparaciones(env, productos_web: list, last_updated: str, productos
 # ============================================================
 
 
-_PESO_EN_ID_RE = re.compile(
-    r'-(\d+)(?:-(\d+))?(g|kg)(?=-(?:hsn|myprotein|hivital|prozis|nutritienda|desconocida)(?:-\d+)?$)',
-    re.IGNORECASE,
-)
+_PESO_EN_ID_RE = _STRIP_PESO_FROM_ID_RE
 
 
 def _peso_desde_id(producto_id: str) -> float | None:
@@ -3240,9 +3238,12 @@ def _peso_desde_id(producto_id: str) -> float | None:
     m = _PESO_EN_ID_RE.search(producto_id or "")
     if not m:
         return None
-    entero, decimal, unidad = m.groups()
-    valor = float(f"{entero}.{decimal}") if decimal else float(entero)
+    entero_dec, decimal, entero, unidad = m.groups()
+    valor = float(f"{entero_dec}.{decimal}") if entero_dec else float(entero)
     return valor if unidad.lower() == "kg" else valor / 1000
+
+
+FACTOR_FORMATO_PARECIDO = 2   # en €/kg solo se comparan formatos de la mitad al doble de peso
 
 
 def _stats_producto(producto: dict, historial: list) -> dict:
@@ -3253,7 +3254,11 @@ def _stats_producto(producto: dict, historial: list) -> dict:
     (cada formato tiene su propio ID), así que comparar euros entre entradas mezclaría
     botes de 250 g con botes de 1 kg. Por eso:
       - si hay al menos 5 fechas del formato actual, se compara en € solo con ese formato;
-      - si no, se compara todo el historial en €/kg (precio / peso de cada formato).
+      - si no, se compara en €/kg (precio / peso de cada formato), pero solo con formatos
+        de tamaño parecido (FACTOR_FORMATO_PARECIDO). Un bote de prueba de 300 g no se
+        vende al mismo €/kg que uno de 2,25 kg: Essential Whey pasó en nov 2026 de sobres
+        de 300-380 g a 26 €/kg a solo botes grandes a 43 €/kg, y la página decía "61 % por
+        encima de lo habitual, puede merecer esperar" a un precio que no iba a volver.
     Solo cuenta la tienda que hoy es la más barata.
     """
     tienda = producto.get("tienda_mas_barata")
@@ -3283,7 +3288,10 @@ def _stats_producto(producto: dict, historial: list) -> dict:
         actual = float(precio_hoy)
     else:
         modo = "kg"
-        puntos = [(e["fecha"], float(e["precio"]) / pe) for e in entradas if (pe := _peso_entrada(e))]
+        puntos = [
+            (e["fecha"], float(e["precio"]) / pe) for e in entradas
+            if (pe := _peso_entrada(e)) and peso / FACTOR_FORMATO_PARECIDO <= pe <= peso * FACTOR_FORMATO_PARECIDO
+        ]
         actual = float(precio_hoy) / peso
     # Un valor por día: el más bajo
     por_fecha: dict[str, float] = {}
