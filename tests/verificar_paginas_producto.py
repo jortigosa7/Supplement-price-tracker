@@ -145,7 +145,9 @@ for url, (cat, slug, h, t) in sorted(productos.items()):
             break
 
     # Secciones obligatorias
-    if "Evolución del precio" not in t:
+    # Sin historial comparable (p. ej. formato nuevo muy distinto de los anteriores) no hay
+    # gráfico honesto que dibujar: la página lo dice en el veredicto.
+    if "Evolución del precio" not in t and "suficiente historial" not in t:
         fallos["Sin gráfico de historial"].append(url)
     if "Fuente:" not in t or "valoraciones" not in t:
         fallos["Sin sección de opiniones"].append(url)
