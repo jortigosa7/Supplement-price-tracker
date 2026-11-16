@@ -17,6 +17,12 @@
       "tienda": "MyProtein",
       "precio": 24.99,
       "fecha": "2026-11-13"
+    },
+    {
+      "id": "evordx-2-0-1kg-desconocida",
+      "tienda": "HSN",
+      "precio": 28.49,
+      "fecha": "2026-11-16"
     }
   ]
 }

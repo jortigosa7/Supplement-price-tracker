@@ -573,5 +573,20 @@
     "nombre": "Pack exclusivo Maria Amador",
     "categoria": "Proteinas Whey",
     "first_seen": "2026-11-13"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/creatine-gummies-cognition-edition/17875522/": {
+    "nombre": "Creatine + Gummies - Cognition Edition",
+    "categoria": "Creatina",
+    "first_seen": "2026-11-16"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/creatine-gummies-hydration-edition/17875521/": {
+    "nombre": "Creatine Gummies + Hydration Edition",
+    "categoria": "Creatina",
+    "first_seen": "2026-11-16"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/creatine-gummies-salud-femenina/17875524/": {
+    "nombre": "Creatine Gummies + salud femenina",
+    "categoria": "Creatina",
+    "first_seen": "2026-11-16"
   }
 }
