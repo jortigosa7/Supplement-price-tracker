@@ -23,6 +23,18 @@
       "tienda": "HSN",
       "precio": 28.49,
       "fecha": "2026-11-16"
+    },
+    {
+      "id": "evocreatine-500g-desconocida",
+      "tienda": "HSN",
+      "precio": 9.99,
+      "fecha": "2026-11-18"
+    },
+    {
+      "id": "evodiet-vegan-2kg-desconocida",
+      "tienda": "HSN",
+      "precio": 29.99,
+      "fecha": "2026-11-18"
     }
   ]
 }

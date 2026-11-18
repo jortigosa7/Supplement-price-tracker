@@ -69,18 +69,8 @@
     "categoria": "Creatina",
     "first_seen": "2026-10-07"
   },
-  "https://www.myprotein.es/p/nutricion-deportiva/gummies-de-creatina-sin-azucar/17954302/": {
-    "nombre": "Gummies de creatina sin azúcar",
-    "categoria": "Creatina",
-    "first_seen": "2026-10-07"
-  },
   "https://www.myprotein.es/p/nutricion-deportiva/creatina-monohidrato-en-tabletas/10575029/": {
     "nombre": "Creatina Monohidrato en Tabletas",
-    "categoria": "Creatina",
-    "first_seen": "2026-10-07"
-  },
-  "https://www.myprotein.es/p/nutricion-deportiva/gummies-de-creatina/13528283/": {
-    "nombre": "Gummies de creatina",
     "categoria": "Creatina",
     "first_seen": "2026-10-07"
   },
@@ -544,11 +534,6 @@
     "categoria": "Proteinas Whey",
     "first_seen": "2026-10-09"
   },
-  "https://www.myprotein.es/p/nutricion-deportiva/gummies-sin-azucar-de-creatina-arboles-de-navidad-de-sandia/18084623/": {
-    "nombre": "Gummies sin azúcar de creatina - Árboles de Navidad de sandía",
-    "categoria": "Creatina",
-    "first_seen": "2026-10-16"
-  },
   "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein-milkshake-chupa-chups/18051985/": {
     "nombre": "Impact Whey Protein Milkshake – Chupa Chups®",
     "categoria": "Proteinas Whey",
@@ -574,19 +559,29 @@
     "categoria": "Proteinas Whey",
     "first_seen": "2026-11-13"
   },
-  "https://www.myprotein.es/p/nutricion-deportiva/creatine-gummies-cognition-edition/17875522/": {
-    "nombre": "Creatine + Gummies - Cognition Edition",
+  "https://www.myprotein.es/p/nutricion-deportiva/gominolas-de-creatina/13528283/": {
+    "nombre": "Gominolas de Creatina",
     "categoria": "Creatina",
-    "first_seen": "2026-11-16"
+    "first_seen": "2026-11-18"
   },
-  "https://www.myprotein.es/p/nutricion-deportiva/creatine-gummies-hydration-edition/17875521/": {
-    "nombre": "Creatine Gummies + Hydration Edition",
+  "https://www.myprotein.es/p/nutricion-deportiva/gominolas-de-creatina-sin-azucar/17954302/": {
+    "nombre": "Gominolas de Creatina Sin Azúcar",
     "categoria": "Creatina",
-    "first_seen": "2026-11-16"
+    "first_seen": "2026-11-18"
   },
-  "https://www.myprotein.es/p/nutricion-deportiva/creatine-gummies-salud-femenina/17875524/": {
-    "nombre": "Creatine Gummies + salud femenina",
+  "https://www.myprotein.es/p/nutricion-deportiva/gominolas-de-creatina-cognicion/17875522/": {
+    "nombre": "Gominolas de Creatina + Cognición",
     "categoria": "Creatina",
-    "first_seen": "2026-11-16"
+    "first_seen": "2026-11-18"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/gominolas-de-creatina-hidratacion/17875521/": {
+    "nombre": "Gominolas de Creatina + Hidratación",
+    "categoria": "Creatina",
+    "first_seen": "2026-11-18"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/gominolas-de-creatina-salud-femenina/17875524/": {
+    "nombre": "Gominolas de Creatina + Salud Femenina",
+    "categoria": "Creatina",
+    "first_seen": "2026-11-18"
   }
 }
