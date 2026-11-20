@@ -1047,10 +1047,6 @@
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
   },
-  "https://www.nutritienda.com/es/beverly-nutrition/isolate-cfm-lacprodan-1-kg": {
-    "categoria": "proteina-whey",
-    "first_seen": "2026-09-19"
-  },
   "https://www.nutritienda.com/es/life-pro-nutrition/whey-protein-bolsa": {
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
@@ -1170,10 +1166,6 @@
   "https://www.nutritienda.com/es/barebells/barebells-milkshake": {
     "categoria": "proteina-whey",
     "first_seen": "2026-09-19"
-  },
-  "https://www.nutritienda.com/es/beverly-nutrition/hydrolyzed-zero-professional-2000g": {
-    "categoria": "Proteinas Whey",
-    "first_seen": "2026-09-21"
   },
   "https://www.nutritienda.com/es/dymatize/creatina-monohidrato-creapure": {
     "categoria": "Creatina",
@@ -1606,5 +1598,25 @@
   "https://www.nutritienda.com/es/vitobest/soy-iso-protein": {
     "categoria": "Proteinas Whey",
     "first_seen": "2026-11-11"
+  },
+  "https://www.nutritienda.com/es/amix-nutrition/evolution-isolate?variant=470310": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-20"
+  },
+  "https://www.nutritienda.com/es/amix-nutrition/pro-active-whey?variant=470312": {
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-20"
+  },
+  "https://www.nutritienda.com/es/muscletech/cell-tech-performance-series?variant=2709": {
+    "categoria": "Creatina",
+    "first_seen": "2026-11-20"
+  },
+  "https://www.nutritienda.com/es/scitec/100-creatine-monohydrate-6611?variant=215105": {
+    "categoria": "Creatina",
+    "first_seen": "2026-11-20"
+  },
+  "https://www.nutritienda.com/es/quamtrax/creatine-creapure": {
+    "categoria": "Creatina",
+    "first_seen": "2026-11-20"
   }
 }

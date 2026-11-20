@@ -394,11 +394,6 @@
     "categoria": "Proteinas Whey",
     "first_seen": "2026-10-07"
   },
-  "https://www.myprotein.es/p/nutricion-deportiva/myprotein-clear-whey-isolate-retail/12608168/": {
-    "nombre": "Myprotein Clear Whey Isolate (Retail) 260g",
-    "categoria": "Proteinas Whey",
-    "first_seen": "2026-10-07"
-  },
   "https://www.myprotein.es/p/nutricion-deportiva/clear-whey-isolate/12081395/": {
     "nombre": "Clear Whey Isolate 500g",
     "categoria": "Proteinas Whey",
@@ -583,5 +578,20 @@
     "nombre": "Gominolas de Creatina + Salud Femenina",
     "categoria": "Creatina",
     "first_seen": "2026-11-18"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/myprotein-clear-whey-isolate/12608168/": {
+    "nombre": "Myprotein Clear Whey Isolate",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-20"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/the-pre-thermo/13124063/": {
+    "nombre": "THE Pre-Thermo",
+    "categoria": "Proteinas Whey",
+    "first_seen": "2026-11-20"
+  },
+  "https://www.myprotein.es/p/nutricion-deportiva/gominolas-de-creatina-sin-azucar/18084623/": {
+    "nombre": "Gominolas de creatina sin azúcar",
+    "categoria": "Creatina",
+    "first_seen": "2026-11-20"
   }
 }

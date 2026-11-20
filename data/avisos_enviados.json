@@ -35,6 +35,24 @@
       "tienda": "HSN",
       "precio": 29.99,
       "fecha": "2026-11-18"
+    },
+    {
+      "id": "clear-whey-isolate-500g-desconocida",
+      "tienda": "MyProtein",
+      "precio": 15.0,
+      "fecha": "2026-11-20"
+    },
+    {
+      "id": "aislado-de-proteina-de-guisante-2-88kg-desconocida",
+      "tienda": "MyProtein",
+      "precio": 39.99,
+      "fecha": "2026-11-20"
+    },
+    {
+      "id": "proteina-de-suero-hidrolizada-2-5kg-desconocida",
+      "tienda": "MyProtein",
+      "precio": 87.99,
+      "fecha": "2026-11-20"
     }
   ]
 }
