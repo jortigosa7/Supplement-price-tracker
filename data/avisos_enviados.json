@@ -53,6 +53,18 @@
       "tienda": "MyProtein",
       "precio": 87.99,
       "fecha": "2026-11-20"
+    },
+    {
+      "id": "evowhey-protein-2kg-desconocida",
+      "tienda": "HSN",
+      "precio": 49.95,
+      "fecha": "2026-11-23"
+    },
+    {
+      "id": "beta-alanina-en-polvo-1kg-desconocida",
+      "tienda": "HSN",
+      "precio": 19.59,
+      "fecha": "2026-11-23"
     }
   ]
 }
