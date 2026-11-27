@@ -20,6 +20,7 @@ se quiere comprobar.
 import statistics
 from collections import Counter
 from datetime import date, timedelta
+from precios_verificados import es_precio_verificado
 
 REFERENCIA_FIN = "2026-11-01"   # primer día que ya NO cuenta como "antes de la campaña"
 CAMPANA_INICIO = "2026-11-14"   # para el informe: precios "de Black Friday"
@@ -66,13 +67,13 @@ def referencia(entradas: list[dict], tienda: str, ref_fin: str = REFERENCIA_FIN)
     }
 
 
-def clasificar(precio_hoy: float, ref: dict) -> dict | None:
+def clasificar(precio_hoy: float, ref: dict, verificado: bool = False) -> dict | None:
     """Estado del precio de hoy frente a la referencia; None si parece un error de datos."""
     habitual = ref["habitual"]
     if not habitual or precio_hoy <= 0:
         return None
     variacion = precio_hoy / habitual - 1          # negativa = más barato que de costumbre
-    if variacion < -MAX_CAIDA:
+    if variacion < -MAX_CAIDA and not verificado:
         return None
     if precio_hoy < ref["minimo_30"] - TOLERANCIA and variacion <= -UMBRAL:
         estado = "rebaja_real"
@@ -122,7 +123,8 @@ def analizar(productos: list[dict], hist_by_id: dict, tiendas_afiliadas: set[str
         ref = referencia(hist_by_id.get(p["id"], []), tienda, ref_fin)
         if not ref:
             continue
-        res = clasificar(float(pr["precio_eur"]), ref)
+        res = clasificar(float(pr["precio_eur"]), ref,
+                         verificado=es_precio_verificado(p["id"], tienda, pr["precio_eur"]))
         if not res:
             continue
         estado = res["estado"]

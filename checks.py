@@ -33,6 +33,8 @@ from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
+from precios_verificados import producto_verificado
+
 STATS_FILE       = "data/build_stats.json"
 REDIR_FILE       = "data/redirecciones.json"
 GSC_CSV          = "gsc_paginas.csv"
@@ -509,7 +511,8 @@ def _check_precio_rango(productos_web: list[dict]) -> list[str]:
                     f"ratio={kg_f / mediana:.1f}x (umbral {UMBRAL_KG_ALTO:.0f}x)\n"
                     f"  Acción: verifica el precio y el peso en el scraper de origen."
                 )
-        elif kg_f < mediana * UMBRAL_KG_BAJO and not _es_gainer(nombre) and not _es_bajo_estructural(nombre):
+        elif (kg_f < mediana * UMBRAL_KG_BAJO and not _es_gainer(nombre)
+                and not _es_bajo_estructural(nombre) and not producto_verificado(p)):
             _pid = p.get("id", "")
             _hist = _hist_by_id.get(_pid, [])
             _precio_min = p.get("precio_min")
