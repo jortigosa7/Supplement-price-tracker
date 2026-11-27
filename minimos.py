@@ -21,6 +21,8 @@ import math
 import statistics
 from datetime import date, timedelta
 
+from precios_verificados import es_precio_verificado
+
 VENTANA_DIAS = 90             # historial que se mira hacia atrás
 MIN_FECHAS = 8                # observaciones mínimas para fiarse del historial
 MIN_DIAS_HISTORIAL = 30       # días mínimos entre la primera observación y hoy
@@ -47,7 +49,8 @@ def _serie_previa(entradas: list[dict], tienda: str, fecha_hoy: str) -> list[tup
     return sorted(por_fecha.items())
 
 
-def evaluar_precio(precio_hoy: float, serie: list[tuple[str, float]], fecha_hoy: str) -> dict | None:
+def evaluar_precio(precio_hoy: float, serie: list[tuple[str, float]], fecha_hoy: str,
+                   verificado: bool = False) -> dict | None:
     """
     Decide si precio_hoy es un mínimo real frente a la serie previa [(fecha, precio), ...].
     Devuelve las cifras del aviso, o None si no lo es.
@@ -68,7 +71,7 @@ def evaluar_precio(precio_hoy: float, serie: list[tuple[str, float]], fecha_hoy:
         return None                                   # ya ha estado más barato
     if precio_hoy > habitual * (1 - MIN_REBAJA):
         return None                                   # no está lejos de su precio habitual
-    if precio_hoy < ultimo * (1 - MAX_CAIDA) or precio_hoy < habitual * (1 - MAX_CAIDA):
+    if not verificado and (precio_hoy < ultimo * (1 - MAX_CAIDA) or precio_hoy < habitual * (1 - MAX_CAIDA)):
         return None                                   # caída imposible: variante equivocada
     veces_asi = sum(1 for v in valores if v <= precio_hoy * 1.01)
     if veces_asi / len(valores) > MAX_FRECUENCIA:
@@ -150,7 +153,8 @@ def detectar_minimos(productos_web: list[dict], hist_by_id: dict, tiendas_afilia
             continue
 
         serie = _serie_previa(hist_by_id.get(p["id"], []), tienda, fecha_hoy)
-        cifras = evaluar_precio(float(precio_hoy), serie, fecha_hoy)
+        cifras = evaluar_precio(float(precio_hoy), serie, fecha_hoy,
+                                verificado=es_precio_verificado(p["id"], tienda, precio_hoy))
         if not cifras:
             continue
         puesto = posicion(p)

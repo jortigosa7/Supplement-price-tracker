@@ -38,6 +38,7 @@ from scrapers.base import url_canonica
 from checks import run_all_checks
 import black_friday as bf_mod
 import minimos as minimos_mod
+from precios_verificados import es_precio_verificado, producto_verificado
 
 # Forzar UTF-8 en stdout (necesario en Windows con cp1252)
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
@@ -1245,7 +1246,8 @@ def guardar_price_history(productos_web: list[dict]):
             nuevo_precio = precio_info["precio_eur"]
             k = (producto_id, precio_info["tienda"])
             prev = ultimo_precio.get(k)
-            if prev is not None and prev > 0 and nuevo_precio < prev * 0.5:
+            if (prev is not None and prev > 0 and nuevo_precio < prev * 0.5
+                    and not es_precio_verificado(producto_id, precio_info["tienda"], nuevo_precio)):
                 # Caída >50% respecto al último registrado → probablemente variante equivocada
                 print(
                     f"[history-guard] SKIP {producto_id} | {precio_info['tienda']} | "
@@ -4593,6 +4595,10 @@ def verificar_anomalias_precio(productos_web: list[dict]) -> bool:
     for p in productos_web:
         cat    = p.get("categoria", "?")
         nombre = p.get("nombre_normalizado", p.get("id", "?"))
+        if producto_verificado(p):
+            # Rebaja real comprobada a mano (data/precios_verificados.json)
+            print(f"  ✔️  Precio verificado a mano, se omiten los checks: [{cat}] {nombre} ({p.get('precio_min')} €)")
+            continue
         mediana = medianas.get(cat)
         peso = p.get("peso_kg")
         peso_f = float(peso) if peso else None
